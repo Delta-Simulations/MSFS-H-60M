@@ -1,0 +1,51 @@
+﻿<script type="text/html" id="FA18_DDI_ADI">
+    <div class="main-screen adi-display">
+
+        <div id="adi-airspeed">316</div>
+        <div id="adi-vertical-speed">-2180</div>
+        <div id="adi-altitude"><span id="adi-altitude-large">6</span><span id="adi-altitude-small">450</span></div>
+
+        <svg id="static" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="500" cy="500" r="500" stroke="#00ff00" stroke-width="4" />
+
+            <line x1="0" y1="500" x2="-30" y2="500" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="67" y1="750" x2="41" y2="765" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="250" y1="933" x2="235" y2="959" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="324" y1="970" x2="317" y2="995" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="411" y1="992" x2="407" y2="1018" stroke="#00ff00" stroke-width="4"></line>
+
+            <line x1="500" y1="1000" x2="500" y2="1030" stroke="#00ff00" stroke-width="4"></line>
+
+            <line x1="589" y1="992" x2="593" y2="1018" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="676" y1="970" x2="683" y2="995" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="750" y1="933" x2="765" y2="959" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="933" y1="750" x2="959" y2="765" stroke="#00ff00" stroke-width="4"></line>
+            <line x1="1000" y1="500" x2="1030" y2="500" stroke="#00ff00" stroke-width="4"></line>
+
+            <path d="M425 500 L460 500 L480 530 L500 500 L520 530 L540 500 L575 500" stroke="#00ff00" stroke-width="4"></path>
+
+            <rect x="245" y="1100" width="110" height="70" stroke="#00ff00" stroke-width="4"></rect>
+            <rect x="445" y="1100" width="110" height="70" stroke="#00ff00" stroke-width="4"></rect>
+            <rect x="645" y="1100" width="110" height="70" stroke="#00ff00" stroke-width="4"></rect>
+        </svg>
+        <svg id="horizon" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <g id="horizon-container-group">
+                <clipPath id="circleClip">
+                    <circle cx="500" cy="500" r="500" />
+                </clipPath>
+                <g id="horizon-group">
+                    <rect x="498" y="-4000" width="4" height="9000" fill="#00ff00" clip-path="url(#circleClip)"></rect>
+                </g>
+            </g>
+        </svg>
+        <svg id="turn-rate" viewBox="0 0 1000 1000">
+            <rect id="turn-rate-box" x="445" y="1210" width="110" height="90" stroke="#00ff00" stroke-width="4"></rect>
+        </svg>
+
+        <div class="sk-label sk-label-16 line bottom">STBY</div>
+        <div class="sk-label sk-label-18 line bottom ddi-timer"></div>
+        <div class="sk-label sk-label-20 line bottom">INS</div>
+    </div>
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_ADI.js"></script>

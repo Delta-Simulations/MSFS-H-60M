@@ -1,0 +1,119 @@
+:root {
+  --bodyHeightScale: 1;
+}
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible;
+  }
+}
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden;
+  }
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+html body {
+  -webkit-user-select: none;
+  font-family: var(--font);
+  font-size: calc(var(--viewportHeightRatio) * (36px / 21.6) * var(--currentPageHeight) / 100 );
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+#Electricity {
+  width: 100%;
+  height: 100%;
+}
+#Electricity[state=off] {
+  display: none;
+}
+fa18-altitude-rollers {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+fa18-altitude-rollers #Mainframe {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212;
+  font-size: 45vh;
+  color: white;
+}
+fa18-altitude-rollers #Mainframe .digit {
+  position: absolute;
+  height: 50vh;
+  text-align: center;
+  top: 0vh;
+}
+fa18-altitude-rollers #Mainframe .bot {
+  top: 50vh;
+}
+fa18-altitude-rollers #Mainframe #Altitude {
+  overflow: hidden;
+  position: absolute;
+  height: 50vh;
+  top: 0vh;
+  width: 100vw;
+  left: 0vw;
+}
+fa18-altitude-rollers #Mainframe #Altitude .digit {
+  width: 20vw;
+}
+fa18-altitude-rollers #Mainframe #Altitude .d1 {
+  left: 0%;
+}
+fa18-altitude-rollers #Mainframe #Altitude .d2 {
+  left: 20%;
+}
+fa18-altitude-rollers #Mainframe #Altitude .d3 {
+  left: 40%;
+}
+fa18-altitude-rollers #Mainframe #Altitude .d4 {
+  left: 60%;
+}
+fa18-altitude-rollers #Mainframe #Altitude .d5 {
+  left: 80%;
+}
+fa18-altitude-rollers #Mainframe #AltitudeSetting {
+  overflow: hidden;
+  position: absolute;
+  height: 50vh;
+  top: 50vh;
+  width: 58vw;
+  left: 21vw;
+}
+fa18-altitude-rollers #Mainframe #AltitudeSetting .digit {
+  width: 25%;
+}
+fa18-altitude-rollers #Mainframe #AltitudeSetting .d1 {
+  left: 0%;
+}
+fa18-altitude-rollers #Mainframe #AltitudeSetting .d2 {
+  left: 25%;
+}
+fa18-altitude-rollers #Mainframe #AltitudeSetting .d3 {
+  left: 50%;
+}
+fa18-altitude-rollers #Mainframe #AltitudeSetting .d4 {
+  left: 75%;
+}
+
+/*# sourceMappingURL=AltitudeRollers.css.map */

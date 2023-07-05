@@ -1,0 +1,36 @@
+﻿<link rel="stylesheet" href="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Common.css" />
+
+<script type="text/html" id="AS04F_ACC_EFD">
+    <glasscockpit-highlight id="highlight" style="position:absolute; width: 100%; height:100%;"></glasscockpit-highlight>
+    <div id="Mainframe">
+        <div id="Electricity" state="off">
+            <div class="top">
+                <fa18acc-efd-fuel-system id="FuelSystemDisplay">
+                    <!-- DISABLE EXTERNAL FUEL SYSTEM UNTIL REFUELING-->
+                    <!--<fa18acc-efd-fuel-system-external id="ExternalFuelSystem"></fa18acc-efd-fuel-system-external>-->
+                </fa18acc-efd-fuel-system>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <fa18-efd-engine id="EngineDisplay"></fa18-efd-engine>
+                </div>
+                <div class="right">
+                    <fa18-efd-nozzle id="NozzleDisplay"></fa18-efd-nozzle>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/html" import-script="/JS/SimPlane.js"></script>
+
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Engine.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_FuelSystem.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Nozzle.html"></script>
+
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/EFD/FA18ACC_EFD_FuelSystemExternal.html"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/Templates/Highlight/highlight.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Common.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/FA18ACC/EFD/FA18ACC_EFD.js"></script>

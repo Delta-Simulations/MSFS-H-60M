@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "OCRB";
+    src: url("/Fonts/OcrB2.ttf") format("truetype");
+}
+@font-face {
+    font-family: "mono";
+    src: url("/Fonts/mono.ttf") format("truetype");
+}
+text {
+    font-family: "mono";
+    fill: white;
+}
+.text {
+    fill: white;
+    text-anchor: end;
+    paint-order: stroke;
+}
+
+.text-4 {
+    @extend .text;
+    font-size: 42px;
+}
+.degrees {
+    font-family: "mono";
+}
+.readouts {
+    font-style: 'italic';
+}
+.apdisp {
+    font-style: 'italic';
+    font-family: "mono";
+    fill: greenyellow;
+}
+.apreadout {
+    font-style: 'italic';
+    font-family: "mono";
+    fill: rgb(207, 5, 113);
+}
+
+.engbox {
+    font-style: 'italic';
+    font-family: "mono";
+    fill: "none";
+    stroke: rgb(87, 141, 6);
+}
+
+.bargauge {
+    fill: greenyellow;
+}
+.barline {
+    fill: greenyellow;
+}
+.barmax {
+    fill: rgb(255, 0, 0);
+}
+.barwarn {
+    fill: rgb(226, 186, 6);
+}
+.FDBar {
+    fill: rgb(145, 131, 145);
+    stroke: rgb(209, 1, 209);
+}
+.VSBar {
+    fill: rgb(30, 121, 226);
+}

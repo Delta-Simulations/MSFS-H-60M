@@ -1,0 +1,699 @@
+:root {
+  --bodyHeightScale: 1;
+}
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible;
+  }
+}
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden;
+  }
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+html body {
+  -webkit-user-select: none;
+  font-family: var(--font);
+  font-size: calc(var(--viewportHeightRatio) * (36px / 21.6) * var(--currentPageHeight) / 100 );
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+#Electricity {
+  width: 100%;
+  height: 100%;
+}
+#Electricity[state=off] {
+  display: none;
+}
+@font-face {
+  font-family: "Arial bd";
+  src: url("/Fonts/arialbd.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arial nb";
+  src: url("/Fonts/arialnb.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#Electricity {
+  position: absolute;
+  left: 0vh;
+  right: 0vh;
+  top: 0vh;
+  bottom: 0vh;
+  font-size: 4vh;
+}
+#Electricity[state=Off] {
+  display: none;
+}
+#Electricity .main-screen {
+  width: 100%;
+  height: 100%;
+  font-family: "Arial bd";
+  color: #00ff00;
+}
+#Electricity .main-screen .vert {
+  width: 30px;
+  height: 14%;
+  display: flex;
+  align-items: center;
+  line-height: 0.9;
+}
+#Electricity .main-screen .line {
+  width: 14%;
+  text-align: center;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+#Electricity .main-screen .vertLine {
+  width: 14%;
+  text-align: center;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  margin-top: 4%;
+}
+#Electricity .main-screen .left {
+  left: 20px;
+}
+#Electricity .main-screen .left2 {
+  left: 60px;
+}
+#Electricity .main-screen .top {
+  top: 20px;
+}
+#Electricity .main-screen .right {
+  right: 20px;
+}
+#Electricity .main-screen .right2 {
+  right: 60px;
+}
+#Electricity .main-screen .bottom {
+  bottom: 20px;
+}
+#Electricity .main-screen .bottom2 {
+  bottom: 60px;
+}
+#Electricity .main-screen .sk-label-1 {
+  top: 75%;
+}
+#Electricity .main-screen .sk-label-1-2 {
+  top: 67%;
+}
+#Electricity .main-screen .sk-label-2 {
+  top: 59%;
+}
+#Electricity .main-screen .sk-label-2-3 {
+  top: 51%;
+}
+#Electricity .main-screen .sk-label-3 {
+  top: 43%;
+}
+#Electricity .main-screen .sk-label-3-4 {
+  top: 35%;
+}
+#Electricity .main-screen .sk-label-4 {
+  top: 27%;
+}
+#Electricity .main-screen .sk-label-4-5 {
+  top: 19%;
+}
+#Electricity .main-screen .sk-label-5 {
+  top: 11%;
+}
+#Electricity .main-screen .sk-label-6 {
+  left: 11%;
+}
+#Electricity .main-screen .sk-label-6-7 {
+  left: 19%;
+}
+#Electricity .main-screen .sk-label-7 {
+  left: 27%;
+}
+#Electricity .main-screen .sk-label-7-8 {
+  left: 35%;
+}
+#Electricity .main-screen .sk-label-8 {
+  left: 43%;
+}
+#Electricity .main-screen .sk-label-8-9 {
+  left: 51%;
+}
+#Electricity .main-screen .sk-label-9 {
+  left: 59%;
+}
+#Electricity .main-screen .sk-label-9-10 {
+  left: 67%;
+}
+#Electricity .main-screen .sk-label-10 {
+  left: 75%;
+}
+#Electricity .main-screen .sk-label-11 {
+  top: 11%;
+}
+#Electricity .main-screen .sk-label-11-12 {
+  top: 19%;
+}
+#Electricity .main-screen .sk-label-12 {
+  top: 27%;
+}
+#Electricity .main-screen .sk-label-12-13 {
+  top: 35%;
+}
+#Electricity .main-screen .sk-label-13 {
+  top: 43%;
+}
+#Electricity .main-screen .sk-label-13-14 {
+  top: 51%;
+}
+#Electricity .main-screen .sk-label-14 {
+  top: 59%;
+}
+#Electricity .main-screen .sk-label-14-15 {
+  top: 67%;
+}
+#Electricity .main-screen .sk-label-15 {
+  top: 75%;
+}
+#Electricity .main-screen .sk-label-16 {
+  left: 75%;
+}
+#Electricity .main-screen .sk-label-16-17 {
+  left: 67%;
+}
+#Electricity .main-screen .sk-label-17 {
+  left: 59%;
+}
+#Electricity .main-screen .sk-label-17-18 {
+  left: 51%;
+}
+#Electricity .main-screen .sk-label-18 {
+  left: 43%;
+}
+#Electricity .main-screen .sk-label-18-19 {
+  left: 35%;
+}
+#Electricity .main-screen .sk-label-19 {
+  left: 27%;
+}
+#Electricity .main-screen .sk-label-19-20 {
+  left: 19%;
+}
+#Electricity .main-screen .sk-label-20 {
+  left: 11%;
+}
+#Electricity .hsi-not-implemented {
+  font-size: 32px;
+  width: 40%;
+  border: 2px solid #00ff00;
+  padding: 30px;
+  margin-left: 30%;
+  text-align: center;
+  margin-top: 40%;
+}
+#Electricity .fpas-display {
+  background-color: #020902;
+  line-height: 1.6;
+  font-size: 70%;
+}
+#Electricity .engine-display {
+  background-color: #020902;
+  line-height: 1.24;
+  font-size: 80%;
+}
+#Electricity .engine-display .engine-col-left {
+  text-align: right;
+  padding-right: 20px;
+}
+#Electricity .engine-display .engine-col-right {
+  text-align: left;
+  padding-left: 20px;
+}
+#Electricity .checklist-display {
+  background-color: #020902;
+  line-height: 1.24;
+}
+#Electricity .checklist-display .checklist-col {
+  display: inline-block;
+  width: 30%;
+  text-align: left;
+  vertical-align: top;
+  margin-top: 9%;
+  margin-left: 10%;
+}
+#Electricity .checklist-display .checklist-col-title {
+  margin-left: -10%;
+}
+#Electricity .checklist-display .checklist-ac {
+  margin-left: 10%;
+  margin-top: 5%;
+}
+#Electricity .checklist-display .checklist-max-nz {
+  margin-left: 10%;
+  margin-top: 5%;
+}
+#Electricity .checklist-display .checklist-stab-pos {
+  text-align: center;
+  margin-top: 5%;
+}
+#Electricity .fuel-display {
+  background-color: #020902;
+  line-height: 1.24;
+  font-size: 55%;
+}
+#Electricity .fpas-display-row-1 {
+  padding-top: 2%;
+  height: 30%;
+}
+#Electricity .fpas-display-row-2 {
+  height: 12%;
+}
+#Electricity .fpas-display-row-3 {
+  height: 20%;
+}
+#Electricity .fpas-col {
+  display: inline-block;
+  text-align: center;
+}
+#Electricity .engine-col {
+  display: inline-block;
+  text-align: center;
+  margin-top: 9%;
+}
+#Electricity .col-size-3 {
+  width: 32%;
+}
+#Electricity .col-size-4 {
+  width: 23%;
+}
+#Electricity .fpas-label {
+  text-decoration: underline;
+  margin-top: 5%;
+  margin-bottom: 4%;
+}
+#Electricity .fuel-display-row-1 {
+  padding-top: 2%;
+  height: 70%;
+}
+#Electricity .fuel-display-row-2 {
+  height: 13%;
+}
+#Electricity .fuel-col {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+#Electricity .fuel-text-extra-large {
+  font-size: 80px;
+}
+#Electricity .fuel-text-large {
+  font-size: 64px;
+}
+#Electricity .fuel-text-medium {
+  font-size: 40px;
+  margin-bottom: -20px;
+}
+#Electricity .fuel-text-small {
+  font-size: 28px;
+}
+#Electricity .fuel-text-boxed-extra-small {
+  border: 2px solid #00ff00;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#Electricity .fuel-text-boxed-small {
+  border: 2px solid #00ff00;
+  padding-left: 2%;
+  padding-right: 10%;
+  padding-top: 9%;
+  padding-bottom: 4%;
+}
+#Electricity .fuel-text-boxed-small-2 {
+  border: 2px solid #00ff00;
+  width: 220px;
+  text-align: center;
+  display: inline-block;
+  font-size: 50px;
+}
+#Electricity .fuel-text-boxed {
+  border: 2px solid #00ff00;
+  padding-right: 10%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+#Electricity .fuel-text-boxed-large {
+  border: 2px solid #00ff00;
+  padding-left: 2%;
+  padding-right: 10%;
+  padding-top: 15%;
+  padding-bottom: 8%;
+}
+#Electricity .fuel-text-boxed-extra-large {
+  border: 2px solid #00ff00;
+  padding-left: 2%;
+  padding-right: 10%;
+  padding-top: 23%;
+  padding-bottom: 13%;
+}
+#Electricity .fuel-text-spaced {
+  padding-left: 8%;
+}
+#Electricity .fuel-label-total {
+  margin-top: 50px;
+}
+#Electricity .fuel-label-internal {
+  margin-top: -20px;
+}
+#Electricity .fuel-label-lwg {
+  margin-top: 55px;
+}
+#Electricity .fuel-lwg-value-box {
+  border: 2px solid #00ff00;
+  width: 150px;
+  height: 100px;
+  padding-top: 10px;
+  display: inline-block;
+}
+#Electricity .fuel-lwg-value-type {
+  margin-top: 3%;
+}
+#Electricity .fuel-label-rwg {
+  margin-top: 50px;
+}
+#Electricity .fuel-rwg-value-box {
+  border: 2px solid #00ff00;
+  width: 150px;
+  height: 100px;
+  padding-top: 10px;
+  display: inline-block;
+}
+#Electricity .fuel-pointer {
+  position: absolute;
+  font-size: 50px;
+}
+#Electricity .fuel-tk1-value-box {
+  border: 2px solid #00ff00;
+  width: 330px;
+  height: 155px;
+  padding-top: 40px;
+  margin-top: 5px;
+}
+#Electricity .fuel-lfd-value-box {
+  border: 2px solid #00ff00;
+  width: 330px;
+  height: 95px;
+  padding-top: 15px;
+}
+#Electricity .fuel-rfd-value-box {
+  border: 2px solid #00ff00;
+  width: 330px;
+  height: 75px;
+  padding-top: 0px;
+}
+#Electricity .fuel-tk4-value-box {
+  border: 2px solid #00ff00;
+  width: 330px;
+  height: 195px;
+  padding-top: 60px;
+}
+#Electricity .fuel-label-reset {
+  margin-bottom: 5px;
+}
+#Electricity .fuel-label-bingo {
+  font-size: 210%;
+  margin-top: 30px;
+}
+#Electricity .fuel-bingo-value {
+  font-size: 80px;
+}
+#Electricity .fuel-label-invalid {
+  margin-top: 6%;
+}
+#Electricity .sk-label {
+  position: absolute;
+  text-align: center;
+  font-size: 32px;
+}
+#Electricity .sk-label-highlight {
+  border: 2px solid #00ff00;
+}
+#Electricity .menu-tactical-display {
+  background-color: #020902;
+  line-height: 1.24;
+  font-size: 75%;
+}
+#Electricity .menu-tactical-display .menu-tac {
+  position: absolute;
+  bottom: 70px;
+  left: 450px;
+  font-size: 150%;
+  border: 2px solid #00ff00;
+  padding: 5px 10px 5px 10px;
+}
+#Electricity .menu-support-display {
+  background-color: #020902;
+  line-height: 1.24;
+  font-size: 75%;
+}
+#Electricity .menu-support-display .menu-supt {
+  position: absolute;
+  bottom: 70px;
+  left: 430px;
+  font-size: 150%;
+  border: 2px solid #00ff00;
+  padding: 5px 10px 5px 10px;
+}
+#Electricity .hsi-display {
+  line-height: 1.24;
+  font-size: 65%;
+  text-shadow: 1px 1px 2px black;
+}
+#Electricity .hsi-display #Compass {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.7));
+}
+#Electricity .hsi-display map-instrument {
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  z-index: -1;
+}
+#Electricity .hsi-data-display {
+  line-height: 1.24;
+  font-size: 65%;
+}
+#Electricity .hsi-data-display map-instrument {
+  z-index: -1;
+}
+#Electricity .hsi-data-display .hsi-data-content {
+  font-size: 150%;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  padding: 0 5%;
+}
+#Electricity .hsi-data-display .hsi-data-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+#Electricity .hsi-data-display .hsi-data-aircraft-warn-alt {
+  position: absolute;
+  width: 28%;
+  border-bottom: solid 2px #00ff00;
+  text-align: center;
+  bottom: 100px;
+}
+#Electricity .hud-display {
+  position: fixed;
+  font-weight: bold;
+  font-family: "Arial nb";
+}
+#Electricity .hud-display[main_hud=True] {
+  margin-top: 41%;
+  margin-left: 5%;
+  width: 90%;
+  height: 90%;
+}
+#Electricity .hud-display .full-screen-hud-element {
+  position: absolute;
+  overflow: visible;
+}
+#Electricity .hud-display #hud-airspeed, #Electricity .hud-display #hud-altitude {
+  position: absolute;
+  top: 32%;
+  width: 12%;
+  height: 5%;
+  padding-right: 5px;
+  font-size: 35px;
+  text-align: right;
+  border: 4px solid #00FF00;
+}
+#Electricity .hud-display #hud-airspeed {
+  left: 18%;
+  vertical-align: middle;
+}
+#Electricity .hud-display #hud-altitude {
+  right: 18%;
+  width: 14%;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+#Electricity .hud-display #hud-vertical-speed {
+  position: absolute;
+  top: 28%;
+  right: 18%;
+  font-size: 35px;
+}
+#Electricity .hud-display #hud-altitude-large {
+  font-size: 35px;
+}
+#Electricity .hud-display #hud-altitude-small {
+  font-size: 30px;
+}
+#Electricity .hud-display #hud-altitude-mode {
+  position: absolute;
+  top: 32%;
+  right: 13.5%;
+  font-size: 38px;
+}
+#Electricity .hud-display #hud-altitude-mode[state=blink] {
+  animation: blinking 1s infinite;
+}
+#Electricity .hud-display #hud-altitude-warning {
+  position: absolute;
+  top: 47%;
+  left: 0%;
+  width: 100%;
+  font-size: 3vh;
+  text-align: center;
+  animation: blinking 1s infinite;
+}
+#Electricity .hud-display #hud-left-panel {
+  position: absolute;
+  top: 47%;
+  left: 9%;
+  font-size: 30px;
+  text-align: right;
+  width: 20%;
+}
+#Electricity .hud-display #hud-left-panel-col-1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+#Electricity .hud-display #hud-left-panel-col-2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+#Electricity .hud-display #hud-right-panel {
+  position: absolute;
+  top: 48%;
+  right: 18%;
+  text-align: right;
+  font-size: 30px;
+}
+#Electricity .hud-display #hud-right-panel #hud-cpl-mode[state=blink] {
+  animation: blinking 1s infinite;
+}
+#Electricity .hud-display #bank-cursor[state=blink] {
+  animation: blinking 1s infinite;
+}
+#Electricity .hud-display #velocity-vector-group[state=blink] {
+  animation: blinking 0.5s infinite;
+}
+
+.adi-display #static {
+  position: absolute;
+  width: 60%;
+  top: 10%;
+  left: 20%;
+  overflow: visible;
+}
+.adi-display #turn-rate {
+  position: absolute;
+  width: 60%;
+  top: 10%;
+  left: 20%;
+  overflow: visible;
+}
+.adi-display #horizon {
+  position: absolute;
+  width: 60%;
+  top: 10%;
+  left: 20%;
+}
+.adi-display #adi-airspeed {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  border: 4px solid #00FF00;
+  text-align: right;
+  vertical-align: middle;
+  padding-right: 10px;
+  font-size: 64px;
+  width: 18%;
+  height: 8%;
+}
+.adi-display #adi-vertical-speed {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  font-size: 46px;
+}
+.adi-display #adi-altitude {
+  position: absolute;
+  top: 8%;
+  right: 4%;
+  border: 4px solid #00FF00;
+  text-align: right;
+  padding-right: 10px;
+  width: 22%;
+  height: 8%;
+}
+.adi-display #adi-altitude-large {
+  font-size: 64px;
+  vertical-align: middle;
+}
+.adi-display #adi-altitude-small {
+  font-size: 46px;
+  vertical-align: middle;
+}
+
+/*# sourceMappingURL=FA18_DDI.css.map */

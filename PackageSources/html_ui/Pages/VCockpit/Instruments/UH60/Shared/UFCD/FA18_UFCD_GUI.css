@@ -1,0 +1,238 @@
+:root {
+  --bodyHeightScale: 1;
+}
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible;
+  }
+}
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden;
+  }
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+html body {
+  -webkit-user-select: none;
+  font-family: var(--font);
+  font-size: calc(var(--viewportHeightRatio) * (36px / 21.6) * var(--currentPageHeight) / 100 );
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+#Electricity {
+  width: 100%;
+  height: 100%;
+}
+#Electricity[state=off] {
+  display: none;
+}
+@keyframes ButtonFlash {
+  0%, 49% {
+    background-color: #285828;
+    color: #020902;
+  }
+  51%, 100% {
+    background-color: #020902;
+    color: #00ff00;
+  }
+}
+body {
+  background-color: #020902;
+}
+body #highlight {
+  pointer-events: none;
+  z-index: 10000;
+}
+body #Electricity {
+  position: absolute;
+  left: 0vh;
+  right: 0vh;
+  top: 0vh;
+  bottom: 0vh;
+  font-size: 4vh;
+  color: #00ff00;
+}
+body #Electricity[state=Off] {
+  display: none;
+}
+body #Electricity #Scratchpad {
+  position: absolute;
+  width: 50%;
+  height: 12.5%;
+  top: 2.5%;
+  left: 2.5%;
+  border: 0.5vh solid #00ff00;
+}
+body #Electricity #Scratchpad #Scratchpad_Left {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 5%;
+  text-align: left;
+  font-size: 6vh;
+  line-height: 12.5vh;
+}
+body #Electricity #Scratchpad #Scratchpad_Right {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  right: 5%;
+  text-align: right;
+  font-size: 6vh;
+  line-height: 12.5vh;
+}
+body #Electricity #CNI_Keypad {
+  position: absolute;
+  width: 50%;
+  height: 80%;
+  bottom: 2.5%;
+  left: 2.5%;
+}
+body #Electricity #CNI_Keypad .NSEW {
+  display: none;
+}
+body #Electricity #CNI_Keypad[display=NSEW] .CNI_Button {
+  display: none;
+}
+body #Electricity #CNI_Keypad[display=NSEW] .NSEW, body #Electricity #CNI_Keypad[display=NSEW] .NoHide {
+  display: inherit;
+}
+body #Electricity #CNI_Keypad .line {
+  position: relative;
+  height: 25%;
+}
+body #Electricity #CNI_Keypad .line .l {
+  position: absolute;
+  left: 0vh;
+}
+body #Electricity #CNI_Keypad .line .c {
+  position: absolute;
+  left: calc(50% - 9vh);
+}
+body #Electricity #CNI_Keypad .line .r {
+  position: absolute;
+  right: 0vh;
+}
+body #Electricity #CNI_Keypad .line .CNI_Button {
+  border: 0.5vh solid #00ff00;
+  width: 18vh;
+  height: 18vh;
+  line-height: 18vh;
+  text-align: center;
+}
+body #Electricity #CNI_Keypad .line .CNI_Button:Hover:Active {
+  background-color: #00ff00;
+  color: #020902;
+}
+body #Electricity #RightButtons {
+  position: absolute;
+  width: 42.5%;
+  height: 95%;
+  bottom: 2.5%;
+  right: 2.5%;
+}
+body #Electricity #RightButtons .line {
+  position: relative;
+  height: 20%;
+}
+body #Electricity #RightButtons .line .Right_Button {
+  border: 0.5vh solid #00ff00;
+  width: 25vh;
+  height: 18vh;
+  text-align: center;
+}
+body #Electricity #RightButtons .line .Right_Button .Symbol {
+  fill: #00ff00;
+  display: none;
+}
+body #Electricity #RightButtons .line .Right_Button .topLine {
+  position: absolute;
+  width: 100%;
+  top: 2vh;
+}
+body #Electricity #RightButtons .line .Right_Button .middleLine {
+  position: absolute;
+  width: 100%;
+  line-height: 18vh;
+}
+body #Electricity #RightButtons .line .Right_Button .bottomLine {
+  position: absolute;
+  width: 100%;
+  bottom: 2vh;
+}
+body #Electricity #RightButtons .line .Right_Button[interactive=On]:Hover:Active {
+  background-color: #00ff00;
+  color: #020902;
+}
+body #Electricity #RightButtons .line .Right_Button[interactive=On]:Hover:Active .Symbol {
+  fill: #020902;
+}
+body #Electricity #RightButtons .line .Right_Button .topSelectedStatus {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  background-color: #285828;
+}
+body #Electricity #RightButtons .line .Right_Button .topSelectedStatus[state=Hidden] {
+  display: none;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=Border] {
+  border: 1vh solid #00ff00;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=Border] .topLine {
+  top: 1.5vh;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=Border] .middleLine {
+  line-height: 17vh;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=Border] .bottomLine {
+  bottom: 1.5vh;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=TopLeft] .cornerHighlight {
+  position: absolute;
+  background-color: #00ff00;
+  width: 5vh;
+  height: 5vh;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=BottomLeft] .cornerHighlight {
+  position: absolute;
+  background-color: #00ff00;
+  bottom: 0vh;
+  width: 5vh;
+  height: 5vh;
+}
+body #Electricity #RightButtons .line .Right_Button[SelectionStatus=Flash] {
+  animation: ButtonFlash 1s infinite;
+}
+body #Electricity #RightButtons .line .Right_Button[DisplaySymbol=ArrowUp] .ArrowUp {
+  display: inherit;
+}
+body #Electricity #RightButtons .line .Right_Button[DisplaySymbol=ArrowDown] .ArrowDown {
+  display: inherit;
+}
+body #Electricity #RightButtons .line .l {
+  position: absolute;
+  left: 0vh;
+}
+body #Electricity #RightButtons .line .r {
+  position: absolute;
+  right: 0vh;
+}
+
+/*# sourceMappingURL=FA18_UFCD_GUI.css.map */

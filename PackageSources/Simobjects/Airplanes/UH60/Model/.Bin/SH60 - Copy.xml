@@ -1,0 +1,81 @@
+<PartInfo>
+  <Name>prop_anim</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+              <Sim>
+                  <Variable>PROP ROTATION ANGLE:1</Variable>
+                  <Units>radians</Units>
+                  <Scale>15.92</Scale>
+              </Sim>
+          </Parameter>
+      </Animation>
+  </PartInfo>
+      
+<PartInfo>
+  <Name>prop_still</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+    <Parameter>
+      <Code>
+        (A:PROP MAX RPM PERCENT:1, percent) 3 &lt; if{ 1 } els{ 0 }
+      </Code>
+    </Parameter>
+  </Visibility>
+</PartInfo>
+
+<PartInfo>
+  <Name>prop_med</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+    <Parameter>
+      <Code>
+          (A:PROP MAX RPM PERCENT:1, percent) 3 &gt;
+          if{
+              (A:PROP MAX RPM PERCENT:1, percent) 20 &lt; if{ 1 } els{ 0 }
+          } els{ 0 }
+      </Code>
+    </Parameter>
+  </Visibility>
+</PartInfo>
+
+<PartInfo>
+    <Name>prop_slow</Name>
+      <AnimLength>100</AnimLength>
+      <Visibility>
+          <Parameter>
+              <Code>
+                  (A:PROP MAX RPM PERCENT:1, percent) 20 &gt;
+                  if{
+                      (A:PROP MAX RPM PERCENT:1, percent) 50 &lt; if{ 1 } els{ 0 }
+                  } els{ 0 }
+              </Code>
+          </Parameter>
+      </Visibility>
+  </PartInfo>
+  
+  <PartInfo>
+      <Name>prop_blur</Name>
+      <AnimLength>100</AnimLength>
+      <Visibility>
+          <Parameter>
+              <Code>
+          (A:PROP MAX RPM PERCENT:1, percent) 50 &gt; if{ 1 } els{ 0 }
+              </Code>
+          </Parameter>
+      </Visibility>
+  </PartInfo>
+
+  (A:PROP MAX RPM PERCENT:1, percent) 3 &lt; if{ 0 } els{ 
+    (A:PROP MAX RPM PERCENT:1, percent) 3 &gt;
+    if{
+        (A:PROP MAX RPM PERCENT:1, percent) 20 &lt; if{ 20 } els{ 0 }
+    } els{
+      (A:PROP MAX RPM PERCENT:1, percent) 20 &gt;
+      if{
+          (A:PROP MAX RPM PERCENT:1, percent) 50 &lt; if{ 60 } els{ 0 }
+      } els{
+        (A:PROP MAX RPM PERCENT:1, percent) 50 &gt; if{ 100 } els{ 0 }
+      }
+    }
+  }

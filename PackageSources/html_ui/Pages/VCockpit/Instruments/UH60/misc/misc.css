@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+  html body {
+  background: transparent;
+	color: black;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+misc-element {
+  background: transparent;
+  height: 100vh;
+  width: 100vw;
+  display: inline-block;
+  overflow: hidden;
+ }
+ #misc_debug {
+  background: transparent;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: 12px;
+}

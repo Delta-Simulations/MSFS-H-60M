@@ -1,0 +1,354 @@
+:root {
+  --bodyHeightScale: 1;
+}
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible;
+  }
+}
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden;
+  }
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+html body {
+  -webkit-user-select: none;
+  font-family: var(--font);
+  font-size: calc(var(--viewportHeightRatio) * (36px / 21.6) * var(--currentPageHeight) / 100 );
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+#Electricity {
+  width: 100%;
+  height: 100%;
+}
+#Electricity[state=off] {
+  display: none;
+}
+body {
+  background-color: #020902;
+}
+body #Electricity {
+  position: absolute;
+  left: 0vh;
+  right: 0vh;
+  top: 0vh;
+  bottom: 0vh;
+  font-size: 4vh;
+  color: #00ff00;
+}
+body #Electricity[state=Off] {
+  display: none;
+}
+body #Electricity *[state=Reverse] {
+  color: #020902;
+  background-color: #00ff00;
+}
+body #Electricity .StrokeGreen {
+  stroke: #00ff00;
+}
+body #Electricity .FillGreen {
+  fill: #00ff00;
+}
+body #Electricity .FillBlack {
+  fill: #020902;
+}
+body #Electricity .top {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  border-bottom: 0.5vh solid #00ff00;
+}
+body #Electricity .bottom {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  bottom: 0%;
+}
+body #Electricity .bottom .left {
+  position: absolute;
+  left: 0%;
+  right: 40%;
+  height: 100%;
+  border-right: 0.5vh solid #00ff00;
+}
+body #Electricity .bottom .right {
+  position: absolute;
+  left: 60%;
+  right: 0%;
+  height: 100%;
+}
+
+#FuelSystemDisplay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode[state=Internal] #BingoTitle {
+  left: 2%;
+  top: 30vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode[state=Internal] #BingoValue {
+  right: 72%;
+  top: 30vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode[state=Internal] #INTTitle {
+  left: 2%;
+  top: 38vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode[state=Internal] #INTValue {
+  right: 72%;
+  top: 38vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode[state=Internal] #Internal {
+  display: inherit;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode[state=Internal] #TopLevel {
+  display: none;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #TopLevel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #IntTank1Fuel {
+  position: absolute;
+  width: 15%;
+  left: 30%;
+  text-align: center;
+  font-size: 6vh;
+  top: 5vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #IntTank2Fuel {
+  position: absolute;
+  width: 15%;
+  left: 47%;
+  text-align: center;
+  font-size: 6vh;
+  top: 5vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #IntTank3Fuel {
+  position: absolute;
+  width: 15%;
+  left: 64%;
+  text-align: center;
+  font-size: 6vh;
+  top: 5vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #IntTank4Fuel {
+  position: absolute;
+  width: 15%;
+  left: 81%;
+  text-align: center;
+  font-size: 6vh;
+  top: 5vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #WingLeftFuel {
+  position: absolute;
+  width: 15%;
+  left: 30%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 5vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #WingRightFuel {
+  position: absolute;
+  width: 15%;
+  left: 81%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 5vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal .wingText {
+  position: absolute;
+  text-align: center;
+  left: 53%;
+  right: 27%;
+  top: 30vh;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal .LText {
+  position: absolute;
+  left: 48%;
+  top: 35vh;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal .RText {
+  position: absolute;
+  right: 22%;
+  top: 35vh;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #Tank2Value {
+  position: absolute;
+  text-align: center;
+  left: 47%;
+  right: 38%;
+  top: 20vh;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #Internal #Tank3Value {
+  position: absolute;
+  text-align: center;
+  left: 64%;
+  right: 21%;
+  top: 20vh;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #TotalFuel {
+  position: absolute;
+  width: 25%;
+  top: 18vh;
+  text-align: center;
+  font-size: 8vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #InternalFuel {
+  position: absolute;
+  height: 48.75%;
+  top: 1.5vh;
+  left: 20%;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #BingoTitle {
+  position: absolute;
+  top: 10vh;
+  left: 66%;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #BingoValue {
+  position: absolute;
+  top: 10vh;
+  right: 2%;
+  font-size: 6vh;
+  text-align: right;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #INTTitle {
+  position: absolute;
+  top: 16vh;
+  left: 66%;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #FuelSystemDisplayMode #INTValue {
+  position: absolute;
+  top: 16vh;
+  right: 2%;
+  font-size: 6vh;
+  text-align: right;
+}
+
+#EngineDisplay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#EngineDisplay .line {
+  width: 100%;
+  height: 22%;
+  line-height: 10vh;
+}
+#EngineDisplay .line .value {
+  position: absolute;
+  font-size: 8vh;
+  width: 25%;
+  text-align: end;
+}
+#EngineDisplay .line .valueLeft {
+  left: 5%;
+}
+#EngineDisplay .line .valueRight {
+  right: 10%;
+}
+#EngineDisplay .line .title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 6vh;
+}
+#EngineDisplay .line .valueSuffix {
+  position: absolute;
+  width: 10%;
+  text-align: start;
+  font-size: 4vh;
+  padding: 1%;
+}
+#EngineDisplay .line .valueLeftSuffix {
+  left: 30%;
+}
+#EngineDisplay .line .valueRightSuffix {
+  right: 0%;
+}
+
+#NozzleDisplay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#NozzleDisplay #NOZTitle {
+  position: absolute;
+  top: 2vh;
+  text-align: center;
+  width: 100%;
+  font-size: 6vh;
+}
+#NozzleDisplay #NOZUnit {
+  position: absolute;
+  top: 8vh;
+  text-align: center;
+  width: 100%;
+  font-size: 6vh;
+}
+#NozzleDisplay #NOZLeft {
+  position: absolute;
+  width: 45%;
+  top: 12vh;
+  left: 2.5%;
+}
+#NozzleDisplay #NOZRight {
+  position: absolute;
+  width: 45%;
+  top: 12vh;
+  right: 2.5%;
+}
+#NozzleDisplay #NOZLeftValue {
+  position: absolute;
+  left: 0%;
+  right: 50%;
+  bottom: 4vh;
+  text-align: center;
+  font-size: 8vh;
+}
+#NozzleDisplay #NOZRightValue {
+  position: absolute;
+  left: 50%;
+  right: 0%;
+  bottom: 4vh;
+  text-align: center;
+  font-size: 8vh;
+}
+
+/*# sourceMappingURL=FA18_EFD_Common.css.map */

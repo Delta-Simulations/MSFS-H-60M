@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "OCRB";
+
+  src: url("/Fonts/OcrB2.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "mono";
+
+  src: url("/Fonts/mono.ttf") format("truetype");
+}
+
+text {
+  font-family: "mono";
+  fill: white;
+}
+
+.text, .text-4 {
+  fill: white;
+  text-anchor: end;
+  paint-order: stroke;
+}
+
+.text-4 {
+  font-size: 42px;
+}
+
+.degrees {
+  font-family: "mono";
+}
+
+.readouts {
+  font-style: "italic";
+}
+
+.apdisp {
+  font-style: "italic";
+  font-family: "mono";
+  fill: greenyellow;
+}
+
+.apreadout {
+  font-style: "italic";
+  font-family: "mono";
+  fill: #cf0571;
+}
+
+.engbox {
+  font-style: "italic";
+  font-family: "mono";
+  fill: "none";
+  stroke: #578d06;
+}
+
+.bargauge {
+  fill: greenyellow;
+}
+
+.barline {
+  fill: greenyellow;
+}
+
+.barmax {
+  fill: red;
+}
+
+.barwarn {
+  fill: #e2ba06;
+}
+
+.FDBar {
+  fill: #918391;
+  stroke: #d101d1;
+}
+
+.VSBar {
+  fill: #1e79e2;
+}
+/* Property of FlyByWire Simulations and it's contributors */
+
+/* LCD pixel effect for screens */
+
+.LcdOverlay {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: absolute;
+  background-size: 2px;
+  transition: opacity 0.5s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0 0 V10 Z H10 Z' stroke='%23000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+}

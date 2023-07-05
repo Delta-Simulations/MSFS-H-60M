@@ -1,0 +1,73 @@
+{
+    "elements": [
+        {
+            "__uuid": "f4ab4da7-4aa6-4a3d-a4b9-186c16fe0146",
+            "title": "disp type",
+            "varPrefix": "L",
+            "varName": "DISP_TYPE",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 3,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "ab4bc9f4-adc1-48f8-8336-e26467be7a43",
+            "title": "radar alt",
+            "varPrefix": "A",
+            "varName": "RADIO HEIGHT",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": -1,
+                "max": 300,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "7d9f0a3f-4954-4bc2-b8d8-a72e42e2f770",
+            "title": "vert speed",
+            "varPrefix": "A",
+            "varName": "VERTICAL SPEED",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": -3000,
+                "max": 3000,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "10716839-3bc7-4065-949f-e1fc68f0894d",
+            "title": "HudON",
+            "varPrefix": "L",
+            "varName": "HUDPWR",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "f46c7627-c363-432e-9214-270cfbf0e29b",
+            "title": "1",
+            "varPrefix": "L",
+            "varName": "HUD_OVERLAY",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "d3e695ae-53a3-450d-b8cd-4a39421fd9ac",
+            "title": "batt on",
+            "varPrefix": "A",
+            "varName": "CIRCUIT ON:42",
+            "varUnit": "bool",
+            "style": {
+                "type": 3
+            }
+        }
+    ]
+}

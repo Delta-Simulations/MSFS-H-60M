@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetPackage ReleaseNotes="PackageDefinitions\deltasimulations-uh60\ReleaseNotes.xml" Version="1.0.0">
+	<ItemSettings>
+		<ContentType>AIRCRAFT</ContentType>
+		<Title>H60</Title>
+		<Manufacturer>Sikorsky</Manufacturer>
+		<Creator>DeltaSimulations</Creator>
+	</ItemSettings>
+	<Flags>
+		<VisibleInStore>true</VisibleInStore>
+		<CanBeReferenced>true</CanBeReferenced>
+	</Flags>
+	<AssetGroups>
+		<AssetGroup Name="ContentInfo">
+			<Type>ContentInfo</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageDefinitions\deltasimulations-uh60\ContentInfo\</AssetDir>
+			<OutputDir>ContentInfo\deltasimulations-uh60\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="Effects">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\Effects\</AssetDir>
+			<OutputDir>Effects\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="MaterialLibs">
+			<Type>MaterialLib</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\MaterialLibs\materials-flares\</AssetDir>
+			<OutputDir>MaterialLibs\materials-flares\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="UH60_Downwash">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</AssetDir>
+			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="UH60_html">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\html_ui\</AssetDir>
+			<OutputDir>html_ui\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="VisualEffectLib">
+			<Type>VisualEffectLib</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\VisualEffectLibs\UH60Flares\effects-flares\</AssetDir>
+			<OutputDir>VisualEffectLibs\UH60Flares\effects-flares\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="VisualEffectLibs">
+			<Type>VisualEffectLib</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-water-drop\</AssetDir>
+			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-water-drop\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="uh60">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\Simobjects\Airplanes\UH60\</AssetDir>
+			<OutputDir>Simobjects\Airplanes\UH60\</OutputDir>
+		</AssetGroup>
+	</AssetGroups>
+</AssetPackage>
+

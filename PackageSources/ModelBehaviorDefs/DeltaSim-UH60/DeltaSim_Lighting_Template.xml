@@ -1,0 +1,36 @@
+<ModelBehaviors>
+    <!-- CREATED FOR DELTA SIMULATION AIRCRAFT###################################### -->
+    <Include ModelBehaviorFile="Asobo\Common.xml"/> 
+    <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\FMC.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
+
+
+<Template Name="Korry_Emmis_DELTASIM">
+    <DefaultTemplateParameters>
+        <INTENSITY>1</INTENSITY>
+        <ELEC_INDEX>65</ELEC_INDEX>
+        <TRUECODE>0</TRUECODE>
+        <TESTCODE>(L:C17_WACAP_Test, bool) 1 == or</TESTCODE>		
+    </DefaultTemplateParameters>
+    <Component ID="#NODE_ID#" Node="#NODE_ID#">
+        <UseTemplate Name="ASOBO_GT_Component_Emissive_Gauge">
+            <NODE_ID>#NODE_ID#</NODE_ID>
+
+            <EMISSIVE_CODE>
+            #TRUECODE#
+            #TESTCODE#
+            (A:CIRCUIT ON:#ELEC_INDEX#,bool) 1 == and
+            
+            if{
+                #INTENSITY#
+            }else{0}
+
+            </EMISSIVE_CODE>
+        </UseTemplate>
+    </Component>
+</Template>
+
+</ModelBehaviors>

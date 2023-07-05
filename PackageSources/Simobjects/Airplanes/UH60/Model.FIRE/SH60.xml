@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- BY DESTROYER121-NO UNAUTHORISED REDISTRIBUTION -->
+<ModelInfo>
+	<LODS>
+    <LOD minSize="0.1" 	ModelFile="SH60_LOD00.gltf"/>
+    <LOD minSize="0" ModelFile="ExteriorCube_2m.gltf"/>
+	</LODS>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+
+    <!-- WATER FX-->
+    <Component ID="LARG1" Node="FX_WATER">
+      <UseTemplate Name="ASOBO_GT_FX"> 
+      <FX_CODE><!--(L:EFFECT_WATER,bool) 0 &gt;  -->
+        (L:EFFECT_WATER,bool) (L:Part5, bool) and
+      </FX_CODE>
+      <FX_OFFSET_X>0</FX_OFFSET_X>
+      <FX_OFFSET_Y>0</FX_OFFSET_Y>
+      <FX_OFFSET_Z>0</FX_OFFSET_Z>
+      <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
+      </UseTemplate>
+    </Component>
+
+    <Component ID="MISSILE_VFX" Node="ROCKET_FX1">
+      <UseTemplate Name="ASOBO_GT_FX"> 
+      <FX_CODE>
+        (L:ROCKET_anim,bool)
+      </FX_CODE>
+      <FX_OFFSET_X>0</FX_OFFSET_X>
+      <FX_OFFSET_Y>0</FX_OFFSET_Y>
+      <FX_OFFSET_Z>0</FX_OFFSET_Z>
+      <FX_GUID>{2836E9C1-5FF5-4AAD-9015-461573C3D9D8}</FX_GUID>
+      </UseTemplate>
+    </Component>
+    <Component ID="MISSILE_VFX2" Node="ROCKET_FX2">
+      <UseTemplate Name="ASOBO_GT_FX"> 
+      <FX_CODE>
+        (L:ROCKET_anim,bool)
+      </FX_CODE>
+      <FX_OFFSET_X>0</FX_OFFSET_X>
+      <FX_OFFSET_Y>0</FX_OFFSET_Y>
+      <FX_OFFSET_Z>0</FX_OFFSET_Z>
+      <FX_GUID>{2836E9C1-5FF5-4AAD-9015-461573C3D9D8}</FX_GUID>
+      </UseTemplate>
+    </Component>
+
+    <Component ID="LANDING_FX">
+      <UseTemplate Name="ASOBO_LANDING_FX"/>
+    </Component>
+
+      <!-- FLARE-->
+      <Component ID="fLAREFX1" Node="Flare_1">
+      <UseTemplate Name="ASOBO_GT_FX"> 
+        <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+        <FX_OFFSET_X>0</FX_OFFSET_X>
+        <FX_OFFSET_Y>0</FX_OFFSET_Y>
+        <FX_OFFSET_Z>0</FX_OFFSET_Z>
+        <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+        </UseTemplate>
+        </Component>
+
+        <Component ID="fLAREFX2" Node="Flare_2">
+          <UseTemplate Name="ASOBO_GT_FX"> 
+            <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>0</FX_OFFSET_Z>
+            <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+            </UseTemplate>
+            </Component>
+        <Component ID="fLAREFX3" Node="Flare_3">
+          <UseTemplate Name="ASOBO_GT_FX"> 
+            <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>0</FX_OFFSET_Z>
+            <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+            </UseTemplate>
+            </Component>
+        <Component ID="fLAREFX4" Node="Flare_4">
+          <UseTemplate Name="ASOBO_GT_FX"> 
+            <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>0</FX_OFFSET_Z>
+            <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+            </UseTemplate>
+            </Component>
+
+    <Component ID="HANDLING">
+
+			<UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
+				<ANIM_NAME>rudder_percent_key</ANIM_NAME>
+			</UseTemplate>
+      <UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
+			</UseTemplate>
+		 </Component>
+     <Component ID="nav1" Node="NAV_MAST">
+			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+				<EMISSIVE_CODE>
+				   (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+				</EMISSIVE_CODE>
+			</UseTemplate>
+		  </Component>
+      <Component ID="nav7" Node="DETAILS.016">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+             (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+          </EMISSIVE_CODE>
+        </UseTemplate>
+        </Component>
+        <Component ID="nav6" Node="DETAILS.017">
+          <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+            <EMISSIVE_CODE>
+               (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+            </EMISSIVE_CODE>
+          </UseTemplate>
+          </Component>
+        <Component ID="nav2" Node="ldg1">
+			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+				<EMISSIVE_CODE>
+				   (A:LIGHT TAXI ON,bool) 1 == if{ 50 } els{ 0 }
+				</EMISSIVE_CODE>
+			</UseTemplate>
+		  </Component>
+
+      <Component ID="nav3" Node="ldg2">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+             (A:LIGHT LANDING ON,bool) 1 == if{ 50 } els{ 0 }
+          </EMISSIVE_CODE>
+        </UseTemplate>
+        </Component>
+
+      <Component ID="DOWNWASH">
+        <Component ID="DOWNWASH_1_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_2_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_3_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_4_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_SAND_1_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_SAND_2_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_SAND_3_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_SAND_4_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_WATER_1_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_WATER_2_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_WATER_3_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+          </UseTemplate>
+        </Component>
+        <Component ID="DOWNWASH_WATER_4_NODE" Node="DOWNWASH">
+          <UseTemplate Name="ASOBO_GT_FX">
+            <FX_CODE>1</FX_CODE>
+            <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
+            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+          </UseTemplate>
+        </Component>
+        <Component ID="ROTOR_SPIN">
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>prop_nim</ANIM_NAME>
+          <ANIM_CODE>
+            PROP ROTATION ANGLE:1
+          </ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+          <ANIM_DELTA>1</ANIM_DELTA>
+        </UseTemplate>
+
+      </Component>
+
+      <UseTemplate Name="ASOBO_GT_Update">
+
+        <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          (A:PROP MAX RPM PERCENT:1, percent) (&gt;L:uh60_rtr1, enum) 
+            
+          <!-- (A:PROP MAX RPM PERCENT:1, percent) (A:PROP MAX RPM PERCENT:2, percent) + (L:TotEngRunning,enum) / 
+          (&gt;L:UH60_RTR, enum)  -->
+
+        </UPDATE_CODE>
+  
+    </UseTemplate>
+
+
+
+
+
+
+      </Component>
+
+</Behaviors>
+	<!-- CUSTOM ANIMATIONS GO BELOW -->
+<!-- PROP ANIMATION TEMPLATE -->
+
+<!-- PROP ANIMATION TEMPLATE -->
+<Animation name="prop_anim" 			guid="f13c29f4-8c9c-4251-ba23-773457014e36" length="100" type="Sim" typeParam="AutoPlay" />
+<Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />
+<Animation name="prop_slow" 			guid="212a018f-9c5c-4e92-b903-2c1accb7a39a" length="100" type="Sim" typeParam2="prop_slow" typeParam="AutoPlay" />
+<Animation name="prop_still" 			guid="b4c44392-91b4-447d-8fe1-8a61a923cc99" length="100" type="Sim" typeParam2="prop_still" typeParam="AutoPlay" />
+<Animation name="prop_med" 			    guid="aadc7bef-c313-4099-96d6-804fc580ebbf" length="100" type="Sim" typeParam2="prop_med" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>prop_anim</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+      <Parameter>
+          <Sim>
+              <Variable>PROP ROTATION ANGLE:1</Variable>
+              <Units>radians</Units>
+              <Scale>15.92</Scale>
+          </Sim>
+      </Parameter>
+  </Animation>
+</PartInfo>
+    		
+  <PartInfo>
+    <Name>prop_still</Name>
+    <AnimLength>100</AnimLength>
+    <Visibility>
+      <Parameter>
+        <Code>
+          (A:PROP MAX RPM PERCENT:1, percent) 1 &lt; if{ 1 } els{ 0 }
+        </Code>
+      </Parameter>
+    </Visibility>
+  </PartInfo>
+
+  <PartInfo>
+    <Name>prop_med</Name>
+    <AnimLength>100</AnimLength>
+    <Visibility>
+      <Parameter>
+        <Code>
+            (A:PROP MAX RPM PERCENT:1, percent) 1 &gt;
+            if{
+                (A:PROP MAX RPM PERCENT:1, percent) 20 &lt; if{ 1 } els{ 0 }
+            } els{ 0 }
+            
+        </Code>
+      </Parameter>
+    </Visibility>
+  </PartInfo>
+
+  <PartInfo>
+      <Name>prop_slow</Name>
+        <AnimLength>100</AnimLength>
+        <Visibility>
+            <Parameter>
+                <Code>
+                  (L:Uh60_RTR_Type, bool) 0 ==
+                  if{
+                    (A:PROP MAX RPM PERCENT:1, percent) 20 &gt;
+                    if{
+                        (A:PROP MAX RPM PERCENT:1, percent) 50 &lt; if{ 1 } els{ 0 }
+                    } els{ 0 }
+                  } els{ 
+                    (A:PROP MAX RPM PERCENT:1, percent) 20 &gt; if{ 1 } els{ 0 }
+                  }
+                </Code>
+            </Parameter>
+        </Visibility>
+    </PartInfo>
+    
+    <PartInfo>
+        <Name>prop_blur</Name>
+        <AnimLength>100</AnimLength>
+        <Visibility>
+            <Parameter>
+                <Code>
+                  (L:Uh60_RTR_Type, bool) 0 ==
+                  if{
+                    (A:PROP MAX RPM PERCENT:1, percent) 50 &gt; if{ 1 } els{ 0 }
+                  } els{ 0 }
+                </Code>
+            </Parameter>
+        </Visibility>
+    </PartInfo>
+
+    <Animation name="TailRTR_still" guid="74e899a0-88b6-4c2a-bdf2-31e045d1e4fe" length="100" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>TailRTR_still</Name>
+      <AnimLength>100</AnimLength>
+      <Visibility>
+          <Parameter>
+            <Code>
+              (A:PROP MAX RPM PERCENT:1, percent) 6 &lt; if{ 1 } els{ 0 }
+          </Code>
+          </Parameter>
+      </Visibility>
+  </PartInfo>
+
+  <Animation name="TailRTR_blur" guid="a5f7b280-71b8-4dc8-b23b-9d1b6185ea42" length="100" type="Sim" typeParam="AutoPlay" />
+
+  <PartInfo>
+    <Name>TailRTR_blur</Name>
+    <AnimLength>100</AnimLength>
+    <Visibility>
+        <Parameter>
+          <Code>
+            (A:PROP MAX RPM PERCENT:1, percent) 6 &gt; if{ 1 } els{ 0 }
+        </Code>
+        </Parameter>
+    </Visibility>
+</PartInfo>
+<!-- ========== WIPER ==========-->
+
+<Animation name="WIPER_MOVE" guid="b436ca33-9a63-44ea-855f-4bd6f3049b0f" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>WIPER_MOVE</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>
+                  (L:WIPER, bool) 1 == 
+                  (A:CIRCUIT ON:58,bool) 1 == and
+                  if{ 
+                  (E:ABSOLUTE TIME, second) 2 % 100 *
+                  } els{ 0 }
+                 </Code>
+        </Parameter>
+        </Animation>
+    </PartInfo>
+
+
+    <Animation name="ROCKET_anim" guid="e919ea81-d4df-4e45-baa0-14e6d1b9f9cf" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>ROCKET_anim</Name>
+        <AnimLength>10</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>
+                  (L:ROCKET_anim, bool) 1 == 
+                  if{ 
+                    (E:ABSOLUTE TIME, second) 2 % 5 * (L:ROCKET_anim, bool) *
+                  } els{ 0 }
+                 </Code>
+        </Parameter>
+        </Animation>
+    </PartInfo>
+
+<Animation name="AmbientSoldierL" guid="36391804-dd08-40ea-bd8d-ea0fe7191df3" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>AmbientSoldierL</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>(E:ABSOLUTE TIME, second) 6 % 25 *</Code>
+    </Parameter>
+  </Animation>
+  <Visibility>
+    <Parameter>
+     <Code>
+      (L:DOORS_OPEN_REAR_L, bool) if{ 1 } els{ 0 }
+     </Code>
+       </Parameter>
+       </Visibility>
+</PartInfo>
+<Animation name="AmbientSoldierR" guid="52b277b3-1d2f-4e61-a202-fa01acc0a887" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>AmbientSoldierR</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>(E:ABSOLUTE TIME, second) 6 % 25 *</Code>
+    </Parameter>
+  </Animation>
+  <Visibility>
+    <Parameter>
+     <Code>
+      (L:DOORS_OPEN_REAR_R, bool) if{ 1 } els{ 0 }
+     </Code>
+       </Parameter>
+       </Visibility>
+</PartInfo>
+
+<!-- ============== DOORS ============= -->
+<Animation name="doorfront" guid="17913292-17b5-4cfb-831f-2f46783e6396" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>doorfront</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>
+            <Parameter>
+                <Code>(L:DOORS_OPEN_FRONT, bool) 50 * </Code>
+                <Lag>20</Lag>
+        </Parameter>
+        </Animation>
+    </PartInfo>
+<Animation name="reardoorR" guid="4727ab13-177b-47b5-a508-804b885f993f" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>reardoorR</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>(L:DOORS_OPEN_REAR_R, bool) 50 *</Code>
+                <Lag>20</Lag>
+        </Parameter>
+        </Animation>
+</PartInfo>
+
+<Animation name="reardoorL" guid="a7f9d926-9cb4-42e3-95aa-11cbf733aae1" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>reardoorL</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>(L:DOORS_OPEN_REAR_L, bool) 50 *</Code>
+                <Lag>20</Lag>
+        </Parameter>
+        </Animation>
+</PartInfo>
+
+
+<Animation name="Custom_WaterRudder_Vis" guid="689d25f3-dce0-4846-a63c-256446d19063" length="100" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+      <Name>Custom_WaterRudder_Vis</Name>
+      <Visibility>
+      <Parameter>
+       <Code>
+        (A:WATER RUDDER HANDLE POSITION, percent) 50 &lt; if{ 1 } els{ 0 }
+       </Code>
+         </Parameter>
+         </Visibility>
+    </PartInfo>
+
+    <!--(A:SIM ON GROUND, bool) 1!-->
+    
+    <Animation name="c_wheel" guid="BC935F16-43CD-4046-8EF3-06E44A5940AB" typeparam="AutoPlay" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>c_wheel</Name>
+      <MouseRect>
+        <TooltipID>TOOLTIPTEXT_STEER_ANGLE</TooltipID>
+      </MouseRect>
+      <AnimLength>200</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>
+              (A:GEAR CENTER STEER ANGLE, grads) 0 &gt; if{ (A:GEAR CENTER STEER ANGLE, grads) 0.5 * } els{ (A:GEAR CENTER STEER ANGLE, grads) 0.5 * 200 + }
+            </Code>
+        </Parameter>
+      </Animation>
+    </PartInfo>
+<Animation name="c_gear" guid="E2E339A6-FCBF-43a9-A780-3473E03AB54B" length="200" type="Sim" typeparam="AutoPlay" />
+<Animation name="l_gear" guid="57c5326c-0aa9-4bd4-b2ed-8e9fa9bea98e" length="200" type="Sim" typeparam="AutoPlay" />
+<Animation name="r_gear" guid="6ee53acc-eda2-44a1-a3d0-6f89229d16c9" length="200" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>c_gear</Name>
+  <AnimLength>200</AnimLength>
+  <Animation>
+    <Parameter>
+      <Sim>
+        <Variable>GEAR ANIMATION POSITION:0</Variable>
+        <Units>keyframe</Units>
+      </Sim>
+    </Parameter>
+  </Animation>
+</PartInfo>
+<PartInfo>
+  <Name>l_gear</Name>
+  <Copy>c_gear</Copy>
+  <AnimLength>200</AnimLength>
+  <Animation>
+    <Parameter>
+      <Sim>
+        <Variable>GEAR ANIMATION POSITION:1</Variable>
+      </Sim>
+    </Parameter>
+  </Animation>
+</PartInfo>
+<PartInfo>
+  <Name>r_gear</Name>
+  <Copy>c_gear</Copy>
+  <AnimLength>200</AnimLength>
+  <Animation>
+    <Parameter>
+      <Sim>
+        <Variable>GEAR ANIMATION POSITION:2</Variable>
+      </Sim>
+    </Parameter>
+  </Animation>
+</PartInfo>
+<!-- WINCH-->
+  <Animation name="HOOK" guid="fb0ef2ea-47a9-41a7-8ad4-3f2a7601024a" length="100" type="Sim" typeParam2="HOOK" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>HOOK</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>
+          (L:Winch_EXT, bool) 1 == if{ 
+            (A:RADIO HEIGHT, feet) 20 +
+         } els{100}
+        </Code>
+         <Lag>20</Lag>
+        </Parameter>
+      </Animation>
+      <Visibility>
+        <Parameter>
+          <Code>
+            (L:MODEL_TYPE, enum) 0 == if{ 0 }
+            (L:MODEL_TYPE, enum) 1 == if{ 1 }
+            (L:MODEL_TYPE, enum) 2 == if{ 1 }
+            (L:MODEL_TYPE, enum) 3 == if{ 1 }
+            (L:MODEL_TYPE, enum) 4 == if{ 1 }
+            (L:MODEL_TYPE, enum) 5 == if{ 0 }
+          </Code>
+          <Lag>10</Lag>
+        </Parameter>
+      </Visibility>
+  </PartInfo>
+  
+  <Animation name="ROPEVIS" guid="dd07d3c8-a3f0-4984-8e31-bd698b42e6d1" length="100" type="Sim" typeParam2="ROPEVIS" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>ROPEVIS</Name>
+    <AnimLength>100</AnimLength>
+    <Visibility>
+      <Parameter>
+        <Code>
+          (L:DOORS_OPEN_HOIST, bool) 1 &lt; if{ 0 } els{ 1 }
+        </Code>
+        <Lag>20</Lag>
+      </Parameter>
+    </Visibility>
+</PartInfo>
+<Animation name="ADDITIONSVIS" guid="23c58a66-139f-4f23-9b58-ab740f1b332f" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>ADDITIONSVIS</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+    <Parameter>
+      <Code>
+        (L:ADDITIONSVIS, enum) 0 == if{ 0 }
+        (L:ADDITIONSVIS, enum) 1 == if{ 0 }
+        (L:ADDITIONSVIS, enum) 2 == if{ 1 }
+      </Code>
+      <Lag>20</Lag>
+    </Parameter>
+  </Visibility>
+</PartInfo>
+<Animation name="REFUEL_PROBE" guid="2b819a6a-4e69-4791-9561-c003e722c587" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>REFUEL_PROBE</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:ADDITIONSVIS, enum) 0 == if{ 0 }
+      (L:ADDITIONSVIS, enum) 1 == if{ 1 }
+      (L:ADDITIONSVIS, enum) 2 == if{ 1 }
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+<Animation name="DAP_Missile_tilt" guid="908183f9-54a9-4fac-a44f-edbd3f27250d" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>DAP_Missile_tilt</Name>
+    <AnimLength>360</AnimLength>
+    <Animation>
+        <Parameter>
+             <Code>
+                (A:ATTITUDE INDICATOR PITCH DEGREES, degree) -1 * 180 + 
+             </Code>
+             <Lag>60</Lag>
+    </Parameter>
+    </Animation>
+</PartInfo> 
+<Animation name="Stub" guid="6ba26d05-a0ad-4274-b7fb-2caf1be8efd8" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Stub</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:ADDITIONSVIS, enum) 0 == if{ 1 }
+      (L:ADDITIONSVIS, enum) 1 == if{ 1 }
+      (L:ADDITIONSVIS, enum) 2 == if{ 0 }
+      (L:MODEL_TYPE, enum) 4 == if{ 0 }
+      
+      
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+<Animation name="HH-60W" guid="7a29c4a5-ae83-47e5-962d-09db1bf13560" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>HH-60W</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:MODEL_TYPE, enum) 0 == if{ 0 }
+      (L:MODEL_TYPE, enum) 1 == if{ 1 }
+      (L:MODEL_TYPE, enum) 2 == if{ 0 }
+      (L:MODEL_TYPE, enum) 3 == if{ 0 }
+      (L:MODEL_TYPE, enum) 4 == if{ 0 }
+      (L:MODEL_TYPE, enum) 5 == if{ 0 }
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+<Animation name="HH-60M" guid="f72bb2c7-4226-44d5-9f4f-dc6d772e0af8" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>HH-60M</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:MODEL_TYPE, enum) 0 == if{ 0 }
+      (L:MODEL_TYPE, enum) 1 == if{ 0 }
+      (L:MODEL_TYPE, enum) 2 == if{ 1 }
+      (L:MODEL_TYPE, enum) 3 == if{ 0 }
+      (L:MODEL_TYPE, enum) 4 == if{ 0 }
+      (L:MODEL_TYPE, enum) 5 == if{ 0 }
+
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+<Animation name="MH-60M" guid="1439e933-fef1-4ae3-b748-3db5e0b6dd7a" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>MH-60M</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:MODEL_TYPE, enum) 0 == if{ 0 }
+      (L:MODEL_TYPE, enum) 1 == if{ 0 }
+      (L:MODEL_TYPE, enum) 2 == if{ 0 }
+      (L:MODEL_TYPE, enum) 3 == if{ 0 }
+      (L:MODEL_TYPE, enum) 4 == if{ 1 }
+      (L:MODEL_TYPE, enum) 5 == if{ 0 }
+
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+
+
+
+<Animation name="Skis" guid="0ff3c6d3-69d3-4228-8ac7-7c272eaee775" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Skis</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:Skis, Bool) 0 == if{ 0 }
+      (L:Skis, Bool) 1 == if{ 1 }
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+
+
+<Animation name="DOOR1" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>DOOR1</Name>
+  <AnimLength>1</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+    (L:PART1,bool)
+    if{ 0 } els{ 1 }
+    </Code>
+  </Parameter>
+  </Visibility>
+</PartInfo>
+<Animation name="DOOR2" guid="cdb4919d-a843-45fe-93eb-a5bc9f8e42cc" length="1" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>DOOR2</Name>
+  <AnimLength>1</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+    (L:PART3,bool)
+    if{ 0 } els{ 1 }
+    </Code>
+  </Parameter>
+  </Visibility>
+</PartInfo>
+
+<Animation name="MGDOOR" guid="02d87ba9-3058-48c3-8e09-59415270a103" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>MGDOOR</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:PART2, bool) 100 *
+                
+              </Code>
+        <Lag>20</Lag>
+    </Parameter>
+    </Animation>
+
+</PartInfo>
+
+<Animation name="Collective" guid="293c78b1-5f90-4b64-8604-5472580afad2" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>Collective</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:PILOT_ACTION, bool) 100 *
+                
+              </Code>
+        <Lag>20</Lag>
+    </Parameter>
+    </Animation>
+
+</PartInfo>
+
+
+<Animation name="Swashplate_Tilt" guid="64e3da0f-44a8-45f1-a2e8-7705d42aeba3" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Swashplate_Tilt</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+      <Parameter>
+          <Code>
+     <!-- (A:GENERAL ENG THROTTLE LEVER POSITION:1, Percent) -->
+     (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+      </Code>
+      </Parameter>
+  </Animation>
+</PartInfo>
+
+<Animation name="Rotor_percent" guid="8a6d2c56-691e-4439-8aa7-25e88de2ef56" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Rotor_percent</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+      <Parameter>
+          <Code>
+            (A:TURB ENG1 CORRECTED N1,PERCENT) 40 *
+      </Code>
+      </Parameter>
+  </Animation>
+</PartInfo>
+
+<Animation name="Rotor_bone_anim" guid="29916004-6018-4b00-8343-c16b1fe50d06" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Rotor_bone_anim</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+      <Parameter>
+          <Code>
+            <!-- (A:PROP MAX RPM PERCENT:1, percent) 10 / -->
+            <!-- (A:WING FLEX PCT, percent) -->
+            <!-- (L:Rotangle,enum) 50 &gt; if{ 
+              90 
+            } els{ 
+              (A:PROP MAX RPM PERCENT:1, percent) -->
+            <!-- } -->
+            (L:Roangle,enum)
+          
+      </Code> 
+      </Parameter>
+  </Animation>
+</PartInfo>
+
+<Animation name="Probe_ext" guid="f4cd348d-4e1f-4f3d-a170-990ef2e06ed1" length="100" type="Sim" typeParam2="Probe_ext" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Probe_ext</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>(L:Fuel_door, bool) 100 *</Code>
+                <Lag>20</Lag>
+        </Parameter>
+        </Animation>
+
+    </PartInfo>
+
+    <Animation name="Hook_Unlock" guid="74c8cf28-190c-43b5-9eb7-8d09cf89ea00" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Hook_Unlock</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>(L:Cargo_Hook_UNLOCK, bool) 100 *</Code>
+                <Lag>20</Lag>
+        </Parameter>
+        </Animation>
+    </PartInfo>
+
+    <Animation name="TOES" guid="2b819a6a-4e69-4791-9561-c003e722c587" length="100" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+      <Name>TOES</Name>
+      <AnimLength>100</AnimLength>
+      <Visibility>
+      <Parameter>
+        <Code>
+          (L:Part5, enum) 0 == if{ 0 }
+          (L:Part5, enum) 1 == if{ 1 }
+          (L:Part5, enum) 2 == if{ 1 }
+          (L:Part5, enum) 3 == if{ 0 }
+        </Code>
+        <Lag>10</Lag>
+      </Parameter>
+    </Visibility>
+    </PartInfo>
+
+
+
+
+    <Animation name="Cargo_swingLR" guid="9488360d-8b04-400f-9a86-c6da5f861515" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Cargo_swingLR</Name>
+        <AnimLength>360</AnimLength>
+        <Animation>
+            <Parameter>
+              <Code>
+                (A:ATTITUDE INDICATOR BANK DEGREES, degree) 180 +
+               </Code>
+               <Lag>30</Lag>
+        </Parameter>
+        </Animation>
+        <Visibility>
+          <Parameter>
+            <Code>
+              (A:RADIO HEIGHT, feet) 50 &gt; if{ 
+                (L:HUMVEE, bool) 1 ==
+             } els{ 0 }
+             </Code>
+          </Parameter>
+        </Visibility>
+    </PartInfo> 
+
+    <Animation name="FX_Height" guid="b60c176d-0354-49ac-b3a7-dbefffe329f0" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FX_Height</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>
+                  (A:RADIO HEIGHT, feet)
+                 </Code>
+                 <Lag>120</Lag>
+        </Parameter>
+        </Animation>
+    </PartInfo>
+    <Animation name="DOWNWASH" guid="5ec900a9-6d2a-46e7-8011-74037e647b0a" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>DOWNWASH</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+            <Code>
+          (A:RADIO HEIGHT, meters) (A:PLANE PITCH DEGREES, radians) cos / 
+            </Code>
+        </Parameter>
+      </Animation>
+    </PartInfo>  
+    <Animation name="Cargo_1" guid="c5bebb2f-8d18-4366-b134-32a478321a65" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Cargo_1</Name>
+        <AnimLength>1</AnimLength>
+        <Visibility>
+          <Parameter>
+            <Code>
+              (L:HUMVEE, bool) 1 == if{ 
+              (A:RADIO HEIGHT, feet) 50 &gt; if{ 
+                (L:PART5, enum) 1 ==
+             } els{ 0 }
+            } els{ 0 }
+             </Code>
+          </Parameter>
+        </Visibility>
+    </PartInfo>
+    <Animation name="Cargo_2" guid="06e20966-e182-4c61-8727-50979676663b" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Cargo_2</Name>
+        <AnimLength>1</AnimLength>
+        <Visibility>
+          <Parameter>
+            <Code>
+              (L:HUMVEE, bool) 1 == if{ 
+              (A:RADIO HEIGHT, feet) 50 &gt; if{ 
+                (L:PART5, enum) 2 ==
+             } els{ 0 }
+            } els{ 0 }
+             </Code>
+          </Parameter>
+        </Visibility>
+    </PartInfo>
+    <Animation name="Cargo_3" guid="34d6fdcd-7e86-4c03-90bf-e9b852617b37" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Cargo_3</Name>
+        <AnimLength>1</AnimLength>
+        <Visibility>
+          <Parameter>
+            <Code>
+                (L:PART5, enum) 3 ==
+             </Code>
+          </Parameter>
+        </Visibility>
+    </PartInfo>
+<Animation name="Hook_ASSY_Extend" guid="024c9fea-4a92-4d00-8d0c-d0f45ebcb4ea" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Hook_ASSY_Extend</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>(L:Cargo_Hook_EXTEND, bool) 100 *</Code>
+                 <Lag>10</Lag>
+        </Parameter>
+        </Animation>
+    </PartInfo>
+
+
+  <Animation name="STAB_SPD" guid="c0e3344c-7599-4574-90cb-008f75084017" length="100" type="Sim" typeParam2="STAB_SPD" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>STAB_SPD</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+           <Code>(L:STABILATOR_POS, bool) 4 / 100 *</Code>
+           <Lag>10</Lag>
+  </Parameter>
+  </Animation>
+  </PartInfo>
+<Animation name="Tags" guid="7e1aa516-0339-4a1b-84c4-94040a63390f" length="100" type="Sim" typeParam2="Tags" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Tags</Name>
+  <Visibility>
+    <Parameter>
+      <Code>
+        (A:SIM ON GROUND, Bool) (A:GEAR IS ON GROUND:1, Bool) and (A:ENG COMBUSTION:1, bool) ! and (A:ENG COMBUSTION:2, bool) ! and (A:WHEEL RPM:1, rpm) 1 &lt; and 
+        if{ 1 } els{ 0 }
+    </Code>
+    </Parameter>
+  </Visibility>
+</PartInfo>
+<Animation name="SRCH EXT" guid="a6f226e6-afde-49c6-93ad-21a5b61616c9" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>SRCH EXT</Name>
+  <AnimLength>1</AnimLength>
+  <Visibility>
+    <Parameter>
+      <Code>
+        (A:LIGHT LANDING ON,bool) (A:ELECTRICAL MASTER BATTERY, bool) and
+        if{ 1 } els{ 0 }
+      </Code>
+    </Parameter>
+  </Visibility>
+</PartInfo>
+<Animation name="SRCH EMMIS" guid="4557329e-bae1-420d-b4fe-cac8dfa67964" length="1" type="Sim" typeParam2="SRCH EMMIS" typeParam="AutoPlay" />
+    <PartInfo>
+    <Name>SRCH EMMIS</Name>
+    <Materials> <Emissive> <Parameter>
+    <Code>        
+      (L:SRCH_LT,bool) (A:ELECTRICAL MASTER BATTERY, bool) and
+      if{ 10 } els{ 0 }
+    </Code>
+    </Parameter> </Emissive> </Materials>
+    </PartInfo>
+    
+  <Animation name="SLIMELGT" guid="d6a7d2a5-13cd-44f8-9dc4-b001ce8ed525" length="1" type="Sim" typeParam2="SLIMELGT" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>SLIMELGT</Name>
+    <AnimLength>1</AnimLength>
+    <Materials> <Emissive> <Parameter>
+        <Code>
+          (A:LIGHT RECOGNITION ON,bool) (A:ELECTRICAL MASTER BATTERY, bool) and
+          if{ 3 } els{ 0 }
+        </Code>
+      </Parameter> </Emissive> </Materials>
+  </PartInfo>
+
+
+  <Animation name="LDG_Retract" guid="a82a6883-6623-4935-a8fa-4ab3330dbf5d" type="Sim"  typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>LDG_Retract</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(L:Light_SEARCH, enum) 10 *</Code>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="LDG_Rotate" guid="41931831-d025-46ea-94fc-5bd85d6b218c" type="Sim"  typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>LDG_Rotate</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(L:Light_ROTATE, enum) 10 *</Code>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+	<Animation name="tire_anim" guid="d42f8553-3ec7-4bfc-a9ba-0d669b174ef4" length="100" type="Sim" typeParam="AutoPlay" />
+	<Animation name="c_tire_still_key" guid="2788ac1a-4f88-402d-88fc-01a979ce48f8" length="100" type="Sim" typeParam="AutoPlay" />
+	<Animation name="l_tire_still_key" guid="33249ea2-f0e7-4e3f-9498-754697cf50bb" length="100" type="Sim" typeParam="AutoPlay" />
+	<Animation name="r_tire_still_key" guid="6114e2ca-5fb8-4d20-a880-56945094247f" length="100" type="Sim" typeParam="AutoPlay" />
+	<PartInfo>
+		<Name>tire_anim</Name>
+		<AnimLength>100</AnimLength>
+		<Animation>
+		  <Parameter>
+			<Sim>
+			  <Variable>CENTER WHEEL ROTATION ANGLE</Variable>
+			  <Units>radians</Units>
+			  <Bias>0</Bias>
+			  <Scale>15.91</Scale>
+			</Sim>
+		  </Parameter>
+		</Animation>
+	  </PartInfo>
+	  <PartInfo>
+		<Name>c_tire_still_key</Name>
+		<Copy>tire_anim</Copy>
+		<Visibility>
+		  <Parameter>
+			<Code>
+						(A:CENTER WHEEL RPM, grads) 100 &gt; if{ 0 } els{ 1 }
+					</Code>
+		  </Parameter>
+		</Visibility>
+		<AnimLength>100</AnimLength>
+		<Animation>
+		  <Parameter>
+			<Sim>
+			  <Variable>CENTER WHEEL ROTATION ANGLE</Variable>
+			  <Units>radians</Units>
+			  <Scale>15.91</Scale>
+			</Sim>
+		  </Parameter>
+		</Animation>
+	  </PartInfo>
+	  <PartInfo>
+		<Name>l_tire_still_key</Name>
+		<Copy>tire_anim</Copy>
+		<Visibility>
+		  <Parameter>
+			<Code>
+				(A:LEFT WHEEL RPM, grads) 100 &gt; if{ 0 } els{ 1 }
+			  </Code>
+		  </Parameter>
+		</Visibility>
+		<AnimLength>100</AnimLength>
+		<Animation>
+		  <Parameter>
+			<Sim>
+			  <Variable>LEFT WHEEL ROTATION ANGLE</Variable>
+			  <Units>radians</Units>
+			  <Scale>15.91</Scale>
+			</Sim>
+		  </Parameter>
+		</Animation>
+	  </PartInfo>
+	  <PartInfo>
+		<Name>r_tire_still_key</Name>
+		<Copy>tire_anim</Copy>
+		<Visibility>
+		  <Parameter>
+			<Code>
+				(A:RIGHT WHEEL RPM, grads) 100 &gt; if{ 0 } els{ 1 }
+			  </Code>
+		  </Parameter>
+		</Visibility>
+		<AnimLength>100</AnimLength>
+		<Animation>
+		  <Parameter>
+			<Sim>
+			  <Variable>RIGHT WHEEL ROTATION ANGLE</Variable>
+			  <Units>radians</Units>
+			  <Scale>15.91</Scale>
+			</Sim>
+		  </Parameter>
+		</Animation>
+	  </PartInfo>
+<Animation name="c_tire_blurred_key" guid="4e1cc3e5-5933-445d-80e0-b0dd693125f0" length="100" type="Sim" typeParam="AutoPlay" />
+<Animation name="l_tire_blurred_key" guid="2c52a54a-9902-487a-a355-d00874ce7d0f" length="100" type="Sim" typeParam="AutoPlay" />
+<Animation name="r_tire_blurred_key" guid="aa67f522-28c5-4d09-a246-2823d34a686b" length="100" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>c_tire_blurred_key</Name>
+	<Copy>tire_anim</Copy>
+	<AnimLength>100</AnimLength>
+	<Visibility>
+		<Parameter>
+	  <Code>
+		(A:CENTER WHEEL RPM, grads) 100 &gt; if{ 1 } els{ 0 }
+	  </Code>
+		</Parameter>
+	</Visibility>
+	<Animation>
+		<Parameter>
+			<Sim>
+				<Variable>CENTER WHEEL ROTATION ANGLE</Variable>
+			</Sim>
+		</Parameter>
+	</Animation>
+</PartInfo>
+<PartInfo>
+	<Name>l_tire_blurred_key</Name>
+	<Copy>tire_anim</Copy>
+	<AnimLength>100</AnimLength>
+	<Visibility>
+		<Parameter>
+	  <Code>
+		(A:LEFT WHEEL RPM, grads) 100 &gt; if{ 1 } els{ 0 }
+	  </Code>
+	</Parameter>
+  </Visibility>
+  <Animation>
+		<Parameter>
+			<Sim>
+				<Variable>LEFT WHEEL ROTATION ANGLE</Variable>
+			</Sim>
+		</Parameter>
+	</Animation>
+</PartInfo>
+<PartInfo>
+	<Name>r_tire_blurred_key</Name>
+	<Copy>tire_anim</Copy>
+	<AnimLength>100</AnimLength>
+	<Visibility>
+		<Parameter>
+	  <Code>
+		(A:RIGHT WHEEL RPM, grads) 100 &gt; if{ 1 } els{ 0 }
+	  </Code>
+	</Parameter>
+  </Visibility>
+  <Animation>
+		<Parameter>
+			<Sim>
+				<Variable>RIGHT WHEEL ROTATION ANGLE</Variable>
+			</Sim>
+		</Parameter>
+	</Animation>
+</PartInfo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ModelInfo>

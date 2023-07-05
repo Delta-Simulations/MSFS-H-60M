@@ -1,0 +1,336 @@
+<PlaneHTMLConfig>
+	<Instrument>
+		<Name>AS04F_DDI_1</Name>
+		<Electric>
+			<Simvar name="CIRCUIT ON:39" unit="Boolean"/>
+		</Electric>
+	</Instrument>
+	
+	<Instrument>
+		<Name>AS04F_DDI_2</Name>
+		<Electric>
+			<Simvar name="CIRCUIT ON:40" unit="Boolean"/>
+		</Electric>
+	</Instrument>
+	
+	<Instrument>
+		<Name>AS04F_DDI_3</Name>
+		<Electric>
+			<Simvar name="CIRCUIT ON:41" unit="Boolean"/>
+		</Electric>
+	</Instrument>
+	
+	<Instrument>
+		<Name>AS04F_DDI_4</Name>
+		<Electric>
+			<Simvar name="CIRCUIT ON:42" unit="Boolean"/>
+		</Electric>
+		<HighlightBackgroundOpacity>0.5</HighlightBackgroundOpacity>
+	</Instrument>
+	
+	<Instrument>
+		<Name>AS04F_ACC_EFD</Name>
+		<Electric>
+			<Simvar name="CIRCUIT ON:46" unit="Boolean"/>
+		</Electric>
+	</Instrument>
+	
+	<Instrument>
+		<Name>AS04F_ACC_UFCD</Name>
+		<Electric>
+			<Simvar name="CIRCUIT ON:45" unit="Boolean"/>
+		</Electric>
+	</Instrument>
+
+	<VoicesAlerts>
+		
+		// POWER TAKEOFF PHASE
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_power</SoundEvent>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>150</Constant>
+					</Lower>
+					<Lower>
+						<Simvar name="AIRSPEED TRUE" unit="knots"/>
+						<Constant>250</Constant>
+					</Lower>
+					<Equal>
+						<Simvar name="SIM ON GROUND" unit="Bool"/>
+						<Constant>0</Constant>
+					</Equal>
+					<LowerEqual>
+						<Simvar name="L:FA_18_TIME_SINCE_TAKE_OFF" unit="number"/>
+						<Constant>60</Constant>
+					</LowerEqual>
+					<Lower>
+						<Simvar name="VERTICAL SPEED" unit="feet per minute"/>
+						<Constant>-300</Constant>
+					</Lower>
+				</And>
+			</Condition>
+		</Alert>
+	
+		// POWER APPROACH PHASE
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_power</SoundEvent>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>150</Constant>
+					</Lower>
+					<Lower>
+						<Simvar name="AIRSPEED TRUE" unit="knots"/>
+						<Constant>200</Constant>
+					</Lower>
+					<Equal>
+						<Simvar name="SIM ON GROUND" unit="Bool"/>
+						<Constant>0</Constant>
+					</Equal>
+					<GreaterEqual>
+						<Simvar name="L:FA_18_TIME_SINCE_TAKE_OFF" unit="number"/>
+						<Constant>60</Constant>
+					</GreaterEqual>
+					<And>
+						<Equal>
+							<Simvar name="GEAR HANDLE POSITION" unit="Bool"/>
+							<Constant>1</Constant>
+						</Equal>
+						<Lower>
+							<Simvar name="VERTICAL SPEED" unit="feet per minute"/>
+							<Constant>-1488</Constant>
+						</Lower>
+						<Greater>
+							<Simvar name="VERTICAL SPEED" unit="feet per minute"/>
+							<Constant>-2040</Constant>
+						</Greater>
+					</And>
+				</And>
+			</Condition>
+		</Alert>	
+		
+		// ROLL RIGHT
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_roll_right</SoundEvent>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>150</Constant>
+					</Lower>
+					<Lower>
+						<Simvar name="AIRSPEED TRUE" unit="knots"/>
+						<Constant>200</Constant>
+					</Lower>
+					<Greater>	
+						<Simvar name="ATTITUDE INDICATOR BANK DEGREES" unit="degrees"/>
+						<Constant>45</Constant>
+					</Greater>
+				</And>
+			</Condition>
+		</Alert>
+
+		// ROLL LEFT
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_roll_left</SoundEvent>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>150</Constant>
+					</Lower>
+					<Lower>
+						<Simvar name="AIRSPEED TRUE" unit="knots"/>
+						<Constant>200</Constant>
+					</Lower>
+					<Lower>	
+						<Simvar name="ATTITUDE INDICATOR BANK DEGREES" unit="degrees"/>
+						<Constant>-45</Constant>
+					</Lower>
+				</And>
+			</Condition>
+		</Alert>
+		
+		// PULL UP
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_pull_up</SoundEvent>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>90</Constant>
+					</Lower>
+					
+					<Or>
+						<GreaterEqual>
+							<Simvar name="AIRSPEED TRUE" unit="knots"/>
+							<Constant>250</Constant>
+						</GreaterEqual>
+						<And>
+							<GreaterEqual>
+								<Simvar name="L:FA_18_TIME_SINCE_TAKE_OFF" unit="number"/>
+								<Constant>60</Constant>
+							</GreaterEqual>
+							<GreaterEqual>
+								<Simvar name="AIRSPEED TRUE" unit="knots"/>
+								<Constant>200</Constant>
+							</GreaterEqual>
+						</And>
+					</Or>
+				</And>
+			</Condition>
+		</Alert>
+		
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_pull_up</SoundEvent>
+			<Condition>
+				<And>
+					<Greater>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>150</Constant>
+					</Greater>
+					<Equal>
+						<Simvar name="L:FA18_DIVE_RECOVERY" unit="Bool"/>
+						<Constant>1</Constant>
+					</Equal>
+					<Equal>
+						<Simvar name="SIM ON GROUND" unit="Bool"/>
+						<Constant>0</Constant>
+					</Equal>
+				</And>
+			</Condition>
+		</Alert>
+		
+		
+		// CHECK GEAR
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_check_gear</SoundEvent>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Constant>150</Constant>
+					</Lower>
+					<Lower>
+						<Simvar name="AIRSPEED TRUE" unit="knots"/>
+						<Constant>200</Constant>
+					</Lower>
+					<GreaterEqual>
+						<Simvar name="L:FA_18_TIME_SINCE_TAKE_OFF" unit="number"/>
+						<Constant>60</Constant>
+					</GreaterEqual>
+					<Lower>
+						<Simvar name="VERTICAL SPEED" unit="feet per minute"/>
+						<Constant>0</Constant>
+					</Lower>
+					<Inequal>
+						<Simvar name="GEAR POSITION" unit="percent"/>
+						<Constant>100</Constant>
+					</Inequal>
+				</And>
+			</Condition>
+		</Alert>
+		
+		// BINGO
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_fuel_low</SoundEvent>
+			<Condition>
+				<Equal>
+					<Simvar name="L:FA18_BINGO_TRIGGERED" unit="Bool"/>
+					<Constant>1</Constant>
+				</Equal>
+			</Condition>
+		</Alert>
+		
+		// FUEL LOW
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_fuel_low</SoundEvent>
+			<Condition>
+				<Lower>
+					<Simvar name="FUEL TOTAL QUANTITY WEIGHT" unit="lbs"/>
+					<Constant>1125</Constant>
+				</Lower>
+			</Condition>
+		</Alert>
+		
+		// WHOOP WHOOP - RAlt
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>tone_low_altitude</SoundEvent>
+			<Condition>
+				<And>
+					<Equal>
+						<Simvar name="L:FA18_Alert_Active" unit="Bool"/>
+						<Constant>1</Constant>
+					</Equal>
+					<Greater>
+						<Simvar name="L:FA18_Alert_RAlt" unit="feet"/>
+						<Constant>0</Constant>
+					</Greater>
+					<Lower>	
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Simvar name="L:FA18_Alert_RAlt" unit="number"/>
+					</Lower>
+				</And>
+			</Condition>
+		</Alert>
+		
+		// ALTITUDE - Radar		
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_altitude</SoundEvent>
+			<Condition>
+				<And>
+					<Equal>
+						<Simvar name="L:FA18_Alert_Active" unit="Bool"/>
+						<Constant>1</Constant>
+					</Equal>
+					<Greater>
+						<Simvar name="L:FA18_Alert_Radar" unit="feet"/>
+						<Constant>0</Constant>
+					</Greater>
+					<Lower>	
+						<Simvar name="RADIO HEIGHT" unit="feet"/>
+						<Simvar name="L:FA18_Alert_Radar" unit="number"/>
+					</Lower>
+				</And>
+			</Condition>
+		</Alert>
+		
+		// ALTITUDE - Baro
+		<Alert>
+			<Type>SoundsOnly</Type>
+			<SoundEvent>aural_altitude</SoundEvent>
+			<Condition>
+				<And>
+					<Equal>
+						<Simvar name="L:FA18_Alert_Active" unit="Bool"/>
+						<Constant>1</Constant>
+					</Equal>
+					<Greater>
+						<Simvar name="L:FA18_Alert_Baro" unit="feet"/>
+						<Constant>0</Constant>
+					</Greater>
+					<Lower>	
+						<Simvar name="INDICATED ALTITUDE" unit="feet"/>
+						<Simvar name="L:FA18_Alert_Baro" unit="number"/>
+					</Lower>
+				</And>
+			</Condition>
+		</Alert>
+		
+	</VoicesAlerts>
+
+</PlaneHTMLConfig>

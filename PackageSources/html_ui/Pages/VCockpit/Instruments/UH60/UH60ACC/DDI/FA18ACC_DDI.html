@@ -1,0 +1,72 @@
+﻿<link rel="stylesheet" href="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI.css" />
+
+<script type="text/html" id="AS04F_DDI">
+    <glasscockpit-highlight id="highlight"></glasscockpit-highlight>
+    <div id="Mainframe">
+        <div id="Electricity" state="off">
+            <fa18-ddi-not-implemented></fa18-ddi-not-implemented>
+            <fa18-ddi-adi></fa18-ddi-adi>
+            <fa18-ddi-hud></fa18-ddi-hud>
+            <fa18-acc-ddi-checklist></fa18-acc-ddi-checklist>
+            <fa18-ddi-engine></fa18-ddi-engine>
+            <fa18-ddi-fuel></fa18-ddi-fuel>
+            <fa18-ddi-menu-tactical></fa18-ddi-menu-tactical>
+            <fa18-acc-ddi-menu-support></fa18-acc-ddi-menu-support>
+            <fa18-acc-ddi-hsi-aircraft-data></fa18-acc-ddi-hsi-aircraft-data>
+            <fa18-acc-ddi-hsi-tacan-data></fa18-acc-ddi-hsi-tacan-data>
+            <fa18-acc-ddi-hsi-waypoint-data></fa18-acc-ddi-hsi-waypoint-data>
+            <fa18-acc-ddi-fpas></fa18-acc-ddi-fpas>
+            <fa18-acc-ddi-hsi></fa18-acc-ddi-hsi>
+            <fa18-ddi-rdr></fa18-ddi-rdr>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" import-script="/JS/SimPlane.js"></script>
+
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/Templates/Highlight/highlight.js"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/Utils/RadioNav.js"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/FlightPlan.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/FlightPlanManager.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/GeoCalc.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/LogicElements/SearchField.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/Waypoint.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/Runway.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/Approach.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Shared/FlightElements/NearestWaypoint.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/LogicElements/SelectableElement.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/LogicElements/ContextualMenu.js"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/NavSystem.js"></script>
+
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_NotImplemented.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_ADI.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_HUD.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_Engine.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_Fuel.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_MenuTactical.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_MenuSupport.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_Checklist.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_HSIAircraftData.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_HSITacanData.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_HSIWaypointData.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_FPAS.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_HSI.html"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_RDR.html"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_Map.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_HSIndicator.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_HSIndicator.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_WaypointManager.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18Misc/FA18ACC/DDI/FA18ACC_DDI_WaypointManager.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI.js"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_Page.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18Misc/Shared/DDI/FA18_DDI_HSI.js"></script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/DDI/FA18_DDI_MenuSupport.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/FA18ACC/DDI/FA18ACC_DDI_MenuSupport.js"></script>

@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+
+<SimBase.Document Type="Checklist" version="1,0">
+	<Checklist.Checklist>
+
+		<IncludeCheckpointLibrary FileName="CheckpointsLibrary\\Asobo_DefaultCheckpointLibrary.xml"/>
+
+		<Step ChecklistStepId="PREFLIGHT_GATE">
+
+			<!-- Preflight inspection - cockpit 1/2 -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_PREFLIGHT_INSPECTION_COCKPIT_1">
+				<Checkpoint ReferenceId="Parking_Brake_Set"/>
+				<Checkpoint ReferenceId="Fuel_Selectors_Check_On_DA62"/>
+				<Checkpoint ReferenceId="Alternators_Check_Both_On"/>
+				<Checkpoint ReferenceId="Pitot_Heat_Check_Off"/>
+				<Checkpoint ReferenceId="Engine_Master_Check_Off">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ENGINE_MASTER" ExpectationTT="TT:GAME.CHECKLIST_CHECK_BOTH_OFF"/>
+				</Checkpoint>
+				<!-- <Checkpoint ReferenceId="Avionics_Master_Switch_Off">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONICS_MASTER_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint> -->
+				
+				<Checkpoint ReferenceId="Avionics_Bus_Switch_Off">
+					<SetTemplateValue Id="Circuit Avionics">
+						<Val SimVarName="CIRCUIT SWITCH ON:30" Units="Boolean"/>
+					</SetTemplateValue>
+					<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="30 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONICS_MASTER_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint>
+				<!-- REPRENDRE ICI !!!!!!!!!!!!!!!!!!!!!!!!! -->
+				
+				<Checkpoint ReferenceId="Gear_Selector_Check_Down"/>
+				<Checkpoint ReferenceId="Flaps_0">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FLAP_SELECTOR" ExpectationTT="TT:GAME.CHECKLIST_CHECK_UP"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="ALL_ELECTRICAL_EQUIPMENT_OFF_DA62">
+					<ForceCamera name="PFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Battery_Switch_On">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ELECT_MASTER" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="FUEL_ON_BOARD_CHECK_DELAY">
+				  <ForceCamera name="MFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Battery_Switch_Off">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ELECT_MASTER" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="CONTROL_STICK_FREE_AND_CORRECT_FULL_TRAVEL">
+					 <ForceCamera name="Pedestal_Fwd"/> 
+				</Checkpoint>
+
+		  </Page>
+  
+
+			<!-- Before Starting Engine -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_STARTING_ENGINE">
+				<Checkpoint ReferenceId="POWER_LEVERS_IDLE_2ENGINES"/> 
+				<Checkpoint ReferenceId="Parking_Brake_Set"/>
+				
+				<!-- <Checkpoint ReferenceId="Avionics_Master_Switch_Off">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONICS_MASTER_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint> -->
+				<Checkpoint ReferenceId="Avionics_Bus_Switch_Off">
+					<SetTemplateValue Id="Circuit Avionics">
+						<Val SimVarName="CIRCUIT SWITCH ON:30" Units="Boolean"/>
+					</SetTemplateValue>
+					<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="30 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONICS_MASTER_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint>	
+				
+				<Checkpoint ReferenceId="Gear_Selector_Check_Down"/>
+				<Checkpoint ReferenceId="Alternators_Check_Both_On"/>
+				<Checkpoint ReferenceId="AUX_FUEL_PUMPS_OFF">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_PUMP_LH_RH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Battery_Switch_On">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ELECT_MASTER" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
+				  <Clue name="TT:CLUE.ELECT_MASTER_ON"/>
+				</Checkpoint>
+
+			</Page>
+
+			<!-- Starting Engine -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_STARTING_ENGINE">
+				<Checkpoint ReferenceId="Strobe_Light_On">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_STROBE_LIGHTS_ACL" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
+				  <ForceCamera name="Pilot"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Engine_Master_ON_L"/>
+				<Checkpoint ReferenceId="Annunciations_Check_L_Engine_Glow_On"/>
+				<Checkpoint ReferenceId="START_LEFT_BUTTON_PRESS_AS_REQUIRED_RELEASE"/>
+				<Checkpoint ReferenceId="ANNUNCIATIONS_STARTER_CHECK_OFF"/>
+				<Checkpoint ReferenceId="ANNUNCIATIONS_OIL_PRESSURE_CHECK_OK"/>
+				<Checkpoint ReferenceId="IDLE_RPM_CHECK_710_30_RPM">
+					<ForceCamera name="MFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="OPPOSITE_ENGINE_START_REPEAT_PROCEDURE">
+					<ForceCamera name="PFD"/>
+				</Checkpoint>
+
+			</Page>
+
+      
+      
+      
+      
+      
+      
+			<!-- After Starting Engine -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_AFTER_STARTING_ENGINE_1">
+				
+				<!-- <Checkpoint ReferenceId="Avionics_Master_Switch_On">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONIC_MASTER" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
+				</Checkpoint> -->
+
+				<Checkpoint ReferenceId="Avionics_Bus_Switch_On">
+					<SetTemplateValue Id="Circuit Avionics">
+						<Val SimVarName="CIRCUIT SWITCH ON:30" Units="Boolean"/>
+					</SetTemplateValue>
+					<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="30 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONIC_MASTER" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
+				</Checkpoint>
+				
+				<Checkpoint ReferenceId="POWER_LEVER_AS_REQUIRED_50_MAX_IF_ENGINE_TEMP_TOO_LOW"/> <!-- Power lever : as required, max. 50 % if engine temperature below green range -->
+				<Checkpoint ReferenceId="ELECTRICAL_EQUIPMENT_ON_AS_REQUIRED">
+					<ForceCamera name="PFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Avionics_Set"> <!-- Flight instruments and avionics : set as required -->
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FLIGHT_INSTRUMENTS_AND_AVIONICS" ExpectationTT="TT:GAME.CHECKLIST_SET_AS_REQUIRED"/>
+					<Instrument Id="AS1000_MFD_Panel"/>
+					<ForceCamera name="MFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Strobe_Light_On">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_STROBES" ExpectationTT="TT:GAME.CHECKLIST_CHECK_ON"/>
+				  <ForceCamera name="Pilot"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="POSITION_LANDING_TAXI_LIGHTS_AS_REQUIRED">
+				  <ForceCamera name="PFD"/>
+				</Checkpoint> <!-- Position lights, landing and taxi lights : as required -->
+				<Checkpoint ReferenceId="TRIMS_TO">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_TRIM" ExpectationTT="TT:GAME.CHECKLIST_SET_TO_TO_MANUALLY"/>
+				  <Clue name="TT:CLUE.ELEVATOR_TRIM_NEUTRAL_TO"/>
+				</Checkpoint>
+				
+			</Page>
+
+		</Step>
+
+
+
+		<Step ChecklistStepId="PREFLIGHT_TAXI_OUT">
+
+			<!-- Taxi -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_TAXI">
+				<Checkpoint ReferenceId="Parking_Brake_Release"/>
+				<Checkpoint ReferenceId="Brakes_Test">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_BRAKES" ExpectationTT="TT:GAME.CHECKLIST_TEST_ON_MOVING_OFF"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="FLIGHT_INSTRUMENTATION_AND_AVIONICS_CHECK_FOR_CORRECT_INDICATIONS">
+					<ForceCamera name="PFD"/>
+				</Checkpoint> <!-- Flight instrumentation and avionics : check for correct indications -->
+				<Checkpoint ReferenceId="AUX_FUEL_PUMPS_OFF">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_PUMP_LH_RH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				  <Clue name="TT:CLUE.FUEL_SELECTOR_OFF_LH_RH"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="FUEL_SELECTOR_CROSSFEED_LH_RH"/> <!-- FUEL SELECTOR : CROSSFEED (LH/RH) -->
+				<Checkpoint ReferenceId="FUEL_SELECTOR_ON_LH_RH"/> <!-- FUEL SELECTOR : ON (LH/RH)  -->
+
+				<!-- Commented because seems to be out of place ? <Checkpoint ReferenceId="Brakes_Test"/> -->
+
+			</Page>
+
+		</Step>
+
+
+
+		<Step ChecklistStepId="FLIGHT_RUNWAY">
+
+			<!-- Run-up 1/3 -->
+			<!--<Page SubjectTT="TT:GAME.CHECKLIST_RUN_UP_1">
+			
+			</Page>
+			-->
+      
+      
+      
+
+			<!-- BEFORE take-off -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_TAKE_OFF">
+
+				<Checkpoint ReferenceId="Parking_Brake_Set"/>
+				<Checkpoint ReferenceId="TRIMS_TO">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LONGITUDINAL_TRIM" ExpectationTT="TT:GAME.CHECKLIST_SET_T_O"/>
+				  <Clue name="TT:CLUE.ELEVATOR_TRIM_NEUTRAL_TO"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="FUEL_SELECTOR_ON_LH_RH"> <!-- FUEL SELECTOR :  check ON (LH/RH) -->
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_SELECTOR" ExpectationTT="TT:GAME.CHECKLIST_CHECK_ON_LH_RH"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="DIRECTIONAL_TRIM_CENTERED"/>
+				<Checkpoint ReferenceId="FLAPS_CHECK_FUNCTION_INDICATOR_SET_TO"/><!-- FLAPS : check function & indicator / set T/O -->
+				<Checkpoint ReferenceId="CONTROL_STICK_FREE_AND_CORRECT_FULL_TRAVEL">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FLIGHT_CONTROLS" ExpectationTT="TT:GAME.CHECKLIST_UNRESTRICTED_MOVEMENT_CORRECT_SENSE"/>
+				  <ForceCamera name="Pedestal_Fwd"/> 
+				</Checkpoint> 
+				<Checkpoint ReferenceId="Landing_Light_As_Required">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_LIGHT" ExpectationTT="TT:GAME.CHECKLIST_ON_IF_REQUIRED"/>
+				  <ForceCamera name="Pilot"/> 
+				</Checkpoint>
+				<Checkpoint ReferenceId="Parking_Brake_Release"/> <!-- Park brake release should be during ECU / fuel pumps test sequence; but added here until PRO CLs are implemented -->
+			
+			
+			</Page>
+		</Step>
+
+
+
+		<Step ChecklistStepId="FLIGHT_TAKEOFF">
+
+			<!-- Normal take-off -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_NORMAL_TAKE_OFF">
+				<Checkpoint ReferenceId="TRANSPONDER_AS_REQUIRED"/>
+				<Checkpoint ReferenceId="POWER_LEVERS_MAX_2ENGINES">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_POWER_LEVERS" ExpectationTT="TT:GAME.CHECKLIST_MAX"/>
+				  <ForceCamera name="Pedestal_Fwd"/> 
+				</Checkpoint>
+				<Checkpoint ReferenceId="Elevator_Trim_Neutral"/>
+				<Checkpoint ReferenceId="RUDDER_MAINTAIN_AXIS">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_RUDDER" ExpectationTT="TT:GAME.CHECKLIST_MAINTAIN_DIRECTION"/>
+				</Checkpoint>
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_UP_TO_1999_KG"> <!-- 1999kg =~ 4407 lbs -->
+					<BlockCondition>
+						<Operator OpType="GREATER">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/> 
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="ROTATION_MIN_76_KIAS"/>
+					<Checkpoint ReferenceId="INITIAL_CLIMB_MIN_83_KIAS"/>
+				</Block>
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_ABOVE_1999_KG"> 
+					<BlockCondition>
+						<Operator OpType="LESS_OR_EQUAL">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/>
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="ROTATION_MIN_78_KIAS"/>
+					<Checkpoint ReferenceId="INITIAL_CLIMB_MIN_86_KIAS"/>
+				</Block>
+			
+				<Checkpoint ReferenceId="LANDING_GEAR_APPLY_BRAKE_UP_CHECK_UNSAFE_LIGHT_OFF"/> 
+
+			</Page>
+
+
+			<!-- Enroute climb -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_ENROUTE_CLIMB">
+				<Checkpoint ReferenceId="Landing_Light_As_Required">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_LIGHT" ExpectationTT="TT:GAME.CHECKLIST_OFF_AS_REQUIRED"/>
+					<ForceCamera name="PFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="LANDING_GEAR_UP"/>
+				<Checkpoint ReferenceId="Flaps_0">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FLAPS" ExpectationTT="TT:GAME.CHECKLIST_CHECK_UP"/>
+				</Checkpoint> 
+				<Checkpoint ReferenceId="AUX_FUEL_PUMPS_OFF">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_PUMP_LH_RH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint>
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_UP_TO_1999_KG"> <!-- 1999kg =~ 4407 lbs -->
+					<BlockCondition>
+						<Operator OpType="GREATER">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/> 
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="AIRSPEED_BEST_RATE_OF_CLIMB_87_KIAS"/>
+					<Checkpoint ReferenceId="AIRSPEED_AS_REQUIRED_FOR_ENROUTE_CLIMB_93_KIAS"/>
+				</Block>
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_ABOVE_1999_KG"> 
+					<BlockCondition>
+						<Operator OpType="LESS_OR_EQUAL">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/>
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="AIRSPEED_BEST_RATE_OF_CLIMB_89_KIAS"/>
+					<Checkpoint ReferenceId="AIRSPEED_AS_REQUIRED_FOR_ENROUTE_CLIMB_96_KIAS"/>
+					
+				</Block>
+			
+				<Checkpoint ReferenceId="POWER_LEVERS_UP_TO_95_PERCENT_2ENGINES"/> 
+
+				<Checkpoint ReferenceId="Elevator_Trim_Set">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_TRIM" ExpectationTT="TT:GAME.CHECKLIST_AS_REQUIRED_BALL_CENTERED"/>
+				</Checkpoint>
+				
+
+			</Page>
+		</Step>
+
+
+
+		<Step ChecklistStepId="FLIGHT_CRUISE">
+			<!-- Cruise -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_CRUISE">
+				<Checkpoint ReferenceId="POWER_LEVERS_UP_TO_95_PERCENT_2ENGINES"/>
+				<Checkpoint ReferenceId="Elevator_Trim_Set">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_TRIM" ExpectationTT="TT:GAME.CHECKLIST_AS_REQUIRED"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Engine_Gauges_Check_DA62">
+				  <!-- <Instrument Id="HTML:G1000_PFD:Annunciations"/> -->
+				  <Instrument Id="HTML:AS1000_PFD:Annunciations"/>
+				  <Instrument Id="HTML:AS1000_MFD:XMLEngineDisplay"/>
+				  <ForceCamera name="MFD"/>
+				</Checkpoint> 		
+				
+     
+      </Page>
+		</Step>
+
+
+
+
+		<Step ChecklistStepId="FLIGHT_DESCENT">
+
+			<!-- Descent -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_DESCENT">
+				<Checkpoint ReferenceId="POWER_LEVER_AS_REQUIRED"/>
+				<Checkpoint ReferenceId="AIRSPEEDS_AS_REQUIRED"/>
+				<Checkpoint ReferenceId="Elevator_Trim_Set">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_TRIM" ExpectationTT="TT:GAME.CHECKLIST_AS_REQUIRED"/>
+				</Checkpoint>
+
+			</Page>
+
+		</Step>
+
+
+
+
+		<Step ChecklistStepId="LANDING_APPROACH">
+
+			<!-- Before landing -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_LANDING">
+				<Checkpoint ReferenceId="Landing_Light_As_Required">
+					<ForceCamera name="PFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Fuel_Selectors_Check_On_DA62">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_SELECTOR" ExpectationTT="TT:GAME.CHECKLIST_CHECK_BOTH_ON"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="AUX_FUEL_PUMPS_ON">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_PUMP_LH_RH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_ON"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="LANDING_GEAR_DN_3_GREEN"/>
+				<Checkpoint ReferenceId="Parking_Brake_Release">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_PARKING_BRAKE" ExpectationTT="TT:GAME.CHECKLIST_CHECK_RELEASED"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="TRIMS_AS_REQUIRED_DIRECTIONAL_TRIM_NEUTRAL"/> 	
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_UP_TO_1999_KG"> <!-- 1999kg =~ 4407 lbs -->
+					<BlockCondition>
+						<Operator OpType="GREATER">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/> 
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="AIRSPEED_88_KTS_FLAPS_TO">
+						<ForceCamera name="PFD"/>
+					</Checkpoint>
+				</Block>
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_ABOVE_1999_KG"> 
+					<BlockCondition>
+						<Operator OpType="LESS_OR_EQUAL">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/>
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="AIRSPEED_91_KTS_FLAPS_TO">
+						<ForceCamera name="PFD"/>
+					</Checkpoint>
+					
+				</Block>
+				
+				<!-- APPROACH --> 
+
+				<Checkpoint ReferenceId="FLAPS_AS_REQUIRED">
+					<Clue name="TT:CLUE.FLAPS_AS_REQUIRED_DA_62_LANDING"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="POWER_LEVER_AS_REQUIRED"/>
+				<Checkpoint ReferenceId="TRIMS_AS_REQUIRED_DIRECTIONAL_TRIM_NEUTRAL"/> 
+
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_UP_TO_1999_KG"> <!-- 1999kg =~ 4407 lbs -->
+					<BlockCondition> <!-- up to 1999 kg	Final approach speed : min. 84 KIAS with FLAPS LDG -->
+						<Operator OpType="GREATER">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/> 
+						</Operator>
+					</BlockCondition> 
+					<Checkpoint ReferenceId="IAS_84_KTS_FLAPS_LDG">
+						<ForceCamera name="PFD"/>
+					</Checkpoint>
+				</Block>
+				
+				<Block SubjectTT="TT:GAME.CHECKLIST_TAKEOFF_ABOVE_1999_KG">  <!-- Above 1999 kg	Final approach speed : min. 89 KIAS with FLAPS LDG -->
+					<BlockCondition>
+						<Operator OpType="LESS_OR_EQUAL">
+							<Val SimVarName="TOTAL WEIGHT" Units="Pounds"/>
+							<Val Value="4407"/>
+						</Operator>
+					</BlockCondition>
+					<Checkpoint ReferenceId="IAS_89_KTS_FLAPS_LDG">
+						<ForceCamera name="PFD"/>
+					</Checkpoint>
+					
+				</Block>
+				
+				
+				
+
+				
+
+			</Page>
+
+		</Step>
+
+
+
+		<Step ChecklistStepId="LANDING_TOUCHDOWN">
+
+			<!-- Normal landing -->
+			<!--<Page SubjectTT="TT:GAME.CHECKLIST_NORMAL_LANDING">
+
+			</Page>
+			-->
+
+		</Step>
+
+
+
+		<Step ChecklistStepId="LANDING_GROUNDROLL">
+
+			<!-- After landing -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_AFTER_LANDING">
+				<!-- <Checkpoint ReferenceId="POWER_LEVER_IDLE"/> -->
+				<Checkpoint ReferenceId="POWER_LEVERS_IDLE_2ENGINES"/>
+				<Checkpoint ReferenceId="Braking_Minimum_Required"/>
+				<Checkpoint ReferenceId="LIGHTS_AS_REQUIRED">
+					<ForceCamera name="PFD"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="Flaps_0">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FLAPS" ExpectationTT="TT:GAME.CHECKLIST_UP"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="AUX_FUEL_PUMPS_OFF">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_PUMP_LH_RH" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+				</Checkpoint>
+
+			</Page>
+
+		</Step>
+
+
+
+		<Step ChecklistStepId="LANDING_TAXI_IN">
+
+		</Step>
+
+
+
+		<Step ChecklistStepId="LANDING_GATE">
+			<!-- Parking -->
+			<Page SubjectTT="TT:GAME.CHECKLIST_PARKING">
+				<Checkpoint ReferenceId="Parking_Brake_Set"/>
+				
+				<!-- <Checkpoint ReferenceId="Avionics_Master_Switch_Off">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONIC_MASTER" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
+				</Checkpoint> -->
+
+				<Checkpoint ReferenceId="Avionics_Bus_Switch_Off">
+					<SetTemplateValue Id="Circuit Avionics">
+						<Val SimVarName="CIRCUIT SWITCH ON:30" Units="Boolean"/>
+					</SetTemplateValue>
+					<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="30 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONIC_MASTER" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
+				</Checkpoint>				
+				
+				<Checkpoint ReferenceId="ALL_ELECTRICAL_EQUIPMENT_OFF_DA62_SHUTDOWN">
+					<ForceCamera name="PFD"/>
+				</Checkpoint> 
+				<!-- <Checkpoint ReferenceId="Turn_Off_EngineMaster"/> -->
+				<Checkpoint ReferenceId="Engine_Master_Check_Off">
+					<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ENGINE_MASTER" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
+				</Checkpoint>
+				<Checkpoint ReferenceId="ANTI_COLLISION_OFF_DA62">
+					<ForceCamera name="PFD"/> 
+				</Checkpoint>
+				<Checkpoint ReferenceId="Battery_Switch_Off">
+				  <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ELECT_MASTER" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
+				</Checkpoint>
+
+			</Page>
+
+			
+			<!-- Securing-->
+			<!--<Page SubjectTT="TT:GAME.CHECKLIST_SECURING">
+
+			</Page>
+			-->
+
+		</Step>
+
+	</Checklist.Checklist>
+</SimBase.Document>

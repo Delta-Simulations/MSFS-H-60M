@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "BoeingFont";
+
+  src: url("/Fonts/Digital7Mono.ttf") format("truetype");
+}
+
+text {
+  font-family: "BoeingFont";
+  letter-spacing: 25px;
+}

@@ -1,0 +1,48 @@
+{
+    "elements": [
+        {
+            "__uuid": "1cd0d07d-35ec-4bcf-a77c-91b5f1af43ab",
+            "__kind": "instrument",
+            "dataKind": "bundled",
+            "title": "HUD",
+            "instrumentName": "HUD",
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "__uuid": "a2548dca-e3db-45ae-bf50-a5460fa2d785",
+            "__kind": "instrument",
+            "dataKind": "bundled",
+            "title": "AP",
+            "instrumentName": "AP",
+            "position": {
+                "x": -1290,
+                "y": 0
+            }
+        },
+        {
+            "__uuid": "04a28d8d-d8a7-493d-967c-954fd150de62",
+            "__kind": "instrument",
+            "dataKind": "bundled",
+            "title": "PFD",
+            "instrumentName": "PFD",
+            "position": {
+                "x": 0,
+                "y": 1410
+            }
+        },
+        {
+            "__uuid": "e7aa504f-2d50-4e5b-9e9e-cac41e46b779",
+            "__kind": "instrument",
+            "dataKind": "bundled",
+            "title": "EFB",
+            "instrumentName": "EFB",
+            "position": {
+                "x": 1350,
+                "y": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,389 @@
+<PlaneHTMLConfig>
+	<Instrument>
+    <Name>AS3000_PFD_2</Name>
+    <SyntheticVision>False</SyntheticVision>
+	<RadarAltitude>True</RadarAltitude>
+		<Electric>
+			<And>
+				<Simvar name="CIRCUIT ON:30" unit="Boolean"/>
+			</And>
+		</Electric>
+	</Instrument>
+		<Instrument>
+		<Name>AS3000_PFD_3</Name>
+		<Electric>
+			<And>
+				<Simvar name="CIRCUIT ON:30" unit="Boolean"/>
+			</And>
+		</Electric>
+	</Instrument>
+	<Instrument>
+    <Name>AS3000_PFD_1</Name>
+    <SyntheticVision>False</SyntheticVision>
+	<RadarAltitude>True</RadarAltitude>
+		<Electric>
+			<And>
+				<Simvar name="CIRCUIT ON:30" unit="Boolean"/>
+			</And>
+		</Electric>
+	</Instrument>
+	<Instrument>
+		<Name>Backup</Name>
+		<Electric>
+			<And>
+				<Simvar name="CIRCUIT ON:50" unit="Boolean"/>
+			</And>
+		</Electric>
+	</Instrument>
+	<Instrument>
+		<Name>GTN_750_2</Name>
+		<PageGroup>MFD Home</PageGroup>
+		<Electric>
+			<And>
+				<Simvar name="CIRCUIT ON:30" unit="Boolean"/>
+			</And>
+		</Electric>
+	</Instrument>
+	<Instrument>
+		<Name>GTN_750_1</Name>
+		<PageGroup>MFD Home</PageGroup>
+		<Electric>
+			<And>
+				<Simvar name="CIRCUIT ON:30" unit="Boolean"/>
+			</And>
+		</Electric>
+	</Instrument>
+
+
+	<EngineDisplay>
+		<!--
+			<Gauge>
+			<Type>DoubleVertical</Type>
+			<ID>Piston_FuelGauge</ID>
+			<Title>VOLT</Title>
+			<Unit></Unit>
+			<Style>
+				<Height>90</Height>
+			</Style>
+					<CursorText>M</CursorText>
+					<CursorText2>S</CursorText2>
+					<Minimum>20</Minimum>
+					<Maximum>30</Maximum>
+					<Value>
+						<Simvar name="ELECTRICAL BATTERY VOLTAGE:1" unit="volts"/>
+					</Value>
+					<Value2>
+						<Simvar name="ELECTRICAL BATTERY VOLTAGE:2" unit="volts"/>
+					</Value2>
+					<ColorLine>
+						<Color>red</Color>
+						<Position>21</Position>
+					</ColorLine>
+					<ColorZone>
+						<Color>yellow</Color>
+						<Begin>21</Begin>
+						<End>24</End>
+					</ColorZone>
+					<ColorZone>
+						<Color>green</Color>
+						<Begin>24</Begin>
+						<End>28</End>
+					</ColorZone>
+					<ColorLine>
+						<Color>red</Color>
+						<Position>28</Position>
+					</ColorLine>
+		</Gauge>
+
+		<Gauge>
+			<Type>DoubleVertical</Type>
+			<ID>Piston_FuelGauge</ID>
+			<Title>AMPS</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>200</Maximum>
+			<Style>
+				<Height>90</Height>
+			</Style>
+			<Value>
+				<Simvar name="ELECTRICAL GENALT BUS AMPS:1" unit="amperes"/>
+			</Value>
+			<Value2>
+				<Simvar name="ELECTRICAL GENALT BUS AMPS:2" unit="amperes"/>
+			</Value2>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>160</End>
+			</ColorZone>
+		</Gauge>
+
+
+		<Gauge>
+			<Type>DoubleVertical</Type>
+			<ID>Piston_FuelGauge</ID>
+			<Title>FUEL</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>44</Maximum>
+			<Style>
+				<Height>90</Height>
+			</Style>
+			<Value>
+				<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallons"/>
+			</Value>
+			<Value2>
+				<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallons"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>0</Begin>
+				<End>5</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>5</Begin>
+				<End>44</End>
+			</ColorZone>
+			<GraduationLength text="True">15</GraduationLength>
+		</Gauge>
+-->
+		<Gauge>
+			<Type>DoubleVertical</Type>
+			<ID>Piston_OilPressGauge</ID>
+			<Title>OIL P</Title>
+			<EndText></EndText>
+			<Unit></Unit>
+			<Style>
+				<Height>90</Height>
+			</Style>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>20</Maximum> 
+			<Value>
+				<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="bar"/>
+			</Value>
+			<Value2>
+				<Simvar name="GENERAL ENG OIL PRESSURE:2" unit="bar"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>0</Begin>
+				<End>4</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>4</Begin>
+				<End>6</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>6</Begin>
+				<End>10</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>10</Begin>
+				<End>15</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>15</Begin>
+				<End>20</End>
+			</ColorZone>
+			<BeginText></BeginText>
+		
+		</Gauge>
+
+		<Gauge>
+			<Type>DoubleVertical</Type>
+			<ID>Piston_OilPressGauge2</ID>
+			<Title>OIL P</Title>
+			<EndText></EndText>
+			<Unit></Unit>
+			<Style>
+				<Height>90</Height>
+			</Style>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>20</Maximum> 
+			<Value>
+				<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="bar"/>
+			</Value>
+			<Value2>
+				<Simvar name="GENERAL ENG OIL PRESSURE:2" unit="bar"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>0</Begin>
+				<End>4</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>4</Begin>
+				<End>6</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>6</Begin>
+				<End>10</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>10</Begin>
+				<End>15</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>15</Begin>
+				<End>20</End>
+			</ColorZone>
+			<BeginText></BeginText>
+		
+		</Gauge>
+<!--
+
+		<Gauge>
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>90</Height>
+				<ValuePos>None</ValuePos>
+			</Style>
+			<ID>Piston_RPMGauge</ID>
+			<Title>N1</Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>105</Maximum>
+			<Value>
+				<Simvar name="GENERAL ENG PCT MAX RPM:1" unit="percent"/>
+			</Value>
+			<Value2>
+				<Simvar name="GENERAL ENG PCT MAX RPM:2" unit="percent"/>
+			</Value2>
+
+			<ColorLine>
+				<Color>red</Color>
+				<Position>89</Position>
+			</ColorLine>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>90</Begin>
+				<End>97</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>97</Begin>
+				<End>102</End>
+			</ColorZone>
+			<GraduationLength text="True">40</GraduationLength>
+			<BeginText>%</BeginText>
+		</Gauge>
+		
+		<Gauge>
+			<Type>Vertical</Type>
+			<Style>
+		
+				<ValuePos>None</ValuePos>
+			</Style>
+			<ID>Piston_LoadGauge</ID>
+			<Title>LOAD</Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>100</Maximum>
+			<Value>
+				<Simvar name="L:ROTOR_LOAD" unit="number"/>
+			</Value>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>95</Begin>
+				<End>105</End>
+			</ColorZone>
+			<GraduationLength text="True">40</GraduationLength>
+			<BeginText>%</BeginText>
+		</Gauge>
+		
+
+
+
+	<Gauge>
+		<Type>Vertical</Type>
+		<Style>
+			<ValuePos>None</ValuePos>
+		</Style>
+		<BeginText></BeginText>
+		<EndText></EndText>
+		<ID>rotor_rpm</ID>
+		<Title>RPM</Title>
+		<Minimum>0</Minimum>
+		<Maximum>105</Maximum>
+		<Value>
+			<Simvar name="PROP MAX RPM PERCENT:1" unit="percent"/>
+		</Value>
+		<ColorZone>
+			<Color>red</Color>
+			<Begin>0</Begin>
+			<End>75</End>
+		</ColorZone>
+		<ColorZone>
+			<Color>yellow</Color>
+			<Begin>75</Begin>
+			<End>97</End>
+		</ColorZone>
+		<ColorZone>
+			<Color>green</Color>
+			<Begin>97</Begin>
+			<End>102</End>
+		</ColorZone>
+		<BeginText>%</BeginText>
+	</Gauge>
+
+-->
+	<Gauge>
+			<Type>Vertical</Type>
+			<Style>
+				<CursorColor>aqua</CursorColor>
+				<ValuePos>None</ValuePos>
+			</Style>
+			<ID>Turbo_ElevTrim</ID>
+			<Title>TRIM</Title>
+			<Unit></Unit>
+			<Minimum>-100</Minimum>
+			<Maximum>100</Maximum>
+			<Value>
+				<Substract>
+					<Constant>0</Constant>
+					<Simvar name="ELEVATOR TRIM PCT" unit="percent"/>
+				</Substract>
+			</Value>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>
+					<Add>
+						<Substract>
+							<Constant>0</Constant>
+							<Gamevar name="AIRCRAFT ELEVATOR TRIM NEUTRAL" unit="percent"/>
+						</Substract>
+					<Constant>-15</Constant>
+					</Add>
+				</Begin>
+				<End>									
+					<Add>
+						<Substract>
+							<Constant>0</Constant>
+							<Gamevar name="AIRCRAFT ELEVATOR TRIM NEUTRAL" unit="percent"/>
+						</Substract>
+						<Constant>15</Constant>
+					</Add>
+				</End>
+			</ColorZone>
+			<BeginText>UP</BeginText>
+			<EndText>DN</EndText>
+		</Gauge>
+	</EngineDisplay>
+</PlaneHTMLConfig>

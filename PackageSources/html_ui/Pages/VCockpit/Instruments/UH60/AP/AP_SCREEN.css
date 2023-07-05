@@ -1,0 +1,44 @@
+﻿@font-face {
+    font-family: "Glass Gauge";
+    src: url("/Pages/VCockpit/Instruments/UH60/AP/fonts/mono.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; 
+}
+
+ap-instrument {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(0, 0, 0);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#HMD {
+	background: rgb(0, 0, 0);
+	overflow: hidden;
+	position: absolute;
+	width: 100vw;
+    height: 100vh;
+}
+
+#VOR_text {
+	color: rgb(19, 163, 0);
+	font-size: 65px;
+	left: 10px;
+	top: 0px;
+    position: absolute;
+}
+
+
+
+
+
+
+#debug {
+	font-size: 60px;
+	color: white;
+	position: absolute;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+}

@@ -1,0 +1,78 @@
+#FuelSystemDisplay #EXTTitle {
+  position: absolute;
+  top: 30vh;
+  left: 2%;
+  font-size: 6vh;
+}
+#FuelSystemDisplay #ExtLeftMidboardFuel {
+  position: absolute;
+  width: 13%;
+  left: 17%;
+  top: 28vh;
+}
+#FuelSystemDisplay #ExtLeftMidboardFuelText {
+  position: absolute;
+  width: 13%;
+  left: 17%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 1vh;
+}
+#FuelSystemDisplay #ExtLeftInboardFuel {
+  position: absolute;
+  width: 13%;
+  left: 33.5%;
+  top: 28vh;
+}
+#FuelSystemDisplay #ExtLeftInboardFuelText {
+  position: absolute;
+  width: 13%;
+  left: 33.5%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 1vh;
+}
+#FuelSystemDisplay #ExtCenterFuel {
+  position: absolute;
+  width: 13%;
+  left: 50%;
+  top: 28vh;
+}
+#FuelSystemDisplay #ExtCenterFuelText {
+  position: absolute;
+  width: 13%;
+  left: 50%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 1vh;
+}
+#FuelSystemDisplay #ExtRightInboardFuel {
+  position: absolute;
+  width: 13%;
+  left: 66.5%;
+  top: 28vh;
+}
+#FuelSystemDisplay #ExtRightInboardFuelText {
+  position: absolute;
+  width: 13%;
+  left: 66.5%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 1vh;
+}
+#FuelSystemDisplay #ExtRightMidboardFuel {
+  position: absolute;
+  width: 13%;
+  left: 83%;
+  top: 28vh;
+}
+#FuelSystemDisplay #ExtRightMidboardFuelText {
+  position: absolute;
+  width: 13%;
+  left: 83%;
+  text-align: center;
+  font-size: 6vh;
+  bottom: 1vh;
+}
+
+/*# sourceMappingURL=FA18ACC_EFD_FuelSystemExternal.css.map */

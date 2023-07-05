@@ -1,0 +1,20 @@
+﻿<link rel="stylesheet" href="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Common.css" />
+
+<script type="text/html" id="AS04F_EFD_Nozzle">
+    <div id="NOZTitle">NOZ</div>
+    <div id="NOZUnit">%</div>
+    <svg id="NOZLeft" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" stroke="none" class="backgroundCircle FillGreen" />
+        <circle cx="50" cy="50" r="45" stroke="none" class="innerCircle FillBlack" id="NOZLeftDisplayCircle" />
+    </svg>
+    <svg id="NOZRight" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" stroke="none" class="backgroundCircle FillGreen" />
+        <circle cx="50" cy="50" r="5" stroke="none" class="innerCircle FillBlack" id="NOZRightDisplayCircle" />
+    </svg>
+    <div id="NOZLeftValue">72</div>
+    <div id="NOZRightValue">15</div>
+</script>
+
+
+<script type="text/html" import-script="/JS/SimPlane.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Common.js"></script>

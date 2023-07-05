@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "mono";
+    src: url("/Fonts/mono.ttf") format("truetype");
+}
+text1 {
+    font-family: "mono";
+    letter-spacing: 13px;
+}
+text {
+    font-family: "mono";
+    letter-spacing: 2px;
+    fill: rgb(0, 253, 0);
+}
+.barline {
+    fill: rgb(0, 253, 0);
+}
+.linehollow {
+    stroke: rgb(0, 253, 0);
+}
+.linetest {
+    stroke: rgb(253, 55, 0);  
+}
+.linewhite {
+    stroke: rgb(255, 255, 255);  
+}
+.FDBar {
+    fill: rgb(145, 131, 145);
+    stroke: rgb(209, 1, 209);
+}

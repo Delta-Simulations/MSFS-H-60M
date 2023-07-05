@@ -1,0 +1,62 @@
+<Gauge Name="ATT" Version="UH60" Author="DS">
+  <Image Name="ATT_Backgrnd.bmp"/>
+  <Element>
+    <Visible>(A:Circuit general panel on, bool)</Visible>
+    <Element>
+      <Position X="0" Y="0"/>
+      <Image Name="ATT_screen.bmp" Bright="1"/>
+    </Element>
+    <!--==== PITCH ====-->
+    <Element>
+      <Position X="0" Y="0"/>
+      <MaskImage Name="ATT_number_mask.bmp" Bright="1">
+        <Axis X="37" Y="34"/>
+      </MaskImage>
+      <Image Name="ATT_number.bmp" Bright="1">
+        <Axis X="57" Y="130"/>
+      </Image>
+      <Shift>
+        <Value Minimum="-90" Maximum="90">(A:Attitude indicator pitch degrees,degrees) /-/</Value>
+        <Scale Y="1"/>
+        <Delay PixelsPerSecond="90"/>
+        <Failures>
+          <SYSTEM_ELECTRICAL_PANELS Action="-20"/>
+          <SYSTEM_ELECTRICAL_AVIONICS Action="-20"/>
+        </Failures>
+      </Shift>
+      <Rotate>
+        <Value>(A:Attitude indicator bank degrees,radians)</Value>
+        <Delay DegreesPerSecond="180"/>
+        <!--Failures>
+          <SYSTEM_ELECTRICAL_PANELS Action="-20"/>
+          <SYSTEM_ELECTRICAL_AVIONICS Action="-20"/>
+        </Failures-->
+      </Rotate>
+    </Element>
+    <!--==== STRING DISPLAYS ====-->
+    <Element>
+      <Position X="1" Y="30"/>
+      <FormattedText X="18" Y="10" Font="Arial" FontSize="9" LineSpacing="10" Adjust="Right" Color="#FFFFFF" Bright="Yes">
+        <String>%((A:PARTIAL PANEL AIRSPEED,bool))%{if} FAIL%{else}%((A:Airspeed select indicated or true,knots))%!4d!</String>
+      </FormattedText>
+    </Element>
+    <Element>
+      <Position X="51" Y="30"/>
+      <FormattedText X="18" Y="10" Font="Arial" FontSize="9" LineSpacing="10" Adjust="Right" Color="#FFFFFF" Bright="Yes" BackgroundColor="#050505">
+        <String>%((A:PARTIAL PANEL PITOT,bool) (A:PARTIAL PANEL ALTIMETER,bool) ||)%{if} %{else}%((A:Indicated Altitude,feet) 100 / flr)%!3d!%</String>
+      </FormattedText>
+    </Element>
+    <Element>
+      <Position X="1" Y="65"/>
+      <FormattedText X="19" Y="8" Font="Arial" FontSize="8" LineSpacing="8" Adjust="Center" Color="#FFFFFF" Bright="Yes">
+        <String>%((A:PARTIAL PANEL AIRSPEED,bool))%{if} %{else}%((A:Airspeed mach, machs) 0 max 9.99 min)%!1.2f!</String>
+      </FormattedText>
+    </Element>
+    <Element>
+      <Position X="59" Y="65"/>
+      <FormattedText X="19" Y="8" Font="Arial" FontSize="8" LineSpacing="8" Adjust="Center" Color="#FFFFFF" Bright="Yes">
+        <String>%((A:PARTIAL PANEL HEADING,bool))%{if} --%{else}%(360 (A:Plane heading degrees gyro, degrees) dnor near d 0 == ?)%!03d!</String>
+      </FormattedText>
+    </Element>
+  </Element>
+</Gauge>

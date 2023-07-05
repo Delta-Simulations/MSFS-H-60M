@@ -1,0 +1,56 @@
+﻿<link rel="stylesheet" href="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Common.css" />
+
+<script type="text/html" id="AS04F_EFD_FuelSystem">
+    <div id="FuelSystemDisplayMode" state="TopLevel">
+        <div id="TotalFuel">17.6</div>
+        <div id="BingoTitle">BINGO</div>
+        <div id="BingoValue">4.5</div>
+        <div id="INTTitle">INT</div>
+        <div id="INTValue">12.3</div>
+        <div id="TopLevel">
+            <svg id="InternalFuel" viewBox="0 0 150 65">
+                <rect x="30" y="30" height="30" width="120" class="FillGreen" id="InternalFuelDisplay" />
+                <g id="InternalFuelBingo">
+                    <text x="0" y="65" font-size="15" class="FillGreen">B</text>
+                    <polygon points="30,60 15,65 15,55" class="FillGreen" />
+                    <rect x="30" y="59" height="2" width="120" id="InternalFuelBingoLine" />
+                </g>
+                <rect x="30" y="0" height="60" width="120" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+        </div>
+        <div id="Internal">
+            <svg id="IntTank1Fuel" viewBox="0 0 48 55">
+                <rect x="0" y="55" height="0" width="48" class="FillGreen Display" id="IntTank1FuelDisplay" />
+                <rect x="0" y="0" height="55" width="48" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+            <svg id="IntTank2Fuel" viewBox="0 0 48 36">
+                <rect x="0" y="36" height="0" width="48" class="FillGreen Display" id="IntTank2FuelDisplay" />
+                <rect x="0" y="0" height="36" width="48" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+            <svg id="IntTank3Fuel" viewBox="0 0 48 36">
+                <rect x="0" y="36" height="0" width="48" class="FillGreen Display" id="IntTank3FuelDisplay" />
+                <rect x="0" y="0" height="36" width="48" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+            <svg id="IntTank4Fuel" viewBox="0 0 48 55">
+                <rect x="0" y="55" height="0" width="48" class="FillGreen Display" id="IntTank4FuelDisplay" />
+                <rect x="0" y="0" height="55" width="48" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+            <svg id="WingLeftFuel" viewBox="0 0 48 36">
+                <rect x="0" y="36" height="0" width="48" class="FillGreen Display" id="WingLeftFuelDisplay" />
+                <rect x="0" y="0" height="36" width="48" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+            <svg id="WingRightFuel" viewBox="0 0 48 36">
+                <rect x="0" y="36" height="0" width="48" class="FillGreen Display" id="WingRightFuelDisplay" />
+                <rect x="0" y="0" height="36" width="48" fill="none" class="StrokeGreen" stroke-width="2" />
+            </svg>
+            <div class="wingText">WING</div>
+            <div class="LText">L</div>
+            <div class="RText">R</div>
+            <div id="Tank2Value">0.0</div>
+            <div id="Tank3Value">0.0</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" import-script="/JS/SimPlane.js"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/FA18/Shared/EFD/FA18_EFD_Common.js"></script>

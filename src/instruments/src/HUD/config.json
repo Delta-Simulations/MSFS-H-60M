@@ -1,0 +1,9 @@
+{
+    "index": "./index.tsx",
+    "isInteractive": false,
+    "name": "HUD",
+    "dimensions": {
+        "width": 1360,
+        "height": 1350
+    }
+}
