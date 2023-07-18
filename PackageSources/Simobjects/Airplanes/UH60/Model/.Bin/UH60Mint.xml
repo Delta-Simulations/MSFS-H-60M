@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- BY DESTROYER121-NO UNAUTHORISED REDISTRIBUTION -->
+<ModelInfo>
+	<LODS>
+		<LOD minSize="0" 	ModelFile="UH60Mint_LOD00.gltf"/>
+	</LODS>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+    <Include ModelBehaviorFile="Asobo\Common.xml"/>
+		<Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml"/>
+		<Include ModelBehaviorFile="Asobo\Airliner\FMC.xml"/>
+		<Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
+		<Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+
+
+    <Component ID="EFBBRT" Node="TABLET.001">
+      <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+        <EMISSIVE_CODE>
+          (L:Uh60_EFB_BRT, enum) 10 / 0.4 +
+        </EMISSIVE_CODE>
+      </UseTemplate>
+      </Component>
+
+          <!-- GUN FX======================================================-->
+    <Component ID="GUNFX1" Node="FX_GUN_1">
+      <UseTemplate Name="ASOBO_GT_FX"> 
+      <FX_CODE>(L:EFFECT_GUN,bool) 0 &gt; </FX_CODE>
+      <FX_OFFSET_X>0</FX_OFFSET_X>
+      <FX_OFFSET_Y>0</FX_OFFSET_Y>
+      <FX_OFFSET_Z>0</FX_OFFSET_Z>
+      <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
+      </UseTemplate>
+    </Component>
+
+    <Component ID="GUNFX2" Node="FX_GUN_2">
+      <UseTemplate Name="ASOBO_GT_FX"> 
+      <FX_CODE>(L:EFFECT_GUN,bool) 0 &gt; </FX_CODE>
+      <FX_OFFSET_X>0</FX_OFFSET_X>
+      <FX_OFFSET_Y>0</FX_OFFSET_Y>
+      <FX_OFFSET_Z>0</FX_OFFSET_Z>
+      <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
+      </UseTemplate>
+    </Component>
+          <!-- GUN FX======================================================-->
+
+
+<Component ID="OH_PCLS">
+  <Component ID="Lever_PCL2" Node="Lever_PCL2">
+    <UseTemplate Name = "ASOBO_GT_Switch_3States">
+      <ANIM_NAME>Lever_PCL2</ANIM_NAME>
+      <NODE_ID>Lever_PCL2</NODE_ID>
+      <DEFAULT_POS>0</DEFAULT_POS>
+      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+      <SWITCH_POSITION_VAR>H60_PCL2</SWITCH_POSITION_VAR>
+      <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+      <INVERT_ANIM>False</INVERT_ANIM>
+      <CODE_POS_0></CODE_POS_0>
+      <CODE_POS_1></CODE_POS_1>
+      <CODE_POS_2></CODE_POS_2>
+      <ANIMTIP_0>ENG2 FUEL OFF</ANIMTIP_0>
+      <ANIMTIP_1>ENG2 FUEL DIR</ANIMTIP_1>
+      <ANIMTIP_2>ENG2 FUEL XFD</ANIMTIP_2>
+    </UseTemplate>
+  </Component>
+</Component>
+
+<Component ID="OH_ELEC">
+
+	<Component ID="Switch_BATT1" Node="Switch_BATT1">
+		<MouseRect>
+			<MOUSEFLAGS>LeftSingle+LeftRelease+Wheel</MOUSEFLAGS>
+				<Cursor>Hand</Cursor>
+				<TOOLTIPID>BATTERY 1</TOOLTIPID>
+				<CallbackCode>
+					<Code>
+            (M:Event) 'LeftSingle' scmp 0 ==
+            if{ (O:SwitchPOS, enum) ++ 3 % (>O:SwitchPOS, enum) }
+            (M:Event) 'LeftRelease' scmp 0 ==
+            if{ 1 (>O:SwitchPOS, enum) }
+            (M:Event) 'WheelDown' scmp 0 ==
+            if{ (O:SwitchPOS, enum) -- 3 % 0 max (>O:SwitchPOS, enum) }
+					</Code>
+				</CallbackCode>
+		</MouseRect>	
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <ANIM_NAME>Switch_BATT1</ANIM_NAME>
+      <ANIM_CODE>(O:SwitchPOS,enum) 50 *</ANIM_CODE>
+      <ANIM_LENGTH>100</ANIM_LENGTH>
+  </UseTemplate>
+	</Component>	
+
+</Component>
+
+</Behaviors>
+	<!-- CUSTOM ANIMATIONS GO BELOW -->
+
+
+  <Animation name="AmbientSoldierL" guid="36391804-dd08-40ea-bd8d-ea0fe7191df3" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>AmbientSoldierL</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(E:ABSOLUTE TIME, second) 6 % 25 *</Code>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+<Animation name="HH-60W" guid="ceb0c4db-ca4a-4075-b406-a1dd795ada5e" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>HH-60W</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:MODEL_TYPE, enum) 0 == if{ 0 }
+      (L:MODEL_TYPE, enum) 1 == if{ 1 }
+      (L:MODEL_TYPE, enum) 2 == if{ 0 }
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+
+
+
+<Animation name="Panel_EMS" guid="c81d560e-cd12-4c98-af43-771a54fbef07" length="1" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Panel_EMS</Name>
+  <Materials> <Emissive> <Parameter>
+  <Code>
+    (A:CIRCUIT ON:1,bool) 1 == if{ 
+      (L:PNL_LGT, percent) 100 /
+   } els{ 0 }
+  </Code> 
+  </Parameter> </Emissive> </Materials>
+  </PartInfo>
+
+  <Animation name="PNL_GLARESHEILD_EMMS" guid="a7dd4f9f-7067-4c89-a827-94bc1c0f63df" length="1" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+  <Name>PNL_GLARESHEILD_EMMS</Name>
+  <Materials> <Emissive> <Parameter>
+  <Code>(A:LIGHT POTENTIOMETER:2, percent) 100 /</Code> 
+  </Parameter> </Emissive> </Materials>
+  </PartInfo>
+
+<!-- MG GUN======================================-->
+  <Animation name="GUN_CLICK" guid="a9755737-b144-4166-9c2b-ea37eb4c2ab5" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>GUN_CLICK</Name>
+      <AnimLength>50</AnimLength>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>SHOOT</TooltipText>
+        <MouseFlags>LeftRelease+LeftSingle+WheelDown+WheelUp</MouseFlags>
+        <CallbackCode>
+          (M:Event) 'LeftSingle' scmp 0 == if{ 1 (&gt;L:EFFECT_GUN,bool,bool) }
+          (M:Event) 'LeftRelease' scmp 0 == if{ 0 (&gt;L:EFFECT_GUN,bool,bool) }
+          (M:Event) 'WheelDown' scmp 0 ==
+          if{ (L:GunUPDOWN, enum) --  0 max (>L:GunUPDOWN, enum) }
+          (M:Event) 'WheelUp' scmp 0 ==
+          if{ (L:GunUPDOWN, enum) ++  10 min (>L:GunUPDOWN, enum) }
+        </CallbackCode>
+      </MouseRect>
+      <Visibility>
+        <Parameter>
+          <Code>
+            (L:MODEL_TYPE, enum) 0 == if{ 0 }
+            (L:MODEL_TYPE, enum) 1 == if{ 1 }
+            (L:MODEL_TYPE, enum) 2 == if{ 0 }
+          </Code>
+          <Lag>10</Lag>
+        </Parameter>
+      </Visibility>
+      <Animation>
+      <Parameter>
+        <Code>
+            (L:EFFECT_GUN,bool) 100 *
+        </Code>
+    </Parameter>
+  </Animation>
+  </PartInfo>
+
+
+
+  <Animation name="GUN_MOVE" guid="da17f7a2-96dd-4e69-bc74-5ca678d3bdf7" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>GUN_MOVE</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+               <Code>
+                (L:MINIGUN, bool) 1 == if{ 
+                (E:ABSOLUTE TIME, second) 0.1 % 100 *
+                } els{ 0 }
+               </Code>
+      </Parameter>
+      </Animation>
+  </PartInfo>
+  <Animation name="DOOR4" guid="24860126-548e-40fe-bdca-68a2a9b80349" length="1" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>DOOR4</Name>
+    <AnimLength>1</AnimLength>
+    <Visibility>
+    <Parameter>
+      <Code>
+      (L:PART4,bool)
+      if{ 1 } els{ 0 }
+      </Code>
+    </Parameter>
+    </Visibility>
+  </PartInfo>
+  <Animation name="GunUPDOWN" guid="ca79dd08-45a6-43e7-9406-fa7c7601dc2b" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>GunUPDOWN</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>
+              (L:GunUPDOWN,enum) 10 *
+          </Code>
+          <Lag>50</Lag>
+      </Parameter>
+      </Animation>
+    </PartInfo>
+
+  <Animation name="MG_MOUNT_R" guid="68865927-ef7d-439d-b7fe-99f0b4c82b8b" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>MG_MOUNT_R</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>
+              (L:GUN1ANGLE,enum) 10 *
+          </Code>
+          <Lag>50</Lag>
+      </Parameter>
+      </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <MouseFlags>Wheel</MouseFlags>
+        <TooltipText>SWIVEL GUN</TooltipText>
+        <CallbackCode>
+          (M:Event) 'WheelDown' scmp 0 ==
+          if{ (L:GUN1ANGLE, enum) --  0 max (>L:GUN1ANGLE, enum) }
+          (M:Event) 'WheelUp' scmp 0 ==
+          if{ (L:GUN1ANGLE, enum) ++  10 min (>L:GUN1ANGLE, enum) }
+       </CallbackCode>
+          </MouseRect>   
+  </PartInfo>
+  <Animation name="MG_MOUNT_L" guid="28316fba-422d-4f71-87f4-30fe65081094" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>MG_MOUNT_L</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>
+              (L:GUN2ANGLE,enum) 10 *
+          </Code>
+          <Lag>50</Lag>
+      </Parameter>
+      </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <MouseFlags>Wheel</MouseFlags>
+        <TooltipText>SWIVEL GUN</TooltipText>
+        <CallbackCode>
+          (M:Event) 'WheelDown' scmp 0 ==
+          if{ (L:GUN2ANGLE, enum) --  0 max (>L:GUN2ANGLE, enum) }
+          (M:Event) 'WheelUp' scmp 0 ==
+          if{ (L:GUN2ANGLE, enum) ++  10 min (>L:GUN2ANGLE, enum) }
+       </CallbackCode>
+          </MouseRect>
+  </PartInfo>
+
+
+  <Animation name="SRCH LT" guid="0b883d53-d03d-48db-bfd2-2a3fec9d74b5" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>SRCH LT</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+               <Code>
+             (L:Winch_EXT, bool) 100 *
+               </Code>
+             
+      </Parameter>
+      </Animation>
+      <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>TOGGLE HOIST</TooltipText>
+           <CallbackCode>
+     (L:Winch_EXT, bool) ! (>L:Winch_EXT, bool)
+           </CallbackCode>
+      </MouseRect>
+  </PartInfo>
+
+
+
+  <Animation name="SHEILD_M" guid="89975755-2406-41e0-99a7-518cbfcfa97c" type="Sim" typeParam="AutoPlay" />
+  <Animation name="SHEILD_MOVE" guid="d6b8ddb0-fb97-4780-b93e-f1533c6b7a03" type="Sim" typeParam="AutoPlay" />
+  <Animation name="SHEILD_HIDE" guid="6611900b-86d2-478d-9b75-7466a1e6944d" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>SHEILD_M</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+               <Code>
+             (L:SHEILD_M, bool) 100 *
+               </Code>
+             
+      </Parameter>
+      </Animation>
+      <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>TOGGLE SHEILD</TooltipText>
+           <CallbackCode>
+     (L:SHEILD_M, bool) ! (>L:SHEILD_M, bool)
+           </CallbackCode>
+      </MouseRect>
+  </PartInfo>
+
+  <PartInfo>
+      <Name>SHEILD_R</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+             <Code>
+           (L:SHEILD_M, bool) 100 *
+             </Code>  
+             <Lag>30</Lag>
+    </Parameter>
+    </Animation>
+  </PartInfo>
+  
+  <PartInfo>
+    <Name>SHEILD_HIDE</Name>
+    <AnimLength>100</AnimLength>
+    <Visibility>
+      <Parameter>
+        <Code>
+        (L:SHEILD_M,bool)
+        if{ 0 } els{ 1 }
+        </Code>
+      </Parameter>
+      </Visibility>
+</PartInfo>
+
+  <Animation name="WIPER_SWITCH" guid="b436ca33-9a63-44ea-855f-4bd6f3049b0f" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>WIPER_SWITCH</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+               <Code>
+             (L:WIPER, bool) 100 *
+
+               </Code>
+             
+      </Parameter>
+      </Animation>
+      <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>TOGGLE WIPER</TooltipText>
+           <CallbackCode>
+     (L:WIPER, bool) ! (>L:WIPER, bool)
+           </CallbackCode>
+      </MouseRect>
+  </PartInfo>
+
+
+  <Animation name="WARNINGTEST" guid="e734b97f-dd3d-42fd-9a31-40d22682362b" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>WARNINGTEST</Name>
+      <AnimLength>50</AnimLength>
+      <Animation>
+          <Parameter>
+               <Code>(L:MASTER_WARNING_TEST, bool) 50 *</Code>
+      </Parameter>
+      </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>Test lamps</TooltipText>
+        <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
+        <CallbackCode>
+          (M:Event) 'LeftSingle' scmp 0 == if{ 1 (&gt;L:MASTER_WARNING_TEST, bool) }
+          (M:Event) 'LeftRelease' scmp 0 == if{ 0 (&gt;L:MASTER_WARNING_TEST, bool) }
+        </CallbackCode>
+      </MouseRect>
+  </PartInfo>
+  <Animation name="WARNINGLGT" guid="f26a0149-f34b-4f21-807c-a2d0aea46ed0" length="1" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+  <Name>WARNINGLGT</Name>
+  <Materials> <Emissive> <Parameter>
+  <Code>(L:MASTER_WARNING_TEST, bool)</Code> 
+  </Parameter> </Emissive> </Materials>
+  </PartInfo>
+
+
+  <Animation name="AUTOSTRT" guid="372d609f-b78e-4290-86f2-d6b29623217d" length="50" type="Sim" typeparam2="AUTOSTRT" typeparam="AutoPlay" />
+  <PartInfo>
+      <Name>AUTOSTRT</Name>
+      <AnimLength>50</AnimLength>
+      <Animation>
+          <Parameter>
+               <Code>(K:ENGINE_AUTO_START, bool) 50 *</Code>
+              <Lag>20</Lag>
+      </Parameter>
+      </Animation>
+      <MouseRect>
+          <Cursor>Hand</Cursor>
+          <HelpID>HELPID_REAR_DOOR</HelpID>
+          <TooltipID>TOOLTIPTEXT_REAR_DOOR</TooltipID>
+          <CallbackCode>(K:ENGINE_AUTO_START, bool) ! (>K:ENGINE_AUTO_START, bool)
+      </CallbackCode>
+      </MouseRect>
+  </PartInfo>
+
+<!-- LIGHT CONTROLS-->
+
+  <Animation name="PEDALS" guid="2286a57d-af52-4f17-987c-65d3df37cf5d" length="100" type="Sim" typeParam2="PEDALS" typeParam="AutoPlay" />
+	<PartInfo>
+		<Name>PEDALS</Name>
+		<AnimLength>100</AnimLength>
+		<Animation>
+			<Parameter>
+				<Sim>
+					<Variable>RUDDER PEDAL POSITION</Variable>
+					<Units>part</Units>
+					<Scale>50</Scale>
+					<Bias>50</Bias>
+				</Sim>
+			</Parameter>
+		</Animation>
+	</PartInfo>
+
+  <Animation name="EFB_MOVE" guid="cbcaf3e4-a403-49e2-896d-54d975e5128e" type="Sim" typeparam="AutoPlay" />
+  <PartInfo>
+      <Name>EFB_MOVE</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+              <Code>(L:EFB_MOVE, bool) 100 *</Code>
+              <Lag>40</Lag>
+      </Parameter>
+      </Animation>
+  </PartInfo>
+
+
+    <Animation name="FR_CLICK" guid="666a523b-5c61-4aed-ba6a-e743cc6bd841" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>FR_CLICK</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Code>(L:FR_ANIM, bool) 100 *</Code>
+                <Lag>40</Lag>
+        </Parameter>
+        </Animation>
+        <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>DOOR</TooltipText>
+           <CallbackCode>
+     (L:FR_ANIM, bool) ! (>L:FR_ANIM, bool)
+           </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+    <Animation name="FR_ANIM" guid="cf44437d-66b6-4578-9a65-f226b740a895" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>FR_ANIM</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Code>(L:FR_ANIM, bool) 100 *</Code>
+                <Lag>40</Lag>
+        </Parameter>
+        </Animation>
+        <Visibility>
+          <Parameter>
+            <Code>
+              (L:PART1,bool) 1 != 
+            </Code>
+          </Parameter>
+        </Visibility>
+    </PartInfo>
+    <Animation name="FL_CLICK" guid="68280063-f065-46df-8f53-ffaaa601e45b" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>FL_CLICK</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Code>(L:FL_ANIM, bool) 100 *</Code>
+                <Lag>40</Lag>
+        </Parameter>
+        </Animation>
+        <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>DOOR</TooltipText>
+           <CallbackCode>
+     (L:FL_ANIM, bool) ! (>L:FL_ANIM, bool)
+           </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+
+    <Animation name="FL_ANIM" guid="57736207-f830-4b75-be33-1b541a7274a3" type="Sim" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>FL_ANIM</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Code>(L:FL_ANIM, bool) 100 *</Code>
+                <Lag>40</Lag>
+        </Parameter>
+        </Animation>
+        <Visibility>
+          <Parameter>
+            <Code>
+              (L:PART1,bool) 1 != 
+            </Code>
+          </Parameter>
+        </Visibility>
+    </PartInfo>
+<Animation name="tail" guid="d704e833-fd6b-42ea-bbfb-f05b962429ea" length="100" type="Sim" typeparam2="tail" typeparam="AutoPlay" />
+    <PartInfo>
+        <Name>tail</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>
+            <Parameter>
+                 <Code>(L:DOORS_OPEN_TAIL, bool) 50 *</Code>
+                <Lag>20</Lag>
+        </Parameter>
+        </Animation>
+        <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>TOGGLE TAIL</TooltipText>
+           <CallbackCode>
+     (L:DOORS_OPEN_TAIL, bool) ! (>L:DOORS_OPEN_TAIL, bool)
+           </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+
+
+    <Animation name="Light_SEARCH" guid="ba458146-b900-4f42-a321-142f09193b96" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>Light_SEARCH</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>(L:Light_SEARCH, enum) 10 *</Code>
+        </Parameter>
+      </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>MOVE SEARCH LIGHT</TooltipText>
+        <MouseFlags>LeftSingle+LeftDrag+Wheel+RightSingle</MouseFlags>
+           <CallbackCode>
+              (M:Event) 'WheelDown' scmp 0 ==
+              if{ (L:Light_SEARCH, enum) --  0 max (>L:Light_SEARCH, enum) }
+              (M:Event) 'WheelUp' scmp 0 ==
+              if{ (L:Light_SEARCH, enum) ++  10 min (>L:Light_SEARCH, enum) }
+
+              (M:Event) 'LeftSingle' scmp 0 ==
+              if{ (L:Light_ROTATE, enum) --  0 max (>L:Light_ROTATE, enum) }
+              (M:Event) 'RightSingle' scmp 0 ==
+              if{ (L:Light_ROTATE, enum) ++  10 min (>L:Light_ROTATE, enum) }
+           </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+
+<Animation name="Part1" guid="600b7c6f-9eff-4869-beb8-4db14e89a407" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>Part1</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:PART1, bool) 100 *</Code>
+            
+    </Parameter>
+    </Animation>
+    <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>TOGGLE PILOT DOORS</TooltipText>
+          <CallbackCode>
+    (L:PART1, bool) ! (>L:PART1, bool)
+          </CallbackCode>
+    </MouseRect>
+</PartInfo>
+
+<Animation name="Part2" guid="02d87ba9-3058-48c3-8e09-59415270a103" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>Part2</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:PART2, bool) 100 *</Code>
+        
+    </Parameter>
+    </Animation>
+    <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>TOGGLE GUNNER DOORS</TooltipText>
+          <CallbackCode>
+    (L:PART2, bool) ! (>L:PART2, bool)
+          </CallbackCode>
+    </MouseRect>
+</PartInfo>
+
+<Animation name="Part3" guid="7e5b85be-4761-4d27-a980-9017741f8e55" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>Part3</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:DOORS_OPEN_REAR, bool) 100 *</Code>
+    </Parameter>
+    </Animation>
+    <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>TOGGLE REAR DOORS</TooltipText>
+          <CallbackCode>
+    (L:DOORS_OPEN_REAR, bool) ! (>L:DOORS_OPEN_REAR, bool)
+          </CallbackCode>
+    </MouseRect>
+</PartInfo>
+
+<Animation name="FLARE_TOGGLE" guid="3b308098-bbb1-4f24-b694-787549039f04" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>FLARE_TOGGLE</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:EFFECT_FLARE, bool) 100 *</Code>
+    </Parameter>
+    </Animation>
+    <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>DISPENSE FLARE</TooltipText>
+          <CallbackCode>
+    (L:EFFECT_FLARE, bool) ! (>L:EFFECT_FLARE, bool)
+          </CallbackCode>
+    </MouseRect>
+</PartInfo>
+
+
+
+<Animation name="Part5" guid="2c049302-eac9-4f5b-b6e7-eeab4f403bcf" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Part5</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+      <Parameter>
+          <Code>
+              (L:PART5,enum) 33 *
+          </Code>
+          <Lag>100</Lag>
+      </Parameter>
+  </Animation>
+  <MouseRect>
+<Cursor>Hand</Cursor>
+<TooltipText>SLING CARGO(WHEEL)</TooltipText>
+<MouseFlags>Wheel</MouseFlags>
+         <CallbackCode>
+            (M:Event) 'WheelDown' scmp 0 ==
+            if{ (L:PART5, enum) --  0 max (>L:PART5, enum) }
+            (M:Event) 'WheelUp' scmp 0 ==
+            if{ (L:PART5, enum) ++  3 min (>L:PART5, enum) }
+         </CallbackCode>
+  </MouseRect>
+</PartInfo>
+
+<Animation name="Part4" guid="5c0d3122-7f67-413e-b6ca-b8895624ee7d" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>Part4</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+              <Code>(L:EFFECT_WATER, bool) 100 *</Code>
+    </Parameter>
+    </Animation>
+    <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>TOGGLE WATER DROP</TooltipText>
+          <CallbackCode>
+    (L:EFFECT_WATER, bool) ! (>L:EFFECT_WATER, bool)
+          </CallbackCode>
+    </MouseRect>
+</PartInfo>
+    <Animation name="ADDITIONSVIS" guid="4e710b62-820e-4e9b-9683-fc47c70386f5" length="100" type="Sim" typeParam2="ADDITIONSVIS" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>ADDITIONSVIS</Name>
+      <AnimLength>100</AnimLength>
+      <Animation>
+          <Parameter>
+              <Code>
+                  (L:ADDITIONSVIS,enum) 33 *
+              </Code>
+          </Parameter>
+      </Animation>
+      <MouseRect>
+    <Cursor>Hand</Cursor>
+    <TooltipText>EXT PARTS(WHEEL)</TooltipText>
+    <MouseFlags>Wheel</MouseFlags>
+       <CallbackCode>
+          (M:Event) 'WheelDown' scmp 0 ==
+          if{ (L:ADDITIONSVIS, enum) --  0 max (>L:ADDITIONSVIS, enum) }
+          (M:Event) 'WheelUp' scmp 0 ==
+          if{ (L:ADDITIONSVIS, enum) ++  3 min (>L:ADDITIONSVIS, enum) }
+
+
+       </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+
+
+  <Animation name="switch_master_ignition" guid="3b8ae33a-1223-416c-9dca-ed0518893ce2" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>switch_master_ignition</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+             <Code>
+           (L:MASTER_IGNITION, bool) 100 *
+             </Code>
+           
+    </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <TooltipText>TOGGLE IGNITION</TooltipText>
+       <CallbackCode>
+ (L:MASTER_IGNITION, bool) ! (>L:MASTER_IGNITION, bool)
+       </CallbackCode>
+  </MouseRect>
+</PartInfo>
+
+
+  <Animation name="STARTER_APU" guid="87c871d4-8178-4880-b0e4-82f9ab129906" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>STARTER_APU</Name>
+      <AnimLength>50</AnimLength>
+      <Animation>
+          <Parameter>
+              <Code>
+                  (L:FE.APUSTART,enum) 25 *
+              </Code>
+              <Lag>100</Lag>
+          </Parameter>
+      </Animation>
+      <MouseRect>
+    <Cursor>Hand</Cursor>
+    <MouseFlags>LeftSingle+LeftRelease+Wheel</MouseFlags>
+       <CallbackCode>
+          (M:Event) 'LeftSingle' scmp 0 ==
+          if{ (L:FE.APUSTART, enum) ++ 3 % (>L:FE.APUSTART, enum) }
+          (M:Event) 'LeftRelease' scmp 0 ==
+          if{ 1 (>L:FE.APUSTART, enum) }
+          (M:Event) 'WheelDown' scmp 0 ==
+          if{ (L:FE.APUSTART, enum) -- 3 % 0 max (>L:FE.APUSTART, enum) }
+       </CallbackCode>
+  </MouseRect>
+  </PartInfo>
+
+
+  <Animation name="switch_fuel_pump_1" guid="6101f0d9-6589-40d0-b207-e0f217a33bdd" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>switch_fuel_pump_1</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>
+            <Parameter>
+				 <Code>
+                 	(A:FUELSYSTEM PUMP SWITCH:1, bool) 0 == if{ 0 } els{ 100 }
+                 </Code>
+				<Lag>100</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+            <TooltipText>%((A:FUELSYSTEM PUMP SWITCH:1, bool))%{if}L ENG PUMP(on)%{else}L ENG PUMP(off)%{end}</TooltipText>
+             <CallbackCode>
+                1  (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+             </CallbackCode>
+        </MouseRect>
+    </PartInfo>
+
+  <Animation name="switch_fuel_pump_2" guid="5692e79e-6336-42eb-8994-2ac7009c8634" type="Sim" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>switch_fuel_pump_2</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>
+            <Parameter>
+				 <Code>
+                 	(A:FUELSYSTEM PUMP SWITCH:2, bool) 0 == if{ 0 } els{ 100 }
+                 </Code>
+				<Lag>100</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+            <TooltipText>%((A:FUELSYSTEM PUMP SWITCH:2, bool))%{if}R ENG PUMP(on)%{else}R ENG PUMP(off)%{end}</TooltipText>
+             <CallbackCode>
+                2  (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+             </CallbackCode>
+        </MouseRect>
+    </PartInfo>
+
+
+<Animation name="lever_bleed_air_source"          guid="AFF388BB-2942-477d-B4E9-BCC2A9309FFF" type="Sim" typeParam="AutoPlay"  length="100" typeParam2="lever_bleed_air_source"/>
+<PartInfo>
+  <Name>lever_bleed_air_source</Name>
+  <AnimLength>50</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>
+          (A:BLEED AIR SOURCE CONTROL, enum) 1 == if{ 25 }
+          (* Animation frame 50 = APU, 25 == off, 0 = engines *)
+          (A:BLEED AIR SOURCE CONTROL, enum) 2 == if{ 50 }
+          (A:BLEED AIR SOURCE CONTROL, enum) 3 == if{ 0 }
+          (A:BLEED AIR SOURCE CONTROL, enum) 0 == if{ 0 }
+      </Code>          
+    </Parameter>
+  </Animation>
+  <MouseRect>
+    <Cursor>Hand</Cursor>
+    <CallbackCode>(A:BLEED AIR SOURCE CONTROL, enum) ++ d 3 &gt; if{ 1 } (&gt;K:BLEED_AIR_SOURCE_CONTROL_SET)</CallbackCode>
+    <TooltipID>TOOLTIPTEXT_CRJ_BLEED_AIR_SOURCE</TooltipID>
+  </MouseRect>
+</PartInfo>
+
+
+<Animation name="lever_throttle" guid="83cbd5c1-e05d-4e69-8d60-31815417d33b" length="50" type="Sim" typeParam2="lever_throttle" typeParam="AutoPlay" />
+<Animation name="lever_throttle0" guid="4d9783d7-0698-4bc7-9f28-e8f9dcf15eed" typeParam2="lever_throttle0" length="100" type="Sim" typeParam="AutoPlay" />
+  <Animation name="lever_throttle1" guid="077a4e1f-c2db-40b0-a11b-66846344b8f3" typeParam2="lever_throttle1" length="100" type="Sim" typeParam="AutoPlay" />
+  <Animation name="collective" guid="0e576083-b82b-4e48-b425-7dc058f0d359" typeParam2="collective" length="100" type="Sim" typeParam="AutoPlay" />
+  <Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" length="100" type="Sim" typeparam2="lever_stick_fore_aft" typeparam="AutoPlay" />
+  <Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" length="100" type="Sim" typeparam2="lever_stick_l_r" typeparam="AutoPlay" />
+  <PartInfo>
+    <Name>lever_throttle</Name>
+    <AnimLength>50</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+            (A:GENERAL ENG THROTTLE LEVER POSITION:1, part) s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
+          </Code>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_GAUGE_THROTTLE_THROTTLE</HelpID>
+      <TooltipID>TOOLTIPTEXT_THROTTLE_THROTTLE_PERCENT</TooltipID>
+      <MouseFlags>LeftSingle+LeftDrag+Wheel</MouseFlags>
+      <CallbackDragging>
+        <Variable>GENERAL ENG THROTTLE LEVER POSITION:1</Variable>
+        <Units>percent</Units>
+        <Scale>163.84</Scale>
+        <YScale>-163.84</YScale>
+        <MinValue>-16384</MinValue>
+        <MaxValue>16384</MaxValue>
+        <EventID>THROTTLE1_SET</EventID>
+      </CallbackDragging>
+    </MouseRect>
+  </PartInfo>
+  <PartInfo>
+    <Name>lever_throttle0</Name>
+    <Copy>lever_throttle</Copy>
+    <MouseRect>
+      <TooltipID>TOOLTIPTEXT_THROTTLE_ENG1_THROTTLE_PERCENT</TooltipID>
+      <CallbackDragging>
+        <Variable>GENERAL ENG THROTTLE LEVER POSITION:1</Variable>
+        <EventID>THROTTLE1_SET</EventID>
+      </CallbackDragging>
+    </MouseRect>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+                    (L:EmergencyThrottleInUse, bool) 1 !=
+                    if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, part) s0 0 &gt;=
+                    if{ l0 -50 * 50 + }
+                    els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
+                    d (&gt;L:Engine1ThrottlePosition, percent)
+                    }
+                    els{ (L:Engine1ThrottlePosition, percent) }
+                </Code>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+  <PartInfo>
+    <Name>lever_throttle1</Name>
+    <Copy>lever_throttle</Copy>
+    <MouseRect>
+      <TooltipID>TOOLTIPTEXT_THROTTLE_ENG2_THROTTLE_PERCENT</TooltipID>
+      <CallbackDragging>
+        <Variable>GENERAL ENG THROTTLE LEVER POSITION:2</Variable>
+        <EventID>THROTTLE2_SET</EventID>
+      </CallbackDragging>
+    </MouseRect>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+                    (A:GENERAL ENG THROTTLE LEVER POSITION:2, part) s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
+                </Code>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>collective</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+          (A:GENERAL ENG THROTTLE LEVER POSITION:1, part)  (A:GENERAL ENG THROTTLE LEVER POSITION:2, part) max s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
+                </Code>
+      </Parameter>
+    </Animation>
+        <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_GAUGE_THROTTLE_THROTTLE</HelpID>
+      <TooltipID>TOOLTIPTEXT_THROTTLE_THROTTLE_PERCENT</TooltipID>
+      <MouseFlags>LeftSingle+LeftDrag+Wheel</MouseFlags>
+      <CallbackDragging>
+        <Variable>GENERAL ENG THROTTLE LEVER POSITION:1</Variable>
+        <Units>percent</Units>
+        <Scale>163.84</Scale>
+        <YScale>-163.84</YScale>
+        <MinValue>-16384</MinValue>
+        <MaxValue>16384</MaxValue>
+        <EventID>THROTTLE1_SET</EventID>
+      </CallbackDragging>
+    </MouseRect>
+  </PartInfo>
+  <Animation name="lever_parking_brake" guid="29f0a65b-cad5-4b72-9eb0-3c6b78b76f8d" typeParam2="lever_parking_brake" length="100" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>lever_parking_brake</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_GAUGE_PARKING_BRAKE</HelpID>
+      <TooltipID>TOOLTIPTEXT_PARKING_BRAKE</TooltipID>
+      <EventID>PARKING_BRAKES</EventID>
+    </MouseRect>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>BRAKE PARKING POSITION</Variable>
+          <Units>percent</Units>
+          <Scale>1</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>100</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+<Animation name="Pilot_collective" guid="64e3da0f-44a8-45f1-a2e8-7705d42aeba3" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>Pilot_collective</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+      <Parameter>
+        <Code>
+          (A:GENERAL ENG THROTTLE LEVER POSITION:1, part)  (A:GENERAL ENG THROTTLE LEVER POSITION:2, part) max s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
+                </Code>
+      </Parameter>
+  </Animation>
+</PartInfo>
+<Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" length="100" type="Sim" typeparam2="lever_stick_l_r" typeparam="AutoPlay" />
+<Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" length="100" type="Sim" typeparam2="lever_stick_fore_aft" typeparam="AutoPlay" />
+  <PartInfo>
+    <Name>lever_stick_l_r</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+            <Sim>
+                <Variable>YOKE X POSITION</Variable>
+                <Units>percent</Units>
+                <Scale>0.5</Scale>
+                <Bias>50</Bias>
+            </Sim>
+        </Parameter>
+    </Animation>
+</PartInfo>
+<PartInfo>
+    <Name>lever_stick_fore_aft</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+            <Sim>
+                <Variable>YOKE Y POSITION</Variable>
+                <Units>percent</Units>
+                <Scale>0.5</Scale>
+                <Bias>50</Bias>
+            </Sim>
+        </Parameter>
+    </Animation>
+</PartInfo>
+
+
+<Animation name="lever_fuel_cutoff_1" guid="0bffa20e-be81-4192-873e-1114ebba1580" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>lever_fuel_cutoff_1</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+          <Parameter>
+				      <Code>
+                 	(A:FUELSYSTEM VALVE SWITCH:1,bool) 1 == if{ 100 } els{ 0 }
+              </Code>
+				     <Lag>100</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+            <TooltipText>%((A:FUELSYSTEM VALVE SWITCH:1, bool))%{if}LEFT ENG CUTOFF (on)%{else}LEFT ENG CUTOFF (off)%{end}</TooltipText>
+             <CallbackCode>
+                1  (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
+             </CallbackCode>
+        </MouseRect>
+</PartInfo>
+<Animation name="lever_fuel_cutoff_2" guid="fd7e4fe5-4fc3-4393-bf0b-6aef0a5df0eb" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>lever_fuel_cutoff_2</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+          <Parameter>
+				      <Code>
+                 	(A:FUELSYSTEM VALVE SWITCH:2,bool) 1 == if{ 100 } els{ 0 }
+              </Code>
+				     <Lag>100</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+            <TooltipText>%((A:FUELSYSTEM VALVE SWITCH:2, bool))%{if}RIGHT ENG CUTOFF (on)%{else}RIGHT ENG CUTOFF (off)%{end}</TooltipText>
+             <CallbackCode>
+                2  (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
+             </CallbackCode>
+        </MouseRect>
+</PartInfo>
+
+  <Animation name="switch_pitot_heat" guid="ce7f27f8-15a7-48a3-83c0-90d801c35a37" typeParam2="switch_pitot_heat" length="50" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>switch_pitot_heat</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_GAUGE_PITOT_HEAT_SWITCH</HelpID>
+      <TooltipID>TOOLTIPTEXT_PITOT_HEAT_SWITCH</TooltipID>
+      <EventID>PITOT_HEAT_TOGGLE</EventID>
+    </MouseRect>
+    <AnimLength>50</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>PITOT HEAT</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="switch_anti_ice_eng0" guid="845A82A3-C004-4194-AB77-6FE1B81F9A38" typeParam2="switch_anti_ice_eng0" length="50" type="Sim" typeParam="AutoPlay" />
+  <Animation name="switch_anti_ice_eng1" guid="35A42476-56F1-4c9c-AB83-5DF1332390AC" typeParam2="switch_anti_ice_eng1" length="50" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>switch_anti_ice_eng0</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <EventID>ANTI_ICE_TOGGLE_ENG1</EventID>
+      <TooltipID>TOOLTIPTEXT_ENG_ANTI_ICE_SWITCH</TooltipID>
+    </MouseRect>
+    <AnimLength>50</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>GENERAL ENG ANTI ICE POSITION:1</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>switch_anti_ice_eng1</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <EventID>ANTI_ICE_TOGGLE_ENG2</EventID>
+      <TooltipID>TOOLTIPTEXT_ENG_ANTI_ICE_SWITCH</TooltipID>
+    </MouseRect>
+    <AnimLength>50</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>GENERAL ENG ANTI ICE POSITION:2</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+<Animation name="NVG TOGGLE" guid="26123f91-78ad-462b-82e1-2c3a63e33f68" length="50" type="Sim" typeParam2="NVG TOGGLE" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>NVG TOGGLE</Name>
+        <AnimLength>50</AnimLength>
+        <Animation>switch_autopilot_master
+            <Parameter>
+				 <Code>
+          (L:HUD_DISABLE,bool) 1 == if{ 20 } els{ 0 }
+          </Code>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+            <TooltipText>%((L:HUD_DISABLE, bool))%{if}SHOW PILOT%{else}HIDE PILOT%{end}</TooltipText>
+             <CallbackCode>
+                	(L:HUD_DISABLE,bool) ! 	(&gt;L:HUD_DISABLE,bool)
+             </CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="NVG LIGHT" guid="00d21182-febf-49a4-8205-01a259da901b" length="1" type="Sim" typeParam2="NVG LIGHT" typeParam="AutoPlay" />
+	<PartInfo>
+		<Name>NVG LIGHT</Name>
+		<AnimLength>1</AnimLength>
+		<Visibility>
+			<Parameter>
+				<Code>
+          (L:HUD_DISABLE,bool) (A:ELECTRICAL MASTER BATTERY, bool) and
+          if{ 1 } els{ 0 }
+				</Code>
+			</Parameter>
+		</Visibility>
+	</PartInfo>
+
+  <Animation name="WARNING_AIRLAND" guid="0a4439ac-33d1-4b48-b905-f4d9418d9e99" length="1" type="Sim" typeParam="AutoPlay" />
+	<PartInfo>
+		<Name>WARNING_AIRLAND</Name>
+		<AnimLength>1</AnimLength>
+		<Visibility>
+			<Parameter>
+				<Code>
+0
+				</Code>
+			</Parameter>
+		</Visibility>
+	</PartInfo>
+
+  <Animation name="HUD_VIS" guid="7160adb7-e926-45c9-bb3f-2ecf84962bef" type="Sim" typeParam="AutoPlay" />
+	<PartInfo>
+		<Name>HUD_VIS</Name>
+		<AnimLength>1</AnimLength>
+    <Materials> <Emissive> <Parameter>
+      <Code>(L:HUDEMIS, percent) 2 /</Code> 
+      </Parameter> </Emissive> </Materials>
+	</PartInfo>
+
+<Animation name="HUD_ON" guid="045c9674-2afc-40b0-b267-02662f27080c" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>HUD_ON</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>(L:HUDPWR, bool) 100 *</Code>
+    </Parameter>
+  </Animation>
+  <MouseRect>
+    <Cursor>Hand</Cursor>
+    <TooltipText>HUD POWER</TooltipText>
+    <MouseFlags>LeftSingle</MouseFlags>
+    <CallbackCode>
+      (L:HUDPWR,bool) ! (&gt;L:HUDPWR,bool)
+    </CallbackCode>
+  </MouseRect>
+</PartInfo>
+
+
+<Animation name="switch_flight_director" guid="dfab66dd-4abc-4d6e-a338-a4e2ec849add" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>switch_flight_director</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</TooltipID>
+      <EventID>TOGGLE_FLIGHT_DIRECTOR</EventID>
+    </MouseRect>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT FLIGHT DIRECTOR ACTIVE</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+<Animation name="switch_taxi_light" guid="3bf59f9d-0f8b-4eee-b1ca-d561d5050ea2" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>switch_taxi_light</Name>
+  <AnimLength>50</AnimLength>
+  <Animation>
+      <Parameter>
+          <Sim>
+              <Variable>LIGHT TAXI</Variable>
+              <Units>bool</Units>
+              <Scale>50</Scale>
+          </Sim>
+      </Parameter>
+  </Animation>
+  <MouseRect>
+    <Cursor>Hand</Cursor>
+    <TooltipText>TAXI LIGHTS</TooltipText>
+     <CallbackCode>
+      1 (&gt;K:TOGGLE_TAXI_LIGHTS)
+     </CallbackCode>
+  </MouseRect>
+</PartInfo>
+
+<Animation name="MFD PWR" guid="306d1bf5-9868-43ef-99cf-e54271d4720f" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>MFD PWR</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(A:CIRCUIT ON:40, Bool) 100 * </Code>
+        <Lag>50</Lag>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
+      <CallbackCode>
+        (A:CIRCUIT ON:40, bool)!(&gt;A:CIRCUIT ON:40, bool)
+			</CallbackCode>
+    </MouseRect>
+</PartInfo>
+
+<Animation name="MFD PFD" guid="fa4ed2eb-f615-410a-87cd-20570fb6da19" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>MFD PFD</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(L:DISP_TYPE,enum) 100 * </Code>
+        <Lag>30</Lag>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
+      <CallbackCode>
+				(M:Event) 'LeftSingle' scmp 0 == if{ 0 (&gt;L:DISP_TYPE,enum) 0 (&gt;L:DISP_TYPE,enum) }
+				(M:Event) 'LeftRelease' scmp 0 == if{ 0 (&gt;L:DISP_TYPE,enum) }
+			</CallbackCode>
+    </MouseRect>
+</PartInfo>
+<Animation name="MFD ND" guid="36a89ff1-6474-4e6a-a647-bc35872e4263" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>MFD ND</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(L:DISP_TYPE,enum) 100 * </Code>
+        <Lag>30</Lag>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
+      <CallbackCode>
+				(M:Event) 'LeftSingle' scmp 0 == if{ 1 (&gt;L:DISP_TYPE,enum) 1 (&gt;L:DISP_TYPE,enum) }
+				(M:Event) 'LeftRelease' scmp 0 == if{ 1 (&gt;L:DISP_TYPE,enum) }
+			</CallbackCode>
+    </MouseRect>
+</PartInfo>
+<Animation name="MFD EICAS" guid="b1648e44-ed4b-4eb0-8351-c4e7a905c9e4" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>MFD EICAS</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(L:DISP_TYPE,enum) 100 * </Code>
+        <Lag>30</Lag>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
+      <CallbackCode>
+				(M:Event) 'LeftSingle' scmp 0 == if{ 2 (&gt;L:DISP_TYPE,enum) 2 (&gt;L:DISP_TYPE,enum) }
+				(M:Event) 'LeftRelease' scmp 0 == if{ 2 (&gt;L:DISP_TYPE,enum) }
+			</CallbackCode>
+    </MouseRect>
+</PartInfo>
+
+
+</ModelInfo>

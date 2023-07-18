@@ -11,7 +11,7 @@ import { Collective } from './Components/Collective';
 import { HeadingBug } from './Components/HeadingBug';
 import { FlightDirector } from './Components/flightDirector';
 import { AltCircle } from './Components/AltCircle';
-import { VerticalSpeed } from './Components/VerticalSpeed';
+import { VerticalSpeed } from './Components/verticalSpeed';
 
 import { EICAS } from './Components/EICAS';
 import { EICASFuel } from './Components/EICASFuel';
@@ -39,7 +39,7 @@ const PFD = () => {
     const [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
 
 return(
-    <Electricity circuit='32'>
+    <Electricity circuit='14'>
             <svg viewBox='0 0 1024 768'>
                 <rect x={0} y={0} width={1024} height={768} fill='#00000'/>
                 <g transform="translate(-9,0)">

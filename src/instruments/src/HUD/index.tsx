@@ -36,7 +36,7 @@ const HUD = () => {
 
     let indicator: boolean = HUD_OVERLAY
     return(
-        <Electricity circuit='32'>
+        <Electricity circuit='14'>
             <HUDPower localVar="HUDPWR">
             <svg viewBox='0 0 1360 1350'>
                 <g>

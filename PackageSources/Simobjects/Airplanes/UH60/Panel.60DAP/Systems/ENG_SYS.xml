@@ -1,147 +1,127 @@
 <Gauge Name="ENG_SYS" Version="1.0">
-<Update Frequency="10"/>
-<Comment>
-	*************************************************
-	FOR DELTA SIMULATIONS UH60M
-	Produced by Destroyer121 (delta.simulations0@gmail.com)
-	*************************************************
-</Comment>
+	<Update Frequency="10"/>
+	<Comment>
+		*************************************************
+		FOR DELTA SIMULATIONS UH60M
+		Produced by Destroyer121 (delta.simulations0@gmail.com)
+		*************************************************
 
-<!--  Engine and Power States (Convenience variables) -->
-<Element>
-	<Select>
-		<Value>
-
-		(A:Eng1 Combustion,bool) 1 ==
-		if{ 1 (&gt;L:Eng1Running,bool) } 
-		els{ 0 (&gt;L:Eng1Running,bool) } 
-
-		(A:Eng2 Combustion,bool) 1 ==
-		if{ 1 (&gt;L:Eng2Running,bool) } 
-		els{ 0 (&gt;L:Eng2Running,bool) } 
-
-		(L:Eng1Running,bool) (L:Eng2Running,bool) &amp;&amp;
-		if{ 1 (&gt;L:BothEngRunning,bool) } 
-		els{ 0 (&gt;L:BothEngRunning,bool) } 
-
-		(L:Eng1Running,bool) 1 == (L:BothEngRunning,bool) 0 == &amp;&amp;
-		if{ 1 (&gt;L:Eng1RunningOnly,bool) } 
-		els{ 0 (&gt;L:Eng1RunningOnly,bool) } 
-
-		(L:Eng2Running,bool) 1 == (L:BothEngRunning,bool) 0 == &amp;&amp;
-		if{ 1 (&gt;L:Eng2RunningOnly,bool) } 
-		els{ 0 (&gt;L:Eng2RunningOnly,bool) } 
-
-		(L:Eng1Running,bool) 0 == (L:Eng2Running,bool) 0 == &amp;&amp;
-		if{ 1 (&gt;L:BothEngOff,bool) } 
-		els{ 0 (&gt;L:BothEngOff,bool) }
-
-		(L:Eng1Running,bool) (L:Eng2Running,bool) + 
-		(&gt;L:TotEngRunning,enum)
-
-		</Value>
-	</Select>
-</Element>
-
-
-
-	<!-- <Element>
-		<Select>
-			  <Value>
-			(A:GENERAL ENG STARTER:1,bool) 1 == 
-			(A:GENERAL ENG STARTER:2,bool) 1 == and
-
-			(A:TURB ENG1 CORRECTED N1,PERCENT) 2 &gt; and
-			(A:TURB ENG2 CORRECTED N2,PERCENT) 2 &gt; and
-
-			(L:BothEngOff,bool) 1 == and	
-			 		
-				if{ 
-					1 (>L:STARTER_AUTO,bool) 
-				}
-				els{ 
-					0 (>L:STARTER_AUTO,bool) 
-				}					
-			  </Value>
-		</Select>
-	</Element> -->
-
-<Element>
-	<Select>
-			<Value>
-				<!-- (&gt;K:ENGINE_AUTO_START) -->
-			(A:GENERAL ENG STARTER:1,bool) 1 == 
-			(A:GENERAL ENG STARTER:2,bool) 1 == or
-			(L:MASTER_IGNITION,bool) 1 == and
-			(A:CIRCUIT ON:6,bool) 1 == and
-			(A:FUELSYSTEM VALVE SWITCH:1,bool) 1 == and
-			(A:FUELSYSTEM VALVE SWITCH:2,bool) 1 == and
-			(A:FUELSYSTEM PUMP SWITCH:2,bool) 1 == and
-			(A:FUELSYSTEM PUMP SWITCH:1,bool) 1 == and
-			(A:GENERAL ENG MAX REACHED RPM:1,RPM) 20 &gt; and
-			(A:GENERAL ENG MAX REACHED RPM:2,RPM) 20 &gt; and
-			(L:PCL2, number) 0 != and
-			(L:PCL1, number) 0 != and
-			
-			if{ 
-				1 (&gt;L:AUTO_START_ACTIVE,bool) 
-				1 (&gt;K:ENGINE_AUTO_START)
-			} 
-			els{ 
-				0 (>L:AUTO_START_ACTIVE,bool) 
-			}
-			</Value>
-	</Select>
-</Element>
-
+		[1] [0] (>K:2:[key_event_name])
+		[1] [0] (>K:2:ALTERNATOR_SET)
+	</Comment>
 	
-<Element>
-	<Select>
+	<!--  Engine and Power States (Convenience variables) -->
+	<Element>
+		<Select>
 			<Value>
-			(L:FE.APUSTART, enum) 2 == if{ 1 (>K:APU_STARTER, bool) }
-			(L:FE.APUSTART, enum) 0 == if{ 1 (>K:APU_OFF_SWITCH, bool) }
+	
+			(A:Eng1 Combustion,bool) 1 ==
+			if{ 1 (&gt;L:Eng1Running,bool) } 
+			els{ 0 (&gt;L:Eng1Running,bool) } 
+	
+			(A:Eng2 Combustion,bool) 1 ==
+			if{ 1 (&gt;L:Eng2Running,bool) } 
+			els{ 0 (&gt;L:Eng2Running,bool) } 
+	
+			(L:Eng1Running,bool) (L:Eng2Running,bool) &amp;&amp;
+			if{ 1 (&gt;L:BothEngRunning,bool) } 
+			els{ 0 (&gt;L:BothEngRunning,bool) } 
+	
+			(L:Eng1Running,bool) 1 == (L:BothEngRunning,bool) 0 == &amp;&amp;
+			if{ 1 (&gt;L:Eng1RunningOnly,bool) } 
+			els{ 0 (&gt;L:Eng1RunningOnly,bool) } 
+	
+			(L:Eng2Running,bool) 1 == (L:BothEngRunning,bool) 0 == &amp;&amp;
+			if{ 1 (&gt;L:Eng2RunningOnly,bool) } 
+			els{ 0 (&gt;L:Eng2RunningOnly,bool) } 
+	
+			(L:Eng1Running,bool) 0 == (L:Eng2Running,bool) 0 == &amp;&amp;
+			if{ 1 (&gt;L:BothEngOff,bool) } 
+			els{ 0 (&gt;L:BothEngOff,bool) }
+	
+			(L:Eng1Running,bool) (L:Eng2Running,bool) + 
+			(&gt;L:TotEngRunning,enum)
+	
 			</Value>
-	</Select>
-</Element>
+		</Select>
+	</Element>
+	
+	
+	<Element>
+		<Select>
+				<Value>
+	
+					(L:H60_Switch_EXT_PWR) 1 == 
+					if{ 1 1 (&gt;K:2:SET_EXTERNAL_POWER) } 
+					els{ 0 1 (&gt;K:2:SET_EXTERNAL_POWER) }
+	
+					(A:FUELSYSTEM JUNCTION SETTING:1, enum) (&gt;L:TESTRUN)
+					(A:FUELSYSTEM JUNCTION SETTING:2, enum) (&gt;L:TESTRUN2)
+	
+					(L:H60_Switch_BATT1) 1 ==
+					if{ 1 (&gt;K:MASTER_BATTERY_ON) }
+					els{ 0 (&gt;K:MASTER_BATTERY_OFF) }
+	
+					(L:H60_Switch_GEN_APU) 1 ==
+					if{ 1 (&gt;K:APU_GENERATOR_SWITCH_SET) }
+					els{ 0 (&gt;K:APU_GENERATOR_SWITCH_SET) }
 
+					(L:H60_Switch_GEN_ENG1) 1 ==
+					if{ 1 1 (>K:2:ALTERNATOR_SET) }
+					els{ 1 0 (>K:2:ALTERNATOR_SET) }
+					(L:H60_Switch_GEN_ENG2) 1 ==
+					if{ 2 1 (>K:2:ALTERNATOR_SET) }
+					els{ 2 0 (>K:2:ALTERNATOR_SET) }
+	
+					(L:H60_Fuel_Prime, enum) 2 ==
+					if{ 
+						3 (&gt;K:FUELSYSTEM_PUMP_ON) 
+					} els{
+						3 (&gt;K:FUELSYSTEM_PUMP_OFF) 
+					}
+	
+					(L:H60_Fuel1, enum) 0 ==
+					if{ 
+						1 1 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
+					}
+					(L:H60_Fuel1, enum) 1 ==
+					if{ 
+						2 1 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
+					}
+					(L:H60_Fuel1, enum) 2 ==
+					if{ 
+						3 1 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
+					}
+					(L:H60_Fuel2, enum) 0 ==
+					if{ 
+						1 2 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
+					}
+					(L:H60_Fuel2, enum) 1 ==
+					if{ 
+						2 2 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
+					}
+					(L:H60_Fuel2, enum) 2 ==
+					if{ 
+						3 2 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
+					}
 
-
-<Element>
-	<Select>
-			<Value>
-
-				(L:ROTOR_BRAKE,bool) 1 == 
-				(A:SIM ON GROUND,bool) 1 == and
-				(A:TURB ENG1 CORRECTED N1,PERCENT) 5 &gt; and
-				(A:TURB ENG2 CORRECTED N1,PERCENT) 5 &gt; and
-				if{
-				  1 (>L:ROTOR_BRAKE_SOUND,bool)
-				} els{
-					0 (>L:ROTOR_BRAKE_SOUND,bool)
-				}
-
-			</Value>
-	</Select>
-</Element>
-
-<Element>
-	<Select>
-			<Value>
-
-				(L:DOORS_OPEN_REAR, bool) 1 ==
-				(L:DOORS_OPEN_FRONT, bool) 1 == or
-				(L:PART2, bool) 1 == or
-				if{
-				  1 (>A:CANOPY OPEN,bool)
-				  1 (>A:EXIT OPEN,bool)
-				  
-				} els{
-					0 (>A:CANOPY OPEN,bool)
-					0 (>A:EXIT OPEN,bool)
-				}
-
-			</Value>
-	</Select>
-</Element>
-
-</Gauge>
+					(L:H60_APU_START) 1 ==
+					if{ 
+						1 (&gt;K:FUELSYSTEM_VALVE_OPEN) 
+						
+					} els{
+						0 (&gt;K:APU_OFF_SWITCH)
+						1 (&gt;K:FUELSYSTEM_VALVE_OFF) 
+					}
+	
+					(L:H60_APU_START) 1 ==
+					if{
+						1 (&gt;K:APU_STARTER)
+					}
+				</Value>
+		</Select>
+	</Element>
+	
+	
+	</Gauge>
+	

@@ -35,6 +35,14 @@
 			<AssetDir>PackageSources\MaterialLibs\materials-flares\</AssetDir>
 			<OutputDir>MaterialLibs\materials-flares\</OutputDir>
 		</AssetGroup>
+		<AssetGroup Name="ModelBehaviorDefs">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\ModelBehaviorDefs\</AssetDir>
+			<OutputDir>ModelBehaviorDefs\</OutputDir>
+		</AssetGroup>
 		<AssetGroup Name="UH60_Downwash">
 			<Type>Copy</Type>
 			<Flags>
@@ -77,4 +85,3 @@
 		</AssetGroup>
 	</AssetGroups>
 </AssetPackage>
-

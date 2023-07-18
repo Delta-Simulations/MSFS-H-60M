@@ -12,41 +12,11 @@
 		<Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
 		<Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
-		<!-- <Include RelativeFile="HMD.xml"/>
-		<Component ID="HMD">
-			<UseTemplate Name="DELTASIM_HMD">
-				<HIDE_VARIABLE>1</HIDE_VARIABLE>
-				<VERTICAL_POS_VARIABLE>0</VERTICAL_POS_VARIABLE>
-				<SCALE>10</SCALE>
-				<INITIAL_PITCH>
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 0 == if{ -14 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 1 == if{ 0 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 2 == if{ 0 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 3 == if{ 0 }
-				</INITIAL_PITCH>
-				<EYEPOINT_X>
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 0 == if{ 0.042 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 1 == if{ 10 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 2 == if{ 10 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 3 == if{ 10 }
-				</EYEPOINT_X>
-				<EYEPOINT_Y>
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 0 == if{ 0.10 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 1 == if{ 0 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 2 == if{ 0 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 3 == if{ 0 }
-				</EYEPOINT_Y>
-				<EYEPOINT_Z>
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 0 == if{ 4.265 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 1 == if{ 1.682539 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 2 == if{ 1.682539 }
-					(A:CAMERA VIEW TYPE AND INDEX:1, number) 3 == if{ 4.056 }
-				</EYEPOINT_Z>				
-			</UseTemplate>
-		</Component> -->
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
+    <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
+    <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
 
-
-    <Component ID="EFBBRT" Node="TABLET.001">
+    <Component ID="EFBBRT" Node="TABLET.002">
       <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
         <EMISSIVE_CODE>
           (L:Uh60_EFB_BRT, enum) 10 / 0.4 +
@@ -77,305 +47,209 @@
           <!-- GUN FX======================================================-->
 
 
-  <Component ID="ENGINE_CONTROLS">
-    <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
-      <ID>1</ID>
+<Component ID="OH_PCLS">
+  <Component ID="Lever_PCL2" Node="Lever_PCL2">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+          (L:H60_PCL2, enum) ++ 100 min (>L:H60_PCL2, enum)
+        </UP_CODE>
+        <DOWN_CODE>
+            
+            (L:H60_PCL2, enum) -- 0 max (>L:H60_PCL2, enum)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>10</DRAG_AXIS_SCALE>
     </UseTemplate>
-    <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
-      <ID>2</ID>
-    </UseTemplate>
-    <UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
-      <ANIM_NAME>rudder_percent_key</ANIM_NAME>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Lever_PCL2</PART_ID>
+      <ANIM_NAME>Lever_PCL2</ANIM_NAME>
+      <NODE_ID>Lever_PCL2</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_PCL2, enum)
+      </ANIM_CODE>
+      <ANIM_LAG>300</ANIM_LAG>
     </UseTemplate>
   </Component>
-  <Component ID="UPDATE_CODE">
-    <UseTemplate Name="ASOBO_GT_Update">
-      <FREQUENCY>500</FREQUENCY>
-      <UPDATE_CODE>
-        <!-- ENG1 POWER CONTROL LEVER/FADEC-->
-            (L:PCL1, number) 0 == if{
-            0 (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-            }
-
-            (L:PCL1, number) 1 == if{
-            10 (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-            }
-
-            (L:PCL1, number) 2 == if{
-            (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 102 min 14 max (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-            }
-      </UPDATE_CODE>
+  <Component ID="Lever_PCL1" Node="Lever_PCL1">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+          (L:H60_PCL1, enum) ++ 100 min (>L:H60_PCL1, enum)
+        </UP_CODE>
+        <DOWN_CODE>
+            
+            (L:H60_PCL1, enum) -- 0 max (>L:H60_PCL1, enum)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
     </UseTemplate>
-    <UseTemplate Name="ASOBO_GT_Update">
-      <FREQUENCY>500</FREQUENCY>
-      <UPDATE_CODE>
-            <!-- ENG2 POWER CONTROL LEVER/FADEC-->
-            (L:PCL2, number) 0 == if{
-            0 (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent)
-            }
-
-            (L:PCL2, number) 1 == if{
-            10 (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent)
-            }
-
-            (L:PCL2, number) 2 == if{
-            (A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) 102 min 14 max (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent)
-            }
-
-      </UPDATE_CODE>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Lever_PCL1</PART_ID>
+      <ANIM_NAME>Lever_PCL1</ANIM_NAME>
+      <NODE_ID>Lever_PCL1</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_PCL1, enum)
+      </ANIM_CODE>
+      <ANIM_LAG>300</ANIM_LAG>
     </UseTemplate>
-    <UseTemplate Name="ASOBO_GT_Update">
-        <!-- ENG starter sound-->
-        <FREQUENCY>1</FREQUENCY>
-        <UPDATE_CODE>
-
-          (A:GENERAL ENG STARTER:1, bool) 1 ==
-          (A:ELECTRICAL MASTER BATTERY, bool) 1 == and
-					if{ 
-						1 (>L:STARTER_1, bool) 
-					} 
-					els{ 
-						0 (>L:STARTER_1, bool) 
-					}
-
-          (A:GENERAL ENG STARTER:2, bool) 1 ==
-          (A:ELECTRICAL MASTER BATTERY, bool) 1 == and
-					if{ 
-						1 (>L:STARTER_2, bool) 
-					} 
-					els{ 
-						0 (>L:STARTER_2, bool) 
-					}
-
-          (L:GOVENOR_ACTIVE,bool) (&gt;A:AUTO COORDINATION, bool) 
-
-
-          (A:GROUND VELOCITY, knots) 20 / (&gt;L:STABILATOR_POS,enum)
-           <!-- (A:LIGHT WING ON, bool) (&gt;L:EFFECT_FLARE, bool)-->
-
-
-
-                
-        </UPDATE_CODE>
-    </UseTemplate>
-    <UseTemplate Name="ASOBO_GT_Update">
-
-      <FREQUENCY>1</FREQUENCY>
-      <UPDATE_CODE>
-        <!-- INIT ROTOR SOUNDS-->
-        <!-- For future- change so it functions for both engines-->
-        <!-- (A:TURB ENG1 CORRECTED N1,PERCENT) 5 &amp;; (A:ENG COMBUSTION:1, bool) 1 == and  -->
-        (L:TotEngRunning,enum) 0 !=
-					if{ 
-						1 (>L:ROTOR_AUDIO,bool) 
-					} 
-					els{ 
-						0 (>L:ROTOR_AUDIO,bool) 
-					}
-
-          (A:TURB ENG1 CORRECTED N1,PERCENT) 5 &gt;
-          (L:ROTOR_AUDIO,bool) 0 == and 
-					if{ 
-						1 (>L:ROTOR_SLOW_AUDIO,bool) 
-					} 
-					els{ 
-						0 (>L:ROTOR_SLOW_AUDIO,bool) 
-					}
-
-
-          
-      </UPDATE_CODE>
-
-  </UseTemplate>
-
   </Component>
 
-  <Component ID="Autopilot_PNL">
-    <UseTemplate Name="ASOBO_AUTOPILOT_Knob_Heading_Template">
-      <NODE_ID>HEADING_KNOB</NODE_ID>
-      <ANIM_NAME_KNOB>HEADING_KNOB</ANIM_NAME_KNOB>
-      <ANIM_NAME_PUSH>PUSH_HEADING</ANIM_NAME_PUSH>
-      <TYPE>B747</TYPE>
+  <Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
+    <UseTemplate Name = "ASOBO_GT_Switch_3States">
+      <ANIM_NAME>Lever_Eng2_Fuel</ANIM_NAME>
+      <NODE_ID>Lever_Eng2_Fuel</NODE_ID>
+      <DEFAULT_POS>0</DEFAULT_POS>
+      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+      <SWITCH_POSITION_VAR>H60_Fuel2</SWITCH_POSITION_VAR>
+      <SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
+      <INVERT_ANIM>False</INVERT_ANIM>
+      <ANIMTIP_0>ENG2 FUEL OFF</ANIMTIP_0>
+      <ANIMTIP_1>ENG2 FUEL DIR</ANIMTIP_1>
+      <ANIMTIP_2>ENG2 FUEL XFD</ANIMTIP_2>
     </UseTemplate>
-  <UseTemplate Name="ASOBO_AUTOPILOT_Push_SpeedToggle_Template">
-    <NODE_ID>IAS_TOGGLE</NODE_ID>
-    <ANIM_NAME>IAS_TOGGLEPSH</ANIM_NAME>
-    <NO_TEXT_EMISSIVE>True</NO_TEXT_EMISSIVE>
-    <NO_INDICATOR>True</NO_INDICATOR>
-    <TYPE>B747</TYPE>
+  </Component>
+  <Component ID="Lever_Eng1_Fuel" Node="Lever_Eng1_Fuel">
+    <UseTemplate Name = "ASOBO_GT_Switch_3States">
+      <ANIM_NAME>Lever_Eng1_Fuel</ANIM_NAME>
+      <NODE_ID>Lever_Eng1_Fuel</NODE_ID>
+      <DEFAULT_POS>0</DEFAULT_POS>
+      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+      <SWITCH_POSITION_VAR>H60_Fuel1</SWITCH_POSITION_VAR>
+      <SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
+      <INVERT_ANIM>False</INVERT_ANIM>
+      <ANIMTIP_0>ENG1 FUEL OFF</ANIMTIP_0>
+      <ANIMTIP_1>ENG1 FUEL DIR</ANIMTIP_1>
+      <ANIMTIP_2>ENG1 FUEL XFD</ANIMTIP_2>
+    </UseTemplate>
+  </Component>
+
+  <UseTemplate Name="ASOBO_ROTORCRAFT_Lever_Rotor_Brake_Template">
+    <ANIM_NAME>Lever_Rotor_Brake</ANIM_NAME>
+    <NODE_ID>Lever_Rotor_Brake</NODE_ID>
+    <PART_ID>Lever_Rotor_Brake</PART_ID>
+</UseTemplate>
+
+</Component>
+
+<Component ID="OH_ELEC">
+
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_EXT_PWR</NODE_ID>
+    <TEST_NODE>Click_EXTPWR_TST</TEST_NODE>
+    <NORM_NODE>Click_EXTPWR</NORM_NODE>
+    <TOOLTIPID_NORM>EXT PWR</TOOLTIPID_NORM>
   </UseTemplate>
-  <UseTemplate Name="ASOBO_AUTOPILOT_Knob_SpeedMach_Template">
-    <NODE_ID>knob_autopilot_speed</NODE_ID>
-    <ANIM_NAME>autopilot_knob_speed</ANIM_NAME>
-    <ANIM_NAME_PUSH>knob_autopilot_speed_push</ANIM_NAME_PUSH>
-    <TYPE>B747</TYPE>
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_BATT_STBY</NODE_ID>
+    <TEST_NODE>Click_STBYINST_TST</TEST_NODE>
+    <NORM_NODE>Click_STBYINST</NORM_NODE>
+    <TOOLTIPID_NORM>BATT STBY INST</TOOLTIPID_NORM>
   </UseTemplate>
-  <UseTemplate Name="ASOBO_AUTOPILOT_Push_AutoThrottle_Template">
-    <NODE_ID>switch_autopilot_at_arm</NODE_ID>
-    <ANIM_NAME>autopilot_switch_at_arm</ANIM_NAME>
-    <TYPE>B747</TYPE>
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_BATT1</NODE_ID>
+    <TEST_NODE>Click_BATT1_TST</TEST_NODE>
+    <NORM_NODE>Click_BATT1</NORM_NODE>
+    <TOOLTIPID_NORM>BATT1</TOOLTIPID_NORM>
   </UseTemplate>
-  <UseTemplate Name="ASOBO_AUTOPILOT_Knob_VerticalSpeed_Template">
-    <NODE_ID>wheel_autopilot_vert_speed</NODE_ID>
-    <ANIM_NAME>autopilot_wheel_vert_speed</ANIM_NAME>
-    <UP_DEC_DN_INC>True</UP_DEC_DN_INC>
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_BATT2</NODE_ID>
+    <TEST_NODE>Click_BATT2_TST</TEST_NODE>
+    <NORM_NODE>Click_BATT2</NORM_NODE>
+    <TOOLTIPID_NORM>BATT2</TOOLTIPID_NORM>
   </UseTemplate>
-  <UseTemplate Name="ASOBO_AUTOPILOT_Push_Approach_Template">
-    <NODE_ID>autopilot_push_app</NODE_ID>
-    <ANIM_NAME>autopilot_push_app</ANIM_NAME>
-    <EMISSIVE_NODE_ID>autopilot_push_app.001</EMISSIVE_NODE_ID>
-    <ACTIVE_NODE_ID>autopilot_push_app.001</ACTIVE_NODE_ID>
-    <AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-    <AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-    <DISABLE_GPS_MODE>False</DISABLE_GPS_MODE>
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_GEN_APU</NODE_ID>
+    <TEST_NODE>Click_APUGEN_TST</TEST_NODE>
+    <NORM_NODE>Click_APUGEN</NORM_NODE>
+    <TOOLTIPID_NORM>APU GEN</TOOLTIPID_NORM>
   </UseTemplate>
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_GEN_ENG1</NODE_ID>
+    <TEST_NODE>Click_ENG1GEN_TST</TEST_NODE>
+    <NORM_NODE>Click_ENG1GEN</NORM_NODE>
+    <TOOLTIPID_NORM>ENG1 GEN</TOOLTIPID_NORM>
+  </UseTemplate>
+  <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
+    <NODE_ID>Switch_GEN_ENG2</NODE_ID>
+    <TEST_NODE>Click_ENG2GEN_TST</TEST_NODE>
+    <NORM_NODE>Click_ENG2GEN</NORM_NODE>
+    <TOOLTIPID_NORM>ENG2 GEN</TOOLTIPID_NORM>
+  </UseTemplate>
+
+  <UseTemplate Name="AircraftVar_Switch_DELTASIM">
+    <SIMVAR>FUELSYSTEM PUMP SWITCH</SIMVAR>
+    <NODE_ID>Switch_ENG1_Boost</NODE_ID>
+    <TOOLTIPID>ENG1 BOOST PUMP</TOOLTIPID>
+    <EVENT_SIMVAR>FUELSYSTEM_PUMP_TOGGLE</EVENT_SIMVAR>
+    <INDEX>1</INDEX>
+  </UseTemplate>
+  <UseTemplate Name="AircraftVar_Switch_DELTASIM">
+    <SIMVAR>FUELSYSTEM PUMP SWITCH</SIMVAR>
+    <NODE_ID>Switch_ENG2_Boost</NODE_ID>
+    <TOOLTIPID>ENG2 BOOST PUMP</TOOLTIPID>
+    <EVENT_SIMVAR>FUELSYSTEM_PUMP_TOGGLE</EVENT_SIMVAR>
+    <INDEX>2</INDEX>
+  </UseTemplate>
+  <Component ID="Switch_Pump_Prime" Node="Switch_Pump_Prime">
+    <UseTemplate Name="ASOBO_GT_Switch_3States">
+      <ANIM_NAME>Switch_Pump_Prime</ANIM_NAME>
+      <DEFAULT_POS>0</DEFAULT_POS>
+      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+      <SWITCH_POSITION_VAR>H60_Fuel_Prime</SWITCH_POSITION_VAR>
+      <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+      <INVERT_ANIM>False</INVERT_ANIM>
+      <ANIMTIP_0>PRIME GEN</ANIMTIP_0>
+      <ANIMTIP_1>OFF</ANIMTIP_1>
+      <ANIMTIP_2>PRIME APU</ANIMTIP_2>
+    </UseTemplate>
+  </Component>
+  <Component ID="Switch_AIR_SCRCE" Node="Switch_AIR_SCRCE">
+    <UseTemplate Name="ASOBO_GT_Switch_3States">
+      <ANIM_NAME>Switch_AIR_SCRCE</ANIM_NAME>
+      <DEFAULT_POS>0</DEFAULT_POS>
+      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+      <SWITCH_POSITION_VAR>H60_AIR_SOURCE</SWITCH_POSITION_VAR>
+      <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+      <INVERT_ANIM>False</INVERT_ANIM>
+      <ANIMTIP_0>ENGINE</ANIMTIP_0>
+      <ANIMTIP_1>OFF</ANIMTIP_1>
+      <ANIMTIP_2>APU</ANIMTIP_2>
+    </UseTemplate>
+  </Component>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_APU_START, bool) 100 *</ANIM>
+    <NODE_ID>Switch_APU_CNTRL</NODE_ID>
+    <TOOLTIPID>APU CNTRL</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_APU_START, bool) ! (&gt;L:H60_APU_START, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
+  <UseTemplate Name="DELTASIM_PushButton_Template">
+    <NODE_ID>Button_ENG2_Starter</NODE_ID>
+    <TOOLTIPID>ENG2 START</TOOLTIPID>
+    <LEFT_SINGLE_CODE>
+      (K:TOGGLE_STARTER2,bool) ! (&gt;K:TOGGLE_STARTER2,bool)
+    </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+<UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Button_ENG1_Starter</NODE_ID>
+  <TOOLTIPID>ENG1 START</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    (K:TOGGLE_STARTER1,bool) ! (&gt;K:TOGGLE_STARTER1,bool)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+
 </Component>
 
 </Behaviors>
 	<!-- CUSTOM ANIMATIONS GO BELOW -->
-  <Animation name="switch_auto_throttle" guid="0edac8f4-c549-4f98-8750-f88cf001cd83" typeParam2="switch_auto_throttle" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_flight_director" guid="d712ab7c-8620-44c3-b4cc-c66f1dc449e6" typeParam2="switch_flight_director" length="25" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_autopilot_master" guid="dbc9acc0-0542-4699-b117-e93494fceaef" typeParam2="switch_autopilot_master" length="25" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>switch_auto_throttle</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_AUTOPILOT_AUTOTHROTTLE</HelpID>
-      <TooltipID>TOOLTIPTEXT_AUTOPILOT_AUTOTHROTTLE</TooltipID>
-      <EventID>AUTO_THROTTLE_ARM</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>AUTOPILOT THROTTLE ARM</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_flight_director</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</HelpID>
-      <TooltipID>TOOLTIPTEXT_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</TooltipID>
-      <EventID>TOGGLE_FLIGHT_DIRECTOR</EventID>
-    </MouseRect>
-    <AnimLength>25</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>AUTOPILOT FLIGHT DIRECTOR ACTIVE</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_autopilot_master</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_AUTOPILOT_MASTER</HelpID>
-      <TooltipID>TOOLTIPTEXT_AUTOPILOT_MASTER</TooltipID>
-      <EventID>AP_MASTER</EventID>
-    </MouseRect>
-    <AnimLength>25</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>AUTOPILOT MASTER</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
 
-  <Animation name="C17_MCD1_1" guid="9f2babb7-53e9-49d5-947a-1c8d065690fe" length="100" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-  <Name>C17_MCD1_1</Name>
-  <AnimLength>100</AnimLength>
-  <Animation>
-    <Parameter>
-      <Code>5 (L:C17_MCD1_1,enum) 50 * + </Code>
-      <Lag>100</Lag>
-    </Parameter>
-  </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <TooltipText>MODE</TooltipText>
-    <MouseFlags>LeftRelease+RightRelease+LeftSingle+RightSingle+Wheel</MouseFlags>
-    <CallbackCode>
-      (M:Event) 'WheelUp' scmp 0 == 
-        if{ -1 (&gt;L:C17_MCD1_1,enum) -- 0 max (&gt;L:C17_MCD1_1,enum) }
-      (M:Event) 'WheelDown' scmp 0 == 
-        if{ 1 (&gt;L:C17_MCD1_1,enum)  ++ 3 min (&gt;L:C17_MCD1_1,enum) }
 
-      (M:Event) 'LeftRelease' scmp 0 == if{ 1 (&gt;L:C17_MCD1_1,enum) }
-      (M:Event) 'RightRelease' scmp 0 == if{ -1 (&gt;L:C17_MCD1_1,enum) }
-    </CallbackCode>
-  </MouseRect>
-</PartInfo>
-  <Animation name="ALTITDE CNTRL" guid="6aac883d-ae13-45fe-89ba-a59a452ac5df" type="Sim" typeParam="AutoPlay" />
+  <Animation name="AmbientSoldierL" guid="36391804-dd08-40ea-bd8d-ea0fe7191df3" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
-    <Name>ALTITDE CNTRL</Name>
-    <AnimLength>200</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:AUTOPILOT AIRSPEED HOLD VAR, knots)</Code>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <TooltipText>Set speed</TooltipText>
-      <MouseFlags>MoveRepeat+WheelDown+WheelUp+LeftSingle+RightSingle</MouseFlags>
-      <CallbackCode>
-      (M:Event) 'WheelUp' scmi 0 == (L:Mach-IAS select, bool) 1 ==  &amp;&amp; if{ (&gt;K:AP_MACH_VAR_INC) }
-    (M:Event) 'WheelUp' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_INC) }
-     (M:Event) 'WheelDown' scmi 0 == (L:Mach-IAS select, bool) 1 == &amp;&amp; if{ (&gt;K:AP_MACH_VAR_DEC) }
-    (M:Event) 'WheelDown' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_DEC) }
-    (M:Event) 'RightSingle' scmi 0 == (L:Mach-IAS select, bool) 1 ==  &amp;&amp; if{ (&gt;K:AP_MACH_VAR_INC) }
-    (M:Event) 'RightSingle' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_INC) }
-     (M:Event) 'LeftSingle' scmi 0 == (L:Mach-IAS select, bool) 1 == &amp;&amp; if{ (&gt;K:AP_MACH_VAR_DEC) }
-    (M:Event) 'LeftSingle' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_DEC) }
-           </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-
-  <Animation name="AIRSPEED HOLD" guid="17f31278-a130-4107-8e0e-fd368f270a02" length="25" type="Sim" typeParam2="AIRSPEED HOLD" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>AIRSPEED HOLD</Name>
-    <AnimLength>25</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>AUTOPILOT AIRSPEED HOLD</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <TooltipText>Airspeed hold</TooltipText>
-      <CallbackCode>(&gt;K:AP_PANEL_SPEED_HOLD)</CallbackCode>
-    </MouseRect>
-  </PartInfo>
-
-  <Animation name="AmbientActionPilot" guid="36391804-dd08-40ea-bd8d-ea0fe7191df3" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>AmbientActionPilot</Name>
+    <Name>AmbientSoldierL</Name>
     <AnimLength>100</AnimLength>
     <Animation>
       <Parameter>
@@ -383,91 +257,6 @@
       </Parameter>
     </Animation>
   </PartInfo>
-
-  <Animation name="HDG HOLD" guid="58219eb3-a5ea-4ec6-b528-b944c1b00052" length="25" type="Sim" typeParam2="HDG HOLD" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>HDG HOLD</Name>
-    <AnimLength>25</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:Autopilot heading lock,bool) 25 * </Code>
-        <Lag>100</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <TooltipText>%Heading hold %((A:Autopilot heading lock, bool))%{if}%ON%{else}%OFF%</TooltipText>
-      <CallbackCode>
-        (K:AP_HDG_HOLD,bool) ! (&gt;K:AP_HDG_HOLD,bool)
-          </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-
-  <Animation name="ALT HOLD" guid="79ac9efe-c483-48d3-aeeb-40e4f4335052" length="25" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>ALT HOLD</Name>
-    <AnimLength>25</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:Autopilot altitude lock,feet) 25 * </Code>
-        <Lag>100</Lag>
-      </Parameter>
-    </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <TooltipText>%Altitude hold %((A:Autopilot altitude lock, bool))%{if}%ON%{else}%OFF%</TooltipText>
-    <CallbackCode>
-      (K:AP_ALT_HOLD,bool) ! (&gt;K:AP_ALT_HOLD,bool)
-        </CallbackCode>
-  </MouseRect>
-</PartInfo>
-
-<Animation name="AP_HOVER" guid="c67ec1b2-7f1f-4a26-8521-01a470a66076" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>AP_HOVER</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-        <Parameter>
-             <Code>
-           (L:AP_STAB, bool) 100 *
-             </Code>
-           
-    </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <TooltipText>TOGGLE HVR</TooltipText>
-       <CallbackCode>
- (L:AP_STAB, bool) ! (>L:AP_STAB, bool)
-       </CallbackCode>
-  </MouseRect>
-</PartInfo>
-
-
-<Animation name="Autopilot_select_alt" guid="b418705a-200c-4ae8-8d8b-0797dad75adb" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-  <Name>Autopilot_select_alt</Name>
-  <AnimLength>100</AnimLength>
-  <Animation>
-    <Parameter>
-      <Code>(A:AUTOPILOT ALTITUDE LOCK VAR, feet)</Code>
-    </Parameter>
-  </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <TooltipText>Set altitude</TooltipText>
-    <MouseFlags>MoveRepeat+WheelDown+WheelUp+LeftSingle+RightSingle</MouseFlags>
-    <CallbackCode>
-    (M:Event) 'WheelUp'     scmi 0 == if{ (&gt;K:AP_ALT_VAR_INC) }
-    (M:Event) 'WheelDown'   scmi 0 == if{ (&gt;K:AP_ALT_VAR_DEC) }
-    (M:Event) 'LeftSingle'  scmi 0 == if{ (&gt;K:AP_ALT_VAR_INC) }
-    (M:Event) 'RightSingle' scmi 0 == if{ (&gt;K:AP_ALT_VAR_DEC) }
-    </CallbackCode>
-  </MouseRect>
-</PartInfo>
-
-
-
 
 <Animation name="HH-60W" guid="ceb0c4db-ca4a-4075-b406-a1dd795ada5e" length="100" type="Sim" typeparam="AutoPlay" />
 <PartInfo>
@@ -488,84 +277,6 @@
 
 
 
-
-  <Animation name="EXT_PWR" guid="e0d516cd-a70c-4f98-b4d7-c341936e90ef" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>EXT_PWR</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:EXTERNAL POWER ON:1, Bool) 100 *</Code>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <TooltipText>%EXT PWR %((A:EXTERNAL POWER ON:1, Bool))%{if}%ON%{else}%OFF%</TooltipText>
-      <CallbackCode>
-				(K:TOGGLE_EXTERNAL_POWER) ! (&gt;K:TOGGLE_EXTERNAL_POWER)
-					</CallbackCode>
-    </MouseRect>
-  </PartInfo>
-  <Animation name="RIGHT_GEN" guid="998fcbad-ff50-4cf9-a567-378c2bb9cf91" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>RIGHT_GEN</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>
-             (L:RIGHT_GEN, bool) 100 *
-               </Code>
-             
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>TOGGLE GEN2</TooltipText>
-         <CallbackCode>
-   (L:RIGHT_GEN, bool) ! (>L:RIGHT_GEN, bool)
-         </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-  <Animation name="LEFT_GEN" guid="c3172152-97b2-471a-ba35-5ec5da2d5555" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>LEFT_GEN</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>
-             (L:LEFT_GEN, bool) 100 *
-               </Code>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>TOGGLE GEN1</TooltipText>
-         <CallbackCode>
-   (L:LEFT_GEN, bool) ! (>L:LEFT_GEN, bool)
-         </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-
-  <Animation name="APU_GEN" guid="a1370584-aa65-46ec-8ce1-d5a3e505c832" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-  <Name>APU_GEN</Name>
-  <AnimLength>50</AnimLength>
-  <Animation>
-      <Parameter>
-           <Code>
-         (APU GENERATOR ACTIVE:1, bool) 50 *
-           </Code>
-  </Parameter>
-  </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <TooltipText>TOGGLE GEN</TooltipText>
-     <CallbackCode>
-        (K:APU_GENERATOR_SWITCH_TOGGLE, bool) ! (&gt;K:APU_GENERATOR_SWITCH_TOGGLE, bool)
-     </CallbackCode>
-</MouseRect>
-</PartInfo>
-
 <Animation name="Panel_EMS" guid="c81d560e-cd12-4c98-af43-771a54fbef07" length="1" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
   <Name>Panel_EMS</Name>
@@ -577,56 +288,6 @@
   </Code> 
   </Parameter> </Emissive> </Materials>
   </PartInfo>
-
-<!-- CABIN LIGHTING-->
-  <Animation name="PNL_GLARESHEILD" guid="aa1fcfc7-15ff-453f-9586-aca3fc35982b" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>PNL_GLARESHEILD</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:LIGHT POTENTIOMETER:2, percent)</Code>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>Wheel</MouseFlags>
-         <CallbackCode>
-           (M:Event) 'WheelUp' scmp 0 ==
-            if{ (A:LIGHT POTENTIOMETER:2, percent) 10 + 100 min (&gt;K:LIGHT_POTENTIOMETER_2_SET) }
-            (M:Event) 'WheelDown' scmp 0 ==
-            if{ (A:LIGHT POTENTIOMETER:2, percent) 10 - 0 max (&gt;K:LIGHT_POTENTIOMETER_2_SET) }
-         </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-
-  <Animation name="PNL_CABIN" guid="67f49612-0e93-4a8e-b66b-50c88c314480" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>PNL_CABIN</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:LIGHT POTENTIOMETER:3, percent)</Code>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>Wheel</MouseFlags>
-         <CallbackCode>
-           (M:Event) 'WheelUp' scmp 0 ==
-            if{ (A:LIGHT POTENTIOMETER:3, percent) 10 + 100 min (&gt;K:LIGHT_POTENTIOMETER_3_SET) }
-            (M:Event) 'WheelDown' scmp 0 ==
-            if{ (A:LIGHT POTENTIOMETER:3, percent) 10 - 0 max (&gt;K:LIGHT_POTENTIOMETER_3_SET) }
-         </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-
-
-
-
-
-
-
 
   <Animation name="PNL_GLARESHEILD_EMMS" guid="a7dd4f9f-7067-4c89-a827-94bc1c0f63df" length="1" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
@@ -860,29 +521,6 @@
       </MouseRect>
   </PartInfo>
 
-  <Animation name="BLOWER_TOGGLE" guid="4a5e3e3c-159e-4b5e-a539-67a102bd4348" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>BLOWER_TOGGLE</Name>
-    <AnimLength>50</AnimLength>
-    <Animation>
-        <Parameter>
-            <Code>
-                (L:BLOWER_CABIN,enum) 25 *
-            </Code>
-            <Lag>100</Lag>
-        </Parameter>
-    </Animation>
-    <MouseRect>
-  <Cursor>Hand</Cursor>
-  <MouseFlags>Wheel</MouseFlags>
-     <CallbackCode>
-        (M:Event) 'WheelUp' scmp 0 ==
-        if{ (L:BLOWER_CABIN, enum) ++ 3 % (>L:BLOWER_CABIN, enum) }
-        (M:Event) 'WheelDown' scmp 0 ==
-        if{ (L:BLOWER_CABIN, enum) -- 3 % (>L:BLOWER_CABIN, enum) }
-     </CallbackCode>
-    </MouseRect>
-</PartInfo>
 
   <Animation name="WARNINGTEST" guid="e734b97f-dd3d-42fd-9a31-40d22682362b" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
@@ -912,104 +550,6 @@
   </PartInfo>
 
 
-
-  <Animation name="PCL1" guid="4c9cc515-0006-48a2-8699-41e8c7c6b4f1" length="50" type="Sim" typeParam2="PCL1" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>PCL1</Name>
-      <AnimLength>50</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>
-              (L:PCL1,enum) 25 *
-          </Code>
-          <Lag>30</Lag>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <MouseFlags>RightSingle+LeftSingle+LeftDrag+RightDrag+Wheel</MouseFlags>
-        <TooltipText>PCL 1 (SCROLL)</TooltipText>
-           <CallbackCode>
-              (M:Event) 'WheelDown' scmp 0 ==
-              if{ (L:PCL1, enum) --  0 max (>L:PCL1, enum) }
-              (M:Event) 'WheelUp' scmp 0 ==
-              if{ (L:PCL1, enum) ++  3 min (>L:PCL1, enum) }
-
-
-              (M:Event) 'LeftSingle' scmp 0 ==
-              if{ (L:PCL1, enum) --  0 max (>L:PCL1, enum) }
-              (M:Event) 'RightSingle' scmp 0 ==
-              if{ (L:PCL1, enum) ++  3 min (>L:PCL1, enum) }
-
-              (M:Event) 'LeftDrag' scmp 0 ==
-              if{ (L:PCL1, enum) ++ 3 % (>L:PCL1, enum) }
-              (M:Event) 'RightDrag' scmp 0 ==
-              if{ (L:PCL1, enum) -- 3 % (>L:PCL1, enum) }
-              
-           </CallbackCode>
-          </MouseRect>
-  </PartInfo>
-
-  <Animation name="PCL2" guid="bc92c7eb-71f3-43d1-b58a-eb406fd24ee2" length="50" type="Sim" typeParam2="PCL2" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>PCL2</Name>
-      <AnimLength>50</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>
-              (L:PCL2,enum) 25 *
-          </Code>
-          <Lag>30</Lag>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <MouseFlags>RightSingle+LeftSingle+LeftDrag+RightDrag+Wheel</MouseFlags>
-        <TooltipText>PCL 2 (SCROLL)</TooltipText>
-           <CallbackCode>
-              (M:Event) 'WheelDown' scmp 0 ==
-              if{ (L:PCL2, enum) --  0 max (>L:PCL2, enum) }
-              (M:Event) 'WheelUp' scmp 0 ==
-              if{ (L:PCL2, enum) ++  3 min (>L:PCL2, enum) }
-              
-              (M:Event) 'LeftSingle' scmp 0 ==
-              if{ (L:PCL2, enum) --  0 max (>L:PCL2, enum) }
-              (M:Event) 'RightSingle' scmp 0 ==
-              if{ (L:PCL2, enum) ++  3 min (>L:PCL2, enum) }
-
-              (M:Event) 'LeftDrag' scmp 0 ==
-              if{ (L:PCL2, enum) ++ 3 % (>L:PCL2, enum) }
-              (M:Event) 'RightDrag' scmp 0 ==
-              if{ (L:PCL2, enum) -- 3 % (>L:PCL2, enum) }
-              
-           </CallbackCode>
-          </MouseRect>
-  </PartInfo>
-
-  <Animation name="ROTOR_BRAKE" guid="26f8ecba-8f46-4507-9aca-b686120693d2" length="100" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>ROTOR_BRAKE</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-          <Parameter>
-              <Code>
-                       (L:ROTOR_BRAKE) 100 *
-               </Code>
-              <Lag>50</Lag>
-          </Parameter>
-        </Animation>
-      <MouseRect>
-          <Cursor>Hand</Cursor>
-          <TooltipText>%((L:ROTOR_BRAKE, bool))%{if}Rotor Brake (on)%{else}Rotor Brake (off)%{end}</TooltipText>
-         <CallbackCode>   
-          
-            (L:ROTOR_BRAKE,bool) ! (>L:ROTOR_BRAKE,bool)
-
-         </CallbackCode>
-      </MouseRect>
-  </PartInfo>
-
-
   <Animation name="AUTOSTRT" guid="372d609f-b78e-4290-86f2-d6b29623217d" length="50" type="Sim" typeparam2="AUTOSTRT" typeparam="AutoPlay" />
   <PartInfo>
       <Name>AUTOSTRT</Name>
@@ -1030,136 +570,20 @@
   </PartInfo>
 
 <!-- LIGHT CONTROLS-->
-  <Animation name="switch_beacon_light" guid="74781771-aa59-4cd2-bc9f-521e7d0a8179" typeParam2="switch_beacon_light" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="srch alt" guid="c5887c06-9f91-44b0-ad05-7e694bbdec1a" typeParam2="srch alt" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_nav_light" guid="e6c2b6c0-2726-44ba-9183-096dc2e22a73" typeParam2="switch_nav_light" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_panel_light" guid="291d4355-100b-449d-a7bb-c54dafb8e025" typeParam2="switch_panel_light" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_recog_light" guid="e17f7583-b649-4377-9915-c1e9ec2658f2" typeParam2="switch_recog_light" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_strobe_light" guid="a2db42b1-28c7-4fde-a659-71e016de7f46" typeParam2="switch_strobe_light" length="50" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>switch_beacon_light</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_LIGHT_SWITCH_BEACON</HelpID>
-      <TooltipID>TOOLTIPTEXT_LIGHT_SWITCH_BEACON</TooltipID>
-      <EventID>TOGGLE_BEACON_LIGHTS</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>LIGHT BEACON</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-    <PartInfo>
-      <Name>srch alt</Name>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <HelpID>HELPID_GAUGE_LIGHT_SWITCH_LANDING</HelpID>
-        <TooltipID>TOOLTIPTEXT_LIGHT_SWITCH_LANDING</TooltipID>
-        <EventID>LANDING_LIGHTS_TOGGLE</EventID>
-      </MouseRect>
-      <AnimLength>50</AnimLength>
-      <Animation>
-        <Parameter>
-          <Sim>
-            <Variable>LIGHT LANDING</Variable>
-            <Units>bool</Units>
-            <Scale>50</Scale>
-            <Bias>0</Bias>
-          </Sim>
-          <Lag>400</Lag>
-        </Parameter>
-      </Animation>
-    </PartInfo>
-  <PartInfo>
-    <Name>switch_nav_light</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_LIGHT_SWITCH_NAV</HelpID>
-      <TooltipID>TOOLTIPTEXT_LIGHT_SWITCH_NAV</TooltipID>
-      <EventID>TOGGLE_NAV_LIGHTS</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>LIGHT NAV</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_panel_light</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(L:PNL_LGT, percent)</Code>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>Wheel</MouseFlags>
-         <CallbackCode>
-           (M:Event) 'WheelUp' scmp 0 ==
-            if{ (L:PNL_LGT, percent) 10 + 100 min (&gt;L:PNL_LGT) }
-            (M:Event) 'WheelDown' scmp 0 ==
-            if{ (L:PNL_LGT, percent) 10 - 0 max (&gt;L:PNL_LGT) }
-         </CallbackCode>
-    </MouseRect>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_recog_light</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_LIGHT_SWITCH_RECOGNITION</HelpID>
-      <TooltipID>TOOLTIPTEXT_LIGHT_SWITCH_RECOGNITION</TooltipID>
-      <EventID>TOGGLE_RECOGNITION_LIGHTS</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>LIGHT RECOGNITION</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-    </PartInfo>
-    <PartInfo>
-      <Name>switch_strobe_light</Name>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <HelpID>HELPID_GAUGE_LIGHT_SWITCH_STROBE</HelpID>
-        <TooltipID>TOOLTIPTEXT_LIGHT_SWITCH_STROBE</TooltipID>
-        <EventID>STROBES_TOGGLE</EventID>
-      </MouseRect>
-      <AnimLength>50</AnimLength>
-      <Animation>
-        <Parameter>
-          <Sim>
-            <Variable>LIGHT STROBE</Variable>
-            <Units>bool</Units>
-            <Scale>50</Scale>
-            <Bias>0</Bias>
-          </Sim>
-          <Lag>400</Lag>
-        </Parameter>
-      </Animation>
-    </PartInfo>
+<Animation name="doorfront" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>doorfront</Name>
+  <AnimLength>1</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+    (L:PART1,bool)
+    if{ 0 } els{ 1 }
+    </Code>
+  </Parameter>
+  </Visibility>
+</PartInfo>
+
   <Animation name="PEDALS" guid="2286a57d-af52-4f17-987c-65d3df37cf5d" length="100" type="Sim" typeParam2="PEDALS" typeParam="AutoPlay" />
 	<PartInfo>
 		<Name>PEDALS</Name>
@@ -1280,221 +704,8 @@
            </CallbackCode>
       </MouseRect>
     </PartInfo>
-<!-- GAUGES-->
-<Animation name="ASI_NEEDLE" guid="168a749b-ac58-4e98-b854-e71ca5d2257c" length="140" type="Sim" typeParam2="ASI_NEEDLE" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>ASI_NEEDLE</Name>
-        <AnimLength>140</AnimLength>
-        <Animation>
-        <Parameter>
-                <Code>
-                (A:Airspeed indicated, knots)
-                </Code>
-        </Parameter>
-      </Animation>
-    </PartInfo>
-<Animation name="attitude_indicator_pitch"  guid="8f3c500e-b2f5-4cf0-b9f1-936010097d49"     length="360" type="Sim" typeParam2="attitude_indicator_pitch" typeParam="AutoPlay" />
-	<PartInfo>
-	  <Name>attitude_indicator_pitch</Name>
-	  <AnimLength>360</AnimLength>
-	  <Animation>
-		<Parameter>
-		  <Code>
-			(A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 +
-		  </Code>
-		</Parameter>
-	  </Animation>
-	</PartInfo>
-<Animation name="cylinder_wiskey_compass"  guid="790d4792-50ed-4ae4-9d6e-0b0d7ad84984"  length="360" type="Sim" typeParam2="cylinder_wiskey_compass" typeParam="AutoPlay" />
-    <PartInfo>
-      <Name>cylinder_wiskey_compass</Name>
-      <AnimLength>360</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>
-            (A:WISKEY COMPASS INDICATION DEGREES, degree)
-          </Code>
-        </Parameter>
-      </Animation>
-    </PartInfo>
-
-<Animation name="HOIST" guid="fb0ef2ea-47a9-41a7-8ad4-3f2a7601024a" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>HOIST</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:Fuel_door, bool) 100 *</Code>
-               
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>TOGGLE HOIST/REFUEL PROBE</TooltipText>
-             <CallbackCode>
-       (L:Fuel_door, bool) ! (>L:Fuel_door, bool)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
-    
-
-    <Animation name="Hook_open" guid="2f6c3ec0-d8cf-4c33-8c1e-53eda06901d9" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Hook_open</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:Cargo_Hook_UNLOCK, bool) 100 *</Code>
-               
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>CARGO HOOK</TooltipText>
-             <CallbackCode>
-       (L:Cargo_Hook_UNLOCK, bool) ! (>L:Cargo_Hook_UNLOCK, bool)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
-
-    <Animation name="Cargo_Hook_EXTEND" guid="024c9fea-4a92-4d00-8d0c-d0f45ebcb4ea" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Cargo_Hook_EXTEND</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:Cargo_Hook_EXTEND, bool) 100 *</Code>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>CARGO HOOK RETRACT</TooltipText>
-             <CallbackCode>
-       (L:Cargo_Hook_EXTEND, bool) ! (>L:Cargo_Hook_EXTEND, bool)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
-
-    
-    <Animation name="FCS_SAS1" guid="8cd31f81-86d0-43a2-81ab-b9cda536c20d" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FCS_SAS1</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:FCS_SAS1, bool) 25 *</Code> 
-                 <Lag>90</Lag>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-             <CallbackCode>
-       (L:FCS_SAS1, bool) ! (>L:FCS_SAS1, bool)
-             </CallbackCode>
-        </MouseRect>
-        <Materials> <Emissive> <Parameter>
-          <Code>
-            (L:FCS_SAS1, bool)
-            if{ 1 } els{ 0 }
-          </Code>
-        </Parameter> </Emissive> </Materials>
-    </PartInfo>
-    <Animation name="FCS_SAS2" guid="3c3d9320-6d2b-4cd4-bc10-197c3685e578" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FCS_SAS2</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:FCS_SAS1, bool) 25 *</Code> 
-                 <Lag>90</Lag>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-             <CallbackCode>
-       (L:FCS_SAS2, bool) ! (>L:FCS_SAS2, bool)
-             </CallbackCode>
-        </MouseRect>
-        <Materials> <Emissive> <Parameter>
-          <Code>
-            (L:FCS_SAS2, bool)
-            if{ 1 } els{ 0 }
-          </Code>
-        </Parameter> </Emissive> </Materials>
-    </PartInfo>
 
 
-        <Animation name="FCS_trim" guid="8e59710c-fc42-4388-b9d0-08210cefa0fd" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FCS_trim</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:FCS_trim, bool) 25 *</Code> 
-                 <Lag>90</Lag>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-             <CallbackCode>
-       (L:FCS_trim, bool) ! (>L:FCS_trim, bool)
-             </CallbackCode>
-        </MouseRect>
-        <Materials> <Emissive> <Parameter>
-          <Code>
-            (L:FCS_trim, bool)
-            if{ 1 } els{ 0 }
-          </Code>
-        </Parameter> </Emissive> </Materials>
-    </PartInfo>
-
-            <Animation name="FCS_FPS" guid="190d3fb2-2f3a-4c09-ab5e-1d0466e97e73" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FCS_FPS</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:FCS_FPS, bool) 25 *</Code> 
-                 <Lag>1</Lag>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-             <CallbackCode>
-       (L:FCS_FPS, bool) ! (>L:FCS_FPS, bool)
-             </CallbackCode>
-        </MouseRect>
-        <Materials> <Emissive> <Parameter>
-          <Code>
-            (L:FCS_FPS, bool)
-            if{ 1 } els{ 0 }
-          </Code>
-        </Parameter> </Emissive> </Materials>
-    </PartInfo>
-
-<Animation name="FCS_BOOST" guid="8c7d4705-d27b-4c79-aeb6-388e6cd6f3e0" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FCS_BOOST</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:FCS_BOOST, bool) 25 *</Code> 
-                 <Lag>1</Lag>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-             <CallbackCode>
-       (L:FCS_BOOST, bool) ! (>L:FCS_BOOST, bool)
-             </CallbackCode>
-        </MouseRect>
-        <Materials> <Emissive> <Parameter>
-          <Code>
-            (L:FCS_BOOST, bool)
-            if{ 1 } els{ 0 }
-          </Code>
-        </Parameter> </Emissive> </Materials>
-    </PartInfo>
     <Animation name="Light_SEARCH" guid="ba458146-b900-4f42-a321-142f09193b96" type="Sim" typeParam="AutoPlay" />
     <PartInfo>
       <Name>Light_SEARCH</Name>
@@ -1623,23 +834,6 @@
   </MouseRect>
 </PartInfo>
 
-<Animation name="HOOK_TOGGLE" guid="8937674a-6f03-46f9-a350-a3173196428d" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>HOOK_TOGGLE</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-        <Parameter>
-              <Code>(L:HUMVEE, bool) 100 *</Code>
-    </Parameter>
-    </Animation>
-    <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>TOGGLE HOOK</TooltipText>
-          <CallbackCode>
-    (L:HUMVEE, bool) ! (>L:HUMVEE, bool)
-          </CallbackCode>
-    </MouseRect>
-</PartInfo>
 <Animation name="Part4" guid="5c0d3122-7f67-413e-b6ca-b8895624ee7d" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
     <Name>Part4</Name>
@@ -1681,192 +875,6 @@
 
        </CallbackCode>
       </MouseRect>
-    </PartInfo>
-<Animation name="SAR TOGGLE" guid="7c5886e8-c0df-4f9d-b4a2-5248bfa5b68e" length="50" type="Sim" typeParam2="SAR TOGGLE" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>SAR TOGGLE</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:SAR, bool) 50 *</Code>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>%((L:SAR))%{if}SHOW MIL LOADOUT%{else}SHOW SAR LOADOUT%{end}</TooltipText>
-             <CallbackCode>
-       (L:SAR, bool) ! (>L:SAR, bool)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
-    
-    <Animation name="switch_master_battery" guid="79838b81-16df-4ae1-9ee6-6ba7dd495d95" typeParam2="switch_master_battery" length="50" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-      <Name>switch_master_battery</Name>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <HelpID>HELPID_GAUGE_BATTERY_SWITCH</HelpID>
-        <TooltipID>TOOLTIPTEXT_BATTERY_SWITCH</TooltipID>
-        <EventID>TOGGLE_MASTER_BATTERY</EventID>
-      </MouseRect>
-      <AnimLength>50</AnimLength>
-      <Animation>
-        <Parameter>
-          <Sim>
-            <Variable>ELECTRICAL MASTER BATTERY</Variable>
-            <Units>bool</Units>
-            <Scale>50</Scale>
-            <Bias>0</Bias>
-          </Sim>
-          <Lag>400</Lag>
-        </Parameter>
-      </Animation>
-    </PartInfo>
-
-  <Animation name="switch_generator_starter" guid="8b385ff6-66a4-4f0e-8971-cf8b02761eab" typeParam2="switch_generator_starter" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_starter" guid="ff2064aa-a55b-4e05-a71e-37503a267082" length="50" type="Sim" typeParam2="switch_starter" typeParam="AutoPlay" />
-  <Animation name="switch_starter0" guid="06fc914b-f513-492d-852c-2f7f767c8ec2" typeParam2="switch_starter0" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_starter1" guid="57a9f2c6-360d-46c4-b151-fe295cd08052" typeParam2="switch_starter1" length="50" type="Sim" typeParam="AutoPlay" />
-
-  <PartInfo>
-    <Name>switch_generator_starter</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_STARTER_SWITCH</HelpID>
-      <TooltipID>TOOLTIPTEXT_STARTER_SWITCH</TooltipID>
-      <MouseFlags>LeftSingle+LeftDrag+MoveRepeat+Wheel</MouseFlags>
-      <CallbackCode>(M:Event) 'LeftSingle' scmp 0 ==
-                if{ (M:X) (&gt;G:Var1) (A:GENERAL ENG GENERATOR SWITCH:1, bool) d if{ (A:GENERAL ENG STARTER:1, bool) } +  (&gt;G:Var2) }
-                els{ (M:X) (G:Var1) - 40 / int (G:Var2) + 0 max 2 min s0
-                    l0 0 == if{ (A:GENERAL ENG GENERATOR SWITCH:1, bool) if{ (&gt;K:TOGGLE_ALTERNATOR1) } }
-                    l0 1 == if{ (A:GENERAL ENG GENERATOR SWITCH:1, bool) ! if{ (&gt;K:TOGGLE_ALTERNATOR1) } }
-                    l0 2 == if{ (A:GENERAL ENG GENERATOR SWITCH:1, bool) ! if{ (&gt;K:TOGGLE_ALTERNATOR1) } (&gt;K:TOGGLE_STARTER1) }
-                }
-      </CallbackCode>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:GENERAL ENG GENERATOR SWITCH:1, bool) d if{ (A:GENERAL ENG STARTER:1, bool) } + 25 *</Code>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-
-
-
-  <PartInfo>
-    <Name>switch_starter</Name>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>GENERAL ENG STARTER:1</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_STARTER_SWITCH</HelpID>
-      <TooltipID>TOOLTIPTEXT_STARTER_SWITCH</TooltipID>
-      <EventID>TOGGLE_STARTER1</EventID>
-    </MouseRect>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_starter0</Name>
-    <Copy>switch_starter</Copy>
-    <MouseRect>
-      <EventID>TOGGLE_STARTER1</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>GENERAL ENG STARTER:1</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_starter1</Name>
-    <Copy>switch_starter</Copy>
-    <MouseRect>
-      <EventID>TOGGLE_STARTER2</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>GENERAL ENG STARTER:2</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-
-
-<Animation name="switch_master_alternator" guid="b89ef09b-799c-495e-b2c2-214c8de52dce" length="50" type="Sim" typeParam2="switch_master_alternator" typeParam="AutoPlay" />
-<Animation name="switch_master_alternator0" guid="a92c315d-87b8-4931-b9fd-7b8975f02b61" length="50" type="Sim" typeParam2="switch_master_alternator0" typeParam="AutoPlay" />
-<Animation name="switch_master_alternator1" guid="bc3bc86f-b0b7-41e9-9f5c-d8582cd1a0f5" length="50" type="Sim" typeParam2="switch_master_alternator1" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>switch_master_alternator</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>GENERAL ENG MASTER ALTERNATOR:1</Variable>
-                    <Units>bool</Units>
-                    <Scale>50</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <HelpID>HELPID_GAUGE_ALTERNATOR_SWITCH</HelpID>
-            <TooltipID>TOOLTIPTEXT_ALTERNATOR_SWITCH</TooltipID>
-            <EventID>TOGGLE_MASTER_ALTERNATOR</EventID>
-        </MouseRect>
-    </PartInfo>
-  <PartInfo>
-        <Name>switch_master_alternator0</Name>
-        <Copy>switch_master_alternator</Copy>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>GENERAL ENG MASTER ALTERNATOR:1</Variable>
-                </Sim>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <EventID>TOGGLE_ALTERNATOR1</EventID>
-        </MouseRect>
-    </PartInfo>
-    <PartInfo>
-        <Name>switch_master_alternator1</Name>
-        <Copy>switch_master_alternator</Copy>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>GENERAL ENG MASTER ALTERNATOR:2</Variable>
-                </Sim>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <EventID>TOGGLE_ALTERNATOR2</EventID>
-        </MouseRect>
     </PartInfo>
 
 
@@ -2328,128 +1336,6 @@
       (L:HUDPWR,bool) ! (&gt;L:HUDPWR,bool)
     </CallbackCode>
   </MouseRect>
-</PartInfo>
-
-
-<Animation name="switch_flight_director" guid="dfab66dd-4abc-4d6e-a338-a4e2ec849add" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>switch_flight_director</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</HelpID>
-      <TooltipID>TOOLTIPTEXT_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</TooltipID>
-      <EventID>TOGGLE_FLIGHT_DIRECTOR</EventID>
-    </MouseRect>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>AUTOPILOT FLIGHT DIRECTOR ACTIVE</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-<Animation name="switch_taxi_light" guid="3bf59f9d-0f8b-4eee-b1ca-d561d5050ea2" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-  <Name>switch_taxi_light</Name>
-  <AnimLength>50</AnimLength>
-  <Animation>
-      <Parameter>
-          <Sim>
-              <Variable>LIGHT TAXI</Variable>
-              <Units>bool</Units>
-              <Scale>50</Scale>
-          </Sim>
-      </Parameter>
-  </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <TooltipText>TAXI LIGHTS</TooltipText>
-     <CallbackCode>
-      1 (&gt;K:TOGGLE_TAXI_LIGHTS)
-     </CallbackCode>
-  </MouseRect>
-</PartInfo>
-
-<Animation name="MFD PWR" guid="306d1bf5-9868-43ef-99cf-e54271d4720f" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>MFD PWR</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(A:CIRCUIT ON:40, Bool) 100 * </Code>
-        <Lag>50</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
-      <CallbackCode>
-        (A:CIRCUIT ON:40, bool)!(&gt;A:CIRCUIT ON:40, bool)
-			</CallbackCode>
-    </MouseRect>
-</PartInfo>
-
-<Animation name="MFD PFD" guid="fa4ed2eb-f615-410a-87cd-20570fb6da19" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>MFD PFD</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(L:DISP_TYPE,enum) 100 * </Code>
-        <Lag>30</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
-      <CallbackCode>
-				(M:Event) 'LeftSingle' scmp 0 == if{ 0 (&gt;L:DISP_TYPE,enum) 0 (&gt;L:DISP_TYPE,enum) }
-				(M:Event) 'LeftRelease' scmp 0 == if{ 0 (&gt;L:DISP_TYPE,enum) }
-			</CallbackCode>
-    </MouseRect>
-</PartInfo>
-<Animation name="MFD ND" guid="36a89ff1-6474-4e6a-a647-bc35872e4263" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>MFD ND</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(L:DISP_TYPE,enum) 100 * </Code>
-        <Lag>30</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
-      <CallbackCode>
-				(M:Event) 'LeftSingle' scmp 0 == if{ 1 (&gt;L:DISP_TYPE,enum) 1 (&gt;L:DISP_TYPE,enum) }
-				(M:Event) 'LeftRelease' scmp 0 == if{ 1 (&gt;L:DISP_TYPE,enum) }
-			</CallbackCode>
-    </MouseRect>
-</PartInfo>
-<Animation name="MFD EICAS" guid="b1648e44-ed4b-4eb0-8351-c4e7a905c9e4" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>MFD EICAS</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>(L:DISP_TYPE,enum) 100 * </Code>
-        <Lag>30</Lag>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
-      <CallbackCode>
-				(M:Event) 'LeftSingle' scmp 0 == if{ 2 (&gt;L:DISP_TYPE,enum) 2 (&gt;L:DISP_TYPE,enum) }
-				(M:Event) 'LeftRelease' scmp 0 == if{ 2 (&gt;L:DISP_TYPE,enum) }
-			</CallbackCode>
-    </MouseRect>
 </PartInfo>
 
 

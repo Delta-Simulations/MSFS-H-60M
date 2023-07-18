@@ -7,6 +7,45 @@
     <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
     <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
 
+    <Template Name="Switch_3PosMomentary_DELTASIM">
+        <DefaultTemplateParameters>
+            <TOOLTIPID_NORM>TOGGLE</TOOLTIPID_NORM>
+            <POST_CODE></POST_CODE>
+        </DefaultTemplateParameters>
+        <Component ID="#NODE_ID#" Node="#NODE_ID#">
+            <Component ID="#TEST_NODE#" Node="#TEST_NODE#">
+                <UseTemplate Name="ASOBO_GT_MouseRect">
+                    <TOOLTIPID>#TOOLTIPID_NORM#</TOOLTIPID>
+                    <CURSOR>UpArrow</CURSOR>
+                    <MOUSEFLAGS_DEFAULT_IM>LeftSingle+LeftRelease</MOUSEFLAGS_DEFAULT_IM>
+                    <CALLBACKCODE_DEFAULT_IM>
+                      (M:Event) 'LeftSingle' scmi 0 == if{
+                        -1 (&gt;L:H60_#NODE_ID#)
+                    }
+                    (M:Event) 'LeftRelease' scmi 0 == if{
+                        0 (&gt;L:H60_#NODE_ID#)
+                    }
+                    </CALLBACKCODE_DEFAULT_IM>
+                </UseTemplate>
+            </Component>
+            <Component ID="#NORM_NODE#" Node="#NORM_NODE#">
+                <UseTemplate Name="ASOBO_GT_Interaction_LeftSingle_Code">
+                    <TOOLTIPID>#TOOLTIPID_NORM#</TOOLTIPID>
+                    <CURSOR>DownArrow</CURSOR>
+                    <LEFT_SINGLE_CODE>
+                        1 (&gt;L:H60_#NODE_ID#)
+                        #POST_CODE#
+                    </LEFT_SINGLE_CODE>
+                    <EVENTID/>
+                </UseTemplate>    
+            </Component>    
+            <UseTemplate Name="ASOBO_GT_Anim">
+                <ANIM_NAME>#NODE_ID#</ANIM_NAME>
+                <ANIM_CODE>(L:H60_#NODE_ID#) 50 * 50 +</ANIM_CODE>
+                <ANIM_LENGTH>100</ANIM_LENGTH>
+            </UseTemplate>    
+        </Component>
+</Template>
 
 <Template Name="AircraftVar_Switch_DELTASIM">
     <DefaultTemplateParameters>

@@ -7,6 +7,7 @@
 	<Behaviors>
 		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
 
     <!-- WATER FX-->
     <Component ID="LARG1" Node="FX_WATER">
@@ -267,20 +268,14 @@
 
         <FREQUENCY>100</FREQUENCY>
         <UPDATE_CODE>
-          (A:ROTOR RPM PCT:1, percent) (&gt;L:uh60_rtr1, enum) 
           (A:SIM ON GROUND, bool) 0 == (&gt;L:uh60_on_ground, bool) 
 
-
-          (A:DISK CONING PCT:1, percent) 100 *
-          (&gt;L:uh60_RTR_Cone, enum) 
-
-
-          (A:ROTOR RPM PCT:1, percent) 40 &gt;
+          <!-- (A:ROTOR RPM PCT:1, percent) 40 &gt;
           if{ 
             0.09 (&gt;L:uh60_rtr_SPD, enum) 
           } els{
             (A:ROTOR RPM PCT:1, percent) 2 / (&gt;L:uh60_rtr_SPD, enum) 
-          }
+          } -->
           
 
 
@@ -291,30 +286,45 @@
     <Component ID="SOARPayload" Node="Left_pylon_DAP">
       <Visibility> <Parameter> <Code>	(L:Uh60_DAP_Pylon,bool) 1 == </Code> </Parameter> </Visibility>
 		</Component>	
-    
+    <Component ID="RTRRot">
+		<UseTemplate Name="ASOBO_GT_Update">
+			<UPDATE_ONCE>True</UPDATE_ONCE>
+			<UPDATE_CODE>1 (&gt;O:test_rotor)</UPDATE_CODE>
+		</UseTemplate>
+		<UseTemplate Name="ASOBO_GT_Anim">
+      <ANIM_NAME>RTR_Rot</ANIM_NAME>
+			<ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) * (O:test_rotor) *</ANIM_CODE>
+			<ANIM_LENGTH>360</ANIM_LENGTH>
+			<ANIM_WRAP>1</ANIM_WRAP>
+			<ANIM_DELTA>1</ANIM_DELTA>
+		</UseTemplate>
+    <UseTemplate Name="ASOBO_GT_Anim">
+      <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
+			<ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) * (O:test_rotor) *</ANIM_CODE>
+			<ANIM_LENGTH>360</ANIM_LENGTH>
+			<ANIM_WRAP>1</ANIM_WRAP>
+			<ANIM_DELTA>1</ANIM_DELTA>
+		</UseTemplate>
+  </Component>	
+
       </Component>
 
 </Behaviors>
 	<!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->
-  <Animation name="RTR_Rot" guid="f13c29f4-8c9c-4251-ba23-773457014e36" type="Sim" typeParam="AutoPlay" />
+<!-- <Animation name="RTR_Rot" guid="6ac8fd70-9b23-48c9-913f-ce7bdf9f3791" length="360" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
     <Name>RTR_Rot</Name>
-    <AnimLength>100</AnimLength>
+    <AnimLength>360</AnimLength>
     <Animation>
       <Parameter>
         <Code>
-         
-        (A:ROTOR RPM PCT:1, percent) 40 &gt;
-        if{
-          (E:ABSOLUTE TIME, second) (L:uh60_rtr_SPD, enum) / 1 % 100 *
-        } els{ 
-          (A:PROP ROTATION ANGLE:1, radians) 15.92 * 
-        }
+
+          (A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) *
 
         </Code>
       </Parameter>
     </Animation>
-  </PartInfo>
+  </PartInfo> -->
   
   <Animation name="Rtr_cone" guid="e742a48e-d672-4a32-9660-0cf0907d73a3" type="Sim" typeparam="AutoPlay" />
   <PartInfo>
@@ -322,7 +332,9 @@
       <AnimLength>100</AnimLength>
       <Animation>
           <Parameter>
-               <Code>(L:uh60_RTR_Cone, enum)</Code>
+               <Code>
+                (A:DISK CONING PCT:1, percent) 100 *
+               </Code>
               <Lag>20</Lag>
       </Parameter>
       </Animation>
@@ -333,24 +345,6 @@
 <Animation name="prop_slow" 			guid="212a018f-9c5c-4e92-b903-2c1accb7a39a" length="100" type="Sim" typeParam2="prop_slow" typeParam="AutoPlay" />
 <Animation name="prop_still" 			guid="b4c44392-91b4-447d-8fe1-8a61a923cc99" length="100" type="Sim" typeParam2="prop_still" typeParam="AutoPlay" />
 <Animation name="prop_med" 			    guid="aadc7bef-c313-4099-96d6-804fc580ebbf" length="100" type="Sim" typeParam2="prop_med" typeParam="AutoPlay" />
-
-
-<!-- 
-  (L:uh60_rtr_SPD, enum)
-  (A:PROP ROTATION ANGLE:1, radians) 15.92 * (L:uh60_RTR_speed, enum) /
-  <PartInfo>
-  <Name>prop_anim</Name>
-  <AnimLength>100</AnimLength>
-  <Animation>
-      <Parameter>
-          <Sim>
-              <Variable>PROP ROTATION ANGLE:1</Variable>
-              <Units>radians</Units>
-              <Scale>15.92</Scale>
-          </Sim>
-      </Parameter>
-  </Animation>
-</PartInfo> -->
     		
   <PartInfo>
     <Name>prop_still</Name>
@@ -805,9 +799,9 @@
 
 
 
-<Animation name="DOOR1" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />
+<Animation name="doorfront" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
-  <Name>DOOR1</Name>
+  <Name>doorfront</Name>
   <AnimLength>1</AnimLength>
   <Visibility>
   <Parameter>
@@ -871,7 +865,7 @@
       <Parameter>
           <Code>
      <!-- (A:GENERAL ENG THROTTLE LEVER POSITION:1, Percent) -->
-     (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 1.5 / 
+     (A:ROTOR COLLECTIVE BLADE PITCH PCT, percent) 1.5 / 
       </Code>
       </Parameter>
   </Animation>
@@ -897,13 +891,7 @@
   <Animation>
       <Parameter>
           <Code>
-            <!-- (A:ROTOR RPM PCT:1, percent) 10 / -->
-            <!-- (A:WING FLEX PCT, percent) -->
-            <!-- (L:Rotangle,enum) 50 &gt; if{ 
-              90 
-            } els{ 
-              (A:ROTOR RPM PCT:1, percent) -->
-            <!-- } -->
+
             (L:Roangle,enum)
           
       </Code> 
