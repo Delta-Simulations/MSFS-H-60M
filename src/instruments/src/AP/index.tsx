@@ -22,7 +22,7 @@ interface ElectricityProps {
 const AP = () => {
 
     return(
-        <Electricity circuit='14'>
+        <Electricity circuit='3'>
             <svg viewBox='0 0 1280 1280'>
                 <rect x={0} y={0} width={1280} height={1280} fill='black'/>
                 <g> 
