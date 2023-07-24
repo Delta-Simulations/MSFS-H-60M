@@ -266,17 +266,11 @@
 
       <UseTemplate Name="ASOBO_GT_Update">
 
-        <FREQUENCY>100</FREQUENCY>
+        <FREQUENCY>Once</FREQUENCY>
         <UPDATE_CODE>
           (A:SIM ON GROUND, bool) 0 == (&gt;L:uh60_on_ground, bool) 
-
-          <!-- (A:ROTOR RPM PCT:1, percent) 40 &gt;
-          if{ 
-            0.09 (&gt;L:uh60_rtr_SPD, enum) 
-          } els{
-            (A:ROTOR RPM PCT:1, percent) 2 / (&gt;L:uh60_rtr_SPD, enum) 
-          } -->
-          
+					100 (&gt;A:GENERAL ENG MIXTURE LEVER POSITION:1, Percent)
+					100 (&gt;A:GENERAL ENG MIXTURE LEVER POSITION:2, Percent)
 
 
         </UPDATE_CODE>
@@ -864,7 +858,6 @@
   <Animation>
       <Parameter>
           <Code>
-     <!-- (A:GENERAL ENG THROTTLE LEVER POSITION:1, Percent) -->
      (A:ROTOR COLLECTIVE BLADE PITCH PCT, percent) 1.5 / 
       </Code>
       </Parameter>

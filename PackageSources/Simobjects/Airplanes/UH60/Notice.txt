@@ -1,1 +1,36 @@
-Bell names, emblems, body designs, and logos are trademarks and intellectual property of Textron Innovations Inc. and are used under license to Microsoft Corporation.
+
+[FUEL_SYSTEM]
+Version = "Latest"
+; -------- APU
+APU.1 = Name:MainAPU#FuelBurnRate:33
+; -------- Engine
+Engine.1 = Name:LeftEngine#Index:1
+Engine.2 = Name:RightEngine#Index:2
+; -------- Tank
+Tank.1 = Name:LeftMainTank#Capacity:282#UnusableCapacity:0#Position:0.175,-1,0.4#Priority:1#OutputOnlyLines:LeftTankToLeftJctn,LeftTankToRightJctn,LeftTanktoAPUValve
+Tank.2 = Name:RightMainTank#Capacity:282#UnusableCapacity:0#Position:0.175,1,0.4#Priority:1#OutputOnlyLines:RightTankToRightJctn,RightTankToLeftJctn
+; -------- Line
+Line.1 = Name:LeftTankToLeftJctn#Source:LeftMainTank #Destination:LeftENGJctn
+Line.2 = Name:LeftTankToRightJctn#Source:LeftMainTank #Destination:RightENGJct
+Line.3 = Name:RightTankToRightJctn#Source:RightMainTank #Destination:RightENGJctn
+Line.4 = Name:RightTankToLeftJctn#Source:RightMainTank #Destination:RightENGJct
+Line.5 = Name:LeftJctnToPrime#Source:LeftENGJctn #Destination:LeftPrimePump
+Line.6 = Name:RightJctnToPrime#Source:RightENGJctn #Destination:RightPrimePump
+Line.7 = Name:LeftPrimeToEng#Source:LeftPrimePump #Destination:LeftEngine
+Line.8 = Name:RightPrimeToEng#Source:RightPrimePump #Destination:RightEngine
+; -------- APU
+Line.9 = Name:LeftTanktoAPUValve#Source:LeftMainTank #Destination:APUValve
+Line.10 = Name:APUValvetoAPUPrime#Source:APUValve #Destination:ApuPrimePump
+Line.11 = Name:ApuPrimePumptoAPU#Source:ApuPrimePump #Destination:MainAPU
+; -------- Junction
+Junction.1 = Name:LeftENGJctn#InputOnlyLines:LeftTankToLeftJctn,RightTankToLeftJctn#OutputOnlyLines:LeftJctnToPrime#Option:LeftTankToLeftJctn#Option:LeftTankToLeftJctn,LeftJctnToPrime#Option:RightTankToLeftJctn,LeftJctnToPrime
+Junction.2 = Name:RightENGJctn#InputOnlyLines:RightTankToRightJctn,LeftTankToRightJctn#OutputOnlyLines:RightJctnToPrime#Option:RightTankToJctn#Option:RightTankToRightJctn,RightJctnToPrime#Option:LeftTankToRightJctn,RightJctnToPrime
+; -------- Valve
+Valve.1 = Name:APUValve#DestinationLine:APUValvetoAPUPrime#OpeningTime:2#Circuit:1
+; -------- Pump
+Pump.1 = Name:LeftPrimePump#Pressure:90#DestinationLine:LeftPrimeToEng#Type:Electric#Index:1
+Pump.2 = Name:RightPrimePump#Pressure:90#DestinationLine:RightPrimeToEng#Type:Electric#Index:2
+Pump.3 = Name:ApuPrimePump#Pressure:90#DestinationLine:ApuPrimePumptoAPU#Type:Electric#Index:3
+; -------- Trigger
+Trigger.1 = Condition:Autostart_Enabled#EffectTrue:OpenValve.LeftEngValve,SetJunction.LeftENGJctn.2,SetJunction.RightENGJctn.2,StartPump.ApuPrimePump,
+Trigger.2 = Condition:Autoshutdown_Enabled#EffectTrue:OpenValve.LeftEngValve,SetJunction.LeftENGJctn.1,SetJunction.RightENGJctn.1,StopPump.ApuPrimePump,

@@ -11,19 +11,14 @@
 <Template Name="Korry_Emmis_DELTASIM">
     <DefaultTemplateParameters>
         <INTENSITY>1</INTENSITY>
-        <ELEC_INDEX>65</ELEC_INDEX>
-        <TRUECODE>0</TRUECODE>
-        <TESTCODE>(L:C17_WACAP_Test, bool) 1 == or</TESTCODE>		
+        <ELEC_PWR>(A:CIRCUIT ON:1,bool) 1 ==</ELEC_PWR>
+        <TRUECODE>1</TRUECODE>	
     </DefaultTemplateParameters>
     <Component ID="#NODE_ID#" Node="#NODE_ID#">
-        <UseTemplate Name="ASOBO_GT_Component_Emissive_Gauge">
-            <NODE_ID>#NODE_ID#</NODE_ID>
-
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
             <EMISSIVE_CODE>
             #TRUECODE#
-            #TESTCODE#
-            (A:CIRCUIT ON:#ELEC_INDEX#,bool) 1 == and
-            
+            #ELEC_PWR# and
             if{
                 #INTENSITY#
             }else{0}
@@ -32,5 +27,4 @@
         </UseTemplate>
     </Component>
 </Template>
-
 </ModelBehaviors>

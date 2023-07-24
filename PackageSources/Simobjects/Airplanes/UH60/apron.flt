@@ -55,7 +55,7 @@ AvionicsSwitch=True
 [Engine Parameters.1.0]
 ThrottleLeverPct=0
 PropellerLeverPct=1
-MixtureLeverPct=0.4
+MixtureLeverPct=1
 Pct Engine RPM=0.0
 MaxReachedEngineRPM=0.0
 Pct N1=0.0
@@ -75,7 +75,7 @@ Afterburner=0
 [Engine Parameters.2.0]
 ThrottleLeverPct=0
 PropellerLeverPct=1
-MixtureLeverPct=0
+MixtureLeverPct=1
 Pct Engine RPM=0.0
 MaxReachedEngineRPM=0.0
 Pct N1=0.0
@@ -96,7 +96,7 @@ Afterburner=0
 
 
 [Systems.0]
-BatterySwitch=True
+BatterySwitch=False
 StructuralDeiceSwitch=False
 StructuralDeiceSwitch_EX1=0
 PropDeiceSwitch=False
@@ -125,50 +125,6 @@ KollsmanSetting=29.921342849731445313
 [BleedAir.0]
 BleedAirSource=0
 
-[LocalVars.0]
-initSysChk=0
-chrono init=1
-Offset chrono=63801331223.11479187
-beaconlightRotation=1
-CollectiveGrip=10
-collGripState=1
-initCollGrip=1
-torqueCheck=0
-fuelPressCheck=0
-ampCheck=0
-mgtCheck=0
-fuelQtyCheck=0
-ngCheck=0
-XmsnPressInit=1
-XmsnPressCorr=2
-xmsnPressCheck=0
-XmsnTempInit=1
-XmsnTempCorr=1.6000000000000000888
-xmsnTempCheck=0
-engPressCheck=0
-engTempCheck=0
-switchturnCoord=0
-initFlag=1
-rotorCheck=0
-nrCheck=0
-compassAdjustValue=0
-switchAttGyro=0
-switchSound=2
-initPanelLight=1
-initAttGyro=1
-initTurnCoord=1
-initInstrLight=1
-switchLtsCabinPass=1
-initCabPass=1
-switchGenerator=0
-initGen=1
-hornFadecTest=0
-hornMuted=1
-hornCaution=0
-switchPrimaryCompassAdjust=1
-comAdjInit=1
-initCounter=0
-switchFuelValveCover=1
 
 [Switches.0]
 PitotHeat=False

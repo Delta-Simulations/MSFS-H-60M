@@ -12840,7 +12840,7 @@
 	  const [DISP_TYPE] = useSimVar('L:DISP_TYPE', 'enum');
 	  const [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
 	  return /*#__PURE__*/jsxRuntime.jsx(Electricity, {
-	    circuit: "14",
+	    circuit: "3",
 	    children: /*#__PURE__*/jsxRuntime.jsxs("svg", {
 	      viewBox: "0 0 1024 768",
 	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {

@@ -50,17 +50,32 @@
 	<Element>
 		<Select>
 				<Value>
-	
+					(L:H60_AIR_SOURCE) 0 ==
+					if{ 1 0 (&gt;K:2:ENGINE_BLEED_AIR_SOURCE_SET) }
+					els{ 0 0 (&gt;K:2:ENGINE_BLEED_AIR_SOURCE_SET) }
+
+					(L:H60_AIR_SOURCE) 2 ==
+					if{ 1 (&gt;K:APU_BLEED_AIR_SOURCE_SET) }
+					els{ 0 (&gt;K:APU_BLEED_AIR_SOURCE_SET) }
+					
 					(L:H60_Switch_EXT_PWR) 1 == 
 					if{ 1 1 (&gt;K:2:SET_EXTERNAL_POWER) } 
 					els{ 0 1 (&gt;K:2:SET_EXTERNAL_POWER) }
 	
-					(A:FUELSYSTEM JUNCTION SETTING:1, enum) (&gt;L:TESTRUN)
-					(A:FUELSYSTEM JUNCTION SETTING:2, enum) (&gt;L:TESTRUN2)
-	
+					(L:H60_PCL1, enum) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+					(L:H60_PCL2, enum) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent)
+
 					(L:H60_Switch_BATT1) 1 ==
-					if{ 1 (&gt;K:MASTER_BATTERY_ON) }
-					els{ 0 (&gt;K:MASTER_BATTERY_OFF) }
+					if{ 1 (&gt;K:BATTERY1_SET) }
+					els{ 0 (&gt;K:BATTERY1_SET) }
+					(L:H60_Switch_BATT2) 1 ==
+					if{ 1 (&gt;K:BATTERY2_SET) }
+					els{ 0 (&gt;K:BATTERY2_SET) }
+
+					(L:H60_Switch_BATT_STBY) 1 ==
+					(A:ELECTRICAL MAIN BUS VOLTAGE:1, volts) 1 &lt; and
+					if{ 1 (&gt;K:BATTERY3_SET) }
+					els{ 0 (&gt;K:BATTERY3_SET) }
 	
 					(L:H60_Switch_GEN_APU) 1 ==
 					if{ 1 (&gt;K:APU_GENERATOR_SWITCH_SET) }
@@ -72,13 +87,6 @@
 					(L:H60_Switch_GEN_ENG2) 1 ==
 					if{ 2 1 (>K:2:ALTERNATOR_SET) }
 					els{ 2 0 (>K:2:ALTERNATOR_SET) }
-	
-					(L:H60_Fuel_Prime, enum) 2 ==
-					if{ 
-						3 (&gt;K:FUELSYSTEM_PUMP_ON) 
-					} els{
-						3 (&gt;K:FUELSYSTEM_PUMP_OFF) 
-					}
 	
 					(L:H60_Fuel1, enum) 0 ==
 					if{ 
@@ -104,17 +112,24 @@
 					if{ 
 						3 2 (&gt;K:2:FUELSYSTEM_JUNCTION_SET)
 					}
-
-					(L:H60_APU_START) 1 ==
+					
+					(L:H60_Fuel_Prime, enum) 2 ==
 					if{ 
-						1 (&gt;K:FUELSYSTEM_VALVE_OPEN) 
-						
+						3 (&gt;K:FUELSYSTEM_PUMP_ON) 
 					} els{
-						0 (&gt;K:APU_OFF_SWITCH)
-						1 (&gt;K:FUELSYSTEM_VALVE_OFF) 
+						3 (&gt;K:FUELSYSTEM_PUMP_OFF) 
 					}
-	
+
+					(L:H60_APU_START, bool) 1 ==
+					if{ 
+						1 1 (&gt;K:2:FUELSYSTEM_VALVE_SET) 
+					} els{
+						1 (&gt;K:APU_OFF_SWITCH)
+						0 1 (&gt;K:2:FUELSYSTEM_VALVE_SET) 
+					}
+					(A:APU PCT RPM, percent) (&gt;L:H60APU)
 					(L:H60_APU_START) 1 ==
+					(A:APU PCT RPM, percent) 30 &lt; and
 					if{
 						1 (&gt;K:APU_STARTER)
 					}

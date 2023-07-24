@@ -1,3 +1,55 @@
+
+<Component ID="Lever_PCL2" Node="Lever_PCL2">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+          (L:H60_PCL2, enum) ++ 100 min (>L:H60_PCL2, enum)
+        </UP_CODE>
+        <DOWN_CODE>
+            
+            (L:H60_PCL2, enum) -- 0 max (>L:H60_PCL2, enum)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
+    </UseTemplate>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Lever_PCL2</PART_ID>
+      <ANIM_NAME>Lever_PCL2</ANIM_NAME>
+      <NODE_ID>Lever_PCL2</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_PCL2, enum)
+      </ANIM_CODE>
+      <ANIM_LAG>300</ANIM_LAG>
+    </UseTemplate>
+  </Component>
+  <Component ID="Lever_PCL1" Node="Lever_PCL1">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+          (L:H60_PCL1, enum) ++ 100 min (>L:H60_PCL1, enum)
+        </UP_CODE>
+        <DOWN_CODE>
+            
+            (L:H60_PCL1, enum) -- 0 max (>L:H60_PCL1, enum)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
+    </UseTemplate>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Lever_PCL1</PART_ID>
+      <ANIM_NAME>Lever_PCL1</ANIM_NAME>
+      <NODE_ID>Lever_PCL1</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_PCL1, enum)
+      </ANIM_CODE>
+      <ANIM_LAG>300</ANIM_LAG>
+    </UseTemplate>
+  </Component>
+
+
+
+
+
+
+
 <Animation name="Cargo_swingFB" guid="2fc0d488-300f-43a4-8b05-98bfa4934131" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
     <Name>Cargo_swingFB</Name>

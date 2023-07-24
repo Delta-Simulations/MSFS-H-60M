@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<SoundInfo Version="0.1">
+
+	<WwisePackages>
+		<MainPackage Name="DeltaSim_H60"/>
+	</WwisePackages>
+
+   <AcousticParameters>
+      <Parameter Name="ReverberationPreset" ShareSetInside="rev_inside_default"/>
+      <Parameter Name="Insulation_ExitClosed" Value="-402"/>
+      <Parameter Name="Insulation_ExitOpen" Value="-12"/>
+  </AcousticParameters>
+  
+<EngineSoundStates>
+	<!--Combustion ===================================-->
+	<Sound WwiseEvent="Shutdown" ConeHeading="0" RPMMin="675" WwiseData="true" EngineIndex="1"/>
+	
+	<Sound WwiseEvent="Starter" ConeHeading="0" RPMMin="675" WwiseData="true" EngineIndex="1"/>
+
+  </EngineSoundStates>
+
+<!-- SimvarSounds ========================================================================================== --> 
+
+<SimVarSounds>
+
+    <Sound WwiseData="true" WwiseEvent="APU_Idle" ConeHeading="0" NodeName="APU_Inlet" SimVar="APU PCT RPM" Units="PERCENT" Index="0" FadeOutType="2" FadeOutTime="0.5">
+		<WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
+		<Range LowerBound="1.0" />
+	</Sound>   
+	  
+	<Sound WwiseData="true" WwiseEvent="APU_Starter" ConeHeading="0" NodeName="APU_Inlet" ViewPoint="Both" FadeOutType="2" FadeOutTime="0.5">
+
+	</Sound>
+
+<!-- RAIN ===============-->
+
+
+</SimVarSounds> 
+
+</SoundInfo>

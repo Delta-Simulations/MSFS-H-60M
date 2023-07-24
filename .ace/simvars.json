@@ -14,19 +14,6 @@
             }
         },
         {
-            "__uuid": "ab4bc9f4-adc1-48f8-8336-e26467be7a43",
-            "title": "radar alt",
-            "varPrefix": "A",
-            "varName": "RADIO HEIGHT",
-            "varUnit": "number",
-            "style": {
-                "type": 2,
-                "min": -1,
-                "max": 300,
-                "step": 1
-            }
-        },
-        {
             "__uuid": "7d9f0a3f-4954-4bc2-b8d8-a72e42e2f770",
             "title": "vert speed",
             "varPrefix": "A",
@@ -63,8 +50,18 @@
             "__uuid": "d3e695ae-53a3-450d-b8cd-4a39421fd9ac",
             "title": "batt on",
             "varPrefix": "A",
-            "varName": "CIRCUIT ON:42",
+            "varName": "CIRCUIT ON:3",
             "varUnit": "bool",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "723d1715-b0b7-4b9a-8862-7cfd8880d83c",
+            "title": "Stby Batt",
+            "varPrefix": "A",
+            "varName": "CIRCUIT ON:24",
+            "varUnit": "number",
             "style": {
                 "type": 3
             }
