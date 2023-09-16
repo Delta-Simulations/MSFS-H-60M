@@ -858,7 +858,7 @@
   <Animation>
       <Parameter>
           <Code>
-     (A:ROTOR COLLECTIVE BLADE PITCH PCT, percent) 1.5 / 
+     (A:ROTOR COLLECTIVE BLADE PITCH PCT, percent)
       </Code>
       </Parameter>
   </Animation>

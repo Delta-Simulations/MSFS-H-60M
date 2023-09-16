@@ -77,7 +77,7 @@
             </PitchCurve>
             <VolumeCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
                 <Point SimValue="0.0" Output="0.0" />
-                <Point SimValue="10" Output="400" />
+                <Point SimValue="10" Output="200" />
                 <Point SimValue="20" Output="600" />
                 <Point SimValue="30" Output="900" />
                 <Point SimValue="60" Output="1500" />

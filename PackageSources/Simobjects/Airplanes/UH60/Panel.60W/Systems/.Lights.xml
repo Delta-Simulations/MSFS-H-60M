@@ -22,28 +22,5 @@ Nav Lights
 </Element> 
 
 
-<Comment>
-*************************************************
-Beacon Lights
-*************************************************
-</Comment>
-
-<Element>
-<Select>
-<Value>
-(L:BcnMast, enum) 1 == (L:BcnMast, enum) 3 == or (L:BcnColor, enum) 0 != and if{ 1 (&gt;K:STROBES_ON) }
-els{ 1 (&gt;K:STROBES_OFF) }
-
-(L:BcnMast, enum) 0 == (L:BcnMast, enum) 3 == or (L:BcnColor, enum) 0 != and if{ 2 (&gt;K:STROBES_ON) }
-els{ 2 (&gt;K:STROBES_OFF) }
-
-(L:BcnMast, enum) 1 == (L:BcnMast, enum) 3 == or (L:BcnColor, enum) 1 != and if{ 3 (&gt;K:STROBES_ON) }
-els{ 3 (&gt;K:STROBES_OFF) }
-
-(L:BcnMast, enum) 0 == (L:BcnMast, enum) 3 == or (L:BcnColor, enum) 1 != and if{ 4 (&gt;K:STROBES_ON) }
-els{ 4 (&gt;K:STROBES_OFF) }
-</Value>
-</Select>
-</Element> 
 
 </Gauge>
