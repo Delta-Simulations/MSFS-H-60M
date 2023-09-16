@@ -1,5 +1,5 @@
 
-<Component ID="Lever_PCL2" Node="Lever_PCL2">
+  <Component ID="Lever_PCL2" Node="Lever_PCL2">
     <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
         <UP_CODE>
           (L:H60_PCL2, enum) ++ 100 min (>L:H60_PCL2, enum)
@@ -140,3 +140,46 @@ if{
 
 (A:CAMERA GAMEPLAY PITCH YAW:0, degree) 90 / 50 * +
 (&gt;L:HMD POSITION, percent)
+
+<Component ID="Lever_PCL1" Node="Lever_PCL1">
+      <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+          <UP_CODE>
+              (L:H60_PCL1, percent) ++ 100 min (>L:H60_PCL1, percent)
+          </UP_CODE>
+          <DOWN_CODE>
+              (L:H60_PCL1, percent) -- 0 max (>L:H60_PCL1, percent)
+          </DOWN_CODE>
+          <AXIS>X</AXIS>
+          <DRAG_AXIS_SCALE>50</DRAG_AXIS_SCALE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_GT_Anim_Code">
+        <PART_ID>Lever_PCL1</PART_ID>
+        <ANIM_NAME>Lever_PCL1</ANIM_NAME>
+        <NODE_ID>Lever_PCL1</NODE_ID>
+        <ANIM_CODE>
+          (L:H60_PCL1, percent)
+        </ANIM_CODE>
+        <ANIM_LAG>300</ANIM_LAG>
+      </UseTemplate>
+    </Component>
+    <Component ID="Lever_PCL2" Node="Lever_PCL2">
+      <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+          <UP_CODE>
+              (L:H60_PCL2, percent) ++ 100 min (>L:H60_PCL2, percent)
+          </UP_CODE>
+          <DOWN_CODE>
+              (L:H60_PCL2, percent) -- 0 max (>L:H60_PCL2, percent)
+          </DOWN_CODE>
+          <AXIS>X</AXIS>
+          <DRAG_AXIS_SCALE>50</DRAG_AXIS_SCALE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_GT_Anim_Code">
+        <PART_ID>Lever_PCL2</PART_ID>
+        <ANIM_NAME>Lever_PCL2</ANIM_NAME>
+        <NODE_ID>Lever_PCL2</NODE_ID>
+        <ANIM_CODE>
+          (L:H60_PCL2, percent)
+        </ANIM_CODE>
+        <ANIM_LAG>300</ANIM_LAG>
+      </UseTemplate>
+    </Component> 

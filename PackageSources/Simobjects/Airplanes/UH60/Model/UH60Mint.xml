@@ -44,11 +44,11 @@
       <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
       </UseTemplate>
     </Component>
-          <!-- GUN FX======================================================-->
+
 
 
 <Component ID="OH_PCLS">
-    <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
+    <!-- <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
       <USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
       <ID>1</ID>
   <PART_ID>Lever_PCL1</PART_ID>
@@ -61,7 +61,7 @@
   <PART_ID>Lever_PCL2</PART_ID>
   <NODE_ID>Lever_PCL2</NODE_ID>
   <ANIM_NAME>Lever_PCL2</ANIM_NAME>
-    </UseTemplate>
+    </UseTemplate> -->
 
 
   <Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
