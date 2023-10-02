@@ -23,6 +23,9 @@ export const Airctaft = () => {
 	const [doorHide, setDoorHide] = useSimVar('L:PART1', 'bool');
 	const [gunnerDoor, setGunnerDoor] = useSimVar('L:PART2', 'bool');
 
+	var [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
+	var [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+
 	return (
 		<div className="aircraftContainer">
 			<Box
@@ -170,9 +173,15 @@ export const Airctaft = () => {
 						fontSize: 14,
 					}}
 				>
-					<Button size="small" variant="contained">
-						Pilot R
-					</Button>
+					<Button
+							size="small"
+							onClick={() => setshowPilot(!showPilot)}
+							color={showPilot ? 'success' : 'primary'}
+							variant={showPilot ? 'contained' : 'outlined'}
+						>
+							Pilot
+						</Button>
+
 				</Box>
 				<Box
 					sx={{
@@ -193,9 +202,14 @@ export const Airctaft = () => {
 						fontSize: 14,
 					}}
 				>
-					<Button size="small" variant="contained">
-						Pilot L
-					</Button>
+					<Button
+							size="small"
+							onClick={() => setshowCoPilot(!showCoPilot)}
+							color={showCoPilot ? 'success' : 'primary'}
+							variant={showCoPilot ? 'contained' : 'outlined'}
+						>
+							CoPilot
+						</Button>
 				</Box>
 				<Box
 					sx={{

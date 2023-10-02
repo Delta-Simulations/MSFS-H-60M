@@ -471,7 +471,7 @@
         </Animation>
     </PartInfo>
 
-<Animation name="AmbientSoldierL" guid="36391804-dd08-40ea-bd8d-ea0fe7191df3" type="Sim" typeParam="AutoPlay" />
+<Animation name="AmbientSoldierL" guid="48f5fa6d-7e1c-494b-9b28-8b8f641035fc" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
   <Name>AmbientSoldierL</Name>
   <AnimLength>100</AnimLength>
@@ -483,11 +483,12 @@
   <Visibility>
     <Parameter>
      <Code>
-      (L:DOORS_OPEN_REAR_L, bool) if{ 1 } els{ 0 }
+      (L:DOORS_OPEN_REAR_L, bool)
      </Code>
        </Parameter>
-       </Visibility>
+      </Visibility>
 </PartInfo>
+
 <Animation name="AmbientSoldierR" guid="52b277b3-1d2f-4e61-a202-fa01acc0a887" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
   <Name>AmbientSoldierR</Name>

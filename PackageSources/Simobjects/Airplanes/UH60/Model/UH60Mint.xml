@@ -15,7 +15,13 @@
     <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
+    <!-- <Include File="UH60_Systems.xml"/>
 
+		<Component ID="Syst">
+			<UseTemplate Name="ENGSystems" />
+		</Component> -->
+
+    
     <Component ID="EFBBRT" Node="TABLET.002">
       <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
         <EMISSIVE_CODE>
@@ -102,6 +108,19 @@
 </Component>
 
 <Component ID="OH_ELEC">
+
+  <UseTemplate Name="DELTASIM_Finite_Knob_Template">
+    <NODE_ID>Key_Master_Ignition</NODE_ID>
+    <ANIM_CODE>(A:MASTER IGNITION SWITCH, BOOL) 100 *</ANIM_CODE>
+    <CLOCKWISE_CODE>
+      (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
+    </CLOCKWISE_CODE>
+    <ANTICLOCKWISE_CODE>
+      (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
+    </ANTICLOCKWISE_CODE>
+    <CW_ANIMTIP>MASTER INGITION</CW_ANIMTIP>
+    <CCW_ANIMTIP>MASTER INGITION</CCW_ANIMTIP>
+  </UseTemplate>
 
   <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
     <NODE_ID>Switch_EXT_PWR</NODE_ID>
@@ -208,7 +227,7 @@
     <NODE_ID>Button_ENG2_Starter</NODE_ID>
     <TOOLTIPID>ENG2 START</TOOLTIPID>
     <LEFT_SINGLE_CODE>
-      (K:TOGGLE_STARTER2,bool) ! (&gt;K:TOGGLE_STARTER2,bool)
+      (L:H60_Switch_Starter_Eng1,bool) ! (&gt;L:H60_Switch_Starter_Eng1,bool)
     </LEFT_SINGLE_CODE>
 </UseTemplate>
 
@@ -216,7 +235,7 @@
   <NODE_ID>Button_ENG1_Starter</NODE_ID>
   <TOOLTIPID>ENG1 START</TOOLTIPID>
   <LEFT_SINGLE_CODE>
-    (K:TOGGLE_STARTER1,bool) ! (&gt;K:TOGGLE_STARTER1,bool)
+    (L:H60_Switch_Starter_Eng1,bool) ! (&gt;L:H60_Switch_Starter_Eng1,bool)
   </LEFT_SINGLE_CODE>
 </UseTemplate>
 
@@ -224,7 +243,6 @@
 <UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_APU_On</NODE_ID>
   <TRUECODE>(A:APU PCT RPM, percent) 95 &gt;</TRUECODE>
-  
 </UseTemplate>
 <UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_Batt_Good</NODE_ID>
@@ -273,16 +291,33 @@
 	<!-- CUSTOM ANIMATIONS GO BELOW -->
 
 
-  <Animation name="AmbientSoldierL" guid="36391804-dd08-40ea-bd8d-ea0fe7191df3" type="Sim" typeParam="AutoPlay" />
+  <Animation name="AmbientSoldierL" guid="48f5fa6d-7e1c-494b-9b28-8b8f641035fc" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
     <Name>AmbientSoldierL</Name>
     <AnimLength>100</AnimLength>
-    <Animation>
+    <Visibility>
       <Parameter>
-        <Code>(E:ABSOLUTE TIME, second) 6 % 25 *</Code>
-      </Parameter>
-    </Animation>
+       <Code>
+        (L:DOORS_OPEN_REAR_L, bool) if{ 1 } els{ 0 }
+       </Code>
+         </Parameter>
+        </Visibility>
   </PartInfo>
+  
+  <Animation name="AmbientSoldierR" guid="52b277b3-1d2f-4e61-a202-fa01acc0a887" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>AmbientSoldierR</Name>
+    <AnimLength>100</AnimLength>
+
+    <Visibility>
+      <Parameter>
+       <Code>
+        (L:DOORS_OPEN_REAR_R, bool) if{ 1 } els{ 0 }
+       </Code>
+         </Parameter>
+         </Visibility>
+  </PartInfo>
+
 
 <Animation name="HH-60W" guid="ceb0c4db-ca4a-4075-b406-a1dd795ada5e" length="100" type="Sim" typeparam="AutoPlay" />
 <PartInfo>
@@ -576,7 +611,7 @@
   </PartInfo>
 
 
-  <Animation name="AUTOSTRT" guid="372d609f-b78e-4290-86f2-d6b29623217d" length="50" type="Sim" typeparam2="AUTOSTRT" typeparam="AutoPlay" />
+  <!-- <Animation name="AUTOSTRT" guid="372d609f-b78e-4290-86f2-d6b29623217d" length="50" type="Sim" typeparam2="AUTOSTRT" typeparam="AutoPlay" />
   <PartInfo>
       <Name>AUTOSTRT</Name>
       <AnimLength>50</AnimLength>
@@ -593,7 +628,7 @@
           <CallbackCode>(K:ENGINE_AUTO_START, bool) ! (>K:ENGINE_AUTO_START, bool)
       </CallbackCode>
       </MouseRect>
-  </PartInfo>
+  </PartInfo> -->
 
 <!-- LIGHT CONTROLS-->
 <Animation name="doorfront" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />
@@ -766,6 +801,35 @@
     </MouseRect>
 </PartInfo>
 
+<Animation name="Pilot_Vis" guid="9a59620b-c80d-4907-9946-b20ee4b165f0" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>Pilot_Vis</Name>
+    <AnimLength>1</AnimLength>
+    <Visibility>
+      <Parameter>
+        <Code>
+          (L:H60_Pilot_Vis,bool)
+          (A:CAMERA VIEW TYPE AND INDEX, number) 1 != and
+					(A:CAMERA VIEW TYPE AND INDEX, number) 3 != and
+        </Code>
+      </Parameter>
+    </Visibility>
+</PartInfo>
+<Animation name="CoPilot_Vis" guid="2f9a5c21-24d7-444b-962e-725a35f2aeb7" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>CoPilot_Vis</Name>
+    <AnimLength>1</AnimLength>
+    <Visibility>
+      <Parameter>
+        <Code>
+          (L:H60_CoPilot_Vis,bool)
+          (A:CAMERA VIEW TYPE AND INDEX, number) 1 != and
+					(A:CAMERA VIEW TYPE AND INDEX, number) 3 != and
+        </Code>
+      </Parameter>
+    </Visibility>
+</PartInfo>
+
 <Animation name="Part2" guid="02d87ba9-3058-48c3-8e09-59415270a103" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
     <Name>Part2</Name>
@@ -892,75 +956,6 @@
     </PartInfo>
 
 
-
-  <Animation name="STARTER_APU" guid="87c871d4-8178-4880-b0e4-82f9ab129906" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>STARTER_APU</Name>
-      <AnimLength>50</AnimLength>
-      <Animation>
-          <Parameter>
-              <Code>
-                  (L:FE.APUSTART,enum) 25 *
-              </Code>
-              <Lag>100</Lag>
-          </Parameter>
-      </Animation>
-      <MouseRect>
-    <Cursor>Hand</Cursor>
-    <MouseFlags>LeftSingle+LeftRelease+Wheel</MouseFlags>
-       <CallbackCode>
-          (M:Event) 'LeftSingle' scmp 0 ==
-          if{ (L:FE.APUSTART, enum) ++ 3 % (>L:FE.APUSTART, enum) }
-          (M:Event) 'LeftRelease' scmp 0 ==
-          if{ 1 (>L:FE.APUSTART, enum) }
-          (M:Event) 'WheelDown' scmp 0 ==
-          if{ (L:FE.APUSTART, enum) -- 3 % 0 max (>L:FE.APUSTART, enum) }
-       </CallbackCode>
-  </MouseRect>
-  </PartInfo>
-
-
-  <Animation name="switch_fuel_pump_1" guid="6101f0d9-6589-40d0-b207-e0f217a33bdd" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>switch_fuel_pump_1</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-				 <Code>
-                 	(A:FUELSYSTEM PUMP SWITCH:1, bool) 0 == if{ 0 } els{ 100 }
-                 </Code>
-				<Lag>100</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>%((A:FUELSYSTEM PUMP SWITCH:1, bool))%{if}L ENG PUMP(on)%{else}L ENG PUMP(off)%{end}</TooltipText>
-             <CallbackCode>
-                1  (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
-
-  <Animation name="switch_fuel_pump_2" guid="5692e79e-6336-42eb-8994-2ac7009c8634" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>switch_fuel_pump_2</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-				 <Code>
-                 	(A:FUELSYSTEM PUMP SWITCH:2, bool) 0 == if{ 0 } els{ 100 }
-                 </Code>
-				<Lag>100</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>%((A:FUELSYSTEM PUMP SWITCH:2, bool))%{if}R ENG PUMP(on)%{else}R ENG PUMP(off)%{end}</TooltipText>
-             <CallbackCode>
-                2  (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
 
 
 <Animation name="lever_bleed_air_source"          guid="AFF388BB-2942-477d-B4E9-BCC2A9309FFF" type="Sim" typeParam="AutoPlay"  length="100" typeParam2="lever_bleed_air_source"/>

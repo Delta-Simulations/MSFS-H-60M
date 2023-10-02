@@ -1,13 +1,13 @@
 {
     "elements": [
         {
-            "__uuid": "a2548dca-e3db-45ae-bf50-a5460fa2d785",
+            "__uuid": "5f841051-9f3a-41c6-b404-8e265ad44978",
             "__kind": "instrument",
             "dataKind": "bundled",
-            "title": "AP",
-            "instrumentName": "AP",
+            "title": "PFD",
+            "instrumentName": "PFD",
             "position": {
-                "x": -1290,
+                "x": 0,
                 "y": 0
             }
         }

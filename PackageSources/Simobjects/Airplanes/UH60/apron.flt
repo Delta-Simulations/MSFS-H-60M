@@ -53,9 +53,9 @@ AudioAdf2Listen=False
 AvionicsSwitch=True
 
 [Engine Parameters.1.0]
-ThrottleLeverPct=0
+ThrottleLeverPct=100
 PropellerLeverPct=1
-MixtureLeverPct=1
+MixtureLeverPct=100
 Pct Engine RPM=0.0
 MaxReachedEngineRPM=0.0
 Pct N1=0.0
@@ -65,7 +65,7 @@ FuelPumpSwitch=False
 FuelPumpSwitch_EX1=0
 FuelValveOpen=True
 CarbHeat/DeiceSwitch=False
-EngineMasterSwitch=True
+EngineMasterSwitch=False
 IgnitionSwitch=0
 StarterSwitch=False
 FuelPressurePSF=0
@@ -73,9 +73,9 @@ CorrectedFF=0
 Afterburner=0
 
 [Engine Parameters.2.0]
-ThrottleLeverPct=0
+ThrottleLeverPct=100
 PropellerLeverPct=1
-MixtureLeverPct=1
+MixtureLeverPct=100
 Pct Engine RPM=0.0
 MaxReachedEngineRPM=0.0
 Pct N1=0.0
@@ -85,15 +85,12 @@ FuelPumpSwitch=False
 FuelPumpSwitch_EX1=0
 FuelValveOpen=True
 CarbHeat/DeiceSwitch=False
-EngineMasterSwitch=True
+EngineMasterSwitch=False
 IgnitionSwitch=0
 StarterSwitch=False
 FuelPressurePSF=0
 CorrectedFF=0
 Afterburner=0
-
-[FuelSystem.0]
-
 
 [Systems.0]
 BatterySwitch=False
@@ -117,7 +114,7 @@ AuxPowerUnitSwitch=False
 SeatBeltsSwitch=False
 NoSmokingSwitch=False
 ClutchSwitch=False
-GovernorSwitch=False
+GovernorSwitch=True
 
 [Gauges.0]
 KollsmanSetting=29.921342849731445313

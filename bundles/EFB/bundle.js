@@ -17473,6 +17473,8 @@
 	  const [doorL, setDoorL] = useSimVar('L:FL_ANIM', 'bool');
 	  const [doorHide, setDoorHide] = useSimVar('L:PART1', 'bool');
 	  const [gunnerDoor, setGunnerDoor] = useSimVar('L:PART2', 'bool');
+	  var [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
+	  var [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
 	  return /*#__PURE__*/jsxRuntime.jsx("div", {
 	    className: "aircraftContainer",
 	    children: /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
@@ -17616,8 +17618,10 @@
 	        },
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	          size: "small",
-	          variant: "contained",
-	          children: "Pilot R"
+	          onClick: () => setshowPilot(!showPilot),
+	          color: showPilot ? 'success' : 'primary',
+	          variant: showPilot ? 'contained' : 'outlined',
+	          children: "Pilot"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
@@ -17639,8 +17643,10 @@
 	        },
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	          size: "small",
-	          variant: "contained",
-	          children: "Pilot L"
+	          onClick: () => setshowCoPilot(!showCoPilot),
+	          color: showCoPilot ? 'success' : 'primary',
+	          variant: showCoPilot ? 'contained' : 'outlined',
+	          children: "CoPilot"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {

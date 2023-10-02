@@ -15,15 +15,15 @@
         },
         {
             "__uuid": "7d9f0a3f-4954-4bc2-b8d8-a72e42e2f770",
-            "title": "vert speed",
+            "title": "Rotor",
             "varPrefix": "A",
-            "varName": "VERTICAL SPEED",
-            "varUnit": "number",
+            "varName": "ROTOR RPM PCT",
+            "varUnit": "percent",
             "style": {
                 "type": 2,
-                "min": -3000,
-                "max": 3000,
-                "step": 1
+                "min": 0,
+                "max": 110,
+                "step": 0.1
             }
         },
         {
@@ -64,6 +64,19 @@
             "varUnit": "number",
             "style": {
                 "type": 3
+            }
+        },
+        {
+            "__uuid": "40d4b8f0-c2fa-4a78-8a2d-4381f9bebfb9",
+            "title": "ENG PCT 1",
+            "varPrefix": "A",
+            "varName": "ENG RPM ANIMATION PERCENT",
+            "varUnit": "percent",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 104,
+                "step": 1
             }
         }
     ]
