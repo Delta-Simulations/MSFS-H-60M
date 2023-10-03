@@ -27,14 +27,6 @@
 			<AssetDir>PackageSources\Effects\</AssetDir>
 			<OutputDir>Effects\</OutputDir>
 		</AssetGroup>
-		<AssetGroup Name="MaterialLibs">
-			<Type>MaterialLib</Type>
-			<Flags>
-				<FSXCompatibility>false</FSXCompatibility>
-			</Flags>
-			<AssetDir>PackageSources\MaterialLibs\materials-flares\</AssetDir>
-			<OutputDir>MaterialLibs\materials-flares\</OutputDir>
-		</AssetGroup>
 		<AssetGroup Name="ModelBehaviorDefs">
 			<Type>Copy</Type>
 			<Flags>
@@ -42,14 +34,6 @@
 			</Flags>
 			<AssetDir>PackageSources\ModelBehaviorDefs\</AssetDir>
 			<OutputDir>ModelBehaviorDefs\</OutputDir>
-		</AssetGroup>
-		<AssetGroup Name="UH60_Downwash">
-			<Type>Copy</Type>
-			<Flags>
-				<FSXCompatibility>false</FSXCompatibility>
-			</Flags>
-			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</AssetDir>
-			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</OutputDir>
 		</AssetGroup>
 		<AssetGroup Name="UH60_html">
 			<Type>Copy</Type>
@@ -64,16 +48,8 @@
 			<Flags>
 				<FSXCompatibility>false</FSXCompatibility>
 			</Flags>
-			<AssetDir>PackageSources\VisualEffectLibs\UH60Flares\effects-flares\</AssetDir>
-			<OutputDir>VisualEffectLibs\UH60Flares\effects-flares\</OutputDir>
-		</AssetGroup>
-		<AssetGroup Name="VisualEffectLibs">
-			<Type>VisualEffectLib</Type>
-			<Flags>
-				<FSXCompatibility>false</FSXCompatibility>
-			</Flags>
-			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-water-drop\</AssetDir>
-			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-water-drop\</OutputDir>
+			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</AssetDir>
+			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</OutputDir>
 		</AssetGroup>
 		<AssetGroup Name="uh60">
 			<Type>SimObject</Type>

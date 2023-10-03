@@ -97,6 +97,14 @@
 				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
 			</UseTemplate>
 		 </Component>
+
+     <Component ID="Light_60W_Nav" Node="Light_60W_Nav">
+			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+				<EMISSIVE_CODE>
+				   (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+				</EMISSIVE_CODE>
+			</UseTemplate>
+		  </Component>
      <Component ID="nav1" Node="NAV_MAST">
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
 				<EMISSIVE_CODE>
@@ -715,6 +723,21 @@
   </Parameter>
 </Visibility>
 </PartInfo>
+<Animation name="Non_60W" guid="ae17f3d6-5575-4ee4-b308-83481ccf9a62" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Non_60W</Name>
+  <AnimLength>100</AnimLength>
+  <Visibility>
+  <Parameter>
+    <Code>
+      (L:MODEL_TYPE, enum) 1 == if{ 0 }
+    </Code>
+    <Lag>10</Lag>
+  </Parameter>
+</Visibility>
+</PartInfo>
+
+
 
 <Animation name="HH-60W" guid="7a29c4a5-ae83-47e5-962d-09db1bf13560" length="100" type="Sim" typeparam="AutoPlay" />
 <PartInfo>
@@ -1060,7 +1083,11 @@
   <Visibility>
     <Parameter>
       <Code>
-        (A:SIM ON GROUND, Bool) (A:GEAR IS ON GROUND:1, Bool) and (A:ELECTRICAL MASTER BATTERY, bool) ! and (A:WHEEL RPM:1, rpm) 1 &lt; and 
+        (A:SIM ON GROUND, Bool) 
+        (A:GEAR IS ON GROUND:1, Bool) and 
+        (A:ELECTRICAL MASTER BATTERY, bool) ! and 
+        (A:WHEEL RPM:1, rpm) 1 &lt; and 
+        (L:H60_RBF_Tags, Bool) 1 == and
         if{ 1 } els{ 0 }
     </Code>
     </Parameter>
@@ -1090,14 +1117,13 @@
     </Parameter> </Emissive> </Materials>
     </PartInfo>
     
-  <Animation name="SLIMELGT" guid="d6a7d2a5-13cd-44f8-9dc4-b001ce8ed525" length="1" type="Sim" typeParam2="SLIMELGT" typeParam="AutoPlay" />
+  <Animation name="SLIMELGT" guid="05844ecd-e147-4c76-a2df-9dee0d13c5f2" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
     <Name>SLIMELGT</Name>
     <AnimLength>1</AnimLength>
     <Materials> <Emissive> <Parameter>
         <Code>
-          (A:LIGHT RECOGNITION ON,bool) (A:ELECTRICAL MASTER BATTERY, bool) and
-          if{ 3 } els{ 0 }
+          (A:LIGHT POTENTIOMETER:10, percent) 0.05 * (A:ELECTRICAL MASTER BATTERY, bool) *
         </Code>
       </Parameter> </Emissive> </Materials>
   </PartInfo>

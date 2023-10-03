@@ -5,9 +5,9 @@
     <WorldBase.Flight>
         <VisualEffect.VisualEffect InstanceId="{936C9B32-A095-47F6-9619-15D8EE073614}">
             <Name>Downwash</Name>
-            <VisualEffect.EmitterList InstanceId="{5BFEDEBD-7F89-43BE-858C-7C59841779EC}">
+            <EmitterList>
                 <ObjectReference InstanceId="{CB0E0BF9-168C-4E45-94D2-F29BC251F3B9}" id="Emitter"/>
-            </VisualEffect.EmitterList>
+            </EmitterList>
         </VisualEffect.VisualEffect>
         <VisualEffect.Emitter InstanceId="{CB0E0BF9-168C-4E45-94D2-F29BC251F3B9}">
             <Capacity>100.000</Capacity>
@@ -25,9 +25,6 @@
             <ParticleRotation>
                 <Float3In>{4B356F22-F185-42B0-AB74-590B37C452F8}, 0.000000, 0.000000, 0.000000</Float3In>
             </ParticleRotation>
-            <ParticlePosition>
-                <Float3In>{C69B8A32-0ECA-429D-87C1-F1740652E87E}, 0.000000, 0.000000, 0.000000</Float3In>
-            </ParticlePosition>
         </VisualEffect.BlockParticleInit>
         <VisualEffect.BlockParticleUpdate InstanceId="{FC7152DD-F15A-438D-81F6-71AF0BE8702E}">
             <ParticleOutput>
@@ -57,14 +54,6 @@
             <OutputValue>{0136E243-1411-4EE1-B410-48E002D4DD45}</OutputValue>
             <SimvarType>RADIO HEIGHT</SimvarType>
         </VisualEffect.GetSimVar>
-        <VisualEffect.Vector3 InstanceId="{C6750F84-5413-4BFD-AB18-B50607D655E0}">
-            <OutputValue>{C69B8A32-0ECA-429D-87C1-F1740652E87E}</OutputValue>
-        </VisualEffect.Vector3>
-        <VisualEffect.MultiplyOperation InstanceId="{A394B173-7321-468A-88EF-5DCFBA136224}">
-            <OutputValue>{8A43D9FE-661C-4D2E-8363-EDF93DD8E453}</OutputValue>
-            <xVariant>{0136E243-1411-4EE1-B410-48E002D4DD45}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, -1.100000</yVariant>
-        </VisualEffect.MultiplyOperation>
         <VisualEffect.GetParticleAttribute InstanceId="{8351323A-F231-4575-8BA6-987B09E4F7CF}">
             <OutputValue>{021234AC-F80E-41E9-B5FD-ABAE702C3582}</OutputValue>
             <ParticleAttributeType>AgeOverLifetime</ParticleAttributeType>
@@ -137,14 +126,9 @@
         </VisualEffect.GetSimVar>
         <VisualEffect.AddOperation InstanceId="{DBF57302-36A9-4C48-B6FC-31F559690DE5}">
             <OutputValue>{E1B3534A-80A4-412B-8A9E-979221FD239A}</OutputValue>
-            <xVariant>{11F15459-F943-43FB-83FC-2F527DBB22BA}, 0.000000</xVariant>
+            <xVariant>{84862322-B7A6-4C5A-82F1-A3D0CE563B96}, 0.000000</xVariant>
             <yVariant>{00000000-0000-0000-0000-000000000000}, 20.000000</yVariant>
         </VisualEffect.AddOperation>
-        <VisualEffect.MultiplyOperation InstanceId="{AE77CCA2-96F2-4F27-8743-91A70D7E9734}">
-            <OutputValue>{11F15459-F943-43FB-83FC-2F527DBB22BA}</OutputValue>
-            <xVariant>{0136E243-1411-4EE1-B410-48E002D4DD45}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, -1.000000</yVariant>
-        </VisualEffect.MultiplyOperation>
         <VisualEffect.MultiplyOperation InstanceId="{915C9B63-C943-492E-9511-16008D593E22}">
             <OutputValue>{A00EE6A7-7535-4864-8424-84924098AFBF}</OutputValue>
             <xVariant>{7C77115A-BE13-4EB3-B849-AF1647F00CA1}, 0.000000</xVariant>
@@ -232,6 +216,21 @@
             <OutputValue>{872A9AD9-3A14-4500-A0C3-1663F66A9E8B}</OutputValue>
             <xVariant>{9F765885-DF7E-4DC0-8FCA-FE3E20E687B1}, 0.000000</xVariant>
             <yVariant>{60FF3471-9C45-4E98-9650-D624C510200D}, 0.000000</yVariant>
+        </VisualEffect.MultiplyOperation>
+        <VisualEffect.GetBezierCurve InstanceId="{899433C2-5B28-41A3-900C-D903FAB17C88}">
+            <OutputValue>{471C8F7B-88E8-4BBE-B73A-4F77AC966C7B}</OutputValue>
+            <FXTime>{2D906C12-B62A-4B97-884B-32247E17AF77}, 0.000000</FXTime>
+            <Curve>0.052,0.985,NAN,NAN,0.500,0.023,NAN,NAN,0.998,1.001,NAN,NAN</Curve>
+        </VisualEffect.GetBezierCurve>
+        <VisualEffect.MultiplyOperation InstanceId="{B7837B03-448B-497A-AEA3-019158DA7FA3}">
+            <OutputValue>{2D906C12-B62A-4B97-884B-32247E17AF77}</OutputValue>
+            <xVariant>{0136E243-1411-4EE1-B410-48E002D4DD45}, 0.000000</xVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 0.050000</yVariant>
+        </VisualEffect.MultiplyOperation>
+        <VisualEffect.MultiplyOperation InstanceId="{5FF267D8-68E9-4DAF-A93A-992F329D8B5A}">
+            <OutputValue>{84862322-B7A6-4C5A-82F1-A3D0CE563B96}</OutputValue>
+            <xVariant>{471C8F7B-88E8-4BBE-B73A-4F77AC966C7B}, 0.000000</xVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, -20.000000</yVariant>
         </VisualEffect.MultiplyOperation>
     </WorldBase.Flight>
 </SimBase.Document>

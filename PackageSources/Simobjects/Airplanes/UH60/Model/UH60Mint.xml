@@ -25,7 +25,8 @@
     <Component ID="EFBBRT" Node="TABLET.002">
       <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
         <EMISSIVE_CODE>
-          (L:Uh60_EFB_BRT, enum) 10 / 0.4 +
+          (L:Uh60_EFB_BRT, enum) 0.1 *
+          (A:GLASSCOCKPIT AUTOMATIC BRIGHTNESS, number) * 0.05 +
         </EMISSIVE_CODE>
       </UseTemplate>
       </Component>
@@ -120,6 +121,44 @@
     </ANTICLOCKWISE_CODE>
     <CW_ANIMTIP>MASTER INGITION</CW_ANIMTIP>
     <CCW_ANIMTIP>MASTER INGITION</CCW_ANIMTIP>
+  </UseTemplate>
+  <UseTemplate Name="DELTASIM_Finite_Knob_Template">
+    <NODE_ID>KNOB_OH_PNL_BACKLIGHT</NODE_ID>
+    <ANIM_CODE>(L:H60_OH_PNL_BACKLIGHT, percent)</ANIM_CODE>
+    <CLOCKWISE_CODE>
+      (L:H60_OH_PNL_BACKLIGHT, percent) 10 + 100 min (&gt;L:H60_OH_PNL_BACKLIGHT, percent)
+    </CLOCKWISE_CODE>
+    <ANTICLOCKWISE_CODE>
+      (L:H60_OH_PNL_BACKLIGHT, percent) 10 - 0 max (&gt;L:H60_OH_PNL_BACKLIGHT, percent)
+    </ANTICLOCKWISE_CODE>
+    <CW_ANIMTIP>OH PNL BACKLIGHT</CW_ANIMTIP>
+    <CCW_ANIMTIP>OH PNL BACKLIGHT</CCW_ANIMTIP>
+  </UseTemplate>
+  <UseTemplate Name="DELTASIM_Finite_Knob_Template">
+    <NODE_ID>KNOB_INST_PNL_BACKLIGHT</NODE_ID>
+    <ANIM_CODE>(L:H60_INST_PNL_BACKLIGHT, percent)</ANIM_CODE>
+    <CLOCKWISE_CODE>
+      (L:H60_INST_PNL_BACKLIGHT, percent) 10 + 100 min (&gt;L:H60_INST_PNL_BACKLIGHT, percent)
+    </CLOCKWISE_CODE>
+    <ANTICLOCKWISE_CODE>
+      (L:H60_INST_PNL_BACKLIGHT, percent) 10 - 0 max (&gt;L:H60_INST_PNL_BACKLIGHT, percent)
+    </ANTICLOCKWISE_CODE>
+    <CW_ANIMTIP>INST PNL BACKLIGHT</CW_ANIMTIP>
+    <CCW_ANIMTIP>INST PNL BACKLIGHT</CCW_ANIMTIP>
+  </UseTemplate>
+
+
+  <UseTemplate Name="DELTASIM_Finite_Knob_Template">
+    <NODE_ID>Knob_Formation_Lights</NODE_ID>
+    <ANIM_CODE>(A:LIGHT POTENTIOMETER:10, percent)</ANIM_CODE>
+    <CLOCKWISE_CODE>
+      (A:LIGHT POTENTIOMETER:10, percent) 20 + 100 min (&gt;K:LIGHT_POTENTIOMETER_10_SET)
+    </CLOCKWISE_CODE>
+    <ANTICLOCKWISE_CODE>
+      (A:LIGHT POTENTIOMETER:10, percent) 20 - 0 max (&gt;K:LIGHT_POTENTIOMETER_10_SET)
+    </ANTICLOCKWISE_CODE>
+    <CW_ANIMTIP>FORMATION LGT</CW_ANIMTIP>
+    <CCW_ANIMTIP>FORMATION LGT</CCW_ANIMTIP>
   </UseTemplate>
 
   <UseTemplate Name="Switch_3PosMomentary_DELTASIM">
@@ -223,23 +262,68 @@
     </INTERACT_CODE>
   </UseTemplate>
 
-  <UseTemplate Name="DELTASIM_PushButton_Template">
+  <!-- <UseTemplate Name="DELTASIM_PushButton_Template">
     <NODE_ID>Button_ENG2_Starter</NODE_ID>
     <TOOLTIPID>ENG2 START</TOOLTIPID>
     <LEFT_SINGLE_CODE>
       (L:H60_Switch_Starter_Eng1,bool) ! (&gt;L:H60_Switch_Starter_Eng1,bool)
     </LEFT_SINGLE_CODE>
-</UseTemplate>
+</UseTemplate> -->
 
-<UseTemplate Name="DELTASIM_PushButton_Template">
+<Component ID="Button_ENG1_Starter" Node="Button_ENG1_Starter">
+  <UseTemplate Name="ASOBO_GT_Push_Button">
+    <PART_ID>Button_ENG1_Starter</PART_ID>
+    <ANIM_NAME>Button_ENG1_Starter</ANIM_NAME>
+    <OVERRIDE_ANIM_CODE>(A:GENERAL ENG STARTER:1, Bool) 100 *</OVERRIDE_ANIM_CODE>
+    <LEFT_SINGLE_CODE>
+      1 (&gt;K:SET_STARTER1_HELD)
+    </LEFT_SINGLE_CODE>
+    <LEFT_LEAVE_CODE>
+      0 (&gt;K:SET_STARTER1_HELD)
+    </LEFT_LEAVE_CODE>
+    <TOOLTIPID>START ENGINE</TOOLTIPID>
+    <ANIM_LAG>600</ANIM_LAG>
+  </UseTemplate>
+</Component>
+<Component ID="Button_ENG2_Starter" Node="Button_ENG2_Starter">
+  <UseTemplate Name="ASOBO_GT_Push_Button">
+    <PART_ID>Button_ENG2_Starter</PART_ID>
+    <ANIM_NAME>Button_ENG2_Starter</ANIM_NAME>
+    <OVERRIDE_ANIM_CODE>(A:GENERAL ENG STARTER:2, Bool) 100 *</OVERRIDE_ANIM_CODE>
+    <LEFT_SINGLE_CODE>
+      1 (&gt;K:SET_STARTER2_HELD)
+    </LEFT_SINGLE_CODE>
+    <LEFT_LEAVE_CODE>
+      0 (&gt;K:SET_STARTER2_HELD)
+    </LEFT_LEAVE_CODE>
+    <TOOLTIPID>START ENGINE</TOOLTIPID>
+    <ANIM_LAG>600</ANIM_LAG>
+  </UseTemplate>
+</Component>
+
+<!-- <UseTemplate Name="DELTASIM_PushButton_Template">
   <NODE_ID>Button_ENG1_Starter</NODE_ID>
   <TOOLTIPID>ENG1 START</TOOLTIPID>
   <LEFT_SINGLE_CODE>
     (L:H60_Switch_Starter_Eng1,bool) ! (&gt;L:H60_Switch_Starter_Eng1,bool)
   </LEFT_SINGLE_CODE>
+</UseTemplate> -->
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_Acc_Low</NODE_ID>
+  <TRUECODE>0</TRUECODE>
 </UseTemplate>
-
-
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_Oil_Hot</NODE_ID>
+  <TRUECODE>0</TRUECODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_APU_Fail</NODE_ID>
+  <TRUECODE>0</TRUECODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_EmerALSS_Test</NODE_ID>
+  <TRUECODE>0</TRUECODE>
+</UseTemplate>
 <UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_APU_On</NODE_ID>
   <TRUECODE>(A:APU PCT RPM, percent) 95 &gt;</TRUECODE>
@@ -288,8 +372,30 @@
 </Component>
 
 </Behaviors>
-	<!-- CUSTOM ANIMATIONS GO BELOW -->
 
+	<!-- CUSTOM ANIMATIONS GO BELOW -->
+  <Animation name="OH_PNL_BACKLIGHT" guid="d2f92e7d-3fb1-4d7e-8ee3-25baa60154d5" length="1" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+  <Name>OH_PNL_BACKLIGHT</Name>
+  <Materials> <Emissive> <Parameter>
+  <Code>(L:H60_OH_PNL_BACKLIGHT, percent) 200 / (A:ELECTRICAL MASTER BATTERY, bool) *</Code> 
+  </Parameter> </Emissive> </Materials>
+  </PartInfo>
+  <Animation name="INST_PNL_BACKLIGHT" guid="58e5a062-bced-476b-9c2c-2623b2cc18d9" length="1" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+  <Name>INST_PNL_BACKLIGHT</Name>
+  <Materials> <Emissive> <Parameter>
+  <Code>(L:H60_INST_PNL_BACKLIGHT, percent) 200 / (A:ELECTRICAL MASTER BATTERY, bool) *</Code> 
+  </Parameter> </Emissive> </Materials>
+  </PartInfo>
+
+  <Animation name="LWR_PNL_BACKLIGHT" guid="3f22c831-195c-48de-bcd7-07a8e9fecf6d" length="1" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+  <Name>LWR_PNL_BACKLIGHT</Name>
+  <Materials> <Emissive> <Parameter>
+  <Code>(L:H60_LWR_PNL_BACKLIGHT, percent) 200 / (A:ELECTRICAL MASTER BATTERY, bool) *</Code> 
+  </Parameter> </Emissive> </Materials>
+  </PartInfo>
 
   <Animation name="AmbientSoldierL" guid="48f5fa6d-7e1c-494b-9b28-8b8f641035fc" type="Sim" typeParam="AutoPlay" />
   <PartInfo>

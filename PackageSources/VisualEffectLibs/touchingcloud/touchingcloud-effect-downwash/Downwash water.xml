@@ -5,9 +5,9 @@
     <WorldBase.Flight>
         <VisualEffect.VisualEffect InstanceId="{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}">
             <Name>Downwash water</Name>
-            <VisualEffect.EmitterList InstanceId="{7137DDD9-7260-4FA8-A8F7-64FDF681A55D}">
+            <EmitterList>
                 <ObjectReference InstanceId="{8E8E51C8-ABF5-46A0-96A7-E2C399F244C6}" id="Emitter"/>
-            </VisualEffect.EmitterList>
+            </EmitterList>
         </VisualEffect.VisualEffect>
         <VisualEffect.Emitter InstanceId="{8E8E51C8-ABF5-46A0-96A7-E2C399F244C6}">
             <Capacity>500.000</Capacity>
@@ -116,7 +116,7 @@
         <VisualEffect.MultiplyOperation InstanceId="{D3D44DA5-B24D-458A-A0A9-FEDFB9544DB9}">
             <OutputValue>{18874C2F-3B3A-46CA-8182-E038E35A766B}</OutputValue>
             <xVariant>{B42595B5-0BE0-47A0-9927-12C7DE64949D}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, 10.000000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 40.000000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.GetSimVar InstanceId="{46FA9FCA-3FE3-4EEA-8EB8-6A2B64F92CCB}">
             <OutputValue>{3E4CA7FB-9433-411A-B8AB-1AB86A80F99A}</OutputValue>
@@ -126,13 +126,13 @@
         </VisualEffect.GetSimVar>
         <VisualEffect.AddOperation InstanceId="{352C704C-A673-4DFB-9D01-3BC03D835E0C}">
             <OutputValue>{694AE1B3-5718-4C20-B155-8532A09EF43B}</OutputValue>
-            <xVariant>{53E14017-ACC8-4B86-8B90-A24FED2467FF}, 0.000000</xVariant>
+            <xVariant>{8344B04B-348D-4D20-AA9C-5B3DFB240103}, 0.000000</xVariant>
             <yVariant>{00000000-0000-0000-0000-000000000000}, 50.000000</yVariant>
         </VisualEffect.AddOperation>
         <VisualEffect.MultiplyOperation InstanceId="{276E7E4B-06B8-47CA-9C2D-AEE2C660B0DC}">
             <OutputValue>{53E14017-ACC8-4B86-8B90-A24FED2467FF}</OutputValue>
             <xVariant>{232CC3D2-22BC-4BF9-A6C5-F76BD561BFA4}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, -1.000000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 0.020000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.MultiplyOperation InstanceId="{D66A1408-A08D-4B4B-B4CB-9957583B4F3D}">
             <OutputValue>{4BE77023-33F6-4D01-8123-DBC4CFAB34B1}</OutputValue>
@@ -256,5 +256,15 @@
             <xVariant>{54D96368-F2AB-4B8E-A521-0E9EDE5FD79D}, 0.000000</xVariant>
             <yVariant>{BA970046-CA01-45B5-81CF-579129F787C6}, 0.000000</yVariant>
         </VisualEffect.MultiplyOperation>
+        <VisualEffect.MultiplyOperation InstanceId="{386EA7CA-445A-4944-B4A5-3AD11A2FD40F}">
+            <OutputValue>{8344B04B-348D-4D20-AA9C-5B3DFB240103}</OutputValue>
+            <xVariant>{00000000-0000-0000-0000-000000000000}, 50.000000</xVariant>
+            <yVariant>{B146096E-A61D-4CA1-91F9-BAD8BE222D8D}, -50.000000</yVariant>
+        </VisualEffect.MultiplyOperation>
+        <VisualEffect.GetBezierCurve InstanceId="{D73E8CD0-4CAE-435D-A26D-DA2487F75378}">
+            <OutputValue>{B146096E-A61D-4CA1-91F9-BAD8BE222D8D}</OutputValue>
+            <FXTime>{53E14017-ACC8-4B86-8B90-A24FED2467FF}, 0.000000</FXTime>
+            <Curve>0.061,0.993,NAN,NAN,0.500,0.048,NAN,NAN,0.998,0.993,NAN,NAN</Curve>
+        </VisualEffect.GetBezierCurve>
     </WorldBase.Flight>
 </SimBase.Document>
