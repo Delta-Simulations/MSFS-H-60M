@@ -11,6 +11,8 @@
         </VisualEffect.VisualEffect>
         <VisualEffect.Emitter InstanceId="{CB0E0BF9-168C-4E45-94D2-F29BC251F3B9}">
             <Capacity>100.000</Capacity>
+            <EmitInLocalSpace>True</EmitInLocalSpace>
+            <TimeEmission>0.000</TimeEmission>
             <ParticleInit>
                 <ObjectReference InstanceId="{35421104-3E4F-4F7D-AFE0-934E88A34FE3}" id="BlockParticleInit"/>
             </ParticleInit>
@@ -45,18 +47,16 @@
         </VisualEffect.Output>
         <VisualEffect.Vector4 InstanceId="{AA0E853E-6854-485C-9C09-E15EA90FC3CB}">
             <OutputValue>{15E55C84-7902-4434-B2DB-10A5203E1004}</OutputValue>
-            <x>{00000000-0000-0000-0000-000000000000}, 0.500000</x>
             <w>{33A60671-3093-48D1-9475-F6A22F24E21D}, 0.000000</w>
-            <y>{00000000-0000-0000-0000-000000000000}, 0.500000</y>
-            <z>{00000000-0000-0000-0000-000000000000}, 0.500000</z>
         </VisualEffect.Vector4>
         <VisualEffect.GetSimVar InstanceId="{426DE1C8-BC5D-4842-A110-527F6A99ACAA}">
             <OutputValue>{0136E243-1411-4EE1-B410-48E002D4DD45}</OutputValue>
             <SimvarType>RADIO HEIGHT</SimvarType>
+            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, -1</SimvarIndex>
         </VisualEffect.GetSimVar>
         <VisualEffect.GetParticleAttribute InstanceId="{8351323A-F231-4575-8BA6-987B09E4F7CF}">
             <OutputValue>{021234AC-F80E-41E9-B5FD-ABAE702C3582}</OutputValue>
-            <ParticleAttributeType>AgeOverLifetime</ParticleAttributeType>
+            <ParticleAttributeType>Size</ParticleAttributeType>
         </VisualEffect.GetParticleAttribute>
         <VisualEffect.AddOperation InstanceId="{5D65D706-31BB-4B31-8478-DC46DF39C8CA}">
             <OutputValue>{D5F541C2-0D27-4EAB-82EF-CBEC29CFC050}</OutputValue>
@@ -66,7 +66,7 @@
         <VisualEffect.MultiplyOperation InstanceId="{6A84B04D-5950-4AF0-8632-4B9ED5E7AE10}">
             <OutputValue>{2D2B9A20-34B3-441F-8D94-2AB39548E7F2}</OutputValue>
             <xVariant>{021234AC-F80E-41E9-B5FD-ABAE702C3582}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, 20.000000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 1.000000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.Vector3 InstanceId="{219CA7B1-66DD-456A-A269-48E411D7A52A}">
             <OutputValue>{4B356F22-F185-42B0-AB74-590B37C452F8}</OutputValue>
@@ -116,13 +116,13 @@
         <VisualEffect.MultiplyOperation InstanceId="{096F7C52-33AA-4718-9548-1F3603E2B264}">
             <OutputValue>{6FE56B39-85F4-4EDC-B691-1A0ABC8E4301}</OutputValue>
             <xVariant>{BED6DD0F-99DB-47A5-85A3-863D616C0161}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, 10.000000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 0.600000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.GetSimVar InstanceId="{AE91C047-F814-41EC-993B-DC9707994344}">
             <OutputValue>{6B1E34E6-1C2F-41FC-9DA3-62FC15CFBF53}</OutputValue>
             <SimvarType>ROTOR RPM PCT</SimvarType>
-            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, 1</SimvarIndex>
             <Unit>44</Unit>
+            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, 1</SimvarIndex>
         </VisualEffect.GetSimVar>
         <VisualEffect.AddOperation InstanceId="{DBF57302-36A9-4C48-B6FC-31F559690DE5}">
             <OutputValue>{E1B3534A-80A4-412B-8A9E-979221FD239A}</OutputValue>
@@ -144,11 +144,11 @@
             <OutputValue>{4D0FCCA2-DA56-4DC2-95E0-6F42B7D1B2AB}</OutputValue>
             <SimvarType>AMBIENT PRECIP RATE</SimvarType>
             <Unit>101</Unit>
+            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, 1</SimvarIndex>
         </VisualEffect.GetSimVar>
         <VisualEffect.MultiplyOperation InstanceId="{EF8B7DF7-7409-4103-9157-1CDB1580F0DF}">
             <OutputValue>{636AE99D-E315-4440-98B8-3A5A4934FAE6}</OutputValue>
             <xVariant>{4D0FCCA2-DA56-4DC2-95E0-6F42B7D1B2AB}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, 0.500000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.AddOperation InstanceId="{8F4FE766-6DEF-4BA8-B2C1-E6228A7B10DB}">
             <OutputValue>{4F63B36D-78D0-4479-BC20-6E62EAB11AD8}</OutputValue>
@@ -169,6 +169,7 @@
             <OutputValue>{7C77115A-BE13-4EB3-B849-AF1647F00CA1}</OutputValue>
             <FXTime>{6B1E34E6-1C2F-41FC-9DA3-62FC15CFBF53}, 0.000000</FXTime>
             <Curve>-0.002,0.002,NAN,NAN,0.247,0.355,NAN,NAN,0.986,0.702,NAN,NAN</Curve>
+            <CurveLoop>True</CurveLoop>
         </VisualEffect.GetBezierCurve>
         <VisualEffect.GetBezierCurve InstanceId="{EA8D11BA-6D59-4F8D-8B65-2015E9EC8F62}">
             <OutputValue>{2F1981C9-28CF-4DC8-B8B0-C20224261C89}</OutputValue>
@@ -192,8 +193,8 @@
         </VisualEffect.MultiplyOperation>
         <VisualEffect.RandomValue InstanceId="{9CDC1FC4-3CA1-428E-893A-45DBE431C8FD}">
             <OutputValue>{60FF3471-9C45-4E98-9650-D624C510200D}</OutputValue>
-            <MinRandValue>{00000000-0000-0000-0000-000000000000}, 0.900000</MinRandValue>
-            <MaxRandValue>{00000000-0000-0000-0000-000000000000}, 1.100000</MaxRandValue>
+            <MinRandValue>{00000000-0000-0000-0000-000000000000}, 0.500000</MinRandValue>
+            <MaxRandValue>{00000000-0000-0000-0000-000000000000}, 0.900000</MaxRandValue>
             <RandSeed>{ABFF5BD8-7FD0-4360-B3D4-69BFD2690E9A}, 0.000000</RandSeed>
         </VisualEffect.RandomValue>
         <VisualEffect.RandomValue InstanceId="{6BB6CCC2-1DC5-4161-A05C-AC7CF6FFED88}">

@@ -53,49 +53,70 @@ AudioAdf2Listen=False
 AvionicsSwitch=True
 
 [Engine Parameters.1.0]
-ThrottleLeverPct=100
-PropellerLeverPct=1
-MixtureLeverPct=100
+ThrottleLeverPct=0.0
+PropellerLeverPct=1.0
+MixtureLeverPct=1
 Pct Engine RPM=0.0
-MaxReachedEngineRPM=0.0
+MaxReachedEngineRPM=35042.588197517892695
 Pct N1=0.0
 Pct N2=0.0
-GeneratorSwitch=False
+LeftMagneto=True
+RightMagneto=True
+GeneratorSwitch=True
+CowlFlapPct=0
 FuelPumpSwitch=False
-FuelPumpSwitch_EX1=0
-FuelValveOpen=True
+FuelPumpSwitch_EX1=1
+FuelValveOpen=False
 CarbHeat/DeiceSwitch=False
-EngineMasterSwitch=False
-IgnitionSwitch=0
+EngineMasterSwitch=True
+GlowPlugTemperaturePct=-1.7976931348623157081e+308
+IgnitionSwitch=2
 StarterSwitch=False
-FuelPressurePSF=0
-CorrectedFF=0
+EGT_DegR=15.56354918303770773
+ITT_DegR=15.8009046863371623
+FuelPressurePSF=0.0
+CorrectedFF=0.0
 Afterburner=0
 
 [Engine Parameters.2.0]
-ThrottleLeverPct=100
-PropellerLeverPct=1
-MixtureLeverPct=100
+ThrottleLeverPct=0.0
+PropellerLeverPct=1.0
+MixtureLeverPct=1
 Pct Engine RPM=0.0
-MaxReachedEngineRPM=0.0
+MaxReachedEngineRPM=35042.588197517892695
 Pct N1=0.0
 Pct N2=0.0
-GeneratorSwitch=False
+LeftMagneto=True
+RightMagneto=True
+GeneratorSwitch=True
+CowlFlapPct=0
 FuelPumpSwitch=False
-FuelPumpSwitch_EX1=0
-FuelValveOpen=True
+FuelPumpSwitch_EX1=1
+FuelValveOpen=False
 CarbHeat/DeiceSwitch=False
-EngineMasterSwitch=False
-IgnitionSwitch=0
+EngineMasterSwitch=True
+GlowPlugTemperaturePct=-1.7976931348623157081e+308
+IgnitionSwitch=2
 StarterSwitch=False
-FuelPressurePSF=0
-CorrectedFF=0
+EGT_DegR=15.56354918303770773
+ITT_DegR=15.8009046863371623
+FuelPressurePSF=0.0
+CorrectedFF=0.0
 Afterburner=0
+
+[FuelSystem.0]
+Tank.1=0.6
+Tank.2=4.9
+Valve.1=True
+Valve.2=True
+Pump.1=1
+Pump.2=0
+Pump.3=1
+Pump.4=0
 
 [Systems.0]
 BatterySwitch=False
 StructuralDeiceSwitch=False
-StructuralDeiceSwitch_EX1=0
 PropDeiceSwitch=False
 Autobrakes=0
 StandbyVacuum=False
@@ -109,12 +130,8 @@ TailhookHandle=False
 TailhookState=0
 FoldingWingsHandle=False
 FoldingWingsState=0, 0
-ExternalPowerSwitch=False
-AuxPowerUnitSwitch=False
-SeatBeltsSwitch=False
-NoSmokingSwitch=False
 ClutchSwitch=False
-GovernorSwitch=True
+GovernorSwitch=False
 
 [Gauges.0]
 KollsmanSetting=29.921342849731445313
@@ -122,6 +139,12 @@ KollsmanSetting=29.921342849731445313
 [BleedAir.0]
 BleedAirSource=0
 
+[LocalVars.0]
+H60_Switch_BATT1=0
+H60_Switch_BATT2=0
+H60_OH_PNL_BACKLIGHT=10
+H60_Switch_EXT_PWR=1
+H60_AIR_SOURCE=2
 
 [Switches.0]
 PitotHeat=False

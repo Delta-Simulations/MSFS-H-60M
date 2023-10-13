@@ -2,8 +2,7 @@
 <!-- BY DESTROYER121-NO UNAUTHORISED REDISTRIBUTION -->
 <ModelInfo>
 	<LODS>
-    <LOD minSize="0.1" 	ModelFile="SH60_LOD00.gltf"/>
-    <LOD minSize="0" ModelFile="ExteriorCube_2m.gltf"/>
+    <LOD minSize="0" 	ModelFile="SH60_LOD00.gltf"/>
 	</LODS>
 	<Behaviors>
 		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>

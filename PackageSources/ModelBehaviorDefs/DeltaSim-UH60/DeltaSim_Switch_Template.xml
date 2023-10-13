@@ -7,6 +7,37 @@
     <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
     <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
 
+    <Template Name="Switch_3Pos_Norm_DELTASIM">
+        <DefaultTemplateParameters>
+            <TOOLTIPID_NORM>TOGGLE</TOOLTIPID_NORM>
+            <INVERT_ANIM>False</INVERT_ANIM>
+            <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+        </DefaultTemplateParameters>
+        <Component ID="#NODE_ID#" Node="#NODE_ID#">
+                <UseTemplate Name = "ASOBO_GT_Switch_3States">
+                <ANIM_NAME>#NODE_ID#</ANIM_NAME>
+                <NODE_ID>#NODE_ID#</NODE_ID>
+                <DEFAULT_POS>#DEFAULT_POS#</DEFAULT_POS>
+                <!-- <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+                <SWITCH_POSITION_VAR>H60_AntiColl_Mode</SWITCH_POSITION_VAR> -->
+                <SWITCH_DIRECTION>#SWITCH_DIRECTION#</SWITCH_DIRECTION>
+                <INVERT_ANIM>#INVERT_ANIM#</INVERT_ANIM>
+                <ANIMTIP_0>#ANIMTIP_0#</ANIMTIP_0>
+                <ANIMTIP_1>#ANIMTIP_1#</ANIMTIP_1>
+                <ANIMTIP_2>#ANIMTIP_2#</ANIMTIP_2>
+                <CODE_POS_0>
+                    #CODE_POS_0#
+                </CODE_POS_0>
+                <CODE_POS_1>
+                    #CODE_POS_1#
+                </CODE_POS_1>
+                <CODE_POS_2>
+                        #CODE_POS_2#
+                </CODE_POS_2>
+              </UseTemplate> 
+        </Component>
+    </Template>
+
     <Template Name="Switch_3PosMomentary_DELTASIM">
         <DefaultTemplateParameters>
             <TOOLTIPID_NORM>TOGGLE</TOOLTIPID_NORM>

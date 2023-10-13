@@ -56,11 +56,12 @@
         <Sound WwiseEvent="custom_misc_sound_01" WwiseData="false" FileName="Internal" ViewPoint="Inside" NodeName="main rotor.130" FadeOutType="2"> 
             <PitchCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
                 <Point SimValue="0.0" Output="0.4" />
-                <Point SimValue="30" Output="0.7" />
+                <Point SimValue="30" Output="0.6" />
                 <Point SimValue="60" Output="1" />
             </PitchCurve>
             <VolumeCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
-                <Point SimValue="0.0" Output="0.0" />
+                <Point SimValue="0" Output="0.0" />
+                <Point SimValue="10.0" Output="0.0" />
                 <Point SimValue="20" Output="1000" />
                 <Point SimValue="30" Output="1500" />
                 <Point SimValue="60" Output="4000" />
@@ -77,7 +78,7 @@
             </PitchCurve>
             <VolumeCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
                 <Point SimValue="0.0" Output="0.0" />
-                <Point SimValue="10" Output="200" />
+                <Point SimValue="10" Output="0" />
                 <Point SimValue="20" Output="600" />
                 <Point SimValue="30" Output="900" />
                 <Point SimValue="60" Output="1500" />

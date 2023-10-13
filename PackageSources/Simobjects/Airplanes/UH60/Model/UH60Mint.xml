@@ -109,15 +109,57 @@
 </Component>
 
 <Component ID="OH_ELEC">
+<!-- EXTERNAL LIGHTING -->
+<!-- BEACON -->
+<Component ID="Switch_AntiColl_Mode" Node="Switch_AntiColl_Mode"> <UseTemplate Name = "ASOBO_GT_Switch_3States">
+    <ANIM_NAME>Switch_AntiColl_Mode</ANIM_NAME>
+    <NODE_ID>Switch_AntiColl_Mode</NODE_ID>
+    <DEFAULT_POS>1</DEFAULT_POS>
+    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+    <SWITCH_POSITION_VAR>H60_AntiColl_Mode</SWITCH_POSITION_VAR>
+    <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+    <INVERT_ANIM>False</INVERT_ANIM>
+    <ANIMTIP_0>BEACON UPPER</ANIMTIP_0>
+    <ANIMTIP_1>BEACON BOTH</ANIMTIP_1>
+    <ANIMTIP_2>BEACON LOWER</ANIMTIP_2>
+  </UseTemplate> </Component>
+  <Component ID="Switch_AntiColl_PWR" Node="Switch_AntiColl_PWR"> <UseTemplate Name = "ASOBO_GT_Switch_3States">
+    <ANIM_NAME>Switch_AntiColl_PWR</ANIM_NAME>
+    <NODE_ID>Switch_AntiColl_PWR</NODE_ID>
+    <DEFAULT_POS>0</DEFAULT_POS>
+    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+    <SWITCH_POSITION_VAR>H60_AntiColl_PWR</SWITCH_POSITION_VAR>
+    <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+    <INVERT_ANIM>True</INVERT_ANIM>
+    <ANIMTIP_0>BEACON DAY</ANIMTIP_0>
+    <ANIMTIP_1>BEACON OFF</ANIMTIP_1>
+    <ANIMTIP_2>BEACON NIGHT</ANIMTIP_2>
+  </UseTemplate> </Component>
+  <!-- NAV LIGHTS -->
+
+  <Component ID="Switch_Nav_Pwr" Node="Switch_Nav_Pwr"> <UseTemplate Name = "ASOBO_GT_Switch_3States">
+    <ANIM_NAME>Switch_Nav_Pwr</ANIM_NAME>
+    <NODE_ID>Switch_Nav_Pwr</NODE_ID>
+    <DEFAULT_POS>0</DEFAULT_POS>
+    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+    <SWITCH_POSITION_VAR>H60_Nav_PWR</SWITCH_POSITION_VAR>
+    <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+    <INVERT_ANIM>False</INVERT_ANIM>
+    <ANIMTIP_0>NAV DIM</ANIMTIP_0>
+    <ANIMTIP_1>NAV OFF</ANIMTIP_1>
+    <ANIMTIP_2>NAV BRT</ANIMTIP_2>
+  </UseTemplate> </Component>
+
+
 
   <UseTemplate Name="DELTASIM_Finite_Knob_Template">
     <NODE_ID>Key_Master_Ignition</NODE_ID>
     <ANIM_CODE>(A:MASTER IGNITION SWITCH, BOOL) 100 *</ANIM_CODE>
     <CLOCKWISE_CODE>
-      (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
+      1 (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
     </CLOCKWISE_CODE>
     <ANTICLOCKWISE_CODE>
-      (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
+      1 (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
     </ANTICLOCKWISE_CODE>
     <CW_ANIMTIP>MASTER INGITION</CW_ANIMTIP>
     <CCW_ANIMTIP>MASTER INGITION</CCW_ANIMTIP>
@@ -262,13 +304,6 @@
     </INTERACT_CODE>
   </UseTemplate>
 
-  <!-- <UseTemplate Name="DELTASIM_PushButton_Template">
-    <NODE_ID>Button_ENG2_Starter</NODE_ID>
-    <TOOLTIPID>ENG2 START</TOOLTIPID>
-    <LEFT_SINGLE_CODE>
-      (L:H60_Switch_Starter_Eng1,bool) ! (&gt;L:H60_Switch_Starter_Eng1,bool)
-    </LEFT_SINGLE_CODE>
-</UseTemplate> -->
 
 <Component ID="Button_ENG1_Starter" Node="Button_ENG1_Starter">
   <UseTemplate Name="ASOBO_GT_Push_Button">
@@ -301,13 +336,20 @@
   </UseTemplate>
 </Component>
 
-<!-- <UseTemplate Name="DELTASIM_PushButton_Template">
-  <NODE_ID>Button_ENG1_Starter</NODE_ID>
-  <TOOLTIPID>ENG1 START</TOOLTIPID>
-  <LEFT_SINGLE_CODE>
-    (L:H60_Switch_Starter_Eng1,bool) ! (&gt;L:H60_Switch_Starter_Eng1,bool)
-  </LEFT_SINGLE_CODE>
-</UseTemplate> -->
+
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(L:Button_Lamps_Test, bool) 100 *</ANIM>
+  <NODE_ID>Button_Lamps_Test</NODE_ID>
+  <TOOLTIPID>TEST ANNUN</TOOLTIPID>
+  <INTERACT_CODE>
+    (L:H60_Lamp_Test, bool) ! (&gt;L:H60_Lamp_Test, bool)
+  </INTERACT_CODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_MWC</NODE_ID>
+  <TRUECODE>0</TRUECODE>
+</UseTemplate>
+
 <UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_Acc_Low</NODE_ID>
   <TRUECODE>0</TRUECODE>
@@ -666,77 +708,7 @@
       </Visibility>
 </PartInfo>
 
-  <Animation name="WIPER_SWITCH" guid="b436ca33-9a63-44ea-855f-4bd6f3049b0f" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>WIPER_SWITCH</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>
-             (L:WIPER, bool) 100 *
 
-               </Code>
-             
-      </Parameter>
-      </Animation>
-      <MouseRect>
-          <Cursor>Hand</Cursor>
-          <TooltipText>TOGGLE WIPER</TooltipText>
-           <CallbackCode>
-     (L:WIPER, bool) ! (>L:WIPER, bool)
-           </CallbackCode>
-      </MouseRect>
-  </PartInfo>
-
-
-  <Animation name="WARNINGTEST" guid="e734b97f-dd3d-42fd-9a31-40d22682362b" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>WARNINGTEST</Name>
-      <AnimLength>50</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>(L:MASTER_WARNING_TEST, bool) 50 *</Code>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>Test lamps</TooltipText>
-        <MouseFlags>LeftRelease+LeftSingle</MouseFlags>
-        <CallbackCode>
-          (M:Event) 'LeftSingle' scmp 0 == if{ 1 (&gt;L:MASTER_WARNING_TEST, bool) }
-          (M:Event) 'LeftRelease' scmp 0 == if{ 0 (&gt;L:MASTER_WARNING_TEST, bool) }
-        </CallbackCode>
-      </MouseRect>
-  </PartInfo>
-  <Animation name="WARNINGLGT" guid="f26a0149-f34b-4f21-807c-a2d0aea46ed0" length="1" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-  <Name>WARNINGLGT</Name>
-  <Materials> <Emissive> <Parameter>
-  <Code>(L:MASTER_WARNING_TEST, bool)</Code> 
-  </Parameter> </Emissive> </Materials>
-  </PartInfo>
-
-
-  <!-- <Animation name="AUTOSTRT" guid="372d609f-b78e-4290-86f2-d6b29623217d" length="50" type="Sim" typeparam2="AUTOSTRT" typeparam="AutoPlay" />
-  <PartInfo>
-      <Name>AUTOSTRT</Name>
-      <AnimLength>50</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>(K:ENGINE_AUTO_START, bool) 50 *</Code>
-              <Lag>20</Lag>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-          <Cursor>Hand</Cursor>
-          <HelpID>HELPID_REAR_DOOR</HelpID>
-          <TooltipID>TOOLTIPTEXT_REAR_DOOR</TooltipID>
-          <CallbackCode>(K:ENGINE_AUTO_START, bool) ! (>K:ENGINE_AUTO_START, bool)
-      </CallbackCode>
-      </MouseRect>
-  </PartInfo> -->
-
-<!-- LIGHT CONTROLS-->
 <Animation name="doorfront" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
   <Name>doorfront</Name>
@@ -841,52 +813,8 @@
           </Parameter>
         </Visibility>
     </PartInfo>
-<Animation name="tail" guid="d704e833-fd6b-42ea-bbfb-f05b962429ea" length="100" type="Sim" typeparam2="tail" typeparam="AutoPlay" />
-    <PartInfo>
-        <Name>tail</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>
-            <Parameter>
-                 <Code>(L:DOORS_OPEN_TAIL, bool) 50 *</Code>
-                <Lag>20</Lag>
-        </Parameter>
-        </Animation>
-        <MouseRect>
-          <Cursor>Hand</Cursor>
-          <TooltipText>TOGGLE TAIL</TooltipText>
-           <CallbackCode>
-     (L:DOORS_OPEN_TAIL, bool) ! (>L:DOORS_OPEN_TAIL, bool)
-           </CallbackCode>
-      </MouseRect>
-    </PartInfo>
 
 
-    <Animation name="Light_SEARCH" guid="ba458146-b900-4f42-a321-142f09193b96" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-      <Name>Light_SEARCH</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>(L:Light_SEARCH, enum) 10 *</Code>
-        </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>MOVE SEARCH LIGHT</TooltipText>
-        <MouseFlags>LeftSingle+LeftDrag+Wheel+RightSingle</MouseFlags>
-           <CallbackCode>
-              (M:Event) 'WheelDown' scmp 0 ==
-              if{ (L:Light_SEARCH, enum) --  0 max (>L:Light_SEARCH, enum) }
-              (M:Event) 'WheelUp' scmp 0 ==
-              if{ (L:Light_SEARCH, enum) ++  10 min (>L:Light_SEARCH, enum) }
-
-              (M:Event) 'LeftSingle' scmp 0 ==
-              if{ (L:Light_ROTATE, enum) --  0 max (>L:Light_ROTATE, enum) }
-              (M:Event) 'RightSingle' scmp 0 ==
-              if{ (L:Light_ROTATE, enum) ++  10 min (>L:Light_ROTATE, enum) }
-           </CallbackCode>
-      </MouseRect>
-    </PartInfo>
 
 <Animation name="Part1" guid="600b7c6f-9eff-4869-beb8-4db14e89a407" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
@@ -1055,36 +983,9 @@
           if{ (L:ADDITIONSVIS, enum) --  0 max (>L:ADDITIONSVIS, enum) }
           (M:Event) 'WheelUp' scmp 0 ==
           if{ (L:ADDITIONSVIS, enum) ++  3 min (>L:ADDITIONSVIS, enum) }
-
-
        </CallbackCode>
       </MouseRect>
     </PartInfo>
-
-
-
-
-<Animation name="lever_bleed_air_source"          guid="AFF388BB-2942-477d-B4E9-BCC2A9309FFF" type="Sim" typeParam="AutoPlay"  length="100" typeParam2="lever_bleed_air_source"/>
-<PartInfo>
-  <Name>lever_bleed_air_source</Name>
-  <AnimLength>50</AnimLength>
-  <Animation>
-    <Parameter>
-      <Code>
-          (A:BLEED AIR SOURCE CONTROL, enum) 1 == if{ 25 }
-          (* Animation frame 50 = APU, 25 == off, 0 = engines *)
-          (A:BLEED AIR SOURCE CONTROL, enum) 2 == if{ 50 }
-          (A:BLEED AIR SOURCE CONTROL, enum) 3 == if{ 0 }
-          (A:BLEED AIR SOURCE CONTROL, enum) 0 == if{ 0 }
-      </Code>          
-    </Parameter>
-  </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <CallbackCode>(A:BLEED AIR SOURCE CONTROL, enum) ++ d 3 &gt; if{ 1 } (&gt;K:BLEED_AIR_SOURCE_CONTROL_SET)</CallbackCode>
-    <TooltipID>TOOLTIPTEXT_CRJ_BLEED_AIR_SOURCE</TooltipID>
-  </MouseRect>
-</PartInfo>
 
 
 <Animation name="lever_throttle" guid="83cbd5c1-e05d-4e69-8d60-31815417d33b" length="50" type="Sim" typeParam2="lever_throttle" typeParam="AutoPlay" />
@@ -1143,7 +1044,6 @@
       </Parameter>
     </Animation>
   </PartInfo>
-
   <PartInfo>
     <Name>lever_throttle1</Name>
     <Copy>lever_throttle</Copy>
@@ -1163,28 +1063,8 @@
       </Parameter>
     </Animation>
   </PartInfo>
-  <Animation name="lever_parking_brake" guid="29f0a65b-cad5-4b72-9eb0-3c6b78b76f8d" typeParam2="lever_parking_brake" length="100" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>lever_parking_brake</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_PARKING_BRAKE</HelpID>
-      <TooltipID>TOOLTIPTEXT_PARKING_BRAKE</TooltipID>
-      <EventID>PARKING_BRAKES</EventID>
-    </MouseRect>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>BRAKE PARKING POSITION</Variable>
-          <Units>percent</Units>
-          <Scale>1</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>100</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
+
+
 <Animation name="Pilot_collective" guid="64e3da0f-44a8-45f1-a2e8-7705d42aeba3" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
   <Name>Pilot_collective</Name>
@@ -1227,164 +1107,6 @@
         </Parameter>
     </Animation>
 </PartInfo>
-
-
-<Animation name="lever_fuel_cutoff_1" guid="0bffa20e-be81-4192-873e-1114ebba1580" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>lever_fuel_cutoff_1</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-          <Parameter>
-				      <Code>
-                 	(A:FUELSYSTEM VALVE SWITCH:1,bool) 1 == if{ 100 } els{ 0 }
-              </Code>
-				     <Lag>100</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>%((A:FUELSYSTEM VALVE SWITCH:1, bool))%{if}LEFT ENG CUTOFF (on)%{else}LEFT ENG CUTOFF (off)%{end}</TooltipText>
-             <CallbackCode>
-                1  (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
-             </CallbackCode>
-        </MouseRect>
-</PartInfo>
-<Animation name="lever_fuel_cutoff_2" guid="fd7e4fe5-4fc3-4393-bf0b-6aef0a5df0eb" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>lever_fuel_cutoff_2</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-          <Parameter>
-				      <Code>
-                 	(A:FUELSYSTEM VALVE SWITCH:2,bool) 1 == if{ 100 } els{ 0 }
-              </Code>
-				     <Lag>100</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>%((A:FUELSYSTEM VALVE SWITCH:2, bool))%{if}RIGHT ENG CUTOFF (on)%{else}RIGHT ENG CUTOFF (off)%{end}</TooltipText>
-             <CallbackCode>
-                2  (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
-             </CallbackCode>
-        </MouseRect>
-</PartInfo>
-
-  <Animation name="switch_pitot_heat" guid="ce7f27f8-15a7-48a3-83c0-90d801c35a37" typeParam2="switch_pitot_heat" length="50" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>switch_pitot_heat</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_PITOT_HEAT_SWITCH</HelpID>
-      <TooltipID>TOOLTIPTEXT_PITOT_HEAT_SWITCH</TooltipID>
-      <EventID>PITOT_HEAT_TOGGLE</EventID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>PITOT HEAT</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-          <Bias>0</Bias>
-        </Sim>
-        <Lag>400</Lag>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <Animation name="switch_anti_ice_eng0" guid="845A82A3-C004-4194-AB77-6FE1B81F9A38" typeParam2="switch_anti_ice_eng0" length="50" type="Sim" typeParam="AutoPlay" />
-  <Animation name="switch_anti_ice_eng1" guid="35A42476-56F1-4c9c-AB83-5DF1332390AC" typeParam2="switch_anti_ice_eng1" length="50" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>switch_anti_ice_eng0</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <EventID>ANTI_ICE_TOGGLE_ENG1</EventID>
-      <TooltipID>TOOLTIPTEXT_ENG_ANTI_ICE_SWITCH</TooltipID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>GENERAL ENG ANTI ICE POSITION:1</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-        </Sim>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <PartInfo>
-    <Name>switch_anti_ice_eng1</Name>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <EventID>ANTI_ICE_TOGGLE_ENG2</EventID>
-      <TooltipID>TOOLTIPTEXT_ENG_ANTI_ICE_SWITCH</TooltipID>
-    </MouseRect>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Sim>
-          <Variable>GENERAL ENG ANTI ICE POSITION:2</Variable>
-          <Units>bool</Units>
-          <Scale>50</Scale>
-        </Sim>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-
-<Animation name="NVG TOGGLE" guid="26123f91-78ad-462b-82e1-2c3a63e33f68" length="50" type="Sim" typeParam2="NVG TOGGLE" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>NVG TOGGLE</Name>
-        <AnimLength>50</AnimLength>
-        <Animation>switch_autopilot_master
-            <Parameter>
-				 <Code>
-          (L:HUD_DISABLE,bool) 1 == if{ 20 } els{ 0 }
-          </Code>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <TooltipText>%((L:HUD_DISABLE, bool))%{if}SHOW PILOT%{else}HIDE PILOT%{end}</TooltipText>
-             <CallbackCode>
-                	(L:HUD_DISABLE,bool) ! 	(&gt;L:HUD_DISABLE,bool)
-             </CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="NVG LIGHT" guid="00d21182-febf-49a4-8205-01a259da901b" length="1" type="Sim" typeParam2="NVG LIGHT" typeParam="AutoPlay" />
-	<PartInfo>
-		<Name>NVG LIGHT</Name>
-		<AnimLength>1</AnimLength>
-		<Visibility>
-			<Parameter>
-				<Code>
-          (L:HUD_DISABLE,bool) (A:ELECTRICAL MASTER BATTERY, bool) and
-          if{ 1 } els{ 0 }
-				</Code>
-			</Parameter>
-		</Visibility>
-	</PartInfo>
-
-  <Animation name="WARNING_AIRLAND" guid="0a4439ac-33d1-4b48-b905-f4d9418d9e99" length="1" type="Sim" typeParam="AutoPlay" />
-	<PartInfo>
-		<Name>WARNING_AIRLAND</Name>
-		<AnimLength>1</AnimLength>
-		<Visibility>
-			<Parameter>
-				<Code>
-0
-				</Code>
-			</Parameter>
-		</Visibility>
-	</PartInfo>
-
-  <Animation name="HUD_VIS" guid="7160adb7-e926-45c9-bb3f-2ecf84962bef" type="Sim" typeParam="AutoPlay" />
-	<PartInfo>
-		<Name>HUD_VIS</Name>
-		<AnimLength>1</AnimLength>
-    <Materials> <Emissive> <Parameter>
-      <Code>(L:HUDEMIS, percent) 2 /</Code> 
-      </Parameter> </Emissive> </Materials>
-	</PartInfo>
 
 <Animation name="HUD_ON" guid="045c9674-2afc-40b0-b267-02662f27080c" type="Sim" typeParam="AutoPlay" />
 <PartInfo>

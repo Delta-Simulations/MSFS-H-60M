@@ -13,15 +13,18 @@
         <INTENSITY>1</INTENSITY>
         <ELEC_PWR>(A:CIRCUIT ON:1,bool) 1 ==</ELEC_PWR>
         <TRUECODE>1</TRUECODE>	
+        <TESTCODE>(L:H60_Lamp_Test, bool) 1 == or</TESTCODE>
     </DefaultTemplateParameters>
     <Component ID="#NODE_ID#" Node="#NODE_ID#">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
             <EMISSIVE_CODE>
-            #TRUECODE#
-            #ELEC_PWR# and
-            if{
-                #INTENSITY#
-            }else{0}
+                #TRUECODE#
+                #TESTCODE#
+                (A:CIRCUIT ON:1,bool) 1 == and
+                
+                if{
+                    #INTENSITY#
+                }else{0}
 
             </EMISSIVE_CODE>
         </UseTemplate>

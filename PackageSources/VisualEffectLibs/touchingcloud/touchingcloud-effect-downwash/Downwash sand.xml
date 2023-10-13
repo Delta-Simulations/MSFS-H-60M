@@ -12,6 +12,7 @@
         <VisualEffect.Emitter InstanceId="{FDBC8BB0-1A02-4166-9B49-D2F95AA95AA5}">
             <Capacity>500.000</Capacity>
             <ParticleRate>{00000000-0000-0000-0000-000000000000}, 5.000000</ParticleRate>
+            <MaxDistanceEmission>500.000</MaxDistanceEmission>
             <ParticleInit>
                 <ObjectReference InstanceId="{8EB52152-EC60-4D1C-B2E2-A5A309193FCC}" id="BlockParticleInit"/>
             </ParticleInit>
@@ -57,6 +58,7 @@
         <VisualEffect.GetSimVar InstanceId="{F1791003-D17D-429F-8B57-D9006BE97AF4}">
             <OutputValue>{27B5A817-7CAD-4A4E-BC84-8B970F203D48}</OutputValue>
             <SimvarType>RADIO HEIGHT</SimvarType>
+            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, -1</SimvarIndex>
         </VisualEffect.GetSimVar>
         <VisualEffect.Vector3 InstanceId="{CDB41AE5-9B3B-4F82-B723-F8096DDDE857}">
             <OutputValue>{D6ED5CA5-1B06-4658-8E23-F2F742A330BB}</OutputValue>
@@ -122,12 +124,11 @@
         <VisualEffect.MultiplyOperation InstanceId="{624BB8D3-3F53-40DE-9D95-500221EA1168}">
             <OutputValue>{4FF09D67-A23A-4DB6-92B4-8724E13E5C40}</OutputValue>
             <xVariant>{FB5A925C-857F-4CE2-A09E-72D0EBF81521}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, 100.000000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 1.000000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.GetSimVar InstanceId="{10407072-57A3-4616-AF0F-20F6773520BA}">
             <OutputValue>{2CEB67CC-6BDA-48CF-8111-6694AD64CEFC}</OutputValue>
             <SimvarType>ROTOR RPM PCT</SimvarType>
-            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, 1</SimvarIndex>
             <Unit>44</Unit>
         </VisualEffect.GetSimVar>
         <VisualEffect.AddOperation InstanceId="{57F9D5D7-3C27-4352-BF5F-BDEB15836B8B}">
@@ -150,6 +151,7 @@
             <OutputValue>{8DE376C6-40CA-4E12-B3E8-33E3B885205E}</OutputValue>
             <SimvarType>AMBIENT PRECIP RATE</SimvarType>
             <Unit>101</Unit>
+            <SimvarIndex>{00000000-0000-0000-0000-000000000000}, 1</SimvarIndex>
         </VisualEffect.GetSimVar>
         <VisualEffect.MultiplyOperation InstanceId="{84AB5CFF-3469-4237-AAAF-F1AE26DC6B25}">
             <OutputValue>{8A9E8769-48F0-4DDE-A4D0-24D9CBE73774}</OutputValue>
@@ -260,12 +262,12 @@
         <VisualEffect.MultiplyOperation InstanceId="{271C0AA0-4270-40DB-9CB8-1FDF19F8BD1E}">
             <OutputValue>{C8F00695-B186-4F20-B465-88782A25033D}</OutputValue>
             <xVariant>{27B5A817-7CAD-4A4E-BC84-8B970F203D48}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, 0.020000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 0.200000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.MultiplyOperation InstanceId="{0B6347C0-B64E-48B8-B5E2-398700A8DD93}">
             <OutputValue>{C0C02BBD-4F89-40F4-A4F9-88B957D7C6E3}</OutputValue>
             <xVariant>{80607E00-28D3-4358-B987-51F13DDA6A09}, 0.000000</xVariant>
-            <yVariant>{00000000-0000-0000-0000-000000000000}, -50.000000</yVariant>
+            <yVariant>{00000000-0000-0000-0000-000000000000}, 1.000000</yVariant>
         </VisualEffect.MultiplyOperation>
         <VisualEffect.GetBezierCurve InstanceId="{BD8D5095-1795-413C-94B6-D1B22DED491B}">
             <OutputValue>{80607E00-28D3-4358-B987-51F13DDA6A09}</OutputValue>

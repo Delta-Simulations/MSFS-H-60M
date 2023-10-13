@@ -13,7 +13,7 @@ export const Airctaft = () => {
 	const [fireRocket, setFireRocket] = useSimVar('L:ROCKET_anim', 'Bool');
 	const [fireFlare, setFireFlare] = useSimVar('L:EFFECT_FLARE', 'Bool');
 	const [lift, setLift] = useSimVar('L:Winch_EXT', 'bool');
-	const [skis, setSkis] = useSimVar('L:Skis', 'bool');
+	const [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
 	const [modelType, setModelType] = useSimVar('L:MODEL_TYPE', 'enum');
 	const [probe, setProbe] = useSimVar('L:ADDITIONSVIS', 'enum');
 	const [rearDoorL, setRearDoorL] = useSimVar('L:DOORS_OPEN_REAR_L', 'bool');
