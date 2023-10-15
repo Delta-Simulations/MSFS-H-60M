@@ -143,7 +143,7 @@ BleedAirSource=0
 H60_Switch_BATT1=0
 H60_Switch_BATT2=0
 H60_OH_PNL_BACKLIGHT=10
-H60_Switch_EXT_PWR=1
+H60_Switch_EXT_PWR=0
 H60_AIR_SOURCE=2
 
 [Switches.0]

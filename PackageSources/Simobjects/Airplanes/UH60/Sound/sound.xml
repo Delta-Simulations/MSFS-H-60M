@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundInfo Version="0.1">
+    <WwisePackages>
+		<MainPackage Name="DeltaSim_H60"/>
+	</WwisePackages>
     <AcousticParameters>
         <Parameter Name="ReverberationPreset" ShareSetInside="rev_inside_default"/>
     <!-- Sounds comming from outside will be attenuate by -22dB in the cockpit, if exit doors are closed -->
@@ -7,156 +10,71 @@
     <!-- Sounds comming from outside will be attenuate by -12dB in the cockpit, if exit doors are open -->
     <Parameter Name="Insulation_ExitOpen" Value="-12"/>
     </AcousticParameters>
-    <AlwaysPlaySounds>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="mg_h60" WwiseData="False" NodeName="GAU-21 MOUNT AND AMMO CAN.003">
-            <VolumeCurve LocalVar="EFFECT_GUN" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="1.0" Output="1000"/>
-            </VolumeCurve>
-        </Sound>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="wiper" WwiseData="False" NodeName="compassGlass">
-            <VolumeCurve LocalVar="WIPER" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="100.0" Output="7000"/>
-            </VolumeCurve>
-        </Sound>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="Firealarm" WwiseData="False" NodeName="WARNINGTEST">
-            <VolumeCurve LocalVar="MASTER_WARNING_TEST" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="100.0" Output="5000"/>
-            </VolumeCurve>
-        </Sound>
-        <!-- STARTER ENG-->
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="T700startup" WwiseData="False" BreakOnStop="False" FullScaleDistance="30" NodeName="Lower_Arm.001">
-            <VolumeCurve LocalVar="STARTER_1" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="100.0" Output="3000"/>
-            </VolumeCurve>
-        </Sound>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="T700startup" WwiseData="False" BreakOnStop="False" FullScaleDistance="30" NodeName="Lower_Arm_2">
-            <VolumeCurve LocalVar="STARTER_2" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>con
-                <Point SimValue="100.0" Output="3000"/>
-            </VolumeCurve>
-        </Sound>
+
+<EngineSoundStates>
+	<Sound WwiseData="true" WwiseEvent="Intake1Ext" EngineIndex="1" RPMMin="200" StateOff="false" StateStart="true" StateOn="true"   ConeHeading="0"> 
+        <WwiseRTPC SimVar="TURB ENG N1" Units="PERCENT" Index="1" RTPCName="SIMVAR_TURB_ENG_N1"/>
+    </Sound>
+
+    <Sound WwiseData="true" WwiseEvent="eng1_starter" ConeHeading="80.0" NodeName="FX_EXHAUST_LEFT" SimVar="GENERAL ENG STARTER" Units="bool" Index="0">
+        <WwiseRTPC SimVar="GENERAL ENG STARTER" Units="bool" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
+    </Sound>
+
+    <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
+        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+    </Sound>
+    <Sound WwiseData="true" WwiseEvent="Rotor_INT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Inside" >
+        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+    </Sound>
+
+</EngineSoundStates>
 
 
-        <!-- ROTOR-->
-
-        <!-- 
-            <Sound WwiseEvent="custom_misc_sound_01" FileName="rotorx" WwiseData="False" ViewPoint="Outside" FullScaleDistance="40" NodeName="CAB6.002" FadeOutType="2">
-            <VolumeCurve LocalVar="ROTOR_AUDIO" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="100.0" Output="7000"/>
-            </VolumeCurve>
-        </Sound> (A:ROTOR RPM PCT:1, percent)
-        (A:ROTOR RPM PCT:1, percent)
-        LocalVar="uh60_rtr1" Units="enum" Index="1">
-    -->
-        <Sound WwiseEvent="custom_misc_sound_01" WwiseData="false" FileName="Internal" ViewPoint="Inside" NodeName="main rotor.130" FadeOutType="2"> 
-            <PitchCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
-                <Point SimValue="0.0" Output="0.4" />
-                <Point SimValue="30" Output="0.6" />
-                <Point SimValue="60" Output="1" />
-            </PitchCurve>
-            <VolumeCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
-                <Point SimValue="0" Output="0.0" />
-                <Point SimValue="10.0" Output="0.0" />
-                <Point SimValue="20" Output="1000" />
-                <Point SimValue="30" Output="1500" />
-                <Point SimValue="60" Output="4000" />
-            </VolumeCurve>
-        </Sound>
-
-        <Sound WwiseEvent="custom_misc_sound_01" WwiseData="false" FileName="rotorx" ViewPoint="Outside" FullScaleDistance="30" NodeName="main rotor.130" FadeOutType="2">
-            <PitchCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
-                <Point SimValue="0.0" Output="0.0" />
-                <Point SimValue="10" Output="0.5" />
-                <Point SimValue="20" Output="0.6" />
-                <Point SimValue="30" Output="0.9" />
-                <Point SimValue="60" Output="1" />
-            </PitchCurve>
-            <VolumeCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
-                <Point SimValue="0.0" Output="0.0" />
-                <Point SimValue="10" Output="0" />
-                <Point SimValue="20" Output="600" />
-                <Point SimValue="30" Output="900" />
-                <Point SimValue="60" Output="1500" />
-              </VolumeCurve>
-        </Sound>
-
-        <Sound WwiseEvent="custom_misc_sound_01" WwiseData="false" FileName="T700turbine" ViewPoint="Outside" FullScaleDistance="30" NodeName="CAB6.002" FadeOutType="2">
-            <VolumeCurve LocalVar="TotEngRunning" Units="enum" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="1.0" Output="600"/>
-            </VolumeCurve>
-        </Sound>
-        
-
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="RTR_Brake" WwiseData="False" ViewPoint="Both" FullScaleDistance="30" NodeName="CAB6.002" FadeOutType="2" FadeOutTime="30">
-            <VolumeCurve LocalVar="ROTOR_BRAKE_SOUND" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="1.0" Output="5000"/>
-            </VolumeCurve>
-            <PitchCurve SimVar="ROTOR RPM PCT" Units="percent" Index="1">
-                <Point SimValue="0.0" Output="0.0" />
-                <Point SimValue="10" Output="0.7" />
-                <Point SimValue="20" Output="1" />
-            </PitchCurve>
-        </Sound>
-        <!-- APU STARTER-->
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="APU_Start_Loop" WwiseData="False" ViewPoint="Outside" NodeName="APU_NODE">
-            <VolumeCurve LocalVar="ToggleAPUSwitch" Units="number" Index="1">
-                <Point SimValue="0. 0" Output="0"/>
-                <Point SimValue="100.0" Output="5000"/>
-            </VolumeCurve>
-        </Sound>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="apu_int_start" WwiseData="False" ViewPoint="Inside" NodeName="APU_NODE">
-            <VolumeCurve LocalVar="ToggleAPUSwitch" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="100.0" Output="5000"/>
-            </VolumeCurve>
-        </Sound>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="Blower_INT" WwiseData="False" ViewPoint="Inside" NodeName="DTS">
-            <VolumeCurve LocalVar="BLOWER_CABIN" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="1.0" Output="4000"/>
-                <Point SimValue="2.0" Output="6000"/>
-                <Point SimValue="3.0" Output="7000"/>
-            </VolumeCurve>
-        </Sound>
-
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="flare_drop" WwiseData="False" FadeOutType="2" BreakOnStop="True" ContinuousStopDelay="40.0"  NodeName="APU_NODE">
-            <VolumeCurve LocalVar="EFFECT_FLARE" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="1.0" Output="14000"/>
-            </VolumeCurve>
-        </Sound>
-
-            <Sound WwiseEvent="custom_misc_sound_01" FileName="Rocket" WwiseData="False" FadeOutType="2" BreakOnStop="False" ContinuousStopDelay="-1"  NodeName="Left_pylon_DAP.001">
-            <VolumeCurve LocalVar="ROCKET_anim" Units="bool" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="1.0" Output="10000"/>
-            </VolumeCurve>
-        </Sound>
-
+    <AlwaysPlaySounds>        
     </AlwaysPlaySounds>
     <WindSounds/>
     <GroundSounds/>
     <MiscellaneousSounds/>
     <SimVarSounds>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="door_small_close" WwiseData="False" ViewPoint="Both" LocalVar="DOORS_OPEN_REAR" ContinuousStopDelay="3" NodeName="CAB6.002" FadeOutType="2" FadeOutTime="0" Units="number" Index="1">
-            <VolumeCurve LocalVar="DOORS_OPEN_REAR" Units="number" Index="1">
-                <Point SimValue="0.0" Output="0"/>
-                <Point SimValue="100.0" Output="70"/>
-            </VolumeCurve>
+
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="3" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
+            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="3" RTPCName="APU_Fuel_Pump" />
+            <Range LowerBound="1.0" />    
         </Sound>
-        <Sound WwiseEvent="custom_misc_sound_01" FileName="door_small_open" WwiseData="False" ViewPoint="Both" LocalVar="DOORS_OPEN_REAR" ContinuousStopDelay="3" NodeName="CAB6.002" FadeOutType="2" FadeOutTime="0" Units="number" Index="1">
-            <VolumeCurve LocalVar="DOORS_OPEN_REAR" Units="number" Index="1">
-                <Point SimValue="0.0" Output="70"/>
-                <Point SimValue="100.0" Output="0"/>
-            </VolumeCurve>
+
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="1" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
+            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="1" RTPCName="APU_Fuel_Pump" />
+            <Range LowerBound="1.0" />    
         </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="2" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
+            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="2" RTPCName="APU_Fuel_Pump" />
+            <Range LowerBound="1.0" />    
+        </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="APU_Idle" ConeHeading="40.0" NodeName="APU_NODE" SimVar="APU PCT RPM" Units="PERCENT" Index="0">
+            <WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
+            <Range LowerBound="1.0" />
+          </Sound>
+
+          <Sound WwiseData="true" WwiseEvent="APU_Starter" ConeHeading="40.0" NodeName="APU_NODE" SimVar="APU PCT STARTER" Units="PERCENT" Index="0">
+            <WwiseRTPC SimVar="APU PCT STARTER" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_STARTER" />
+            <WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
+            <WwiseRTPC LocalVar="H60_APU_START" Units="ENUM" Index="0" RTPCName="APU_SWITCH_POS"/>
+            <Range LowerBound="1.0" />
+          </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="APU_Shutdown" ConeHeading="40.0" NodeName="APU_NODE" SimVar="APU PCT RPM" Units="PERCENT" Index="0">
+            <WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
+            <WwiseRTPC LocalVar="H60_APU_START" Units="BOOL" Index="0" RTPCName="APU_SWITCH_POS"  />
+            <Range LowerBound="1.0" />  
+        </Sound>
+
+
+        <Sound WwiseData="true" WwiseEvent="Cpit_Transformer" Continuous="true" LocalVar="H60_Cpit_Transformer" Units="Bool" Index="1" NodeName="AFCS" ViewPoint="Inside">
+            <Range LowerBound="1.0" />  
+        </Sound>
+
     </SimVarSounds>
     <AvionicSounds>
 

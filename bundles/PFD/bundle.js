@@ -12810,6 +12810,16 @@
 	  });
 	};
 
+	const Electricity = ({
+	  circuit,
+	  children
+	}) => {
+	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'Bool');
+	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	    children: children
+	  });
+	};
+
 	const NDMap = () => {
 	  useSimVar('A:PROP MAX RPM PERCENT:1', 'percent');
 	  return /*#__PURE__*/jsxRuntime.jsx("g", {});
@@ -12819,17 +12829,6 @@
 	  useSimVar('A:PROP MAX RPM PERCENT:1', 'percent');
 	  return /*#__PURE__*/jsxRuntime.jsx("g", {
 	    children: /*#__PURE__*/jsxRuntime.jsx(NDMap, {})
-	  });
-	};
-
-	const Electricity = ({
-	  circuit,
-	  children
-	}) => {
-	  const [isPowerOn] = useSimVar("CIRCUIT ON:".concat(circuit), "Bool");
-	  if (!isPowerOn) return null;
-	  return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    children: children
 	  });
 	};
 

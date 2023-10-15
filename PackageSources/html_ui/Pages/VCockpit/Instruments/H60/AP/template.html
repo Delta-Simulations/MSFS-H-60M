@@ -9629,9 +9629,8 @@
 	  circuit,
 	  children
 	}) => {
-	  const [isPowerOn] = useSimVar("CIRCUIT ON:".concat(circuit), "Bool");
-	  if (!isPowerOn) return null;
-	  return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'Bool');
+	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
 	    children: children
 	  });
 	};
@@ -9640,7 +9639,7 @@
 	  return /*#__PURE__*/jsxRuntime.jsxs("svg", {
 	    viewBox: "0 0 1280 1280",
 	    children: [/*#__PURE__*/jsxRuntime.jsx(Electricity, {
-	      circuit: "24",
+	      circuit: "1",
 	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
 	        children: [/*#__PURE__*/jsxRuntime.jsx("clipPath", {
 	          id: "ESIS_CLIP",

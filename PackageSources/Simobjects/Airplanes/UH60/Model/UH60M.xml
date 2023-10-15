@@ -90,9 +90,6 @@
 
     <Component ID="HANDLING">
 
-			<UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
-				<ANIM_NAME>rudder_percent_key</ANIM_NAME>
-			</UseTemplate>
       <UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
 				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
 			</UseTemplate>
@@ -459,7 +456,7 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>DOWNWASH</ANIM_NAME>
 					<ANIM_CODE>
-            (A:RADIO HEIGHT, meters) (A:PLANE PITCH DEGREES, radians) cos / 
+            (A:RADIO HEIGHT, meters) (A:PLANE PITCH DEGREES, radians) cos / 10 +
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>200</ANIM_LAG>
@@ -480,7 +477,15 @@
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
 				</UseTemplate>
-
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>rudder_percent_key</ANIM_NAME>
+					<ANIM_CODE>
+            (A:TAIL ROTOR PEDAL POSITION, percent) 50 +
+					</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>50</ANIM_LAG>
+				</UseTemplate>
+        
     </Component>	
 </Behaviors>
 	<!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->

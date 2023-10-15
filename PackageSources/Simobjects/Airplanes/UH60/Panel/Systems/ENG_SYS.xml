@@ -14,7 +14,10 @@
 	<Element>
 		<Select>
 			<Value>
-	
+			(A:APU PCT RPM, percent) 10 &gt;
+			if{ 1 (&gt;L:H60_APURunning,bool) } 
+			els{ 0 (&gt;L:H60_APURunning,bool) } 
+
 			(A:Eng1 Combustion,bool) 1 ==
 			if{ 1 (&gt;L:Eng1Running,bool) } 
 			els{ 0 (&gt;L:Eng1Running,bool) } 
@@ -134,7 +137,6 @@
 					1 (&gt;K:APU_OFF_SWITCH)
 					0 1 (&gt;K:2:FUELSYSTEM_VALVE_SET) 
 				}
-				(A:APU PCT RPM, percent) (&gt;L:H60APU)
 				(L:H60_APU_START) 1 ==
 				(A:APU PCT RPM, percent) 30 &lt; and
 				if{

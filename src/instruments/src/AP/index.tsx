@@ -7,24 +7,13 @@ import { Ap_Disp } from './Components/AP_Disp';
 import './style.scss';
 import { VertSpeed } from './Components/VSpeed';
 import { Clock } from './Components/Clock';
-
-interface ElectricityProps {
-  circuit: string | number;
-}
-
-const Electricity: FC<ElectricityProps> = ({ circuit, children }) => {
-  const [isPowerOn] = useSimVar(`CIRCUIT ON:${circuit}`, "Bool");
-
-  if (!isPowerOn) return null;
-
-  return <>{children}</>;
-};
+import { Electricity } from '../Common/circuit';
 
 const AP = () => {
   return (
     <svg viewBox='0 0 1280 1280'>
       {/* Electricity circuit='24' */}
-      <Electricity circuit='24'>
+      <Electricity circuit='1'>
         <g>
           <clipPath id='ESIS_CLIP'>
             <rect x={110} y={757} width={446} height={424} fill='black' />

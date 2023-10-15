@@ -9461,6 +9461,15 @@
 	  });
 	};
 
+	const Electricity = ({
+	  circuit,
+	  children
+	}) => {
+	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'Bool');
+	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	    children: children
+	  });
+	};
 	const HUDPower = ({
 	  localVar,
 	  children
@@ -9539,17 +9548,6 @@
 	        "stroke-linecap": "square"
 	      })
 	    })]
-	  });
-	};
-
-	const Electricity = ({
-	  circuit,
-	  children
-	}) => {
-	  const [isPowerOn] = useSimVar("CIRCUIT ON:".concat(circuit), "Bool");
-	  if (!isPowerOn) return null;
-	  return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    children: children
 	  });
 	};
 

@@ -100,11 +100,38 @@
     </UseTemplate>
   </Component>
 
-  <UseTemplate Name="ASOBO_ROTORCRAFT_Lever_Rotor_Brake_Template">
+  <!-- <UseTemplate Name="ASOBO_ROTORCRAFT_Lever_Rotor_Brake_Template">
     <ANIM_NAME>Lever_Rotor_Brake</ANIM_NAME>
     <NODE_ID>Lever_Rotor_Brake</NODE_ID>
     <PART_ID>Lever_Rotor_Brake</PART_ID>
-</UseTemplate>
+</UseTemplate> -->
+
+<Component ID="ROTOR_BRAKE" Node="Lever_Rotor_Brake">
+  <UseTemplate Name="ASOBO_GT_Switch_Code">
+    <PART_ID>Lever_Rotor_Brake</PART_ID>
+    <ANIM_LENGTH>100</ANIM_LENGTH>
+    <ANIM_NAME>Lever_Rotor_Brake</ANIM_NAME>
+    <ANIM_LAG>300</ANIM_LAG>
+    <ANIM_CODE>(A:ROTOR BRAKE ACTIVE, Bool) 100 *</ANIM_CODE>
+    <LEFT_SINGLE_CODE>
+      (L:RotorBrakeActive) ! (&gt;L:RotorBrakeActive)
+      (L:RotorBrakeActive)
+      if{
+        (&gt;K:ROTOR_BRAKE_ON)
+      } els{
+        (&gt;K:ROTOR_BRAKE_OFF)
+      }
+    </LEFT_SINGLE_CODE>
+    <ANIMTIP_0>ROTOR BRAKE (UNLOCKED)</ANIMTIP_0>
+    <ANIMTIP_1>ROTOR BRAKE (ENGAGED)</ANIMTIP_1>
+  </UseTemplate>
+  <UseTemplate Name="ASOBO_GT_Update">
+    <FREQUENCY>1</FREQUENCY>
+    <UPDATE_CODE>
+      (L:RotorBrakeActive) if{ (&gt;K:ROTOR_BRAKE_ON) }
+    </UPDATE_CODE>
+  </UseTemplate>
+</Component>
 
 </Component>
 
@@ -376,13 +403,13 @@
   <TRUECODE>
 
     (L:H60_Switch_BATT1) -1 ==
-    (A:ELECTRICAL BATTERY VOLTAGE:1, volts) 23 &gt; and
+    (A:ELECTRICAL BATTERY VOLTAGE:1, volts) 20.5 &gt; and
 
     (L:H60_Switch_BATT2) -1 ==
-    (A:ELECTRICAL BATTERY VOLTAGE:2, volts) 23 &gt; and
+    (A:ELECTRICAL BATTERY VOLTAGE:2, volts) 20.5 &gt; and
 
     (L:H60_Switch_BATT_STBY) -1 ==
-    (A:ELECTRICAL BATTERY VOLTAGE:3, volts) 14 &gt; and
+    (A:ELECTRICAL BATTERY VOLTAGE:3, volts) 20.5 &gt; and
     or or
   </TRUECODE>
 </UseTemplate>
@@ -391,11 +418,11 @@
   <ELEC_PWR>1</ELEC_PWR>
   <TRUECODE>
       (L:H60_Switch_BATT1) -1 ==
-      (A:ELECTRICAL BATTERY VOLTAGE:1, volts) 23 &lt; and
+      (A:ELECTRICAL BATTERY VOLTAGE:1, volts) 20.5 &lt; and
       (L:H60_Switch_BATT2) -1 ==
-      (A:ELECTRICAL BATTERY VOLTAGE:2, volts) 23 &lt; and
+      (A:ELECTRICAL BATTERY VOLTAGE:2, volts) 20.5 &lt; and
       (L:H60_Switch_BATT_STBY) -1 ==
-      (A:ELECTRICAL BATTERY VOLTAGE:3, volts) 14 &lt; and or or
+      (A:ELECTRICAL BATTERY VOLTAGE:3, volts) 20.5 &lt; and or or
   </TRUECODE>
 </UseTemplate>
 
@@ -730,7 +757,7 @@
 		<Animation>
 			<Parameter>
 				<Sim>
-					<Variable>RUDDER PEDAL POSITION</Variable>
+					<Variable>TAIL ROTOR PEDAL POSITION</Variable>
 					<Units>part</Units>
 					<Scale>50</Scale>
 					<Bias>50</Bias>

@@ -6,7 +6,7 @@ interface ElectricityProps {
 }
 
 export const Electricity: FC<ElectricityProps> = ({ circuit, children }) => {
-	const [circuitOn] = useSimVar(`A:CIRCUIT ON:${circuit}`, 'Bool');
+	const [circuitOn] = useSimVar(`L:H60_Cpit_26VPower`, 'Bool');
 	if (!circuitOn) return null;
 	else return <div>{children}</div>;
 };

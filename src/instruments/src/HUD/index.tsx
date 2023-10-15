@@ -13,18 +13,7 @@ import { RAIndicator } from './Components/RAIndicator';
 
 
 
-
-interface ElectricityProps {
-    circuit: string | number;
-  }
-  
-    const Electricity: FC<ElectricityProps> = ({ circuit, children }) => {
-    const [isPowerOn] = useSimVar(`CIRCUIT ON:${circuit}`, "Bool");
-  
-    if (!isPowerOn) return null;
-  
-    return <div>{children}</div>;
-};
+import { Electricity } from '../Common/circuit';
 
 const HUD = () => {
 

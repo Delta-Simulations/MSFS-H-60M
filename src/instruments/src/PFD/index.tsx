@@ -16,23 +16,10 @@ import { VerticalSpeed } from './Components/verticalSpeed';
 import { EICAS } from './Components/EICAS';
 import { EICASFuel } from './Components/EICASFuel';
 import { EICASExtTanks } from './Components/EICASExtTanks';
-
+import { Electricity } from '../Common/circuit';
 import "./style.scss";
 
-import "../Common/pixels.scss";
 import { NDMain } from './Components/NDMain';
-
-interface ElectricityProps {
-    circuit: string | number;
-  }
-  
-    const Electricity: FC<ElectricityProps> = ({ circuit, children }) => {
-    const [isPowerOn] = useSimVar(`CIRCUIT ON:${circuit}`, "Bool");
-  
-    if (!isPowerOn) return null;
-  
-    return <div>{children}</div>;
-};
 
 const PFD = () => {
     const [DISP_TYPE] = useSimVar('L:DISP_TYPE', 'enum');
