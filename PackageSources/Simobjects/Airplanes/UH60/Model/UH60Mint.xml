@@ -15,6 +15,7 @@
     <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
+    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
     <!-- <Include File="UH60_Systems.xml"/>
 
 		<Component ID="Syst">
@@ -55,20 +56,49 @@
 
 
 <Component ID="OH_PCLS">
-    <!-- <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
-      <USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
-      <ID>1</ID>
-  <PART_ID>Lever_PCL1</PART_ID>
-  <NODE_ID>Lever_PCL1</NODE_ID>
-  <ANIM_NAME>Lever_PCL1</ANIM_NAME>
+  <Component ID="Lever_PCL2" Node="Lever_PCL2">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+          (L:H60_PCL2, percent) ++ 100 min (>L:H60_PCL2, percent)
+        </UP_CODE>
+        <DOWN_CODE>
+            (L:H60_PCL2, percent) -- 0 max (>L:H60_PCL2, percent)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
     </UseTemplate>
-    <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
-      <USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
-      <ID>2</ID>
-  <PART_ID>Lever_PCL2</PART_ID>
-  <NODE_ID>Lever_PCL2</NODE_ID>
-  <ANIM_NAME>Lever_PCL2</ANIM_NAME>
-    </UseTemplate> -->
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Lever_PCL2</PART_ID>
+      <ANIM_NAME>Lever_PCL2</ANIM_NAME>
+      <NODE_ID>Lever_PCL2</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_PCL2, percent)
+      </ANIM_CODE>
+      <ANIM_LAG>300</ANIM_LAG>
+    </UseTemplate>
+  </Component>
+  <Component ID="Lever_PCL1" Node="Lever_PCL1">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+          (L:H60_PCL1, percent) ++ 100 min (>L:H60_PCL1, percent)
+        </UP_CODE>
+        <DOWN_CODE>
+            
+            (L:H60_PCL1, percent) -- 0 max (>L:H60_PCL1, percent)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
+    </UseTemplate>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Lever_PCL1</PART_ID>
+      <ANIM_NAME>Lever_PCL1</ANIM_NAME>
+      <NODE_ID>Lever_PCL1</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_PCL1, percent)
+      </ANIM_CODE>
+      <ANIM_LAG>300</ANIM_LAG>
+    </UseTemplate>
+  </Component>
 
 
   <Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
@@ -273,6 +303,35 @@
     <TOOLTIPID_NORM>ENG2 GEN</TOOLTIPID_NORM>
   </UseTemplate>
 
+  <UseTemplate Name="DELTASIM_PushButton_Template">
+    <NODE_ID>Switch_Pitot_L</NODE_ID>
+    <TOOLTIPID>CP PITOT</TOOLTIPID>
+    <LEFT_SINGLE_CODE>
+      (L:H60_cP_PITOT, bool) ! (&gt;L:H60_cP_PITOT, bool)
+    </LEFT_SINGLE_CODE>
+</UseTemplate>
+  <UseTemplate Name="DELTASIM_PushButton_Template">
+    <NODE_ID>Switch_Pitot_R</NODE_ID>
+    <TOOLTIPID>P PITOT</TOOLTIPID>
+    <LEFT_SINGLE_CODE>
+      (L:H60_P_PITOT, bool) ! (&gt;L:H60_P_PITOT, bool)
+    </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+  <UseTemplate Name="DELTASIM_PushButton_Template">
+    <NODE_ID>Switch_ENG1_AntiIce</NODE_ID>
+    <TOOLTIPID>ENG ANTI ICE</TOOLTIPID>
+    <LEFT_SINGLE_CODE>
+      (K:ANTI_ICE_TOGGLE_ENG1) ! (&gt;K:ANTI_ICE_TOGGLE_ENG1)
+    </LEFT_SINGLE_CODE>
+</UseTemplate>
+<UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Switch_ENG2_AntiIce</NODE_ID>
+  <TOOLTIPID>ENG ANTI ICE</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    (K:ANTI_ICE_TOGGLE_ENG2) ! (&gt;K:ANTI_ICE_TOGGLE_ENG2)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
   <UseTemplate Name="AircraftVar_Switch_DELTASIM">
     <SIMVAR>FUELSYSTEM PUMP SWITCH</SIMVAR>
     <NODE_ID>Switch_ENG1_Boost</NODE_ID>
@@ -438,6 +497,53 @@
     <NODE_ID>stick.002</NODE_ID>
     <ANIM_NAME>collective</ANIM_NAME>
   </UseTemplate>
+
+  <!-- <UseTemplate name="Generic_Anim_DELTASIM">
+    <ANIM_NAME>DoorP</ANIM_NAME>
+    <ANIM_CODE>
+      (L:H60_DoorP, bool) 100 * 
+    </ANIM_CODE>
+    <ANIM_LAG>20</ANIM_LAG>
+    <ANIM_LENGTH>100</ANIM_LENGTH>
+  </UseTemplate>
+  <UseTemplate name="Generic_Anim_DELTASIM">
+    <ANIM_NAME>DoorCP</ANIM_NAME>
+    <ANIM_CODE>
+      (L:H60_DoorCP, bool) 100 * 
+    </ANIM_CODE>
+    <ANIM_LAG>20</ANIM_LAG>
+    <ANIM_LENGTH>100</ANIM_LENGTH>
+  </UseTemplate> -->
+
+  <Component ID="DoorR" Node="R Pilot Door">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+  <Component ID="DoorL" Node="L Pilot Door">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+  <UseTemplate name="Generic_Anim_DELTASIM">
+    <ANIM_NAME>reardoorR</ANIM_NAME>
+    <ANIM_CODE>
+      (L:DOORS_OPEN_REAR_R, bool) 50 *
+    </ANIM_CODE>
+    <ANIM_LAG>20</ANIM_LAG>
+    <ANIM_LENGTH>50</ANIM_LENGTH>
+  </UseTemplate>
+  <UseTemplate name="Generic_Anim_DELTASIM">
+    <ANIM_NAME>reardoorL</ANIM_NAME>
+    <ANIM_CODE>
+      (L:DOORS_OPEN_REAR_L, bool) 50 *
+    </ANIM_CODE>
+    <ANIM_LAG>20</ANIM_LAG>
+    <ANIM_LENGTH>50</ANIM_LENGTH>
+  </UseTemplate>
+
+
+
 </Component>
 
 </Behaviors>

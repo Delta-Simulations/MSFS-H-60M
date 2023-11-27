@@ -1,82 +1,43 @@
 {
     "elements": [
         {
-            "__uuid": "f4ab4da7-4aa6-4a3d-a4b9-186c16fe0146",
-            "title": "disp type",
+            "__uuid": "e020dd8f-a9e4-4313-b9fb-9b1afa5821b2",
+            "title": "Variant Detected",
             "varPrefix": "L",
-            "varName": "DISP_TYPE",
+            "varName": "H60_IsVariant",
             "varUnit": "number",
             "style": {
-                "type": 2,
-                "min": 0,
-                "max": 3,
-                "step": 1
+                "type": 3
             }
         },
         {
-            "__uuid": "7d9f0a3f-4954-4bc2-b8d8-a72e42e2f770",
-            "title": "Rotor",
-            "varPrefix": "A",
-            "varName": "ROTOR RPM PCT",
-            "varUnit": "percent",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 110,
-                "step": 0.1
-            }
-        },
-        {
-            "__uuid": "10716839-3bc7-4065-949f-e1fc68f0894d",
-            "title": "HudON",
+            "__uuid": "8d647fde-9a70-48a9-a5f8-1c69697a5c84",
+            "title": "hasprobe",
             "varPrefix": "L",
-            "varName": "HUDPWR",
+            "varName": "H60_HasProbe",
             "varUnit": "number",
             "style": {
                 "type": 3
             }
         },
         {
-            "__uuid": "f46c7627-c363-432e-9214-270cfbf0e29b",
-            "title": "1",
+            "__uuid": "30e9347f-53bb-4965-9f9c-6e068e0f3bea",
+            "title": "HasHoist",
             "varPrefix": "L",
-            "varName": "HUD_OVERLAY",
+            "varName": "H60_HasHoist",
             "varUnit": "number",
             "style": {
                 "type": 3
             }
         },
         {
-            "__uuid": "d3e695ae-53a3-450d-b8cd-4a39421fd9ac",
-            "title": "batt on",
-            "varPrefix": "A",
-            "varName": "CIRCUIT ON:3",
-            "varUnit": "bool",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "723d1715-b0b7-4b9a-8862-7cfd8880d83c",
-            "title": "Stby Batt",
-            "varPrefix": "A",
-            "varName": "CIRCUIT ON:24",
+            "__uuid": "85b82cc4-e4cd-4b53-8814-bb3e052712f5",
+            "title": "Hasmissle",
+            "varPrefix": "L",
+            "varName": "H60_HasMissile",
             "varUnit": "number",
             "style": {
                 "type": 3
-            }
-        },
-        {
-            "__uuid": "40d4b8f0-c2fa-4a78-8a2d-4381f9bebfb9",
-            "title": "ENG PCT 1",
-            "varPrefix": "A",
-            "varName": "ENG RPM ANIMATION PERCENT",
-            "varUnit": "percent",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 104,
-                "step": 1
             }
         }
     ]

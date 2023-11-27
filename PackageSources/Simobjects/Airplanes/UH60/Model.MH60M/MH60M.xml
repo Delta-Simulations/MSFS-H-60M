@@ -5,6 +5,15 @@
 	</LODS>
 	<Behaviors>
 		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
+    <Component ID="Parts_LIVERY_CHECKER">
+      <UseTemplate Name="ASOBO_GT_Update">
+        <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          1 (&gt;L:H60_HasProbe)
+          1 (&gt;L:H60_HasHoist)
+        </UPDATE_CODE>
+      </UseTemplate>
+    </Component>	
 	</Behaviors>
 	<!-- PROP ANIMATION TEMPLATE -->
 <Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />
@@ -554,7 +563,7 @@
 <Animation name="ModelPart_EBF" guid="01931e75-5f93-4b19-b64b-4fdd7d77f520" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_EBF</Name>
 <Visibility><Parameter><Code>
-	          1
+  (L:H60_EBF)
 </Code></Parameter></Visibility></PartInfo>
 <Animation name="ModelPart_Antenna_Stock" guid="27322194-af80-4560-a157-ceb672930f76" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_Antenna_Stock</Name>
@@ -571,7 +580,7 @@
 <Animation name="ModelPart_Hoist" guid="fdf65699-d055-4329-bf4a-638f14f33122" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_Hoist</Name>
 <Visibility><Parameter><Code>
-						1
+						1 
 </Code></Parameter></Visibility></PartInfo>
 <Animation name="ModelPart_ECM" guid="bd75bc59-59a2-45c2-a3b4-86929672ff73" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_ECM</Name>
@@ -586,7 +595,7 @@
 <Animation name="ModelPart_RefuelProbe" guid="6d8e66b1-16c3-4547-808d-972e3ce6b2aa" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_RefuelProbe</Name>
 <Visibility><Parameter><Code>
-						1
+						1 
 </Code></Parameter></Visibility></PartInfo>
 <Animation name="ModelPart_FrontFlare" guid="f90683eb-35d4-4489-9db2-de73029ddd04" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_FrontFlare</Name>

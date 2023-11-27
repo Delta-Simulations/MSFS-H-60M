@@ -34,7 +34,7 @@ export const Settings = () => {
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
-						display: 'flex',
+						display: 'block',
 						flexDirection: 'column',
 						textAlign: 'center',
 						alignItems: 'center',

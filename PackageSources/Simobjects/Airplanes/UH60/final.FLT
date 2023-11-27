@@ -253,3 +253,5 @@ H60_Fuel2=1
 H60_Fuel_Prime=1
 H60_AntiColl_Mode=1
 H60_AntiColl_PWR=0
+H60_PCL1=100
+H60_PCL2=100

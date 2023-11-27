@@ -5,7 +5,18 @@
 	</LODS>
 	<Behaviors>
 		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
+
+    <Component ID="Parts_LIVERY_CHECKER">
+      <UseTemplate Name="ASOBO_GT_Update">
+        <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          1 (&gt;L:H60_HasProbe)
+          1 (&gt;L:H60_HasHoist)
+        </UPDATE_CODE>
+      </UseTemplate>
+    </Component>	
 	</Behaviors>
+
 	<!-- PROP ANIMATION TEMPLATE -->
 <Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />
 <Animation name="prop_slow" 			guid="212a018f-9c5c-4e92-b903-2c1accb7a39a" length="100" type="Sim" typeParam2="prop_slow" typeParam="AutoPlay" />
@@ -587,7 +598,7 @@
 <Animation name="ModelPart_RefuelProbe" guid="6d8e66b1-16c3-4547-808d-972e3ce6b2aa" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_RefuelProbe</Name>
 <Visibility><Parameter><Code>
-						1
+						1 
 </Code></Parameter></Visibility></PartInfo>
 <Animation name="ModelPart_FrontFlare" guid="f90683eb-35d4-4489-9db2-de73029ddd04" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_FrontFlare</Name>

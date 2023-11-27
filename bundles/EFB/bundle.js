@@ -8947,12 +8947,6 @@
 	  }), getRenderTarget());
 	};
 
-	const Home = () => {
-	  return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    className: "homeContainer"
-	  });
-	};
-
 	function _extends$1() {
 	  _extends$1 = Object.assign || function (target) {
 	    for (var i = 1; i < arguments.length; i++) {
@@ -10067,7 +10061,7 @@
 	  return target;
 	}
 
-	const _excluded$l = ["onClick", "reloadDocument", "replace", "state", "target", "to"],
+	const _excluded$k = ["onClick", "reloadDocument", "replace", "state", "target", "to"],
 	      _excluded2$1 = ["aria-current", "caseSensitive", "className", "end", "style", "to"];
 
 	function isModifiedEvent(event) {
@@ -10087,7 +10081,7 @@
 	    target,
 	    to
 	  } = _ref3,
-	      rest = _objectWithoutPropertiesLoose$1(_ref3, _excluded$l);
+	      rest = _objectWithoutPropertiesLoose$1(_ref3, _excluded$k);
 
 	  let href = useHref(to);
 	  let internalOnClick = useLinkClickHandler(to, {
@@ -11627,11 +11621,11 @@
 	  };
 	}
 
-	const _excluded$k = ["aria-label", "aria-valuetext", "className", "component", "classes", "disableSwap", "disabled", "getAriaLabel", "getAriaValueText", "marks", "max", "min", "name", "onChange", "onChangeCommitted", "onMouseDown", "orientation", "scale", "step", "tabIndex", "track", "value", "valueLabelDisplay", "valueLabelFormat", "isRtl", "components", "componentsProps"];
+	const _excluded$j = ["aria-label", "aria-valuetext", "className", "component", "classes", "disableSwap", "disabled", "getAriaLabel", "getAriaValueText", "marks", "max", "min", "name", "onChange", "onChangeCommitted", "onMouseDown", "orientation", "scale", "step", "tabIndex", "track", "value", "valueLabelDisplay", "valueLabelFormat", "isRtl", "components", "componentsProps"];
 
 	const Identity = x => x;
 
-	const useUtilityClasses$7 = ownerState => {
+	const useUtilityClasses$6 = ownerState => {
 	  const {
 	    disabled,
 	    dragging,
@@ -11688,7 +11682,7 @@
 	    components = {},
 	    componentsProps = {}
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$k); // all props with defaults
+	        other = _objectWithoutPropertiesLoose(props, _excluded$j); // all props with defaults
 	  // consider extracting to hook an reusing the lint rule for the varints
 
 
@@ -11747,7 +11741,7 @@
 	  const Input = components.Input || 'input';
 	  const inputProps = appendOwnerState(Input, componentsProps.input, ownerState);
 	  const hiddenInputProps = getHiddenInputProps();
-	  const classes = useUtilityClasses$7(ownerState);
+	  const classes = useUtilityClasses$6(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsxs(Root, _extends$1({}, rootProps, getRootProps({
 	    onMouseDown
 	  }), {
@@ -14491,7 +14485,7 @@
 	styleFunctionSx.filterProps = ['sx'];
 	var defaultStyleFunctionSx = styleFunctionSx;
 
-	const _excluded$j = ["sx"];
+	const _excluded$i = ["sx"];
 
 	const splitProps = props => {
 	  const result = {
@@ -14512,7 +14506,7 @@
 	  const {
 	    sx: inSx
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$j);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$i);
 
 	  const {
 	    systemProps,
@@ -14541,7 +14535,7 @@
 	  });
 	}
 
-	const _excluded$i = ["values", "unit", "step"]; // Sorted ASC by size. That's important.
+	const _excluded$h = ["values", "unit", "step"]; // Sorted ASC by size. That's important.
 
 	const sortBreakpointsValues = values => {
 	  const breakpointsAsArray = Object.keys(values).map(key => ({
@@ -14577,7 +14571,7 @@
 	    unit = 'px',
 	    step = 5
 	  } = breakpoints,
-	        other = _objectWithoutPropertiesLoose(breakpoints, _excluded$i);
+	        other = _objectWithoutPropertiesLoose(breakpoints, _excluded$h);
 
 	  const sortedValues = sortBreakpointsValues(values);
 	  const keys = Object.keys(sortedValues);
@@ -14665,7 +14659,7 @@
 	  return spacing;
 	}
 
-	const _excluded$h = ["breakpoints", "palette", "spacing", "shape"];
+	const _excluded$g = ["breakpoints", "palette", "spacing", "shape"];
 
 	function createTheme$2(options = {}, ...args) {
 	  const {
@@ -14674,7 +14668,7 @@
 	    spacing: spacingInput,
 	    shape: shapeInput = {}
 	  } = options,
-	        other = _objectWithoutPropertiesLoose(options, _excluded$h);
+	        other = _objectWithoutPropertiesLoose(options, _excluded$g);
 
 	  const breakpoints = createBreakpoints$1(breakpointsInput);
 	  const spacing = createSpacing$1(spacingInput);
@@ -14718,7 +14712,7 @@
 	  return useTheme$3(defaultTheme);
 	}
 
-	const _excluded$g = ["className", "component"];
+	const _excluded$f = ["className", "component"];
 	function createBox(options = {}) {
 	  const {
 	    defaultTheme,
@@ -14735,7 +14729,7 @@
 	      className,
 	      component = 'div'
 	    } = _extendSxProp,
-	          other = _objectWithoutPropertiesLoose(_extendSxProp, _excluded$g);
+	          other = _objectWithoutPropertiesLoose(_extendSxProp, _excluded$f);
 
 	    return /*#__PURE__*/jsxRuntime.jsx(BoxRoot, _extends$1({
 	      as: component,
@@ -14747,7 +14741,7 @@
 	  return Box;
 	}
 
-	const _excluded$f = ["variant"];
+	const _excluded$e = ["variant"];
 
 	function isEmpty$1(string) {
 	  return string.length === 0;
@@ -14763,7 +14757,7 @@
 	  const {
 	    variant
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$f);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$e);
 
 	  let classKey = variant || '';
 	  Object.keys(other).sort().forEach(key => {
@@ -14776,7 +14770,7 @@
 	  return classKey;
 	}
 
-	const _excluded$e = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"],
+	const _excluded$d = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"],
 	      _excluded2 = ["theme"],
 	      _excluded3 = ["theme"];
 
@@ -14855,7 +14849,7 @@
 	      skipSx: inputSkipSx,
 	      overridesResolver
 	    } = inputOptions,
-	          options = _objectWithoutPropertiesLoose(inputOptions, _excluded$e); // if skipVariantsResolver option is defined, take the value, otherwise, true for root and false for other slots.
+	          options = _objectWithoutPropertiesLoose(inputOptions, _excluded$d); // if skipVariantsResolver option is defined, take the value, otherwise, true for root and false for other slots.
 
 
 	    const skipVariantsResolver = inputSkipVariantsResolver !== undefined ? inputSkipVariantsResolver : componentSlot && componentSlot !== 'Root' || false;
@@ -15394,7 +15388,7 @@
 	};
 	var green$3 = green$2;
 
-	const _excluded$d = ["mode", "contrastThreshold", "tonalOffset"];
+	const _excluded$c = ["mode", "contrastThreshold", "tonalOffset"];
 	const light$1 = {
 	  // The colors used to style the text.
 	  text: {
@@ -15578,7 +15572,7 @@
 	    contrastThreshold = 3,
 	    tonalOffset = 0.2
 	  } = palette,
-	        other = _objectWithoutPropertiesLoose(palette, _excluded$d);
+	        other = _objectWithoutPropertiesLoose(palette, _excluded$c);
 
 	  const primary = palette.primary || getDefaultPrimary(mode);
 	  const secondary = palette.secondary || getDefaultSecondary(mode);
@@ -15686,7 +15680,7 @@
 	  return paletteOutput;
 	}
 
-	const _excluded$c = ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"];
+	const _excluded$b = ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"];
 
 	function round$1(value) {
 	  return Math.round(value * 1e5) / 1e5;
@@ -15719,7 +15713,7 @@
 	    allVariants,
 	    pxToRem: pxToRem2
 	  } = _ref,
-	        other = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+	        other = _objectWithoutPropertiesLoose(_ref, _excluded$b);
 
 	  const coef = fontSize / 14;
 
@@ -15777,7 +15771,7 @@
 	const shadows$2 = ['none', createShadow$1(0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0), createShadow$1(0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0), createShadow$1(0, 3, 3, -2, 0, 3, 4, 0, 0, 1, 8, 0), createShadow$1(0, 2, 4, -1, 0, 4, 5, 0, 0, 1, 10, 0), createShadow$1(0, 3, 5, -1, 0, 5, 8, 0, 0, 1, 14, 0), createShadow$1(0, 3, 5, -1, 0, 6, 10, 0, 0, 1, 18, 0), createShadow$1(0, 4, 5, -2, 0, 7, 10, 1, 0, 2, 16, 1), createShadow$1(0, 5, 5, -3, 0, 8, 10, 1, 0, 3, 14, 2), createShadow$1(0, 5, 6, -3, 0, 9, 12, 1, 0, 3, 16, 2), createShadow$1(0, 6, 6, -3, 0, 10, 14, 1, 0, 4, 18, 3), createShadow$1(0, 6, 7, -4, 0, 11, 15, 1, 0, 4, 20, 3), createShadow$1(0, 7, 8, -4, 0, 12, 17, 2, 0, 5, 22, 4), createShadow$1(0, 7, 8, -4, 0, 13, 19, 2, 0, 5, 24, 4), createShadow$1(0, 7, 9, -4, 0, 14, 21, 2, 0, 5, 26, 4), createShadow$1(0, 8, 9, -5, 0, 15, 22, 2, 0, 6, 28, 5), createShadow$1(0, 8, 10, -5, 0, 16, 24, 2, 0, 6, 30, 5), createShadow$1(0, 8, 11, -5, 0, 17, 26, 2, 0, 6, 32, 5), createShadow$1(0, 9, 11, -5, 0, 18, 28, 2, 0, 7, 34, 6), createShadow$1(0, 9, 12, -6, 0, 19, 29, 2, 0, 7, 36, 6), createShadow$1(0, 10, 13, -6, 0, 20, 31, 3, 0, 8, 38, 7), createShadow$1(0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7), createShadow$1(0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7), createShadow$1(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8), createShadow$1(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)];
 	var shadows$3 = shadows$2;
 
-	const _excluded$b = ["duration", "easing", "delay"]; // Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
+	const _excluded$a = ["duration", "easing", "delay"]; // Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
 	// to learn the context in which each easing should be used.
 
 	const easing$1 = {
@@ -15832,7 +15826,7 @@
 	      easing: easingOption = mergedEasing.easeInOut,
 	      delay = 0
 	    } = options;
-	          _objectWithoutPropertiesLoose(options, _excluded$b);
+	          _objectWithoutPropertiesLoose(options, _excluded$a);
 
 	    return (Array.isArray(props) ? props : [props]).map(animatedProp => "".concat(animatedProp, " ").concat(typeof durationOption === 'string' ? durationOption : formatMs$1(durationOption), " ").concat(easingOption, " ").concat(typeof delay === 'string' ? delay : formatMs$1(delay))).join(',');
 	  };
@@ -15860,7 +15854,7 @@
 	};
 	var zIndex$3 = zIndex$2;
 
-	const _excluded$a = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
+	const _excluded$9 = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
 
 	function createTheme$1(options = {}, ...args) {
 	  const {
@@ -15869,7 +15863,7 @@
 	    transitions: transitionsInput = {},
 	    typography: typographyInput = {}
 	  } = options,
-	        other = _objectWithoutPropertiesLoose(options, _excluded$a);
+	        other = _objectWithoutPropertiesLoose(options, _excluded$9);
 
 	  const palette = createPalette$1(paletteInput);
 	  const systemTheme = createTheme$2(options);
@@ -16266,7 +16260,7 @@
 	var touchRippleClasses$1 = touchRippleClasses;
 
 	var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-	const _excluded$9 = ["center", "classes", "className"];
+	const _excluded$8 = ["center", "classes", "className"];
 
 	let _ = t => t,
 	    _t,
@@ -16323,7 +16317,7 @@
 	    classes = {},
 	    className
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$9);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$8);
 
 	  const [ripples, setRipples] = react.useState([]);
 	  const nextKey = react.useRef(0);
@@ -16513,9 +16507,9 @@
 	const buttonBaseClasses = generateUtilityClasses('MuiButtonBase', ['root', 'disabled', 'focusVisible']);
 	var buttonBaseClasses$1 = buttonBaseClasses;
 
-	const _excluded$8 = ["action", "centerRipple", "children", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "LinkComponent", "onBlur", "onClick", "onContextMenu", "onDragLeave", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "tabIndex", "TouchRippleProps", "touchRippleRef", "type"];
+	const _excluded$7 = ["action", "centerRipple", "children", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "LinkComponent", "onBlur", "onClick", "onContextMenu", "onDragLeave", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "tabIndex", "TouchRippleProps", "touchRippleRef", "type"];
 
-	const useUtilityClasses$6 = ownerState => {
+	const useUtilityClasses$5 = ownerState => {
 	  const {
 	    disabled,
 	    focusVisible,
@@ -16620,7 +16614,7 @@
 	    touchRippleRef,
 	    type
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$8);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$7);
 
 	  const buttonRef = react.useRef(null);
 	  const rippleRef = react.useRef(null);
@@ -16808,7 +16802,7 @@
 	    focusVisible
 	  });
 
-	  const classes = useUtilityClasses$6(ownerState);
+	  const classes = useUtilityClasses$5(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsxs(ButtonBaseRoot, _extends$1({
 	    as: ComponentProp,
 	    className: clsx(classes.root, className),
@@ -16856,9 +16850,9 @@
 
 	var ButtonGroupContext$1 = ButtonGroupContext;
 
-	const _excluded$7 = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
+	const _excluded$6 = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
 
-	const useUtilityClasses$5 = ownerState => {
+	const useUtilityClasses$4 = ownerState => {
 	  const {
 	    color,
 	    disableElevation,
@@ -17086,7 +17080,7 @@
 	    type,
 	    variant = 'text'
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$7);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$6);
 
 	  const ownerState = _extends$1({}, props, {
 	    color,
@@ -17100,7 +17094,7 @@
 	    variant
 	  });
 
-	  const classes = useUtilityClasses$5(ownerState);
+	  const classes = useUtilityClasses$4(ownerState);
 
 	  const startIcon = startIconProp && /*#__PURE__*/jsxRuntime.jsx(ButtonStartIcon, {
 	    className: classes.startIcon,
@@ -17141,17 +17135,7 @@
 	        to: "/",
 	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "contained",
-	          children: "Home"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
-	        style: {
-	          textDecoration: 'none'
-	        },
-	        to: "/Aircraft",
-	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
-	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "contained",
+	          variant: "outlined",
 	          children: "Aircraft"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
@@ -17161,7 +17145,7 @@
 	        to: "/Checklist",
 	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "contained",
+	          variant: "outlined",
 	          children: "Checklist"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
@@ -17171,7 +17155,7 @@
 	        to: "/Map",
 	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "contained",
+	          variant: "outlined",
 	          children: "Map"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
@@ -17181,7 +17165,7 @@
 	        to: "/Browser",
 	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "contained",
+	          variant: "outlined",
 	          children: "Browser"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
@@ -17191,7 +17175,7 @@
 	        to: "/Settings",
 	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "contained",
+	          variant: "outlined",
 	          children: "Settings"
 	        })
 	      })]
@@ -17245,7 +17229,7 @@
 	  });
 	};
 
-	const _excluded$6 = ["component", "direction", "spacing", "divider", "children"];
+	const _excluded$5 = ["component", "direction", "spacing", "divider", "children"];
 
 	function joinChildren(children, separator) {
 	  const childrenArray = react.Children.toArray(children).filter(Boolean);
@@ -17341,7 +17325,7 @@
 	    divider,
 	    children
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$6);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$5);
 
 	  const ownerState = {
 	    direction,
@@ -17357,124 +17341,36 @@
 	});
 	var Stack$1 = Stack;
 
-	function getContainerUtilityClass(slot) {
-	  return generateUtilityClass('MuiContainer', slot);
-	}
-	generateUtilityClasses('MuiContainer', ['root', 'disableGutters', 'fixed', 'maxWidthXs', 'maxWidthSm', 'maxWidthMd', 'maxWidthLg', 'maxWidthXl']);
-
-	const _excluded$5 = ["className", "component", "disableGutters", "fixed", "maxWidth"];
-
-	const useUtilityClasses$4 = ownerState => {
-	  const {
-	    classes,
-	    fixed,
-	    disableGutters,
-	    maxWidth
-	  } = ownerState;
-	  const slots = {
-	    root: ['root', maxWidth && "maxWidth".concat(capitalize$1(String(maxWidth))), fixed && 'fixed', disableGutters && 'disableGutters']
-	  };
-	  return composeClasses(slots, getContainerUtilityClass, classes);
-	};
-
-	const ContainerRoot = styled$1('div', {
-	  name: 'MuiContainer',
-	  slot: 'Root',
-	  overridesResolver: (props, styles) => {
-	    const {
-	      ownerState
-	    } = props;
-	    return [styles.root, styles["maxWidth".concat(capitalize$1(String(ownerState.maxWidth)))], ownerState.fixed && styles.fixed, ownerState.disableGutters && styles.disableGutters];
-	  }
-	})(({
-	  theme,
-	  ownerState
-	}) => _extends$1({
-	  width: '100%',
-	  marginLeft: 'auto',
-	  boxSizing: 'border-box',
-	  marginRight: 'auto',
-	  display: 'block'
-	}, !ownerState.disableGutters && {
-	  paddingLeft: theme.spacing(2),
-	  paddingRight: theme.spacing(2),
-	  [theme.breakpoints.up('sm')]: {
-	    paddingLeft: theme.spacing(3),
-	    paddingRight: theme.spacing(3)
-	  }
-	}), ({
-	  theme,
-	  ownerState
-	}) => ownerState.fixed && Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
-	  const value = theme.breakpoints.values[breakpoint];
-
-	  if (value !== 0) {
-	    acc[theme.breakpoints.up(breakpoint)] = {
-	      maxWidth: "".concat(value).concat(theme.breakpoints.unit)
-	    };
-	  }
-
-	  return acc;
-	}, {}), ({
-	  theme,
-	  ownerState
-	}) => _extends$1({}, ownerState.maxWidth === 'xs' && {
-	  [theme.breakpoints.up('xs')]: {
-	    maxWidth: Math.max(theme.breakpoints.values.xs, 444)
-	  }
-	}, ownerState.maxWidth && ownerState.maxWidth !== 'xs' && {
-	  [theme.breakpoints.up(ownerState.maxWidth)]: {
-	    maxWidth: "".concat(theme.breakpoints.values[ownerState.maxWidth]).concat(theme.breakpoints.unit)
-	  }
-	}));
-	const Container = /*#__PURE__*/react.forwardRef(function Container(inProps, ref) {
-	  const props = useThemeProps({
-	    props: inProps,
-	    name: 'MuiContainer'
-	  });
-
-	  const {
-	    className,
-	    component = 'div',
-	    disableGutters = false,
-	    fixed = false,
-	    maxWidth = 'lg'
-	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$5);
-
-	  const ownerState = _extends$1({}, props, {
-	    component,
-	    disableGutters,
-	    fixed,
-	    maxWidth
-	  });
-
-	  const classes = useUtilityClasses$4(ownerState);
-	  return /*#__PURE__*/jsxRuntime.jsx(ContainerRoot, _extends$1({
-	    as: component,
-	    ownerState: ownerState,
-	    className: clsx(classes.root, className),
-	    ref: ref
-	  }, other));
-	});
-	var Container$1 = Container;
-
 	const Airctaft = () => {
-	  const [fireGun, setFireGun] = useSimVar('L:EFFECT_GUN', 'Bool');
-	  const [fireRocket, setFireRocket] = useSimVar('L:ROCKET_anim', 'Bool');
-	  const [fireFlare, setFireFlare] = useSimVar('L:EFFECT_FLARE', 'Bool');
-	  const [lift, setLift] = useSimVar('L:Winch_EXT', 'bool');
-	  const [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
-	  const [modelType, setModelType] = useSimVar('L:MODEL_TYPE', 'enum');
-	  const [probe, setProbe] = useSimVar('L:ADDITIONSVIS', 'enum');
-	  const [rearDoorL, setRearDoorL] = useSimVar('L:DOORS_OPEN_REAR_L', 'bool');
-	  const [rearDoorR, setRearDoorR] = useSimVar('L:DOORS_OPEN_REAR_R', 'bool');
-	  const [doorR, setDoorR] = useSimVar('L:FR_ANIM', 'bool');
-	  const [doorL, setDoorL] = useSimVar('L:FL_ANIM', 'bool');
-	  const [doorHide, setDoorHide] = useSimVar('L:PART1', 'bool');
-	  const [gunnerDoor, setGunnerDoor] = useSimVar('L:PART2', 'bool');
-	  var [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
-	  var [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+	  useSimVar('L:EFFECT_GUN', 'Bool');
+	  let [fireRocket, setFireRocket] = useSimVar('L:ROCKET_anim', 'Bool');
+	  useSimVar('L:EFFECT_FLARE', 'Bool');
+	  let [lift, setLift] = useSimVar('L:H60_Winch', 'bool');
+	  let [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
+	  let [EIBF, setEIBF] = useSimVar('L:H60_EBF', 'bool');
+	  let [HasProbe] = useSimVar('L:H60_HasProbe', 'bool');
+	  let [HasHoist] = useSimVar('L:H60_HasHoist', 'bool');
+	  let [HasMissile] = useSimVar('L:H60_HasMissile', 'bool');
+	  let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
+	  let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
+	  let [rearDoorL, setRearDoorL] = useSimVar('L:DOORS_OPEN_REAR_L', 'bool');
+	  let [rearDoorR, setRearDoorR] = useSimVar('L:DOORS_OPEN_REAR_R', 'bool');
+	  let [doorR, setDoorR] = useSimVar('L:H60_DoorP', 'bool');
+	  let [doorL, setDoorL] = useSimVar('L:H60_DoorCP', 'bool');
+	  let [doorHide, setDoorHide] = useSimVar('L:H60_FrontDoorVis', 'bool');
+	  let [gunnerDoor, setGunnerDoor] = useSimVar('L:PART2', 'bool');
+	  let [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
+	  let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+	  let [ACOnGround] = useSimVar('A:SIM ON GROUND', 'bool');
+	  let [State_ColdandDark, setState_ColdandDark] = useSimVar('L:H60_State_ColdandDark', 'bool');
+	  let [State_Startup, setState_Startup] = useSimVar('L:H60_State_Startup', 'bool');
+	  let [State_Taxi, setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
+	  react.useEffect(() => {
+	    if (HasProbe || HasHoist || HasMissile) {
+	      setModelVariant(true);
+	    }
+	  }, [HasProbe, HasHoist, HasMissile]); // Run the effect whenever these variables change
+
 	  return /*#__PURE__*/jsxRuntime.jsx("div", {
 	    className: "aircraftContainer",
 	    children: /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
@@ -17482,85 +17378,32 @@
 	        position: 'absolute',
 	        width: 1040,
 	        height: 810,
-	        backgroundImage: 'url(/images/Top_down.png)',
 	        backgroundPosition: 'right',
 	        backgroundSize: '80%',
-	        backgroundRepeat: 'no-repeat',
-	        borderRadius: 4,
-	        left: 5,
-	        boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-	        color: '#1B93FF',
-	        justifyContent: 'center',
-	        display: 'flex',
-	        textAlign: 'center',
-	        fontSize: 14
+	        backgroundRepeat: 'no-repeat'
 	      },
-	      children: [/*#__PURE__*/jsxRuntime.jsx("h1", {
-	        style: {
-	          marginLeft: 15,
-	          color: '#1B93FF'
-	        },
-	        children: "Aircraft Customization"
-	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
+	      children: [/*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 200,
-	          height: 400,
-	          backgroundColor: '16161E',
-	          borderRadius: 4,
-	          left: 5,
-	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-	          color: '#1B93FF',
-	          justifyContent: 'center',
-	          display: 'flex',
-	          textAlign: 'center',
-	          fontSize: 14
-	        },
-	        children: /*#__PURE__*/jsxRuntime.jsxs(Container$1, {
-	          maxWidth: "sm",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("h1", {
-	            children: "Weapons"
-	          }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
-	            spacing: 4,
-	            children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	              onMouseDown: () => setFireRocket(true),
-	              onMouseUp: () => setFireRocket(false),
-	              onMouseLeave: () => setFireRocket(false),
-	              color: "error",
-	              variant: "outlined",
-	              children: "Fire Missile"
-	            }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	              onMouseDown: () => setFireGun(true),
-	              onMouseUp: () => setFireGun(false),
-	              onMouseLeave: () => setFireGun(false),
-	              color: "error",
-	              variant: "outlined",
-	              children: "Fire Gun"
-	            }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	              onMouseDown: () => setFireFlare(true),
-	              onMouseUp: () => setFireFlare(false),
-	              onMouseLeave: () => setFireFlare(false),
-	              color: "error",
-	              variant: "outlined",
-	              children: "Flares"
-	            }), /*#__PURE__*/jsxRuntime.jsx("h1", {
-	              children: "Util"
-	            }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	              onClick: () => setLift(!lift),
-	              color: "success",
-	              variant: "outlined",
-	              children: "Hoist Move"
-	            })]
-	          })]
-	        })
+	          width: 1000,
+	          height: 1000,
+	          left: -250,
+	          top: -20,
+	          backgroundImage: 'url(/images/LineArtEXT.png)',
+	          backgroundPosition: 'right',
+	          backgroundSize: '80%',
+	          backgroundRepeat: 'no-repeat',
+	          transform: 'rotate(90deg)' // Apply the rotation here
+
+	        }
 	      }), /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 500,
+	          width: 350,
 	          height: 150,
 	          backgroundColor: '16161E',
-	          borderRadius: 4,
-	          left: 400,
+	          borderRadius: 2,
+	          left: 65,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17574,38 +17417,129 @@
 	          style: {
 	            marginTop: 0
 	          },
-	          children: "Addons"
+	          children: "Configuration"
 	        }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
 	          direction: "row",
 	          spacing: 4,
 	          children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	            size: "large",
 	            onClick: () => setSkis(!skis),
-	            color: skis ? 'success' : 'primary',
+	            color: skis ? 'primary' : 'primary',
 	            variant: skis ? 'contained' : 'outlined',
 	            children: "Skis"
 	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	            size: "large",
-	            onClick: () => setModelType(!modelType),
-	            color: modelType ? 'success' : 'primary',
-	            variant: modelType ? 'contained' : 'outlined',
+	            onClick: () => setEIBF(!EIBF),
+	            color: EIBF ? 'primary' : 'primary',
+	            variant: EIBF ? 'contained' : 'outlined',
+	            children: "EIBF"
+	          })]
+	        })]
+	      }), /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
+	        sx: {
+	          position: 'absolute',
+	          width: 350,
+	          height: 300,
+	          backgroundColor: '16161E',
+	          borderRadius: 2,
+	          left: 615,
+	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+	          color: '#1B93FF',
+	          justifyContent: 'center',
+	          display: 'flex',
+	          flexDirection: 'column',
+	          textAlign: 'center',
+	          alignItems: 'center',
+	          fontSize: 14
+	        },
+	        children: [/*#__PURE__*/jsxRuntime.jsx("h1", {
+	          style: {
+	            marginTop: 0
+	          },
+	          children: "Set Aircraft State"
+	        }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
+	          direction: "column",
+	          spacing: 2,
+	          children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setState_ColdandDark(!State_ColdandDark),
+	            color: State_ColdandDark ? 'primary' : 'primary',
+	            variant: State_ColdandDark ? 'contained' : 'outlined',
+	            disabled: !ACOnGround,
+	            children: "Cold&Dark"
+	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setState_Startup(!State_Startup),
+	            color: State_Startup ? 'primary' : 'primary',
+	            variant: State_Startup ? 'contained' : 'outlined',
+	            disabled: !ACOnGround,
+	            children: "Ready for Startup"
+	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setState_Taxi(!State_Taxi),
+	            color: State_Taxi ? 'primary' : 'primary',
+	            variant: State_Taxi ? 'contained' : 'outlined',
+	            disabled: !ACOnGround,
+	            children: "Ready for Taxi"
+	          })]
+	        })]
+	      }), ModelVariant && /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
+	        sx: {
+	          position: 'absolute',
+	          width: 350,
+	          height: 300,
+	          backgroundColor: '16161E',
+	          borderRadius: 2,
+	          left: 615,
+	          top: 320,
+	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+	          color: '#1B93FF',
+	          justifyContent: 'center',
+	          display: 'flex',
+	          flexDirection: 'column',
+	          textAlign: 'center',
+	          alignItems: 'center',
+	          fontSize: 14
+	        },
+	        children: [/*#__PURE__*/jsxRuntime.jsx("h1", {
+	          style: {
+	            marginTop: 0
+	          },
+	          children: "Variant Configuration"
+	        }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
+	          direction: "column",
+	          spacing: 2,
+	          children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setProbe(!probe),
+	            color: probe ? 'primary' : 'primary',
+	            variant: probe ? 'contained' : 'outlined',
+	            disabled: !HasProbe,
+	            children: "Probe Position"
+	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setLift(!lift),
+	            color: lift ? 'primary' : 'primary',
+	            variant: lift ? 'contained' : 'outlined',
+	            disabled: !HasHoist,
 	            children: "Hoist"
 	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	            size: "large",
-	            onClick: () => setProbe(!probe),
-	            color: probe ? 'success' : 'primary',
-	            variant: probe ? 'contained' : 'outlined',
-	            children: "Probe"
+	            onClick: () => setFireRocket(!fireRocket),
+	            color: fireRocket ? 'error' : 'primary',
+	            variant: fireRocket ? 'contained' : 'outlined',
+	            disabled: !HasMissile,
+	            children: "Missiles"
 	          })]
 	        })]
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 77,
+	          width: 71,
 	          height: 35,
 	          backgroundColor: '16161E',
 	          borderRadius: 1.5,
-	          left: 350,
+	          left: 270,
 	          top: 340,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
@@ -17619,19 +17553,19 @@
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	          size: "small",
 	          onClick: () => setshowPilot(!showPilot),
-	          color: showPilot ? 'success' : 'primary',
+	          color: showPilot ? 'primary' : 'primary',
 	          variant: showPilot ? 'contained' : 'outlined',
 	          children: "Pilot"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 75,
+	          width: 85,
 	          height: 35,
 	          backgroundColor: '16161E',
 	          borderRadius: 1.5,
-	          left: 350,
-	          top: 437,
+	          left: 150,
+	          top: 340,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17644,7 +17578,7 @@
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	          size: "small",
 	          onClick: () => setshowCoPilot(!showCoPilot),
-	          color: showCoPilot ? 'success' : 'primary',
+	          color: showCoPilot ? 'primary' : 'primary',
 	          variant: showCoPilot ? 'contained' : 'outlined',
 	          children: "CoPilot"
 	        })
@@ -17655,8 +17589,8 @@
 	          height: 35,
 	          backgroundColor: '16161E',
 	          borderRadius: 1.5,
-	          left: 310,
-	          top: 389,
+	          left: 195,
+	          top: 377,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17676,12 +17610,12 @@
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 75,
-	          height: 29,
+	          width: 71,
+	          height: 35,
 	          backgroundColor: '16161E',
 	          borderRadius: 1.5,
-	          left: 370,
-	          top: 485,
+	          left: 100,
+	          top: 380,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17696,17 +17630,17 @@
 	          size: "small",
 	          variant: "contained",
 	          color: doorL ? 'error' : 'success',
-	          children: "Door L"
+	          children: "Door"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 75,
-	          height: 29,
+	          width: 71,
+	          height: 35,
 	          backgroundColor: '16161E',
 	          borderRadius: 1.5,
-	          left: 370,
-	          top: 290,
+	          left: 329,
+	          top: 380,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17721,17 +17655,17 @@
 	          size: "small",
 	          variant: "contained",
 	          color: doorR ? 'error' : 'success',
-	          children: "Door R"
+	          children: "Door"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 90,
+	          width: 79,
 	          height: 52,
 	          backgroundColor: '16161E',
 	          borderRadius: 1,
-	          left: 460,
-	          top: 380,
+	          left: 210,
+	          top: 485,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17746,7 +17680,7 @@
 	          size: "small",
 	          variant: "contained",
 	          color: gunnerDoor ? 'error' : 'success',
-	          children: "Gunner Door"
+	          children: "Gunner Window"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
@@ -17755,8 +17689,8 @@
 	          height: 52,
 	          backgroundColor: '16161E',
 	          borderRadius: 1,
-	          left: 600,
-	          top: 290,
+	          left: 329,
+	          top: 630,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17780,8 +17714,8 @@
 	          height: 52,
 	          backgroundColor: '16161E',
 	          borderRadius: 1,
-	          left: 600,
-	          top: 470,
+	          left: 100,
+	          top: 630,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -25723,7 +25657,7 @@
 	        boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	        color: '#1B93FF',
 	        justifyContent: 'center',
-	        display: 'flex',
+	        display: 'block',
 	        flexDirection: 'column',
 	        textAlign: 'center',
 	        alignItems: 'center',
@@ -25773,13 +25707,13 @@
 	const EFB = () => {
 	  return /*#__PURE__*/jsxRuntime.jsx(MemoryRouter, {
 	    children: /*#__PURE__*/jsxRuntime.jsx(EfbPower, {
-	      localVar: "EFB_MOVE",
+	      localVar: "H60_EFB_MOVE",
 	      children: /*#__PURE__*/jsxRuntime.jsxs("div", {
 	        className: "EFBContainer",
 	        children: [/*#__PURE__*/jsxRuntime.jsxs(Routes, {
 	          children: [/*#__PURE__*/jsxRuntime.jsx(Route, {
 	            path: "/",
-	            element: /*#__PURE__*/jsxRuntime.jsx(Home, {})
+	            element: /*#__PURE__*/jsxRuntime.jsx(Airctaft, {})
 	          }), /*#__PURE__*/jsxRuntime.jsxs(Route, {
 	            path: "/checklist",
 	            element: /*#__PURE__*/jsxRuntime.jsx(Checklist, {}),
@@ -25815,9 +25749,6 @@
 	              path: "emergency",
 	              element: /*#__PURE__*/jsxRuntime.jsx(Emergency, {})
 	            })]
-	          }), /*#__PURE__*/jsxRuntime.jsx(Route, {
-	            path: "/Aircraft",
-	            element: /*#__PURE__*/jsxRuntime.jsx(Airctaft, {})
 	          }), /*#__PURE__*/jsxRuntime.jsx(Route, {
 	            path: "/Browser",
 	            element: /*#__PURE__*/jsxRuntime.jsx(Browser, {})

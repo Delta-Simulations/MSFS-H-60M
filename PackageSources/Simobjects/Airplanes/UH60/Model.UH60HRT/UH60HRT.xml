@@ -5,6 +5,14 @@
 	</LODS>
 	<Behaviors>
 		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
+    <Component ID="Parts_LIVERY_CHECKER">
+      <UseTemplate Name="ASOBO_GT_Update">
+        <FREQUENCY>5</FREQUENCY>
+        <UPDATE_CODE>
+          1 (&gt;L:H60_HasHoist)
+        </UPDATE_CODE>
+      </UseTemplate>
+    </Component>	
 	</Behaviors>
 	<!-- PROP ANIMATION TEMPLATE -->
 <Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />

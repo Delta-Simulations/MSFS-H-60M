@@ -11,33 +11,30 @@ import { Electricity } from '../Common/circuit';
 
 const AP = () => {
   return (
+    <Electricity>
     <svg viewBox='0 0 1280 1280'>
-      {/* Electricity circuit='24' */}
-      <Electricity circuit='1'>
-        <g>
-          <clipPath id='ESIS_CLIP'>
-            <rect x={110} y={757} width={446} height={424} fill='black' />
-          </clipPath>
-
-          <g clipPath='url(#ESIS_CLIP)'>
-            <g transform="translate(-320,704)scale(1.24)">
-              <Horizon />
-            </g>
-            <VertSpeed />
+      
+        <clipPath id='ESIS_CLIP'>
+          <rect x={110} y={757} width={446} height={424} fill='black' />
+        </clipPath>
+        <g clipPath='url(#ESIS_CLIP)'>
+          <g transform="translate(-320,704)scale(1.24)">
+            <Horizon />
           </g>
+          <VertSpeed />
         </g>
-      </Electricity>
-
+      
       {/* Electricity circuit='3' */}
-      <Electricity circuit='3'>
-        <g>
-          <Ap_Disp />
-          <Clock />
-          <image x={-400} y={550} xlinkHref="/Images/ESIS.png" width={1400} opacity={0.7} />
-          <image x={600} y={650} xlinkHref="/Images/clockH60.png" width={600} opacity={0.8} />
-        </g>
-      </Electricity>
+      <g>
+        <Ap_Disp />
+        <Clock />
+        <image x={-400} y={550} xlinkHref="/Images/ESIS.png" width={1400} opacity={0.7} />
+        <image x={600} y={650} xlinkHref="/Images/clockH60.png" width={600} opacity={0.8} />
+      </g>
+      
     </svg>
+    </Electricity>
+    
   );
 };
 

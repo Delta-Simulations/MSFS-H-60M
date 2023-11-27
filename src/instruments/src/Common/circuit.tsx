@@ -1,12 +1,9 @@
 import React, { FC } from 'react';
 import { useSimVar } from '../Hooks/simVars';
 
-interface ElectricityProps {
-	circuit: string | number;
-}
 
-export const Electricity: FC<ElectricityProps> = ({ circuit, children }) => {
-	const [circuitOn] = useSimVar(`L:H60_Cpit_26VPower`, 'Bool');
+export const Electricity: FC = ({ children }) => {
+	const [circuitOn] = useSimVar(`L:H60_Cpit_26VPower`, 'bool');
 	if (!circuitOn) return null;
 	else return <div>{children}</div>;
 };

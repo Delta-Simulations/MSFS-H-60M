@@ -9462,10 +9462,9 @@
 	};
 
 	const Electricity = ({
-	  circuit,
 	  children
 	}) => {
-	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'Bool');
+	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'bool');
 	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
 	    children: children
 	  });

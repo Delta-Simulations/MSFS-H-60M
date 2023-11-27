@@ -26,7 +26,7 @@ const PFD = () => {
     const [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
 
 return(
-    <Electricity circuit='3'>
+    <Electricity>
             <svg viewBox='0 0 1024 768'>
                 <rect x={0} y={0} width={1024} height={768} fill='#00000'/>
                 <g transform="translate(-9,0)">

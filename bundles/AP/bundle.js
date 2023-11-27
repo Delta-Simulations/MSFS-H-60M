@@ -9614,41 +9614,34 @@
 	};
 
 	const Electricity = ({
-	  circuit,
 	  children
 	}) => {
-	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'Bool');
+	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'bool');
 	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
 	    children: children
 	  });
 	};
 
 	const AP = () => {
-	  return /*#__PURE__*/jsxRuntime.jsxs("svg", {
-	    viewBox: "0 0 1280 1280",
-	    children: [/*#__PURE__*/jsxRuntime.jsx(Electricity, {
-	      circuit: "1",
-	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        children: [/*#__PURE__*/jsxRuntime.jsx("clipPath", {
-	          id: "ESIS_CLIP",
-	          children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	            x: 110,
-	            y: 757,
-	            width: 446,
-	            height: 424,
-	            fill: "black"
-	          })
-	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	          clipPath: "url(#ESIS_CLIP)",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-320,704)scale(1.24)",
-	            children: /*#__PURE__*/jsxRuntime.jsx(Horizon, {})
-	          }), /*#__PURE__*/jsxRuntime.jsx(VertSpeed, {})]
-	        })]
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx(Electricity, {
-	      circuit: "3",
-	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	  return /*#__PURE__*/jsxRuntime.jsx(Electricity, {
+	    children: /*#__PURE__*/jsxRuntime.jsxs("svg", {
+	      viewBox: "0 0 1280 1280",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("clipPath", {
+	        id: "ESIS_CLIP",
+	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 110,
+	          y: 757,
+	          width: 446,
+	          height: 424,
+	          fill: "black"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        clipPath: "url(#ESIS_CLIP)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(-320,704)scale(1.24)",
+	          children: /*#__PURE__*/jsxRuntime.jsx(Horizon, {})
+	        }), /*#__PURE__*/jsxRuntime.jsx(VertSpeed, {})]
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
 	        children: [/*#__PURE__*/jsxRuntime.jsx(Ap_Disp, {}), /*#__PURE__*/jsxRuntime.jsx(Clock, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
 	          x: -400,
 	          y: 550,
@@ -9662,8 +9655,8 @@
 	          width: 600,
 	          opacity: 0.8
 	        })]
-	      })
-	    })]
+	      })]
+	    })
 	  });
 	};
 

@@ -105,13 +105,14 @@ CorrectedFF=0.0
 Afterburner=0
 
 [FuelSystem.0]
-Tank.1=0.6
+Tank.1=4.9
 Tank.2=4.9
-Valve.1=True
+Valve.1=False
 Valve.2=True
-Pump.1=1
+Valve.2=True
+Pump.1=0
 Pump.2=0
-Pump.3=1
+Pump.3=0
 Pump.4=0
 
 [Systems.0]

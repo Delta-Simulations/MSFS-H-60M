@@ -139,7 +139,53 @@
         </UseTemplate>
         </Component>
         <!-- <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE> -->
-      <Component ID="DOWNWASH">
+      <Component ID="FXS">
+
+        <Component ID="FX_EXHAUST_LEFT"  Node="FX_EXHAUST_LEFT">
+          <UseTemplate Name="ASOBO_GT_FX">
+              <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+              <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+              <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+              <FX_CODE>(A:GENERAL ENG COMBUSTION:1, Bool) 0 &gt;</FX_CODE>
+          </UseTemplate>
+      </Component>
+      <Component ID="FX_EXHAUST_RIGHT"  Node="FX_EXHAUST_RIGHT">
+          <UseTemplate Name="ASOBO_GT_FX">
+              <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+              <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+              <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+              <FX_CODE>(A:GENERAL ENG COMBUSTION:2, Bool) 0 &gt;</FX_CODE>
+          </UseTemplate>
+      </Component>
+      <Component ID="APU_NODE"  Node="APU_NODE">
+        <UseTemplate Name="ASOBO_GT_FX">
+            <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+            <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+            <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+            <FX_CODE>(L:H60_APURunning, Bool) 0 &gt;</FX_CODE>
+        </UseTemplate>
+    </Component>
+    <Component ID="FX_EXHAUST_LEFT_2"  Node="FX_EXHAUST_LEFT">
+      <UseTemplate Name="ASOBO_GT_FX">
+          <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+          <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+          <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+          <FX_CODE>(A:GENERAL ENG COMBUSTION:1, Bool) 0 &gt;</FX_CODE>
+      </UseTemplate>
+  </Component>
+  <Component ID="FX_EXHAUST_RIGHT_2"  Node="FX_EXHAUST_RIGHT">
+      <UseTemplate Name="ASOBO_GT_FX">
+          <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+          <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+          <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+          <FX_CODE>(A:GENERAL ENG COMBUSTION:2, Bool) 0 &gt;</FX_CODE>
+      </UseTemplate>
+  </Component>
+
+
+
+
+
         <Component ID="DOWNWASH_1_NODE" Node="DOWNWASH">
           <UseTemplate Name="ASOBO_GT_FX">
             <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
@@ -298,7 +344,13 @@
 		</UseTemplate>
   </Component>	
   <Component ID="Exterior_Anim">
-      	
+      <UseTemplate name="Generic_Anim_DELTASIM">
+        <ANIM_NAME>Exhaust_RotorWake</ANIM_NAME>
+        <ANIM_CODE>
+          (A:ROTOR RPM PCT:1, percent) 300 *
+        </ANIM_CODE>
+        <ANIM_LAG>20</ANIM_LAG>
+      </UseTemplate>
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>Rtr_cone</ANIM_NAME>
 					<ANIM_CODE>
@@ -317,14 +369,22 @@
 					</ANIM_CODE>
           <ANIM_LAG>50</ANIM_LAG>
 				</UseTemplate>
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>doorfront</ANIM_NAME>
+				<!-- <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>DoorP</ANIM_NAME>
 					<ANIM_CODE>
-            (L:DOORS_OPEN_FRONT, bool) 50 * 
+            (L:H60_DoorP, bool) 100 * 
 					</ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
-          <ANIM_LENGTH>50</ANIM_LENGTH>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
 				</UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>DoorCP</ANIM_NAME>
+					<ANIM_CODE>
+            (L:H60_DoorCP, bool) 100 * 
+					</ANIM_CODE>
+          <ANIM_LAG>20</ANIM_LAG>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+				</UseTemplate> -->
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>reardoorR</ANIM_NAME>
 					<ANIM_CODE>
@@ -424,7 +484,7 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>Probe_ext</ANIM_NAME>
 					<ANIM_CODE>
-            (L:Fuel_door, bool) 100 *
+            (L:Fuel_Door, bool) 100 *
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
@@ -456,7 +516,7 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>DOWNWASH</ANIM_NAME>
 					<ANIM_CODE>
-            (A:RADIO HEIGHT, meters) (A:PLANE PITCH DEGREES, radians) cos / 10 +
+            (A:RADIO HEIGHT, meters) (A:PLANE PITCH DEGREES, radians) cos / 18 +
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>200</ANIM_LAG>
@@ -485,7 +545,16 @@
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
 				</UseTemplate>
-        
+        <Component ID="DoorAR" Node="R Pilot Door.001">
+          <UseTemplate Name="ASOBO_GT_Visibility">
+            <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
+          </UseTemplate>
+        </Component>
+        <Component ID="DoorAL" Node="L Pilot Door.001">
+          <UseTemplate Name="ASOBO_GT_Visibility">
+            <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
+          </UseTemplate>
+        </Component>
     </Component>	
 </Behaviors>
 	<!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->

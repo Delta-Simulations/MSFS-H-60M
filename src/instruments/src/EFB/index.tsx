@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.scss';
 import { render } from '../Hooks';
 import { Home } from './Components/home/home';
@@ -27,10 +27,10 @@ import { Settings } from './Components/settings/settings';
 const EFB = () => {
 	return (
 		<MemoryRouter>
-			<EfbPower localVar="EFB_MOVE">
+			<EfbPower localVar="H60_EFB_MOVE">
 				<div className="EFBContainer">
 					<Routes>
-						<Route path="/" element={<Home />} />
+						<Route path="/" element={<Airctaft />} />
 						<Route path="/checklist" element={<Checklist />}>
 							<Route path="traditional" element={<Traditional />}>
 								<Route path="BeforeStart" element={<BeforeStart />} />
@@ -50,7 +50,6 @@ const EFB = () => {
 							</Route>
 							<Route path="emergency" element={<Emergency />} />
 						</Route>
-						<Route path="/Aircraft" element={<Airctaft />} />
 						<Route path="/Browser" element={<Browser />} />
 						<Route path="/Map" element={<Map />} />
 						<Route path="/Settings" element={<Settings />} />
