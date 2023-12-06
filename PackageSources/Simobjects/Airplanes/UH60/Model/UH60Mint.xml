@@ -168,6 +168,17 @@
 <Component ID="OH_ELEC">
 <!-- EXTERNAL LIGHTING -->
 <!-- BEACON -->
+<Component ID="Joystick_SL_POS" Node="Joystick_SL_POS">
+  <UseTemplate Name="ASOBO_GT_Joystick">
+      <TOOLTIPID>SEARCH LIGHT POSITION</TOOLTIPID>
+      <ANIM_NAME_L_R>Joystick_SL_POS_LeftRight</ANIM_NAME_L_R>
+      <ANIM_NAME_DN_UP>Joystick_SL_POS_UpDn</ANIM_NAME_DN_UP>
+      <JOYSTICK_X_CODE_LEFT>(L:H60_SL_RightLeft, enum) 1 (A:CIRCUIT ON:54, Bool) * - 0 max (>L:H60_SL_RightLeft, enum)</JOYSTICK_X_CODE_LEFT>
+      <JOYSTICK_X_CODE_RIGHT>(L:H60_SL_RightLeft, enum) 1 (A:CIRCUIT ON:54, Bool) * + 100 min (>L:H60_SL_RightLeft, enum)</JOYSTICK_X_CODE_RIGHT>
+      <JOYSTICK_Y_CODE_DOWN>(L:H60_SL_DownUp, enum) 1 (A:CIRCUIT ON:54, Bool) * + 100 min (>L:H60_SL_DownUp, enum)</JOYSTICK_Y_CODE_DOWN>
+      <JOYSTICK_Y_CODE_UP>(L:H60_SL_DownUp, enum) 1 (A:CIRCUIT ON:54, Bool) * - 0 max (>L:H60_SL_DownUp, enum)</JOYSTICK_Y_CODE_UP>
+  </UseTemplate>
+</Component>
 <Component ID="Switch_AntiColl_Mode" Node="Switch_AntiColl_Mode"> <UseTemplate Name = "ASOBO_GT_Switch_3States">
     <ANIM_NAME>Switch_AntiColl_Mode</ANIM_NAME>
     <NODE_ID>Switch_AntiColl_Mode</NODE_ID>
@@ -380,7 +391,16 @@
       (L:H60_EFB_MOVE, bool) ! (&gt;L:H60_EFB_MOVE, bool)
     </INTERACT_CODE>
   </UseTemplate>
-  
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_SL_TOGGLE, bool) 100 *</ANIM>
+    <NODE_ID>Push_SL_Control</NODE_ID>
+    <TOOLTIPID>Search Light CNTRL</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_SL_TOGGLE, bool) ! (&gt;L:H60_SL_TOGGLE, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(L:H60_APU_START, bool) 100 *</ANIM>
     <NODE_ID>Switch_APU_CNTRL</NODE_ID>
@@ -390,6 +410,14 @@
     </INTERACT_CODE>
   </UseTemplate>
 
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(O:Door, bool) 100 *</ANIM>
+    <NODE_ID>Door_Cargo_Hook</NODE_ID>
+    <TOOLTIPID>CARGO HOOK ACCESS</TOOLTIPID>
+    <INTERACT_CODE>
+      (O:Door, bool) ! (&gt;O:Door, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
 
 <Component ID="Button_ENG1_Starter" Node="Button_ENG1_Starter">
   <UseTemplate Name="ASOBO_GT_Push_Button">
@@ -528,7 +556,7 @@
   <UseTemplate name="Generic_Anim_DELTASIM">
     <ANIM_NAME>reardoorR</ANIM_NAME>
     <ANIM_CODE>
-      (L:DOORS_OPEN_REAR_R, bool) 50 *
+      (L:H60_TroopDoor_R, bool) 50 *
     </ANIM_CODE>
     <ANIM_LAG>20</ANIM_LAG>
     <ANIM_LENGTH>50</ANIM_LENGTH>
@@ -536,12 +564,19 @@
   <UseTemplate name="Generic_Anim_DELTASIM">
     <ANIM_NAME>reardoorL</ANIM_NAME>
     <ANIM_CODE>
-      (L:DOORS_OPEN_REAR_L, bool) 50 *
+      (L:H60_TroopDoor_L, bool) 50 *
     </ANIM_CODE>
     <ANIM_LAG>20</ANIM_LAG>
     <ANIM_LENGTH>50</ANIM_LENGTH>
   </UseTemplate>
-
+  <UseTemplate name="Generic_Anim_DELTASIM">
+    <ANIM_NAME>MGDOOR</ANIM_NAME>
+    <ANIM_CODE>
+      (L:PART2, bool) 100 *
+    </ANIM_CODE>
+    <ANIM_LENGTH>100</ANIM_LENGTH>
+    <ANIM_LAG>20</ANIM_LAG>
+  </UseTemplate>
 
 
 </Component>
@@ -1121,95 +1156,6 @@
     </PartInfo>
 
 
-<Animation name="lever_throttle" guid="83cbd5c1-e05d-4e69-8d60-31815417d33b" length="50" type="Sim" typeParam2="lever_throttle" typeParam="AutoPlay" />
-<Animation name="lever_throttle0" guid="4d9783d7-0698-4bc7-9f28-e8f9dcf15eed" typeParam2="lever_throttle0" length="100" type="Sim" typeParam="AutoPlay" />
-  <Animation name="lever_throttle1" guid="077a4e1f-c2db-40b0-a11b-66846344b8f3" typeParam2="lever_throttle1" length="100" type="Sim" typeParam="AutoPlay" />
-  <Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" length="100" type="Sim" typeparam2="lever_stick_fore_aft" typeparam="AutoPlay" />
-  <Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" length="100" type="Sim" typeparam2="lever_stick_l_r" typeparam="AutoPlay" />
-  <PartInfo>
-    <Name>lever_throttle</Name>
-    <AnimLength>50</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>
-            (A:GENERAL ENG THROTTLE LEVER POSITION:1, part) s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
-          </Code>
-      </Parameter>
-    </Animation>
-    <MouseRect>
-      <Cursor>Hand</Cursor>
-      <HelpID>HELPID_GAUGE_THROTTLE_THROTTLE</HelpID>
-      <TooltipID>TOOLTIPTEXT_THROTTLE_THROTTLE_PERCENT</TooltipID>
-      <MouseFlags>LeftSingle+LeftDrag+Wheel</MouseFlags>
-      <CallbackDragging>
-        <Variable>GENERAL ENG THROTTLE LEVER POSITION:1</Variable>
-        <Units>percent</Units>
-        <Scale>163.84</Scale>
-        <YScale>-163.84</YScale>
-        <MinValue>-16384</MinValue>
-        <MaxValue>16384</MaxValue>
-        <EventID>THROTTLE1_SET</EventID>
-      </CallbackDragging>
-    </MouseRect>
-  </PartInfo>
-  <PartInfo>
-    <Name>lever_throttle0</Name>
-    <Copy>lever_throttle</Copy>
-    <MouseRect>
-      <TooltipID>TOOLTIPTEXT_THROTTLE_ENG1_THROTTLE_PERCENT</TooltipID>
-      <CallbackDragging>
-        <Variable>GENERAL ENG THROTTLE LEVER POSITION:1</Variable>
-        <EventID>THROTTLE1_SET</EventID>
-      </CallbackDragging>
-    </MouseRect>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>
-                    (L:EmergencyThrottleInUse, bool) 1 !=
-                    if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, part) s0 0 &gt;=
-                    if{ l0 -50 * 50 + }
-                    els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
-                    d (&gt;L:Engine1ThrottlePosition, percent)
-                    }
-                    els{ (L:Engine1ThrottlePosition, percent) }
-                </Code>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-  <PartInfo>
-    <Name>lever_throttle1</Name>
-    <Copy>lever_throttle</Copy>
-    <MouseRect>
-      <TooltipID>TOOLTIPTEXT_THROTTLE_ENG2_THROTTLE_PERCENT</TooltipID>
-      <CallbackDragging>
-        <Variable>GENERAL ENG THROTTLE LEVER POSITION:2</Variable>
-        <EventID>THROTTLE2_SET</EventID>
-      </CallbackDragging>
-    </MouseRect>
-    <AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-        <Code>
-                    (A:GENERAL ENG THROTTLE LEVER POSITION:2, part) s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
-                </Code>
-      </Parameter>
-    </Animation>
-  </PartInfo>
-
-
-<Animation name="Pilot_collective" guid="64e3da0f-44a8-45f1-a2e8-7705d42aeba3" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-  <Name>Pilot_collective</Name>
-  <AnimLength>100</AnimLength>
-  <Animation>
-      <Parameter>
-        <Code>
-          (A:GENERAL ENG THROTTLE LEVER POSITION:1, part)  (A:GENERAL ENG THROTTLE LEVER POSITION:2, part) max s0 0 &gt;= if{ l0 -50 * 50 + } els{ l0 (A:THROTTLE LOWER LIMIT, part) / 1 + 50 * }
-                </Code>
-      </Parameter>
-  </Animation>
-</PartInfo>
 <Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" length="100" type="Sim" typeparam2="lever_stick_l_r" typeparam="AutoPlay" />
 <Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" length="100" type="Sim" typeparam2="lever_stick_fore_aft" typeparam="AutoPlay" />
   <PartInfo>

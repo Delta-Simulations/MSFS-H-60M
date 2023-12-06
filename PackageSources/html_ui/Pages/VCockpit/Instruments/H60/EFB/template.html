@@ -17365,14 +17365,17 @@
 	  let [HasMissile] = useSimVar('L:H60_HasMissile', 'bool');
 	  let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
 	  let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
-	  let [rearDoorL, setRearDoorL] = useSimVar('L:DOORS_OPEN_REAR_L', 'bool');
-	  let [rearDoorR, setRearDoorR] = useSimVar('L:DOORS_OPEN_REAR_R', 'bool');
+	  let [rearDoorL, setRearDoorL] = useSimVar('L:H60_TroopDoor_L', 'bool');
+	  let [rearDoorR, setRearDoorR] = useSimVar('L:H60_TroopDoor_R', 'bool');
 	  let [doorR, setDoorR] = useSimVar('L:H60_DoorP', 'bool');
 	  let [doorL, setDoorL] = useSimVar('L:H60_DoorCP', 'bool');
 	  let [doorHide, setDoorHide] = useSimVar('L:H60_FrontDoorVis', 'bool');
 	  let [gunnerDoor, setGunnerDoor] = useSimVar('L:PART2', 'bool');
 	  let [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
 	  let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+	  let [SLPWR, setSLPWR] = useSimVar('L:H60_SL_TOGGLE', 'bool');
+	  let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
+	  let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
 	  let [ACOnGround] = useSimVar('A:SIM ON GROUND', 'bool');
 	  let [State_ColdandDark, setState_ColdandDark] = useSimVar('L:H60_State_ColdandDark', 'bool');
 	  let [State_Startup, setState_Startup] = useSimVar('L:H60_State_Startup', 'bool');
@@ -17408,6 +17411,64 @@
 	          transform: 'rotate(90deg)' // Apply the rotation here
 
 	        }
+	      }), /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
+	        sx: {
+	          position: 'absolute',
+	          width: 200,
+	          height: 200,
+	          backgroundColor: '16161E',
+	          borderRadius: 2,
+	          left: 445,
+	          top: 360,
+	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+	          color: '#1B93FF',
+	          justifyContent: 'center',
+	          display: 'flex',
+	          flexDirection: 'column',
+	          textAlign: 'center',
+	          alignItems: 'center',
+	          fontSize: 14
+	        },
+	        children: [/*#__PURE__*/jsxRuntime.jsx("h1", {
+	          style: {
+	            marginTop: 0
+	          },
+	          children: "Search Light"
+	        }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	          size: "large",
+	          onClick: () => setSLDownUp(Math.min(SLDownUp - 5, 100)),
+	          color: "primary",
+	          variant: "outlined",
+	          children: "RETR"
+	        }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
+	          direction: "row",
+	          spacing: 0,
+	          children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setSLLeftRight(Math.max(SLLeftRight - 5, 0)),
+	            color: "primary",
+	            variant: "outlined",
+	            children: "L"
+	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setSLPWR(!SLPWR),
+	            variant: "contained",
+	            color: SLPWR ? 'success' : 'error',
+	            children: "PWR"
+	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setSLLeftRight(Math.min(SLLeftRight + 5, 100)),
+	            color: "primary",
+	            variant: "outlined",
+	            children: "R"
+	          })]
+	        }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	          size: "large",
+	          onClick: () => setSLDownUp(Math.max(SLDownUp + 5, 0)),
+	          color: "primary",
+	          variant: "outlined",
+	          children: "EXTD"
+	        })]
 	      }), /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
 	        sx: {
 	          position: 'absolute',
@@ -17450,11 +17511,11 @@
 	      }), /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 350,
-	          height: 300,
+	          width: 500,
+	          height: 150,
 	          backgroundColor: '16161E',
 	          borderRadius: 2,
-	          left: 615,
+	          left: 445,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17470,7 +17531,7 @@
 	          },
 	          children: "Set Aircraft State"
 	        }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
-	          direction: "column",
+	          direction: "row",
 	          spacing: 2,
 	          children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	            size: "large",
@@ -17498,12 +17559,12 @@
 	      }), ModelVariant && /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 350,
-	          height: 300,
+	          width: 500,
+	          height: 150,
 	          backgroundColor: '16161E',
 	          borderRadius: 2,
-	          left: 615,
-	          top: 320,
+	          left: 445,
+	          top: 580,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -17519,7 +17580,7 @@
 	          },
 	          children: "Variant Configuration"
 	        }), /*#__PURE__*/jsxRuntime.jsxs(Stack$1, {
-	          direction: "column",
+	          direction: "row",
 	          spacing: 2,
 	          children: [/*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	            size: "large",

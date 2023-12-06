@@ -39,6 +39,46 @@
             "style": {
                 "type": 3
             }
+        },
+        {
+            "__uuid": "f07851ed-9285-4a33-acf4-4edb6072ff30",
+            "title": "OnGround",
+            "varPrefix": "A",
+            "varName": "SIM ON GROUND",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "9521f208-2298-4e7e-abd7-b5879bc76580",
+            "title": "SL Down Up",
+            "varPrefix": "L",
+            "varName": "H60_SL_DownUp",
+            "varUnit": "enum",
+            "style": {
+                "type": 1
+            }
+        },
+        {
+            "__uuid": "303dd53e-1e55-4b80-8be5-fb959ab7fe4a",
+            "title": "SL R L",
+            "varPrefix": "L",
+            "varName": "H60_SL_RightLeft",
+            "varUnit": "enum",
+            "style": {
+                "type": 1
+            }
+        },
+        {
+            "__uuid": "9a217dfd-425f-4c24-be26-a1a0d4ee954f",
+            "title": "SL POWER",
+            "varPrefix": "L",
+            "varName": "H60_SL_TOGGLE",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
         }
     ]
 }

@@ -46,7 +46,20 @@
 
 
 
-
+  <Animation name="Cargo_swingLR" guid="9488360d-8b04-400f-9a86-c6da5f861515" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+      <Name>Cargo_swingLR</Name>
+      <AnimLength>360</AnimLength>
+      <Visibility>
+        <Parameter>
+          <Code>
+            (A:RADIO HEIGHT, feet) 50 &gt; if{ 
+              (L:H60_BambiBucket, bool) 1 ==
+           } els{ 0 }
+           </Code>
+        </Parameter>
+      </Visibility>
+  </PartInfo> 
 
 
 

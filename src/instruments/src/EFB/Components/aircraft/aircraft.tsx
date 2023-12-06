@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Checkbox from '@mui/material/Checkbox';
@@ -20,14 +20,17 @@ export const Airctaft = () => {
 	let [HasMissile] = useSimVar('L:H60_HasMissile', 'bool');
 	let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
 	let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
-	let [rearDoorL, setRearDoorL] = useSimVar('L:DOORS_OPEN_REAR_L', 'bool');
-	let [rearDoorR, setRearDoorR] = useSimVar('L:DOORS_OPEN_REAR_R', 'bool');
+	let [rearDoorL, setRearDoorL] = useSimVar('L:H60_TroopDoor_L', 'bool');
+	let [rearDoorR, setRearDoorR] = useSimVar('L:H60_TroopDoor_R', 'bool');
 	let [doorR, setDoorR] = useSimVar('L:H60_DoorP', 'bool');
 	let [doorL, setDoorL] = useSimVar('L:H60_DoorCP', 'bool');
 	let [doorHide, setDoorHide] = useSimVar('L:H60_FrontDoorVis', 'bool');
 	let [gunnerDoor, setGunnerDoor] = useSimVar('L:PART2', 'bool');
 	let [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
 	let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+	let [SLPWR, setSLPWR] = useSimVar('L:H60_SL_TOGGLE', 'bool');
+	let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
+	let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
 
 	let [ACOnGround] = useSimVar('A:SIM ON GROUND', 'bool');
 
@@ -40,8 +43,10 @@ export const Airctaft = () => {
 		  setModelVariant(true);
 		}
 	  }, [HasProbe, HasHoist, HasMissile]); // Run the effect whenever these variables change
-	
 
+	  
+	  
+	  
 	return (
 		<div className="aircraftContainer">
 			<Box
@@ -70,6 +75,71 @@ export const Airctaft = () => {
 
 				}}
 			/>
+							<Box
+					sx={{
+						position: 'absolute',
+						width: 200,
+						height: 200,
+						backgroundColor: '16161E',
+						borderRadius: 2,
+						left: 445,
+						top: 360,
+						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+						color: '#1B93FF',
+						justifyContent: 'center',
+						display: 'flex',
+						flexDirection: 'column',
+						textAlign: 'center',
+						alignItems: 'center',
+						fontSize: 14,
+					}}
+				>
+					<h1 style={{ marginTop: 0 }}>Search Light</h1>
+					<Button
+							size="large"
+							onClick={() => setSLDownUp(Math.min(SLDownUp - 5, 100))}
+							color='primary'
+							variant='outlined'
+						>
+							RETR
+						</Button>
+					<Stack direction="row" spacing={0}>
+					<Button
+							size="large"
+							onClick={() => setSLLeftRight(Math.max(SLLeftRight - 5, 0))}
+							color='primary'
+							variant='outlined'
+						>
+							L
+						</Button>
+						<Button
+							size="large"
+							onClick={() => setSLPWR(!SLPWR)}
+							variant="contained"
+							color={SLPWR ?  'success':'error'}
+						>
+							PWR
+						</Button>
+						<Button
+							size="large"
+							onClick={() => setSLLeftRight(Math.min(SLLeftRight + 5, 100))}
+							color='primary'
+							variant='outlined'
+						>
+							R
+						</Button>
+						</Stack>
+						<Button
+							size="large"
+							onClick={() => setSLDownUp(Math.max(SLDownUp + 5, 0))}
+							color='primary'
+							variant='outlined'
+						>
+							EXTD
+						</Button>
+
+					
+				</Box>
 				<Box
 					sx={{
 						position: 'absolute',
@@ -112,11 +182,11 @@ export const Airctaft = () => {
 				<Box
 					sx={{
 						position: 'absolute',
-						width: 350,
-						height: 300,
+						width: 500,
+						height: 150,
 						backgroundColor: '16161E',
 						borderRadius: 2,
-						left: 615,
+						left: 445,
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
@@ -128,7 +198,7 @@ export const Airctaft = () => {
 					}}
 				>
 					<h1 style={{ marginTop: 0 }}>Set Aircraft State</h1>
-					<Stack direction="column" spacing={2}>
+					<Stack direction="row" spacing={2}>
 						<Button
 							size="large"
 							onClick={() => setState_ColdandDark(!State_ColdandDark)}
@@ -163,12 +233,12 @@ export const Airctaft = () => {
 				
 					sx={{
 						position: 'absolute',
-						width: 350,
-						height: 300,
+						width: 500,
+						height: 150,
 						backgroundColor: '16161E',
 						borderRadius: 2,
-						left: 615,
-						top: 320,
+						left: 445,
+						top: 580,
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
@@ -180,7 +250,7 @@ export const Airctaft = () => {
 					}}
 				>
 					<h1 style={{ marginTop: 0 }}>Variant Configuration</h1>
-					<Stack direction="column" spacing={2}>
+					<Stack direction="row" spacing={2}>
 						<Button
 							size="large"
 							onClick={() => setProbe(!probe)}

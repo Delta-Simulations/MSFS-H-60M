@@ -388,7 +388,7 @@
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>reardoorR</ANIM_NAME>
 					<ANIM_CODE>
-            (L:DOORS_OPEN_REAR_R, bool) 50 *
+            (L:H60_TroopDoor_R, bool) 50 *
 					</ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
           <ANIM_LENGTH>50</ANIM_LENGTH>
@@ -396,15 +396,7 @@
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>reardoorL</ANIM_NAME>
 					<ANIM_CODE>
-            (L:DOORS_OPEN_REAR_L, bool) 50 *
-					</ANIM_CODE>
-          <ANIM_LAG>20</ANIM_LAG>
-          <ANIM_LENGTH>50</ANIM_LENGTH>
-				</UseTemplate>
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>reardoorL</ANIM_NAME>
-					<ANIM_CODE>
-            (L:DOORS_OPEN_REAR_L, bool) 50 *
+            (L:H60_TroopDoor_R, bool) 50 *
 					</ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
           <ANIM_LENGTH>50</ANIM_LENGTH>
@@ -438,9 +430,25 @@
           <ANIM_LENGTH>200</ANIM_LENGTH>
 				</UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>HOOK</ANIM_NAME>
+					<ANIM_NAME>SL_DownUp</ANIM_NAME>
 					<ANIM_CODE>
-            (L:Winch_EXT, bool) 1 == if{ 
+            (L:H60_SL_DownUp,enum)
+					</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>20</ANIM_LAG>
+				</UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>SL_RightLeft</ANIM_NAME>
+					<ANIM_CODE>
+            (L:H60_SL_RightLeft,enum)
+					</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>20</ANIM_LAG>
+				</UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>Hoist_Lower</ANIM_NAME>
+					<ANIM_CODE>
+            (L:H60_Winch, bool) 1 == if{ 
               (A:RADIO HEIGHT, feet) 20 +
            } els{100}
 					</ANIM_CODE>
@@ -497,14 +505,7 @@
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
 				</UseTemplate>
-        <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Cargo_swingLR</ANIM_NAME>
-					<ANIM_CODE>
-            (A:ATTITUDE INDICATOR BANK DEGREES, degree) 180 +
-					</ANIM_CODE>
-          <ANIM_LENGTH>360</ANIM_LENGTH>
-          <ANIM_LAG>30</ANIM_LAG>
-				</UseTemplate>
+
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>FX_Height</ANIM_NAME>
 					<ANIM_CODE>
@@ -555,6 +556,23 @@
             <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
           </UseTemplate>
         </Component>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>Cargo_swingFB</ANIM_NAME>
+					<ANIM_CODE>
+            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 + 
+            (A:WINDSHIELD WIND VELOCITY, feet) 10 / +
+					</ANIM_CODE>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_LAG>20</ANIM_LAG>
+				</UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>Cargo_swingLR</ANIM_NAME>
+					<ANIM_CODE>
+            (A:ATTITUDE INDICATOR BANK DEGREES, degree) 180 +
+					</ANIM_CODE>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_LAG>30</ANIM_LAG>
+				</UseTemplate>
     </Component>	
 </Behaviors>
 	<!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->
@@ -848,20 +866,7 @@
       </Parameter>
     </Visibility>
     </PartInfo>
-    <Animation name="Cargo_swingLR" guid="9488360d-8b04-400f-9a86-c6da5f861515" type="Sim" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Cargo_swingLR</Name>
-        <AnimLength>360</AnimLength>
-        <Visibility>
-          <Parameter>
-            <Code>
-              (A:RADIO HEIGHT, feet) 50 &gt; if{ 
-                (L:HUMVEE, bool) 1 ==
-             } els{ 0 }
-             </Code>
-          </Parameter>
-        </Visibility>
-    </PartInfo> 
+
 
     <Animation name="Cargo_1" guid="c5bebb2f-8d18-4366-b134-32a478321a65" type="Sim" typeParam="AutoPlay" />
     <PartInfo>
@@ -1101,7 +1106,7 @@
   <Animation name="ModelPart_Bambi_Bucket" guid="a276a975-9db9-49af-9915-dd91c64c7b70" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
   <Name>ModelPart_Bambi_Bucket</Name>
   <Visibility><Parameter><Code>
-            (L:H60_Fire_Bucket)
+            (L:H60_Fire_Bucket) (A:RADIO HEIGHT, feet) 17 &gt; and
   </Code></Parameter></Visibility></PartInfo>
   <Animation name="ModelPart_EBF" guid="01931e75-5f93-4b19-b64b-4fdd7d77f520" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
   <Name>ModelPart_EBF</Name>

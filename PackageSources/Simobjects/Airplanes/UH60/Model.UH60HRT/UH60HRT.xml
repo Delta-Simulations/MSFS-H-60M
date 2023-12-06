@@ -558,7 +558,7 @@
 <Animation name="ModelPart_Bambi_Bucket" guid="a276a975-9db9-49af-9915-dd91c64c7b70" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_Bambi_Bucket</Name>
 <Visibility><Parameter><Code>
-	(L:H60_Fire_Bucket)
+  (L:H60_Fire_Bucket) (A:RADIO HEIGHT, feet) 17 &gt; and
 </Code></Parameter></Visibility></PartInfo>
 <Animation name="ModelPart_EBF" guid="01931e75-5f93-4b19-b64b-4fdd7d77f520" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_EBF</Name>

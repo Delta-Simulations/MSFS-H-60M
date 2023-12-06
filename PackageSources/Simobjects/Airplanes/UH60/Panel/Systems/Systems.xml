@@ -37,28 +37,37 @@ Cockpit Lights  and External lighting - Delta Simulations UH60 for MSFS
 if{ 
     2 (&gt;K:BEACON_LIGHTS_OFF)
     1 (&gt;K:BEACON_LIGHTS_ON)
+    2 (&gt;K:STROBES_OFF)
+    1 (&gt;K:STROBES_ON)
 }
 (L:H60_AntiColl_Mode, enum) 1 ==
 if{ 
     1 (&gt;K:BEACON_LIGHTS_ON)
     2 (&gt;K:BEACON_LIGHTS_ON)
+    2 (&gt;K:STROBES_ON)
+    1 (&gt;K:STROBES_ON)
 }
 (L:H60_AntiColl_Mode, enum) 2 ==
 if{ 
     1 (&gt;K:BEACON_LIGHTS_OFF)
     2 (&gt;K:BEACON_LIGHTS_ON)
+    2 (&gt;K:STROBES_ON)
+    1 (&gt;K:STROBES_OFF)
 }
 (L:H60_AntiColl_PWR, enum) 0 ==
 if{ 
-    100 (&gt;K:LIGHT_POTENTIOMETER_2_SET)
+    100 (&gt;K:LIGHT_POTENTIOMETER_3_SET)
+    0 (&gt;K:LIGHT_POTENTIOMETER_2_SET)
 }
 (L:H60_AntiColl_PWR, enum) 1 ==
 if{ 
     0 (&gt;K:LIGHT_POTENTIOMETER_2_SET)
+    0 (&gt;K:LIGHT_POTENTIOMETER_3_SET)
 }
 (L:H60_AntiColl_PWR, enum) 2 ==
 if{ 
-    10 (&gt;K:LIGHT_POTENTIOMETER_2_SET)
+    0 (&gt;K:LIGHT_POTENTIOMETER_3_SET)
+    100 (&gt;K:LIGHT_POTENTIOMETER_2_SET)
 }
 
 <!-- NAV LIGHT DAY/OFF/NIGHT CNTRL ==========================-->
@@ -82,6 +91,12 @@ if{
 }
 
 
+(L:H60_SL_TOGGLE, bool)
+if{ 
+    1 (&gt;K:LANDING_LIGHTS_ON) 
+} els{ 
+    1 (&gt;K:LANDING_LIGHTS_OFF) 
+}
 
 </Value>
 </Select>

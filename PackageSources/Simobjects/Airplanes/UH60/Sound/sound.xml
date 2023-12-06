@@ -16,9 +16,6 @@
         <WwiseRTPC SimVar="TURB ENG N1" Units="PERCENT" Index="1" RTPCName="SIMVAR_TURB_ENG_N1"/>
     </Sound>
 
-    <Sound WwiseData="true" WwiseEvent="eng1_starter" ConeHeading="80.0" NodeName="FX_EXHAUST_LEFT" SimVar="GENERAL ENG STARTER" Units="bool" Index="0">
-        <WwiseRTPC SimVar="GENERAL ENG STARTER" Units="bool" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
-    </Sound>
 
     <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
         <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
@@ -51,6 +48,15 @@
             <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="2" RTPCName="APU_Fuel_Pump" />
             <Range LowerBound="1.0" />    
         </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="eng1_starter" NodeName="FX_EXHAUST_LEFT" SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="1">
+            <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="1" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
+            <Range LowerBound="1.0" />
+          </Sound>
+          <Sound WwiseData="true" WwiseEvent="eng1_starter" NodeName="FX_EXHAUST_RIGHT" SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2">
+            <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
+            <Range LowerBound="1.0" />
+          </Sound>
 
         <Sound WwiseData="true" WwiseEvent="APU_Idle" ConeHeading="40.0" NodeName="APU_NODE" SimVar="APU PCT RPM" Units="PERCENT" Index="0">
             <WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
