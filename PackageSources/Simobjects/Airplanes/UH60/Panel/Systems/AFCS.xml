@@ -1,0 +1,135 @@
+<Gauge Name="ENG_SYS" Version="1.0">
+	<Update Frequency="10000"/>
+	<Comment>
+		*************************************************
+		FOR DELTA SIMULATIONS UH60M
+		Produced by Destroyer121 (delta.simulations0@gmail.com)
+		*************************************************
+	</Comment>
+	<Element>
+		<Select>
+			<Value>
+
+				(L:H60_AFCS_ALT_HOLD, bool) 1 ==
+				if{ 
+
+					(A:AUTOPILOT ALTITUDE LOCK VAR,feet) (A:PLANE ALTITUDE,feet) - abs 2000 / 0.001 min (&gt;L:H60_AFCS_Coll_Delta)
+
+					(A:YOKE Y POSITION,percent) 20 &lt;
+					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) -10 &gt; and
+					(A:VERTICAL SPEED,feet per minute) abs 400  &lt; and
+					(A:AUTOPILOT ALTITUDE LOCK VAR,feet) (A:PLANE ALTITUDE,feet) &gt;  and
+					if{ (L:H60_AFCS_Coll_Delta) (&gt;K:CYCLIC_LONGITUDINAL_UP) }
+
+
+					(A:YOKE Y POSITION,percent) -20 &gt;
+					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 10 &lt; and
+					(A:VERTICAL SPEED,feet per minute) abs 400  &lt; and
+					(A:AUTOPILOT ALTITUDE LOCK VAR,feet) (A:PLANE ALTITUDE,feet)  &lt; and
+	
+					if{ (L:H60_AFCS_Coll_Delta) (&gt;K:CYCLIC_LONGITUDINAL_DOWN) }
+				}
+				(L:H60_AFCS_HDG_HOLD, bool) 1 ==
+				if{ 
+
+					(A:AUTOPILOT HEADING LOCK DIR,degrees) (A:PLANE HEADING DEGREES GYRO,degrees) - abs 2000 / 0.001 min (&gt;L:H60_AFCS_Rudd_Delta)
+
+					(A:AUTOPILOT HEADING LOCK DIR,degrees) (A:PLANE HEADING DEGREES GYRO,degrees) - (&gt;L:H60_AFCS_Delta)
+
+					(A:AUTOPILOT HEADING LOCK DIR,degrees) (A:PLANE HEADING DEGREES GYRO,degrees) - 0 &gt;
+					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) -10 &gt; and
+					if{ (L:H60_AFCS_Rudd_Delta) (&gt;K:CYCLIC_LATERAL_RIGHT) }
+
+					(A:AUTOPILOT HEADING LOCK DIR,degrees) (A:PLANE HEADING DEGREES GYRO,degrees) - 0 &lt;
+					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) 10 &lt; and
+					if{ (L:H60_AFCS_Rudd_Delta) (&gt;K:CYCLIC_LATERAL_LEFT) }
+				}
+
+				(L:H60_AFCS_HVR_HOLD, bool) 1 ==
+				if{
+					(A:VELOCITY BODY X,Feet per second) 0 &gt;
+					(A:YOKE X POSITION,percent) abs 30 &lt; and
+					if{ 0.1 (&gt;K:CYCLIC_LATERAL_LEFT) }
+					(A:VELOCITY BODY X,Feet per second) 0 &lt;
+					(A:YOKE X POSITION,percent) abs 30 &lt; and
+					if{ 0.1 (&gt;K:CYCLIC_LATERAL_RIGHT) }
+
+					(A:VELOCITY BODY Y,Feet per second) 0 &gt;
+					(A:YOKE Y POSITION,percent) abs 30 &lt; and
+					if{ 0.1 (&gt;K:CYCLIC_LONGITUDINAL_UP) }
+					(A:VELOCITY BODY Y,Feet per second) 0 &lt;
+					(A:YOKE Y POSITION,percent) abs 30 &lt; and
+					if{ 0.1 (&gt;K:CYCLIC_LONGITUDINAL_DOWN) }
+
+					(L:H60_AFCS_HVR_ALT, feet) (A:PLANE ALT ABOVE GROUND,feet) - 0 &gt;
+					<!-- (A:COLLECTIVE POSITION, percent) 30 &gt; and -->
+					if{ 0.1 (&gt;K:COLLECTIVE_DECR) }
+					(L:H60_AFCS_HVR_ALT, feet) (A:PLANE ALT ABOVE GROUND,feet) - 0 &lt;
+					if{ 0.1 (&gt;K:COLLECTIVE_INCR) }
+				}
+
+				(L:H60_AFCS_STAB_TRIM, bool) 1 ==
+				if{ 
+					<!-- (A:SIM ON GROUND,bool) 0 ==
+					(A:YOKE Y POSITION,percent) 25 abs &lt; and
+					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 6 &lt; and
+					(A:VERTICAL SPEED,feet per minute) -50 &lt; and
+					if{ 0.001 (&gt;K:ROTOR_LONGITUDINAL_TRIM_DEC) }
+
+					(A:SIM ON GROUND,bool) 0 ==
+					(A:YOKE Y POSITION,percent) 25 abs &lt; and
+					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) -6 &gt; and
+					(A:VERTICAL SPEED,feet per minute) 50 &gt; and
+					if{ 0.001 (&gt;K:ROTOR_LONGITUDINAL_TRIM_INC) } -->
+					
+					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 2 &lt;
+					(A:ROTOR LONGITUDINAL TRIM PCT,percent) -50  &gt; and
+					(A:SIM ON GROUND,bool) 0 == and
+					(A:AIRSPEED INDICATED,knots) 90 &gt; and
+					if{ 0.01 (&gt;K:ROTOR_LONGITUDINAL_TRIM_DEC) }
+
+					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 2 &gt;
+					(A:ROTOR LONGITUDINAL TRIM PCT,percent) 50  &lt; and
+					(A:SIM ON GROUND,bool) 0 == and
+					(A:AIRSPEED INDICATED,knots) 90 &gt; and
+					if{ 0.01 (&gt;K:ROTOR_LONGITUDINAL_TRIM_INC) }
+
+					(A:YOKE X POSITION,percent) abs 4 &lt;
+					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) 2 &lt; and
+					(A:ROTOR LATERAL TRIM PCT,percent) -50  &gt; and
+					(A:SIM ON GROUND,bool) 0 == and
+					if{ 1 (&gt;K:ROTOR_LATERAL_TRIM_DEC) }
+
+					(A:YOKE X POSITION,percent) abs 4 &lt;
+					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) 2 &gt; and
+					(A:ROTOR LATERAL TRIM PCT,percent) 50  &lt; and
+					(A:SIM ON GROUND,bool) 0 == and
+					if{ 1 (&gt;K:ROTOR_LATERAL_TRIM_INC) }
+					
+					<!-- RIGHT LEFT TRIM -->
+					<!-- (A:YOKE X POSITION,percent) abs 9 &lt;
+					(A:VELOCITY BODY X,Feet per second) 0 &gt; and
+					(A:ROTOR LATERAL TRIM PCT,percent) -50 &gt; and
+					(A:SIM ON GROUND,bool) 0 == and
+					if{ 0.1 (&gt;K:ROTOR_LATERAL_TRIM_DEC) }
+
+					(A:YOKE X POSITION,percent) abs 9 &lt;
+					(A:VELOCITY BODY X,Feet per second) 0 &lt; and
+					(A:ROTOR LATERAL TRIM PCT,percent) 50 &lt; and
+					(A:SIM ON GROUND,bool) 0 == and
+					if{ 0.1 (&gt;K:ROTOR_LATERAL_TRIM_INC) } -->
+
+
+
+				}
+				(A:ROTOR LONGITUDINAL TRIM PCT,percent)  (&gt;L:H60_AFCS_Att_FWDBACK_TRIM)
+				(A:ROTOR LATERAL TRIM PCT,percent)  (&gt;L:H60_AFCS_Att_LR_TRIM)
+				(A:VELOCITY BODY X,Feet per second)  (&gt;L:H60_AFCS_Att_YOKEX)
+				
+			</Value>
+		</Select>
+	</Element>
+	
+	
+	</Gauge>
+	

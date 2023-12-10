@@ -18,69 +18,36 @@
 	</Behaviors>
 
 	<!-- PROP ANIMATION TEMPLATE -->
-<Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />
-<Animation name="prop_slow" 			guid="212a018f-9c5c-4e92-b903-2c1accb7a39a" length="100" type="Sim" typeParam2="prop_slow" typeParam="AutoPlay" />
-<Animation name="prop_still" 			guid="b4c44392-91b4-447d-8fe1-8a61a923cc99" length="100" type="Sim" typeParam2="prop_still" typeParam="AutoPlay" />
-<Animation name="prop_med" 			    guid="aadc7bef-c313-4099-96d6-804fc580ebbf" length="100" type="Sim" typeParam2="prop_med" typeParam="AutoPlay" />  		
-  <PartInfo>
-    <Name>prop_still</Name>
-    <AnimLength>100</AnimLength>
-    <Visibility>
-      <Parameter>
-        <Code>
-          (A:ROTOR RPM PCT:1, percent) 1 &lt; if{ 1 } els{ 0 }
-        </Code>
-      </Parameter>
-    </Visibility>
-  </PartInfo>
-  <PartInfo>
-    <Name>prop_med</Name>
-    <AnimLength>100</AnimLength>
-    <Visibility>
-      <Parameter>
-        <Code>
-            (A:ROTOR RPM PCT:1, percent) 1 &gt;
-            if{
-                (A:ROTOR RPM PCT:1, percent) 20 &lt; if{ 1 } els{ 0 }
-            } els{ 0 }
-            
-        </Code>
-      </Parameter>
-    </Visibility>
-  </PartInfo>
-  <PartInfo>
-      <Name>prop_slow</Name>
-        <AnimLength>100</AnimLength>
-        <Visibility>
-            <Parameter>
-                <Code>
-                  (L:Uh60_RTR_Type, bool) 0 ==
-                  if{
-                    (A:ROTOR RPM PCT:1, percent) 20 &gt;
-                    if{
-                        (A:ROTOR RPM PCT:1, percent) 50 &lt; if{ 1 } els{ 0 }
-                    } els{ 0 }
-                  } els{ 
-                    (A:ROTOR RPM PCT:1, percent) 20 &gt; if{ 1 } els{ 0 }
-                  }
-                </Code>
-            </Parameter>
-        </Visibility>
-    </PartInfo>
+  <Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />
+  <Animation name="prop_slow" 			guid="212a018f-9c5c-4e92-b903-2c1accb7a39a" length="100" type="Sim" typeParam2="prop_slow" typeParam="AutoPlay" />
     <PartInfo>
-        <Name>prop_blur</Name>
-        <AnimLength>100</AnimLength>
-        <Visibility>
-            <Parameter>
-                <Code>
-                  (L:Uh60_RTR_Type, bool) 0 ==
-                  if{
-                    (A:ROTOR RPM PCT:1, percent) 50 &gt; if{ 1 } els{ 0 }
-                  } els{ 0 }
-                </Code>
-            </Parameter>
-        </Visibility>
-    </PartInfo>
+        <Name>prop_slow</Name>
+          <AnimLength>100</AnimLength>
+          <Visibility>
+              <Parameter>
+                  <Code>
+                    (L:Uh60_RTR_Type, bool) 0 ==
+                    if{
+                    (A:ROTOR RPM PCT:1, percent) 50 &lt; if{ 1 } els{ 0 }
+                  } els{ 1 }
+                  </Code>
+              </Parameter>
+          </Visibility>
+      </PartInfo>
+      <PartInfo>
+          <Name>prop_blur</Name>
+          <AnimLength>100</AnimLength>
+          <Visibility>
+              <Parameter>
+                  <Code>
+                    (L:Uh60_RTR_Type, bool) 0 ==
+                    if{
+                      (A:ROTOR RPM PCT:1, percent) 50 &gt; if{ 1 } els{ 0 }
+                    } els{ 0 }
+                  </Code>
+              </Parameter>
+          </Visibility>
+      </PartInfo>
     <Animation name="TailRTR_still" guid="74e899a0-88b6-4c2a-bdf2-31e045d1e4fe" length="100" type="Sim" typeParam="AutoPlay" />
     <PartInfo>
       <Name>TailRTR_still</Name>

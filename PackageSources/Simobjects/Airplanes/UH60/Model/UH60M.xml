@@ -330,14 +330,14 @@
 		</UseTemplate>
 		<UseTemplate Name="ASOBO_GT_Anim">
       <ANIM_NAME>RTR_Rot</ANIM_NAME>
-			<ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) * (O:test_rotor) *</ANIM_CODE>
+			<ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) * </ANIM_CODE>
 			<ANIM_LENGTH>360</ANIM_LENGTH>
 			<ANIM_WRAP>1</ANIM_WRAP>
 			<ANIM_DELTA>1</ANIM_DELTA>
 		</UseTemplate>
     <UseTemplate Name="ASOBO_GT_Anim">
       <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
-			<ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) * (O:test_rotor) *</ANIM_CODE>
+			<ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
 			<ANIM_LENGTH>360</ANIM_LENGTH>
 			<ANIM_WRAP>1</ANIM_WRAP>
 			<ANIM_DELTA>1</ANIM_DELTA>
@@ -353,11 +353,20 @@
       </UseTemplate>
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>Rtr_cone</ANIM_NAME>
+          <ANIM_LENGTH>200</ANIM_LENGTH>
 					<ANIM_CODE>
-						(A:DISK CONING PCT:1, percent) 100 *
+            (L:Uh60_RTR_Type, bool) 1 ==
+            if{
+              (A:DISK CONING PCT:1, percent) 100 +
+            } els{
+              (A:DISK CONING PCT:1, percent) 100 +
+              }
+
 					</ANIM_CODE>
-          <ANIM_LAG>20</ANIM_LAG>
+          <ANIM_LAG>70</ANIM_LAG>
 				</UseTemplate>
+
+
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>WIPER_MOVE</ANIM_NAME>
 					<ANIM_CODE>
@@ -525,7 +534,7 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>Hook_ASSY_Extend</ANIM_NAME>
 					<ANIM_CODE>
-            (L:Cargo_Hook_EXTEND, bool) 100 *
+            (L:Cargo_Hook_EXTEND, bool) if{ 0 } els{ 100 }
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
@@ -580,34 +589,6 @@
 <!-- PROP ANIMATION TEMPLATE -->
 <Animation name="prop_blur" 			guid="7d79640a-162c-4c52-af36-ffbb177363cc" length="100" type="Sim" typeParam2="prop_blur" typeParam="AutoPlay" />
 <Animation name="prop_slow" 			guid="212a018f-9c5c-4e92-b903-2c1accb7a39a" length="100" type="Sim" typeParam2="prop_slow" typeParam="AutoPlay" />
-<Animation name="prop_still" 			guid="b4c44392-91b4-447d-8fe1-8a61a923cc99" length="100" type="Sim" typeParam2="prop_still" typeParam="AutoPlay" />
-<Animation name="prop_med" 			    guid="aadc7bef-c313-4099-96d6-804fc580ebbf" length="100" type="Sim" typeParam2="prop_med" typeParam="AutoPlay" />  		
-  <PartInfo>
-    <Name>prop_still</Name>
-    <AnimLength>100</AnimLength>
-    <Visibility>
-      <Parameter>
-        <Code>
-          (A:ROTOR RPM PCT:1, percent) 1 &lt; if{ 1 } els{ 0 }
-        </Code>
-      </Parameter>
-    </Visibility>
-  </PartInfo>
-  <PartInfo>
-    <Name>prop_med</Name>
-    <AnimLength>100</AnimLength>
-    <Visibility>
-      <Parameter>
-        <Code>
-            (A:ROTOR RPM PCT:1, percent) 1 &gt;
-            if{
-                (A:ROTOR RPM PCT:1, percent) 20 &lt; if{ 1 } els{ 0 }
-            } els{ 0 }
-            
-        </Code>
-      </Parameter>
-    </Visibility>
-  </PartInfo>
   <PartInfo>
       <Name>prop_slow</Name>
         <AnimLength>100</AnimLength>
@@ -616,13 +597,8 @@
                 <Code>
                   (L:Uh60_RTR_Type, bool) 0 ==
                   if{
-                    (A:ROTOR RPM PCT:1, percent) 20 &gt;
-                    if{
-                        (A:ROTOR RPM PCT:1, percent) 50 &lt; if{ 1 } els{ 0 }
-                    } els{ 0 }
-                  } els{ 
-                    (A:ROTOR RPM PCT:1, percent) 20 &gt; if{ 1 } els{ 0 }
-                  }
+                  (A:ROTOR RPM PCT:1, percent) 50 &lt; if{ 1 } els{ 0 }
+                } els{ 1 }
                 </Code>
             </Parameter>
         </Visibility>
