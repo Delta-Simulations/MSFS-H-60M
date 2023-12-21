@@ -1,0 +1,167 @@
+<ModelBehaviors>
+	<!-- Do not call directly unless facing a specific case, prefer using HANDLING_Yoke_Hideable_Template instead -->
+	<Template Name="DELTASIM_HMD">
+		<Parameters Type="Default">
+			<HIDE_VARIABLE>1</HIDE_VARIABLE>
+			<SCALE>1</SCALE>
+			<IS_VR_CAMERA>0</IS_VR_CAMERA>
+			<INITIAL_PITCH>0</INITIAL_PITCH>
+			<EYEPOINT_X>0</EYEPOINT_X>
+			<EYEPOINT_Y>0</EYEPOINT_Y>
+			<EYEPOINT_Z>0</EYEPOINT_Z>
+		</Parameters>
+		<!-- <HIDER_ID>#ID#</HIDER_ID> -->
+		
+		<Component ID="HMD_initialPitch">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_initialPitch</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					#INITIAL_PITCH# (&gt;L:HMD INITIAL PITCH, degrees)
+
+					50
+
+					#INITIAL_PITCH# 90 / 50 * +
+				</ANIM_CODE>
+				<ANIM_LAG>200</ANIM_LAG>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_heading">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_heading</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					50
+			
+					#IS_VR_CAMERA# (E:IS IN VR, bool) or (L:HEAD TRACKING, bool) or if{
+						(L:CAMERA_POS_IN_PLANE_X, meters) #EYEPOINT_X# - 0.125 (L:HEAD TACKING X MULTIPLIER, number) 1 + * / -1 max 1 min asin rddg 90 / 50 * - 
+					}
+					els{
+						(A:CAMERA GAMEPLAY PITCH YAW:1, degree) 180 / 50 * -
+					}
+					
+					s11
+					
+					(&gt;L:HMD YAW, percent)
+					
+					l11
+				</ANIM_CODE>
+				<ANIM_LAG>200</ANIM_LAG>
+			</UseTemplate>
+		</Component>
+				
+		<Component ID="HMD_pitch">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_pitch</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					50
+					
+					#IS_VR_CAMERA# (E:IS IN VR, bool) or (L:HEAD TRACKING, bool) or if{
+						(L:CAMERA_POS_IN_PLANE_Y, meters) #EYEPOINT_Y# - 0.125 (L:HEAD TACKING Y MULTIPLIER, number) 1 + * / -1 max 1 min asin rddg 90 / 50 * +
+					}
+					els{
+						(A:CAMERA GAMEPLAY PITCH YAW:0, degree) 90 / 50 * +
+					}
+					
+					s12
+
+					(&gt;L:HMD POSITION, percent)
+					
+					l12
+				</ANIM_CODE>
+				<ANIM_LAG>200</ANIM_LAG>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_shift">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_shift</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					0
+				</ANIM_CODE>
+				<ANIM_LAG>200</ANIM_LAG>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_rotate">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_rotate</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					50
+					
+					(L:HMD YAW, percent) 50 - 50 / pi * sin s14
+					
+					8 * -
+					
+					(L:HMD POSITION, percent) 50 - 50 / pi * 2 / sin
+					
+					l14 * 8 * -
+				</ANIM_CODE>
+				<ANIM_LAG>200</ANIM_LAG>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_glass">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_glass</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+				90
+				
+				s13
+				
+				(&gt;L:HMD_glass_scale, percent)
+				
+				l13
+				</ANIM_CODE>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_X">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_X</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					50 (L:CAMERA_POS_IN_PLANE_X, meters) #SCALE# / 50 * -
+				</ANIM_CODE>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_Y">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_Y</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					50 (L:CAMERA_POS_IN_PLANE_Y, meters) #SCALE# / 50 * +
+				</ANIM_CODE>
+			</UseTemplate>
+		</Component>
+
+		<Component ID="HMD_Z">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>HMD_Z</ANIM_NAME>
+				<ANIM_LENGTH>100</ANIM_LENGTH>
+				<ANIM_CODE>
+					50 (L:CAMERA_POS_IN_PLANE_Z, meters) #SCALE# / 50 * +
+				</ANIM_CODE>
+			</UseTemplate>
+		</Component>
+		
+		<Component ID="HMD_SCREEN_VISIBILITY" Node="HMD_glass.001">
+			<UseTemplate Name="ASOBO_GT_Visibility_Code">
+				<VISIBILITY_CODE>
+					<!-- #HIDE_VARIABLE#
+					(A:CAMERA VIEW TYPE AND INDEX, number) 1 ==
+					(A:CAMERA VIEW TYPE AND INDEX, number) 3 ==
+					or and -->
+					0
+				</VISIBILITY_CODE>
+			</UseTemplate>
+		</Component>		
+
+	</Template>
+</ModelBehaviors>

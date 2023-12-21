@@ -25711,6 +25711,7 @@
 	const Settings = () => {
 	  const [RtrMode, setRtrMode] = useSimVar('L:Uh60_RTR_Type', 'bool');
 	  const [Downwash, setDownwashwash] = useSimVar('L:UH60_EFFECT_DOWNWASH', 'bool');
+	  const [ShowHEAD, setShowHEAD] = useSimVar('L:UH60_Pilot_VRMODE', 'bool');
 	  const [brightnessEFB, setbrightnessEFB] = useSimVar('L:Uh60_EFB_BRT', 'enum');
 
 	  const handleChange = (event, newValue) => {
@@ -25749,6 +25750,12 @@
 	          color: RtrMode ? 'success' : 'primary',
 	          variant: RtrMode ? 'contained' : 'outlined',
 	          children: "Rotor Type"
+	        }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	          size: "large",
+	          onClick: () => setShowHEAD(!ShowHEAD),
+	          color: ShowHEAD ? 'success' : 'primary',
+	          variant: ShowHEAD ? 'contained' : 'outlined',
+	          children: "Pilot VR Mode"
 	        }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	          size: "large",
 	          onClick: () => setDownwashwash(!Downwash),

@@ -16,7 +16,9 @@
         <WwiseRTPC SimVar="TURB ENG N1" Units="PERCENT" Index="1" RTPCName="SIMVAR_TURB_ENG_N1"/>
     </Sound>
 
-
+    <Sound WwiseData="true" WwiseEvent="Rotor_EXT_FAR" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
+        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+    </Sound>
     <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
         <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
@@ -55,6 +57,14 @@
           </Sound>
           <Sound WwiseData="true" WwiseEvent="eng1_starter" NodeName="FX_EXHAUST_RIGHT" SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2">
             <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
+            <Range LowerBound="1.0" />
+          </Sound>
+          <Sound WwiseData="true" WwiseEvent="eng1_Idle_EXT" NodeName="FX_EXHAUST_LEFT" SimVar="SIMVAR_TURB_ENG_JET_THRUST" Units="Boolean" Index="2">
+            <WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="Boolean" Index="1" RTPCName="SIMVAR_TURB_ENG_JET_THRUST" />
+            <Range LowerBound="1.0" />
+          </Sound>
+          <Sound WwiseData="true" WwiseEvent="eng1_Idle_EXT" NodeName="FX_EXHAUST_RIGHT" SimVar="SIMVAR_TURB_ENG_JET_THRUST" Units="Boolean" Index="2">
+            <WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="Boolean" Index="2" RTPCName="SIMVAR_TURB_ENG_JET_THRUST" />
             <Range LowerBound="1.0" />
           </Sound>
 

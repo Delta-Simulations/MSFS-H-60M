@@ -47,7 +47,7 @@
 
 				(L:H60_AFCS_HVR_HOLD, bool) 1 ==
 				if{
-					(A:VELOCITY BODY X,Feet per second) 0 &gt;
+					<!-- (A:VELOCITY BODY X,Feet per second) 0 &gt;
 					(A:YOKE X POSITION,percent) abs 30 &lt; and
 					if{ 0.1 (&gt;K:CYCLIC_LATERAL_LEFT) }
 					(A:VELOCITY BODY X,Feet per second) 0 &lt;
@@ -59,13 +59,18 @@
 					if{ 0.1 (&gt;K:CYCLIC_LONGITUDINAL_UP) }
 					(A:VELOCITY BODY Y,Feet per second) 0 &lt;
 					(A:YOKE Y POSITION,percent) abs 30 &lt; and
-					if{ 0.1 (&gt;K:CYCLIC_LONGITUDINAL_DOWN) }
+					if{ 0.1 (&gt;K:CYCLIC_LONGITUDINAL_DOWN) } -->
 
 					(L:H60_AFCS_HVR_ALT, feet) (A:PLANE ALT ABOVE GROUND,feet) - 0 &gt;
-					<!-- (A:COLLECTIVE POSITION, percent) 30 &gt; and -->
-					if{ 0.1 (&gt;K:COLLECTIVE_DECR) }
-					(L:H60_AFCS_HVR_ALT, feet) (A:PLANE ALT ABOVE GROUND,feet) - 0 &lt;
 					if{ 0.1 (&gt;K:COLLECTIVE_INCR) }
+					(L:H60_AFCS_HVR_ALT, feet) (A:PLANE ALT ABOVE GROUND,feet) - 0 &lt;
+					if{ 0.1 (&gt;K:COLLECTIVE_DECR) }
+
+					0 (&gt;A:PLANE BANK DEGREES,degrees)
+					2 (&gt;A:PLANE PITCH DEGREES,degrees)
+					0 (&gt;A:ROTATION VELOCITY BODY Z,Radians per second squared)
+					(L:H60_AFCS_HVR_LAT, feet) (&gt;A:PLANE LATITUDE,feet) 
+					(L:H60_AFCS_HVR_LONG, feet) (&gt;A:PLANE LONGITUDE,feet) 
 				}
 
 				(L:H60_AFCS_STAB_TRIM, bool) 1 ==

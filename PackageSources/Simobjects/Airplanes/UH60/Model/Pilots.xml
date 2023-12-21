@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- BY DESTROYER121-NO UNAUTHORISED REDISTRIBUTION -->
+<ModelInfo>
+	<LODS>
+		<LOD minSize="0" 	ModelFile="Pilots.gltf">
+  </LOD>
+	</LODS>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+    <Include ModelBehaviorFile="Asobo\Common.xml"/>
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
+    <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
+    <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
+    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
+
+
+
+<Component ID="PilotsNEW">
+		<Component ID="PILOT_VISIBILITY1" Node="Pilot_Head">
+			<UseTemplate Name="ASOBO_GT_Visibility">
+				<VISIBILITY_CODE>
+					(A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and
+				</VISIBILITY_CODE>
+			</UseTemplate>
+		</Component>
+  <Component ID="PILOT_VISIBILITY2" Node="Pilot_Legs">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>
+        (A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and (L:UH60_Pilot_VRMODE) 1 == or
+      </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+  <Component ID="PILOT_VISIBILITY3" Node="Pilot_torso">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>
+        (A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and (L:UH60_Pilot_VRMODE) 1 == or
+      </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+</Component>
+
+</Behaviors>
+  <Animation name="AmbientSoldierL" guid="48f5fa6d-7e1c-494b-9b28-8b8f641035fc" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>AmbientSoldierL</Name>
+    <AnimLength>100</AnimLength>
+    <Visibility>
+      <Parameter>
+       <Code>
+        (L:DOORS_OPEN_REAR_L, bool) if{ 1 } els{ 0 }
+       </Code>
+         </Parameter>
+        </Visibility>
+  </PartInfo>
+  
+  <Animation name="AmbientSoldierR" guid="52b277b3-1d2f-4e61-a202-fa01acc0a887" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>AmbientSoldierR</Name>
+    <AnimLength>100</AnimLength>
+
+    <Visibility>
+      <Parameter>
+       <Code>
+        (L:DOORS_OPEN_REAR_R, bool) if{ 1 } els{ 0 }
+       </Code>
+         </Parameter>
+         </Visibility>
+  </PartInfo>
+
+  <Animation name="PEDALS" guid="2286a57d-af52-4f17-987c-65d3df37cf5d" type="Sim" typeParam="AutoPlay" />
+	<PartInfo>
+		<Name>PEDALS</Name>
+		<AnimLength>100</AnimLength>
+
+    <Animation>
+      <Parameter>
+           <Code>
+         (A:TAIL ROTOR PEDAL POSITION, part) 50 * 50 +
+           </Code>
+         
+  </Parameter>
+  </Animation>
+	</PartInfo>
+
+
+<Animation name="HeadTilt_UpDown" guid="100862ac-4113-4e6b-9b7a-dbc13eb4fbf4" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>HeadTilt_UpDown</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+          (A:ATTITUDE INDICATOR PITCH DEGREES,degrees) -1 * 50 +
+        </Code>
+        <Lag>60</Lag>
+      </Parameter>
+    </Animation>
+</PartInfo>
+<Animation name="HeadTilt_LR" guid="e6a2da8a-1f24-4946-a043-0dc288539306" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>HeadTilt_LR</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+          (A:ATTITUDE INDICATOR BANK DEGREES,degrees) 50 +
+        </Code>
+        <Lag>60</Lag>
+      </Parameter>
+    </Animation>
+</PartInfo>
+
+<Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" type="Sim" typeparam="AutoPlay" />
+<Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" type="Sim" typeparam="AutoPlay" />
+  <PartInfo>
+    <Name>lever_stick_l_r</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+            <Sim>
+                <Variable>YOKE X POSITION</Variable>
+                <Units>percent</Units>
+                <Scale>0.5</Scale>
+                <Bias>50</Bias>
+            </Sim>
+        </Parameter>
+    </Animation>
+</PartInfo>
+<PartInfo>
+    <Name>lever_stick_fore_aft</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+        <Parameter>
+            <Sim>
+                <Variable>YOKE Y POSITION</Variable>
+                <Units>percent</Units>
+                <Scale>0.5</Scale>
+                <Bias>50</Bias>
+            </Sim>
+        </Parameter>
+    </Animation>
+</PartInfo>
+
+</ModelInfo>

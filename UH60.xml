@@ -4,7 +4,8 @@
 	<TemporaryOutputDirectory>_PackageInt</TemporaryOutputDirectory>
 	<PublishingGroupTemporaryOutputDirectory>_PublishingGroupInt</PublishingGroupTemporaryOutputDirectory>
 	<Packages>
-		<Package>PackageDefinitions\deltasimulations-UH60.xml</Package>
+		<Package>PackageDefinitions\deltasimulations-uh60.xml</Package>
 	</Packages>
 	<PublishingGroups/>
 </Project>
+

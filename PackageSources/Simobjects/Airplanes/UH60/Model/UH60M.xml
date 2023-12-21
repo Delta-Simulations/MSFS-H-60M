@@ -90,9 +90,6 @@
 
     <Component ID="HANDLING">
 
-      <UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
-				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
-			</UseTemplate>
 		 </Component>
 
      <Component ID="Light_60W_Nav" Node="Light_60W_Nav">
@@ -462,6 +459,7 @@
            } els{100}
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>40</ANIM_LAG>
 				</UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>DAP_Missile_tilt</ANIM_NAME>
@@ -546,6 +544,14 @@
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
+				</UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>elevator_percent_key</ANIM_NAME>
+					<ANIM_CODE>
+            (A:YOKE Y POSITION, percent) 0.5 * 50 +
+					</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>80</ANIM_LAG>
 				</UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>rudder_percent_key</ANIM_NAME>

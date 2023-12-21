@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 export const Settings = () => {
 	const [RtrMode, setRtrMode] = useSimVar('L:Uh60_RTR_Type', 'bool');
 	const [Downwash, setDownwashwash] = useSimVar('L:UH60_EFFECT_DOWNWASH', 'bool');
-
+	const [ShowHEAD, setShowHEAD] = useSimVar('L:UH60_Pilot_VRMODE', 'bool');
 	const [brightnessEFB, setbrightnessEFB] = useSimVar('L:Uh60_EFB_BRT', 'enum');
 	
 	const handleChange = (event: Event, newValue: number | number[]) =>{
@@ -50,6 +50,14 @@ export const Settings = () => {
 							variant={RtrMode ? 'contained' : 'outlined'}
 						>
 							Rotor Type
+						</Button>
+						<Button
+							size="large"
+							onClick={() => setShowHEAD(!ShowHEAD)}
+							color={ShowHEAD ? 'success' : 'primary'}
+							variant={ShowHEAD ? 'contained' : 'outlined'}
+						>
+							Pilot VR Mode
 						</Button>
 						<Button
 							size="large"

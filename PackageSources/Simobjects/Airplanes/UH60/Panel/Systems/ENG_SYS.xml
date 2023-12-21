@@ -13,7 +13,8 @@
 	<Element>
 		<Select>
 			<Value>
-
+				(L:H60_FrontDoorVis, bool) -10 * 30 + (&gt;L:H60_Copilot_SafeBank, enum)
+				
 				(L:C17_P_PITOT, bool) 1 ==
 				(L:C17_CP_PITOT, bool) 1 == or
 				if{ 

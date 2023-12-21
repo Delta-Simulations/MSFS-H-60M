@@ -3,6 +3,7 @@
 <ModelInfo>
 	<LODS>
 		<LOD minSize="0" 	ModelFile="UH60Mint_LOD00.gltf"/>
+
 	</LODS>
 	<Behaviors>
 		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
@@ -16,11 +17,6 @@
     <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
-    <!-- <Include File="UH60_Systems.xml"/>
-
-		<Component ID="Syst">
-			<UseTemplate Name="ENGSystems" />
-		</Component> -->
 
     
     <Component ID="EFBBRT" Node="TABLET.002">
@@ -376,12 +372,12 @@
   <NODE_ID>Button_HVR</NODE_ID>
   <TOOLTIPID>HVR</TOOLTIPID>
   <LEFT_SINGLE_CODE>
-    <!-- (L:H60_AFCS_HVR_HOLD, bool) ! (&gt;L:H60_AFCS_HVR_HOLD, bool)
-    (A:PLANE ALT ABOVE GROUND,feet) (&gt;L:H60_AFCS_HVR_ALT, feet) -->
-
-    (&gt;K:FREEZE_LATITUDE_LONGITUDE_TOGGLE)
-    (&gt;K:FREEZE_ALTITUDE_TOGGLE)
-    (&gt;K:2:VERTICAL_SPEED_SET)
+    (L:H60_AFCS_HVR_HOLD, bool) ! (&gt;L:H60_AFCS_HVR_HOLD, bool)
+    (A:PLANE ALT ABOVE GROUND,feet) (&gt;L:H60_AFCS_HVR_ALT, feet)
+    (A:PLANE LATITUDE,feet) (&gt;L:H60_AFCS_HVR_LAT, feet)
+    (A:PLANE LONGITUDE,feet) (&gt;L:H60_AFCS_HVR_LONG, feet)
+    <!-- (&gt;K:FREEZE_LATITUDE_LONGITUDE_TOGGLE)
+    (&gt;K:FREEZE_ALTITUDE_TOGGLE) -->
   </LEFT_SINGLE_CODE>
 </UseTemplate>
 <UseTemplate Name="DELTASIM_PushButton_Template">
@@ -729,7 +725,48 @@
     <ANIM_LENGTH>100</ANIM_LENGTH>
     <ANIM_LAG>20</ANIM_LAG>
   </UseTemplate>
-
+		<Component ID="PILOT_VISIBILITY1" Node="Pilot_Head.004">
+			<UseTemplate Name="ASOBO_GT_Visibility">
+				<VISIBILITY_CODE>
+					(A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and
+				</VISIBILITY_CODE>
+			</UseTemplate>
+		</Component>
+  <Component ID="PILOT_VISIBILITY2" Node="Pilot_Legs.004">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>
+        (A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and (L:UH60_Pilot_VRMODE) 1 == or
+      </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+  <Component ID="PILOT_VISIBILITY3" Node="Pilot_torso.004">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>
+        (A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and (L:UH60_Pilot_VRMODE) 1 == or
+      </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+  <Component ID="PILOT_VISIBILITY4" Node="Pilot_Head.003">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>
+        (L:H60_CoPilot_Vis) 1 ==
+      </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
+<Component ID="PILOT_VISIBILITY5" Node="Pilot_Legs.003">
+  <UseTemplate Name="ASOBO_GT_Visibility">
+    <VISIBILITY_CODE>
+      (L:H60_CoPilot_Vis) 1 ==
+    </VISIBILITY_CODE>
+  </UseTemplate>
+</Component>
+<Component ID="PILOT_VISIBILITY6" Node="Pilot_torso.003">
+  <UseTemplate Name="ASOBO_GT_Visibility">
+    <VISIBILITY_CODE>
+      (L:H60_CoPilot_Vis) 1 ==
+    </VISIBILITY_CODE>
+  </UseTemplate>
+</Component>
 
 </Component>
 
@@ -1043,20 +1080,17 @@
   </Visibility>
 </PartInfo>
 
-  <Animation name="PEDALS" guid="2286a57d-af52-4f17-987c-65d3df37cf5d" length="100" type="Sim" typeParam2="PEDALS" typeParam="AutoPlay" />
+  <Animation name="PEDALS" guid="2286a57d-af52-4f17-987c-65d3df37cf5d" type="Sim" typeParam="AutoPlay" />
 	<PartInfo>
 		<Name>PEDALS</Name>
 		<AnimLength>100</AnimLength>
-		<Animation>
-			<Parameter>
-				<Sim>
-					<Variable>TAIL ROTOR PEDAL POSITION</Variable>
-					<Units>part</Units>
-					<Scale>50</Scale>
-					<Bias>50</Bias>
-				</Sim>
-			</Parameter>
-		</Animation>
+    <Animation>
+      <Parameter>
+           <Code>
+         (A:TAIL ROTOR PEDAL POSITION, part) 50 * 50 +
+           </Code>
+  </Parameter>
+  </Animation>
 	</PartInfo>
 
 
@@ -1154,34 +1188,47 @@
           </CallbackCode>
     </MouseRect>
 </PartInfo>
-
-<Animation name="Pilot_Vis" guid="9a59620b-c80d-4907-9946-b20ee4b165f0" type="Sim" typeParam="AutoPlay" />
+<Animation name="CP_Handrest" guid="eb6e049b-2837-44a5-8219-34c7fd9dddaf" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
-    <Name>Pilot_Vis</Name>
-    <AnimLength>1</AnimLength>
-    <Visibility>
+    <Name>CP_Handrest</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
       <Parameter>
-        <Code>
-          (L:H60_Pilot_Vis,bool)
-          (A:CAMERA VIEW TYPE AND INDEX, number) 1 != and
-					(A:CAMERA VIEW TYPE AND INDEX, number) 3 != and
+        <Code> 
+          (A:ATTITUDE INDICATOR PITCH DEGREES,degrees) abs 17 &gt; 
+          (A:ATTITUDE INDICATOR BANK DEGREES,degrees) abs (L:H60_Copilot_SafeBank, enum) &gt; or
+          if{ 100 } els{ 0 }
         </Code>
+        <Lag>70</Lag>
       </Parameter>
-    </Visibility>
+    </Animation>
 </PartInfo>
-<Animation name="CoPilot_Vis" guid="2f9a5c21-24d7-444b-962e-725a35f2aeb7" type="Sim" typeParam="AutoPlay" />
+
+<Animation name="HeadTilt_UpDown" guid="100862ac-4113-4e6b-9b7a-dbc13eb4fbf4" type="Sim" typeParam="AutoPlay" />
 <PartInfo>
-    <Name>CoPilot_Vis</Name>
-    <AnimLength>1</AnimLength>
-    <Visibility>
+    <Name>HeadTilt_UpDown</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
       <Parameter>
         <Code>
-          (L:H60_CoPilot_Vis,bool)
-          (A:CAMERA VIEW TYPE AND INDEX, number) 1 != and
-					(A:CAMERA VIEW TYPE AND INDEX, number) 3 != and
+          (A:ATTITUDE INDICATOR PITCH DEGREES,degrees) -1 * 50 +
         </Code>
+        <Lag>60</Lag>
       </Parameter>
-    </Visibility>
+    </Animation>
+</PartInfo>
+<Animation name="HeadTilt_LR" guid="e6a2da8a-1f24-4946-a043-0dc288539306" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>HeadTilt_LR</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>
+          (A:ATTITUDE INDICATOR BANK DEGREES,degrees) 50 +
+        </Code>
+        <Lag>60</Lag>
+      </Parameter>
+    </Animation>
 </PartInfo>
 
 <Animation name="Part2" guid="02d87ba9-3058-48c3-8e09-59415270a103" type="Sim" typeParam="AutoPlay" />
@@ -1308,8 +1355,8 @@
     </PartInfo>
 
 
-<Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" length="100" type="Sim" typeparam2="lever_stick_l_r" typeparam="AutoPlay" />
-<Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" length="100" type="Sim" typeparam2="lever_stick_fore_aft" typeparam="AutoPlay" />
+<Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" type="Sim" typeparam="AutoPlay" />
+<Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" type="Sim" typeparam="AutoPlay" />
   <PartInfo>
     <Name>lever_stick_l_r</Name>
     <AnimLength>100</AnimLength>
