@@ -95,9 +95,11 @@
 				(L:H60_PCL2, percent) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) -->
 
 				(L:H60_PCL1, percent) 0 &gt;
+				(L:H60_Fuel1) 0 &gt; or
 				if{ 1 2 (&gt;K:2:FUELSYSTEM_VALVE_SET)  } 
 				els{ 0 2 (&gt;K:2:FUELSYSTEM_VALVE_SET) }
 				(L:H60_PCL2, percent) 0 &gt;
+				(L:H60_Fuel2) 0 &gt; or
 				if{ 1 3 (&gt;K:2:FUELSYSTEM_VALVE_SET)  } 
 				els{ 0 3 (&gt;K:2:FUELSYSTEM_VALVE_SET) }
 

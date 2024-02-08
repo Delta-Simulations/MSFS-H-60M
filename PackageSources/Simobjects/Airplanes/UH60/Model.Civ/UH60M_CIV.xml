@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModelInfo>
+	<LODS>
+		<LOD minSize="0" ModelFile="..\model\UH60M_LOD00.gltf"/>
+	</LODS>
+	<Behaviors>
+		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
+    <Component ID="Parts_LIVERY_CHECKER">
+      <UseTemplate Name="ASOBO_GT_Update">
+        <FREQUENCY>5</FREQUENCY>
+        <UPDATE_CODE>
+        </UPDATE_CODE>
+      </UseTemplate>
+    </Component>	
+	</Behaviors>
+  <Animation name="SLIMELGT" guid="05844ecd-e147-4c76-a2df-9dee0d13c5f2" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>SLIMELGT</Name>
+    <AnimLength>1</AnimLength>
+    <Materials> <Emissive> <Parameter>
+        <Code>
+          (A:LIGHT POTENTIOMETER:10, percent) 0.05 * (A:ELECTRICAL MASTER BATTERY, bool) *
+        </Code>
+      </Parameter> </Emissive> </Materials>
+  </PartInfo>
+
+<Animation name="ModelPart_Pylons_Stock" guid="e750f5fa-c437-45ef-af66-c095d73a608f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+  <Name>ModelPart_Pylons_Stock</Name>
+  <Visibility><Parameter><Code>
+              (L:H60_Pylons_Fuel) 0 ==
+  </Code></Parameter></Visibility></PartInfo>
+  <Animation name="ModelPart_Pylons_Fuel" guid="b2c4313a-097d-42ba-bcd6-837983581c79" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Pylons_Fuel</Name>
+<Visibility><Parameter><Code>
+  (L:H60_Pylons_Fuel)
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_Pylons_Missiles" guid="134bf79e-7348-4e73-b2dd-0d5763e5a21d" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Pylons_Missiles</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_Skis" guid="c38ec082-0489-43f3-9daf-eed03164f3b9" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Skis</Name>
+<Visibility><Parameter><Code>
+	(L:H60_Skis)
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_Nose_FLIR" guid="851c8820-6346-4283-a0fa-8ca665116b5f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Nose_FLIR</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_Bambi_Bucket" guid="a276a975-9db9-49af-9915-dd91c64c7b70" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Bambi_Bucket</Name>
+<Visibility><Parameter><Code>
+  (L:H60_Fire_Bucket) (A:RADIO HEIGHT, feet) 17 &gt; and
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_EBF" guid="01931e75-5f93-4b19-b64b-4fdd7d77f520" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_EBF</Name>
+<Visibility><Parameter><Code>
+	(L:H60_EBF)
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_Antenna_Stock" guid="27322194-af80-4560-a157-ceb672930f76" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Antenna_Stock</Name>
+<Visibility><Parameter><Code>
+						1
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_60M_Sensors" guid="041b89e9-d9be-4b1f-8d20-bdfc91f7c596" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_60M_Sensors</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+
+
+<Animation name="ModelPart_Hoist" guid="fdf65699-d055-4329-bf4a-638f14f33122" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_Hoist</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_ECM" guid="bd75bc59-59a2-45c2-a3b4-86929672ff73" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_ECM</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_60W_Sensors" guid="050b997c-d59b-4a7e-acdb-9fc5da39c1cf" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_60W_Sensors</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_RefuelProbe" guid="6d8e66b1-16c3-4547-808d-972e3ce6b2aa" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_RefuelProbe</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_FrontFlare" guid="f90683eb-35d4-4489-9db2-de73029ddd04" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_FrontFlare</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_Antenna_FM" guid="a58ec8ad-2053-4342-8255-5c260c8c3df5" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+  <Name>ModelPart_Antenna_FM</Name>
+  <Visibility><Parameter><Code>
+              0
+  </Code></Parameter></Visibility></PartInfo>
+</ModelInfo>

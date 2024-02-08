@@ -1,24 +1,97 @@
 <ModelBehaviors>
     <!-- CREATED FOR DELTA SIMULATION AIRCRAFT###################################### -->
-    <Include ModelBehaviorFile="Asobo\Common.xml"/> 
-    <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml"/>
-    <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
-    <Include ModelBehaviorFile="Asobo\Airliner\FMC.xml"/>
-    <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
-    <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
+    <Include ModelBehaviorFile="Asobo\Common.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\FMC.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml" />
+
+    <Template Name="Generic_Visibility_DELTASIM">
+        <DefaultTemplateParameters>
+            <VISIBILITY_CODE>0</VISIBILITY_CODE>
+        </DefaultTemplateParameters>
+        <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
+            <UseTemplate Name="ASOBO_GT_Visibility">
+                <VISIBILITY_CODE>#VISIBILITY_CODE#</VISIBILITY_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
+
+    <Template Name="Main_Rotor_Still_Visibility_DELTASIM">
+
+        <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
+            <UseTemplate Name="ASOBO_GT_Visibility">
+                <VISIBILITY_CODE>
+                    (L:Uh60_RTR_Type, bool) 0 ==
+                    if{
+                    (A:ROTOR RPM PCT:1, percent) 50 &lt; if{ 1 } els{ 0 }
+                  } els{ 1 }
+                </VISIBILITY_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
+    <Template Name="Main_Rotor_Blur_Visibility_DELTASIM">
+
+        <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
+            <UseTemplate Name="ASOBO_GT_Visibility">
+                <VISIBILITY_CODE>
+                    (L:Uh60_RTR_Type, bool) 0 ==
+                    if{
+                      (A:ROTOR RPM PCT:1, percent) 50 &gt; if{ 1 } els{ 0 }
+                    } els{ 0 }
+                </VISIBILITY_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
+
+    <Template Name="Tail_Rotor_Still_Visibility_DELTASIM">
+        <DefaultTemplateParameters>
+            <VISIBILITY_CODE>0</VISIBILITY_CODE>
+        </DefaultTemplateParameters>
+        <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
+            <UseTemplate Name="ASOBO_GT_Visibility">
+                <VISIBILITY_CODE>
+                    (L:Uh60_RTR_Type, bool) 0 ==
+                    if{
+                    (A:ROTOR RPM PCT:1, percent) 6 &lt; if{ 1 } els{ 0 }
+                  } els{ 1 }
+                </VISIBILITY_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
+    <Template Name="Tail_Rotor_Blur_Visibility_DELTASIM">
+        <DefaultTemplateParameters>
+            <VISIBILITY_CODE>0</VISIBILITY_CODE>
+        </DefaultTemplateParameters>
+        <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
+            <UseTemplate Name="ASOBO_GT_Visibility">
+                <VISIBILITY_CODE>
+                    (L:Uh60_RTR_Type, bool) 0 ==
+                    if{
+                      (A:ROTOR RPM PCT:1, percent) 6 &gt; if{ 1 } els{ 0 }
+                    } els{ 0 }
+                </VISIBILITY_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
+    <Template Name="Generic_Anim_DELTASIM">
+        <DefaultTemplateParameters>
+            <ANIM_LENGTH>100</ANIM_LENGTH>
+        </DefaultTemplateParameters>
+        <Component ID="#ANIM_NAME#">
+            <UseTemplate name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>#ANIM_NAME#</ANIM_NAME>
+                <ANIM_CODE>
+                    #ANIM_CODE#
+                </ANIM_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
 
 
-<Template Name="Generic_Anim_DELTASIM">
-    <DefaultTemplateParameters>
-        <ANIM_LENGTH>100</ANIM_LENGTH>
-    </DefaultTemplateParameters>
-    <Component ID="#ANIM_NAME#">
-        <UseTemplate name="ASOBO_GT_Anim_Code">
-            <ANIM_NAME>#ANIM_NAME#</ANIM_NAME>
-            <ANIM_CODE>
-                #ANIM_CODE#
-            </ANIM_CODE>
-        </UseTemplate>
-    </Component>
-</Template>
+
+
+
+    
 </ModelBehaviors>

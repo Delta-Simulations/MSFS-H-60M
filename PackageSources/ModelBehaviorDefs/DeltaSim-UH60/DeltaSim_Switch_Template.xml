@@ -380,5 +380,48 @@
 		<STATE_MAX_TIMER>0.01</STATE_MAX_TIMER>
 	</UseTemplate>
 </Template>
+<Template Name="Deltasim_THREEPOS_ONEMOMMAX">
+    <!-- From JT/Aero - DC10 3Pos momentery switch -->
+    <Component ID="#ANIM_IDENT#" Node="#ANIM_IDENT#">
+        <UseTemplate Name="ASOBO_GT_Anim_Code">
+            <ANIM_NAME>#ANIM_IDENT#</ANIM_NAME>
+            <ANIM_LENGTH>2</ANIM_LENGTH>
+            <ANIM_CODE>
+                (L:H60_#ANIM_IDENT#, number)
+            </ANIM_CODE>
+            <ANIM_LAG>5</ANIM_LAG>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_MouseRect">
+            <TOOLTIPID>#TOOLTIP#</TOOLTIPID>
+            <MOUSEFLAGS>LeftSingle+Move+LeftRelease+RightRelease+MiddleSingle+WheelUp+WheelDown</MOUSEFLAGS>
+            <UPARROW>UpArrow</UPARROW>
+            <DOWNARROW>DownArrow</DOWNARROW>
+            <CALLBACKCODE>
+                (M:Event) 'LeftSingle' scmp 0 ==
+                if{
+                (L:H60_#ANIM_IDENT#, number) 2 ==
+                if{
+                (M:RelativeY) 0 &gt;
 
+
+                if{
+                (L:H60_#ANIM_IDENT#, number) ++ 2 min (&gt;L:H60_#ANIM_IDENT#, number) 
+                }
+
+                els{ (L:H60_#ANIM_IDENT#, number) -- 0 max (&gt;L:H60_#ANIM_IDENT#, number) }
+                }
+
+
+
+                els{
+                (M:RelativeY) 0 &gt;
+                if{ (L:H60_#ANIM_IDENT#, number) ++ 2 min (&gt;L:H60_#ANIM_IDENT#, number) }
+                els{ (L:H60_#ANIM_IDENT#, number) -- 0 max (&gt;L:H60_#ANIM_IDENT#, number) }
+                }                                
+                }
+                (M:Event) 'LeftRelease' scmp 0 == (L:H60_#ANIM_IDENT#, number) 2 == and if{ 1 (>L:H60_#ANIM_IDENT#, number) }
+            </CALLBACKCODE>
+        </UseTemplate>
+        </Component>
+    </Template>
 </ModelBehaviors>
