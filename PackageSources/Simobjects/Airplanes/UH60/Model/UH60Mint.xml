@@ -672,6 +672,22 @@
     <ANIM_NAME>collective</ANIM_NAME>
   </UseTemplate>
 
+  <!--
+      Wrong animation is tied to anti-torque pedals (currently it's animating brakes) 
+      Default pedal animations should be left and right pedals sliding forward and back
+  -->
+	<Component ID="Anti_Torque_Pedals">
+			<UseTemplate Name="ASOBO_ROTORCRAFT_Tail_Rotor_Pedal_Template">
+				<PART_ID>PEDALS</PART_ID>
+        <ANIM_NAME>PEDALS</ANIM_NAME>
+				<USE_BRAKE>True</USE_BRAKE>
+				<NO_BRAKES_HIGHLIGHT>False</NO_BRAKES_HIGHLIGHT>
+				<DIFFERENTIATE_BRAKE_ANIM_L_R>True</DIFFERENTIATE_BRAKE_ANIM_L_R>
+				<INVERT_ANIM>False</INVERT_ANIM>
+			</UseTemplate>
+			<CameraTitle></CameraTitle>
+	</Component>
+
   <!-- <UseTemplate name="Generic_Anim_DELTASIM">
     <ANIM_NAME>DoorP</ANIM_NAME>
     <ANIM_CODE>
@@ -1077,19 +1093,6 @@
   </Parameter>
   </Visibility>
 </PartInfo>
-
-  <Animation name="PEDALS" guid="2286a57d-af52-4f17-987c-65d3df37cf5d" type="Sim" typeParam="AutoPlay" />
-	<PartInfo>
-		<Name>PEDALS</Name>
-		<AnimLength>100</AnimLength>
-    <Animation>
-      <Parameter>
-           <Code>
-         (A:TAIL ROTOR PEDAL POSITION, part) 50 * 50 +
-           </Code>
-  </Parameter>
-  </Animation>
-	</PartInfo>
 
 
     <Animation name="FR_CLICK" guid="666a523b-5c61-4aed-ba6a-e743cc6bd841" type="Sim" typeparam="AutoPlay" />
