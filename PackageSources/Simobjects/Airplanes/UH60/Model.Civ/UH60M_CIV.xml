@@ -5,14 +5,11 @@
 	</LODS>
 	<Behaviors>
 		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
-    <Component ID="Parts_LIVERY_CHECKER">
-      <UseTemplate Name="ASOBO_GT_Update">
-        <FREQUENCY>5</FREQUENCY>
-        <UPDATE_CODE>
-        </UPDATE_CODE>
-      </UseTemplate>
-    </Component>	
+
 	</Behaviors>
+
+
+  
   <Animation name="SLIMELGT" guid="05844ecd-e147-4c76-a2df-9dee0d13c5f2" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
     <Name>SLIMELGT</Name>
