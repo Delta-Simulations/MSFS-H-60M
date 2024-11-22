@@ -27,3 +27,8 @@ export const getRootElement: () => HTMLElement = () => {
     }
     throw new Error('Could not find rootElement');
 };
+
+export const getDisplayIndex = () => {
+    const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+    return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+  };

@@ -1,6 +1,6 @@
 import React, {} from 'react';
 import "../style.scss";
-
+import { getDisplayIndex } from '../../Hooks/defaults';
 import { useSimVar } from '../../Hooks/simVars';
 
 export const Fixed = () => {
@@ -11,6 +11,8 @@ export const Fixed = () => {
         const [AP_VS] = useSimVar('A:Autopilot vertical hold var', 'ft/min');
     
         const [AP_HVR] = useSimVar('L:AP_STAB', 'bool');
+
+        
 
         return(
                 <svg viewBox='0 0 1280 1280'>

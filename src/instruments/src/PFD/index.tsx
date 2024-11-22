@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC, ReactNode, useState, useEffect } from 'react';
 import { render } from "../Hooks/index";
 import { useSimVar } from '../Hooks/simVars';
 import { Horizon } from './Components/horizon';
@@ -12,23 +12,36 @@ import { HeadingBug } from './Components/HeadingBug';
 import { FlightDirector } from './Components/flightDirector';
 import { AltCircle } from './Components/AltCircle';
 import { VerticalSpeed } from './Components/verticalSpeed';
+import { getDisplayIndex } from '../Hooks/defaults';
 
 import { EICAS } from './Components/EICAS';
 import { EICASFuel } from './Components/EICASFuel';
 import { EICASExtTanks } from './Components/EICASExtTanks';
-import { Electricity } from '../Common/circuit';
+import { Electricity_MFD } from '../Common/circuit';
 import "./style.scss";
 
 import { NDMain } from './Components/NDMain';
 
 const PFD = () => {
-    const [DISP_TYPE] = useSimVar('L:DISP_TYPE', 'enum');
+    let DisplayID = getDisplayIndex();
+    let displaycontrols = `L:H60_MFD_${DisplayID}_MODE`;
+    
+    const [DISP_TYPE] = useSimVar(displaycontrols, 'enum');
     const [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
 
+    const [loadingDisp, setShowRectangle] = useState(true); // State to track rectangle visibility
+    useEffect(() => {
+        if (loadingDisp) {
+          // Hide the rectangle after 4 seconds
+          const timer = setTimeout(() => setShowRectangle(false),  Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000);
+          return () => clearTimeout(timer); // Cleanup the timeout if component unmounts
+        }
+      }, [loadingDisp]);
+   
 return(
-    <Electricity>
+    <Electricity_MFD powerVar={`L:H60_MFD_${DisplayID}_PWR`}>
             <svg viewBox='0 0 1024 768'>
-                <rect x={0} y={0} width={1024} height={768} fill='#00000'/>
+                <rect x={0} y={0} width={1024} height={768} fill='#000000'/>
                 <g transform="translate(-9,0)">
 
                     
@@ -45,11 +58,13 @@ return(
                         <HeadingBug />
                         <Collective />
                         <AltCircle />
+
                         
                         <VerticalSpeed />
                         <g transform="translate(-67,-158)">
                             <FlightDirector />
                         </g>
+                        
                     </g>
 
                     <g visibility={DISP_TYPE == 2 ? 'visible' : 'hidden'}>
@@ -71,8 +86,10 @@ return(
 
                     <Fixed />
                 </g>
+                <rect visibility={loadingDisp ? 'visible' : 'hidden'} x={0} y={0} width={1024} height={768} fill='#fff9cb'/>
+
             </svg>
-            </Electricity>
+            </Electricity_MFD>
     )
 };
 

@@ -42,7 +42,6 @@ export const PowerPod = () => {
             NRScale = 3.4
         } else{
             NRScale = 1
-            NR = 485
         }
 
 

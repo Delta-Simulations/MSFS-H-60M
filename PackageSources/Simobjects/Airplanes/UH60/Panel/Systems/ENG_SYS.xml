@@ -88,6 +88,10 @@
 				if{ 1 1 (&gt;K:2:SET_EXTERNAL_POWER) } 
 				els{ 0 1 (&gt;K:2:SET_EXTERNAL_POWER) }
 
+
+
+				
+
 				(L:H60_PCL1, percent) 15 &gt;
 				(L:H60_PCL2, percent) 15 &gt; or
 				if{ 1 (&gt;K:ROTOR_GOV_SWITCH_ON) } 

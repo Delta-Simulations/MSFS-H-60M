@@ -23,23 +23,20 @@
         <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
             <UseTemplate Name="ASOBO_GT_Visibility">
                 <VISIBILITY_CODE>
-                    (L:Uh60_RTR_Type, bool) 0 ==
-                    if{
-                    (A:ROTOR RPM PCT:1, percent) 50 &lt; if{ 1 } els{ 0 }
-                  } els{ 1 }
+                    (L:Uh60_RTR_Type, bool) 1 ==
+                    (A:ROTOR RPM PCT:1, percent) 50 &lt; or
+
                 </VISIBILITY_CODE>
             </UseTemplate>
         </Component>
     </Template>
-    <Template Name="Main_Rotor_Blur_Visibility_DELTASIM">
 
+    <Template Name="Main_Rotor_Blur_Visibility_DELTASIM">
         <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
             <UseTemplate Name="ASOBO_GT_Visibility">
                 <VISIBILITY_CODE>
                     (L:Uh60_RTR_Type, bool) 0 ==
-                    if{
-                      (A:ROTOR RPM PCT:1, percent) 50 &gt; if{ 1 } els{ 0 }
-                    } els{ 0 }
+                    (A:ROTOR RPM PCT:1, percent) 40 &gt; and
                 </VISIBILITY_CODE>
             </UseTemplate>
         </Component>
@@ -52,14 +49,13 @@
         <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
             <UseTemplate Name="ASOBO_GT_Visibility">
                 <VISIBILITY_CODE>
-                    (L:Uh60_RTR_Type, bool) 0 ==
-                    if{
-                    (A:ROTOR RPM PCT:1, percent) 6 &lt; if{ 1 } els{ 0 }
-                  } els{ 1 }
+                    (L:Uh60_RTR_Type, bool) 1 ==
+                    (A:ROTOR RPM PCT:2, percent) 10 &lt; or
                 </VISIBILITY_CODE>
             </UseTemplate>
         </Component>
     </Template>
+
     <Template Name="Tail_Rotor_Blur_Visibility_DELTASIM">
         <DefaultTemplateParameters>
             <VISIBILITY_CODE>0</VISIBILITY_CODE>
@@ -68,13 +64,12 @@
             <UseTemplate Name="ASOBO_GT_Visibility">
                 <VISIBILITY_CODE>
                     (L:Uh60_RTR_Type, bool) 0 ==
-                    if{
-                      (A:ROTOR RPM PCT:1, percent) 6 &gt; if{ 1 } els{ 0 }
-                    } els{ 0 }
+                    (A:ROTOR RPM PCT:2, percent) 10 &gt; and
                 </VISIBILITY_CODE>
             </UseTemplate>
         </Component>
     </Template>
+
     <Template Name="Generic_Anim_DELTASIM">
         <DefaultTemplateParameters>
             <ANIM_LENGTH>100</ANIM_LENGTH>
@@ -88,9 +83,6 @@
             </UseTemplate>
         </Component>
     </Template>
-
-
-
 
 
     

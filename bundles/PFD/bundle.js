@@ -8524,6 +8524,10 @@
 
 	  throw new Error('Could not find rootElement');
 	};
+	const getDisplayIndex = () => {
+	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+	};
 
 	var defineProperty = createCommonjsModule(function (module) {
 	  function _defineProperty(obj, key, value) {
@@ -9812,7 +9816,6 @@
 	    NRScale = 3.4;
 	  } else {
 	    NRScale = 1;
-	    NR = 485;
 	  }
 
 	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
@@ -11442,7 +11445,7 @@
 	  var [TGT_2] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:2', 'Celsius');
 	  var [Q1] = useSimVar('A:ENG TORQUE PERCENT:1', 'percent');
 	  var [Q2] = useSimVar('A:ENG TORQUE PERCENT:2', 'percent');
-	  var [RTR_AIRLND] = useSimVar('A:ROTOR RPM PCT:1', 'percent');
+	  var [RTR_RPM] = useSimVar('A:ROTOR RPM PCT:1', 'percent');
 	  var [TOT_ENG] = useSimVar('L:TotEngRunning', 'enum');
 	  var [RTR_PRESS] = useSimVar('A:ROTOR TEMPERATURE', 'Celsius');
 	  Q1 = Q1 / 6300;
@@ -11459,10 +11462,8 @@
 	  TGT_2 = Math.floor(TGT_2 / 4);
 	  TMP_1 = Math.floor(TMP_1);
 	  TMP_2 = Math.floor(TMP_2);
-	  let NR = (NP_1 + NP_2) / 2;
-	  RTR_AIRLND = RTR_AIRLND * 100;
-	  NR = Math.floor(RTR_AIRLND * 10) / 10;
-	  let RTR_TMP = Math.floor(NR * 1.1 / TOT_ENG);
+	  let NR = Math.floor(RTR_RPM * 10) / 10;
+	  let RTR_TMP = Math.floor(NR / TOT_ENG);
 	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
 	    viewBox: "0 0 1280 1280",
 	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -12184,7 +12185,7 @@
 	            x: -90,
 	            y: 690,
 	            width: "45",
-	            height: NR * 2.1,
+	            height: NR * 3,
 	            stroke: "none",
 	            className: "bargauge",
 	            "stroke-width": "3"
@@ -12810,11 +12811,13 @@
 	  });
 	};
 
-	const Electricity = ({
+	const Electricity_MFD = ({
+	  powerVar,
 	  children
 	}) => {
-	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'bool');
-	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	  const [powerOn] = useSimVar(powerVar, 'bool');
+	  if (!powerOn) return null;
+	  return /*#__PURE__*/jsxRuntime.jsx("div", {
 	    children: children
 	  });
 	};
@@ -12832,9 +12835,21 @@
 	};
 
 	const PFD = () => {
-	  const [DISP_TYPE] = useSimVar('L:DISP_TYPE', 'enum');
+	  let DisplayID = getDisplayIndex();
+	  let displaycontrols = "L:H60_MFD_".concat(DisplayID, "_MODE");
+	  const [DISP_TYPE] = useSimVar(displaycontrols, 'enum');
 	  const [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
-	  return /*#__PURE__*/jsxRuntime.jsx(Electricity, {
+	  const [loadingDisp, setShowRectangle] = react.useState(true); // State to track rectangle visibility
+
+	  react.useEffect(() => {
+	    if (loadingDisp) {
+	      // Hide the rectangle after 4 seconds
+	      const timer = setTimeout(() => setShowRectangle(false), Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000);
+	      return () => clearTimeout(timer); // Cleanup the timeout if component unmounts
+	    }
+	  }, [loadingDisp]);
+	  return /*#__PURE__*/jsxRuntime.jsx(Electricity_MFD, {
+	    powerVar: "L:H60_MFD_".concat(DisplayID, "_PWR"),
 	    children: /*#__PURE__*/jsxRuntime.jsxs("svg", {
 	      viewBox: "0 0 1024 768",
 	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
@@ -12842,7 +12857,7 @@
 	        y: 0,
 	        width: 1024,
 	        height: 768,
-	        fill: "#00000"
+	        fill: "#000000"
 	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
 	        transform: "translate(-9,0)",
 	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -12885,6 +12900,13 @@
 	            fill: "#00000"
 	          }), /*#__PURE__*/jsxRuntime.jsx(NDMain, {})]
 	        }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {})]
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        visibility: loadingDisp ? 'visible' : 'hidden',
+	        x: 0,
+	        y: 0,
+	        width: 1024,
+	        height: 768,
+	        fill: "#fff9cb"
 	      })]
 	    })
 	  });

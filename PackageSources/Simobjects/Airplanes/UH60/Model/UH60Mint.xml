@@ -17,8 +17,23 @@
     <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
-
+    <Include Path="DeltaSim-UH60\DeltaSim_MFD_Template.xml"/>
     
+
+<Component ID="MFD">
+      <UseTemplate Name="DELTASIM_MFD_Template">
+        <ID>1</ID>
+      </UseTemplate>
+      <UseTemplate Name="DELTASIM_MFD_Template">
+        <ID>2</ID>
+      </UseTemplate>
+      <UseTemplate Name="DELTASIM_MFD_Template">
+        <ID>3</ID>
+      </UseTemplate>
+
+</Component>
+
+
     <Component ID="EFBBRT" Node="TABLET.002">
       <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
         <EMISSIVE_CODE>

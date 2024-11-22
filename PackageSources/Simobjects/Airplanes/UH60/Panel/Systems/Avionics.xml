@@ -1,0 +1,46 @@
+<Gauge Name="H60Avionics" Version="1.0">
+
+
+<Comment>
+*************************************************
+Avionics Power Systems - Delta Simulations UH60 for MSFS
+*************************************************
+[1] [0] (>K:2:[key_event_name])
+</Comment>
+
+<Element>
+<Select>
+<Value>
+<!-- MFD POWER LOGIC -->
+(L:H60_MFD_1_PWR_BTN) 1 ==
+(A:ELECTRICAL MAIN BUS VOLTAGE, volts) 23 &gt; and
+if{ 
+   1 (&gt;L:H60_MFD_1_PWR)
+} els{
+   0 (&gt;L:H60_MFD_1_PWR)
+}
+
+(L:H60_MFD_2_PWR_BTN) 1 ==
+(A:ELECTRICAL MAIN BUS VOLTAGE, volts) 23 &gt; and
+if{ 
+   1 (&gt;L:H60_MFD_2_PWR)
+} els{
+   0 (&gt;L:H60_MFD_2_PWR)
+}
+
+
+
+(L:H60_MFD_3_PWR_BTN) 1 ==
+(L:H60_Cpit_26VPower) 1 == and
+if{ 
+   1 (&gt;L:H60_MFD_3_PWR)
+} els{
+   0 (&gt;L:H60_MFD_3_PWR)
+}
+
+</Value>
+</Select>
+</Element> 
+
+
+</Gauge>

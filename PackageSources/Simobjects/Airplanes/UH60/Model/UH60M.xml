@@ -209,7 +209,23 @@
   </Component>
 
 
-
+	<!-- <Component ID="DOWNWASH_TEST" Node="DOWNWASH">
+		<Component ID="FX_LOW_ALTITUDE_DUST_DOWNWASHNEW"  Node="DOWNWASH">
+			<UseTemplate Name="ASOBO_GT_FX">
+				<FX_CODE>
+          (A:PLANE ALT ABOVE GROUND, Feet) 100 &lt; 
+          (A:ROTOR RPM PCT:1, percent) 60 &gt; and
+        </FX_CODE>
+        <FX_GUID>{C8FB3147-D775-4CD1-AC8F-AEB717924F86}</FX_GUID>
+        <FX_NAME>FX_LOW_ALTITUDE_DUST</FX_NAME>
+        <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+        <FX_NODE>__NO_NODE__</FX_NODE>
+        <ENABLE_SURFACE_TYPE_0>DUST</ENABLE_SURFACE_TYPE_0>
+        <ENABLE_SURFACE_TYPE_1>SNOW</ENABLE_SURFACE_TYPE_1>
+        <ENABLE_SURFACE_TYPE_2>DIRT</ENABLE_SURFACE_TYPE_2>
+			</UseTemplate>
+		</Component>
+  </Component> -->
 
 
         <Component ID="DOWNWASH_1_NODE" Node="DOWNWASH">
@@ -354,13 +370,15 @@
 			<UPDATE_ONCE>True</UPDATE_ONCE>
 			<UPDATE_CODE>1 (&gt;O:test_rotor)</UPDATE_CODE>
 		</UseTemplate>
-		<UseTemplate Name="ASOBO_GT_Anim">
+
+		<UseTemplate Name="Generic_Anim_DELTASIM">
       <ANIM_NAME>RTR_Rot</ANIM_NAME>
-			<ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) * </ANIM_CODE>
+			<ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
 			<ANIM_LENGTH>360</ANIM_LENGTH>
 			<ANIM_WRAP>1</ANIM_WRAP>
 			<ANIM_DELTA>1</ANIM_DELTA>
 		</UseTemplate>
+
     <UseTemplate Name="ASOBO_GT_Anim">
       <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
 			<ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
@@ -381,9 +399,7 @@
 					<ANIM_NAME>Rtr_cone</ANIM_NAME>
           <ANIM_LENGTH>200</ANIM_LENGTH>
 					<ANIM_CODE>
-              (A:DISK CONING PCT:1, percent) 100 +
-
-
+              100 (A:ROTOR RPM PCT:1, percent) 0.9 * +
 					</ANIM_CODE>
           <ANIM_LAG>70</ANIM_LAG>
 				</UseTemplate>
@@ -601,16 +617,16 @@
           <ANIM_LAG>30</ANIM_LAG>
 				</UseTemplate>
         <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Still1</MODEL_ID>
+          <MODEL_ID>Rotor_Main_Still1</MODEL_ID>
         </UseTemplate>
         <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Still2</MODEL_ID>
+          <MODEL_ID>Rotor_Main_Still2</MODEL_ID>
         </UseTemplate>
         <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Still3</MODEL_ID>
+          <MODEL_ID>Rotor_Main_Still3</MODEL_ID>
         </UseTemplate>
         <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Still4</MODEL_ID>
+          <MODEL_ID>Rotor_Main_Still4</MODEL_ID>
         </UseTemplate>
         <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
           <MODEL_ID>Main_Rotor_Blur1</MODEL_ID>

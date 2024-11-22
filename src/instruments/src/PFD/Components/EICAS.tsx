@@ -27,7 +27,7 @@ export const EICAS = () => {
         var [Q1] = useSimVar('A:ENG TORQUE PERCENT:1','percent');
         var [Q2] = useSimVar('A:ENG TORQUE PERCENT:2','percent');
 
-        var [RTR_AIRLND] = useSimVar('A:ROTOR RPM PCT:1','percent');
+        var [RTR_RPM] = useSimVar('A:ROTOR RPM PCT:1','percent');
         
         var [TOT_ENG] = useSimVar('L:TotEngRunning','enum');
 
@@ -52,13 +52,10 @@ export const EICAS = () => {
         TMP_1= Math.floor(TMP_1)
         TMP_2= Math.floor(TMP_2)
 
-        let NR: number = (NP_1+NP_2)/2 ;
-        RTR_AIRLND = RTR_AIRLND*100
-        NR = Math.floor(RTR_AIRLND*10)/10 ;
+        let NR = Math.floor(RTR_RPM*10)/10 ;
 
-        let increment: number = 20;
 
-        let RTR_TMP: number = Math.floor((NR*1.1)/TOT_ENG) ;
+        let RTR_TMP: number = Math.floor((NR)/TOT_ENG) ;
 
         return(
                 <svg viewBox='0 0 1280 1280'>
@@ -290,7 +287,7 @@ export const EICAS = () => {
                         </g>
                         <g transform="translate(720,-510)" >
                             <g transform="rotate(180,-67.5,867)" >
-                                <rect x={-90} y={690} width="45" height={NR*2.1} stroke="none" className='bargauge' stroke-width="3" />
+                                <rect x={-90} y={690} width="45" height={NR*3} stroke="none" className='bargauge' stroke-width="3" />
                             </g>
                             <rect x={-90} y={770} width="45" height="275" stroke="white" fill="none" stroke-width="3"/>
 

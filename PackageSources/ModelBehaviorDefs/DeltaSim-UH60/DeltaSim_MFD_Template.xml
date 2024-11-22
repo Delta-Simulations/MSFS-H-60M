@@ -1,0 +1,89 @@
+<ModelBehaviors>
+    <!-- CREATED FOR DELTA SIMULATION AIRCRAFT###################################### -->
+    <Include ModelBehaviorFile="Asobo\Common.xml"/> 
+    <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\FMC.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
+    <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
+    <Include Path="DeltaSim_Switch_Template.xml"/>
+
+<Template Name="DELTASIM_MFD_Button_Template">
+    <DefaultTemplateParameters>
+        <TOOLTIPID>MFD BTN</TOOLTIPID>
+    </DefaultTemplateParameters>
+    <UseTemplate Name="DELTASIM_PushButton_Template">
+        <TOOLTIPID>#TOOLTIPID#</TOOLTIPID>
+    </UseTemplate>
+</Template>
+<Template Name="DELTASIM_MFD_Switch_Template">
+    <DefaultTemplateParameters>
+        <TOOLTIPID>MFD PWR</TOOLTIPID>
+    </DefaultTemplateParameters>
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(O:BTN, bool) 100 *</ANIM>
+    <TOOLTIPID>#TOOLTIPID#</TOOLTIPID>
+    <INTERACT_CODE>
+      (O:BTN, bool) ! (&gt;O:BTN, bool)
+      #LEFT_SINGLE_CODE#
+    </INTERACT_CODE>
+  </UseTemplate>
+</Template>
+
+
+
+<Template Name="DELTASIM_MFD_Template">
+    <DefaultTemplateParameters>
+        <ID>1</ID>
+    </DefaultTemplateParameters>
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_MFD_#ID#_PWR_BTN, bool) 100 *</ANIM>
+    <NODE_ID>Button_MFD_#ID#_PWR</NODE_ID>
+    <TOOLTIPID>MFD #ID# PWR</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_MFD_#ID#_PWR_BTN, bool) ! (&gt;L:H60_MFD_#ID#_PWR_BTN, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
+
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_B_1</NODE_ID>
+        <LEFT_SINGLE_CODE>
+        0 (&gt;L:H60_MFD_#ID#_MODE, bool)
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_B_2</NODE_ID>
+        <LEFT_SINGLE_CODE>
+        1 (&gt;L:H60_MFD_#ID#_MODE, bool)
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_B_3</NODE_ID>
+        <LEFT_SINGLE_CODE>
+        2 (&gt;L:H60_MFD_#ID#_MODE, bool)
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_B_4</NODE_ID>
+        <LEFT_SINGLE_CODE>
+        3 (&gt;L:H60_MFD_#ID#_MODE, bool)
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_B_5</NODE_ID>
+        <LEFT_SINGLE_CODE>
+        4 (&gt;L:H60_MFD_#ID#_MODE, bool)
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_B_6</NODE_ID>
+        <LEFT_SINGLE_CODE>
+        5 (&gt;L:H60_MFD_#ID#_MODE, bool)
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+
+</Template>
+</ModelBehaviors>
