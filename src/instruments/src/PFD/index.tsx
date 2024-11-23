@@ -14,13 +14,14 @@ import { AltCircle } from './Components/AltCircle';
 import { VerticalSpeed } from './Components/verticalSpeed';
 import { getDisplayIndex } from '../Hooks/defaults';
 
-import { EICAS } from './Components/EICAS';
-import { EICASFuel } from './Components/EICASFuel';
-import { EICASExtTanks } from './Components/EICASExtTanks';
+import { EICAS } from './Components/EICAS/EICAS';
+import { EICASFuel } from './Components/EICAS/EICASFuel';
+import { EICASExtTanks } from './Components/EICAS/EICASExtTanks';
 import { Electricity_MFD } from '../Common/circuit';
 import "./style.scss";
 
 import { NDMain } from './Components/NDMain';
+import { TacMap } from './Components/TacMap/TacMap';
 
 const PFD = () => {
     let DisplayID = getDisplayIndex();
@@ -28,21 +29,12 @@ const PFD = () => {
     
     const [DISP_TYPE] = useSimVar(displaycontrols, 'enum');
     const [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
-
-    const [loadingDisp, setShowRectangle] = useState(true); // State to track rectangle visibility
-    useEffect(() => {
-        if (loadingDisp) {
-          // Hide the rectangle after 4 seconds
-          const timer = setTimeout(() => setShowRectangle(false),  Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000);
-          return () => clearTimeout(timer); // Cleanup the timeout if component unmounts
-        }
-      }, [loadingDisp]);
    
 return(
     <Electricity_MFD powerVar={`L:H60_MFD_${DisplayID}_PWR`}>
             <svg viewBox='0 0 1024 768'>
                 <rect x={0} y={0} width={1024} height={768} fill='#000000'/>
-                <g transform="translate(-9,0)">
+                <g >
 
                     
 
@@ -50,7 +42,6 @@ return(
                     {/* PFD SPECIFIC */}
 
                     <g visibility={DISP_TYPE == 0 ? 'visible' : 'hidden'}>
-                        <image xlinkHref="/Images/pd.png"  height={768} x={0} y={0} opacity={0.7}/>
                         <Horizon />
                         <SpdIndicator />
                         <ApReadout />
@@ -64,18 +55,21 @@ return(
                         <g transform="translate(-67,-158)">
                             <FlightDirector />
                         </g>
-                        
+                        <image xlinkHref="/Images/pfd.png"  x={0} y={0} opacity={0.4}/>
+
                     </g>
 
                     <g visibility={DISP_TYPE == 2 ? 'visible' : 'hidden'}>
                         <rect x={0} y={0} width={1024} height={768} fill='#00000'/>
-                        <image xlinkHref="/Images/ECAS.png" height={768} x={-0} y={0} opacity={0.7}/>      
+                        <image xlinkHref="/Images/EICAS.png" x={0} y={0} opacity={0.6}/>
+
                         <EICAS />
-                        <EICASFuel />
+
+                        
                     </g>
 
                     <g visibility={(2==Ext_Tanks)&&(DISP_TYPE==2) ?'visible' : 'hidden'}>
-                    <EICASExtTanks />
+                        <EICASExtTanks />
                     </g>
 
                     <g visibility={DISP_TYPE == 1 ? 'visible' : 'hidden'}>
@@ -83,10 +77,19 @@ return(
                         <NDMain />
                     </g>
 
+                    <g visibility={DISP_TYPE == 4 ? 'visible' : 'hidden'}>
+                        <rect x={0} y={0} width={1024} height={768} fill='#00000'/>
+                        <image xlinkHref="/Images/Tacmap.png" x={0} y={0} opacity={0.1}/>
+                        <TacMap theme={undefined}   mapSettings={{
+    tiles: 'voyagerCarto',
+    openAIP: true,
+    weather: true,
+    vatsim: true,
+  }}/>
+                    </g>
 
                     <Fixed />
                 </g>
-                <rect visibility={loadingDisp ? 'visible' : 'hidden'} x={0} y={0} width={1024} height={768} fill='#fff9cb'/>
 
             </svg>
             </Electricity_MFD>

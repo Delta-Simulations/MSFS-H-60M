@@ -29,6 +29,7 @@ export const getRootElement: () => HTMLElement = () => {
 };
 
 export const getDisplayIndex = () => {
-    const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-    return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+    // const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+    // return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+    return 1
   };

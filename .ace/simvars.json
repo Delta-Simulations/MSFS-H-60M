@@ -1,83 +1,134 @@
 {
     "elements": [
         {
-            "__uuid": "e020dd8f-a9e4-4313-b9fb-9b1afa5821b2",
-            "title": "Variant Detected",
+            "__uuid": "e38c7663-99b6-4932-be11-f192b195688b",
+            "title": "PWR",
             "varPrefix": "L",
-            "varName": "H60_IsVariant",
+            "varName": "H60_MFD_1_PWR",
             "varUnit": "number",
             "style": {
                 "type": 3
             }
         },
         {
-            "__uuid": "8d647fde-9a70-48a9-a5f8-1c69697a5c84",
-            "title": "hasprobe",
+            "__uuid": "8094a05c-dc8d-4e18-8f75-3459c3d47a67",
+            "title": "Disp Mode",
             "varPrefix": "L",
-            "varName": "H60_HasProbe",
+            "varName": "H60_MFD_1_MODE",
             "varUnit": "number",
             "style": {
-                "type": 3
+                "type": 2,
+                "min": 0,
+                "max": 6,
+                "step": 1
             }
         },
         {
-            "__uuid": "30e9347f-53bb-4965-9f9c-6e068e0f3bea",
-            "title": "HasHoist",
-            "varPrefix": "L",
-            "varName": "H60_HasHoist",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "85b82cc4-e4cd-4b53-8814-bb3e052712f5",
-            "title": "Hasmissle",
-            "varPrefix": "L",
-            "varName": "H60_HasMissile",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "f07851ed-9285-4a33-acf4-4edb6072ff30",
-            "title": "OnGround",
+            "__uuid": "436f8d12-98f4-407f-bbe2-75b43bd7c175",
+            "title": "TempEng1",
             "varPrefix": "A",
-            "varName": "SIM ON GROUND",
+            "varName": "ENG OIL TEMPERATURE",
+            "varUnit": "number",
+            "style": {
+                "type": 0
+            }
+        },
+        {
+            "__uuid": "6059e37a-20f3-4344-91d2-2fe115e12c44",
+            "title": "press eng1",
+            "varPrefix": "A",
+            "varName": "ENG OIL PRESSURE",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": -1,
+                "max": 160,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "cd3fed58-ae65-437f-8bef-9ddd85393b86",
+            "title": "NG 1",
+            "varPrefix": "A",
+            "varName": "TURB ENG CORRECTED N1",
+            "varUnit": "percent",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 110,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "794c877b-f2ed-4342-bd7f-75bf103ad008",
+            "title": "comb",
+            "varPrefix": "A",
+            "varName": "ENG COMBUSTION",
             "varUnit": "number",
             "style": {
                 "type": 3
             }
         },
         {
-            "__uuid": "9521f208-2298-4e7e-abd7-b5879bc76580",
-            "title": "SL Down Up",
-            "varPrefix": "L",
-            "varName": "H60_SL_DownUp",
-            "varUnit": "enum",
-            "style": {
-                "type": 1
-            }
-        },
-        {
-            "__uuid": "303dd53e-1e55-4b80-8be5-fb959ab7fe4a",
-            "title": "SL R L",
-            "varPrefix": "L",
-            "varName": "H60_SL_RightLeft",
-            "varUnit": "enum",
-            "style": {
-                "type": 1
-            }
-        },
-        {
-            "__uuid": "9a217dfd-425f-4c24-be26-a1a0d4ee954f",
-            "title": "SL POWER",
-            "varPrefix": "L",
-            "varName": "H60_SL_TOGGLE",
+            "__uuid": "7f122a7a-cb72-4f56-9280-0dd80d6f0af8",
+            "title": "Comb 2",
+            "varPrefix": "A",
+            "varName": "ENG COMBUSTION:2",
             "varUnit": "number",
             "style": {
                 "type": 3
+            }
+        },
+        {
+            "__uuid": "6d191547-52f8-4631-8e3f-8cd41f39b51e",
+            "title": "TGT 1",
+            "varPrefix": "A",
+            "varName": "ENG EXHAUST GAS TEMPERATURE",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 700,
+                "max": 950,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "4550725c-2352-454f-9477-89bb79516cf5",
+            "title": "Eng Q1 Torque",
+            "varPrefix": "A",
+            "varName": "ENG TORQUE PERCENT",
+            "varUnit": "percent",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 150,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "e367a5a5-e8b0-48a5-92ca-964b9ba88c79",
+            "title": "NP RPM 1",
+            "varPrefix": "A",
+            "varName": "GENERAL ENG PCT MAX RPM",
+            "varUnit": "percent",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 111,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "45af63a9-4d95-4469-adeb-506f91d85820",
+            "title": "NR MAIN",
+            "varPrefix": "A",
+            "varName": "ROTOR RPM PCT",
+            "varUnit": "percent",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 115,
+                "step": 1
             }
         }
     ]

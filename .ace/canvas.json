@@ -1,11 +1,11 @@
 {
     "elements": [
         {
-            "__uuid": "9dbeabff-8b23-4dce-86c9-7f2f8f1145d0",
+            "__uuid": "607f5453-dead-4760-b677-e802e229a4fe",
             "__kind": "instrument",
             "dataKind": "bundled",
-            "title": "EFB",
-            "instrumentName": "EFB",
+            "title": "PFD",
+            "instrumentName": "PFD",
             "position": {
                 "x": 0,
                 "y": 0
