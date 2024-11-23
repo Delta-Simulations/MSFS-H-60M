@@ -41,7 +41,7 @@ const PFD = () => {
 					display: DISP_TYPE == 4 ? "block" : "none",
 				}}
 			>
-				{/* <image xlinkHref="/Images/Tacmap.png" x={0} y={0} opacity={0.1}/> */}
+
 				<TacMap />
 			</div>
 			<svg
@@ -51,7 +51,6 @@ const PFD = () => {
 				{/* <rect x={0} y={0} width={1024} height={768} fill="#000000" /> */}
 				<g>
 					{/* PFD SPECIFIC */}
-
 					<g visibility={DISP_TYPE == 0 ? "visible" : "hidden"}>
 						<Horizon />
 						<SpdIndicator />
@@ -113,6 +112,7 @@ const PFD = () => {
 					</g>
 
 					<Fixed />
+
 				</g>
 			</svg>
 		</Electricity_MFD>

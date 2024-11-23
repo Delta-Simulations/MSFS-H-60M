@@ -24,14 +24,6 @@ const options = {
 	vectorTileLayerStyles: undefined, // default undefined
 };
 
-interface IMapComponentState {
-	lat: number;
-	lng: number;
-	heading: number;
-	zoom: number;
-	timestamp: number;
-	atcPos: any;
-}
 
 interface IMapComponentProps {
 	lat: number;
@@ -39,11 +31,12 @@ interface IMapComponentProps {
 	heading: number;
 	zoom: number;
     map_mode: number;
+	map_symbology: boolean;
 }
 
 
 const MapComponent = (props: IMapComponentProps) => {
-	const { lat, lng, heading, zoom } = props;
+	const { lat, lng, heading, zoom, map_mode, map_symbology } = props;
 	// let mapRef = useRef();
 
 
@@ -60,7 +53,7 @@ const MapComponent = (props: IMapComponentProps) => {
 
 		return null;
 	};
-
+	
 	const providers = {
 		esriSatellite:
 			"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -70,7 +63,22 @@ const MapComponent = (props: IMapComponentProps) => {
 		bg: "http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
 		openaip:
 			"https://api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=0396e876c80eaf82d1103890d3fb0d32",
+		jawg:
+			"https://tile.jawg.io/39f84be8-9d33-41c2-8a4b-1cb036d6c179/{z}/{x}/{y}{r}.png?access-token=vvwao8KGCFTxwoXvi5dTIe1rx7GeqkH9kW57dlJSz5gbu8yjVblQdK1ySa4oieqp"
 	};
+	// CHART, TERRAIN, SATELLITE
+	let providerUrl = "";
+	let providerUrl_2 = "";
+	if (map_mode === 0) {
+		providerUrl = providers.bg;
+		providerUrl_2 = providers.openaip;
+	  } else if (map_mode === 1) {
+		providerUrl = providers.jawg;
+		providerUrl_2 = ""
+	  } else if (map_mode === 2) {
+		providerUrl = providers.esriSatellite;
+		providerUrl_2 = ""
+	  }
 
 	return (
 		<div style={{ height: "100%", width: "100%" }}>
@@ -78,6 +86,7 @@ const MapComponent = (props: IMapComponentProps) => {
 				// whenCreated={(mapInstance) => {
 				// 	mapRef.current = mapInstance;
 				// }}
+
 				id="mapContainer"
 				center={[0, 0]}
 				rotate={true}
@@ -86,9 +95,12 @@ const MapComponent = (props: IMapComponentProps) => {
 				fadeAnimation={false}
 				markerZoomAnimation={false}
 				bearing={0}
+				rotateControl={false}
+
 			>
-                <TileLayer url={providers["CyclOSM"]} />
-				<TileLayer url={providers["openaip"]} />
+                <TileLayer url={providerUrl} />
+				<TileLayer url={providerUrl_2} />
+
 				<PosHandler lat={lat} lng={lng} rot={heading} zoom={zoom} />
 			</MapContainer>
 		</div>

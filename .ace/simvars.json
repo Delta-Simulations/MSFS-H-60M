@@ -182,6 +182,42 @@
                 "max": 15,
                 "step": 1
             }
+        },
+        {
+            "__uuid": "1d47a44d-772f-4444-9285-ab2c3f1dc56d",
+            "title": "Scale_Full_Half",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_SCALE_MODE",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 2,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "f4fd213d-f4de-4263-8979-c0ee8e45379a",
+            "title": "TAC MAP RENDER MODE",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_MODE",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 6,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "2ff85024-b440-4889-8089-ec9cfdc1afd3",
+            "title": "TACMAP orientation",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_ORIENT",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
         }
     ]
 }

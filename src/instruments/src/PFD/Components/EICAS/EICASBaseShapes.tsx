@@ -14,18 +14,20 @@ export const EICASBaseShapes = () => {
 
     return (
         <g>
-            <g visibility={! ENG_COMB_1 ? 'visible' : 'hidden'}>
+            {ENG_COMB_1 != 1 && (
+            <g >
                 <line x1="14" y1="111.5" x2="389" y2="317.5" stroke="black" stroke-width="4"/>
                 <line x1="389" y1="111.5" x2="14" y2="317.5" stroke="black" stroke-width="4"/>
                 <line x1="14" y1="111.5" x2="389" y2="317.5" stroke="red" stroke-width="2"/>
                 <line x1="389" y1="111.5" x2="14" y2="317.5" stroke="red" stroke-width="2"/>
-            </g>
-            <g visibility={! ENG_COMB_2 ? 'visible' : 'hidden'}>
+            </g>)}
+            {ENG_COMB_2 != 1 && (
+            <g>
                 <line x1="1010" y1="111.5" x2="635" y2="317.5" stroke="black" stroke-width="4"/>
                 <line x1="635" y1="111.5" x2="1010" y2="317.5" stroke="black" stroke-width="4"/>
                 <line x1="1010" y1="111.5" x2="635" y2="317.5" stroke="red" stroke-width="2"/>
                 <line x1="635" y1="111.5" x2="1010" y2="317.5" stroke="red" stroke-width="2"/>
-            </g>
+            </g>)}
             {/* BOXES */}
             {/* LEFT */}
             <g transform='translate(12,100)'>
