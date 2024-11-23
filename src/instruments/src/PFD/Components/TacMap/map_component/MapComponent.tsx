@@ -1,14 +1,7 @@
-import React, { Component } from "react";
-import {
-	MapContainer,
-	Marker,
-	Polygon,
-	TileLayer,
-	Tooltip,
-	useMap,
-} from "react-leaflet";
+import React, { useEffect, useRef } from "react";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import "leaflet-rotate";
 import "./MapComponent.scss";
-import { ThemeOptions, Typography } from "@mui/material";
 
 const options = {
 	// A function that will be used to decide whether to include a
@@ -45,39 +38,55 @@ interface IMapComponentProps {
 	lng: number;
 	heading: number;
 	zoom: number;
-	theme: ThemeOptions;
-	mapSettings: string;
 }
 
 const MapComponent = (props: IMapComponentProps) => {
-	const { lat, lng, heading, zoom, theme, mapSettings } = props;
+	const { lat, lng, heading, zoom } = props;
+	// let mapRef = useRef();
 
-	// const changeMapView = ({ coords }) => {
-	// 	const map = useMap();
-	// 	map.setView(coords, map.getZoom());
+	// https://stackoverflow.com/questions/65322670/change-center-position-of-react-leaflet-map
+	const PosHandler = ({ lat, lng, rot, zoom }) => {
+		const map = useMap();
+		useEffect(() => {
+			map.setView([lat, lng], zoom, { animate: false });
+		}, [lat, lng, zoom]);
 
-	// 	return null;
-	// };
+		useEffect(() => {
+			map.setBearing(rot);
+		}, [rot]);
+
+		return null;
+	};
 
 	const providers = {
 		esriSatellite:
 			"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
 		openTopoMap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+		CyclOSM:
+			"https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+		bg: "http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
+		openaip:
+			"https://api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=0396e876c80eaf82d1103890d3fb0d32",
 	};
 
 	return (
-		<div id={"mapContainer"}>
+		<div style={{ height: "100%", width: "100%" }}>
 			<MapContainer
+				// whenCreated={(mapInstance) => {
+				// 	mapRef.current = mapInstance;
+				// }}
 				id="mapContainer"
-				className={"dashboard"}
 				center={[0, 0]}
-				zoom={2}
-				scrollWheelZoom={true}
+				rotate={true}
+				zoom={5}
+				zoomAnimation={false}
+				fadeAnimation={false}
+				markerZoomAnimation={false}
+				bearing={0}
 			>
-				<TileLayer
-					attribution='&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-					url={providers["openTopoMap"]}
-				/>
+				<TileLayer url={providers["CyclOSM"]} />
+				<TileLayer url={providers["openaip"]} />
+				<PosHandler lat={lat} lng={lng} rot={heading} zoom={zoom} />
 			</MapContainer>
 		</div>
 	);

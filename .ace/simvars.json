@@ -130,6 +130,58 @@
                 "max": 115,
                 "step": 1
             }
+        },
+        {
+            "__uuid": "541a8311-9d89-4aac-9a00-1677f0a09ace",
+            "title": "GPS POS LAT",
+            "varPrefix": "A",
+            "varName": "GPS POSITION LAT",
+            "varUnit": "Degrees",
+            "style": {
+                "type": 2,
+                "min": -90,
+                "max": 90,
+                "step": 0.05
+            }
+        },
+        {
+            "__uuid": "1bdfed51-0ae1-4ec6-817b-d3d56730824c",
+            "title": "GPS POS LON",
+            "varPrefix": "A",
+            "varName": "GPS POSITION LON",
+            "varUnit": "Degrees",
+            "style": {
+                "type": 2,
+                "min": -180,
+                "max": 180,
+                "step": 0.01
+            }
+        },
+        {
+            "__uuid": "cb67cfff-09d4-4a46-9824-05703c9334a9",
+            "title": "Heading",
+            "varPrefix": "A",
+            "varName": "PLANE HEADING DEGREES GYRO",
+            "varUnit": "Degrees",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 360,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "4ffa4ac1-2c64-404e-a015-c60925b6fecc",
+            "title": "PFD ZOOM",
+            "varPrefix": "L",
+            "varName": "PFD_MAP_ZOOM",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 1,
+                "max": 15,
+                "step": 1
+            }
         }
     ]
 }

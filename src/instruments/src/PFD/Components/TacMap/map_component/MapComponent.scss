@@ -335,6 +335,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-control-zoom-out {
     font: bold 18px 'Lucida Console', Monaco, monospace;
     text-indent: 1px;
+    display: none !important;
 }
 
 .leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
@@ -643,20 +644,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 
 #mapContainer {
-    //height: 49.2vh;
-    //width: 49vw;
-    //margin: -5px auto 0 0px;
-    display: inline-block;
-}
-.dashboard {
-    height: 49.3vh;
-    width: 49vw;
-    //margin: -6px auto 0 0px;
-    display: inline-block;
-}
-.settings {
-    height: 240px;
-    width: 100vw;
-    margin: -5px auto 0 0px;
+    height: 100%;
+    width: 100%;
     display: inline-block;
 }
