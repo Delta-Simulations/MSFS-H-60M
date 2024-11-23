@@ -10882,7 +10882,7 @@
 	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	        transform: "translate(1000, 87)scale(1.25)",
 	        children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	          points: "\r 95,183 \r 160,183 \r 160,174 \r 205,174 \r 205,265 \r 160,265 \r 160,257 \r 95,256",
+	          points: " 95,183  160,183  160,174  205,174  205,265  160,265  160,257  95,256",
 	          stroke: "white",
 	          strokeWidth: 3,
 	          fill: "black"
@@ -28274,12 +28274,14 @@
 	  const [longitude] = useSimVar("GPS POSITION LON", "degree");
 	  const [heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	  const [zoom] = useSimVar("L:PFD_MAP_ZOOM", "number");
+	  const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
 	    children: [/*#__PURE__*/jsxRuntime.jsx(MapComponent, {
 	      lat: latitude,
 	      lng: longitude,
 	      heading: heading,
-	      zoom: zoom
+	      zoom: zoom,
+	      map_mode: Disp_mode
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
 	      width: "100%",
 	      height: "100%",
@@ -28320,6 +28322,13 @@
 	          width: 65,
 	          height: 40,
 	          fill: "#00000"
+	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	          x1: "50%",
+	          y1: "40%",
+	          x2: "50%",
+	          y2: "50%",
+	          stroke: "white",
+	          "stroke-width": "4"
 	        })]
 	      })
 	    })]

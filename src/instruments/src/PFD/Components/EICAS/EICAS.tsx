@@ -38,7 +38,6 @@ export const EICAS = () => {
     let TEST: number = 100;
 
 
-
     Q1 = Q1 / 6300;
     Q2 = Q2 / 6300;
     Q1 = Math.round(Q1)
@@ -64,9 +63,6 @@ export const EICAS = () => {
 
             <EICASTapes />
             <EICASBaseShapes/>
-            
-
-
 
         </g>
     )

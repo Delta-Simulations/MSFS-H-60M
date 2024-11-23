@@ -38,11 +38,14 @@ interface IMapComponentProps {
 	lng: number;
 	heading: number;
 	zoom: number;
+    map_mode: number;
 }
+
 
 const MapComponent = (props: IMapComponentProps) => {
 	const { lat, lng, heading, zoom } = props;
 	// let mapRef = useRef();
+
 
 	// https://stackoverflow.com/questions/65322670/change-center-position-of-react-leaflet-map
 	const PosHandler = ({ lat, lng, rot, zoom }) => {
@@ -84,7 +87,7 @@ const MapComponent = (props: IMapComponentProps) => {
 				markerZoomAnimation={false}
 				bearing={0}
 			>
-				<TileLayer url={providers["CyclOSM"]} />
+                <TileLayer url={providers["CyclOSM"]} />
 				<TileLayer url={providers["openaip"]} />
 				<PosHandler lat={lat} lng={lng} rot={heading} zoom={zoom} />
 			</MapContainer>

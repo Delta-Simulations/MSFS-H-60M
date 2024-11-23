@@ -10,6 +10,9 @@ export const TacMap = ({}) => {
 	const [heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	const [zoom] = useSimVar("L:PFD_MAP_ZOOM", "number");
 
+    const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
+
+
 	return (
 		<>
 			{/* Pass props correctly to MapComponent */}
@@ -18,6 +21,7 @@ export const TacMap = ({}) => {
 				lng={longitude}
 				heading={heading}
 				zoom={zoom}
+                map_mode={Disp_mode}
 			/>
 			<svg
 				width="100%"
@@ -59,6 +63,9 @@ export const TacMap = ({}) => {
 						height={40}
 						fill="#00000"
 					/>
+                    <line x1="50%" y1="40%" x2="50%" y2="50%" stroke="white" stroke-width="4"/>
+
+
 				</g>
 			</svg>
 		</>
