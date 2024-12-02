@@ -9,7 +9,7 @@ export const TacMap = ({ }) => {
 	const [latitude] = useSimVar("GPS POSITION LAT", "degree");
 	const [longitude] = useSimVar("GPS POSITION LON", "degree");
 	const [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
-	const [zoom] = useSimVar("L:PFD_MAP_ZOOM", "number");
+	const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
 
 	const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	const [Map_Declutter] = useSimVar('L:H60_TAC_MAP_DCLT', 'enum');

@@ -8539,9 +8539,8 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  // const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  // return url ? parseInt(url.substring(url.length - 1), 10) : 0;
-	  return 1;
+	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; // return 1
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -28220,7 +28219,7 @@
 	  }) => {
 	    const map = useMap();
 	    react.useEffect(() => {
-	      map.setView([lat, lng], zoom, {
+	      map.setView([lat, lng], zoom + 1, {
 	        animate: false
 	      });
 	    }, [lat, lng, zoom]);
@@ -28372,7 +28371,7 @@
 	  const [latitude] = useSimVar("GPS POSITION LAT", "degree");
 	  const [longitude] = useSimVar("GPS POSITION LON", "degree");
 	  const [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
-	  const [zoom] = useSimVar("L:PFD_MAP_ZOOM", "number");
+	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
 	  const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	  const [Map_Declutter] = useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
 	  useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
@@ -28495,8 +28494,8 @@
 	      style: {
 	        position: "absolute",
 	        top: 0,
-	        width: "100%",
-	        height: "100%",
+	        width: "1024px",
+	        height: "768px",
 	        display: DISP_TYPE == 4 ? "block" : "none"
 	      },
 	      children: /*#__PURE__*/jsxRuntime.jsx(TacMap, {})

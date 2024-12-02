@@ -44,7 +44,7 @@ const MapComponent = (props: IMapComponentProps) => {
 	const PosHandler = ({ lat, lng, rot, zoom }) => {
 		const map = useMap();
 		useEffect(() => {
-			map.setView([lat, lng], zoom, { animate: false });
+			map.setView([lat, lng], (zoom+1), { animate: false });
 		}, [lat, lng, zoom]);
 
 		useEffect(() => {

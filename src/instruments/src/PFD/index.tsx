@@ -36,8 +36,8 @@ const PFD = () => {
 				style={{
 					position: "absolute",
 					top: 0,
-					width: "100%",
-					height: "100%",
+					width: "1024px",
+					height: "768px",
 					display: DISP_TYPE == 4 ? "block" : "none",
 				}}
 			>
