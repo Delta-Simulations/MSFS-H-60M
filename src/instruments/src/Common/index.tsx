@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import ReactDOM from 'react-dom'
 
+export * from './CheckAce'
+
 type GroupProps = {
   x: number
   y: number
