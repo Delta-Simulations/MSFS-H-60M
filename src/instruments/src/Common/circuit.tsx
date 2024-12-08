@@ -1,42 +1,53 @@
-import React, { FC, ReactNode } from 'react';
-import { useSimVar } from '../Hooks/simVars';
+import React, { FC, ReactNode } from 'react'
+import { useSimVar } from '../Hooks'
+import { SimVarContext } from '../Hooks/ClassSimVars'
 
-interface ElectricityProps {
-	powerVar: string;
-	children: ReactNode;
+/**
+ * @param {string} localVar - Local Variable name (without the L:) i.e. "CIRCUIT_3_STATE"
+ * @param {boolean?} inverse - Invert the functionality of the circuit
+ */
+interface CircuitPowerProps {
+  localVar: string
+  inverse?: boolean
+  children: React.ReactNode
+}
+
+export const CircuitPower: FC<CircuitPowerProps> = ({ localVar, inverse = false, children }): null | JSX.Element => {
+  const [isOn] = useSimVar(`L:${localVar}`, 'bool')
+  if (inverse) {
+    if (isOn) return null
+    else return <div>{children}</div>
+  } else {
+    if (!isOn) return null
+    else return <div>{children}</div>
   }
-  
-export const Electricity_MFD: FC<ElectricityProps> = ({ powerVar, children }) => {
-	const [powerOn] = useSimVar(powerVar, 'bool');
-
-	if (!powerOn) return null;
-
-	return <div>{children}</div>;
-};
-
-export const Electricity: FC = ({ children }) => {
-	const [circuitOn] = useSimVar(`L:H60_Cpit_26VPower`, 'bool');
-	if (!circuitOn) return null;
-	else return <div>{children}</div>;
-};
-
-
-interface EfbPowerProps {
-	localVar: string;
 }
 
-export const EfbPower: FC<EfbPowerProps> = ({ localVar, children }) => {
-	const [isOn] = useSimVar(`L:${localVar}`, 'bool');
+class ClassCircuitPower extends React.Component<CircuitPowerProps> {
+  static contextType = SimVarContext
+  context!: React.ContextType<typeof SimVarContext>
 
-	if (isOn) return null;
-	else return <div>{children}</div>;
-};
-interface HUDPowerProps {
-	localVar: string;
+  componentDidMount() {
+    const { localVar, inverse = false, children } = this.props
+    const { register } = this.context
+
+    register(`L:${localVar}`, 'bool', 16, false)
+  }
+
+  render() {
+    const { localVar, inverse = false, children } = this.props
+    const { retrieve } = this.context
+
+    const isOn = retrieve(`L:${localVar}`, 'bool')
+
+    if (inverse) {
+      if (isOn) return null
+      else return <div>{children}</div>
+    } else {
+      if (!isOn) return null
+      else return <div>{children}</div>
+    }
+  }
 }
-export const HUDPower: FC<HUDPowerProps> = ({ localVar, children }) => {
-	const [isOn] = useSimVar(`L:${localVar}`, 'bool');
 
-	if (!isOn) return null;
-	else return <div>{children}</div>;
-};
+export default ClassCircuitPower

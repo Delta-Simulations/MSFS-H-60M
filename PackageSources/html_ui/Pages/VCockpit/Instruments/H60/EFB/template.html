@@ -8953,10 +8953,18 @@
 	  return value => contextValue.update(name, unit, value, proxy);
 	};
 
-	const render = Slot => {
-	  reactDom.render( /*#__PURE__*/jsxRuntime.jsx(SimVarProvider, {
+	/**
+	 * Use the given React element to render the instrument using React.
+	 */
+
+	const render = (Slot, useSimVarProvider = true) => {
+	  if (useSimVarProvider) reactDom.render( /*#__PURE__*/jsxRuntime.jsx(SimVarProvider, {
 	    children: Slot
-	  }), getRenderTarget());
+	  }), getRenderTarget());else {
+	    reactDom.render( /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+	      children: Slot
+	    }), getRenderTarget());
+	  }
 	};
 
 	function _extends$1() {
@@ -10225,185 +10233,6 @@
 
 	  return target;
 	}
-
-	/** @license React v16.13.1
-	 * react-is.production.min.js
-	 *
-	 * Copyright (c) Facebook, Inc. and its affiliates.
-	 *
-	 * This source code is licensed under the MIT license found in the
-	 * LICENSE file in the root directory of this source tree.
-	 */
-
-	var b = "function" === typeof Symbol && Symbol.for,
-	    c$1 = b ? Symbol.for("react.element") : 60103,
-	    d$1 = b ? Symbol.for("react.portal") : 60106,
-	    e$1 = b ? Symbol.for("react.fragment") : 60107,
-	    f = b ? Symbol.for("react.strict_mode") : 60108,
-	    g$1 = b ? Symbol.for("react.profiler") : 60114,
-	    h = b ? Symbol.for("react.provider") : 60109,
-	    k$1 = b ? Symbol.for("react.context") : 60110,
-	    l = b ? Symbol.for("react.async_mode") : 60111,
-	    m$1 = b ? Symbol.for("react.concurrent_mode") : 60111,
-	    n$1 = b ? Symbol.for("react.forward_ref") : 60112,
-	    p$1 = b ? Symbol.for("react.suspense") : 60113,
-	    q$1 = b ? Symbol.for("react.suspense_list") : 60120,
-	    r$1 = b ? Symbol.for("react.memo") : 60115,
-	    t$1 = b ? Symbol.for("react.lazy") : 60116,
-	    v = b ? Symbol.for("react.block") : 60121,
-	    w = b ? Symbol.for("react.fundamental") : 60117,
-	    x$1 = b ? Symbol.for("react.responder") : 60118,
-	    y$1 = b ? Symbol.for("react.scope") : 60119;
-
-	function z$1(a) {
-	  if ("object" === typeof a && null !== a) {
-	    var u = a.$$typeof;
-
-	    switch (u) {
-	      case c$1:
-	        switch (a = a.type, a) {
-	          case l:
-	          case m$1:
-	          case e$1:
-	          case g$1:
-	          case f:
-	          case p$1:
-	            return a;
-
-	          default:
-	            switch (a = a && a.$$typeof, a) {
-	              case k$1:
-	              case n$1:
-	              case t$1:
-	              case r$1:
-	              case h:
-	                return a;
-
-	              default:
-	                return u;
-	            }
-
-	        }
-
-	      case d$1:
-	        return u;
-	    }
-	  }
-	}
-
-	function A$1(a) {
-	  return z$1(a) === m$1;
-	}
-
-	var AsyncMode = l;
-	var ConcurrentMode = m$1;
-	var ContextConsumer = k$1;
-	var ContextProvider = h;
-	var Element = c$1;
-	var ForwardRef = n$1;
-	var Fragment = e$1;
-	var Lazy = t$1;
-	var Memo = r$1;
-	var Portal = d$1;
-	var Profiler = g$1;
-	var StrictMode = f;
-	var Suspense = p$1;
-
-	var isAsyncMode = function (a) {
-	  return A$1(a) || z$1(a) === l;
-	};
-
-	var isConcurrentMode = A$1;
-
-	var isContextConsumer = function (a) {
-	  return z$1(a) === k$1;
-	};
-
-	var isContextProvider = function (a) {
-	  return z$1(a) === h;
-	};
-
-	var isElement = function (a) {
-	  return "object" === typeof a && null !== a && a.$$typeof === c$1;
-	};
-
-	var isForwardRef = function (a) {
-	  return z$1(a) === n$1;
-	};
-
-	var isFragment = function (a) {
-	  return z$1(a) === e$1;
-	};
-
-	var isLazy = function (a) {
-	  return z$1(a) === t$1;
-	};
-
-	var isMemo = function (a) {
-	  return z$1(a) === r$1;
-	};
-
-	var isPortal = function (a) {
-	  return z$1(a) === d$1;
-	};
-
-	var isProfiler = function (a) {
-	  return z$1(a) === g$1;
-	};
-
-	var isStrictMode = function (a) {
-	  return z$1(a) === f;
-	};
-
-	var isSuspense = function (a) {
-	  return z$1(a) === p$1;
-	};
-
-	var isValidElementType = function (a) {
-	  return "string" === typeof a || "function" === typeof a || a === e$1 || a === m$1 || a === g$1 || a === f || a === p$1 || a === q$1 || "object" === typeof a && null !== a && (a.$$typeof === t$1 || a.$$typeof === r$1 || a.$$typeof === h || a.$$typeof === k$1 || a.$$typeof === n$1 || a.$$typeof === w || a.$$typeof === x$1 || a.$$typeof === y$1 || a.$$typeof === v);
-	};
-
-	var typeOf = z$1;
-	var reactIs_production_min = {
-	  AsyncMode: AsyncMode,
-	  ConcurrentMode: ConcurrentMode,
-	  ContextConsumer: ContextConsumer,
-	  ContextProvider: ContextProvider,
-	  Element: Element,
-	  ForwardRef: ForwardRef,
-	  Fragment: Fragment,
-	  Lazy: Lazy,
-	  Memo: Memo,
-	  Portal: Portal,
-	  Profiler: Profiler,
-	  StrictMode: StrictMode,
-	  Suspense: Suspense,
-	  isAsyncMode: isAsyncMode,
-	  isConcurrentMode: isConcurrentMode,
-	  isContextConsumer: isContextConsumer,
-	  isContextProvider: isContextProvider,
-	  isElement: isElement,
-	  isForwardRef: isForwardRef,
-	  isFragment: isFragment,
-	  isLazy: isLazy,
-	  isMemo: isMemo,
-	  isPortal: isPortal,
-	  isProfiler: isProfiler,
-	  isStrictMode: isStrictMode,
-	  isSuspense: isSuspense,
-	  isValidElementType: isValidElementType,
-	  typeOf: typeOf
-	};
-
-	createCommonjsModule(function (module, exports) {
-	});
-
-	var reactIs = createCommonjsModule(function (module) {
-
-	  {
-	    module.exports = reactIs_production_min;
-	  }
-	});
 
 	function toVal(mix) {
 	  var k,
@@ -12010,27 +11839,27 @@
 	  return StyleSheet;
 	}();
 
-	var e = "-ms-";
-	var r = "-moz-";
+	var e$1 = "-ms-";
+	var r$1 = "-moz-";
 	var a = "-webkit-";
-	var c = "comm";
-	var n = "rule";
-	var t = "decl";
+	var c$1 = "comm";
+	var n$1 = "rule";
+	var t$1 = "decl";
 	var i = "@import";
-	var p = "@keyframes";
-	var k = Math.abs;
-	var d = String.fromCharCode;
-	var g = Object.assign;
+	var p$1 = "@keyframes";
+	var k$1 = Math.abs;
+	var d$1 = String.fromCharCode;
+	var g$1 = Object.assign;
 
-	function m(e, r) {
-	  return (((r << 2 ^ z(e, 0)) << 2 ^ z(e, 1)) << 2 ^ z(e, 2)) << 2 ^ z(e, 3);
+	function m$1(e, r) {
+	  return (((r << 2 ^ z$1(e, 0)) << 2 ^ z$1(e, 1)) << 2 ^ z$1(e, 2)) << 2 ^ z$1(e, 3);
 	}
 
-	function x(e) {
+	function x$1(e) {
 	  return e.trim();
 	}
 
-	function y(e, r) {
+	function y$1(e, r) {
 	  return (e = r.exec(e)) ? e[0] : e;
 	}
 
@@ -12042,11 +11871,11 @@
 	  return e.indexOf(r);
 	}
 
-	function z(e, r) {
+	function z$1(e, r) {
 	  return e.charCodeAt(r) | 0;
 	}
 
-	function A(e, r, a) {
+	function A$1(e, r, a) {
 	  return e.slice(r, a);
 	}
 
@@ -12062,7 +11891,7 @@
 	  return r.push(e), e;
 	}
 
-	function q(e, r) {
+	function q$1(e, r) {
 	  return e.map(r).join("");
 	}
 
@@ -12089,7 +11918,7 @@
 	}
 
 	function J(e, r) {
-	  return g(I("", null, null, "", null, null, 0), e, {
+	  return g$1(I("", null, null, "", null, null, 0), e, {
 	    length: -e.length
 	  }, r);
 	}
@@ -12099,19 +11928,19 @@
 	}
 
 	function L() {
-	  G = F > 0 ? z(H, --F) : 0;
+	  G = F > 0 ? z$1(H, --F) : 0;
 	  if (D--, G === 10) D = 1, B--;
 	  return G;
 	}
 
 	function N() {
-	  G = F < E ? z(H, F++) : 0;
+	  G = F < E ? z$1(H, F++) : 0;
 	  if (D++, G === 10) D = 1, B++;
 	  return G;
 	}
 
 	function P() {
-	  return z(H, F);
+	  return z$1(H, F);
 	}
 
 	function Q() {
@@ -12119,7 +11948,7 @@
 	}
 
 	function R(e, r) {
-	  return A(H, e, r);
+	  return A$1(H, e, r);
 	}
 
 	function T(e) {
@@ -12169,7 +11998,7 @@
 	}
 
 	function W(e) {
-	  return x(R(F - 1, ee(e === 91 ? e + 2 : e === 40 ? e + 1 : e)));
+	  return x$1(R(F - 1, ee(e === 91 ? e + 2 : e === 40 ? e + 1 : e)));
 	}
 
 	function Y(e) {
@@ -12209,7 +12038,7 @@
 	function re(e, r) {
 	  while (N()) if (e + G === 47 + 10) break;else if (e + G === 42 + 42 && P() === 47) break;
 
-	  return "/*" + R(r, F - 1) + "*" + d(e === 47 ? e : N());
+	  return "/*" + R(r, F - 1) + "*" + d$1(e === 47 ? e : N());
 	}
 
 	function ae(e) {
@@ -12317,7 +12146,7 @@
 	    default:
 	      if (b < 1) if (k == 123) --b;else if (k == 125 && b++ == 0 && L() == 125) continue;
 
-	      switch (z += d(k), k * b) {
+	      switch (z += d$1(k), k * b) {
 	        case 38:
 	          $ = o > 0 ? 1 : (z += "\f", -1);
 	          break;
@@ -12345,21 +12174,21 @@
 	  var h = t === 0 ? s : [""];
 	  var p = M(h);
 
-	  for (var b = 0, w = 0, $ = 0; b < c; ++b) for (var d = 0, g = A(e, v + 1, v = k(w = u[b])), m = e; d < p; ++d) if (m = x(w > 0 ? h[d] + " " + g : j(g, /&\f/g, h[d]))) f[$++] = m;
+	  for (var b = 0, w = 0, $ = 0; b < c; ++b) for (var d = 0, g = A$1(e, v + 1, v = k$1(w = u[b])), m = e; d < p; ++d) if (m = x$1(w > 0 ? h[d] + " " + g : j(g, /&\f/g, h[d]))) f[$++] = m;
 
-	  return I(e, r, a, t === 0 ? n : i, f, o, l);
+	  return I(e, r, a, t === 0 ? n$1 : i, f, o, l);
 	}
 
 	function se(e, r, a) {
-	  return I(e, r, a, c, d(K()), A(e, 2, -2), 0);
+	  return I(e, r, a, c$1, d$1(K()), A$1(e, 2, -2), 0);
 	}
 
 	function ue(e, r, a, c) {
-	  return I(e, r, a, t, A(e, 0, c), A(e, c + 1, -1), c);
+	  return I(e, r, a, t$1, A$1(e, 0, c), A$1(e, c + 1, -1), c);
 	}
 
 	function ie(c, n) {
-	  switch (m(c, n)) {
+	  switch (m$1(c, n)) {
 	    case 5103:
 	      return a + "print-" + c + c;
 
@@ -12395,32 +12224,32 @@
 	    case 4810:
 	    case 6968:
 	    case 2756:
-	      return a + c + r + c + e + c + c;
+	      return a + c + r$1 + c + e$1 + c + c;
 
 	    case 6828:
 	    case 4268:
-	      return a + c + e + c + c;
+	      return a + c + e$1 + c + c;
 
 	    case 6165:
-	      return a + c + e + "flex-" + c + c;
+	      return a + c + e$1 + "flex-" + c + c;
 
 	    case 5187:
-	      return a + c + j(c, /(\w+).+(:[^]+)/, a + "box-$1$2" + e + "flex-$1$2") + c;
+	      return a + c + j(c, /(\w+).+(:[^]+)/, a + "box-$1$2" + e$1 + "flex-$1$2") + c;
 
 	    case 5443:
-	      return a + c + e + "flex-item-" + j(c, /flex-|-self/, "") + c;
+	      return a + c + e$1 + "flex-item-" + j(c, /flex-|-self/, "") + c;
 
 	    case 4675:
-	      return a + c + e + "flex-line-pack" + j(c, /align-content|flex-|-self/, "") + c;
+	      return a + c + e$1 + "flex-line-pack" + j(c, /align-content|flex-|-self/, "") + c;
 
 	    case 5548:
-	      return a + c + e + j(c, "shrink", "negative") + c;
+	      return a + c + e$1 + j(c, "shrink", "negative") + c;
 
 	    case 5292:
-	      return a + c + e + j(c, "basis", "preferred-size") + c;
+	      return a + c + e$1 + j(c, "basis", "preferred-size") + c;
 
 	    case 6060:
-	      return a + "box-" + j(c, "-grow", "") + a + c + e + j(c, "grow", "positive") + c;
+	      return a + "box-" + j(c, "-grow", "") + a + c + e$1 + j(c, "grow", "positive") + c;
 
 	    case 4554:
 	      return a + j(c, /([^-])(transform)/g, "$1" + a + "$2") + c;
@@ -12433,7 +12262,7 @@
 	      return j(c, /(image-set\([^]*)/, a + "$1" + "$`$1");
 
 	    case 4968:
-	      return j(j(c, /(.+:)(flex-)?(.*)/, a + "box-pack:$3" + e + "flex-pack:$3"), /s.+-b[^;]+/, "justify") + a + c + c;
+	      return j(j(c, /(.+:)(flex-)?(.*)/, a + "box-pack:$3" + e$1 + "flex-pack:$3"), /s.+-b[^;]+/, "justify") + a + c + c;
 
 	    case 4095:
 	    case 3583:
@@ -12453,12 +12282,12 @@
 	    case 5789:
 	    case 5021:
 	    case 4765:
-	      if (O(c) - 1 - n > 6) switch (z(c, n + 1)) {
+	      if (O(c) - 1 - n > 6) switch (z$1(c, n + 1)) {
 	        case 109:
-	          if (z(c, n + 4) !== 45) break;
+	          if (z$1(c, n + 4) !== 45) break;
 
 	        case 102:
-	          return j(c, /(.+:)(.+)-([^]+)/, "$1" + a + "$2-$3" + "$1" + r + (z(c, n + 3) == 108 ? "$3" : "$2-$3")) + c;
+	          return j(c, /(.+:)(.+)-([^]+)/, "$1" + a + "$2-$3" + "$1" + r$1 + (z$1(c, n + 3) == 108 ? "$3" : "$2-$3")) + c;
 
 	        case 115:
 	          return ~C(c, "stretch") ? ie(j(c, "stretch", "fill-available"), n) + c : c;
@@ -12466,32 +12295,32 @@
 	      break;
 
 	    case 4949:
-	      if (z(c, n + 1) !== 115) break;
+	      if (z$1(c, n + 1) !== 115) break;
 
 	    case 6444:
-	      switch (z(c, O(c) - 3 - (~C(c, "!important") && 10))) {
+	      switch (z$1(c, O(c) - 3 - (~C(c, "!important") && 10))) {
 	        case 107:
 	          return j(c, ":", ":" + a) + c;
 
 	        case 101:
-	          return j(c, /(.+:)([^;!]+)(;|!.+)?/, "$1" + a + (z(c, 14) === 45 ? "inline-" : "") + "box$3" + "$1" + a + "$2$3" + "$1" + e + "$2box$3") + c;
+	          return j(c, /(.+:)([^;!]+)(;|!.+)?/, "$1" + a + (z$1(c, 14) === 45 ? "inline-" : "") + "box$3" + "$1" + a + "$2$3" + "$1" + e$1 + "$2box$3") + c;
 	      }
 
 	      break;
 
 	    case 5936:
-	      switch (z(c, n + 11)) {
+	      switch (z$1(c, n + 11)) {
 	        case 114:
-	          return a + c + e + j(c, /[svh]\w+-[tblr]{2}/, "tb") + c;
+	          return a + c + e$1 + j(c, /[svh]\w+-[tblr]{2}/, "tb") + c;
 
 	        case 108:
-	          return a + c + e + j(c, /[svh]\w+-[tblr]{2}/, "tb-rl") + c;
+	          return a + c + e$1 + j(c, /[svh]\w+-[tblr]{2}/, "tb-rl") + c;
 
 	        case 45:
-	          return a + c + e + j(c, /[svh]\w+-[tblr]{2}/, "lr") + c;
+	          return a + c + e$1 + j(c, /[svh]\w+-[tblr]{2}/, "lr") + c;
 	      }
 
-	      return a + c + e + c + c;
+	      return a + c + e$1 + c + c;
 	  }
 
 	  return c;
@@ -12509,16 +12338,16 @@
 	function oe(e, r, a, s) {
 	  switch (e.type) {
 	    case i:
-	    case t:
+	    case t$1:
 	      return e.return = e.return || e.value;
 
-	    case c:
+	    case c$1:
 	      return "";
 
-	    case p:
+	    case p$1:
 	      return e.return = e.value + "{" + fe(e.children, s) + "}";
 
-	    case n:
+	    case n$1:
 	      e.value = e.props.join(",");
 	  }
 
@@ -12544,31 +12373,31 @@
 
 	function he(c, s, u, i) {
 	  if (c.length > -1) if (!c.return) switch (c.type) {
-	    case t:
+	    case t$1:
 	      c.return = ie(c.value, c.length);
 	      break;
 
-	    case p:
+	    case p$1:
 	      return fe([J(c, {
 	        value: j(c.value, "@", "@" + a)
 	      })], i);
 
-	    case n:
-	      if (c.length) return q(c.props, function (n) {
-	        switch (y(n, /(::plac\w+|:read-\w+)/)) {
+	    case n$1:
+	      if (c.length) return q$1(c.props, function (n) {
+	        switch (y$1(n, /(::plac\w+|:read-\w+)/)) {
 	          case ":read-only":
 	          case ":read-write":
 	            return fe([J(c, {
-	              props: [j(n, /:(read-\w+)/, ":" + r + "$1")]
+	              props: [j(n, /:(read-\w+)/, ":" + r$1 + "$1")]
 	            })], i);
 
 	          case "::placeholder":
 	            return fe([J(c, {
 	              props: [j(n, /:(plac\w+)/, ":" + a + "input-$1")]
 	            }), J(c, {
-	              props: [j(n, /:(plac\w+)/, ":" + r + "$1")]
+	              props: [j(n, /:(plac\w+)/, ":" + r$1 + "$1")]
 	            }), J(c, {
-	              props: [j(n, /:(plac\w+)/, e + "input-$1")]
+	              props: [j(n, /:(plac\w+)/, e$1 + "input-$1")]
 	            })], i);
 	        }
 
@@ -12650,7 +12479,7 @@
 	      // fallthrough
 
 	      default:
-	        parsed[index] += d(character);
+	        parsed[index] += d$1(character);
 	    }
 	  } while (character = N());
 
@@ -12873,6 +12702,185 @@
 	  cache.sheet.hydrate(nodesToHydrate);
 	  return cache;
 	};
+
+	/** @license React v16.13.1
+	 * react-is.production.min.js
+	 *
+	 * Copyright (c) Facebook, Inc. and its affiliates.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	var b = "function" === typeof Symbol && Symbol.for,
+	    c = b ? Symbol.for("react.element") : 60103,
+	    d = b ? Symbol.for("react.portal") : 60106,
+	    e = b ? Symbol.for("react.fragment") : 60107,
+	    f = b ? Symbol.for("react.strict_mode") : 60108,
+	    g = b ? Symbol.for("react.profiler") : 60114,
+	    h = b ? Symbol.for("react.provider") : 60109,
+	    k = b ? Symbol.for("react.context") : 60110,
+	    l = b ? Symbol.for("react.async_mode") : 60111,
+	    m = b ? Symbol.for("react.concurrent_mode") : 60111,
+	    n = b ? Symbol.for("react.forward_ref") : 60112,
+	    p = b ? Symbol.for("react.suspense") : 60113,
+	    q = b ? Symbol.for("react.suspense_list") : 60120,
+	    r = b ? Symbol.for("react.memo") : 60115,
+	    t = b ? Symbol.for("react.lazy") : 60116,
+	    v = b ? Symbol.for("react.block") : 60121,
+	    w = b ? Symbol.for("react.fundamental") : 60117,
+	    x = b ? Symbol.for("react.responder") : 60118,
+	    y = b ? Symbol.for("react.scope") : 60119;
+
+	function z(a) {
+	  if ("object" === typeof a && null !== a) {
+	    var u = a.$$typeof;
+
+	    switch (u) {
+	      case c:
+	        switch (a = a.type, a) {
+	          case l:
+	          case m:
+	          case e:
+	          case g:
+	          case f:
+	          case p:
+	            return a;
+
+	          default:
+	            switch (a = a && a.$$typeof, a) {
+	              case k:
+	              case n:
+	              case t:
+	              case r:
+	              case h:
+	                return a;
+
+	              default:
+	                return u;
+	            }
+
+	        }
+
+	      case d:
+	        return u;
+	    }
+	  }
+	}
+
+	function A(a) {
+	  return z(a) === m;
+	}
+
+	var AsyncMode = l;
+	var ConcurrentMode = m;
+	var ContextConsumer = k;
+	var ContextProvider = h;
+	var Element = c;
+	var ForwardRef = n;
+	var Fragment = e;
+	var Lazy = t;
+	var Memo = r;
+	var Portal = d;
+	var Profiler = g;
+	var StrictMode = f;
+	var Suspense = p;
+
+	var isAsyncMode = function (a) {
+	  return A(a) || z(a) === l;
+	};
+
+	var isConcurrentMode = A;
+
+	var isContextConsumer = function (a) {
+	  return z(a) === k;
+	};
+
+	var isContextProvider = function (a) {
+	  return z(a) === h;
+	};
+
+	var isElement = function (a) {
+	  return "object" === typeof a && null !== a && a.$$typeof === c;
+	};
+
+	var isForwardRef = function (a) {
+	  return z(a) === n;
+	};
+
+	var isFragment = function (a) {
+	  return z(a) === e;
+	};
+
+	var isLazy = function (a) {
+	  return z(a) === t;
+	};
+
+	var isMemo = function (a) {
+	  return z(a) === r;
+	};
+
+	var isPortal = function (a) {
+	  return z(a) === d;
+	};
+
+	var isProfiler = function (a) {
+	  return z(a) === g;
+	};
+
+	var isStrictMode = function (a) {
+	  return z(a) === f;
+	};
+
+	var isSuspense = function (a) {
+	  return z(a) === p;
+	};
+
+	var isValidElementType = function (a) {
+	  return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || a === q || "object" === typeof a && null !== a && (a.$$typeof === t || a.$$typeof === r || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n || a.$$typeof === w || a.$$typeof === x || a.$$typeof === y || a.$$typeof === v);
+	};
+
+	var typeOf = z;
+	var reactIs_production_min = {
+	  AsyncMode: AsyncMode,
+	  ConcurrentMode: ConcurrentMode,
+	  ContextConsumer: ContextConsumer,
+	  ContextProvider: ContextProvider,
+	  Element: Element,
+	  ForwardRef: ForwardRef,
+	  Fragment: Fragment,
+	  Lazy: Lazy,
+	  Memo: Memo,
+	  Portal: Portal,
+	  Profiler: Profiler,
+	  StrictMode: StrictMode,
+	  Suspense: Suspense,
+	  isAsyncMode: isAsyncMode,
+	  isConcurrentMode: isConcurrentMode,
+	  isContextConsumer: isContextConsumer,
+	  isContextProvider: isContextProvider,
+	  isElement: isElement,
+	  isForwardRef: isForwardRef,
+	  isFragment: isFragment,
+	  isLazy: isLazy,
+	  isMemo: isMemo,
+	  isPortal: isPortal,
+	  isProfiler: isProfiler,
+	  isStrictMode: isStrictMode,
+	  isSuspense: isSuspense,
+	  isValidElementType: isValidElementType,
+	  typeOf: typeOf
+	};
+
+	createCommonjsModule(function (module, exports) {
+	});
+
+	var reactIs = createCommonjsModule(function (module) {
+
+	  {
+	    module.exports = reactIs_production_min;
+	  }
+	});
 
 	/**
 	 * Copyright 2015, Yahoo! Inc.
@@ -20161,19 +20169,89 @@
 	    width: "1040",
 	    height: "750",
 	    src: "https://www.bing.com/",
-	    frameborder: "0"
+	    style: {
+	      border: 'none'
+	    }
 	  });
 	};
 
-	const EfbPower = ({
+	const SimVarContext = react.createContext({
+	  retrieve: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  update: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  register: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  unregister: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  }
+	});
+
+	const CircuitPower = ({
 	  localVar,
+	  inverse = false,
 	  children
 	}) => {
 	  const [isOn] = useSimVar("L:".concat(localVar), 'bool');
-	  if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    children: children
-	  });
+
+	  if (inverse) {
+	    if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	      children: children
+	    });
+	  } else {
+	    if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	      children: children
+	    });
+	  }
 	};
+
+	class ClassCircuitPower extends react.Component {
+	  constructor(...args) {
+	    super(...args);
+
+	    _defineProperty$1(this, "context", void 0);
+	  }
+
+	  componentDidMount() {
+	    const {
+	      localVar,
+	      inverse = false,
+	      children
+	    } = this.props;
+	    const {
+	      register
+	    } = this.context;
+	    register("L:".concat(localVar), 'bool', 16, false);
+	  }
+
+	  render() {
+	    const {
+	      localVar,
+	      inverse = false,
+	      children
+	    } = this.props;
+	    const {
+	      retrieve
+	    } = this.context;
+	    const isOn = retrieve("L:".concat(localVar), 'bool');
+
+	    if (inverse) {
+	      if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	        children: children
+	      });
+	    } else {
+	      if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	        children: children
+	      });
+	    }
+	  }
+
+	}
+
+	_defineProperty$1(ClassCircuitPower, "contextType", SimVarContext);
 
 	function _objectWithoutProperties(source, excluded) {
 	  if (source == null) return {};
@@ -25786,7 +25864,7 @@
 
 	const EFB = () => {
 	  return /*#__PURE__*/jsxRuntime.jsx(MemoryRouter, {
-	    children: /*#__PURE__*/jsxRuntime.jsx(EfbPower, {
+	    children: /*#__PURE__*/jsxRuntime.jsx(CircuitPower, {
 	      localVar: "H60_EFB_MOVE",
 	      children: /*#__PURE__*/jsxRuntime.jsxs("div", {
 	        className: "EFBContainer",

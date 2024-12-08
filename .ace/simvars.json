@@ -4,7 +4,7 @@
             "__uuid": "e38c7663-99b6-4932-be11-f192b195688b",
             "title": "PWR",
             "varPrefix": "L",
-            "varName": "H60_MFD_1_PWR",
+            "varName": "H60_MFD_0_PWR",
             "varUnit": "number",
             "style": {
                 "type": 3
@@ -14,7 +14,7 @@
             "__uuid": "8094a05c-dc8d-4e18-8f75-3459c3d47a67",
             "title": "Disp Mode",
             "varPrefix": "L",
-            "varName": "H60_MFD_1_MODE",
+            "varName": "H60_MFD_0_MODE",
             "varUnit": "number",
             "style": {
                 "type": 2,

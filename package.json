@@ -54,6 +54,7 @@
         "change-case": "^4.1.2",
         "leaflet-rotate": "^0.2.8",
         "postcss": "^8.2.4",
+        "prettier": "^3.4.2",
         "react": "^17.0.0",
         "react-bootstrap": "^2.3.1",
         "react-dom": "^17.0.0",

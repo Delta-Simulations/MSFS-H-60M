@@ -8933,10 +8933,18 @@
 	  return value => contextValue.update(name, unit, value, proxy);
 	};
 
-	const render = Slot => {
-	  reactDom.render( /*#__PURE__*/jsxRuntime.jsx(SimVarProvider, {
+	/**
+	 * Use the given React element to render the instrument using React.
+	 */
+
+	const render = (Slot, useSimVarProvider = true) => {
+	  if (useSimVarProvider) reactDom.render( /*#__PURE__*/jsxRuntime.jsx(SimVarProvider, {
 	    children: Slot
-	  }), getRenderTarget());
+	  }), getRenderTarget());else {
+	    reactDom.render( /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+	      children: Slot
+	    }), getRenderTarget());
+	  }
 	};
 
 	const HorizonLine = props => {
@@ -9625,17 +9633,87 @@
 	  });
 	};
 
-	const Electricity = ({
+	const SimVarContext = react.createContext({
+	  retrieve: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  update: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  register: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  unregister: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  }
+	});
+
+	const CircuitPower = ({
+	  localVar,
+	  inverse = false,
 	  children
 	}) => {
-	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'bool');
-	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    children: children
-	  });
+	  const [isOn] = useSimVar("L:".concat(localVar), 'bool');
+
+	  if (inverse) {
+	    if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	      children: children
+	    });
+	  } else {
+	    if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	      children: children
+	    });
+	  }
 	};
 
+	class ClassCircuitPower extends react.Component {
+	  constructor(...args) {
+	    super(...args);
+
+	    _defineProperty(this, "context", void 0);
+	  }
+
+	  componentDidMount() {
+	    const {
+	      localVar,
+	      inverse = false,
+	      children
+	    } = this.props;
+	    const {
+	      register
+	    } = this.context;
+	    register("L:".concat(localVar), 'bool', 16, false);
+	  }
+
+	  render() {
+	    const {
+	      localVar,
+	      inverse = false,
+	      children
+	    } = this.props;
+	    const {
+	      retrieve
+	    } = this.context;
+	    const isOn = retrieve("L:".concat(localVar), 'bool');
+
+	    if (inverse) {
+	      if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	        children: children
+	      });
+	    } else {
+	      if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	        children: children
+	      });
+	    }
+	  }
+
+	}
+
+	_defineProperty(ClassCircuitPower, "contextType", SimVarContext);
+
 	const AP = () => {
-	  return /*#__PURE__*/jsxRuntime.jsx(Electricity, {
+	  return /*#__PURE__*/jsxRuntime.jsx(CircuitPower, {
+	    localVar: "H60_Cpit_26VPower",
 	    children: /*#__PURE__*/jsxRuntime.jsxs("svg", {
 	      viewBox: "0 0 1280 1280",
 	      children: [/*#__PURE__*/jsxRuntime.jsx("clipPath", {

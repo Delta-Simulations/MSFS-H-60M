@@ -8933,10 +8933,18 @@
 	  return value => contextValue.update(name, unit, value, proxy);
 	};
 
-	const render = Slot => {
-	  reactDom.render( /*#__PURE__*/jsxRuntime.jsx(SimVarProvider, {
+	/**
+	 * Use the given React element to render the instrument using React.
+	 */
+
+	const render = (Slot, useSimVarProvider = true) => {
+	  if (useSimVarProvider) reactDom.render( /*#__PURE__*/jsxRuntime.jsx(SimVarProvider, {
 	    children: Slot
-	  }), getRenderTarget());
+	  }), getRenderTarget());else {
+	    reactDom.render( /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+	      children: Slot
+	    }), getRenderTarget());
+	  }
 	};
 
 	const Fixed_Readout = () => {
@@ -9473,23 +9481,83 @@
 	  });
 	};
 
-	const Electricity = ({
-	  children
-	}) => {
-	  const [circuitOn] = useSimVar("L:H60_Cpit_26VPower", 'bool');
-	  if (!circuitOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    children: children
-	  });
-	};
-	const HUDPower = ({
+	const SimVarContext = react.createContext({
+	  retrieve: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  update: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  register: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  },
+	  unregister: () => {
+	    throw Error('useSimVar must be used within a SimVarProvider');
+	  }
+	});
+
+	const CircuitPower = ({
 	  localVar,
+	  inverse = false,
 	  children
 	}) => {
 	  const [isOn] = useSimVar("L:".concat(localVar), 'bool');
-	  if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    children: children
-	  });
+
+	  if (inverse) {
+	    if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	      children: children
+	    });
+	  } else {
+	    if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	      children: children
+	    });
+	  }
 	};
+
+	class ClassCircuitPower extends react.Component {
+	  constructor(...args) {
+	    super(...args);
+
+	    _defineProperty(this, "context", void 0);
+	  }
+
+	  componentDidMount() {
+	    const {
+	      localVar,
+	      inverse = false,
+	      children
+	    } = this.props;
+	    const {
+	      register
+	    } = this.context;
+	    register("L:".concat(localVar), 'bool', 16, false);
+	  }
+
+	  render() {
+	    const {
+	      localVar,
+	      inverse = false,
+	      children
+	    } = this.props;
+	    const {
+	      retrieve
+	    } = this.context;
+	    const isOn = retrieve("L:".concat(localVar), 'bool');
+
+	    if (inverse) {
+	      if (isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	        children: children
+	      });
+	    } else {
+	      if (!isOn) return null;else return /*#__PURE__*/jsxRuntime.jsx("div", {
+	        children: children
+	      });
+	    }
+	  }
+
+	}
+
+	_defineProperty(ClassCircuitPower, "contextType", SimVarContext);
 
 	const RAIndicator = () => {
 	  var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
@@ -9566,29 +9634,26 @@
 	  useSimVar('L:DCLT_HUD', 'enum');
 	  const [HUD_OVERLAY] = useSimVar('L:HUD_OVERLAY', 'bool');
 	  let indicator = HUD_OVERLAY;
-	  return /*#__PURE__*/jsxRuntime.jsx(Electricity, {
-	    circuit: "3",
-	    children: /*#__PURE__*/jsxRuntime.jsx(HUDPower, {
-	      localVar: "HUDPWR",
-	      children: /*#__PURE__*/jsxRuntime.jsx("svg", {
-	        viewBox: "0 0 1360 1350",
-	        children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	          children: [/*#__PURE__*/jsxRuntime.jsx("image", {
-	            visibility: indicator ? 'visible' : 'hidden',
-	            x: 0,
-	            y: 0,
-	            xlinkHref: "/Images/HUDH60.jpg",
-	            width: 1360,
-	            height: 1350,
-	            opacity: 0.6
-	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-395, 180)scale(2.1)",
-	            children: /*#__PURE__*/jsxRuntime.jsx(Horizon, {})
-	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-535, -150)scale(2.1)",
-	            children: /*#__PURE__*/jsxRuntime.jsx(FlightDirector, {})
-	          }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {}), /*#__PURE__*/jsxRuntime.jsx(Fixed_Readout, {}), /*#__PURE__*/jsxRuntime.jsx(RAIndicator, {}), /*#__PURE__*/jsxRuntime.jsx(HoverIndicator, {})]
-	        })
+	  return /*#__PURE__*/jsxRuntime.jsx(CircuitPower, {
+	    localVar: "HUDPWR",
+	    children: /*#__PURE__*/jsxRuntime.jsx("svg", {
+	      viewBox: "0 0 1360 1350",
+	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("image", {
+	          visibility: indicator ? 'visible' : 'hidden',
+	          x: 0,
+	          y: 0,
+	          xlinkHref: "/Images/HUDH60.jpg",
+	          width: 1360,
+	          height: 1350,
+	          opacity: 0.6
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(-395, 180)scale(2.1)",
+	          children: /*#__PURE__*/jsxRuntime.jsx(Horizon, {})
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(-535, -150)scale(2.1)",
+	          children: /*#__PURE__*/jsxRuntime.jsx(FlightDirector, {})
+	        }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {}), /*#__PURE__*/jsxRuntime.jsx(Fixed_Readout, {}), /*#__PURE__*/jsxRuntime.jsx(RAIndicator, {}), /*#__PURE__*/jsxRuntime.jsx(HoverIndicator, {})]
 	      })
 	    })
 	  });
