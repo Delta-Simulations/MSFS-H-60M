@@ -8,5 +8,6 @@
         "downlevelIteration": true,
         "skipLibCheck": true,
         "strictNullChecks": true
-    }
+    },
+    "extends": "../../tsconfig.json"
 }

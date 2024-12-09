@@ -12,10 +12,10 @@
         },
         {
             "__uuid": "8094a05c-dc8d-4e18-8f75-3459c3d47a67",
-            "title": "Disp Mode",
+            "title": "Router",
             "varPrefix": "L",
-            "varName": "H60_MFD_0_MODE",
-            "varUnit": "number",
+            "varName": "UH60_MFD_0_ROUTER",
+            "varUnit": "enum",
             "style": {
                 "type": 2,
                 "min": 0,

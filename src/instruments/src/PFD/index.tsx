@@ -1,38 +1,45 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { render, getDisplayIndex } from '../Hooks'
 import { SimVarContext, ClassSimVarProvider } from '../Hooks/ClassSimVars'
-
+import { PFD, JVMF, EICAS, TAC, ND } from './Modules'
+import Router from './Util/Router'
 import ClassCircuitPower from '../Common/circuit'
+import GlobalText from './Components/GlobalText'
+
 import './style.scss'
 
-class PFD extends Component {
-  private readonly displayControls: string
+
+class MFD extends React.Component {
   static contextType = SimVarContext
 
   context!: React.ContextType<typeof SimVarContext>
 
-  constructor(props: PFD) {
+  private readonly displayIndex: number
+
+  private readonly Pages: Map<number, React.ReactNode>
+
+  constructor(props: MFD) {
     super(props)
 
-    const DisplayID = getDisplayIndex()
-    this.displayControls = `L:H60_MFD_${DisplayID}_MODE`
+    this.Pages = new Map([
+      [0, <PFD /> as React.ReactNode],
+      [1, <ND /> as React.ReactNode],
+      [2, <EICAS /> as React.ReactNode],
+      [3, <TAC /> as React.ReactNode],
+      [4, <JVMF /> as React.ReactNode]
+    ])
+    this.displayIndex = getDisplayIndex()
   }
 
   componentDidMount() {
     const { register } = this.context
 
-    register(this.displayControls, 'enum', 16, false)
     register('L:ADDITIONSVIS', 'enum', 16, false)
   }
 
   render() {
-    const DisplayID = getDisplayIndex()
-    const { retrieve, update } = this.context
-
-    const displayControls = retrieve(this.displayControls, 'enum')
-
     return (
-      <ClassCircuitPower localVar={`H60_MFD_${DisplayID}_PWR`}>
+      <ClassCircuitPower localVar={`H60_MFD_${this.displayIndex}_PWR`}>
         <div
           style={{
             position: 'absolute',
@@ -42,7 +49,10 @@ class PFD extends Component {
             color: 'white'
           }}
         >
-          Hello Display Type: {displayControls}
+          <GlobalText text1="PFD" text2="ND" text3="EICAS" text4="" text5="TAC" text6="JVMF">
+            <Router pages={this.Pages} displayIndex={this.displayIndex} />
+          </GlobalText>
+
         </div>
       </ClassCircuitPower>
     )
@@ -51,7 +61,7 @@ class PFD extends Component {
 
 render(
   <ClassSimVarProvider>
-    <PFD />
+    <MFD />
   </ClassSimVarProvider>,
   false
 )

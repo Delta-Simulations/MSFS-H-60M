@@ -1,11 +1,17 @@
 @font-face {
   font-family: "OCRB";
   src: url("/Fonts/OcrB2.ttf") format("truetype");
+  src: url("../../../../PackageSources/html_ui/Fonts/OcrB2.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "mono";
   src: url("/Fonts/mono.ttf") format("truetype");
+  src: url("../../../../PackageSources/html_ui/Fonts/mono.ttf") format("truetype");
+}
+
+div {
+  font-family: Arial, serif;
 }
 
 text {
