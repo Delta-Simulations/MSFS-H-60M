@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { SimVarContext, ClassSimVarProvider } from '../../../Hooks/ClassSimVars'
+import { SimVarContext, SimVarUnitsEnum } from '@Hooks/ClassSimVars'
 
 export type RouterProps = {
   pages: Map<number, React.ReactNode>; // <id, component>
@@ -27,18 +27,18 @@ class Router extends React.Component<RouterProps> {
 
   componentDidMount() {
     const { register } = this.context
-    register(this.routerVariable, 'enum', 0, false)
+    register(this.routerVariable, SimVarUnitsEnum.ENUM)
   }
 
   componentWillUnmount() {
     const { unregister } = this.context
-    unregister(this.routerVariable, 'enum', 1, false)
+    unregister(this.routerVariable, SimVarUnitsEnum.ENUM)
   }
 
   render() {
     const { retrieve } = this.context
 
-    const currentPage = retrieve(this.routerVariable, 'enum')
+    const currentPage = retrieve(this.routerVariable, SimVarUnitsEnum.ENUM)
     return (
       <>
         {this.props.pages.get(currentPage as number)}

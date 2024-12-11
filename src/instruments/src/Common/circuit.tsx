@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
-import { useSimVar } from '../Hooks'
-import { SimVarContext } from '../Hooks/ClassSimVars'
+import { useSimVar } from '@Hooks'
+import { SimVarContext, SimVarUnitsEnum } from '@Hooks/ClassSimVars'
 
 /**
  * @param {string} localVar - Local Variable name (without the L:) i.e. "CIRCUIT_3_STATE"
@@ -31,14 +31,14 @@ class ClassCircuitPower extends React.Component<CircuitPowerProps> {
     const { localVar, inverse = false, children } = this.props
     const { register } = this.context
 
-    register(`L:${localVar}`, 'bool', 16, false)
+    register(`L:${localVar}`, SimVarUnitsEnum.BOOL)
   }
 
   render() {
     const { localVar, inverse = false, children } = this.props
     const { retrieve } = this.context
 
-    const isOn = retrieve(`L:${localVar}`, 'bool')
+    const isOn = retrieve(`L:${localVar}`, SimVarUnitsEnum.BOOL)
 
     if (inverse) {
       if (isOn) return null

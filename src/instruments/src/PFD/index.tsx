@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { render, getDisplayIndex } from '../Hooks'
-import { SimVarContext, ClassSimVarProvider } from '../Hooks/ClassSimVars'
+import { render, getDisplayIndex } from '@Hooks'
+import { SimVarContext, ClassSimVarProvider, SimVarUnitsEnum } from '@Hooks/ClassSimVars'
+
+import ClassCircuitPower from '@Common/circuit'
 import { PFD, JVMF, EICAS, TAC, ND } from './Modules'
 import Router from './Util/Router'
-import ClassCircuitPower from '../Common/circuit'
 import GlobalText from './Components/GlobalText'
 
 import './style.scss'
@@ -34,7 +35,7 @@ class MFD extends React.Component {
   componentDidMount() {
     const { register } = this.context
 
-    register('L:ADDITIONSVIS', 'enum', 16, false)
+    register('L:ADDITIONSVIS', SimVarUnitsEnum.ENUM)
   }
 
   render() {

@@ -1,4 +1,4 @@
-import CheckAce from '../../../Common/CheckAce'
+import CheckAce from '@Common/CheckAce'
 
 type FlightPlanStruct = {
   ident: string

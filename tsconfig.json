@@ -7,7 +7,19 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "skipLibCheck": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@Hooks/*": [
+        "src/instruments/src/Hooks/*"
+      ],
+      "@Hooks": [
+        "src/instruments/src/Hooks"
+      ],
+      "@Common/*": [
+        "src/instruments/src/Common/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",

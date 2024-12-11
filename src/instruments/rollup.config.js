@@ -9,6 +9,8 @@ const commonjs = require('@rollup/plugin-commonjs')
 const replace = require('@rollup/plugin-replace')
 const postcss = require('rollup-plugin-postcss')
 const tailwindcss = require('tailwindcss')
+const alias = require('@rollup/plugin-alias')
+const nodePath = require('path')
 
 const instrumentTemplate = require('./msfs-rollup')
 
@@ -68,6 +70,13 @@ module.exports = getInstrumentsToCompile().map(({ path, name, isInstrument }) =>
       format: 'iife'
     },
     plugins: [
+      alias({
+        entries: [
+          //{ find: '@Hooks', replacement: nodePath.resolve(__dirname, 'src/Hooks/index.tsx') },
+          { find: '@Hooks', replacement: nodePath.resolve(__dirname, 'src/Hooks') },
+          { find: '@Common', replacement: nodePath.resolve(__dirname, 'src/Common') }
+        ]
+      }),
       image(),
       nodeResolve({
         extensions
@@ -107,7 +116,8 @@ module.exports = getInstrumentsToCompile().map(({ path, name, isInstrument }) =>
         extensions
       }),
       replace({
-        'process.env.NODE_ENV': '"production"'
+        'process.env.NODE_ENV': '"production"',
+        'preventAssignment': true
       }),
       postcss({
         use: {

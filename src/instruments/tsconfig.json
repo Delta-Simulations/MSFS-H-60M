@@ -1,13 +1,13 @@
 {
-    "compilerOptions": {
-        "module": "esnext",
-        "target": "ESNext",
-        "esModuleInterop": true,
-        "jsx": "react",
-        "moduleResolution": "node",
-        "downlevelIteration": true,
-        "skipLibCheck": true,
-        "strictNullChecks": true
-    },
-    "extends": "../../tsconfig.json"
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true
+  },
+  "extends": "../../tsconfig.json"
 }

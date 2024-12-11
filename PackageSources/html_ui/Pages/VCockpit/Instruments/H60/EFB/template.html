@@ -8593,7 +8593,7 @@
 	      getRootElement().removeEventListener('update', wrappedHandler);
 	    };
 	  });
-	};
+	}; //export const useInstrument = (): HTMLElement => window.instrument;
 
 	var reactJsxRuntime_production_min = createCommonjsModule(function (module, exports) {
 
@@ -20174,6 +20174,44 @@
 	    }
 	  });
 	};
+
+	// TODO: https://docs.flightsimulator.com/html/Programming_Tools/SimVars/Simulation_Variable_Units.htm
+	let SimVarUnitsEnum;
+
+	(function (SimVarUnitsEnum) {
+	  SimVarUnitsEnum["METER"] = "meter";
+	  SimVarUnitsEnum["METER_SCALAR_256"] = "meter scaler 256";
+	  SimVarUnitsEnum["MILLIMETER"] = "millimeter";
+	  SimVarUnitsEnum["CENTIMETER"] = "centimeter";
+	  SimVarUnitsEnum["KILOMETER"] = "kilometer";
+	  SimVarUnitsEnum["NAUTICAL_MILE"] = "nautical mile";
+	  SimVarUnitsEnum["DECINMILE"] = "decinmile";
+	  SimVarUnitsEnum["INCH"] = "inch";
+	  SimVarUnitsEnum["FOOT"] = "foot";
+	  SimVarUnitsEnum["YARD"] = "yard";
+	  SimVarUnitsEnum["DECIMILE"] = "decimile";
+	  SimVarUnitsEnum["MILE"] = "mile";
+	  SimVarUnitsEnum["SQUARE_INCH"] = "square inch";
+	  SimVarUnitsEnum["SQUARE_FEET"] = "square feet";
+	  SimVarUnitsEnum["SQUARE_YARD"] = "square yard";
+	  SimVarUnitsEnum["SQUARE_MILE"] = "square mile";
+	  SimVarUnitsEnum["SQUARE_MILLIMETER"] = "square millimeter";
+	  SimVarUnitsEnum["SQUARE_CENTIMETER"] = "square centimeter";
+	  SimVarUnitsEnum["SQUARE_METER"] = "square millimeter";
+	  SimVarUnitsEnum["SQUARE_KILOMETER"] = "square millimeter";
+	  SimVarUnitsEnum["CUBIC_INCH"] = "cubic inch";
+	  SimVarUnitsEnum["CUBIC_FOOT"] = "cubic foot";
+	  SimVarUnitsEnum["CUBIC_YARD"] = "cubic yard";
+	  SimVarUnitsEnum["CUBIC_MILE"] = "cubic mile";
+	  SimVarUnitsEnum["CUBIC_MILLIMETER"] = "cubic millimeter";
+	  SimVarUnitsEnum["CUBIC_CENTIMETER"] = "cubic centimeter";
+	  SimVarUnitsEnum["CUBIC_METER"] = "cubic meter";
+	  SimVarUnitsEnum["CUBIC_KILOMETER"] = "cubic kilometer";
+	  SimVarUnitsEnum["LITER"] = "liter";
+	  SimVarUnitsEnum["GALLON"] = "gallon";
+	  SimVarUnitsEnum["QUART"] = "quart";
+	  SimVarUnitsEnum["FS7_OIL_QUANTITY"] = "fs7 oil quantity";
+	})(SimVarUnitsEnum || (SimVarUnitsEnum = {}));
 
 	const SimVarContext = react.createContext({
 	  retrieve: () => {
