@@ -1,29 +1,51 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "target": "ESNext",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "downlevelIteration": true,
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "allowJs": true,
+    "typeRoots": [
+      "./typings/",
+      "./node_modules/@types",
+      "./node_modules"
+    ],
+    "types": [
+      "sass"
+    ],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "strict": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
     "baseUrl": ".",
     "paths": {
-      "@Hooks/*": [
-        "src/instruments/src/Hooks/*"
+      "@hooks/*": [
+        "instruments/common/hooks/*"
       ],
-      "@Hooks": [
-        "src/instruments/src/Hooks"
+      "@hooks": [
+        "instruments/common/hooks"
       ],
-      "@Common/*": [
-        "src/instruments/src/Common/*"
+      "@common/*": [
+        "instruments/common/*"
       ]
     }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "types/images.d.ts"
+    ".eslintrc.cjs",
+    "node_modules/@types",
+    "instruments/src/**/*.ts",
+    "instruments/src/**/*.tsx",
+    "mach.config.js"
   ]
 }

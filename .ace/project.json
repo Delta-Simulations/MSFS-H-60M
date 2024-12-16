@@ -1,8 +1,19 @@
 {
-	"name": "UH60",
-	"paths": {
-		"instrumentSrc": "src\\instruments\\src",
-		"bundlesSrc": "bundles",
-		"htmlUiSrc": "PackageSources\\html_ui"
-	}
+  "name": "UH-60",
+  "paths": {
+    "instruments": "instruments\\src",
+    "bundles": "bundles",
+    "html_ui": "PackageSources\\html_ui"
+  },
+  "elements": [
+    {
+      "uuid": "984fdc5f-d194-4d74-8661-f0f20c9d8210",
+      "name": "MFD",
+      "element": "Instrument",
+      "width": 1024,
+      "height": 768,
+      "x": 6120,
+      "y": 2380
+    }
+  ]
 }

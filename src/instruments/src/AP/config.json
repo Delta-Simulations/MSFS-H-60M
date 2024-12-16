@@ -1,9 +1,0 @@
-{
-    "index": "./index.tsx",
-    "isInteractive": false,
-    "name": "AP",
-    "dimensions": {
-        "width": 1280,
-        "height": 1280
-    }
-}
