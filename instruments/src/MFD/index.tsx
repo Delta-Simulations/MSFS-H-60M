@@ -4,7 +4,7 @@ import { MSFSRender } from '@hooks'
 
 function HelloAce() {
   return (
-    <div style={{ color: 'white' }}>Hello ace</div>
+    <div style={{ color: 'white' }}>Hello from solidJS</div>
   )
 }
 

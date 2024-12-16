@@ -6,7 +6,7 @@ const { sassPlugin } = require('esbuild-sass-plugin')
 const envFilePlugin = require('esbuild-envfile-plugin')
 const { solidPlugin } = require('esbuild-plugin-solid')
 
-/** @type { import('@synaptic-simulations/mach').MachConfig } */
+/** @type { import('@tacotakedown/mach').MachConfig } */
 module.exports = {
   packageName: 'H-60',
   packageDir: 'PackageSources',
@@ -32,24 +32,10 @@ function solidInstrument(name, additionalImports, isInteractive) {
     name,
     index: `instruments/src/${name}/index.tsx`,
     simulatorPackage: {
-      type: 'react',
+      type: 'solid',
       isInteractive: isInteractive ?? false,
       fileName: name.toLowerCase(),
       imports: ['/JS/dataStorage.js', ...(additionalImports ?? [])]
-    }
-  }
-}
-
-function msfsAvionicsInstrument(name, folder = name) {
-  return {
-    name,
-    index: `instruments/src/${folder}/instrument.tsx`,
-    simulatorPackage: {
-      type: 'baseInstrument',
-      templateId: `E170_${name}`,
-      mountElementId: `${name}_CONTENT`,
-      fileName: name.toLowerCase(),
-      imports: []
     }
   }
 }
