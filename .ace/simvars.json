@@ -1,0 +1,10 @@
+[
+  {
+    "type": "A",
+    "name": "PLANE ALTITUDE",
+    "index": 0,
+    "unit": "foot",
+    "value": 186.0,
+    "pinned": true
+  }
+]

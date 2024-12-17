@@ -113,6 +113,28 @@
     else
       updateComputation(c);
   }
+  function createEffect(fn, value, options) {
+    runEffects = runUserEffects;
+    const c = createComputation(fn, value, false, STALE), s = SuspenseContext && useContext(SuspenseContext);
+    if (s)
+      c.suspense = s;
+    if (!options || !options.render)
+      c.user = true;
+    Effects ? Effects.push(c) : updateComputation(c);
+  }
+  function createMemo(fn, value, options) {
+    options = options ? Object.assign({}, signalOptions, options) : signalOptions;
+    const c = createComputation(fn, value, true, 0);
+    c.observers = null;
+    c.observerSlots = null;
+    c.comparator = options.equals || void 0;
+    if (Scheduler && Transition && Transition.running) {
+      c.tState = STALE;
+      Updates.push(c);
+    } else
+      updateComputation(c);
+    return readSignal.bind(c);
+  }
   function untrack(fn) {
     if (!ExternalSourceConfig && Listener === null)
       return fn();
@@ -164,6 +186,27 @@
     });
   }
   var [transPending, setTransPending] = /* @__PURE__ */ createSignal(false);
+  function createContext(defaultValue, options) {
+    const id = Symbol("context");
+    return {
+      id,
+      Provider: createProvider(id),
+      defaultValue
+    };
+  }
+  function useContext(context) {
+    let value;
+    return Owner && Owner.context && (value = Owner.context[context.id]) !== void 0 ? value : context.defaultValue;
+  }
+  function children(fn) {
+    const children2 = createMemo(fn);
+    const memo = createMemo(() => resolveChildren(children2()));
+    memo.toArray = () => {
+      const c = memo();
+      return Array.isArray(c) ? c : c != null ? [c] : [];
+    };
+    return memo;
+  }
   var SuspenseContext;
   function readSignal() {
     const runningTransition = Transition && Transition.running;
@@ -477,6 +520,31 @@
       }
     }
   }
+  function runUserEffects(queue) {
+    let i, userLength = 0;
+    for (i = 0; i < queue.length; i++) {
+      const e = queue[i];
+      if (!e.user)
+        runTop(e);
+      else
+        queue[userLength++] = e;
+    }
+    if (sharedConfig.context) {
+      if (sharedConfig.count) {
+        sharedConfig.effects || (sharedConfig.effects = []);
+        sharedConfig.effects.push(...queue.slice(0, userLength));
+        return;
+      }
+      setHydrateContext();
+    }
+    if (sharedConfig.effects && (sharedConfig.done || !sharedConfig.count)) {
+      queue = [...sharedConfig.effects, ...queue];
+      userLength += sharedConfig.effects.length;
+      delete sharedConfig.effects;
+    }
+    for (i = 0; i < userLength; i++)
+      runTop(queue[i]);
+  }
   function lookUpstream(node, ignore) {
     const runningTransition = Transition && Transition.running;
     if (runningTransition)
@@ -588,6 +656,34 @@
       });
     else
       runErrors(error, fns, owner);
+  }
+  function resolveChildren(children2) {
+    if (typeof children2 === "function" && !children2.length)
+      return resolveChildren(children2());
+    if (Array.isArray(children2)) {
+      const results = [];
+      for (let i = 0; i < children2.length; i++) {
+        const result = resolveChildren(children2[i]);
+        Array.isArray(result) ? results.push.apply(results, result) : results.push(result);
+      }
+      return results;
+    }
+    return children2;
+  }
+  function createProvider(id, options) {
+    return function provider(props) {
+      let res;
+      createRenderEffect(
+        () => res = untrack(() => {
+          Owner.context = __spreadProps(__spreadValues({}, Owner.context), {
+            [id]: props.value
+          });
+          return children(() => props.children);
+        }),
+        void 0
+      );
+      return res;
+    };
   }
   var FALLBACK = Symbol("fallback");
   var hydrationEnabled = false;
@@ -900,14 +996,318 @@
     render(() => element, GetRenderTarget());
   }
 
+  // instruments/common/hooks/simvars.tsx
+  var SimVarUnitsEnum = /* @__PURE__ */ function(SimVarUnitsEnum2) {
+    SimVarUnitsEnum2["METER"] = "meter";
+    SimVarUnitsEnum2["METER_SCALAR_256"] = "meter scaler 256";
+    SimVarUnitsEnum2["MILLIMETER"] = "millimeter";
+    SimVarUnitsEnum2["CENTIMETER"] = "centimeter";
+    SimVarUnitsEnum2["KILOMETER"] = "kilometer";
+    SimVarUnitsEnum2["NAUTICAL_MILE"] = "nautical mile";
+    SimVarUnitsEnum2["DECINMILE"] = "decinmile";
+    SimVarUnitsEnum2["INCH"] = "inch";
+    SimVarUnitsEnum2["FOOT"] = "foot";
+    SimVarUnitsEnum2["YARD"] = "yard";
+    SimVarUnitsEnum2["DECIMILE"] = "decimile";
+    SimVarUnitsEnum2["MILE"] = "mile";
+    SimVarUnitsEnum2["SQUARE_INCH"] = "square inch";
+    SimVarUnitsEnum2["SQUARE_FEET"] = "square feet";
+    SimVarUnitsEnum2["SQUARE_YARD"] = "square yard";
+    SimVarUnitsEnum2["SQUARE_MILE"] = "square mile";
+    SimVarUnitsEnum2["SQUARE_MILLIMETER"] = "square millimeter";
+    SimVarUnitsEnum2["SQUARE_CENTIMETER"] = "square centimeter";
+    SimVarUnitsEnum2["SQUARE_METER"] = "square millimeter";
+    SimVarUnitsEnum2["SQUARE_KILOMETER"] = "square millimeter";
+    SimVarUnitsEnum2["CUBIC_INCH"] = "cubic inch";
+    SimVarUnitsEnum2["CUBIC_FOOT"] = "cubic foot";
+    SimVarUnitsEnum2["CUBIC_YARD"] = "cubic yard";
+    SimVarUnitsEnum2["CUBIC_MILE"] = "cubic mile";
+    SimVarUnitsEnum2["CUBIC_MILLIMETER"] = "cubic millimeter";
+    SimVarUnitsEnum2["CUBIC_CENTIMETER"] = "cubic centimeter";
+    SimVarUnitsEnum2["CUBIC_METER"] = "cubic meter";
+    SimVarUnitsEnum2["CUBIC_KILOMETER"] = "cubic kilometer";
+    SimVarUnitsEnum2["LITER"] = "liter";
+    SimVarUnitsEnum2["GALLON"] = "gallon";
+    SimVarUnitsEnum2["QUART"] = "quart";
+    SimVarUnitsEnum2["FS7_OIL_QUANTITY"] = "fs7 oil quantity";
+    SimVarUnitsEnum2["KELVIN"] = "kelvin";
+    SimVarUnitsEnum2["RANKINE"] = "rankine";
+    SimVarUnitsEnum2["FAHRENHEIT"] = "fahrenheit";
+    SimVarUnitsEnum2["CELSIUS"] = "celsius";
+    SimVarUnitsEnum2["CELSIUS_FS7_EGT"] = "celsius fs7 egt";
+    SimVarUnitsEnum2["CELSIUS_FS7_OIL_TEMP"] = "celsius fs7 oil temp";
+    SimVarUnitsEnum2["CELSIUS_SCALER_1_256"] = "celsius scaler 1/256";
+    SimVarUnitsEnum2["CELSIUS_SCALER_256"] = "celsius scaler 256";
+    SimVarUnitsEnum2["CELSIUS_SCALER_16K"] = "celsius scaler 16k";
+    SimVarUnitsEnum2["RADIAN"] = "radian";
+    SimVarUnitsEnum2["ROUND"] = "round";
+    SimVarUnitsEnum2["DEGREE"] = "degree";
+    SimVarUnitsEnum2["GRAD"] = "grad";
+    SimVarUnitsEnum2["ANGL116"] = "angl116";
+    SimVarUnitsEnum2["ANGL132"] = "angl132";
+    SimVarUnitsEnum2["DEGREE_LATITUDE"] = "degree latitude";
+    SimVarUnitsEnum2["DEGREE_LONGITUDE"] = "degree longitude";
+    SimVarUnitsEnum2["METER_LATITUDE"] = "meter latitude";
+    SimVarUnitsEnum2["RADIAN_PER_SECOND"] = "radian per second";
+    SimVarUnitsEnum2["RPM"] = "rpm";
+    SimVarUnitsEnum2["RPM_1_OVER_16K"] = "rpm 1 over 16k";
+    SimVarUnitsEnum2["MINUTE_PER_ROUND"] = "minute per round";
+    SimVarUnitsEnum2["NICE_MINUTE_PER_ROUND"] = "nice minute per round";
+    SimVarUnitsEnum2["DEGREE_PER_SECOND"] = "degree per second";
+    SimVarUnitsEnum2["DEGREE_PER_SECOND_ANG16"] = "degree per second ang16";
+    SimVarUnitsEnum2["RADIAN_PER_SECOND_SQUARED"] = "radian per second squared";
+    SimVarUnitsEnum2["DEGREE_PER_SECOND_SQUARED"] = "degree per second squared";
+    SimVarUnitsEnum2["METER_PER_SECOND"] = "meter per second";
+    SimVarUnitsEnum2["METER_PER_SECOND_SCALER_256"] = "meter per second scaler 256";
+    SimVarUnitsEnum2["METER_PER_MINUTE"] = "meter per minute";
+    SimVarUnitsEnum2["KILOMETER_PER_HOUR"] = "kilometer/hour";
+    SimVarUnitsEnum2["FEET_PER_SECOND"] = "feet/second";
+    SimVarUnitsEnum2["FEET_PER_MINUTE"] = "feet/minute";
+    SimVarUnitsEnum2["MILE_PER_HOUR"] = "mile per hour";
+    SimVarUnitsEnum2["KNOT"] = "knot";
+    SimVarUnitsEnum2["KNOT_SCALER_128"] = "knot scaler 128";
+    SimVarUnitsEnum2["MACH"] = "mach";
+    SimVarUnitsEnum2["MACH_3D2_OVER_64K"] = "mach 3d2 over 64k";
+    SimVarUnitsEnum2["METER_PER_SECOND_SQUARED"] = "meter per second squared";
+    SimVarUnitsEnum2["FEET_PER_SECOND_SQUARED"] = "feet per second squared";
+    SimVarUnitsEnum2["G_FORCE"] = "Gforce";
+    SimVarUnitsEnum2["G_FORCE_624_SCALED"] = "G Force 624 scaled";
+    SimVarUnitsEnum2["SECOND"] = "second";
+    SimVarUnitsEnum2["MINUTE"] = "minute";
+    SimVarUnitsEnum2["HOUR"] = "hour";
+    SimVarUnitsEnum2["DAY"] = "day";
+    SimVarUnitsEnum2["HOUR_OVER_10"] = "hour over 10";
+    SimVarUnitsEnum2["YEAR"] = "year";
+    SimVarUnitsEnum2["WATT"] = "Watt";
+    SimVarUnitsEnum2["FT_LB_PER_SECOND"] = "ft lb per second";
+    SimVarUnitsEnum2["METER_CUBED_PER_SECOND"] = "meter cubed per second";
+    SimVarUnitsEnum2["LITER_PER_HOUR"] = "liter per hour";
+    SimVarUnitsEnum2["GALLON_PER_HOUR"] = "gallion per hour";
+    SimVarUnitsEnum2["KILOGRAM"] = "kilogram";
+    SimVarUnitsEnum2["POUND"] = "pound";
+    SimVarUnitsEnum2["POUND_SCALER_256"] = "pound scaler 256";
+    SimVarUnitsEnum2["SLUG"] = "slug";
+    SimVarUnitsEnum2["KILOGRAM_PER_SECOND"] = "kilogram per second";
+    SimVarUnitsEnum2["POUND_PER_HOUR"] = "pound per hour";
+    SimVarUnitsEnum2["AMPERE"] = "ampere";
+    SimVarUnitsEnum2["FS7_CHARGING_AMPS"] = "fs7 charging amps";
+    SimVarUnitsEnum2["VOLT"] = "volt";
+    SimVarUnitsEnum2["HERTZ"] = "Hertz";
+    SimVarUnitsEnum2["KILOHERTZ"] = "Kilohertz";
+    SimVarUnitsEnum2["MEGAHERTZ"] = "Megahertz";
+    SimVarUnitsEnum2["FREQUENCY_BCD16"] = "Frequency BCD16";
+    SimVarUnitsEnum2["FREQUENCY_BCD32"] = "Frequency BCD32";
+    SimVarUnitsEnum2["FREQUENCY_ADF_BCD32"] = "Frequency ADF BCD32";
+    SimVarUnitsEnum2["KILOGRAM_PER_CUBIC_METER"] = "kilogram per cubic meter";
+    SimVarUnitsEnum2["SLUG_PER_CUBIC_FEET"] = "Slug per cubic feet";
+    SimVarUnitsEnum2["POUND_PER_GALLON"] = "pound per gallon";
+    SimVarUnitsEnum2["PASCAL"] = "pascal";
+    SimVarUnitsEnum2["KILOPASCAL"] = "kpa";
+    SimVarUnitsEnum2["MMHG"] = "mmHg";
+    SimVarUnitsEnum2["CMHG"] = "cmHg";
+    SimVarUnitsEnum2["INHG"] = "inHg";
+    SimVarUnitsEnum2["INHG_64_OVER_64K"] = "inHg 64 over 64k";
+    SimVarUnitsEnum2["MILLIMITER_OF_WATER"] = "millimiter of water";
+    SimVarUnitsEnum2["NEWTON_PER_SQUARE_METER"] = "Newton per square meter";
+    SimVarUnitsEnum2["PSI"] = "psi";
+    SimVarUnitsEnum2["BAR"] = "bar";
+    SimVarUnitsEnum2["ATMOSPHERE"] = "atm";
+    SimVarUnitsEnum2["MILLIBAR"] = "millibar";
+    SimVarUnitsEnum2["NEWTON_METER"] = "nm";
+    SimVarUnitsEnum2["FOOT_POUND"] = "ft-lbs";
+    SimVarUnitsEnum2["POUND_FOOT"] = "lbf-feet";
+    SimVarUnitsEnum2["KILOGRAM_METER"] = "kgf meter";
+    SimVarUnitsEnum2["POUNDAL_FEET"] = "poundal feet";
+    SimVarUnitsEnum2["PERCENT"] = "percent";
+    SimVarUnitsEnum2["PERCENT_OVER_100"] = "percent over 100";
+    SimVarUnitsEnum2["BEL"] = "bel";
+    SimVarUnitsEnum2["DECIBEL"] = "decibel";
+    SimVarUnitsEnum2["NUMBER"] = "number";
+    SimVarUnitsEnum2["POSITION"] = "position";
+    SimVarUnitsEnum2["ENUM"] = "Enum";
+    SimVarUnitsEnum2["BOOL"] = "Bool";
+    SimVarUnitsEnum2["STRING"] = "string";
+    SimVarUnitsEnum2["KEYFRAME"] = "keyframe";
+    return SimVarUnitsEnum2;
+  }({});
+  var createErrorCallback = () => {
+    throw new Error("useSimVar was called outside of SimVarProvider");
+  };
+  var SimVarContext = createContext({
+    retrieve: createErrorCallback,
+    update: createErrorCallback,
+    register: createErrorCallback,
+    unregister: createErrorCallback
+  });
+  var SimVarProvider = (props) => {
+    const [listeners, setListeners] = createSignal({});
+    const [cache, setCache] = createSignal({});
+    let updateInterval;
+    const startUpdateLoop = () => {
+      updateInterval = setInterval(() => {
+        const deltaTime = 16;
+        const currentListeners = listeners();
+        const currentCache = cache();
+        const stateUpdates = {};
+        for (const [key, intervals] of Object.entries(currentListeners)) {
+          if (!intervals.length)
+            continue;
+          const threshold = Math.min(...intervals);
+          const lastUpdated = (currentCache[key] ? currentCache[key].lastUpdated || 0 : 0) + deltaTime;
+          if (lastUpdated >= threshold) {
+            const [name, unit] = key.split("/");
+            let value;
+            if (name.startsWith("_GLOBAL_")) {
+              value = SimVar.GetGlobalVarValue(name.substr(8), unit);
+            } else if (name.startsWith("_GAME_")) {
+              value = SimVar.GetGameVarValue(name.substr(6), unit);
+            } else {
+              value = SimVar.GetSimVarValue(name, unit);
+            }
+            stateUpdates[key] = {
+              value,
+              lastUpdated: lastUpdated % threshold
+            };
+          } else {
+            stateUpdates[key] = {
+              lastUpdated
+            };
+          }
+        }
+        setCache((oldCache) => {
+          const newCache = __spreadValues({}, oldCache);
+          for (const [key, update] of Object.entries(stateUpdates)) {
+            newCache[key] = __spreadValues(__spreadValues({}, newCache[key]), update);
+          }
+          return newCache;
+        });
+      }, 16);
+    };
+    startUpdateLoop();
+    onCleanup(() => clearInterval(updateInterval));
+    const getKey = (name, unit, varType) => {
+      switch (varType) {
+        default:
+          return `${name}/${unit}`;
+        case 1:
+          return `_GLOBAL_${name}/${unit}`;
+        case 2:
+          return `_GAME_${name}/${unit}`;
+      }
+    };
+    const contextValue = {
+      retrieve(name, unit, force, varType = 0) {
+        const key = getKey(name, unit, varType);
+        const currentCache = cache();
+        if (currentCache[key] && !force) {
+          return currentCache[key].value;
+        }
+        let value;
+        switch (varType) {
+          default:
+            value = SimVar.GetSimVarValue(name, unit);
+            break;
+          case 1:
+            value = SimVar.GetGlobalVarValue(name, unit);
+            break;
+          case 2:
+            value = SimVar.GetGameVarValue(name, unit);
+            break;
+        }
+        setCache((oldCache) => __spreadProps(__spreadValues({}, oldCache), {
+          [key]: {
+            value,
+            lastUpdated: 0
+          }
+        }));
+        return value;
+      },
+      update(name, unit, value, proxy) {
+        const key = getKey(name, unit, 0);
+        setCache((oldCache) => {
+          var _a;
+          const oldValue = (_a = oldCache[key]) == null ? void 0 : _a.value;
+          const newValue = typeof value === "function" ? value(oldValue) : value;
+          SimVar.SetSimVarValue(proxy || name, unit, newValue);
+          return __spreadProps(__spreadValues({}, oldCache), {
+            [key]: {
+              value: newValue,
+              lastUpdated: 0
+            }
+          });
+        });
+      },
+      register(name, unit, maxStaleness, varType) {
+        const key = getKey(name, unit, varType);
+        setListeners((oldListeners) => {
+          const updatedListeners = __spreadValues({}, oldListeners);
+          if (!updatedListeners[key]) {
+            updatedListeners[key] = [];
+          }
+          updatedListeners[key].push(maxStaleness || 0);
+          return updatedListeners;
+        });
+      },
+      unregister(name, unit, maxStaleness, varType) {
+        const key = getKey(name, unit, varType);
+        setListeners((oldListeners) => {
+          const updatedListeners = __spreadValues({}, oldListeners);
+          const old = updatedListeners[key];
+          if (!Array.isArray(old) || old.length === 0) {
+            throw new Error("Attempted to unregisterHook with no known listener");
+          }
+          if (old.length === 1) {
+            delete updatedListeners[key];
+          } else {
+            const index = old.indexOf(maxStaleness || 0);
+            old.splice(index, 1);
+          }
+          return updatedListeners;
+        });
+      }
+    };
+    return createComponent(SimVarContext.Provider, {
+      value: contextValue,
+      get children() {
+        return props.children;
+      }
+    });
+  };
+  var useSimVar = (name, unit, maxStaleness = 0) => {
+    const contextValue = useContext(SimVarContext);
+    const [value, setValue] = createSignal(contextValue.retrieve(name, unit, false, 0));
+    createEffect(() => {
+      contextValue.register(name, unit, maxStaleness, 0);
+      const intervalId = setInterval(() => {
+        const currentValue = contextValue.retrieve(name, unit, true, 0);
+        setValue(currentValue);
+      }, maxStaleness || 100);
+      onCleanup(() => {
+        clearInterval(intervalId);
+        contextValue.unregister(name, unit, maxStaleness, 0);
+      });
+    });
+    const setter = (newValue) => {
+      contextValue.update(name, unit, newValue);
+      setValue(contextValue.retrieve(name, unit, true, 0));
+    };
+    return [value, setter];
+  };
+
   // instruments/src/MFD/index.tsx
-  var _tmpl$ = /* @__PURE__ */ template(`<div>Hello from solidJS`);
+  var _tmpl$ = /* @__PURE__ */ template(`<div>Hello from solidJS `);
   function HelloAce() {
+    const [altitude, setAltitude] = useSimVar("PLANE ALTITUDE", SimVarUnitsEnum.FOOT);
     return (() => {
-      var _el$ = _tmpl$();
+      var _el$ = _tmpl$(), _el$2 = _el$.firstChild;
       _el$.style.setProperty("color", "white");
+      insert(_el$, altitude, null);
       return _el$;
     })();
   }
-  MSFSRender(createComponent(HelloAce, {}));
+  MSFSRender(createComponent(SimVarProvider, {
+    get children() {
+      return createComponent(HelloAce, {});
+    }
+  }));
 })();
