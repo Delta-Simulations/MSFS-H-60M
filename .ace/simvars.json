@@ -4,7 +4,20 @@
     "name": "PLANE ALTITUDE",
     "index": 0,
     "unit": "foot",
-    "value": 186.0,
-    "pinned": true
+    "value": 111.0
+  },
+  {
+    "type": "L",
+    "name": "H60_MFD_PAGE",
+    "index": 0,
+    "unit": "Enum",
+    "value": 0.0
+  },
+  {
+    "type": "L",
+    "name": "H60_MFD_0_MODE",
+    "index": 0,
+    "unit": "Enum",
+    "value": 0.0
   }
 ]

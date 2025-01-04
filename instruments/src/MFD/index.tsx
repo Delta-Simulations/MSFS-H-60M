@@ -1,13 +1,28 @@
-import { render } from 'solid-js/web'
-
 import { MSFSRender } from '@hooks'
-import { useSimVar, SimVarUnitsEnum, SimVarProvider } from '@hooks/simvars'
+import { SimVarProvider } from '@hooks/simvars'
+import './index.scss'
+import Router from './Util/Router/Router'
+import { useDisplayIndex } from '@hooks'
+import { createSignal, createEffect } from 'solid-js'
 
-function HelloAce() {
-  const [altitude, setAltitude] = useSimVar('PLANE ALTITUDE', SimVarUnitsEnum.FOOT)
+function MFD() {
+  const display_id = useDisplayIndex()
+
+  const [router_simvar, set_router_simvar] = createSignal<string>('')
+
+  createEffect(() => {
+    set_router_simvar(`L:H60_MFD_${display_id()}_MODE`)
+  })
+
   return (
-    <div style={{ color: 'white' }}>Hello from solidJS {altitude()}</div>
+    <div style={{ color: 'white' }}>
+      <Router var={router_simvar()} />
+    </div>
   )
 }
 
-MSFSRender(<SimVarProvider><HelloAce /></SimVarProvider>)
+MSFSRender(
+  <SimVarProvider>
+    <MFD />
+  </SimVarProvider>
+)

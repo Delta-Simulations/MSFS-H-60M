@@ -995,6 +995,26 @@
   function MSFSRender(element) {
     render(() => element, GetRenderTarget());
   }
+  var useDisplayIndex = () => {
+    const [display_index, set_display_index] = createSignal(0);
+    const update_display_index = () => {
+      var _a;
+      const url = (_a = document.getElementsByTagName("pfd_element")[0]) == null ? void 0 : _a.getAttribute("url");
+      set_display_index(url ? Number.parseInt(url.substring(url.length - 1), 10) : 0);
+    };
+    const observer = new MutationObserver(update_display_index);
+    const target = document.getElementsByTagName("pfd-element")[0];
+    if (target) {
+      observer.observe(target, {
+        attributes: true
+      });
+      update_display_index();
+    }
+    onCleanup(() => {
+      observer.disconnect();
+    });
+    return display_index;
+  };
 
   // instruments/common/hooks/simvars.tsx
   var SimVarUnitsEnum = /* @__PURE__ */ function(SimVarUnitsEnum2) {
@@ -1294,20 +1314,118 @@
     return [value, setter];
   };
 
-  // instruments/src/MFD/index.tsx
-  var _tmpl$ = /* @__PURE__ */ template(`<div>Hello from solidJS `);
-  function HelloAce() {
-    const [altitude, setAltitude] = useSimVar("PLANE ALTITUDE", SimVarUnitsEnum.FOOT);
+  // instruments/src/MFD/Pages/PFD/index.tsx
+  var _tmpl$ = /* @__PURE__ */ template(`<div>PFD`);
+  function PFD() {
     return (() => {
-      var _el$ = _tmpl$(), _el$2 = _el$.firstChild;
+      var _el$ = _tmpl$();
       _el$.style.setProperty("color", "white");
-      insert(_el$, altitude, null);
+      return _el$;
+    })();
+  }
+  var PFD_default = PFD;
+
+  // instruments/src/MFD/Pages/ND/index.tsx
+  var _tmpl$2 = /* @__PURE__ */ template(`<div>ND`);
+  function ND() {
+    return (() => {
+      var _el$ = _tmpl$2();
+      _el$.style.setProperty("color", "white");
+      return _el$;
+    })();
+  }
+  var ND_default = ND;
+
+  // instruments/src/MFD/Pages/EICAS/index.tsx
+  var _tmpl$3 = /* @__PURE__ */ template(`<div>EICAS`);
+  function EICAS() {
+    return (() => {
+      var _el$ = _tmpl$3();
+      _el$.style.setProperty("color", "white");
+      return _el$;
+    })();
+  }
+  var EICAS_default = EICAS;
+
+  // instruments/src/MFD/Pages/TAC/index.tsx
+  var _tmpl$4 = /* @__PURE__ */ template(`<div>TAC`);
+  function TAC() {
+    return (() => {
+      var _el$ = _tmpl$4();
+      _el$.style.setProperty("color", "white");
+      return _el$;
+    })();
+  }
+  var TAC_default = TAC;
+
+  // instruments/src/MFD/Pages/JVMF/index.tsx
+  var _tmpl$5 = /* @__PURE__ */ template(`<div>JVMF`);
+  function JVMF() {
+    return (() => {
+      var _el$ = _tmpl$5();
+      _el$.style.setProperty("color", "white");
+      return _el$;
+    })();
+  }
+  var JVMF_default = JVMF;
+
+  // instruments/src/MFD/Util/Router/Router.tsx
+  var _tmpl$6 = /* @__PURE__ */ template(`<div>Page not found`);
+  var _tmpl$22 = /* @__PURE__ */ template(`<div><div>`);
+  var Router = (props) => {
+    const [page, set_page] = useSimVar(props.var, SimVarUnitsEnum.ENUM);
+    const [rendered_page, set_rendered_page] = createSignal();
+    createEffect(() => {
+      switch (page()) {
+        case 0:
+          set_rendered_page(createComponent(PFD_default, {}));
+          break;
+        case 1:
+          set_rendered_page(createComponent(ND_default, {}));
+          break;
+        case 2:
+          set_rendered_page(createComponent(EICAS_default, {}));
+          break;
+        case 3:
+          set_rendered_page(createComponent(TAC_default, {}));
+          break;
+        case 4:
+          set_rendered_page(createComponent(JVMF_default, {}));
+          break;
+        default:
+          set_rendered_page(_tmpl$6());
+      }
+    });
+    return (() => {
+      var _el$2 = _tmpl$22(), _el$3 = _el$2.firstChild;
+      insert(_el$3, rendered_page);
+      return _el$2;
+    })();
+  };
+  var Router_default = Router;
+
+  // instruments/src/MFD/index.tsx
+  var _tmpl$7 = /* @__PURE__ */ template(`<div>`);
+  function MFD() {
+    const display_id = useDisplayIndex();
+    const [router_simvar, set_router_simvar] = createSignal("");
+    createEffect(() => {
+      set_router_simvar(`L:H60_MFD_${display_id()}_MODE`);
+    });
+    return (() => {
+      var _el$ = _tmpl$7();
+      _el$.style.setProperty("color", "white");
+      insert(_el$, createComponent(Router_default, {
+        get ["var"]() {
+          return router_simvar();
+        }
+      }));
       return _el$;
     })();
   }
   MSFSRender(createComponent(SimVarProvider, {
     get children() {
-      return createComponent(HelloAce, {});
+      return createComponent(MFD, {});
     }
   }));
 })();
