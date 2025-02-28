@@ -218,6 +218,16 @@
             "style": {
                 "type": 3
             }
+        },
+        {
+            "__uuid": "c43712cb-4bb1-4eee-98d7-0a2576f4eda6",
+            "title": "ACK",
+            "varPrefix": "L",
+            "varName": "H60_EICAS_ACK",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
         }
     ]
 }

@@ -10,15 +10,14 @@
     </AcousticParameters>
 
 <EngineSoundStates>
-	<Sound WwiseData="true" WwiseEvent="Intake1Ext" EngineIndex="1" RPMMin="200" StateOff="false" StateStart="true" StateOn="true"   ConeHeading="0"> 
-        <WwiseRTPC SimVar="TURB ENG N1" Units="PERCENT" Index="1" RTPCName="SIMVAR_TURB_ENG_N1"/>
-    </Sound>
-
     <Sound WwiseData="true" WwiseEvent="Rotor_EXT_FAR" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
         <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
 
     <Sound WwiseData="true" WwiseEvent="Rotor_INT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Inside" >
+        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+    </Sound>
+        <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
         <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
 
@@ -31,10 +30,10 @@
     <GroundSounds/>
     <MiscellaneousSounds/>
     <SimVarSounds>
-
-        <Sound WwiseData="true" WwiseEvent="Rotor_EXT" SimVar="ROTOR RPM" Units="percent" Index="1" NodeName="MAIN_ROTOR_HELPER" ViewPoint="Outside" FadeOutType="1" FadeOutTime="0.1">
+<!-- 
+        <Sound WwiseData="true" WwiseEvent="Rotor_EXT" SimVar="ROTOR RPM" Units="percent" Index="1" NodeName="MAIN_ROTOR_HELPER" Continuous="false" ViewPoint="Outside" FadeOutType="1" FadeOutTime="0.1">
             <WwiseRTPC SimVar="ROTOR RPM PCT" Units="PERCENT" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
-        </Sound>
+        </Sound> -->
 
 
         <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="3" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">

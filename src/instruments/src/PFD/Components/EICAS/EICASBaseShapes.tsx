@@ -83,6 +83,9 @@ export const EICASBaseShapes = () => {
             <rect x={643} y={209} width="62" height="2" stroke="none" className='barwarn' stroke-width="2" />
             <rect x={707} y={212} width="285" height="2" stroke="none" className='barwarn' stroke-width="2" />
 
+            {/* XMSN Values */}
+            <rect x={472} y={397.4} width="80" height="2" stroke="none" className='barwarn' stroke-width="2" />
+
 
         </g>
 

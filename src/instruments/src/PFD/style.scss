@@ -96,3 +96,34 @@ text {
     background-repeat: repeat;
     fill: red;
 }
+.eicas-display {
+    background-color: black;
+    padding: 10px;
+    border: 2px solid gray;
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    color: white;
+}
+  
+.eicas-alert {
+
+padding: 5px;
+margin-bottom: 5px;
+}
+
+.eicas-alert.non-acknowledged {
+    font-style: 'italic';
+    font-family: "mono";
+background-color: yellow;
+color: black;
+}
+
+.eicas-alert.acknowledged {
+    font-style: 'italic';
+    font-family: "mono";
+background-color: transparent;
+color: yellow;
+}

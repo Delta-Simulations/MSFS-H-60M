@@ -33,7 +33,8 @@ export const EICASTapes = () => {
 
 	let [NR] = useSimVar("A:ROTOR RPM PCT:1", "percent");
 	NR = Math.round(NR * 10) / 10;
-
+	let TMP_XMSN = 100
+	let PRESS_XMSN = 1
 	return (
 		<g>
 			<g>
@@ -910,18 +911,20 @@ export const EICASTapes = () => {
 					</text>
 				</g>
 			</g>
+
+			{/* TAPES - TRANSMISSION PRESSURE TEMP */}
 			<g>
-				<g transform="translate(925,0)">
+				<g transform="translate(443.5,197)">
 					<rect
-						transform={`rotate(180 49.7 239)`}
+						transform={`rotate(180 49.7 216.5)`}
 						x={36.7}
 						y={159}
 						width="26"
-						height={Math.max(Math.min(TMP_2 * 1.65 - 115, 160), 0)}
+						height={Math.max(Math.min(TMP_XMSN * 1.65 - 115, 115), 0)}
 						className={
-							TMP_2 < 135
+							TMP_XMSN < 105
 								? "tapeGreen"
-								: TMP_2 <= 150
+								: TMP_XMSN <= 140
 								? "tapeYellow"
 								: "tapeRedStripes"
 						}
@@ -930,21 +933,21 @@ export const EICASTapes = () => {
 						x={36.7}
 						y={159}
 						width="26"
-						height="160"
+						height="115"
 						stroke="white"
 						fill="none"
 					/>
 					<rect
 						x={34.7}
-						y={182}
+						y={178}
 						width="30"
 						height="2"
 						stroke="none"
 						className="barmax"
 					/>
 					<text
-						x={58}
-						y={123}
+						x={17.2}
+						y={175}
 						fontSize={23}
 						className="text"
 						textAnchor="middle"
@@ -952,21 +955,105 @@ export const EICASTapes = () => {
 						T
 					</text>
 					<text
-						x={76}
-						y={152}
+						x={17.5}
+						y={204}
 						fontSize={27}
 						className={
-							TMP_2 < 135
+							TMP_XMSN < 105
 								? "text-safe"
-								: TMP_2 <= 150
+								: TMP_XMSN <= 140
 								? "text-caution"
 								: "text-warning"
 						}
 						textAnchor="middle"
 					>
-						{Math.round(TMP_2)}
+						{Math.round(TMP_XMSN)}
 					</text>
+
 				</g>
+				<g transform="translate(481.5,197)">
+					<rect
+						transform={`rotate(180 49.7 216.5)`}
+						x={36.7}
+						y={159}
+						width="26"
+						height={Math.max(Math.min(PRESS_XMSN * 1.65 - 115, 115), 0)}
+						className={
+							PRESS_XMSN <= 20
+								? "tapeRedStripes"
+								: PRESS_XMSN < 30
+								? "tapeYellow"
+								: PRESS_XMSN <= 65
+								? "tapeGreen"
+								: PRESS_XMSN <= 130
+								? "tapeYellow"
+								: "tapeRedStripes"
+						}
+					/>
+					<rect
+						x={36.7}
+						y={159}
+						width="26"
+						height="115"
+						stroke="white"
+						fill="none"
+					/>
+					<rect
+						x={34.7}
+						y={178}
+						width="30"
+						height="2"
+						stroke="none"
+						className="barmax"
+					/>
+					<rect
+						x={34.7}
+						y={244.6}
+						width="30"
+						height="2"
+						stroke="none"
+						className="barwarn"
+					/>
+					<rect
+						x={34.7}
+						y={257}
+						width="30"
+						height="2"
+						stroke="none"
+						className="barmax"
+					/>
+
+					<text
+						x={94.2}
+						y={175}
+						fontSize={23}
+						className="text"
+						textAnchor="middle"
+					>
+						P
+					</text>
+					<text
+						x={127.8}
+						y={204}
+						fontSize={27}
+						className={
+							PRESS_XMSN <= 20
+								? "text-warning"
+								: PRESS_XMSN < 30
+								? "text-caution"
+								: PRESS_XMSN <= 65
+								? "text-safe"
+								: PRESS_XMSN <= 130
+								? "text-caution"
+								: "text-warning"
+						}
+						textAnchor="start"
+					>
+						{Math.round(PRESS_XMSN)}
+					</text>
+
+				</g>
+
 			</g>
 		</g>
 	);

@@ -8539,8 +8539,9 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; // return 1
+	  // const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  // return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+	  return 1;
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -11192,6 +11193,109 @@
 	  });
 	};
 
+	function EICASDisplay() {
+	  // Define the initial alerts directly inside the function
+
+	  const initialAlerts = [{
+	    text: 'Engine Failure',
+	    acknowledged: false,
+	    active: true
+	  }, {
+	    text: 'Low Fuel',
+	    acknowledged: false,
+	    active: false
+	  }, {
+	    text: 'Cabin Pressure Low',
+	    acknowledged: false,
+	    active: true
+	  }, {
+	    text: 'Turbulence Ahead',
+	    acknowledged: false,
+	    active: false
+	  }, {
+	    text: 'Landing Gear Issue',
+	    acknowledged: false,
+	    active: false
+	  }, {
+	    text: 'Overheat Warning',
+	    acknowledged: false,
+	    active: true
+	  }]; // State to store the list of alerts
+
+	  const [alerts, setAlerts] = react.useState(initialAlerts); // Get only the active alerts
+
+	  const activeAlerts = alerts.filter(alert => alert.active);
+	  react.useEffect(() => {
+	    console.log("Active Alerts:", activeAlerts); // Log active alerts to console for debugging
+	  }, [activeAlerts]);
+	  return /*#__PURE__*/jsxRuntime.jsxs("div", {
+	    style: {
+	      width: "100%",
+	      maxWidth: "400px",
+	      // Limit the width to make it visible
+	      backgroundColor: "black",
+	      padding: "10px",
+	      borderRadius: "5px",
+	      color: "white",
+	      // Ensure the text color is white on black background
+	      overflowY: "auto",
+	      // Allow scrolling if there are too many alerts
+	      height: "300px",
+	      // Set a fixed height for visibility
+	      boxSizing: "border-box" // Prevent overflow issues
+
+	    },
+	    children: [/*#__PURE__*/jsxRuntime.jsx("h3", {
+	      style: {
+	        textAlign: "center",
+	        color: "yellow"
+	      },
+	      children: "Active Alerts"
+	    }), activeAlerts.length > 0 ? activeAlerts.map((alert, index) => /*#__PURE__*/jsxRuntime.jsxs("div", {
+	      style: {
+	        backgroundColor: "red",
+	        // Active alerts are shown with a red background
+	        padding: "10px",
+	        margin: "5px 0",
+	        borderRadius: "5px",
+	        fontFamily: "monospace",
+	        color: "black" // Ensure text is readable
+
+	      },
+	      children: [alert.text, " (Active)"]
+	    }, index)) : /*#__PURE__*/jsxRuntime.jsx("div", {
+	      style: {
+	        textAlign: "center",
+	        color: "white",
+	        fontSize: "14px",
+	        fontStyle: "italic"
+	      },
+	      children: "No active alerts"
+	    }), /*#__PURE__*/jsxRuntime.jsx("button", {
+	      onClick: () => setAlerts(prevAlerts => [...prevAlerts, {
+	        text: "Warning ".concat(alerts.length + 1),
+	        acknowledged: false,
+	        active: true
+	      }]),
+	      style: {
+	        marginTop: "10px",
+	        padding: "10px",
+	        backgroundColor: "gray",
+	        color: "white",
+	        border: "none",
+	        borderRadius: "5px",
+	        cursor: "pointer",
+	        width: "100%"
+	      },
+	      children: "Add Active Warning"
+	    })]
+	  });
+	}
+
+	const EICASAdvisory = () => {
+	  return /*#__PURE__*/jsxRuntime.jsx(EICASDisplay, {});
+	};
+
 	const EICASBaseShapes = () => {
 	  useSimVar('A:ENG OIL TEMPERATURE:1', 'Celsius');
 	  useSimVar('A:ENG OIL PRESSURE:1', 'psi');
@@ -11406,6 +11510,14 @@
 	      stroke: "none",
 	      className: "barwarn",
 	      "stroke-width": "2"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 472,
+	      y: 397.4,
+	      width: "80",
+	      height: "2",
+	      stroke: "none",
+	      className: "barwarn",
+	      "stroke-width": "2"
 	    })]
 	  });
 	};
@@ -11437,6 +11549,8 @@
 	  NP_2 = Math.round(NP_2 * 10) / 10;
 	  let [NR] = useSimVar("A:ROTOR RPM PCT:1", "percent");
 	  NR = Math.round(NR * 10) / 10;
+	  let TMP_XMSN = 100;
+	  let PRESS_XMSN = 1;
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
 	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -12007,46 +12121,98 @@
 	          children: Math.round(TMP_2)
 	        })]
 	      })]
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "translate(925,0)",
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(443.5,197)",
 	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	          transform: "rotate(180 49.7 239)",
+	          transform: "rotate(180 49.7 216.5)",
 	          x: 36.7,
 	          y: 159,
 	          width: "26",
-	          height: Math.max(Math.min(TMP_2 * 1.65 - 115, 160), 0),
-	          className: TMP_2 < 135 ? "tapeGreen" : TMP_2 <= 150 ? "tapeYellow" : "tapeRedStripes"
+	          height: Math.max(Math.min(TMP_XMSN * 1.65 - 115, 115), 0),
+	          className: "tapeGreen" 
 	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	          x: 36.7,
 	          y: 159,
 	          width: "26",
-	          height: "160",
+	          height: "115",
 	          stroke: "white",
 	          fill: "none"
 	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	          x: 34.7,
-	          y: 182,
+	          y: 178,
 	          width: "30",
 	          height: "2",
 	          stroke: "none",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 58,
-	          y: 123,
+	          x: 17.2,
+	          y: 175,
 	          fontSize: 23,
 	          className: "text",
 	          textAnchor: "middle",
 	          children: "T"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
-	          y: 152,
+	          x: 17.5,
+	          y: 204,
 	          fontSize: 27,
-	          className: TMP_2 < 135 ? "text-safe" : TMP_2 <= 150 ? "text-caution" : "text-warning",
+	          className: "text-safe" ,
 	          textAnchor: "middle",
-	          children: Math.round(TMP_2)
+	          children: Math.round(TMP_XMSN)
 	        })]
-	      })
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(481.5,197)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          transform: "rotate(180 49.7 216.5)",
+	          x: 36.7,
+	          y: 159,
+	          width: "26",
+	          height: Math.max(Math.min(PRESS_XMSN * 1.65 - 115, 115), 0),
+	          className: "tapeRedStripes" 
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 36.7,
+	          y: 159,
+	          width: "26",
+	          height: "115",
+	          stroke: "white",
+	          fill: "none"
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 34.7,
+	          y: 178,
+	          width: "30",
+	          height: "2",
+	          stroke: "none",
+	          className: "barmax"
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 34.7,
+	          y: 244.6,
+	          width: "30",
+	          height: "2",
+	          stroke: "none",
+	          className: "barwarn"
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 34.7,
+	          y: 257,
+	          width: "30",
+	          height: "2",
+	          stroke: "none",
+	          className: "barmax"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 94.2,
+	          y: 175,
+	          fontSize: 23,
+	          className: "text",
+	          textAnchor: "middle",
+	          children: "P"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 127.8,
+	          y: 204,
+	          fontSize: 27,
+	          className: "text-warning" ,
+	          textAnchor: "start",
+	          children: Math.round(PRESS_XMSN)
+	        })]
+	      })]
 	    })]
 	  });
 	};
@@ -12068,7 +12234,7 @@
 	  useSimVar('L:TotEngRunning', 'enum');
 	  useSimVar('A:ROTOR TEMPERATURE', 'Celsius');
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {})]
+	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASAdvisory, {})]
 	  });
 	};
 
@@ -28703,6 +28869,37 @@ text {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScvPgogIDxwYXRoIGQ9J00tMSwxIGwyLC0yCiAgICAgICAgICAgTTAsMTAgbDEwLC0xMAogICAgICAgICAgIE05LDExIGwyLC0yJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzMnLz4KPC9zdmc+");
   background-repeat: repeat;
   fill: red;
+}
+
+.eicas-display {
+  background-color: black;
+  padding: 10px;
+  border: 2px solid gray;
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  color: white;
+}
+
+.eicas-alert {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.eicas-alert.non-acknowledged {
+  font-style: "italic";
+  font-family: "mono";
+  background-color: yellow;
+  color: black;
+}
+
+.eicas-alert.acknowledged {
+  font-style: "italic";
+  font-family: "mono";
+  background-color: transparent;
+  color: yellow;
 }
 /* required styles */
 
