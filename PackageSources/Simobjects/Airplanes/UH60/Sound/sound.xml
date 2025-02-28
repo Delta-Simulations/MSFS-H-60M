@@ -11,14 +11,14 @@
 
 <EngineSoundStates>
     <Sound WwiseData="true" WwiseEvent="Rotor_EXT_FAR" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
-        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+        <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
 
     <Sound WwiseData="true" WwiseEvent="Rotor_INT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Inside" >
-        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+        <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
         <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
-        <WwiseRTPC SimVar="ROTOR RPM" Units="RPM" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+        <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
 
 </EngineSoundStates>
