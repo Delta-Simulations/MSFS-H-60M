@@ -71,11 +71,7 @@
 
 				(A:GENERAL ENG STARTER ACTIVE:1, bool) 1 ==
 				(A:GENERAL ENG STARTER ACTIVE:2, bool) 1 == or
-				(L:H60_PCL1, percent) 1 == or
-				 if{
-					100 (&gt;K:MIXTURE_SET)
-					1 (&gt;K:ROTOR_GOV_SWITCH_ON)
-				}
+
 				(L:H60_AIR_SOURCE) 0 ==
 				if{ 1 0 (&gt;K:2:ENGINE_BLEED_AIR_SOURCE_SET) }
 				els{ 0 0 (&gt;K:2:ENGINE_BLEED_AIR_SOURCE_SET) }
@@ -94,7 +90,11 @@
 
 				(L:H60_PCL1, percent) 15 &gt;
 				(L:H60_PCL2, percent) 15 &gt; or
-				if{ 1 (&gt;K:ROTOR_GOV_SWITCH_ON) } 
+				if{ 0 (&gt;K:ROTOR_GOV_SWITCH_ON) 
+					100 (&gt;K:MIXTURE_SET)
+					1 (&gt;K:HELICOPTER_ENGINE_1_GOVERNOR_SWITCH_ON) 
+					1 (&gt;K:HELICOPTER_ENGINE_2_GOVERNOR_SWITCH_ON) 
+				} 
 				<!-- (L:H60_PCL1, percent) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
 				(L:H60_PCL2, percent) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) -->
 

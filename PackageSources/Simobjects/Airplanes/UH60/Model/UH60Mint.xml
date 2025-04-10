@@ -610,6 +610,14 @@
     <ANIM_LAG>600</ANIM_LAG>
   </UseTemplate>
 </Component>
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(A:BRAKE PARKING POSITION, bool) 100 *</ANIM>
+  <NODE_ID>PARKING_BRAKE_HANDLE</NODE_ID>
+  <TOOLTIPID>SET/STOW PARKING BRAKE</TOOLTIPID>
+  <INTERACT_CODE>
+    1 (&gt;K:PARKING_BRAKES)
+  </INTERACT_CODE>
+</UseTemplate>
 
 
 <UseTemplate Name="GENERIC_Toggle_Switch_Template">
@@ -699,11 +707,12 @@
 				<NO_BRAKES_HIGHLIGHT>False</NO_BRAKES_HIGHLIGHT>
 				<DIFFERENTIATE_BRAKE_ANIM_L_R>True</DIFFERENTIATE_BRAKE_ANIM_L_R>
 				<INVERT_ANIM>False</INVERT_ANIM>
+        <ANIM_LENGTH>200</ANIM_LENGTH>
 			</UseTemplate>
 			<CameraTitle></CameraTitle>
 	</Component>
 
-  <!-- <UseTemplate name="Generic_Anim_DELTASIM">
+  <UseTemplate name="Generic_Anim_DELTASIM">
     <ANIM_NAME>DoorP</ANIM_NAME>
     <ANIM_CODE>
       (L:H60_DoorP, bool) 100 * 
@@ -718,7 +727,7 @@
     </ANIM_CODE>
     <ANIM_LAG>20</ANIM_LAG>
     <ANIM_LENGTH>100</ANIM_LENGTH>
-  </UseTemplate> -->
+  </UseTemplate>
 
   <Component ID="DoorR" Node="R Pilot Door">
     <UseTemplate Name="ASOBO_GT_Visibility">

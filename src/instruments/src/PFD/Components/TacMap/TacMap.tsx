@@ -11,6 +11,8 @@ export const TacMap = ({ }) => {
 	const [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
 
+	let zoom_limited = Math.min(Math.max(zoom, 2), 17);
+
 	const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	const [Map_Declutter] = useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
 	const [Map_Orientation] = useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
@@ -25,7 +27,7 @@ export const TacMap = ({ }) => {
 						lat={latitude}
 						lng={longitude}
 						heading={ac_heading}
-						zoom={zoom}
+						zoom={zoom_limited}
 						map_mode={Disp_mode}
 						map_symbology={Map_Declutter}
 					/>

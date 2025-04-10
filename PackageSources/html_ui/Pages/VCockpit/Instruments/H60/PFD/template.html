@@ -28537,6 +28537,7 @@
 	  const [longitude] = useSimVar("GPS POSITION LON", "degree");
 	  const [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
+	  let zoom_limited = Math.min(Math.max(zoom, 2), 17);
 	  const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	  const [Map_Declutter] = useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
 	  useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
@@ -28545,7 +28546,7 @@
 	      lat: latitude,
 	      lng: longitude,
 	      heading: ac_heading,
-	      zoom: zoom,
+	      zoom: zoom_limited,
 	      map_mode: Disp_mode,
 	      map_symbology: Map_Declutter
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {

@@ -416,7 +416,7 @@
 					</ANIM_CODE>
           <ANIM_LAG>50</ANIM_LAG>
 				</UseTemplate>
-				<!-- <UseTemplate name="Generic_Anim_DELTASIM">
+				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>DoorP</ANIM_NAME>
 					<ANIM_CODE>
             (L:H60_DoorP, bool) 100 * 
@@ -431,7 +431,7 @@
 					</ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-				</UseTemplate> -->
+				</UseTemplate>
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>reardoorR</ANIM_NAME>
 					<ANIM_CODE>
