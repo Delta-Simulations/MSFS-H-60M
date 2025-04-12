@@ -203,6 +203,52 @@
             "style": {
                 "type": 3
             }
+        },
+        {
+            "__uuid": "3396edc5-7ec4-4abe-9c07-d0389d48b4d9",
+            "title": "apu oct",
+            "varPrefix": "A",
+            "varName": "APU PCT RPM",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 100,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "6b61c999-64ac-47e4-989a-b13ba2d58588",
+            "title": "Apu gen on",
+            "varPrefix": "A",
+            "varName": "APU GENERATOR ACTIVE",
+            "varUnit": "bool",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "0f58aa8b-f420-4bab-875d-fa9fce069152",
+            "title": "hyd low",
+            "varPrefix": "L",
+            "varName": "HYDRAULIC_LOW",
+            "varUnit": "bool",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "149c91b9-116f-4427-85c8-4f19aa9ee69e",
+            "title": "advis",
+            "varPrefix": "A",
+            "varName": "Page_Advis",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 4,
+                "step": 1
+            }
         }
     ]
 }

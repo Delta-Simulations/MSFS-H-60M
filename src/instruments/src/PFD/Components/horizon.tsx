@@ -59,8 +59,8 @@ export const Horizon = () => {
                     <g transform={`translate(0 ${pitch * -4.45}) `}>
                         <g transform={`translate(-65 -360)`}>
                             <g>
-                                <rect x={-500} y={-953} height={1500} width={2000} fill='rgb(0, 148, 222)'/>
-                                <rect x={-500} y={547} height={1500} width={2000} fill='rgb(183, 106, 64)'/>
+                                <rect x={-500} y={-953} height={1500} width={2000} fill='#00bee6'/>
+                                <rect x={-500} y={547} height={1500} width={2000} fill='#ca9f30'/>
 
                                 <rect x={-500} y={545} width={2000} height={3} fill='white'/>
 

@@ -41,7 +41,7 @@ text {
 .readouts {
     font-style: 'italic';
     font-family: "OCRB";
-
+    letter-spacing: -0.1px;
 }
 .tacmap_cyantext {
     @extend .readouts;

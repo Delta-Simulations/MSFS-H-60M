@@ -8539,8 +8539,9 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; //return 1 
+	  //const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  //return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+	  return 1;
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -9128,13 +9129,13 @@
 	                y: -953,
 	                height: 1500,
 	                width: 2000,
-	                fill: "rgb(0, 148, 222)"
+	                fill: "#00bee6"
 	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	                x: -500,
 	                y: 547,
 	                height: 1500,
 	                width: 2000,
-	                fill: "rgb(183, 106, 64)"
+	                fill: "#ca9f30"
 	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	                x: -500,
 	                y: 545,
@@ -11192,6 +11193,95 @@
 	  });
 	};
 
+	// Component
+	const EICASAdvisory = () => {
+	  // SimVars
+	  const [APU_ON] = useSimVar('A:APU PCT RPM', 'percent');
+	  const [APU_GEN_ON] = useSimVar('A:APU GENERATOR ACTIVE', 'bool');
+	  const [hydraulicLow] = useSimVar('L:HYDRAULIC_LOW', 'Enum');
+	  const [page_number_advis] = useSimVar('H:Page_Advis', 'Enum'); // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'APU ON',
+	    level: 'Advisory',
+	    simVar: APU_ON > 99
+	  }, {
+	    text: 'APU GEN ON',
+	    level: 'Advisory',
+	    simVar: APU_GEN_ON == 1
+	  }, {
+	    text: 'ENG 1 ANTI-ICE ON',
+	    level: 'Advisory',
+	    simVar: hydraulicLow == 1
+	  }, {
+	    text: 'XXXXXXXXXXXXXXXXXX',
+	    level: 'Advisory',
+	    simVar: 1 == 1
+	  }, {
+	    text: 'XXXXXXXXXXXXXXXXXX',
+	    level: 'Advisory',
+	    simVar: 1 == 1
+	  }, {
+	    text: 'XXXXXXXXXXXXXXXXXX',
+	    level: 'Advisory',
+	    simVar: 1 == 1
+	  }, {
+	    text: 'XXXXXXXXXXXXXXXXXX',
+	    level: 'Advisory',
+	    simVar: 1 == 1
+	  }, {
+	    text: 'GUST LOCK ENGAGED',
+	    level: 'Advisory',
+	    simVar: 1 == 1
+	  }]; // Limit to 6 active cautions
+
+	  const totalPages = Math.ceil(advisoryList.filter(c => c.simVar).length / 6); // Wrap around the page number if it exceeds bounds
+
+	  const currentPage = page_number_advis % totalPages; // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(currentPage * 6, (currentPage + 1) * 6); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 551.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 40,
+	        y: yPos,
+	        fontSize: "27",
+	        className: "readouts",
+	        children: caution.text
+	      }, "caution-".concat(index)));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("defs", {
+	      children: /*#__PURE__*/jsxRuntime.jsx("clipPath", {
+	        id: "top-half",
+	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "37",
+	          y: "701",
+	          width: "296",
+	          height: "100"
+	        })
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: "37",
+	      y: "527",
+	      width: "296",
+	      height: "176",
+	      fill: "none",
+	      stroke: "white",
+	      strokeWidth: 2.5
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      clipPath: "url(#top-half)",
+	      children: elements
+	    })]
+	  });
+	};
+
 	const EICASBaseShapes = () => {
 	  useSimVar('A:ENG OIL TEMPERATURE:1', 'Celsius');
 	  useSimVar('A:ENG OIL PRESSURE:1', 'psi');
@@ -12114,23 +12204,8 @@
 	};
 
 	const EICAS = () => {
-	  useSimVar('A:ENG ROTOR RPM:1', 'percent');
-	  useSimVar('A:ENG ROTOR RPM:2', 'percent');
-	  useSimVar('A:ENG OIL TEMPERATURE:1', 'Celsius');
-	  useSimVar('A:ENG OIL TEMPERATURE:2', 'Celsius');
-	  useSimVar('A:ENG OIL PRESSURE:1', 'psi');
-	  useSimVar('A:ENG OIL PRESSURE:2', 'psi');
-	  useSimVar('A:TURB ENG CORRECTED N1:1', 'percent');
-	  useSimVar('A:TURB ENG CORRECTED N1:2', 'percent');
-	  useSimVar('A:ENG EXHAUST GAS TEMPERATURE:1', 'Celsius');
-	  useSimVar('A:ENG EXHAUST GAS TEMPERATURE:2', 'Celsius');
-	  useSimVar('A:ENG TORQUE PERCENT:1', 'percent');
-	  useSimVar('A:ENG TORQUE PERCENT:2', 'percent');
-	  useSimVar('A:ROTOR RPM PCT:1', 'percent');
-	  useSimVar('L:TotEngRunning', 'enum');
-	  useSimVar('A:ROTOR TEMPERATURE', 'Celsius');
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {})]
+	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASAdvisory, {})]
 	  });
 	};
 
@@ -28764,52 +28839,52 @@
 	        width: 75,
 	        height: 23,
 	        fill: "#00000"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
 	        x: "1007",
 	        y: "154",
 	        fontSize: 19.5,
 	        className: "readouts",
 	        textAnchor: "end",
-	        children: "CHART>"
+	        children: ["CHART", ">"]
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 900,
 	        y: 236,
 	        width: 110,
 	        height: 23,
 	        fill: "#00000"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
 	        x: "1007",
 	        y: "254",
 	        fontSize: 19.5,
 	        className: "readouts",
 	        textAnchor: "end",
-	        children: "OVERLAYS>"
+	        children: ["OVERLAYS", ">"]
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 924,
 	        y: 336,
 	        width: 86,
 	        height: 23,
 	        fill: "#00000"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
 	        x: "1007",
 	        y: "353",
 	        fontSize: 19.5,
 	        className: "readouts",
 	        textAnchor: "end",
-	        children: "CONFIG>"
+	        children: ["CONFIG", ">"]
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 946,
 	        y: 433,
 	        width: 64,
 	        height: 23,
 	        fill: "#00000"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
 	        x: "1007",
 	        y: "451",
 	        fontSize: 19.5,
 	        className: "readouts",
 	        textAnchor: "end",
-	        children: "POSN>"
+	        children: ["POSN", ">"]
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 936,
 	        y: 522,
@@ -29180,6 +29255,7 @@ text {
 .readouts, .tacmap_cyantext {
   font-style: "italic";
   font-family: "OCRB";
+  letter-spacing: -0.1px;
 }
 
 .tacmap_cyantext {

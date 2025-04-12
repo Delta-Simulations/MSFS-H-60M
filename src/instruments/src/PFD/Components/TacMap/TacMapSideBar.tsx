@@ -327,7 +327,7 @@ export const TacMapSideBar = ({ }) => {
 					className="readouts"
 					textAnchor="end"
 				>
-					CHART>
+					CHART{">"}
 				</text>
 				<rect
 					x={900}
@@ -343,7 +343,7 @@ export const TacMapSideBar = ({ }) => {
 					className="readouts"
 					textAnchor="end"
 				>
-					OVERLAYS>
+					OVERLAYS{">"}
 				</text>
 				<rect
 					x={924}
@@ -359,7 +359,7 @@ export const TacMapSideBar = ({ }) => {
 					className="readouts"
 					textAnchor="end"
 				>
-					CONFIG>
+					CONFIG{">"}
 				</text>
 				<rect
 					x={946}
@@ -375,7 +375,7 @@ export const TacMapSideBar = ({ }) => {
 					className="readouts"
 					textAnchor="end"
 				>
-					POSN>
+					POSN{">"}
 				</text>
 
 				<rect
