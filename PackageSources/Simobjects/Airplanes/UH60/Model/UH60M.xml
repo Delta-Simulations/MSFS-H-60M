@@ -589,12 +589,12 @@
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
 				</UseTemplate>
-        <Component ID="DoorAR" Node="R Pilot Door.001">
+        <Component ID="DoorAR" Node="DoorR">
           <UseTemplate Name="ASOBO_GT_Visibility">
             <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
           </UseTemplate>
         </Component>
-        <Component ID="DoorAL" Node="L Pilot Door.001">
+        <Component ID="DoorAL" Node="DoorL">
           <UseTemplate Name="ASOBO_GT_Visibility">
             <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
           </UseTemplate>

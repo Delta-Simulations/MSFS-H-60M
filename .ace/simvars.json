@@ -80,58 +80,6 @@
             }
         },
         {
-            "__uuid": "6d191547-52f8-4631-8e3f-8cd41f39b51e",
-            "title": "TGT 1",
-            "varPrefix": "A",
-            "varName": "ENG EXHAUST GAS TEMPERATURE",
-            "varUnit": "number",
-            "style": {
-                "type": 2,
-                "min": 700,
-                "max": 950,
-                "step": 1
-            }
-        },
-        {
-            "__uuid": "4550725c-2352-454f-9477-89bb79516cf5",
-            "title": "Eng Q1 Torque",
-            "varPrefix": "A",
-            "varName": "ENG TORQUE PERCENT",
-            "varUnit": "percent",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 150,
-                "step": 1
-            }
-        },
-        {
-            "__uuid": "e367a5a5-e8b0-48a5-92ca-964b9ba88c79",
-            "title": "NP RPM 1",
-            "varPrefix": "A",
-            "varName": "GENERAL ENG PCT MAX RPM",
-            "varUnit": "percent",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 111,
-                "step": 1
-            }
-        },
-        {
-            "__uuid": "45af63a9-4d95-4469-adeb-506f91d85820",
-            "title": "NR MAIN",
-            "varPrefix": "A",
-            "varName": "ROTOR RPM PCT",
-            "varUnit": "percent",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 115,
-                "step": 1
-            }
-        },
-        {
             "__uuid": "541a8311-9d89-4aac-9a00-1677f0a09ace",
             "title": "GPS POS LAT",
             "varPrefix": "A",
@@ -174,7 +122,7 @@
             "__uuid": "4ffa4ac1-2c64-404e-a015-c60925b6fecc",
             "title": "PFD ZOOM",
             "varPrefix": "L",
-            "varName": "PFD_MAP_ZOOM",
+            "varName": "H60_TAC_MAP_SCALE",
             "varUnit": "number",
             "style": {
                 "type": 2,

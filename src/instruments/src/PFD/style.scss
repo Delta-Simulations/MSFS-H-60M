@@ -37,9 +37,18 @@ text {
 .degrees {
     font-family: "mono";
 }
+
 .readouts {
     font-style: 'italic';
+    font-family: "OCRB";
+
 }
+.tacmap_cyantext {
+    @extend .readouts;
+    fill: cyan;
+
+}
+
 .apdisp {
     font-style: 'italic';
     font-family: "mono";

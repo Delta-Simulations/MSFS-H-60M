@@ -562,6 +562,28 @@
     </INTERACT_CODE>
   </UseTemplate>
 
+  <Component ID="Armor_side_move" Node="Armor_side_move">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+            (L:H60_ARMOR_P, number) ++ 100 min (>L:H60_ARMOR_P, number)
+        </UP_CODE>
+        <DOWN_CODE>
+            (L:H60_ARMOR_P, number) -- 0 max (>L:H60_ARMOR_P, number)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>300</DRAG_AXIS_SCALE>
+    </UseTemplate>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>Armor_side_move</PART_ID>
+      <ANIM_NAME>Armor_side_move</ANIM_NAME>
+      <NODE_ID>Armor_side_move</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_ARMOR_P, number)
+      </ANIM_CODE>
+      <ANIM_LAG>10</ANIM_LAG>
+    </UseTemplate>
+</Component>
+
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(L:H60_APU_START, bool) 100 *</ANIM>
     <NODE_ID>Switch_APU_CNTRL</NODE_ID>
@@ -729,7 +751,7 @@
     <ANIM_LENGTH>100</ANIM_LENGTH>
   </UseTemplate>
 
-  <Component ID="DoorR" Node="R Pilot Door">
+  <Component ID="DoorPilot" Node="DoorPilot">
     <UseTemplate Name="ASOBO_GT_Visibility">
       <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
     </UseTemplate>
@@ -1051,57 +1073,6 @@
            </CallbackCode>
       </MouseRect>
   </PartInfo>
-
-
-
-  <Animation name="SHEILD_M" guid="89975755-2406-41e0-99a7-518cbfcfa97c" type="Sim" typeParam="AutoPlay" />
-  <Animation name="SHEILD_MOVE" guid="d6b8ddb0-fb97-4780-b93e-f1533c6b7a03" type="Sim" typeParam="AutoPlay" />
-  <Animation name="SHEILD_HIDE" guid="6611900b-86d2-478d-9b75-7466a1e6944d" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>SHEILD_M</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>
-             (L:SHEILD_M, bool) 100 *
-               </Code>
-             
-      </Parameter>
-      </Animation>
-      <MouseRect>
-          <Cursor>Hand</Cursor>
-          <TooltipText>TOGGLE SHEILD</TooltipText>
-           <CallbackCode>
-     (L:SHEILD_M, bool) ! (>L:SHEILD_M, bool)
-           </CallbackCode>
-      </MouseRect>
-  </PartInfo>
-
-  <PartInfo>
-      <Name>SHEILD_R</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-        <Parameter>
-             <Code>
-           (L:SHEILD_M, bool) 100 *
-             </Code>  
-             <Lag>30</Lag>
-    </Parameter>
-    </Animation>
-  </PartInfo>
-  
-  <PartInfo>
-    <Name>SHEILD_HIDE</Name>
-    <AnimLength>100</AnimLength>
-    <Visibility>
-      <Parameter>
-        <Code>
-        (L:SHEILD_M,bool)
-        if{ 0 } els{ 1 }
-        </Code>
-      </Parameter>
-      </Visibility>
-</PartInfo>
 
 
 <Animation name="doorfront" guid="3e16dd94-4e75-4b77-b365-2ced234b3886" length="1" type="Sim" typeParam="AutoPlay" />

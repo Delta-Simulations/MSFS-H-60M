@@ -8539,8 +8539,9 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; // return 1
+	  //const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  //   return url ? parseInt(url.substring(url.length - 1), 10) : 0;
+	  return 1;
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -9739,40 +9740,40 @@
 	const Fixed = () => {
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 27,
-	      y: 758,
+	      x: 26,
+	      y: 759,
 	      fontSize: 21,
 	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "PFD"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 129,
-	      y: 758,
+	      x: 121.5,
+	      y: 759,
 	      fontSize: 21,
 	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "ND"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 206,
-	      y: 758,
+	      x: 195,
+	      y: 759,
 	      fontSize: 21,
 	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "EICAS"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 862,
-	      y: 758,
+	      x: 857,
+	      y: 759,
 	      fontSize: 21,
 	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "TAC"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 950,
-	      y: 758,
+	      x: 942,
+	      y: 759,
 	      fontSize: 21,
 	      fill: "#00EE00",
 	      className: "readouts",
@@ -11192,109 +11193,6 @@
 	  });
 	};
 
-	function EICASDisplay() {
-	  // Define the initial alerts directly inside the function
-
-	  const initialAlerts = [{
-	    text: 'Engine Failure',
-	    acknowledged: false,
-	    active: true
-	  }, {
-	    text: 'Low Fuel',
-	    acknowledged: false,
-	    active: false
-	  }, {
-	    text: 'Cabin Pressure Low',
-	    acknowledged: false,
-	    active: true
-	  }, {
-	    text: 'Turbulence Ahead',
-	    acknowledged: false,
-	    active: false
-	  }, {
-	    text: 'Landing Gear Issue',
-	    acknowledged: false,
-	    active: false
-	  }, {
-	    text: 'Overheat Warning',
-	    acknowledged: false,
-	    active: true
-	  }]; // State to store the list of alerts
-
-	  const [alerts, setAlerts] = react.useState(initialAlerts); // Get only the active alerts
-
-	  const activeAlerts = alerts.filter(alert => alert.active);
-	  react.useEffect(() => {
-	    console.log("Active Alerts:", activeAlerts); // Log active alerts to console for debugging
-	  }, [activeAlerts]);
-	  return /*#__PURE__*/jsxRuntime.jsxs("div", {
-	    style: {
-	      width: "100%",
-	      maxWidth: "400px",
-	      // Limit the width to make it visible
-	      backgroundColor: "black",
-	      padding: "10px",
-	      borderRadius: "5px",
-	      color: "white",
-	      // Ensure the text color is white on black background
-	      overflowY: "auto",
-	      // Allow scrolling if there are too many alerts
-	      height: "300px",
-	      // Set a fixed height for visibility
-	      boxSizing: "border-box" // Prevent overflow issues
-
-	    },
-	    children: [/*#__PURE__*/jsxRuntime.jsx("h3", {
-	      style: {
-	        textAlign: "center",
-	        color: "yellow"
-	      },
-	      children: "Active Alerts"
-	    }), activeAlerts.length > 0 ? activeAlerts.map((alert, index) => /*#__PURE__*/jsxRuntime.jsxs("div", {
-	      style: {
-	        backgroundColor: "red",
-	        // Active alerts are shown with a red background
-	        padding: "10px",
-	        margin: "5px 0",
-	        borderRadius: "5px",
-	        fontFamily: "monospace",
-	        color: "black" // Ensure text is readable
-
-	      },
-	      children: [alert.text, " (Active)"]
-	    }, index)) : /*#__PURE__*/jsxRuntime.jsx("div", {
-	      style: {
-	        textAlign: "center",
-	        color: "white",
-	        fontSize: "14px",
-	        fontStyle: "italic"
-	      },
-	      children: "No active alerts"
-	    }), /*#__PURE__*/jsxRuntime.jsx("button", {
-	      onClick: () => setAlerts(prevAlerts => [...prevAlerts, {
-	        text: "Warning ".concat(alerts.length + 1),
-	        acknowledged: false,
-	        active: true
-	      }]),
-	      style: {
-	        marginTop: "10px",
-	        padding: "10px",
-	        backgroundColor: "gray",
-	        color: "white",
-	        border: "none",
-	        borderRadius: "5px",
-	        cursor: "pointer",
-	        width: "100%"
-	      },
-	      children: "Add Active Warning"
-	    })]
-	  });
-	}
-
-	const EICASAdvisory = () => {
-	  return /*#__PURE__*/jsxRuntime.jsx(EICASDisplay, {});
-	};
-
 	const EICASBaseShapes = () => {
 	  useSimVar('A:ENG OIL TEMPERATURE:1', 'Celsius');
 	  useSimVar('A:ENG OIL PRESSURE:1', 'psi');
@@ -12233,7 +12131,7 @@
 	  useSimVar('L:TotEngRunning', 'enum');
 	  useSimVar('A:ROTOR TEMPERATURE', 'Celsius');
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASAdvisory, {})]
+	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {})]
 	  });
 	};
 
@@ -28391,6 +28289,17 @@
 	    react.useEffect(() => {
 	      map.setBearing(rot);
 	    }, [rot]);
+	    react.useEffect(() => {
+	      const bounds = map.getBounds();
+	      const northWest = bounds.getNorthWest();
+	      const northEast = bounds.getNorthEast();
+	      const width = map.distance(northWest, northEast) / 1852;
+	      let width_rounded = Math.round(width * 10) / 10;
+
+	      if (props.onWidthRoundedChange) {
+	        props.onWidthRoundedChange(width_rounded);
+	      }
+	    }, [zoom]);
 	    return null;
 	  };
 
@@ -28407,14 +28316,14 @@
 	  let providerUrl_2 = "";
 
 	  if (map_mode === 0) {
-	    providerUrl = providers.bg;
-	    providerUrl_2 = providers.openaip;
-	  } else if (map_mode === 1) {
-	    providerUrl = providers.jawg;
+	    providerUrl = providers.CyclOSM;
 	    providerUrl_2 = "";
-	  } else if (map_mode === 2) {
+	  } else if (map_mode === 1) {
 	    providerUrl = providers.esriSatellite;
 	    providerUrl_2 = "";
+	  } else if (map_mode === 2) {
+	    providerUrl = providers.bg;
+	    providerUrl_2 = providers.openaip;
 	  }
 
 	  return /*#__PURE__*/jsxRuntime.jsx("div", {
@@ -28449,9 +28358,26 @@
 	  });
 	};
 
-	const TacMapScales = ({}) => {
-	  useSimVar('L:H60_TAC_MAP_SCALE', 'enum');
+	const TacMapScales = ({
+	  innerring,
+	  outerring
+	}) => {
+	  const [TacMap_Scale] = useSimVar('L:H60_TAC_MAP_SCALE', 'enum');
 	  const [TacMap_Scale_Mode] = useSimVar('L:H60_TAC_MAP_SCALE_MODE', 'enum');
+
+	  switch (TacMap_Scale) {
+	    case 'specificValue1':
+	      variable1 = 10;
+	      variable2 = 20;
+	      break;
+
+	    case 'specificValue2':
+	      variable1 = 30;
+	      variable2 = 40;
+	      break;
+
+	  }
+
 	  return /*#__PURE__*/jsxRuntime.jsxs("svg", {
 	    width: "100%",
 	    height: "100%",
@@ -28499,15 +28425,15 @@
 	          strokeWidth: "3"
 	        })]
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: "678",
+	        x: 689 - 3 * innerring.toString().length,
 	        y: "49.3%",
-	        width: "38",
+	        width: 18 + 6 * innerring.toString().length,
 	        height: "27",
 	        fill: "#00000"
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: "872",
+	        x: 872 - 3 * outerring.toString().length,
 	        y: "49.3%",
-	        width: "30",
+	        width: 18 + 6 * innerring.toString().length,
 	        height: "27",
 	        fill: "#00000"
 	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
@@ -28517,7 +28443,7 @@
 	        fill: "#00EE00",
 	        className: "readouts",
 	        textAnchor: "middle",
-	        children: "5"
+	        children: outerring
 	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
 	        x: "697",
 	        y: "400",
@@ -28525,8 +28451,168 @@
 	        fill: "#00EE00",
 	        className: "readouts",
 	        textAnchor: "middle",
-	        children: "2.5"
+	        children: innerring
 	      })]
+	    })]
+	  });
+	};
+
+	const TacMapSideBar = ({}) => {
+	  // SimVar hooks to fetch required data
+	  useSimVar("GPS POSITION LAT", "degree");
+	  useSimVar("GPS POSITION LON", "degree");
+	  useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
+	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
+	  useSimVar('L:H60_TAC_MAP_MODE', 'enum');
+	  useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
+	  const [Map_Orientation] = useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
+
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 121,
+	      y: 741,
+	      width: 26,
+	      height: 22.5,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 195,
+	      y: 741,
+	      width: 63,
+	      height: 22.5,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 856,
+	      y: 741,
+	      width: 39,
+	      height: 22.5,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 941,
+	      y: 741,
+	      width: 53,
+	      height: 22.5,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 10,
+	      y: 125,
+	      width: 76,
+	      height: 45,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "12",
+	      y: "144",
+	      fontSize: 19.5,
+	      className: "tacmap_cyantext",
+	      textAnchor: "start",
+	      children: "ORIENT"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "12",
+	      y: "165",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: Map_Orientation ? 'NORTH' : 'HDG'
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 10,
+	      y: 273,
+	      width: 85,
+	      height: 45,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "12",
+	      y: "292",
+	      fontSize: 19.5,
+	      className: "tacmap_cyantext",
+	      textAnchor: "start",
+	      children: "SCALE"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "12",
+	      y: "314",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "1:250K"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 10,
+	      y: 385,
+	      width: 65,
+	      height: 23,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "12",
+	      y: "404",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: [0, " NM"]
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 10,
+	      y: 472,
+	      width: 65,
+	      height: 45,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "12",
+	      y: "490",
+	      fontSize: 19.5,
+	      className: "tacmap_cyantext",
+	      textAnchor: "start",
+	      children: "ZOOM"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "12",
+	      y: "512",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: [zoom, "X"]
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 17,
+	      y: 235,
+	      width: 25,
+	      height: 25,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 17,
+	      y: 335,
+	      width: 25,
+	      height: 25,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(20, 239) scale(0.15)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	        fill: "#D9D9D9"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(20, 356) scale(0.15, -0.15 )",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	        fill: "#D9D9D9"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 17,
+	      y: 435,
+	      width: 25,
+	      height: 25,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 17,
+	      y: 535,
+	      width: 25,
+	      height: 25,
+	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(20, 439) scale(0.15)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	        fill: "#D9D9D9"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(20, 556) scale(0.15, -0.15 )",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	        fill: "#D9D9D9"
+	      })
 	    })]
 	  });
 	};
@@ -28537,18 +28623,33 @@
 	  const [longitude] = useSimVar("GPS POSITION LON", "degree");
 	  const [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
-	  let zoom_limited = Math.min(Math.max(zoom, 2), 17);
+	  let heading_adjusted = 0;
+	  let zoom_limited = Math.min(Math.max(zoom, 4), 20);
 	  const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	  const [Map_Declutter] = useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
-	  useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
+	  const [Map_Orientation] = useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
+
+	  if (Map_Orientation == 1) {
+	    heading_adjusted = 0;
+	  } else {
+	    heading_adjusted = ac_heading;
+	  }
+
+	  const [widthRounded, setWidthRounded] = react.useState(null);
+
+	  const handleWidthRoundedChange = widthRounded => {
+	    setWidthRounded(widthRounded);
+	  };
+
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
 	    children: [Disp_mode < 3 && /*#__PURE__*/jsxRuntime.jsx(MapComponent, {
 	      lat: latitude,
 	      lng: longitude,
-	      heading: ac_heading,
+	      heading: heading_adjusted,
 	      zoom: zoom_limited,
 	      map_mode: Disp_mode,
-	      map_symbology: Map_Declutter
+	      map_symbology: Map_Declutter,
+	      onWidthRoundedChange: handleWidthRoundedChange
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
 	      width: "100%",
 	      height: "100%",
@@ -28566,84 +28667,66 @@
 	          height: 768,
 	          fill: "blue",
 	          visibility: Disp_mode > 2 ? "visible" : "hidden"
-	        }), /*#__PURE__*/jsxRuntime.jsx("image", {
-	          xlinkHref: "/Images/Tacmap.png",
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 25,
+	          y: 741,
+	          width: 40,
+	          height: 22.5,
+	          fill: "#00000"
+	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	          transform: "rotate(".concat(Map_Orientation ? ac_heading : 0, ", 512, 384)"),
+	          children: [/*#__PURE__*/jsxRuntime.jsx("line", {
+	            x1: "50%",
+	            y1: "49.1%",
+	            x2: "50%",
+	            y2: "53.5%",
+	            stroke: "black",
+	            "stroke-width": "4"
+	          }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	            x1: "48.7%",
+	            y1: "50%",
+	            x2: "51.3%",
+	            y2: "50%",
+	            stroke: "black",
+	            "stroke-width": "4"
+	          }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	            x1: "49.4%",
+	            y1: "53%",
+	            x2: "50.6%",
+	            y2: "53%",
+	            stroke: "black",
+	            "stroke-width": "4"
+	          }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	            x1: "50%",
+	            y1: "49.1%",
+	            x2: "50%",
+	            y2: "53.5%",
+	            stroke: "white",
+	            "stroke-width": "2"
+	          }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	            x1: "48.7%",
+	            y1: "50%",
+	            x2: "51.3%",
+	            y2: "50%",
+	            stroke: "white",
+	            "stroke-width": "2"
+	          }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	            x1: "49.4%",
+	            y1: "53%",
+	            x2: "50.6%",
+	            y2: "53%",
+	            stroke: "white",
+	            "stroke-width": "2"
+	          })]
+	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapScales, {
+	          innerring: (widthRounded !== null && widthRounded !== void 0 ? widthRounded : 1) / 2,
+	          outerring: widthRounded !== null && widthRounded !== void 0 ? widthRounded : 1
+	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapSideBar, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
+	          xlinkHref: "/Images/MPD_AVIONICS11.png",
 	          x: 0,
 	          y: 0,
 	          opacity: 0
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 23,
-	          y: 735,
-	          width: 50,
-	          height: 40,
-	          fill: "#00000"
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 124,
-	          y: 735,
-	          width: 39,
-	          height: 40,
-	          fill: "#00000"
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 200,
-	          y: 735,
-	          width: 80,
-	          height: 40,
-	          fill: "#00000"
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 856,
-	          y: 735,
-	          width: 53,
-	          height: 40,
-	          fill: "#00000"
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 946,
-	          y: 735,
-	          width: 65,
-	          height: 40,
-	          fill: "#00000"
-	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
-	          x1: "50%",
-	          y1: "49.1%",
-	          x2: "50%",
-	          y2: "53.5%",
-	          stroke: "black",
-	          "stroke-width": "4"
-	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
-	          x1: "48.7%",
-	          y1: "50%",
-	          x2: "51.3%",
-	          y2: "50%",
-	          stroke: "black",
-	          "stroke-width": "4"
-	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
-	          x1: "49.4%",
-	          y1: "53%",
-	          x2: "50.6%",
-	          y2: "53%",
-	          stroke: "black",
-	          "stroke-width": "4"
-	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
-	          x1: "50%",
-	          y1: "49.1%",
-	          x2: "50%",
-	          y2: "53.5%",
-	          stroke: "white",
-	          "stroke-width": "2"
-	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
-	          x1: "48.7%",
-	          y1: "50%",
-	          x2: "51.3%",
-	          y2: "50%",
-	          stroke: "white",
-	          "stroke-width": "2"
-	        }), /*#__PURE__*/jsxRuntime.jsx("line", {
-	          x1: "49.4%",
-	          y1: "53%",
-	          x2: "50.6%",
-	          y2: "53%",
-	          stroke: "white",
-	          "stroke-width": "2"
-	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapScales, {})]
+	        })]
 	      })
 	    })]
 	  });
@@ -28803,8 +28886,13 @@ text {
   font-family: "mono";
 }
 
-.readouts {
+.readouts, .tacmap_cyantext {
   font-style: "italic";
+  font-family: "OCRB";
+}
+
+.tacmap_cyantext {
+  fill: cyan;
 }
 
 .apdisp {

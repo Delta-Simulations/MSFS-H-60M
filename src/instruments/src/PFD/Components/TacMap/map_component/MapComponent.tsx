@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, useMap} from "react-leaflet";
 import "leaflet-rotate";
 import "./MapComponent.scss";
+import { useSimVar } from "../../../../Hooks/simVars";
 
 const options = {
 	// A function that will be used to decide whether to include a
@@ -32,17 +33,22 @@ interface IMapComponentProps {
 	zoom: number;
     map_mode: number;
 	map_symbology: boolean;
+	onWidthRoundedChange?: (widthRounded: number) => void; // Add this line
+
 }
 
 
 const MapComponent = (props: IMapComponentProps) => {
-	const { lat, lng, heading, zoom, map_mode, map_symbology } = props;
+
+	const { lat, lng, heading, zoom, map_mode, map_symbology} = props;
 	// let mapRef = useRef();
 
 
 	// https://stackoverflow.com/questions/65322670/change-center-position-of-react-leaflet-map
 	const PosHandler = ({ lat, lng, rot, zoom }) => {
 		const map = useMap();
+	
+
 		useEffect(() => {
 			map.setView([lat, lng], (zoom+1), { animate: false });
 		}, [lat, lng, zoom]);
@@ -51,9 +57,23 @@ const MapComponent = (props: IMapComponentProps) => {
 			map.setBearing(rot);
 		}, [rot]);
 
+
+		useEffect(() => {
+			const bounds = map.getBounds();
+			const northWest = bounds.getNorthWest();
+			const northEast = bounds.getNorthEast();
+			const width = (map.distance(northWest, northEast)) / 1852;
+			let width_rounded = Math.round(width*10)/10
+			if (props.onWidthRoundedChange) {
+				props.onWidthRoundedChange(width_rounded);
+			  }
+			
+		}, [zoom]);
+
 		return null;
 	};
-	
+	  
+
 	const providers = {
 		esriSatellite:
 			"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -70,14 +90,14 @@ const MapComponent = (props: IMapComponentProps) => {
 	let providerUrl = "";
 	let providerUrl_2 = "";
 	if (map_mode === 0) {
-		providerUrl = providers.bg;
-		providerUrl_2 = providers.openaip;
-	  } else if (map_mode === 1) {
-		providerUrl = providers.jawg;
+		providerUrl = providers.CyclOSM;
 		providerUrl_2 = ""
-	  } else if (map_mode === 2) {
+	  } else if (map_mode === 1) {
 		providerUrl = providers.esriSatellite;
 		providerUrl_2 = ""
+	  } else if (map_mode === 2) {
+		providerUrl = providers.bg;
+		providerUrl_2 = providers.openaip;
 	  }
 
 	return (
@@ -100,6 +120,7 @@ const MapComponent = (props: IMapComponentProps) => {
 			>
                 <TileLayer url={providerUrl} />
 				<TileLayer url={providerUrl_2} />
+
 
 				<PosHandler lat={lat} lng={lng} rot={heading} zoom={zoom} />
 			</MapContainer>

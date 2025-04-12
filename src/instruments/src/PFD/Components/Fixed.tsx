@@ -6,10 +6,11 @@ import { useSimVar } from "../../Hooks/simVars";
 export const Fixed = () => {
 	return (
 		<g>
+			
 			{/* FIXED BEZELS */}
 			<text
-				x={27}
-				y={758}
+				x={26}
+				y={759}
 				fontSize={21}
 				fill="#00EE00"
 				className="readouts"
@@ -19,8 +20,8 @@ export const Fixed = () => {
 			</text>
 
 			<text
-				x={129}
-				y={758}
+				x={121.5}
+				y={759}
 				fontSize={21}
 				fill="#00EE00"
 				className="readouts"
@@ -30,8 +31,8 @@ export const Fixed = () => {
 			</text>
 
 			<text
-				x={206}
-				y={758}
+				x={195}
+				y={759}
 				fontSize={21}
 				fill="#00EE00"
 				className="readouts"
@@ -41,8 +42,8 @@ export const Fixed = () => {
 			</text>
 
 			<text
-				x={862}
-				y={758}
+				x={857}
+				y={759}
 				fontSize={21}
 				fill="#00EE00"
 				className="readouts"
@@ -52,8 +53,8 @@ export const Fixed = () => {
 			</text>
 
 			<text
-				x={950}
-				y={758}
+				x={942}
+				y={759}
 				fontSize={21}
 				fill="#00EE00"
 				className="readouts"
