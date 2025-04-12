@@ -1,6 +1,22 @@
 //@import "~leaflet/dist/leaflet.css";
 
 /* required styles */
+.map-wrapper {
+    width: 1024px;
+    height: 1024px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .map-rotated {
+    width: 1448px; // 1024 * sqrt(2) ≈ 1448, to handle full rotation
+    height: 1448px;
+    position: absolute;
+    top: -212px; // (1448 - 1024) / 2
+    left: -212px;
+    transform-origin: center center;
+  }
+
 
 .leaflet-pane,
 .leaflet-tile,

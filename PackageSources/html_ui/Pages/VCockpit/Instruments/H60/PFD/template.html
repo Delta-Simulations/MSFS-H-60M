@@ -8539,9 +8539,8 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  //const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  //   return url ? parseInt(url.substring(url.length - 1), 10) : 0;
-	  return 1;
+	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; //return 1 
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -28277,7 +28276,6 @@
 	  const PosHandler = ({
 	    lat,
 	    lng,
-	    rot,
 	    zoom
 	  }) => {
 	    const map = useMap();
@@ -28286,20 +28284,6 @@
 	        animate: false
 	      });
 	    }, [lat, lng, zoom]);
-	    react.useEffect(() => {
-	      map.setBearing(rot);
-	    }, [rot]);
-	    react.useEffect(() => {
-	      const bounds = map.getBounds();
-	      const northWest = bounds.getNorthWest();
-	      const northEast = bounds.getNorthEast();
-	      const width = map.distance(northWest, northEast) / 1852;
-	      let width_rounded = Math.round(width * 10) / 10;
-
-	      if (props.onWidthRoundedChange) {
-	        props.onWidthRoundedChange(width_rounded);
-	      }
-	    }, [zoom]);
 	    return null;
 	  };
 
@@ -28309,78 +28293,136 @@
 	    CyclOSM: "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
 	    bg: "http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
 	    openaip: "https://api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=0396e876c80eaf82d1103890d3fb0d32",
-	    jawg: "https://tile.jawg.io/39f84be8-9d33-41c2-8a4b-1cb036d6c179/{z}/{x}/{y}{r}.png?access-token=vvwao8KGCFTxwoXvi5dTIe1rx7GeqkH9kW57dlJSz5gbu8yjVblQdK1ySa4oieqp"
+	    jawg: "https://tile.jawg.io/39f84be8-9d33-41c2-8a4b-1cb036d6c179/{z}/{x}/{y}{r}.png?access-token=vvwao8KGCFTxwoXvi5dTIe1rx7GeqkH9kW57dlJSz5gbu8yjVblQdK1ySa4oieqp",
+	    stamen: "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+	    arcGis_Topo: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
 	  }; // CHART, TERRAIN, SATELLITE
 
 	  let providerUrl = "";
 	  let providerUrl_2 = "";
 
-	  if (map_mode === 0) {
-	    providerUrl = providers.CyclOSM;
-	    providerUrl_2 = "";
-	  } else if (map_mode === 1) {
-	    providerUrl = providers.esriSatellite;
-	    providerUrl_2 = "";
-	  } else if (map_mode === 2) {
+	  if (map_mode === 1) {
 	    providerUrl = providers.bg;
 	    providerUrl_2 = providers.openaip;
+	  } else if (map_mode === 2) {
+	    providerUrl = providers.jawg;
+	    providerUrl_2 = "";
+	  } else if (map_mode === 3) {
+	    providerUrl = providers.esriSatellite;
+	    providerUrl_2 = "";
+	  } else if (map_mode === 4) {
+	    providerUrl = providers.openTopoMap;
+	    providerUrl_2 = "";
 	  }
 
-	  return /*#__PURE__*/jsxRuntime.jsx("div", {
-	    style: {
-	      height: "100%",
-	      width: "100%"
-	    },
-	    children: /*#__PURE__*/jsxRuntime.jsxs(MapContainer // whenCreated={(mapInstance) => {
-	    // 	mapRef.current = mapInstance;
-	    // }}
-	    , {
-	      id: "mapContainer",
-	      center: [0, 0],
-	      rotate: true,
-	      zoom: 5,
-	      zoomAnimation: false,
-	      fadeAnimation: false,
-	      markerZoomAnimation: false,
-	      bearing: 0,
-	      rotateControl: false,
-	      children: [/*#__PURE__*/jsxRuntime.jsx(TileLayer, {
-	        url: providerUrl
-	      }), /*#__PURE__*/jsxRuntime.jsx(TileLayer, {
-	        url: providerUrl_2
-	      }), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
-	        lat: lat,
-	        lng: lng,
-	        rot: heading,
-	        zoom: zoom
-	      })]
-	    })
+	  return /*#__PURE__*/jsxRuntime.jsxs(MapContainer // whenCreated={(mapInstance) => {
+	  // 	mapRef.current = mapInstance;
+	  // }} transform={`rotate(${Map_Orientation ? ac_heading : 0}, 512, 384)` }
+	  , {
+	    id: "mapContainer",
+	    center: [0, 0],
+	    zoom: 5,
+	    zoomAnimation: false,
+	    fadeAnimation: false,
+	    markerZoomAnimation: false,
+	    children: [/*#__PURE__*/jsxRuntime.jsx(TileLayer, {
+	      url: providerUrl
+	    }), /*#__PURE__*/jsxRuntime.jsx(TileLayer, {
+	      url: providerUrl_2
+	    }), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
+	      lat: lat,
+	      lng: lng,
+	      zoom: zoom
+	    })]
 	  });
 	};
 
-	const TacMapScales = ({
-	  innerring,
-	  outerring
-	}) => {
+	const TacMapScales = () => {
 	  const [TacMap_Scale] = useSimVar('L:H60_TAC_MAP_SCALE', 'enum');
 	  const [TacMap_Scale_Mode] = useSimVar('L:H60_TAC_MAP_SCALE_MODE', 'enum');
+	  const [Map_Center] = useSimVar('L:H60_TAC_MAP_CTR', 'bool');
+	  const [Map_Show_Legend] = useSimVar('L:H60_TAC_MAP_LEGEND_VIS', 'bool');
+	  let innerring = 0;
+	  let outerring = 0;
 
 	  switch (TacMap_Scale) {
-	    case 'specificValue1':
-	      variable1 = 10;
-	      variable2 = 20;
+	    case 4:
+	      innerring = 900;
+	      outerring = 1800;
 	      break;
 
-	    case 'specificValue2':
-	      variable1 = 30;
-	      variable2 = 40;
+	    case 5:
+	      innerring = 500;
+	      outerring = 1000;
 	      break;
 
+	    case 6:
+	      innerring = 250;
+	      outerring = 500;
+	      break;
+
+	    case 7:
+	      innerring = 150;
+	      outerring = 300;
+	      break;
+
+	    case 8:
+	      innerring = 75;
+	      outerring = 150;
+	      break;
+
+	    case 9:
+	      innerring = 35;
+	      outerring = 70;
+	      break;
+
+	    case 10:
+	      innerring = 15;
+	      outerring = 30;
+	      break;
+
+	    case 11:
+	      innerring = 7.5;
+	      outerring = 15;
+	      break;
+
+	    case 12:
+	      innerring = 4;
+	      outerring = 8;
+	      break;
+
+	    case 13:
+	      innerring = 2.5;
+	      outerring = 5;
+	      break;
+
+	    case 14:
+	      innerring = 1;
+	      outerring = 2;
+	      break;
+
+	    case 15:
+	      innerring = 0.5;
+	      outerring = 1;
+	      break;
+
+	    case 16:
+	      innerring = 0.25;
+	      outerring = 0.5;
+	      break;
+
+	    case 17:
+	      innerring = 0.15;
+	      outerring = 0.25;
+	      break;
+
+	    default:
+	      innerring = 5;
+	      outerring = 10;
+	      break;
 	  }
 
-	  return /*#__PURE__*/jsxRuntime.jsxs("svg", {
-	    width: "100%",
-	    height: "100%",
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("defs", {
 	      children: /*#__PURE__*/jsxRuntime.jsx("clipPath", {
 	        id: "top-half",
@@ -28392,67 +28434,86 @@
 	          fill: "none"
 	        })
 	      })
-	    }), TacMap_Scale_Mode >= 1 && /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
-	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
-	        clipPath: TacMap_Scale_Mode == 2 ? "url(#top-half)" : "none",
-	        children: [/*#__PURE__*/jsxRuntime.jsx("circle", {
-	          cx: "50%",
-	          cy: "50%",
-	          r: "375",
-	          fill: "none",
-	          stroke: "#323232",
-	          strokeWidth: "6"
-	        }), /*#__PURE__*/jsxRuntime.jsx("circle", {
-	          cx: "50%",
-	          cy: "50%",
-	          r: "375",
-	          fill: "none",
-	          stroke: "cyan",
-	          strokeWidth: "3"
-	        }), /*#__PURE__*/jsxRuntime.jsx("circle", {
-	          cx: "50%",
-	          cy: "50%",
-	          r: "182",
-	          fill: "none",
-	          stroke: "#323232",
-	          strokeWidth: "6"
-	        }), /*#__PURE__*/jsxRuntime.jsx("circle", {
-	          cx: "50%",
-	          cy: "50%",
-	          r: "182",
-	          fill: "none",
-	          stroke: "cyan",
-	          strokeWidth: "3"
-	        })]
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 689 - 3 * innerring.toString().length,
-	        y: "49.3%",
-	        width: 18 + 6 * innerring.toString().length,
-	        height: "27",
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      visibility: Map_Show_Legend ? "hidden" : "visible",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 10,
+	        y: 385,
+	        width: 55 + 7.5 * outerring.toString().length,
+	        height: 23,
 	        fill: "#00000"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 872 - 3 * outerring.toString().length,
-	        y: "49.3%",
-	        width: 18 + 6 * innerring.toString().length,
-	        height: "27",
-	        fill: "#00000"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: "887",
-	        y: "400",
-	        fontSize: 21,
-	        fill: "#00EE00",
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	        x: "12",
+	        y: "404",
+	        fontSize: 19.5,
 	        className: "readouts",
-	        textAnchor: "middle",
-	        children: outerring
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: "697",
-	        y: "400",
-	        fontSize: 21,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "middle",
-	        children: innerring
+	        textAnchor: "start",
+	        children: [outerring, " NM"]
 	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(0, ".concat(Map_Center ? 0 : 120, ")"),
+	      children: TacMap_Scale_Mode >= 1 && /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	          clipPath: Map_Center == 0 ? "url(#top-half)" : "none",
+	          children: [/*#__PURE__*/jsxRuntime.jsx("circle", {
+	            cx: "50%",
+	            cy: "50%",
+	            r: "375",
+	            fill: "none",
+	            stroke: "#323232",
+	            strokeWidth: "6"
+	          }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	            cx: "50%",
+	            cy: "50%",
+	            r: "375",
+	            fill: "none",
+	            stroke: "cyan",
+	            strokeWidth: "3"
+	          }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	            cx: "50%",
+	            cy: "50%",
+	            r: "182",
+	            fill: "none",
+	            stroke: "#323232",
+	            strokeWidth: "6"
+	          }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	            cx: "50%",
+	            cy: "50%",
+	            r: "182",
+	            fill: "none",
+	            stroke: "cyan",
+	            strokeWidth: "3"
+	          })]
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 690 - 4 * innerring.toString().length,
+	          y: "49.3%",
+	          width: 18 + 7 * innerring.toString().length,
+	          height: "27",
+	          fill: "#00000"
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: 879 - 5 * innerring.toString().length,
+	          y: "49.3%",
+	          width: 18 + 9.5 * innerring.toString().length,
+	          height: "27",
+	          fill: "#00000"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: "887",
+	          y: "400",
+	          fontSize: 19,
+	          fill: "#00EE00",
+	          className: "readouts",
+	          textAnchor: "middle",
+	          children: outerring
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: "697",
+	          y: "400",
+	          fontSize: 19,
+	          fill: "#00EE00",
+	          className: "readouts",
+	          textAnchor: "middle",
+	          children: innerring
+	        })]
+	      })
 	    })]
 	  });
 	};
@@ -28463,9 +28524,11 @@
 	  useSimVar("GPS POSITION LON", "degree");
 	  useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
-	  useSimVar('L:H60_TAC_MAP_MODE', 'enum');
+	  const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	  useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
 	  const [Map_Orientation] = useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
+	  const [Map_Center] = useSimVar('L:H60_TAC_MAP_CTR', 'bool');
+	  const [Map_Show_Legend] = useSimVar('L:H60_TAC_MAP_LEGEND_VIS', 'bool');
 
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
@@ -28492,128 +28555,330 @@
 	      width: 53,
 	      height: 22.5,
 	      fill: "#00000"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      visibility: Map_Show_Legend ? "hidden" : "visible",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 10,
+	        y: 125,
+	        width: 76,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "12",
+	        y: "144",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "ORIENT"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "12",
+	        y: "165",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: Map_Orientation ? 'NORTH' : 'HDG'
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 10,
+	        y: 273,
+	        width: 85,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "12",
+	        y: "292",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "SCALE"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "12",
+	        y: "314",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "1:250K"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 10,
+	        y: 472,
+	        width: 65,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "12",
+	        y: "490",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "ZOOM"
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	        x: "12",
+	        y: "512",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: [zoom, "X"]
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 10,
+	        y: 633,
+	        width: 65,
+	        height: 23,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "12",
+	        y: "651",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "NORTH"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 17,
+	        y: 235,
+	        width: 25,
+	        height: 25,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 17,
+	        y: 335,
+	        width: 25,
+	        height: 25,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(20, 239) scale(0.15)",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "#D9D9D9"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(20, 356) scale(0.15, -0.15 )",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "#D9D9D9"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 17,
+	        y: 435,
+	        width: 25,
+	        height: 25,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 17,
+	        y: 535,
+	        width: 25,
+	        height: 25,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(20, 439) scale(0.15)",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "#D9D9D9"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(20, 556) scale(0.15, -0.15 )",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "#D9D9D9"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 596,
+	        y: 10,
+	        width: 86,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "598",
+	        y: "26",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "MAP CTR"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "633",
+	        y: "47",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: Map_Center ? 'CTR' : 'DCTR'
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 113,
+	        y: 10,
+	        width: 53,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "123",
+	        y: "26",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "SYM"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "140",
+	        y: "47",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "DECL"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 223,
+	        y: 10,
+	        width: 63,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "237",
+	        y: "26",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "HAT"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "255",
+	        y: "47",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "OFF"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 322,
+	        y: 10,
+	        width: 97,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "353",
+	        y: "26",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "start",
+	        children: "TIV"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "371",
+	        y: "47",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "BARO ALT"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 935,
+	        y: 137,
+	        width: 75,
+	        height: 23,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "1007",
+	        y: "154",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "end",
+	        children: "CHART>"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 900,
+	        y: 236,
+	        width: 110,
+	        height: 23,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "1007",
+	        y: "254",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "end",
+	        children: "OVERLAYS>"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 924,
+	        y: 336,
+	        width: 86,
+	        height: 23,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "1007",
+	        y: "353",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "end",
+	        children: "CONFIG>"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 946,
+	        y: 433,
+	        width: 64,
+	        height: 23,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "1007",
+	        y: "451",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "end",
+	        children: "POSN>"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 936,
+	        y: 522,
+	        width: 78,
+	        height: 45,
+	        fill: "#00000"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "1008",
+	        y: "541",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "end",
+	        children: "MAP"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "1010",
+	        y: "563",
+	        fontSize: 19.5,
+	        className: "readouts",
+	        textAnchor: "end",
+	        children: ['', 'CHART', 'TERR', 'IMAGE', 'TERR2', 'CHART'][Disp_mode]
+	      })]
 	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 10,
-	      y: 125,
-	      width: 76,
-	      height: 45,
-	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: "12",
-	      y: "144",
-	      fontSize: 19.5,
-	      className: "tacmap_cyantext",
-	      textAnchor: "start",
-	      children: "ORIENT"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: "12",
-	      y: "165",
-	      fontSize: 19.5,
-	      className: "readouts",
-	      textAnchor: "start",
-	      children: Map_Orientation ? 'NORTH' : 'HDG'
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 10,
-	      y: 273,
-	      width: 85,
-	      height: 45,
-	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: "12",
-	      y: "292",
-	      fontSize: 19.5,
-	      className: "tacmap_cyantext",
-	      textAnchor: "start",
-	      children: "SCALE"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: "12",
-	      y: "314",
-	      fontSize: 19.5,
-	      className: "readouts",
-	      textAnchor: "start",
-	      children: "1:250K"
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 10,
-	      y: 385,
-	      width: 65,
+	      x: 936,
+	      y: 633,
+	      width: 75,
 	      height: 23,
 	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
-	      x: "12",
-	      y: "404",
-	      fontSize: 19.5,
-	      className: "readouts",
-	      textAnchor: "start",
-	      children: [0, " NM"]
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 10,
-	      y: 472,
-	      width: 65,
-	      height: 45,
-	      fill: "#00000"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: "12",
-	      y: "490",
-	      fontSize: 19.5,
-	      className: "tacmap_cyantext",
-	      textAnchor: "start",
-	      children: "ZOOM"
-	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
-	      x: "12",
-	      y: "512",
+	      x: "1010",
+	      y: "651",
 	      fontSize: 19.5,
 	      className: "readouts",
-	      textAnchor: "start",
-	      children: [zoom, "X"]
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 17,
-	      y: 235,
-	      width: 25,
-	      height: 25,
-	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 17,
-	      y: 335,
-	      width: 25,
-	      height: 25,
-	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(20, 239) scale(0.15)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	        fill: "#D9D9D9"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(20, 356) scale(0.15, -0.15 )",
-	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	        fill: "#D9D9D9"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 17,
-	      y: 435,
-	      width: 25,
-	      height: 25,
-	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	      x: 17,
-	      y: 535,
-	      width: 25,
-	      height: 25,
-	      fill: "#00000"
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(20, 439) scale(0.15)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	        fill: "#D9D9D9"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(20, 556) scale(0.15, -0.15 )",
-	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	        fill: "#D9D9D9"
-	      })
+	      textAnchor: "end",
+	      children: "LEGEND"
 	    })]
+	  });
+	};
+
+	const TacMapLegends = ({
+	  rotation
+	}) => {
+	  const [Map_North_Compass] = useSimVar('L:H60_TAC_MAP_NORTH_ARROW', 'bool');
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      visibility: Map_North_Compass ? "visible" : "hidden",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(-rotation, ",212, 642)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(210,572)",
+	          children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M1 1V131H3.5V28.2901H10.5L1 1Z",
+	            fill: "white",
+	            stroke: "black"
+	          })
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	        cx: "212",
+	        cy: "642",
+	        r: "14.5",
+	        fill: "black"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "211.5",
+	        y: "649.5",
+	        fontSize: 23,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "N"
+	      })]
+	    })
 	  });
 	};
 
@@ -28621,13 +28886,15 @@
 	  // SimVar hooks to fetch required data
 	  const [latitude] = useSimVar("GPS POSITION LAT", "degree");
 	  const [longitude] = useSimVar("GPS POSITION LON", "degree");
-	  const [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
+	  let [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
 	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
+	  ac_heading = Math.round(ac_heading * 100) / 100;
 	  let heading_adjusted = 0;
-	  let zoom_limited = Math.min(Math.max(zoom, 4), 20);
+	  let zoom_limited = Math.min(Math.max(zoom, 5), 17);
 	  const [Disp_mode] = useSimVar('L:H60_TAC_MAP_MODE', 'enum');
 	  const [Map_Declutter] = useSimVar('L:H60_TAC_MAP_DCLT', 'enum');
 	  const [Map_Orientation] = useSimVar('L:H60_TAC_MAP_ORIENT', 'bool');
+	  const [Map_Center] = useSimVar('L:H60_TAC_MAP_CTR', 'bool');
 
 	  if (Map_Orientation == 1) {
 	    heading_adjusted = 0;
@@ -28635,21 +28902,29 @@
 	    heading_adjusted = ac_heading;
 	  }
 
-	  const [widthRounded, setWidthRounded] = react.useState(null);
-
-	  const handleWidthRoundedChange = widthRounded => {
-	    setWidthRounded(widthRounded);
-	  };
-
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
-	    children: [Disp_mode < 3 && /*#__PURE__*/jsxRuntime.jsx(MapComponent, {
-	      lat: latitude,
-	      lng: longitude,
-	      heading: heading_adjusted,
-	      zoom: zoom_limited,
-	      map_mode: Disp_mode,
-	      map_symbology: Map_Declutter,
-	      onWidthRoundedChange: handleWidthRoundedChange
+	    children: [Disp_mode < 5 && /*#__PURE__*/jsxRuntime.jsx("div", {
+	      style: {
+	        width: "1280px",
+	        // generous buffer
+	        height: "1524px",
+	        // generous buffer
+	        position: "absolute",
+	        top: Map_Center ? "-398px" : "-278px",
+	        // (1024 - 768) / 2
+	        left: "-128px",
+	        // (1280 - 1024) / 2
+	        transform: "rotate(".concat(-heading_adjusted, "deg)"),
+	        transformOrigin: "center center"
+	      },
+	      children: /*#__PURE__*/jsxRuntime.jsx(MapComponent, {
+	        lat: latitude,
+	        lng: longitude,
+	        heading: heading_adjusted,
+	        zoom: zoom_limited,
+	        map_mode: Disp_mode,
+	        map_symbology: Map_Declutter
+	      }, Disp_mode)
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
 	      width: "100%",
 	      height: "100%",
@@ -28660,13 +28935,30 @@
 	        zIndex: "10000"
 	      },
 	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 0,
-	          y: 0,
-	          width: 1024,
-	          height: 768,
-	          fill: "blue",
-	          visibility: Disp_mode > 2 ? "visible" : "hidden"
+	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	          visibility: Disp_mode > 4 ? "visible" : "hidden",
+	          children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	            x: 0,
+	            y: 0,
+	            width: 1024,
+	            height: 768,
+	            fill: "blue"
+	          }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	            x: 355,
+	            y: 618,
+	            width: 321,
+	            height: 23,
+	            fill: "#00000",
+	            stroke: "white",
+	            strokeWidth: 1.5
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: "515",
+	            y: "635",
+	            fontSize: 19.5,
+	            className: "readouts",
+	            textAnchor: "middle",
+	            children: "SELECTED MAP MODE NOT AVAIL"
+	          })]
 	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	          x: 25,
 	          y: 741,
@@ -28674,7 +28966,7 @@
 	          height: 22.5,
 	          fill: "#00000"
 	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	          transform: "rotate(".concat(Map_Orientation ? ac_heading : 0, ", 512, 384)"),
+	          transform: "translate(0, ".concat(Map_Center ? 0 : 120, ") rotate(").concat(Map_Orientation ? ac_heading : 0, ", 512, 384)"),
 	          children: [/*#__PURE__*/jsxRuntime.jsx("line", {
 	            x1: "50%",
 	            y1: "49.1%",
@@ -28718,9 +29010,8 @@
 	            stroke: "white",
 	            "stroke-width": "2"
 	          })]
-	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapScales, {
-	          innerring: (widthRounded !== null && widthRounded !== void 0 ? widthRounded : 1) / 2,
-	          outerring: widthRounded !== null && widthRounded !== void 0 ? widthRounded : 1
+	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapScales, {}), /*#__PURE__*/jsxRuntime.jsx(TacMapLegends, {
+	          rotation: ac_heading
 	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapSideBar, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
 	          xlinkHref: "/Images/MPD_AVIONICS11.png",
 	          x: 0,
@@ -28990,6 +29281,22 @@ text {
   color: yellow;
 }
 /* required styles */
+
+.map-wrapper {
+  width: 1024px;
+  height: 1024px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-rotated {
+  width: 1448px;
+  height: 1448px;
+  position: absolute;
+  top: -212px;
+  left: -212px;
+  transform-origin: center center;
+}
 
 .leaflet-pane,
 .leaflet-tile,

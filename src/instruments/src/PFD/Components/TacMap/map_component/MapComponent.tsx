@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, useMap} from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet-rotate";
 import "./MapComponent.scss";
-import { useSimVar } from "../../../../Hooks/simVars";
 
 const options = {
 	// A function that will be used to decide whether to include a
@@ -33,47 +32,24 @@ interface IMapComponentProps {
 	zoom: number;
     map_mode: number;
 	map_symbology: boolean;
-	onWidthRoundedChange?: (widthRounded: number) => void; // Add this line
-
 }
 
 
 const MapComponent = (props: IMapComponentProps) => {
-
-	const { lat, lng, heading, zoom, map_mode, map_symbology} = props;
+	const { lat, lng, heading, zoom, map_mode, map_symbology } = props;
 	// let mapRef = useRef();
 
 
 	// https://stackoverflow.com/questions/65322670/change-center-position-of-react-leaflet-map
-	const PosHandler = ({ lat, lng, rot, zoom }) => {
+	const PosHandler = ({ lat, lng, zoom }) => {
 		const map = useMap();
-	
-
 		useEffect(() => {
 			map.setView([lat, lng], (zoom+1), { animate: false });
 		}, [lat, lng, zoom]);
 
-		useEffect(() => {
-			map.setBearing(rot);
-		}, [rot]);
-
-
-		useEffect(() => {
-			const bounds = map.getBounds();
-			const northWest = bounds.getNorthWest();
-			const northEast = bounds.getNorthEast();
-			const width = (map.distance(northWest, northEast)) / 1852;
-			let width_rounded = Math.round(width*10)/10
-			if (props.onWidthRoundedChange) {
-				props.onWidthRoundedChange(width_rounded);
-			  }
-			
-		}, [zoom]);
-
 		return null;
 	};
-	  
-
+	
 	const providers = {
 		esriSatellite:
 			"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -84,47 +60,51 @@ const MapComponent = (props: IMapComponentProps) => {
 		openaip:
 			"https://api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=0396e876c80eaf82d1103890d3fb0d32",
 		jawg:
-			"https://tile.jawg.io/39f84be8-9d33-41c2-8a4b-1cb036d6c179/{z}/{x}/{y}{r}.png?access-token=vvwao8KGCFTxwoXvi5dTIe1rx7GeqkH9kW57dlJSz5gbu8yjVblQdK1ySa4oieqp"
+			"https://tile.jawg.io/39f84be8-9d33-41c2-8a4b-1cb036d6c179/{z}/{x}/{y}{r}.png?access-token=vvwao8KGCFTxwoXvi5dTIe1rx7GeqkH9kW57dlJSz5gbu8yjVblQdK1ySa4oieqp",
+		stamen:
+			"https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+		arcGis_Topo:
+			"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
 	};
 	// CHART, TERRAIN, SATELLITE
 	let providerUrl = "";
 	let providerUrl_2 = "";
-	if (map_mode === 0) {
-		providerUrl = providers.CyclOSM;
-		providerUrl_2 = ""
-	  } else if (map_mode === 1) {
-		providerUrl = providers.esriSatellite;
-		providerUrl_2 = ""
-	  } else if (map_mode === 2) {
+	if (map_mode === 1) {
 		providerUrl = providers.bg;
 		providerUrl_2 = providers.openaip;
+	  } else if (map_mode === 2) {
+		providerUrl = providers.jawg;
+		providerUrl_2 = ""
+	  } else if (map_mode === 3) {
+		providerUrl = providers.esriSatellite;
+		providerUrl_2 = ""
+	  } else if (map_mode === 4) {
+		providerUrl = providers.openTopoMap;
+		providerUrl_2 = ""
 	  }
 
+
 	return (
-		<div style={{ height: "100%", width: "100%" }}>
+		
 			<MapContainer
 				// whenCreated={(mapInstance) => {
 				// 	mapRef.current = mapInstance;
-				// }}
+				// }} transform={`rotate(${Map_Orientation ? ac_heading : 0}, 512, 384)` }
 
 				id="mapContainer"
 				center={[0, 0]}
-				rotate={true}
 				zoom={5}
 				zoomAnimation={false}
 				fadeAnimation={false}
 				markerZoomAnimation={false}
-				bearing={0}
-				rotateControl={false}
 
 			>
                 <TileLayer url={providerUrl} />
 				<TileLayer url={providerUrl_2} />
 
-
-				<PosHandler lat={lat} lng={lng} rot={heading} zoom={zoom} />
+				<PosHandler lat={lat} lng={lng} zoom={zoom} />
 			</MapContainer>
-		</div>
+
 	);
 };
 

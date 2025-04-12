@@ -85,5 +85,109 @@
         </LEFT_SINGLE_CODE>
     </UseTemplate>
 
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_L_1</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_ORIENT, bool) ! (&gt;L:H60_TAC_MAP_ORIENT, bool)
+            }
+
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <!-- Zoom - Tac Map -->
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_L_4</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_SCALE, bool) ++ 17 min (&gt;L:H60_TAC_MAP_SCALE, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_L_5</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_SCALE, bool) --  4 max (&gt;L:H60_TAC_MAP_SCALE, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_L_6</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_NORTH_ARROW, bool) ! (&gt;L:H60_TAC_MAP_NORTH_ARROW, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+
+
+    <!-- Center/Decenter - Tac Map -->
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_U_4</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_CTR, bool) ! (&gt;L:H60_TAC_MAP_CTR, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+
+
+    <!-- Right Side - Show/Hide Legend - Tac Map -->
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_6</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            
+            if{
+                (L:H60_TAC_MAP_LEGEND_VIS, bool) ! (&gt;L:H60_TAC_MAP_LEGEND_VIS, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_2</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_SCALE_MODE, bool) ! (&gt;L:H60_TAC_MAP_SCALE_MODE, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_1</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_MODE) 6 !== if if{ 6 (&gt;L:H60_TAC_MAP_MODE) }
+                (L:H60_TAC_MAP_MODE) 6 == if if{ 1 (&gt;L:H60_TAC_MAP_MODE) }
+
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_5</NODE_ID>
+        <LEFT_SINGLE_CODE>
+
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_MODE, enum) 1 + (&gt;L:H60_TAC_MAP_MODE, enum)
+                (L:H60_TAC_MAP_MODE) 4 &gt; if{ 1 (&gt;L:H60_TAC_MAP_MODE) }
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+
 </Template>
 </ModelBehaviors>

@@ -127,7 +127,7 @@
             "style": {
                 "type": 2,
                 "min": 1,
-                "max": 15,
+                "max": 20,
                 "step": 1
             }
         },
@@ -138,10 +138,7 @@
             "varName": "H60_TAC_MAP_SCALE_MODE",
             "varUnit": "number",
             "style": {
-                "type": 2,
-                "min": 0,
-                "max": 2,
-                "step": 1
+                "type": 3
             }
         },
         {
@@ -152,7 +149,7 @@
             "varUnit": "number",
             "style": {
                 "type": 2,
-                "min": 0,
+                "min": 1,
                 "max": 6,
                 "step": 1
             }
@@ -172,6 +169,36 @@
             "title": "ACK",
             "varPrefix": "L",
             "varName": "H60_EICAS_ACK",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "3c791118-46d2-4541-8a13-6eb6511f7909",
+            "title": "Center/Decentered",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_CTR",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "487eeb1a-a106-4bc4-a37a-b16f50868c30",
+            "title": "show north arrow",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_NORTH_ARROW",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "38011238-b0b4-4cf6-a9ad-b1284575d726",
+            "title": "Show/Hide legend",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_LEGEND_VIS",
             "varUnit": "number",
             "style": {
                 "type": 3
