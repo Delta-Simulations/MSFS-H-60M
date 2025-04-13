@@ -25,12 +25,15 @@
         },
         {
             "__uuid": "436f8d12-98f4-407f-bbe2-75b43bd7c175",
-            "title": "TempEng1",
+            "title": "NR",
             "varPrefix": "A",
-            "varName": "ENG OIL TEMPERATURE",
+            "varName": "ROTOR RPM PCT",
             "varUnit": "number",
             "style": {
-                "type": 0
+                "type": 2,
+                "min": 0,
+                "max": 130,
+                "step": 1
             }
         },
         {
@@ -240,13 +243,59 @@
         {
             "__uuid": "149c91b9-116f-4427-85c8-4f19aa9ee69e",
             "title": "advis",
-            "varPrefix": "A",
-            "varName": "Page_Advis",
+            "varPrefix": "L",
+            "varName": "H60_EICAS_Page_Warning",
             "varUnit": "number",
             "style": {
                 "type": 2,
                 "min": 0,
                 "max": 4,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "6cbee5a7-7fca-4dac-bdd7-bb6d1b3ba4a2",
+            "title": "expwr",
+            "varPrefix": "A",
+            "varName": "EXTERNAL POWER CONNECTION ON",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "6824c06d-9d87-43a3-94cb-ecf6d19844f5",
+            "title": "ice",
+            "varPrefix": "A",
+            "varName": "ENG ANTI ICE",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "520eb78a-ac70-4ec5-b00d-2d363a1b914b",
+            "title": "ACK",
+            "varPrefix": "A",
+            "varName": "H60_CAS_Master_Caution_ACK",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 4,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "50922a89-6413-49d6-b208-55ee707127ac",
+            "title": "Tank1Fuel",
+            "varPrefix": "A",
+            "varName": "FUELSYSTEM TANK WEIGHT",
+            "varUnit": "pounds",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 600,
                 "step": 1
             }
         }

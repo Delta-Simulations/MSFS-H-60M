@@ -69,7 +69,7 @@ const PFD = () => {
 							xlinkHref="/Images/pfd.png"
 							x={0}
 							y={0}
-							opacity={0.4}
+							opacity={0}
 						/>
 					</g>
 

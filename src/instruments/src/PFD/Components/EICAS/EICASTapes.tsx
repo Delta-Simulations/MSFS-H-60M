@@ -30,11 +30,13 @@ export const EICASTapes = () => {
 	Q2 = Math.round(Q2 * 10) / 10;
 	let [NP_2] = useSimVar("GENERAL ENG PCT MAX RPM:1", "percent");
 	NP_2 = Math.round(NP_2 * 10) / 10;
+	let [Ambient_Temp] = useSimVar("A:AMBIENT TEMPERATURE", "Celsius");
+	Ambient_Temp = Math.round(Ambient_Temp);
 
 	let [NR] = useSimVar("A:ROTOR RPM PCT:1", "percent");
 	NR = Math.round(NR * 10) / 10;
-	let TMP_XMSN = 100
-	let PRESS_XMSN = 1
+	let TMP_XMSN = Math.min(NR, 102) + Ambient_Temp
+	let PRESS_XMSN = Math.min(NR+3, 55)
 	return (
 		<g>
 			<g>
@@ -71,16 +73,16 @@ export const EICASTapes = () => {
 						className="barmax"
 					/>
 					<text
-						x={58}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						T
 					</text>
 					<text
-						x={76}
+						x={49}
 						y={152}
 						fontSize={27}
 						className={
@@ -145,16 +147,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={58}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						P
 					</text>
 					<text
-						x={76}
+						x={46}
 						y={152}
 						fontSize={27}
 						className={
@@ -205,16 +207,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={64}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						NG
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -275,16 +277,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={72}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						TGT
 					</text>
 					<text
-						x={84}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -331,16 +333,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={57}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						Q
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -405,16 +407,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={73}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						NP1
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -483,16 +485,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={65}
+						x={50}
 						y={117}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						NR
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={147}
 						fontSize={30}
 						className={
@@ -564,16 +566,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={73}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						NP2
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -624,16 +626,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={57}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						Q
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -694,16 +696,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={72}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						TGT
 					</text>
 					<text
-						x={84}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -751,16 +753,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={64}
+						x={51}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						NG
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -826,16 +828,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={58}
+						x={50}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						P
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -886,16 +888,16 @@ export const EICASTapes = () => {
 						className="barmax"
 					/>
 					<text
-						x={58}
+						x={51}
 						y={123}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						T
 					</text>
 					<text
-						x={76}
+						x={50}
 						y={152}
 						fontSize={27}
 						className={
@@ -946,16 +948,16 @@ export const EICASTapes = () => {
 						className="barmax"
 					/>
 					<text
-						x={17.2}
+						x={10}
 						y={175}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						T
 					</text>
 					<text
-						x={17.5}
+						x={-10}
 						y={204}
 						fontSize={27}
 						className={
@@ -977,7 +979,7 @@ export const EICASTapes = () => {
 						x={36.7}
 						y={159}
 						width="26"
-						height={Math.max(Math.min(PRESS_XMSN * 1.65 - 115, 115), 0)}
+						height={Math.max(Math.min(PRESS_XMSN * 1.3 - 10, 115), 0)}
 						className={
 							PRESS_XMSN <= 20
 								? "tapeRedStripes"
@@ -1024,16 +1026,16 @@ export const EICASTapes = () => {
 					/>
 
 					<text
-						x={94.2}
+						x={87}
 						y={175}
 						fontSize={23}
-						className="text"
+						className="readouts"
 						textAnchor="middle"
 					>
 						P
 					</text>
 					<text
-						x={127.8}
+						x={87}
 						y={204}
 						fontSize={27}
 						className={

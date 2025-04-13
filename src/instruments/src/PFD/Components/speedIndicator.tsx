@@ -131,14 +131,28 @@ export const SpdIndicator = () => {
             {/* Airspeed Indicator */}
             {/* Circle */}
 
-            <g transform={`rotate(33, 178, 217)`}>
-                <CircleComponent x={178} y={217} rot={0} size={213.2} progress={96.5} stroke={"#ff0000"} strokeWidth={14} />
-            </g>
-            <g transform={`rotate(89, 178, 217)`}>
-                <CircleComponent x={178} y={217} rot={"50"} size={228} progress={11.87} stroke={"#ffffff"} strokeWidth={3} />
-            </g>
 
 
+            <g transform={`translate(243.8, 268.6)`}>
+            <rect x="0.523926" y="18.88" width="23.4989" height="17.4717" transform="rotate(-50.4719 0.523926 18.88)" fill="#FF0000"/>
+            </g>
+
+            <g transform={`translate(-37, -5)`}>
+            <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.523926" y="18.88" width="23.4989" height="17.4717" transform="rotate(-50.4719 0.523926 18.88)" fill="#FF0000"/>
+            </svg>
+
+                <svg width="473" height="400" viewBox="0 0 473 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_22_25" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="473" height="400">
+                        <path d="M275.469 0.468445L472.029 172.532L311.574 319.655L115.013 147.591L275.469 0.468445Z" fill="black" />
+                        <path d="M219.38 137.8L216.067 399.011L0.000732422 372.44L3.31349 111.23L219.38 137.8Z" fill="black" />
+                    </mask>
+                    <g mask="url(#mask0_22_25)">
+                        <circle cx="215" cy="222" r="113" stroke="white" stroke-width="2" />
+                    </g>
+                </svg>
+
+            </g>
             {elements}
 
             {/* Ones, tens, hund */}

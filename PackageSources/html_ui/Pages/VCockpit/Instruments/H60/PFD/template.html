@@ -8539,9 +8539,8 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  //const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  //return url ? parseInt(url.substring(url.length - 1), 10) : 0;
-	  return 1;
+	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
+	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; //return 1 
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -9225,32 +9224,6 @@
 	  });
 	};
 
-	const CircleComponent = props => {
-
-	  const [offset, setOffset] = react.useState(0);
-	  const progress = props.progress;
-	  const size = props.size;
-	  const radius = size / 2 - 3 / 2;
-	  props.rot;
-	  const circumference = 2 * Math.PI * radius;
-	  react.useEffect(() => {
-	    const progressOffset = progress / 100 * circumference;
-	    setOffset(progressOffset);
-	  }, [setOffset, circumference, progress, offset]);
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsx("circle", {
-	      strokeWidth: props.strokeWidth,
-	      cx: props.x,
-	      cy: props.y,
-	      r: radius,
-	      stroke: props.stroke,
-	      strokeDasharray: circumference,
-	      strokeDashoffset: offset,
-	      fill: "rgba(255,255,255,0)"
-	    })
-	  });
-	};
-
 	const SpdIndicator = () => {
 	  const [speed] = useSimVar('AIRSPEED INDICATED', 'knots');
 	  useSimVar('GROUND VELOCITY', 'knots');
@@ -9520,27 +9493,65 @@
 
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(33, 178, 217)",
-	      children: /*#__PURE__*/jsxRuntime.jsx(CircleComponent, {
-	        x: 178,
-	        y: 217,
-	        rot: 0,
-	        size: 213.2,
-	        progress: 96.5,
-	        stroke: "#ff0000",
-	        strokeWidth: 14
+	      transform: "translate(243.8, 268.6)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "0.523926",
+	        y: "18.88",
+	        width: "23.4989",
+	        height: "17.4717",
+	        transform: "rotate(-50.4719 0.523926 18.88)",
+	        fill: "#FF0000"
 	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(89, 178, 217)",
-	      children: /*#__PURE__*/jsxRuntime.jsx(CircleComponent, {
-	        x: 178,
-	        y: 217,
-	        rot: "50",
-	        size: 228,
-	        progress: 11.87,
-	        stroke: "#ffffff",
-	        strokeWidth: 3
-	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(-37, -5)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("svg", {
+	        width: "29",
+	        height: "30",
+	        viewBox: "0 0 29 30",
+	        fill: "none",
+	        xmlns: "http://www.w3.org/2000/svg",
+	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "0.523926",
+	          y: "18.88",
+	          width: "23.4989",
+	          height: "17.4717",
+	          transform: "rotate(-50.4719 0.523926 18.88)",
+	          fill: "#FF0000"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsxs("svg", {
+	        width: "473",
+	        height: "400",
+	        viewBox: "0 0 473 400",
+	        fill: "none",
+	        xmlns: "http://www.w3.org/2000/svg",
+	        children: [/*#__PURE__*/jsxRuntime.jsxs("mask", {
+	          id: "mask0_22_25",
+	          style: {
+	            maskType: 'alpha'
+	          },
+	          maskUnits: "userSpaceOnUse",
+	          x: "0",
+	          y: "0",
+	          width: "473",
+	          height: "400",
+	          children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M275.469 0.468445L472.029 172.532L311.574 319.655L115.013 147.591L275.469 0.468445Z",
+	            fill: "black"
+	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M219.38 137.8L216.067 399.011L0.000732422 372.44L3.31349 111.23L219.38 137.8Z",
+	            fill: "black"
+	          })]
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          mask: "url(#mask0_22_25)",
+	          children: /*#__PURE__*/jsxRuntime.jsx("circle", {
+	            cx: "215",
+	            cy: "222",
+	            r: "113",
+	            stroke: "white",
+	            "stroke-width": "2"
+	          })
+	        })]
+	      })]
 	    }), elements, /*#__PURE__*/jsxRuntime.jsx("clipPath", {
 	      id: "spd-clip",
 	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
@@ -11194,50 +11205,88 @@
 	};
 
 	// Component
-	const EICASAdvisory = () => {
+	const CASAdvisory = () => {
 	  // SimVars
 	  const [APU_ON] = useSimVar('A:APU PCT RPM', 'percent');
 	  const [APU_GEN_ON] = useSimVar('A:APU GENERATOR ACTIVE', 'bool');
-	  const [hydraulicLow] = useSimVar('L:HYDRAULIC_LOW', 'Enum');
-	  const [page_number_advis] = useSimVar('H:Page_Advis', 'Enum'); // Caution definitions (this can grow easily)
+	  useSimVar('L:HYDRAULIC_LOW', 'Enum');
+	  const [page_number_advis] = useSimVar('L:H60_EICAS_Page_Advis', 'Enum');
+	  const [Eng1_Boost_Pump] = useSimVar('A:FUELSYSTEM PUMP SWITCH:1', 'bool');
+	  const [Eng2_Boost_Pump] = useSimVar('A:FUELSYSTEM PUMP SWITCH:2', 'bool');
+	  const [Eng1_Anti_Ice] = useSimVar('A:ENG ANTI ICE:1', 'bool');
+	  const [Eng2_Anti_Ice] = useSimVar('A:ENG ANTI ICE:2', 'bool');
+	  const [Ext_Pwr_connected] = useSimVar('A:EXTERNAL POWER CONNECTION ON', 'bool');
+	  const [Xpdr_Stby] = useSimVar('A:TRANSPONDER STATE', 'enum');
+	  const [Landing_light] = useSimVar('A:LIGHT LANDING ON', 'bool');
+	  const [Park_brake] = useSimVar('A:BRAKE PARKING POSITION', 'bool');
+	  const [SearchLight] = useSimVar('L:H60_SL_TOGGLE', 'bool');
+	  const [AC_Onground] = useSimVar('A:SIM ON GROUND', 'bool');
+	  const [CargoHookArmed] = useSimVar('L:H60_CARGO_HOOK_ARMED', 'bool');
+	  const [CargoHookOpen] = useSimVar('L:H60_CARGO_HOOK_OPEN', 'bool'); // Caution definitions (this can grow easily)
 
 	  const advisoryList = [{
 	    text: 'APU ON',
-	    level: 'Advisory',
 	    simVar: APU_ON > 99
 	  }, {
 	    text: 'APU GEN ON',
-	    level: 'Advisory',
 	    simVar: APU_GEN_ON == 1
 	  }, {
+	    text: 'AVCS INOP',
+	    simVar: false
+	  }, {
+	    text: 'BACK UP PUMP ON',
+	    simVar: false
+	  }, {
+	    text: 'BOOST PUMP 1 ON',
+	    simVar: Eng1_Boost_Pump == 1
+	  }, {
+	    text: 'BOOST PUMP 2 ON',
+	    simVar: Eng2_Boost_Pump == 1
+	  }, {
+	    text: 'CARGO HOOK ARMED',
+	    simVar: CargoHookArmed == 1
+	  }, {
+	    text: 'CARGO HOOK OPEN',
+	    simVar: CargoHookOpen == 1
+	  }, {
 	    text: 'ENG 1 ANTI-ICE ON',
-	    level: 'Advisory',
-	    simVar: hydraulicLow == 1
+	    simVar: Eng1_Anti_Ice == 1
 	  }, {
-	    text: 'XXXXXXXXXXXXXXXXXX',
-	    level: 'Advisory',
-	    simVar: 1 == 1
+	    text: 'ENG 2 ANTI-ICE ON',
+	    simVar: Eng2_Anti_Ice == 1
 	  }, {
-	    text: 'XXXXXXXXXXXXXXXXXX',
-	    level: 'Advisory',
-	    simVar: 1 == 1
+	    text: 'EXT PWR CONNECTED',
+	    simVar: Ext_Pwr_connected == 1
 	  }, {
-	    text: 'XXXXXXXXXXXXXXXXXX',
-	    level: 'Advisory',
-	    simVar: 1 == 1
+	    text: 'FUEL XFER PUMP ON',
+	    simVar: false
 	  }, {
-	    text: 'XXXXXXXXXXXXXXXXXX',
-	    level: 'Advisory',
-	    simVar: 1 == 1
+	    text: 'IFF STDBY',
+	    simVar: Xpdr_Stby == 1
 	  }, {
-	    text: 'GUST LOCK ENGAGED',
-	    level: 'Advisory',
-	    simVar: 1 == 1
+	    text: 'INLET 1 ANTI-ICE',
+	    simVar: false
+	  }, {
+	    text: 'INLET 2 ANTI-ICE',
+	    simVar: false
+	  }, {
+	    text: 'LANDING LIGHT ON',
+	    simVar: Landing_light == 1
+	  }, {
+	    text: 'PARKING BRAKE ON',
+	    simVar: Park_brake == 1
+	  }, {
+	    text: 'SEARCH LIGHT ON',
+	    simVar: SearchLight == 1
+	  }, {
+	    text: 'WOW',
+	    simVar: AC_Onground == 1
 	  }]; // Limit to 6 active cautions
 
 	  const totalPages = Math.ceil(advisoryList.filter(c => c.simVar).length / 6); // Wrap around the page number if it exceeds bounds
 
-	  const currentPage = page_number_advis % totalPages; // Slice out the correct group for the current page
+	  const currentPage = page_number_advis % totalPages;
+	  react.useState({}); // Slice out the correct group for the current page
 
 	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(currentPage * 6, (currentPage + 1) * 6); // Build the SVG elements array
 
@@ -11257,28 +11306,569 @@
 	    }
 	  });
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx("defs", {
-	      children: /*#__PURE__*/jsxRuntime.jsx("clipPath", {
-	        id: "top-half",
-	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: "37",
-	          y: "701",
-	          width: "296",
-	          height: "100"
-	        })
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
 	      x: "37",
 	      y: "527",
 	      width: "296",
 	      height: "176",
 	      fill: "none",
 	      stroke: "white",
-	      strokeWidth: 2.5
+	      strokeWidth: 1.5
 	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      clipPath: "url(#top-half)",
+	      transform: "translate(10, 535) scale(0.15, 0.15 )",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	        fill: "white"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(10, 659) scale(0.15, -0.15 )",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	        fill: "white"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: "8",
+	      y: "554",
+	      width: "22",
+	      height: "86",
+	      fill: "none",
+	      stroke: "white",
+	      strokeWidth: 1.5
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 13,
+	      y: 574,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "P"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 13,
+	      y: 594,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "A"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 13,
+	      y: 614,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "G"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 13,
+	      y: 634,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "E"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      visibility: totalPages > 1 ? "visible" : "hidden",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(36, 719) scale(0.4, -0.15 )",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "white"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(36, 511) scale(0.4, 0.15 )",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "white"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	        x: 117,
+	        y: 726,
+	        fontSize: 23,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: ["PAGE ", currentPage + 1, " OF ", totalPages]
+	      })]
+	    }), elements]
+	  });
+	};
+
+	// Component
+	const CASWarningsRH = () => {
+	  const [Starter_1] = useSimVar('A:GENERAL ENG STARTER ACTIVE:1', 'bool');
+	  const [Oil_temp_1] = useSimVar("A:ENG OIL TEMPERATURE:1", "Celsius");
+	  const [Oil_press_1] = useSimVar("A:ENG OIL PRESSURE:1", "psi"); // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'ENG 1 OIL HOT',
+	    simVar: Oil_temp_1 > 150
+	  }, {
+	    text: 'ENG 1 OIL PRESS',
+	    simVar: Oil_press_1 < 10
+	  }, {
+	    text: 'ENG 1 STARTER ON',
+	    simVar: Starter_1
+	  }, {
+	    text: 'ICE DETECTED',
+	    simVar: false
+	  }, {
+	    text: 'PRI SERVO 1 FAIL',
+	    simVar: false
+	  }, {
+	    text: 'T/R SERVO 1 FAIL',
+	    simVar: false
+	  }, {
+	    text: 'TAIL XMSN OIL HOT',
+	    simVar: false
+	  }]; // Limit to 6 active cautions
+	  // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 6); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 355.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "38.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 40,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        }, "warning-".concat(index))]
+	      }));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
 	      children: elements
+	    })
+	  });
+	};
+
+	// Component
+	const CASWarningsLH = () => {
+	  const [Starter_2] = useSimVar('A:GENERAL ENG STARTER ACTIVE:2', 'bool');
+	  const [Oil_temp_2] = useSimVar("A:ENG OIL TEMPERATURE:2", "Celsius");
+	  const [Oil_press_2] = useSimVar("A:ENG OIL PRESSURE:2", "psi");
+	  const [Batt_1_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:1", "volts");
+	  const [Batt_2_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:2", "volts"); // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'APU FAIL',
+	    simVar: false
+	  }, {
+	    text: 'APU OIL HOT',
+	    simVar: false
+	  }, {
+	    text: 'BATT LOW CHARGE',
+	    simVar: Batt_1_volt < 20.5 || Batt_2_volt < 20.5
+	  }, {
+	    text: 'CHIP IBIT FAIL',
+	    simVar: false
+	  }, {
+	    text: 'ENG 2 OIL HOT',
+	    simVar: Oil_temp_2 > 150
+	  }, {
+	    text: 'ENG 2 OIL PRESS',
+	    simVar: Oil_press_2 < 10
+	  }, {
+	    text: 'ENG 2 STARTER ON',
+	    simVar: Starter_2
+	  }, {
+	    text: 'CONV 1 FAIL',
+	    simVar: false
+	  }, {
+	    text: 'CONV 2 FAIL',
+	    simVar: false
+	  }, {
+	    text: 'PRI SERVO 2 FAIL',
+	    simVar: false
+	  }, {
+	    text: 'MAIN XMSN OIL HOT',
+	    simVar: false
+	  }]; // Limit to 6 active cautions
+	  // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 6); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 355.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "694.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 695,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        }, "warning-".concat(index))]
+	      }));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	      children: elements
+	    })
+	  });
+	};
+
+	// Component
+	const CASWarningsULH = () => {
+	  const [Alternator_Connected_1] = useSimVar("A:GENERAL ENG MASTER ALTERNATOR:1", "bool");
+	  let [Alternator_Load_1] = useSimVar("A:ELECTRICAL GENALT BUS VOLTAGE:1", "volts");
+	  Alternator_Load_1 = Math.round(Alternator_Load_1 * 10) / 10; // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'GEN 1 FAIL',
+	    simVar: !Alternator_Connected_1 || Alternator_Load_1 < 14
+	  }, {
+	    text: 'HYD PUMP 1 FAIL',
+	    simVar: false
+	  }]; // Limit to 6 active cautions
+	  // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 6); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 32.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "20.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 20,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        }, "warning-".concat(index))]
+	      }));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	      children: elements
+	    })
+	  });
+	};
+
+	// Component
+	const CASWarningsURH = () => {
+	  const [Alternator_Connected_2] = useSimVar("A:GENERAL ENG MASTER ALTERNATOR:2", "bool");
+	  let [Alternator_Load_2] = useSimVar("A:ELECTRICAL GENALT BUS VOLTAGE:2", "volts");
+	  Alternator_Load_2 = Math.round(Alternator_Load_2 * 10) / 10; // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'GEN 2 FAIL',
+	    simVar: !Alternator_Connected_2 || Alternator_Load_2 < 14
+	  }, {
+	    text: 'HYD PUMP 2 FAIL',
+	    simVar: false
+	  }]; // Limit to 6 active cautions
+	  // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 6); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 32.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "714.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 715,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        }, "warning-".concat(index))]
+	      }));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	      children: elements
+	    })
+	  });
+	};
+
+	// Component
+	const CASWarningsLower = () => {
+	  const [Fuel_1] = useSimVar('A:FUELSYSTEM TANK WEIGHT:1', 'pounds');
+	  const [Fuel_2] = useSimVar('A:FUELSYSTEM TANK WEIGHT:2', 'pounds'); // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'FUEL 1 LOW',
+	    simVar: Fuel_1 < 172
+	  }, {
+	    text: 'FUEL 2 LOW',
+	    simVar: Fuel_2 < 172
+	  }, {
+	    text: 'FUEL 1 PRESS LOW',
+	    simVar: false
+	  }, {
+	    text: 'FUEL 2 PRESS LOW',
+	    simVar: false
+	  }]; // Limit to 6 active cautions
+	  // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 2); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 717;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "367",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 366,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        }, "warning-".concat(index))]
+	      }));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	      children: elements
+	    })
+	  });
+	};
+
+	// Component
+	const CASWarnings = () => {
+	  // SimVars
+	  const [page_number_warning] = useSimVar('L:H60_EICAS_Page_Warning', 'Enum');
+	  const [RotorBrake] = useSimVar('L:RotorBrakeActive', 'bool');
+	  const [Batt_stby] = useSimVar('L:H60_Switch_BATT_STBY', 'bool');
+	  const [SAS] = useSimVar('L:H60_SAS', 'bool');
+	  const [FPS] = useSimVar('L:H60_FPS', 'bool');
+	  const [Stab_Man_Mode] = useSimVar('L:H60_Stab_Man_Mode', 'bool');
+	  const [Stab_Unlocked] = useSimVar('L:H60_Stab_Unlocked', 'bool'); // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'AFCS FAIL',
+	    simVar: false
+	  }, {
+	    text: 'BOOST SERVO OFF',
+	    simVar: false
+	  }, {
+	    text: 'CHECK EICAS',
+	    simVar: false
+	  }, {
+	    text: 'FPS FAIL',
+	    simVar: FPS
+	  }, {
+	    text: 'ROTOR BRAKE',
+	    simVar: RotorBrake
+	  }, {
+	    text: 'GUST LOCK ENGAGED',
+	    simVar: false
+	  }, {
+	    text: 'SAS OFF',
+	    simVar: SAS
+	  }, {
+	    text: 'STAB MANUAL MODE',
+	    simVar: Stab_Man_Mode
+	  }, {
+	    text: 'STAB UNLOCKED',
+	    simVar: Stab_Unlocked
+	  }, {
+	    text: 'STBY INST NOT ARMD',
+	    simVar: !Batt_stby
+	  }, {
+	    text: 'TRIM FAIL',
+	    simVar: false
+	  }]; // Limit to 6 active cautions
+
+	  const totalPages = Math.ceil(advisoryList.filter(c => c.simVar).length / 6); // Wrap around the page number if it exceeds bounds
+
+	  const currentPage = page_number_warning % totalPages; // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(currentPage * 6, (currentPage + 1) * 6); // State to store overflow warnings
+
+	  const [overflowWarnings, setOverflowWarnings] = react.useState([]); // Handle overflow warnings from child component
+
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 551.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "694.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 695,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        })]
+	      }, "warning-".concat(index)));
+	      yPos += 29; // move down for next caution
+	    }
+	  }); // Build the SVG elements array for overflow cautions
+
+	  overflowWarnings.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "694.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 695,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        })]
+	      }, "overflow-warning-".concat(index)));
+	      yPos += 29; // move down for next overflow caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: "692",
+	      y: "527",
+	      width: "296",
+	      height: "176",
+	      fill: "none",
+	      stroke: "yellow",
+	      strokeWidth: 1.5
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(999, 535) scale(0.15, 0.15 )",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "white"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(999, 659) scale(0.15, -0.15 )",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	          fill: "white"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1002,
+	        y: 574,
+	        fontSize: 23,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "P"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1002,
+	        y: 594,
+	        fontSize: 23,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "A"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1002,
+	        y: 614,
+	        fontSize: 23,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "G"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1002,
+	        y: 634,
+	        fontSize: 23,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "E"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "997",
+	        y: "554",
+	        width: "22",
+	        height: "86",
+	        fill: "none",
+	        stroke: "white",
+	        strokeWidth: 1.5
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        visibility: totalPages ? "visible" : "hidden",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(939, 719) scale(0.4, -0.15 )",
+	          children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	            fill: "yellow"
+	          })
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(939, 511) scale(0.4, 0.15 )",
+	          children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
+	            fill: "yellow"
+	          })
+	        }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	          x: 774,
+	          y: 726,
+	          fontSize: 23,
+	          fill: "#00EE00",
+	          className: "CAS-readouts-acknowledged",
+	          textAnchor: "start",
+	          children: ["PAGE ", currentPage + 1, " OF ", totalPages]
+	        })]
+	      }), elements, /*#__PURE__*/jsxRuntime.jsx(CASWarningsRH, {}), /*#__PURE__*/jsxRuntime.jsx(CASWarningsLH, {}), /*#__PURE__*/jsxRuntime.jsx(CASWarningsULH, {}), /*#__PURE__*/jsxRuntime.jsx(CASWarningsURH, {}), /*#__PURE__*/jsxRuntime.jsx(CASWarningsLower, {})]
 	    })]
+	  });
+	};
+
+	const EICASAdvisory = () => {
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx(CASAdvisory, {}), /*#__PURE__*/jsxRuntime.jsx(CASWarnings, {})]
 	  });
 	};
 
@@ -11533,10 +12123,12 @@
 	  Q2 = Math.round(Q2 * 10) / 10;
 	  let [NP_2] = useSimVar("GENERAL ENG PCT MAX RPM:1", "percent");
 	  NP_2 = Math.round(NP_2 * 10) / 10;
+	  let [Ambient_Temp] = useSimVar("A:AMBIENT TEMPERATURE", "Celsius");
+	  Ambient_Temp = Math.round(Ambient_Temp);
 	  let [NR] = useSimVar("A:ROTOR RPM PCT:1", "percent");
 	  NR = Math.round(NR * 10) / 10;
-	  let TMP_XMSN = 100;
-	  let PRESS_XMSN = 1;
+	  let TMP_XMSN = Math.min(NR, 102) + Ambient_Temp;
+	  let PRESS_XMSN = Math.min(NR + 3, 55);
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
 	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -11563,14 +12155,14 @@
 	          stroke: "none",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 58,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "T"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 49,
 	          y: 152,
 	          fontSize: 27,
 	          className: TMP_1 < 135 ? "text-safe" : TMP_1 <= 150 ? "text-caution" : "text-warning",
@@ -11612,14 +12204,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 58,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "P"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 46,
 	          y: 152,
 	          fontSize: 27,
 	          className: PRESS_1 <= 22 ? "text-warning" : PRESS_1 <= 26 ? "text-caution" : PRESS_1 <= 100 ? "text-safe" : PRESS_1 <= 120 ? "text-caution" : "text-warning",
@@ -11649,14 +12241,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 64,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "NG"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: NG_1 <= 105 ? "text-safe" : NG_1 <= 106 ? "text-caution" : "text-warning",
@@ -11698,14 +12290,14 @@
 	          height: "2",
 	          className: "barwarn"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 72,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "TGT"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 84,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: TGT_1 < 793 ? "text-safe" : TGT_1 <= 879 ? "text-caution" : "text-warning",
@@ -11735,14 +12327,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 57,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "Q"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: Q1 <= 120 ? "text-safe" : Q1 <= 144 ? "text-caution" : "text-warning",
@@ -11784,14 +12376,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 73,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "NP1"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: NP_1 <= 91 ? "text-warning" : NP_1 < 95 ? "text-caution" : NP_1 <= 101 ? "text-safe" : NP_1 <= 105 ? "text-caution" : "text-warning",
@@ -11833,14 +12425,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 65,
+	          x: 50,
 	          y: 117,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "NR"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 147,
 	          fontSize: 30,
 	          className: NR <= 90 ? "text-warning" : NR < 95 ? "text-caution" : NR <= 101 ? "text-safe" : NR <= 110 ? "text-caution" : "text-warning",
@@ -11882,14 +12474,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 73,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "NP2"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: NP_2 <= 91 ? "text-warning" : NP_2 < 95 ? "text-caution" : NP_2 <= 101 ? "text-safe" : NP_2 <= 105 ? "text-caution" : "text-warning",
@@ -11919,14 +12511,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 57,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "Q"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: Q2 <= 120 ? "text-safe" : Q2 <= 144 ? "text-caution" : "text-warning",
@@ -11968,14 +12560,14 @@
 	          height: "2",
 	          className: "barwarn"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 72,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "TGT"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 84,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: TGT_2 < 793 ? "text-safe" : TGT_2 <= 879 ? "text-caution" : "text-warning",
@@ -12005,14 +12597,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 64,
+	          x: 51,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "NG"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: NG_2 <= 105 ? "text-safe" : NG_2 <= 106 ? "text-caution" : "text-warning",
@@ -12054,14 +12646,14 @@
 	          height: "2",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 58,
+	          x: 50,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "P"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: PRESS_2 <= 22 ? "text-warning" : PRESS_2 <= 26 ? "text-caution" : PRESS_2 <= 100 ? "text-safe" : PRESS_2 <= 120 ? "text-caution" : "text-warning",
@@ -12092,14 +12684,14 @@
 	          stroke: "none",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 58,
+	          x: 51,
 	          y: 123,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "T"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 76,
+	          x: 50,
 	          y: 152,
 	          fontSize: 27,
 	          className: TMP_2 < 135 ? "text-safe" : TMP_2 <= 150 ? "text-caution" : "text-warning",
@@ -12116,7 +12708,7 @@
 	          y: 159,
 	          width: "26",
 	          height: Math.max(Math.min(TMP_XMSN * 1.65 - 115, 115), 0),
-	          className: "tapeGreen" 
+	          className: TMP_XMSN < 105 ? "tapeGreen" : TMP_XMSN <= 140 ? "tapeYellow" : "tapeRedStripes"
 	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	          x: 36.7,
 	          y: 159,
@@ -12132,17 +12724,17 @@
 	          stroke: "none",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 17.2,
+	          x: 10,
 	          y: 175,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "T"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 17.5,
+	          x: -10,
 	          y: 204,
 	          fontSize: 27,
-	          className: "text-safe" ,
+	          className: TMP_XMSN < 105 ? "text-safe" : TMP_XMSN <= 140 ? "text-caution" : "text-warning",
 	          textAnchor: "middle",
 	          children: Math.round(TMP_XMSN)
 	        })]
@@ -12153,8 +12745,8 @@
 	          x: 36.7,
 	          y: 159,
 	          width: "26",
-	          height: Math.max(Math.min(PRESS_XMSN * 1.65 - 115, 115), 0),
-	          className: "tapeRedStripes" 
+	          height: Math.max(Math.min(PRESS_XMSN * 1.3 - 10, 115), 0),
+	          className: PRESS_XMSN <= 20 ? "tapeRedStripes" : PRESS_XMSN < 30 ? "tapeYellow" : PRESS_XMSN <= 65 ? "tapeGreen" : PRESS_XMSN <= 130 ? "tapeYellow" : "tapeRedStripes"
 	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	          x: 36.7,
 	          y: 159,
@@ -12184,17 +12776,17 @@
 	          stroke: "none",
 	          className: "barmax"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 94.2,
+	          x: 87,
 	          y: 175,
 	          fontSize: 23,
-	          className: "text",
+	          className: "readouts",
 	          textAnchor: "middle",
 	          children: "P"
 	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 127.8,
+	          x: 87,
 	          y: 204,
 	          fontSize: 27,
-	          className: "text-warning" ,
+	          className: PRESS_XMSN <= 20 ? "text-warning" : PRESS_XMSN < 30 ? "text-caution" : PRESS_XMSN <= 65 ? "text-safe" : PRESS_XMSN <= 130 ? "text-caution" : "text-warning",
 	          textAnchor: "start",
 	          children: Math.round(PRESS_XMSN)
 	        })]
@@ -12203,9 +12795,134 @@
 	  });
 	};
 
+	const EICASFuel = () => {
+	  let [Fuel_1] = useSimVar('A:FUELSYSTEM TANK WEIGHT:1', 'pounds');
+	  let [Fuel_2] = useSimVar('A:FUELSYSTEM TANK WEIGHT:2', 'pounds');
+	  let [Tot_Fuel] = useSimVar('A:FUEL TOTAL QUANTITY WEIGHT', 'pounds');
+	  Tot_Fuel = Math.floor(Tot_Fuel / 5) * 5;
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 485,
+	      y: 503,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "MAIN"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 485,
+	      y: 588,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "FUEL"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(418.5,321)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        transform: "rotate(180 49.7 216.5)",
+	        x: 36.7,
+	        y: 159,
+	        width: "26",
+	        height: Math.max(Math.min(Fuel_1 * 0.199, 115), 0),
+	        className: Fuel_1 < 200 ? "tapeYellow" : "tapeGreen"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 36.7,
+	        y: 159,
+	        width: "26",
+	        height: "115",
+	        stroke: "white",
+	        fill: "none"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 34.7,
+	        y: 253.6,
+	        width: "30",
+	        height: "2",
+	        stroke: "none",
+	        className: "barwarn"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 49,
+	        y: 182,
+	        fontSize: 23,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "1"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 50,
+	        y: 300,
+	        fontSize: 27,
+	        className: Fuel_1 < 200 ? "text-caution" : "text-safe",
+	        textAnchor: "middle",
+	        children: Math.floor(Fuel_1 / 5) * 5
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(506.5,321)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        transform: "rotate(180 49.7 216.5)",
+	        x: 36.7,
+	        y: 159,
+	        width: "26",
+	        height: Math.max(Math.min(Fuel_2 * 0.199, 115), 0),
+	        className: Fuel_2 < 200 ? "tapeYellow" : "tapeGreen"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 36.7,
+	        y: 159,
+	        width: "26",
+	        height: "115",
+	        stroke: "white",
+	        fill: "none"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 34.7,
+	        y: 253.6,
+	        width: "30",
+	        height: "2",
+	        stroke: "none",
+	        className: "barwarn"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 49,
+	        y: 182,
+	        fontSize: 23,
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 50,
+	        y: 300,
+	        fontSize: 27,
+	        className: Fuel_2 < 200 ? "text-caution" : "text-safe",
+	        textAnchor: "middle",
+	        children: Math.floor(Fuel_2 / 5) * 5
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 6,
+	        y: 361,
+	        fontSize: 27,
+	        className: Tot_Fuel < 400 ? "text-caution" : "text-safe",
+	        textAnchor: "middle",
+	        children: Math.round(Tot_Fuel)
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 477,
+	      y: 652,
+	      fontSize: 23,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "TOTAL"
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 466,
+	      y: 631,
+	      width: "92",
+	      height: "56",
+	      stroke: "white",
+	      fill: "none",
+	      strokeWidth: 1.5
+	    })]
+	  });
+	};
+
 	const EICAS = () => {
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASAdvisory, {})]
+	    children: [/*#__PURE__*/jsxRuntime.jsx(EICASTapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASBaseShapes, {}), /*#__PURE__*/jsxRuntime.jsx(EICASAdvisory, {}), /*#__PURE__*/jsxRuntime.jsx(EICASFuel, {})]
 	  });
 	};
 
@@ -28721,13 +29438,13 @@
 	        transform: "translate(20, 239) scale(0.15)",
 	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
 	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	          fill: "#D9D9D9"
+	          fill: "white"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	        transform: "translate(20, 356) scale(0.15, -0.15 )",
 	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
 	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	          fill: "#D9D9D9"
+	          fill: "white"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 17,
@@ -28745,13 +29462,13 @@
 	        transform: "translate(20, 439) scale(0.15)",
 	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
 	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	          fill: "#D9D9D9"
+	          fill: "white"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	        transform: "translate(20, 556) scale(0.15, -0.15 )",
 	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
 	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
-	          fill: "#D9D9D9"
+	          fill: "white"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 596,
@@ -29131,7 +29848,7 @@
 	            xlinkHref: "/Images/pfd.png",
 	            x: 0,
 	            y: 0,
-	            opacity: 0.4
+	            opacity: 0
 	          })]
 	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
 	          visibility: DISP_TYPE == 2 ? "visible" : "hidden",
@@ -29226,10 +29943,38 @@ text {
   fill: white;
 }
 
-.text, .text-warning, .text-caution, .text-safe, .text-4 {
+.text, .text-4 {
   fill: white;
   text-anchor: end;
   paint-order: stroke;
+}
+
+.degrees {
+  font-family: "mono";
+}
+
+.readouts, .text-warning, .text-caution, .text-safe, .CAS-readouts-unacknowledged, .CAS-readouts-acknowledged, .tacmap_cyantext, .readouts-vertical {
+  font-style: "italic";
+  font-family: "OCRB";
+  letter-spacing: -0.1px;
+}
+
+.readouts-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -5px;
+}
+
+.tacmap_cyantext {
+  fill: cyan;
+}
+
+.CAS-readouts-acknowledged {
+  fill: yellow;
+}
+
+.CAS-readouts-unacknowledged {
+  fill: black;
 }
 
 .text-4 {
@@ -29246,20 +29991,6 @@ text {
 
 .text-warning {
   fill: red;
-}
-
-.degrees {
-  font-family: "mono";
-}
-
-.readouts, .tacmap_cyantext {
-  font-style: "italic";
-  font-family: "OCRB";
-  letter-spacing: -0.1px;
-}
-
-.tacmap_cyantext {
-  fill: cyan;
 }
 
 .apdisp {

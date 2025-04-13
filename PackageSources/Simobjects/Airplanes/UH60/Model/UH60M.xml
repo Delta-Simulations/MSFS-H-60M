@@ -528,7 +528,7 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>Hook_Unlock</ANIM_NAME>
 					<ANIM_CODE>
-            (L:Cargo_Hook_UNLOCK, bool) 100 *
+            (L:H60_CARGO_HOOK_OPEN, bool) 100 *
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>

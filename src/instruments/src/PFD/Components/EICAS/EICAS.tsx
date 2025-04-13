@@ -7,6 +7,7 @@ import { useSimVar } from '../../../Hooks/simVars';
 import { EICASBaseShapes } from './EICASBaseShapes';
 import { EICASTapes } from './EICASTapes';
 import "../../style.scss";
+import { EICASFuel } from './EICASFuel';
 
 export const EICAS = () => {
     return (
@@ -15,6 +16,7 @@ export const EICAS = () => {
             <EICASTapes />
             <EICASBaseShapes/>
             <EICASAdvisory/>
+            <EICASFuel />
 
         </g>
     )

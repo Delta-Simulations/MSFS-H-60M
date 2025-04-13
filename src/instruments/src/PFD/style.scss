@@ -16,22 +16,6 @@ text {
     paint-order: stroke;
 }
 
-.text-4 {
-    @extend .text;
-    font-size: 42px;
-}
-.text-safe {
-    @extend .text;
-    fill: greenyellow
-}
-.text-caution {
-    @extend .text;
-    fill: yellow
-}
-.text-warning {
-    @extend .text;
-    fill: red
-}
 
 
 .degrees {
@@ -43,11 +27,43 @@ text {
     font-family: "OCRB";
     letter-spacing: -0.1px;
 }
+.readouts-vertical {
+    @extend .readouts;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: -5px;
+  }
+
 .tacmap_cyantext {
     @extend .readouts;
     fill: cyan;
 
 }
+.CAS-readouts-acknowledged {
+    @extend .readouts;
+    fill: yellow
+}
+.CAS-readouts-unacknowledged {
+    @extend .readouts;
+    fill: black
+}
+.text-4 {
+    @extend .text;
+    font-size: 42px;
+}
+.text-safe {
+    @extend .readouts;
+    fill: greenyellow
+}
+.text-caution {
+    @extend .readouts;
+    fill: yellow
+}
+.text-warning {
+    @extend .readouts;
+    fill: red
+}
+
 
 .apdisp {
     font-style: 'italic';
