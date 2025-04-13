@@ -157,13 +157,43 @@
     <!-- Right Side - Show/Hide Legend - Tac Map -->
 
 
+
+
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_1</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_2</NODE_ID>
+        <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_SCALE_MODE, bool) ! (&gt;L:H60_TAC_MAP_SCALE_MODE, bool)
+            }
+        </LEFT_SINGLE_CODE>
+    </UseTemplate>
+
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
         <NODE_ID>Button_MFD_#ID#_R_5</NODE_ID>
         <LEFT_SINGLE_CODE>
+            (L:H60_MFD_#ID#_MODE, bool) 4 == 
+            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
+            if{
+                (L:H60_TAC_MAP_MODE) 1 + (&gt;L:H60_TAC_MAP_MODE)
+                (L:H60_TAC_MAP_MODE) 4 &gt; if{ 1 (&gt;L:H60_TAC_MAP_MODE) }
+            }
             (L:H60_MFD_#ID#_MODE, bool) 2 == 
             if{
                 (L:H60_EICAS_Page_Warning) 1 + (&gt;L:H60_EICAS_Page_Warning)
             }
+
         </LEFT_SINGLE_CODE>
     </UseTemplate>
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
@@ -182,40 +212,7 @@
         </LEFT_SINGLE_CODE>
     </UseTemplate>
 
-    <UseTemplate Name="DELTASIM_MFD_Button_Template">
-        <NODE_ID>Button_MFD_#ID#_R_2</NODE_ID>
-        <LEFT_SINGLE_CODE>
-            (L:H60_MFD_#ID#_MODE, bool) 4 == 
-            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
-            if{
-                (L:H60_TAC_MAP_SCALE_MODE, bool) ! (&gt;L:H60_TAC_MAP_SCALE_MODE, bool)
-            }
-        </LEFT_SINGLE_CODE>
-    </UseTemplate>
-    <UseTemplate Name="DELTASIM_MFD_Button_Template">
-        <NODE_ID>Button_MFD_#ID#_R_1</NODE_ID>
-        <LEFT_SINGLE_CODE>
-            (L:H60_MFD_#ID#_MODE, bool) 4 == 
-            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
-            if{
-                (L:H60_TAC_MAP_MODE) 6 !== if if{ 6 (&gt;L:H60_TAC_MAP_MODE) }
-                (L:H60_TAC_MAP_MODE) 6 == if if{ 1 (&gt;L:H60_TAC_MAP_MODE) }
 
-            }
-        </LEFT_SINGLE_CODE>
-    </UseTemplate>
-    <UseTemplate Name="DELTASIM_MFD_Button_Template">
-        <NODE_ID>Button_MFD_#ID#_R_5</NODE_ID>
-        <LEFT_SINGLE_CODE>
-
-            (L:H60_MFD_#ID#_MODE, bool) 4 == 
-            (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
-            if{
-                (L:H60_TAC_MAP_MODE, enum) 1 + (&gt;L:H60_TAC_MAP_MODE, enum)
-                (L:H60_TAC_MAP_MODE) 4 &gt; if{ 1 (&gt;L:H60_TAC_MAP_MODE) }
-            }
-        </LEFT_SINGLE_CODE>
-    </UseTemplate>
 
 </Template>
 </ModelBehaviors>

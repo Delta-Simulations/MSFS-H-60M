@@ -156,34 +156,34 @@ export const CASAdvisory: React.FC = () => {
     <g>
 
       <rect x="37" y="527" width="296" height="176" fill="none" stroke='white' strokeWidth={1.5} />
-      
-        <g transform="translate(10, 535) scale(0.15, 0.15 )">
+
+      <g transform="translate(10, 535) scale(0.15, 0.15 )">
+        <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
+      </g>
+      <g transform="translate(10, 659) scale(0.15, -0.15 )">
+        <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
+      </g>
+      <rect x="8" y="554" width="22" height="86" fill="none" stroke='white' strokeWidth={1.5} />
+      <text x={13} y={574} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">P</text>
+      <text x={13} y={594} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">A</text>
+      <text x={13} y={614} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">G</text>
+      <text x={13} y={634} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">E</text>
+      <g style={{ display: totalPages > 1 ? "block" : "none" }}>
+        <g transform="translate(36, 719) scale(0.4, -0.15 )">
           <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
         </g>
-        <g transform="translate(10, 659) scale(0.15, -0.15 )">
+        <g transform="translate(36, 511) scale(0.4, 0.15 )">
           <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
         </g>
-        <rect x="8" y="554" width="22" height="86" fill="none" stroke='white' strokeWidth={1.5} />
-          <text x={13} y={574} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">P</text>
-          <text x={13} y={594} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">A</text>
-          <text x={13} y={614} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">G</text>
-          <text x={13} y={634} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">E</text>
-        <g visibility={totalPages > 1 ? "visible" : "hidden"}>
-          <g transform="translate(36, 719) scale(0.4, -0.15 )">
-            <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
-          </g>
-          <g transform="translate(36, 511) scale(0.4, 0.15 )">
-            <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
-          </g>
 
 
 
 
 
-          <text x={117} y={726} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">PAGE {currentPage + 1} OF {totalPages}</text>
-        </g>
-        {elements}
-      
+        <text x={117} y={726} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">PAGE {currentPage + 1} OF {totalPages}</text>
+      </g>
+      {elements}
+
     </g>
   )
 };

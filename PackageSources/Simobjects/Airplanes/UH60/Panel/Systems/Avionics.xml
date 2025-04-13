@@ -13,7 +13,7 @@ Avionics Power Systems - Delta Simulations UH60 for MSFS
 <Value>
 <!-- MFD POWER LOGIC -->
 (L:H60_MFD_1_PWR_BTN) 1 ==
-(A:ELECTRICAL MAIN BUS VOLTAGE, volts) 23 &gt; and
+(L:H60_Cpit_26VPower) 1 == and
 if{ 
    1 (&gt;L:H60_MFD_1_PWR)
 } els{
@@ -28,14 +28,18 @@ if{
    0 (&gt;L:H60_MFD_2_PWR)
 }
 
-
-
 (L:H60_MFD_3_PWR_BTN) 1 ==
 (L:H60_Cpit_26VPower) 1 == and
 if{ 
    1 (&gt;L:H60_MFD_3_PWR)
 } els{
    0 (&gt;L:H60_MFD_3_PWR)
+}
+
+(L:H60_SYS_EGI1) 0 ==
+(L:H60_SYS_EGI2) 0 == and
+if{ 
+   5 (&gt;L:H60_TAC_MAP_MODE)
 }
 
 </Value>

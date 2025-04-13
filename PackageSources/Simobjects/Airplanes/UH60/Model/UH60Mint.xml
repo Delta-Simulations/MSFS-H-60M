@@ -604,6 +604,58 @@
   </UseTemplate>
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_AFCS_SAS1, bool) 100 *</ANIM>
+    <NODE_ID>Button_SAS1</NODE_ID>
+    <TOOLTIPID>AFCS SAS 1</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_AFCS_SAS1, bool) ! (&gt;L:H60_AFCS_SAS1, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_AFCS_SAS2, bool) 100 *</ANIM>
+    <NODE_ID>Button_SAS2</NODE_ID>
+    <TOOLTIPID>AFCS SAS 2</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_AFCS_SAS2, bool) ! (&gt;L:H60_AFCS_SAS2, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_AFCS_FPS, bool) 100 *</ANIM>
+    <NODE_ID>Button_FPS</NODE_ID>
+    <TOOLTIPID>AFCS FPS</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_AFCS_FPS, bool) ! (&gt;L:H60_AFCS_FPS, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_AFCS_TRIM, bool) 100 *</ANIM>
+    <NODE_ID>Button_AFCS_TRIM</NODE_ID>
+    <TOOLTIPID>AFCS TRIM</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_AFCS_TRIM, bool) ! (&gt;L:H60_AFCS_TRIM, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_SYS_EGI1, bool) 100 *</ANIM>
+    <NODE_ID>Switch_EGI1</NODE_ID>
+    <TOOLTIPID>EGI 1</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_SYS_EGI1, bool) ! (&gt;L:H60_SYS_EGI1, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_SYS_EGI2, bool) 100 *</ANIM>
+    <NODE_ID>Switch_EGI2</NODE_ID>
+    <TOOLTIPID>EGI 2</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_SYS_EGI2, bool) ! (&gt;L:H60_SYS_EGI2, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
+  
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(O:Door, bool) 100 *</ANIM>
     <NODE_ID>Door_Cargo_Hook</NODE_ID>
     <TOOLTIPID>CARGO HOOK ACCESS</TOOLTIPID>
@@ -666,6 +718,25 @@
 </UseTemplate>
 
 <UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_SAS1</NODE_ID>
+  <TRUECODE>(L:H60_AFCS_SAS1)</TRUECODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_SAS2</NODE_ID>
+  <TRUECODE>(L:H60_AFCS_SAS2)</TRUECODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_FPS</NODE_ID>
+  <TRUECODE>(L:H60_AFCS_FPS)</TRUECODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_AFCS_TRIM</NODE_ID>
+  <TRUECODE>(L:H60_AFCS_TRIM)</TRUECODE>
+</UseTemplate>
+
+
+
+<UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_Acc_Low</NODE_ID>
   <TRUECODE>0</TRUECODE>
 </UseTemplate>
@@ -689,7 +760,6 @@
   <NODE_ID>Korry_Batt_Good</NODE_ID>
   <ELEC_PWR>1</ELEC_PWR>
   <TRUECODE>
-
     (L:H60_Switch_BATT1) -1 ==
     (A:ELECTRICAL BATTERY VOLTAGE:1, volts) 20.5 &gt; and
 

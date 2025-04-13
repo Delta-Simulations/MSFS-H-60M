@@ -147,8 +147,8 @@ export const SpdIndicator = () => {
                         <path d="M275.469 0.468445L472.029 172.532L311.574 319.655L115.013 147.591L275.469 0.468445Z" fill="black" />
                         <path d="M219.38 137.8L216.067 399.011L0.000732422 372.44L3.31349 111.23L219.38 137.8Z" fill="black" />
                     </mask>
-                    <g mask="url(#mask0_22_25)">
-                        <circle cx="215" cy="222" r="113" stroke="white" stroke-width="2" />
+                    <g>
+                        <circle cx="215" cy="222" r="113" stroke="white" stroke-width="2.5" />
                     </g>
                 </svg>
 

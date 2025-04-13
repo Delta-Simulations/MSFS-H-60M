@@ -140,13 +140,6 @@ KollsmanSetting=29.921342849731445313
 [BleedAir.0]
 BleedAirSource=0
 
-[LocalVars.0]
-H60_Switch_BATT1=0
-H60_Switch_BATT2=0
-H60_OH_PNL_BACKLIGHT=10
-H60_Switch_EXT_PWR=0
-H60_AIR_SOURCE=2
-
 [Switches.0]
 PitotHeat=False
 BeaconLights=False
@@ -204,3 +197,16 @@ Rudder=050.00
 LeftBrake=000.00
 RightBrake=000.00
 ParkingBrake=100.00
+
+[LocalVars.0]
+H60_Switch_BATT1=0
+H60_Switch_BATT2=0
+H60_OH_PNL_BACKLIGHT=10
+H60_Switch_EXT_PWR=0
+H60_AIR_SOURCE=2
+H60_AFCS_SAS1=0
+H60_AFCS_SAS2=0
+H60_AFCS_FPS=0
+H60_AFCS_TRIM=0
+H60_SYS_EGI1=0
+H60_SYS_EGI2=0

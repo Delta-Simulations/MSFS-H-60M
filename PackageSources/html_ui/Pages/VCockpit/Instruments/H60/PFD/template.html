@@ -9542,13 +9542,12 @@
 	            fill: "black"
 	          })]
 	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	          mask: "url(#mask0_22_25)",
 	          children: /*#__PURE__*/jsxRuntime.jsx("circle", {
 	            cx: "215",
 	            cy: "222",
 	            r: "113",
 	            stroke: "white",
-	            "stroke-width": "2"
+	            "stroke-width": "2.5"
 	          })
 	        })]
 	      })]
@@ -11367,7 +11366,9 @@
 	      textAnchor: "start",
 	      children: "E"
 	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      visibility: totalPages > 1 ? "visible" : "hidden",
+	      style: {
+	        display: totalPages > 1 ? "block" : "none"
+	      },
 	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
 	        transform: "translate(36, 719) scale(0.4, -0.15 )",
 	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
@@ -11683,8 +11684,12 @@
 	  const [page_number_warning] = useSimVar('L:H60_EICAS_Page_Warning', 'Enum');
 	  const [RotorBrake] = useSimVar('L:RotorBrakeActive', 'bool');
 	  const [Batt_stby] = useSimVar('L:H60_Switch_BATT_STBY', 'bool');
-	  const [SAS] = useSimVar('L:H60_SAS', 'bool');
-	  const [FPS] = useSimVar('L:H60_FPS', 'bool');
+	  const [SAS1] = useSimVar('L:H60_AFCS_SAS1', 'bool');
+	  const [SAS2] = useSimVar('L:H60_AFCS_SAS2', 'bool');
+	  const [FPS] = useSimVar('L:H60_AFCS_FPS', 'bool');
+	  const [TRIM] = useSimVar('L:H60_AFCS_TRIM', 'bool');
+	  const [EGI1] = useSimVar('L:H60_SYS_EGI1', 'bool');
+	  const [EGI2] = useSimVar('L:H60_SYS_EGI2', 'bool');
 	  const [Stab_Man_Mode] = useSimVar('L:H60_Stab_Man_Mode', 'bool');
 	  const [Stab_Unlocked] = useSimVar('L:H60_Stab_Unlocked', 'bool'); // Caution definitions (this can grow easily)
 
@@ -11699,7 +11704,7 @@
 	    simVar: false
 	  }, {
 	    text: 'FPS FAIL',
-	    simVar: FPS
+	    simVar: !FPS
 	  }, {
 	    text: 'ROTOR BRAKE',
 	    simVar: RotorBrake
@@ -11708,7 +11713,7 @@
 	    simVar: false
 	  }, {
 	    text: 'SAS OFF',
-	    simVar: SAS
+	    simVar: !SAS1 || !SAS2
 	  }, {
 	    text: 'STAB MANUAL MODE',
 	    simVar: Stab_Man_Mode
@@ -11720,7 +11725,13 @@
 	    simVar: !Batt_stby
 	  }, {
 	    text: 'TRIM FAIL',
-	    simVar: false
+	    simVar: !TRIM
+	  }, {
+	    text: 'FD COUPLE FAIL',
+	    simVar: !EGI1 || !EGI2
+	  }, {
+	    text: 'FLT DIR FAIL',
+	    simVar: !EGI1 || !EGI2
 	  }]; // Limit to 6 active cautions
 
 	  const totalPages = Math.ceil(advisoryList.filter(c => c.simVar).length / 6); // Wrap around the page number if it exceeds bounds
@@ -11798,6 +11809,14 @@
 	          d: "M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z",
 	          fill: "white"
 	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "997",
+	        y: "554",
+	        width: "22",
+	        height: "86",
+	        fill: "none",
+	        stroke: "white",
+	        strokeWidth: 1.5
 	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
 	        x: 1002,
 	        y: 574,
@@ -11830,16 +11849,10 @@
 	        className: "readouts",
 	        textAnchor: "start",
 	        children: "E"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: "997",
-	        y: "554",
-	        width: "22",
-	        height: "86",
-	        fill: "none",
-	        stroke: "white",
-	        strokeWidth: 1.5
 	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        visibility: totalPages ? "visible" : "hidden",
+	        style: {
+	          display: totalPages > 1 ? "block" : "none"
+	        },
 	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
 	          transform: "translate(939, 719) scale(0.4, -0.15 )",
 	          children: /*#__PURE__*/jsxRuntime.jsx("path", {

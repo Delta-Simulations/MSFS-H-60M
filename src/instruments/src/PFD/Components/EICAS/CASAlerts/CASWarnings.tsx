@@ -19,8 +19,13 @@ export const CASWarnings: React.FC = () => {
   const [page_number_warning] = useSimVar('L:H60_EICAS_Page_Warning', 'Enum');
   const [RotorBrake] = useSimVar('L:RotorBrakeActive', 'bool');
   const [Batt_stby] = useSimVar('L:H60_Switch_BATT_STBY', 'bool');
-  const [SAS] = useSimVar('L:H60_SAS', 'bool');
-  const [FPS] = useSimVar('L:H60_FPS', 'bool');
+  const [SAS1] = useSimVar('L:H60_AFCS_SAS1', 'bool');
+  const [SAS2] = useSimVar('L:H60_AFCS_SAS2', 'bool');
+  const [FPS] = useSimVar('L:H60_AFCS_FPS', 'bool');
+  const [TRIM] = useSimVar('L:H60_AFCS_TRIM', 'bool');
+  const [EGI1] = useSimVar('L:H60_SYS_EGI1', 'bool');
+  const [EGI2] = useSimVar('L:H60_SYS_EGI2', 'bool');
+
   const [Stab_Man_Mode] = useSimVar('L:H60_Stab_Man_Mode', 'bool');
   const [Stab_Unlocked] = useSimVar('L:H60_Stab_Unlocked', 'bool');
 
@@ -29,14 +34,16 @@ export const CASWarnings: React.FC = () => {
     { text: 'AFCS FAIL', simVar: false },
     { text: 'BOOST SERVO OFF', simVar: false },
     { text: 'CHECK EICAS', simVar: false },
-    { text: 'FPS FAIL', simVar: FPS },
+    { text: 'FPS FAIL', simVar: !FPS },
     { text: 'ROTOR BRAKE', simVar: RotorBrake },
     { text: 'GUST LOCK ENGAGED', simVar: false },
-    { text: 'SAS OFF', simVar: SAS },
+    { text: 'SAS OFF', simVar: !SAS1 || !SAS2 },
     { text: 'STAB MANUAL MODE', simVar: Stab_Man_Mode },
     { text: 'STAB UNLOCKED', simVar: Stab_Unlocked },
     { text: 'STBY INST NOT ARMD', simVar: !Batt_stby},
-    { text: 'TRIM FAIL', simVar: false },
+    { text: 'TRIM FAIL', simVar: !TRIM },
+    { text: 'FD COUPLE FAIL', simVar: !EGI1 || !EGI2 },
+    { text: 'FLT DIR FAIL', simVar: !EGI1 || !EGI2 },
   ];
 
   // Limit to 6 active cautions
@@ -107,20 +114,21 @@ export const CASWarnings: React.FC = () => {
     <g>
       <rect x="692" y="527" width="296" height="176" fill="none" stroke='yellow' strokeWidth={1.5} />
       <g>
-      
+
         <g transform="translate(999, 535) scale(0.15, 0.15 )">
           <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
         </g>
         <g transform="translate(999, 659) scale(0.15, -0.15 )">
           <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="white" />
         </g>
-        <text x={1002} y={574} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">P</text>
-          <text x={1002} y={594} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">A</text>
-          <text x={1002} y={614} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">G</text>
-          <text x={1002} y={634} fontSize={23} fill='#00EE00' className='readouts'  textAnchor="start">E</text>
-          <rect  x="997" y="554" width="22" height="86" fill="none" stroke='white' strokeWidth={1.5} />
+        <rect x="997" y="554" width="22" height="86" fill="none" stroke='white' strokeWidth={1.5} />
+        <text x={1002} y={574} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">P</text>
+        <text x={1002} y={594} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">A</text>
+        <text x={1002} y={614} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">G</text>
+        <text x={1002} y={634} fontSize={23} fill='#00EE00' className='readouts' textAnchor="start">E</text>
+        
 
-        <g visibility={totalPages ? "visible" : "hidden"}>
+        <g style={{ display: totalPages > 1 ? "block" : "none" }}> 
           <g transform="translate(939, 719) scale(0.4, -0.15 )">
             <path d="M55.9378 3.50001C58.6321 -1.16666 65.3679 -1.16667 68.0622 3.5L122.622 98C125.316 102.667 121.948 108.5 116.56 108.5H7.44042C2.05182 108.5 -1.31608 102.667 1.37823 98L55.9378 3.50001Z" fill="yellow" />
           </g>
@@ -132,11 +140,11 @@ export const CASWarnings: React.FC = () => {
         </g>
 
         {elements}
-        <CASWarningsRH/>
-        <CASWarningsLH/>
-        <CASWarningsULH/>
-        <CASWarningsURH/>
-        <CASWarningsLower/>
+        <CASWarningsRH />
+        <CASWarningsLH />
+        <CASWarningsULH />
+        <CASWarningsURH />
+        <CASWarningsLower />
       </g>
     </g>
   );
