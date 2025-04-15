@@ -6,7 +6,7 @@ export const Clock = () => {
 
     const [AP_ALT] = useSimVar('A:Autopilot altitude lock var', 'feet');
     const [AP_SPD] = useSimVar('A:Autopilot airspeed hold var','knots');
-    var [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
+    let [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
     AP_HDG = Math.floor(AP_HDG)
     const [AP_VS] = useSimVar('A:Autopilot vertical hold var', 'ft/min');
 

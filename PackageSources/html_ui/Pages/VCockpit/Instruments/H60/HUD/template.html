@@ -8944,8 +8944,8 @@
 	  const [AC_Heading] = useSimVar('A:Plane heading degrees gyro', 'degrees');
 	  const [WP_DIST] = useSimVar('A:GPS WP DISTANCE', 'KiloMeters');
 	  useSimVar('A:GPS WP ETE', 'Seconds');
-	  var [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots');
-	  var [AC_IS] = useSimVar('AIRSPEED INDICATED', 'knots');
+	  let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots');
+	  let [AC_IS] = useSimVar('AIRSPEED INDICATED', 'knots');
 	  AC_IS = Math.floor(AC_IS);
 	  AC_GS = Math.floor(AC_GS);
 	  let WPBearing = Math.abs(WP_BEARING - AC_Heading);
@@ -8997,7 +8997,7 @@
 	};
 
 	const TurnCoordinator = () => {
-	  var [Turn_Ind] = useSimVar('A:Turn coordinator ball', 'position');
+	  let [Turn_Ind] = useSimVar('A:Turn coordinator ball', 'position');
 	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
 	    viewBox: "0 0 1360 1350",
 	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -9026,10 +9026,10 @@
 	};
 
 	const Fixed = () => {
-	  var [Q1] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:1', 'percent');
-	  var [Q2] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:2', 'percent');
-	  var [TGT_1] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:1', 'Celsius');
-	  var [TGT_2] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:2', 'Celsius');
+	  let [Q1] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:1', 'percent');
+	  let [Q2] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:2', 'percent');
+	  let [TGT_1] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:1', 'Celsius');
+	  let [TGT_2] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:2', 'Celsius');
 	  const [DCLT_HUD] = useSimVar('L:DCLT_HUD', 'enum');
 	  Q1 = Q1 / 6300;
 	  Q2 = Q2 / 6300;
@@ -9037,7 +9037,7 @@
 	  Q2 = Math.floor(Q2);
 	  TGT_1 = Math.floor(TGT_1);
 	  TGT_2 = Math.floor(TGT_2);
-	  var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
+	  let [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
 	  RA_ALT = Math.floor(RA_ALT);
 	  let indicator = false;
 
@@ -9047,7 +9047,7 @@
 	    indicator = false;
 	  }
 
-	  var [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet');
+	  let [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet');
 	  STD_ALT = Math.floor(STD_ALT);
 	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
 	    viewBox: "0 0 1360 1350",
@@ -9421,9 +9421,9 @@
 	};
 
 	const HoverIndicator = () => {
-	  var [VelocityForward] = useSimVar('VELOCITY BODY Z', 'feet per second');
-	  var [VelocitySide] = useSimVar('VELOCITY BODY X', 'feet per second');
-	  var [AC_INSPD] = useSimVar('A:GROUND VELOCITY', 'knots');
+	  let [VelocityForward] = useSimVar('VELOCITY BODY Z', 'feet per second');
+	  let [VelocitySide] = useSimVar('VELOCITY BODY X', 'feet per second');
+	  let [AC_INSPD] = useSimVar('A:GROUND VELOCITY', 'knots');
 	  let HoverVisible = 1;
 
 	  if (AC_INSPD > 150) {
@@ -9492,7 +9492,7 @@
 	};
 
 	const RAIndicator = () => {
-	  var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
+	  let [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
 	  RA_ALT = Math.floor(RA_ALT * 10) / 10;
 
 	  if (RA_ALT > 250) {
@@ -9501,7 +9501,7 @@
 	    RA_ALT = RA_ALT;
 	  }
 
-	  var [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
+	  let [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
 	  vs_raw = Math.floor(vs_raw * 10) / -10 + 1;
 
 	  if (vs_raw >= 2000) {

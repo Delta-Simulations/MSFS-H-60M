@@ -63,6 +63,19 @@ text {
     @extend .readouts;
     fill: red
 }
+.text-radAltLow {
+    @extend .readouts;
+    fill: #9DFF00
+}
+.text-radAltHi {
+    @extend .readouts;
+    fill: #006EFF
+}
+.text-FD {
+    @extend .readouts;
+    fill: rgb(207, 5, 113)
+}
+
 
 
 .apdisp {

@@ -85,11 +85,24 @@
             <WwiseRTPC LocalVar="H60_APU_START" Units="BOOL" Index="0" RTPCName="APU_SWITCH_POS"  />
             <Range LowerBound="1.0" />  
         </Sound>
-
-
         <Sound WwiseData="true" WwiseEvent="Cpit_Transformer" Continuous="true" LocalVar="H60_Cpit_Transformer" Units="Bool" Index="1" NodeName="AFCS" ViewPoint="Inside">
             <Range LowerBound="1.0" />  
         </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="Alert_Low_Rtr_RPM" LocalVar="H60_ALERT_ENG_OUT" Continuous="false" NodeName="Glaresheild_Base" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1" Model="Interior">
+            <Range LowerBound="1.0" />    
+        </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="Alert_Engine_Out" LocalVar="H60_ALERT_LOW_RTR_RPM" Continuous="true" NodeName="Glaresheild_Base" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1" Model="Interior">
+            <Range LowerBound="1.0" />    
+        </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="Alert_Stab_Manual" LocalVar="H60_ALERT_STAB_MODE_MANUAL" Continuous="false" NodeName="Glaresheild_Base" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1" Model="Interior">
+            <Range LowerBound="1.0" />    
+        </Sound>
+
+
+
 
     </SimVarSounds>
     <AvionicSounds>

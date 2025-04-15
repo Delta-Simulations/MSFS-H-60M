@@ -1,0 +1,41 @@
+<Gauge Name="ENG_SYS" Version="1.0">
+	<Update Frequency="10"/>
+	<Comment>
+		*************************************************
+		FOR DELTA SIMULATIONS UH60M
+		*************************************************
+
+		[1] [0] (>K:2:[key_event_name])
+		[1] [0] (>K:2:ALTERNATOR_SET)
+		Aural Alerting Logic
+		With WoW, korries enabled, but no aural cues.
+		Wwise loops having issues, disabling for now.
+	</Comment>
+	<Element>
+		<Select>
+			<Value>
+				(A:ENG COMBUSTION:1, bool) 0 ==
+				(A:ENG COMBUSTION:2, bool) 0 == or
+				(A:SIM ON GROUND, bool) 0 == and
+				if{
+					1 (&gt;L:H60_ALERT_ENG_OUT,bool)
+				} els{
+					0 (&gt;L:H60_ALERT_ENG_OUT,bool)
+				}
+
+				(A:ROTOR RPM PCT:1, percent) 60 &lt;
+				(A:SIM ON GROUND, bool) 0 == and
+				if{
+					1 (&gt;L:H60_ALERT_LOW_RTR_RPM,bool)
+				} els{
+					0 (&gt;L:H60_ALERT_LOW_RTR_RPM,bool)
+				}
+
+			</Value>
+		</Select>
+	</Element>
+	
+
+	
+	</Gauge>
+	

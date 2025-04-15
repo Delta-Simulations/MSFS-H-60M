@@ -88,7 +88,7 @@
 
 				(L:H60_PCL1, percent) 15 &gt;
 				(L:H60_PCL2, percent) 15 &gt; or
-				(A:ROTOR RPM PCT:1, percent) 70 &gt; and
+				(A:ROTOR RPM PCT:1, percent) 5 &gt; and
 				if{ 0 (&gt;K:ROTOR_GOV_SWITCH_ON) 
 					100 (&gt;K:MIXTURE_SET)
 					1 (&gt;K:HELICOPTER_ENGINE_1_GOVERNOR_SWITCH_ON) 

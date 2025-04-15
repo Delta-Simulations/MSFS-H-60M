@@ -4,10 +4,10 @@ import { TurnCoordinator } from './TurnCoordinator';
 import { useSimVar } from '../../Hooks/simVars';
 
 export const Fixed = () => {
-    var [Q1] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:1','percent');
-    var [Q2] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:2','percent');
-    var [TGT_1] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:1','Celsius');
-    var [TGT_2] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:2','Celsius');
+    let [Q1] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:1','percent');
+    let [Q2] = useSimVar('A:TURB ENG FREE TURBINE TORQUE:2','percent');
+    let [TGT_1] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:1','Celsius');
+    let [TGT_2] = useSimVar('A:ENG EXHAUST GAS TEMPERATURE:2','Celsius');
 
     const [DCLT_HUD] = useSimVar('L:DCLT_HUD', 'enum');
     Q1 = Q1/6300;
@@ -17,7 +17,7 @@ export const Fixed = () => {
     TGT_1= Math.floor(TGT_1)
     TGT_2= Math.floor(TGT_2)
 
-    var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet')
+    let [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet')
     RA_ALT= Math.floor(RA_ALT)
     let indicator: boolean = false
     if ( RA_ALT<=999) {
@@ -25,7 +25,7 @@ export const Fixed = () => {
     } else{
         indicator = false
     }
-    var [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet')
+    let [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet')
     STD_ALT= Math.floor(STD_ALT)
 
         return(

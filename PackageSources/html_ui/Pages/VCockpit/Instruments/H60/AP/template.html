@@ -9003,7 +9003,7 @@
 
 	const Horizon = () => {
 	  const [roll] = useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  var [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
+	  let [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
 	  pitch = pitch;
 	  useSimVar('L:DCLT', 'enum');
 	  const elements = [];
@@ -9203,7 +9203,7 @@
 	const Ap_Disp = props => {
 	  const [AP_ALT] = useSimVar('A:Autopilot altitude lock var', 'feet');
 	  const [AP_SPD] = useSimVar('A:Autopilot airspeed hold var', 'knots');
-	  var [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
+	  let [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
 	  AP_HDG = Math.floor(AP_HDG);
 	  const [AP_VS] = useSimVar('A:Autopilot vertical hold var', 'ft/min');
 	  const [AP_HVR] = useSimVar('L:AP_STAB', 'bool');
@@ -9497,7 +9497,7 @@
 	};
 
 	const VertSpeed = () => {
-	  var [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
+	  let [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
 	  let Vs_Scale = 1;
 
 	  if (vs_raw <= 0) {

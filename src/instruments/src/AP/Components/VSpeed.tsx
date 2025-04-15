@@ -4,7 +4,7 @@ import "../style.scss";
 import { VSpeed_2 } from './VSpeed_2';
 
 export const VertSpeed = () => {
-    var [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
+    let [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
     
     let Vs_Scale: number = 1
     if ( vs_raw<=0) {

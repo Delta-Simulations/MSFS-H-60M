@@ -4,7 +4,7 @@ import "../style.scss";
 import { useSimVar } from '../../Hooks/simVars';
 
 export const TurnCoordinator = () => {
-    var [Turn_Ind] = useSimVar('A:Turn coordinator ball','position');
+    let [Turn_Ind] = useSimVar('A:Turn coordinator ball','position');
 
         return(
             <svg viewBox='0 0 1360 1350'>

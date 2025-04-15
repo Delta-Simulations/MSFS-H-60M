@@ -4,9 +4,9 @@ import "../style.scss";
 import { useSimVar } from '../../Hooks/simVars';
 
 export const HeadingBug = () => {
-    var [AC_Bearing] = useSimVar('A:Plane heading degrees gyro','degrees');
+    let [AC_Bearing] = useSimVar('A:Plane heading degrees gyro','degrees');
     AC_Bearing = Math.floor(AC_Bearing)
-    var [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
+    let [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
     AP_HDG = Math.floor(AP_HDG)
 
         return(

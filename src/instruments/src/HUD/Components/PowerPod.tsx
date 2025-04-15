@@ -5,7 +5,7 @@ import { useSimVar } from '../../Hooks/simVars';
 
 export const Powerpod = () => {
 
-    var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet')
+    let [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet')
     RA_ALT= Math.floor(RA_ALT)
     
 

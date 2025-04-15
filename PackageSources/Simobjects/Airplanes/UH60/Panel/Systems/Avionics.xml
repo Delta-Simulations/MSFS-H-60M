@@ -7,11 +7,11 @@ Avionics Power Systems - Delta Simulations UH60 for MSFS
 *************************************************
 [1] [0] (>K:2:[key_event_name])
 </Comment>
-
+<!-- MFD POWER LOGIC -->
 <Element>
 <Select>
 <Value>
-<!-- MFD POWER LOGIC -->
+
 (L:H60_MFD_1_PWR_BTN) 1 ==
 (L:H60_Cpit_26VPower) 1 == and
 if{ 
@@ -40,11 +40,37 @@ if{
 (L:H60_SYS_EGI2) 0 == and
 if{ 
    5 (&gt;L:H60_TAC_MAP_MODE)
+   1 (&gt;L:H60_SYS_EGI_FAILED)
+} els{
+   0 (&gt;L:H60_SYS_EGI_FAILED)
 }
 
 </Value>
 </Select>
 </Element> 
+(* RADALT ALERT LOGIC *)
+<Element>
+<Select>
+<Value>
 
+(L:H60_CAS_RADALT_LO, feet) -1 &gt;
+(L:H60_CAS_RADALT_LO, feet)
+(A:PLANE ALT ABOVE GROUND MINUS CG, feet) &gt; and
+if{ 
+   1 (&gt;L:H60_CAS_RADALT_LO_ALERT)
+} els{
+   0 (&gt;L:H60_CAS_RADALT_LO_ALERT)
+}
 
+(L:H60_CAS_RADALT_HI, feet) -1 &gt;
+(L:H60_CAS_RADALT_HI, feet)
+(A:PLANE ALT ABOVE GROUND MINUS CG, feet) &lt; and
+if{ 
+   1 (&gt;L:H60_CAS_RADALT_HI_ALERT)
+} els{
+   0 (&gt;L:H60_CAS_RADALT_HI_ALERT)
+}
+</Value>
+</Select>
+</Element> 
 </Gauge>

@@ -21,6 +21,10 @@
     
 
 <Component ID="MFD">
+  <UseTemplate Name="DELTASIM_FDDCP_Template">
+    <ID>1</ID>
+  </UseTemplate>
+
       <UseTemplate Name="DELTASIM_MFD_Template">
         <ID>1</ID>
       </UseTemplate>
@@ -713,9 +717,28 @@
   </INTERACT_CODE>
 </UseTemplate>
 <UseTemplate Name="Korry_Emmis_DELTASIM">
-  <NODE_ID>Korry_MWC</NODE_ID>
-  <TRUECODE>0</TRUECODE>
+  <NODE_ID>Korry_Eng1_Out</NODE_ID>
+  <TRUECODE>
+    (A:ENG COMBUSTION:1, bool) 0 == 
+  </TRUECODE>
+  <INTENSITY>3</INTENSITY>
 </UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_Eng2_Out</NODE_ID>
+  <TRUECODE>
+    (A:ENG COMBUSTION:2, bool) 0 == 
+  </TRUECODE>
+  <INTENSITY>3</INTENSITY>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_Low_Rotor_RPM</NODE_ID>
+  <TRUECODE>
+    (A:ROTOR RPM PCT:1, percent) 60 &lt;
+  </TRUECODE>
+  <INTENSITY>(P:Absolute time,seconds) 0.5 % 0.25 > ! 3 *</INTENSITY>
+</UseTemplate>
+
+
 
 <UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_SAS1</NODE_ID>

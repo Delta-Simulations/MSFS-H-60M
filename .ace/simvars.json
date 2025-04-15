@@ -37,19 +37,6 @@
             }
         },
         {
-            "__uuid": "6059e37a-20f3-4344-91d2-2fe115e12c44",
-            "title": "press eng1",
-            "varPrefix": "A",
-            "varName": "ENG OIL PRESSURE",
-            "varUnit": "number",
-            "style": {
-                "type": 2,
-                "min": -1,
-                "max": 160,
-                "step": 1
-            }
-        },
-        {
             "__uuid": "cd3fed58-ae65-437f-8bef-9ddd85393b86",
             "title": "NG 1",
             "varPrefix": "A",
@@ -60,26 +47,6 @@
                 "min": 0,
                 "max": 110,
                 "step": 1
-            }
-        },
-        {
-            "__uuid": "794c877b-f2ed-4342-bd7f-75bf103ad008",
-            "title": "comb",
-            "varPrefix": "A",
-            "varName": "ENG COMBUSTION",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "7f122a7a-cb72-4f56-9280-0dd80d6f0af8",
-            "title": "Comb 2",
-            "varPrefix": "A",
-            "varName": "ENG COMBUSTION:2",
-            "varUnit": "number",
-            "style": {
-                "type": 3
             }
         },
         {
@@ -135,16 +102,6 @@
             }
         },
         {
-            "__uuid": "1d47a44d-772f-4444-9285-ab2c3f1dc56d",
-            "title": "Scale_Full_Half",
-            "varPrefix": "L",
-            "varName": "H60_TAC_MAP_SCALE_MODE",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
             "__uuid": "f4fd213d-f4de-4263-8979-c0ee8e45379a",
             "title": "TAC MAP RENDER MODE",
             "varPrefix": "L",
@@ -158,50 +115,10 @@
             }
         },
         {
-            "__uuid": "2ff85024-b440-4889-8089-ec9cfdc1afd3",
-            "title": "TACMAP orientation",
-            "varPrefix": "L",
-            "varName": "H60_TAC_MAP_ORIENT",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
             "__uuid": "c43712cb-4bb1-4eee-98d7-0a2576f4eda6",
             "title": "ACK",
             "varPrefix": "L",
             "varName": "H60_EICAS_ACK",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "3c791118-46d2-4541-8a13-6eb6511f7909",
-            "title": "Center/Decentered",
-            "varPrefix": "L",
-            "varName": "H60_TAC_MAP_CTR",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "487eeb1a-a106-4bc4-a37a-b16f50868c30",
-            "title": "show north arrow",
-            "varPrefix": "L",
-            "varName": "H60_TAC_MAP_NORTH_ARROW",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "38011238-b0b4-4cf6-a9ad-b1284575d726",
-            "title": "Show/Hide legend",
-            "varPrefix": "L",
-            "varName": "H60_TAC_MAP_LEGEND_VIS",
             "varUnit": "number",
             "style": {
                 "type": 3
@@ -297,6 +214,134 @@
                 "min": 0,
                 "max": 600,
                 "step": 1
+            }
+        },
+        {
+            "__uuid": "5d572b4b-5e4a-49f3-8ed4-84d18ca7325c",
+            "title": "Ap Heading",
+            "varPrefix": "A",
+            "varName": "Autopilot heading lock dir",
+            "varUnit": "degrees",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 360,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "5839a9ab-0c2c-4a6d-a02a-949266058f86",
+            "title": "Navmap_mode",
+            "varPrefix": "L",
+            "varName": "H60_MFD_NavMap_Mode",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 3,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "0b4ac811-f5a7-4217-8cb7-7104dcc228ef",
+            "title": "WindDir",
+            "varPrefix": "A",
+            "varName": "AMBIENT WIND DIRECTION",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 360,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "02ea9838-bcaa-4f39-9d87-ea816f1e1aa5",
+            "title": "Windspeed",
+            "varPrefix": "A",
+            "varName": "AMBIENT WIND VELOCITY",
+            "varUnit": "number",
+            "style": {
+                "type": 1
+            }
+        },
+        {
+            "__uuid": "7d59262d-0173-4a68-847d-649c1c02c855",
+            "title": "Egis failed",
+            "varPrefix": "L",
+            "varName": "H60_SYS_EGI_FAILED",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "b3e7ae55-2f81-45d0-abd0-bc800be6573a",
+            "title": "radarAlt",
+            "varPrefix": "A",
+            "varName": "PLANE ALT ABOVE GROUND MINUS CG",
+            "varUnit": "feet",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 1503,
+                "step": 0.1
+            }
+        },
+        {
+            "__uuid": "78bc1e47-0287-48e3-9b47-c474872527ef",
+            "title": "Radalt_Low",
+            "varPrefix": "L",
+            "varName": "H60_CAS_RADALT_LO",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": -1,
+                "max": 1000,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "6c7e4ab6-d45a-414c-a1ec-487a1fe93d5d",
+            "title": "radalt hi",
+            "varPrefix": "L",
+            "varName": "H60_CAS_RADALT_HI",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": -1,
+                "max": 1000,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "6460f9d8-6a70-46e5-839c-725362261921",
+            "title": "FD Active?",
+            "varPrefix": "A",
+            "varName": "AUTOPILOT FLIGHT DIRECTOR ACTIVE",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "ac3beba4-6ba1-45ff-85b6-50096718248f",
+            "title": "afcs radalt height",
+            "varPrefix": "L",
+            "varName": "H60_AFCS_RADALT",
+            "varUnit": "feet",
+            "style": {
+                "type": 1
+            }
+        },
+        {
+            "__uuid": "d2a315c1-a69a-4696-b87a-bbe5a5617c8e",
+            "title": "radalt alert",
+            "varPrefix": "L",
+            "varName": "H60_CAS_RADALT_HI_ALERT",
+            "varUnit": "number",
+            "style": {
+                "type": 3
             }
         }
     ]

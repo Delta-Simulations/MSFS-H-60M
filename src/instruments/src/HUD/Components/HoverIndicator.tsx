@@ -3,9 +3,9 @@ import { useSimVar } from '../../Hooks/simVars';
 import { useInteractionEvent } from '../../Hooks/hooks';
 
 export const HoverIndicator: FC = () => {
-    var [VelocityForward] = useSimVar('VELOCITY BODY Z', 'feet per second');
-    var [VelocitySide] = useSimVar('VELOCITY BODY X', 'feet per second');
-    var [AC_INSPD] = useSimVar('A:GROUND VELOCITY', 'knots');
+    let [VelocityForward] = useSimVar('VELOCITY BODY Z', 'feet per second');
+    let [VelocitySide] = useSimVar('VELOCITY BODY X', 'feet per second');
+    let [AC_INSPD] = useSimVar('A:GROUND VELOCITY', 'knots');
 
 let HoverVisible = 1
 if(AC_INSPD>150){

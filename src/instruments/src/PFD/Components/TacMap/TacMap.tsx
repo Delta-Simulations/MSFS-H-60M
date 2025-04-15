@@ -8,9 +8,9 @@ import { TacMapLegends } from "./TacMapLegends";
 
 export const TacMap = ({ }) => {
 	// SimVar hooks to fetch required data
-	const [latitude] = useSimVar("GPS POSITION LAT", "degree");
-	const [longitude] = useSimVar("GPS POSITION LON", "degree");
-	let [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
+	const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
+	const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
+	let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
 	const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
 	ac_heading = Math.round(ac_heading*100)/100
 	let heading_adjusted = 0

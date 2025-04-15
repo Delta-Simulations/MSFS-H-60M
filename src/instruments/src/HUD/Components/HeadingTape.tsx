@@ -4,9 +4,9 @@ import { TurnCoordinator } from './TurnCoordinator';
 import { useSimVar } from '../../Hooks/simVars';
 
 export const HeadingTape = () => {
-    var [AC_Heading] = useSimVar('A:Plane heading degrees gyro','degrees');
+    let [AC_Heading] = useSimVar('A:Plane heading degrees gyro','degrees');
     AC_Heading = Math.floor(AC_Heading*10)/10
-    var [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
+    let [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
     AP_HDG = Math.floor(AP_HDG)
 
     AC_Heading = AC_Heading*9.90

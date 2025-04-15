@@ -8945,809 +8945,20 @@
 	  }), getRenderTarget());
 	};
 
-	/**
-	 *
-	 * Copyright (C) 2021 Pinpoint Simulations and its contributors
-	 *
-	 * This program is free software: you can redistribute it and/or modify
-	 * it under the terms of the GNU General Public License as published by
-	 * the Free Software Foundation, either version 3 of the License, or
-	 * (at your option) any later version.
-	 *
-	 * This program is distributed in the hope that it will be useful,
-	 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	 * GNU General Public License for more details.
-	 *
-	 * You should have received a copy of the GNU General Public License
-	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-	 */
-	const HorizonLine = props => {
-	  useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  useSimVar('PLANE PITCH DEGREES', 'Degrees');
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(0 ".concat(props.height, ") "),
-	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 537,
-	        y: 0,
-	        width: 85,
-	        height: 2,
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 520,
-	        y: 8,
-	        fontSize: 23,
-	        fill: "white",
-	        textAnchor: "middle",
-	        children: props.label
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 636,
-	        y: 8,
-	        fontSize: 23,
-	        fill: "white",
-	        textAnchor: "middle",
-	        children: props.label
-	      })]
-	    })
-	  });
-	};
-
-	/**
-	 *
-	 * Copyright (C) 2021 Pinpoint Simulations and its contributors
-	 *
-	 * This program is free software: you can redistribute it and/or modify
-	 * it under the terms of the GNU General Public License as published by
-	 * the Free Software Foundation, either version 3 of the License, or
-	 * (at your option) any later version.
-	 *
-	 * This program is distributed in the hope that it will be useful,
-	 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	 * GNU General Public License for more details.
-	 *
-	 * You should have received a copy of the GNU General Public License
-	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-	 */
-	const HorizonLine2 = props => {
-	  useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  useSimVar('PLANE PITCH DEGREES', 'Degrees');
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(0 ".concat(props.height, ") "),
-	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 571,
-	        y: 12,
-	        width: 16,
-	        height: 2,
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 554,
-	        y: 22,
-	        width: 50,
-	        height: 2,
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 571,
-	        y: 32,
-	        width: 16,
-	        height: 2,
-	        fill: "white"
-	      })]
-	    })
-	  });
-	};
-
-	const Horizon = () => {
-	  const [roll] = useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  var [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
-	  pitch = pitch;
-	  useSimVar('L:DCLT', 'enum');
-	  const elements = [];
-
-	  for (let i = 1; i < 10; i++) {
-	    let height2 = 548 - i * 45;
-	    let aircraftPitch = i * 10;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine, {
-	      height: height2,
-	      label: aircraftPitch
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  for (let i = 1; i < 10; i++) {
-	    let height2 = 544 + i * 45;
-	    let aircraftPitch = i * 10;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine, {
-	      height: height2,
-	      label: aircraftPitch
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  for (let i = 1; i < 10; i++) {
-	    let height2 = 503 - i * 45;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine2, {
-	      height: height2
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  for (let i = 0; i < 9; i++) {
-	    let height2 = 589 + i * 45;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine2, {
-	      height: height2
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx("clipPath", {
-	      id: "ah-clip",
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 350,
-	        y: 6,
-	        width: 326,
-	        height: 340,
-	        fill: "grey",
-	        rx: 40,
-	        ry: 40
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("clipPath", {
-	      id: "line-clip",
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 350,
-	        y: 62,
-	        width: 326,
-	        height: 248,
-	        fill: "grey",
-	        rx: 0,
-	        ry: 0
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      clipPath: "url(#ah-clip)",
-	      transform: "translate(6 30)",
-	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(roll, ", 512, 188)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(0 ".concat(pitch * -4.45, ") "),
-	          children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-65 -360)",
-	            children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	              children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: -500,
-	                y: -953,
-	                height: 1500,
-	                width: 2000,
-	                fill: "#00bee6"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: -500,
-	                y: 547,
-	                height: 1500,
-	                width: 2000,
-	                fill: "#ca9f30"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: -500,
-	                y: 545,
-	                width: 2000,
-	                height: 3,
-	                fill: "white"
-	              })]
-	            })
-	          })
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(roll, ", 512, 188)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(-127 -70)",
-	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	            points: "630,120 640,100 650,120",
-	            fill: "white"
-	          })
-	        })
-	      })]
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      clipPath: "url(#line-clip)",
-	      transform: "translate(5 30)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(roll, ", 512, 188)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(0 ".concat(pitch * -4.45, ") "),
-	          children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-65 -360)",
-	            children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	              children: [elements, /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 571,
-	                y: 512,
-	                width: 16,
-	                height: 2,
-	                fill: "white"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 554,
-	                y: 522,
-	                width: 50,
-	                height: 2,
-	                fill: "white"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 571,
-	                y: 578,
-	                width: 16,
-	                height: 2,
-	                fill: "white"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 554,
-	                y: 568,
-	                width: 50,
-	                height: 2,
-	                fill: "white"
-	              })]
-	            })
-	          })
-	        })
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(402,210)scale(0.6)",
-	      children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M130.5 2V42.5H115.5V16H2V2H130.5Z",
-	        fill: "black"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M260.5 2V42.5H275.5V16H389V2H260.5Z",
-	        fill: "black"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M130.5 2V42.5H115.5V16H2V2H130.5Z",
-	        stroke: "white",
-	        "stroke-width": "3",
-	        "stroke-linejoin": "round"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M260.5 2V42.5H275.5V16H389V2H260.5Z",
-	        stroke: "white",
-	        "stroke-width": "3",
-	        "stroke-linejoin": "round"
-	      }), /*#__PURE__*/jsxRuntime.jsx("circle", {
-	        cx: "195",
-	        cy: "17.5",
-	        r: "16",
-	        stroke: "white",
-	        "stroke-width": "3",
-	        fill: "none"
-	      })]
-	    })]
-	  });
-	};
-
-	const SpdIndicator = () => {
-	  const [speed] = useSimVar('AIRSPEED INDICATED', 'knots');
-	  useSimVar('GROUND VELOCITY', 'knots');
-	  const elements = []; //let ones: string = "";
-
-	  let indicator = 0;
-	  let ones = [];
-	  let ones_y = 0;
-	  let tens = "";
-	  let hundreds = "";
-
-	  for (let i = 0; i < 11; i++) {
-	    let y_ = 229 - i * 28;
-
-	    const tex = /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 186,
-	      y: y_,
-	      fontSize: 29,
-	      fill: "white",
-	      children: i % 10
-	    });
-
-	    ones.push(tex);
-	  }
-
-	  if (speed >= 40) {
-	    let y_ = 229 + 28;
-
-	    const tex = /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 186,
-	      y: y_,
-	      fontSize: 29,
-	      fill: "white",
-	      children: "9"
-	    });
-
-	    ones.push(tex);
-	  } // ------------------------------------------------
-
-
-	  if (speed <= 30) {
-	    //ones = "0"
-	    tens = "3";
-	    ones_y = 0;
-	  } else {
-	    //ones = Math.floor(speed % 10).toString()
-	    tens = Math.floor(Math.floor(speed % 100) / 10).toString();
-	    ones_y = speed % 10 * 28;
-	  }
-
-	  if (speed >= 100) {
-	    hundreds = Math.floor(Math.floor(speed % 1000) / 100).toString();
-	  } // Iterative adding of markers
-
-
-	  for (let i = 0; i < 6; i++) {
-	    let rot = -53 + i * 17.8;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  }
-
-	  for (let i = 0; i < 4; i++) {
-	    let rot = 55 + i * 17.8;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  }
-
-	  for (let i = 0; i < 2; i++) {
-	    let rot = 125 + i * 17.8;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  }
-
-	  for (let i = 0; i < 3; i++) {
-	    let rot = 159.5 + i * 17;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  }
-
-	  for (let i = 0; i < 2; i++) {
-	    let rot = 210 + i * 16.3;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  } // --------------------------------------------------------
-
-
-	  for (let i = 0; i < 5; i++) {
-	    let rot = -53 + i * 17.8 + 9;
-
-	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 9,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker2);
-	  }
-
-	  for (let i = 0; i < 4; i++) {
-	    let rot = 37 + i * 17.8 + 9;
-
-	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 9,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker2);
-	  }
-
-	  for (let i = 0; i < 7; i++) {
-	    let rot = 108 + i * 16.9 + 9;
-
-	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 9,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker2);
-	  }
-
-	  for (let i = 0; i < 3; i++) {
-	    let rot = 159.5 + i * 17;
-
-	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker2);
-	  }
-
-	  for (let i = 0; i < 2; i++) {
-	    let rot = 210 + i * 16.3;
-
-	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker2);
-	  } // --------------------------------------------------------
-
-
-	  for (let i = 0; i < 4; i++) {
-	    let rot = -89.45 + i * 9.15;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 14,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  }
-
-	  for (let i = 0; i < 4; i++) {
-	    let rot = -89.45 + 4.5 + i * 9.15;
-
-	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(rot, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 66,
-	        y: 217,
-	        height: 3,
-	        width: 9,
-	        fill: "#ffffff"
-	      })
-	    });
-
-	    elements.push(marker);
-	  }
-
-	  if (speed >= 40) {
-	    indicator = speed * 1.712 - 207;
-	  } else {
-	    indicator = speed * 0.9 - 180;
-	  }
-
-	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(243.8, 268.6)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: "0.523926",
-	        y: "18.88",
-	        width: "23.4989",
-	        height: "17.4717",
-	        transform: "rotate(-50.4719 0.523926 18.88)",
-	        fill: "#FF0000"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(-37, -5)",
-	      children: [/*#__PURE__*/jsxRuntime.jsx("svg", {
-	        width: "29",
-	        height: "30",
-	        viewBox: "0 0 29 30",
-	        fill: "none",
-	        xmlns: "http://www.w3.org/2000/svg",
-	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: "0.523926",
-	          y: "18.88",
-	          width: "23.4989",
-	          height: "17.4717",
-	          transform: "rotate(-50.4719 0.523926 18.88)",
-	          fill: "#FF0000"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsxs("svg", {
-	        width: "473",
-	        height: "400",
-	        viewBox: "0 0 473 400",
-	        fill: "none",
-	        xmlns: "http://www.w3.org/2000/svg",
-	        children: [/*#__PURE__*/jsxRuntime.jsxs("mask", {
-	          id: "mask0_22_25",
-	          style: {
-	            maskType: 'alpha'
-	          },
-	          maskUnits: "userSpaceOnUse",
-	          x: "0",
-	          y: "0",
-	          width: "473",
-	          height: "400",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M275.469 0.468445L472.029 172.532L311.574 319.655L115.013 147.591L275.469 0.468445Z",
-	            fill: "black"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M219.38 137.8L216.067 399.011L0.000732422 372.44L3.31349 111.23L219.38 137.8Z",
-	            fill: "black"
-	          })]
-	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	          children: /*#__PURE__*/jsxRuntime.jsx("circle", {
-	            cx: "215",
-	            cy: "222",
-	            r: "113",
-	            stroke: "white",
-	            "stroke-width": "2.5"
-	          })
-	        })]
-	      })]
-	    }), elements, /*#__PURE__*/jsxRuntime.jsx("clipPath", {
-	      id: "spd-clip",
-	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	        points: "152,183 183,183 183,174 205,174 205,259 183,259 183,251 152,251",
-	        fill: "grey"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "rotate(".concat(indicator, ", 178, 217)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	        points: "174,217 182,217 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
-	        fill: "white"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	      points: "152,183 183,183 183,174 205,174 205,259 183,259 183,251 152,251",
-	      stroke: "white",
-	      strokeWidth: 2,
-	      fill: "black"
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      clipPath: "url(#spd-clip)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(0 ".concat(ones_y, ") "),
-	        children: ones
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 170,
-	      y: 229,
-	      fontSize: 29,
-	      fill: "white",
-	      children: tens
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 153,
-	      y: 229,
-	      fontSize: 29,
-	      fill: "white",
-	      children: hundreds
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 145,
-	      y: 178,
-	      "letter-spacing": "-1",
-	      fontSize: 20,
-	      fill: "white",
-	      children: "KTS"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 171,
-	      y: 310,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "0"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 139,
-	      y: 305,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "20"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 114,
-	      y: 291,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "40"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 87,
-	      y: 250,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "60"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 87,
-	      y: 200,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "80"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 109,
-	      y: 157,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "100"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 160,
-	      y: 140,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "120"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 206,
-	      y: 157,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "140"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 229,
-	      y: 196,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "160"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 234,
-	      y: 241,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "180"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 216,
-	      y: 282,
-	      "letter-spacing": "-2",
-	      fontSize: 22,
-	      fill: "white",
-	      children: "200"
-	    })]
-	  });
-	};
-
-	const ApReadout = () => {
-	  const [AP_ALT] = useSimVar('A:Autopilot altitude lock var', 'feet');
-	  useSimVar('A:Autopilot airspeed hold var', 'knots');
-	  useSimVar('A:Autopilot heading lock dir', 'degrees');
-	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
-	  useSimVar('A:Autopilot vertical hold var', 'ft/min');
-	  const [isAT] = useSimVar('AUTOPILOT THROTTLE ARM', 'Bool');
-	  const [AP_LNAV] = useSimVar('L:LNAV_ACTIVE', 'bool');
-	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
-	    viewBox: "0 0 1280 1280",
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      children: [/*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 70,
-	        y: 50,
-	        fontSize: 43,
-	        fill: "rgba(255,255,255,0)",
-	        className: "apdisp",
-	        textAnchor: "middle",
-	        children: "ALT"
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        visibility: isAT ? 'visible' : 'hidden',
-	        children: /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 270,
-	          y: 50,
-	          fontSize: 43,
-	          fill: "#C3FF59",
-	          className: "apdisp",
-	          textAnchor: "middle",
-	          children: "IAS"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1295,
-	        y: 100,
-	        fontSize: 35,
-	        fill: "#C3FF59",
-	        className: "apreadout",
-	        textAnchor: "end",
-	        children: "ALT"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1215,
-	        y: 100,
-	        fontSize: 35,
-	        fill: "#C3FF59",
-	        className: "apreadout",
-	        textAnchor: "end",
-	        children: AP_ALT
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        visibility: isFD ? 'visible' : 'hidden',
-	        children: /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 900,
-	          y: 50,
-	          fontSize: 43,
-	          fill: "#C3FF59",
-	          className: "apdisp",
-	          textAnchor: "middle",
-	          children: "FD1"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        visibility: AP_LNAV ? 'visible' : 'hidden',
-	        children: /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 1030,
-	          y: 50,
-	          fontSize: 43,
-	          fill: "#C3FF59",
-	          className: "apdisp",
-	          textAnchor: "middle",
-	          children: "LNAV"
-	        })
-	      })]
-	    })
-	  });
-	};
-
 	const Fixed = () => {
+	  let DisplayID = getDisplayIndex();
+	  const [showOverlay, setShowOverlay] = react.useState(true);
+	  useSimVar("L:H60_MFD_".concat(DisplayID, "_MODE"), "enum");
+	  const [PFD_NavMap_Mode] = useSimVar("L:H60_MFD_NavMap_Mode", "enum");
+	  let navmap_mode_names = ["FULL", "HOVER", "ARC"];
+	  let navmap_mode_name = navmap_mode_names[PFD_NavMap_Mode];
+	  react.useEffect(() => {
+	    setTimeout(() => {
+	      setShowOverlay(false);
+	    }, 3000); // 3 seconds
+
+	    return () => clearTimeout(Math.floor(Math.random() * (4100 - 2500 + 1)) + 2500); // Cleanup just in case
+	  }, []);
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 26,
@@ -9789,1416 +9000,21 @@
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "JMVF"
-	    })]
-	  });
-	};
-
-	const PowerPod = () => {
-	  var [Fuel_1] = useSimVar('A:FUELSYSTEM TANK WEIGHT:1', 'pounds');
-	  var [Fuel_2] = useSimVar('A:FUELSYSTEM TANK WEIGHT:2', 'pounds');
-	  var [Tot_Fuel] = useSimVar('A:FUEL TOTAL QUANTITY WEIGHT', 'pounds');
-	  Tot_Fuel = Math.floor(Tot_Fuel / 5) * 5;
-	  var [Q1] = useSimVar('A:ENG TORQUE PERCENT:1', 'percent');
-	  var [Q2] = useSimVar('A:ENG TORQUE PERCENT:2', 'percent');
-	  var [NP_1] = useSimVar('A:ENG RPM ANIMATION PERCENT:1', 'percent');
-	  var [NP_2] = useSimVar('A:ENG RPM ANIMATION PERCENT:2', 'percent');
-	  NP_1 = Math.floor(NP_1);
-	  NP_2 = Math.floor(NP_2);
-	  Q1 = Math.floor(Q1);
-	  Q2 = Math.floor(Q2);
-	  let NR = 1;
-	  var [RTR_RPM] = useSimVar('A:ROTOR RPM PCT:1', 'percent');
-	  NR = Math.floor(RTR_RPM);
-	  let NRScale = 1;
-
-	  if (NR < 20) {
-	    NRScale = 0;
-	  } else if (20 <= NR && NR <= 90) {
-	    NRScale = 1.3;
-	  } else if (90 < NR && NR <= 95) {
-	    NRScale = 2.0;
-	  } else if (95 < NR && NR <= 100) {
-	    NRScale = 2.6;
-	  } else if (100 < NR && NR <= 105) {
-	    NRScale = 3.16;
-	  } else if (105 < NR && NR <= 110) {
-	    NRScale = 3.4;
-	  } else {
-	    NRScale = 1;
-	  }
-
-	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
-	    viewBox: "0 0 1280 1280",
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 278,
-	        y: 1229,
-	        width: "180",
-	        height: "40",
-	        stroke: "white",
-	        fill: "none",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 285,
-	        y: 1263,
-	        fontSize: 32,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "REF-BARO"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 285,
-	        y: 1060,
-	        fontSize: 44,
-	        fill: "#00EE00",
-	        className: "apdisp",
-	        textAnchor: "middle",
-	        children: Tot_Fuel
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 294,
-	        y: 835,
-	        fontSize: 32,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "middle",
-	        children: "FUEL"
-	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "translate(270,855)scale(1.25)",
-	        fill: "none",
-	        children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M5 7.47451V128H15V1H1V3.4902L5 7.47451Z",
-	          className: "bargauge"
-	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M29 7.47451V128H19V1H33V3.4902L29 7.47451Z",
-	          className: "bargauge"
-	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M5 7.47451V128H15V1H1V3.4902L5 7.47451Z",
-	          className: "barline",
-	          "stroke-linejoin": "round"
-	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M29 7.47451V128H19V1H33V3.4902L29 7.47451Z",
-	          className: "barline",
-	          "stroke-linejoin": "round"
-	        })]
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 252,
-	        y: 1011,
-	        width: "75",
-	        height: "5",
-	        stroke: "none",
-	        className: "text",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 264,
-	        y: 841,
-	        width: "55",
-	        height: "3",
-	        stroke: "none",
-	        className: "text",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 266,
-	        y: 980,
-	        width: "50",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 266,
-	        y: 1011 + -(Fuel_1 / 12.7),
-	        width: "25",
-	        height: "3",
-	        stroke: "none",
-	        className: "text",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 291,
-	        y: 1011 + -(Fuel_2 / 12.7),
-	        width: "25",
-	        height: "3",
-	        stroke: "none",
-	        className: "text",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(180,-62.5,957)",
-	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: -80,
-	          y: 770,
-	          width: "35",
-	          height: Q1 * 3.1,
-	          stroke: "none",
-	          fill: "greenyellow",
-	          "stroke-width": "3"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -80,
-	        y: 770,
-	        width: "35",
-	        height: "375",
-	        stroke: "white",
-	        fill: "none",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: -40,
-	        y: 760,
-	        fontSize: 44,
-	        fill: "#00EE00",
-	        className: "apdisp",
-	        textAnchor: "end",
-	        children: Q1
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 50,
-	        y: 640,
-	        fontSize: 44,
-	        fill: "#00EE00",
-	        className: "apdisp",
-	        textAnchor: "end",
-	        children: NR
-	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "translate(170,0)",
-	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "rotate(180,-62.5,957)",
-	          children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	            x: -80,
-	            y: 770,
-	            width: "35",
-	            height: Q2 * 3.1,
-	            stroke: "none",
-	            fill: "greenyellow",
-	            "stroke-width": "3"
-	          })
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: -80,
-	          y: 770,
-	          width: "35",
-	          height: "375",
-	          stroke: "white",
-	          fill: "none",
-	          "stroke-width": "3"
-	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: -80,
-	          y: 760,
-	          fontSize: 44,
-	          fill: "#00EE00",
-	          className: "apdisp",
-	          textAnchor: "start",
-	          children: Q2
-	        })]
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 90,
-	        y: 895,
-	        width: "35",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -80,
-	        y: 895,
-	        width: "35",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 90,
-	        y: 788,
-	        width: "35",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -80,
-	        y: 788,
-	        width: "35",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 44,
-	        y: 816,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -32,
-	        y: 816,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 44,
-	        y: 1015,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -32,
-	        y: 1015,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -4,
-	        y: 1013,
-	        width: "48",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 44,
-	        y: 943,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -32,
-	        y: 943,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -4,
-	        y: 940,
-	        width: "48",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 44,
-	        y: 873,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -32,
-	        y: 873,
-	        width: "28",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -4,
-	        y: 872,
-	        width: "48",
-	        height: "3",
-	        stroke: "none",
-	        className: "barwarn",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: -4,
-	        y: 745,
-	        width: "48",
-	        height: "3",
-	        stroke: "none",
-	        className: "barmax",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(180,-62.5,957)translate(-85,-6)",
-	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: -80,
-	          y: 770,
-	          width: "35",
-	          height: NR * NRScale,
-	          stroke: "none",
-	          fill: "greenyellow",
-	          "stroke-width": "3"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(-32, ".concat(-NP_1 * 2.5 + 1130, " ) scale(1.27)"),
-	        fill: "none",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M17.5 0V22.5H15L0.5 8V0H17.5Z",
-	          className: "bargauge"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(73, ".concat(-NP_2 * 2.5 + 1130, " ) scale(-1.27,1.27)"),
-	        fill: "none",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M17.5 0V22.5H15L0.5 8V0H17.5Z",
-	          className: "bargauge"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(-35,665)scale(1.25)",
-	        fill: "none",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M1.5 78H8M8 90H1.5M8 101.5H1.5M8 112.5H1.5M8 136.5H1.5M8 146.5H1.5M8 157.5H1.5M8 203H1.5M8 214.5H1.5M8 248H1.5M8 259.5H1.5M8 271H1.5M19 2H1.5V35.5M1.5 35.5H19M1.5 35.5V68M1.5 68H19M1.5 68V181M1.5 181H19M1.5 181V237M1.5 237H19M1.5 237V292.5M1.5 292.5H19M1.5 292.5V388H19M87.5 78H81M87.5 78V68M87.5 78V90M81 90H87.5M87.5 90V101.5M81 101.5H87.5M87.5 101.5V112.5M81 112.5H87.5M87.5 112.5V136.5M81 136.5H87.5M87.5 136.5V146.5M81 146.5H87.5M87.5 146.5V157.5M81 157.5H87.5M87.5 157.5V181M81 203H87.5M87.5 203V181M87.5 203V214.5M81 214.5H87.5M87.5 214.5V237M81 248H87.5M87.5 248V237M87.5 248V259.5M81 259.5H87.5M87.5 259.5V271M81 271H87.5M87.5 271V292.5M70 2H87.5V35.5M87.5 35.5H70M87.5 35.5V68M87.5 68H70M87.5 181H70M87.5 237H70M87.5 292.5H70M87.5 292.5V388H70",
-	          stroke: "white",
-	          "stroke-width": "3",
-	          "stroke-linecap": "square"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: -80,
-	        y: 710,
-	        fontSize: 32,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "Q1"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 80,
-	        y: 710,
-	        fontSize: 32,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "Q2"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 5,
-	        y: 600,
-	        fontSize: 32,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "NR"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: -10,
-	        y: 675,
-	        fontSize: 31,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "120"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: -10,
-	        y: 760,
-	        fontSize: 31,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "110"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: -10,
-	        y: 900,
-	        fontSize: 31,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "100"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 0,
-	        y: 1040,
-	        fontSize: 31,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "90"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 0,
-	        y: 1160,
-	        fontSize: 31,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "20"
-	      })]
-	    })
-	  });
-	};
-
-	const Collective = () => {
-	  var [Stab_Pos] = useSimVar('L:STABILATOR_POS', 'enum');
-	  var [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots');
-	  var [isAT] = useSimVar('A:AUTOPILOT MANAGED THROTTLE ACTIVE', 'Bool');
-	  var [TH_1] = useSimVar('A:GENERAL ENG THROTTLE LEVER POSITION:1', 'percent');
-	  var [TH_2] = useSimVar('A:GENERAL ENG THROTTLE LEVER POSITION:2', 'percent');
-	  AC_GS = Math.floor(AC_GS);
-	  TH_1 = Math.floor(TH_1);
-	  TH_2 = Math.floor(TH_2);
-	  let NR = (TH_1 + TH_2) / 2;
-	  Stab_Pos = Stab_Pos / 4;
-	  Stab_Pos = Math.floor(Stab_Pos);
-	  NR = Math.floor(NR);
-	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
-	    viewBox: "0 0 1280 1280",
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      children: [/*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 200,
-	        y: 619,
-	        fontSize: 38,
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "GS"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 270,
-	        y: 619,
-	        fontSize: 45,
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: AC_GS
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: -165,
-	        y: 105,
-	        fontSize: 45,
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: Stab_Pos - 30
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(-170, 120)scale(1.25,1.25)rotate(".concat(20 - Stab_Pos, ")"),
-	        className: "text",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M3.05284 4.1724L1.97746 4.99231C0.887084 5.82365 0.681168 7.38339 1.51844 8.46921L2.86269 10.2125C5.76344 13.9744 9.30763 17.1928 13.331 19.7184C20.9569 24.5055 29.3324 27.9784 38.1082 29.9925L73 38L17.0956 3.48191C12.7233 0.7822 7.13925 1.05677 3.05284 4.1724Z",
-	          fill: "white",
-	          stroke: "white",
-	          "stroke-width": "2",
-	          "stroke-linejoin": "round"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(307, 505) scale(0.93,0.93)",
-	        className: "text",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M17.3635 0.656629C17.269 0.556654 17.1375 0.5 17 0.5C16.8625 0.5 16.731 0.556654 16.6365 0.656629L1.04809 17.1566C0.910985 17.3018 0.873353 17.5145 0.952367 17.6979C1.03138 17.8812 1.21189 18 1.41154 18H32.5885C32.7881 18 32.9686 17.8812 33.0476 17.6979C33.1266 17.5145 33.089 17.3018 32.9519 17.1566L17.3635 0.656629Z",
-	          fill: "white",
-	          stroke: "white",
-	          "stroke-linejoin": "round"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(307, 215) scale(0.93,-0.93)",
-	        className: "text",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M17.3635 0.656629C17.269 0.556654 17.1375 0.5 17 0.5C16.8625 0.5 16.731 0.556654 16.6365 0.656629L1.04809 17.1566C0.910985 17.3018 0.873353 17.5145 0.952367 17.6979C1.03138 17.8812 1.21189 18 1.41154 18H32.5885C32.7881 18 32.9686 17.8812 33.0476 17.6979C33.1266 17.5145 33.089 17.3018 32.9519 17.1566L17.3635 0.656629Z",
-	          fill: "white",
-	          stroke: "white",
-	          "stroke-linejoin": "round"
-	        })
-	      }), isAT && /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(305, ".concat(-NR * 2.6 + 480, " ) scale(1.27,1.27)"),
-	          className: "apreadout",
-	          children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M6.39604 1.5C5.94988 1.5 5.52688 1.69861 5.2419 2.0419L1.84586 6.13281C1.62234 6.40206 1.5 6.74098 1.5 7.09091V10.7273C1.5 11.0772 1.62234 11.4161 1.84586 11.6854L5.2419 15.7763C5.52688 16.1196 5.94988 16.3182 6.39604 16.3182H21.8631L25.2723 19.1574V23.9091C25.2723 24.5178 25.6401 25.0662 26.2034 25.297L30.0846 26.8879C30.4301 27.0296 30.8161 27.0372 31.167 26.9094L35.0456 25.4961L39.4039 26.9253C39.7075 27.0249 40.035 27.0249 40.3387 26.9253L44.7228 25.4877L49.1069 26.9253C49.5405 27.0675 50.0153 27.0046 50.3969 26.7543L52.8226 25.1634C53.2454 24.8862 53.5 24.4146 53.5 23.9091V7.09091C53.5 6.64879 53.305 6.22918 52.967 5.94418L48.1155 1.85327C47.8449 1.62513 47.5024 1.5 47.1485 1.5H6.39604Z",
-	            stroke: "none",
-	            "stroke-width": "3",
-	            "stroke-linecap": "round",
-	            "stroke-linejoin": "round"
-	          })
-	        })
-	      }), isAT != 1 && /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(305, ".concat(-NR * 2.6 + 480, " ) scale(1.27,1.27)"),
-	        fill: "none",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M6.39604 1.5C5.94988 1.5 5.52688 1.69861 5.2419 2.0419L1.84586 6.13281C1.62234 6.40206 1.5 6.74098 1.5 7.09091V10.7273C1.5 11.0772 1.62234 11.4161 1.84586 11.6854L5.2419 15.7763C5.52688 16.1196 5.94988 16.3182 6.39604 16.3182H21.8631L25.2723 19.1574V23.9091C25.2723 24.5178 25.6401 25.0662 26.2034 25.297L30.0846 26.8879C30.4301 27.0296 30.8161 27.0372 31.167 26.9094L35.0456 25.4961L39.4039 26.9253C39.7075 27.0249 40.035 27.0249 40.3387 26.9253L44.7228 25.4877L49.1069 26.9253C49.5405 27.0675 50.0153 27.0046 50.3969 26.7543L52.8226 25.1634C53.2454 24.8862 53.5 24.4146 53.5 23.9091V7.09091C53.5 6.64879 53.305 6.22918 52.967 5.94418L48.1155 1.85327C47.8449 1.62513 47.5024 1.5 47.1485 1.5H6.39604Z",
-	          stroke: "white",
-	          "stroke-width": "3",
-	          "stroke-linecap": "round",
-	          "stroke-linejoin": "round"
-	        })
-	      })]
-	    })
-	  });
-	};
-
-	const HeadingBug = () => {
-	  var [AC_Bearing] = useSimVar('A:Plane heading degrees gyro', 'degrees');
-	  AC_Bearing = Math.floor(AC_Bearing);
-	  var [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
-	  AP_HDG = Math.floor(AP_HDG);
-	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
-	    viewBox: "0 0 1280 1280",
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(AP_HDG, ",647,997)"),
-	        children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	          transform: "translate(627,706)scale(1.25,1.15)",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M0.5 18.5V0H4L19 17V18.5H0.5Z",
-	            className: "APReadout"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M37.5 18.5V0H34L19 17V18.5H37.5Z",
-	            className: "APReadout"
-	          })]
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(599,655)scale(1.25)",
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M2 40.5V2H81.5V40.5H55.5L41.5 54.5L27.5 40.5H2Z",
-	          stroke: "white",
-	          "stroke-width": "3",
-	          "stroke-linejoin": "bevel"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 695,
-	        y: 700,
-	        fontSize: 44,
-	        fill: "#00EE00",
-	        className: "text",
-	        textAnchor: "middle",
-	        children: AC_Bearing
-	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "rotate(".concat(AC_Bearing, ",647,997)"),
-	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
-	          transform: "translate(373,727)scale(1.26)",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M203.989 2.56809C203.916 1.74281 203.189 1.13233 202.364 1.20453C201.538 1.27673 200.928 2.00428 201 2.82955L202.394 18.7567C203.388 18.6708 204.385 18.5921 205.384 18.5207L203.989 2.56809Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M234.789 18.5331C235.788 18.6054 236.785 18.6849 237.78 18.7717L239.087 3.82574C239.159 3.00047 238.549 2.27292 237.724 2.20072C236.898 2.12852 236.171 2.739 236.099 3.56428L234.789 18.5331Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M269.722 24.1653C270.692 24.4109 271.66 24.6636 272.625 24.9232L276.51 10.4243C276.724 9.62415 276.249 8.80164 275.449 8.58723C274.649 8.37281 273.826 8.84769 273.612 9.64789L269.722 24.1653Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M303.118 35.8382C304.029 36.2504 304.938 36.6691 305.842 37.0943L312.218 23.4211C312.568 22.6703 312.243 21.7778 311.492 21.4277C310.742 21.0776 309.849 21.4024 309.499 22.1532L303.118 35.8382Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M333.935 53.1747C334.76 53.7395 335.581 54.3104 336.398 54.8871L345.127 42.421C345.602 41.7424 345.437 40.8071 344.758 40.3319C344.08 39.8568 343.145 40.0217 342.669 40.7003L333.935 53.1747Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M361.247 75.5935C361.962 76.2928 362.672 76.9974 363.376 77.7071L374.236 66.8469C374.822 66.2611 374.822 65.3114 374.236 64.7256C373.651 64.1398 372.701 64.1398 372.115 64.7256L361.247 75.5935Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M384.248 102.387C384.831 103.2 385.408 104.016 385.979 104.838L398.662 95.9565C399.341 95.4814 399.506 94.5461 399.031 93.8674C398.556 93.1888 397.62 93.0239 396.942 93.4991L384.248 102.387Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M402.236 132.749C402.669 133.65 403.094 134.555 403.514 135.463L417.662 128.865C418.413 128.515 418.738 127.623 418.388 126.872C418.038 126.121 417.145 125.796 416.394 126.146L402.236 132.749Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M414.322 164.646C414.595 165.607 414.861 166.571 415.121 167.538L429.576 163.665C430.376 163.45 430.851 162.628 430.636 161.827C430.422 161.027 429.599 160.552 428.799 160.767L414.322 164.646Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M420.963 199.407C421.064 200.4 421.157 201.396 421.243 202.393L437.17 201C437.996 200.928 438.606 200.2 438.534 199.375C438.462 198.55 437.734 197.939 436.909 198.011L420.963 199.407Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M421.407 235.598C421.33 236.596 421.247 237.593 421.156 238.587L437.258 239.996C438.083 240.068 438.81 239.458 438.883 238.633C438.955 237.807 438.344 237.08 437.519 237.008L421.407 235.598Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M415.687 270.301C415.439 271.271 415.183 272.238 414.921 273.202L430.659 277.419C431.459 277.633 432.282 277.158 432.496 276.358C432.711 275.558 432.236 274.735 431.435 274.521L415.687 270.301Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M404.011 303.451C403.597 304.362 403.177 305.269 402.75 306.173L417.662 313.127C418.413 313.477 419.306 313.152 419.656 312.401C420.006 311.651 419.681 310.758 418.93 310.408L404.011 303.451Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M386.756 334.036C386.19 334.862 385.619 335.682 385.042 336.499L398.662 346.036C399.341 346.511 400.276 346.346 400.751 345.667C401.227 344.989 401.062 344.054 400.383 343.578L386.756 334.036Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M364.493 361.159C363.794 361.874 363.09 362.585 362.38 363.289L374.236 375.146C374.822 375.731 375.772 375.731 376.358 375.146C376.944 374.56 376.944 373.61 376.358 373.024L364.493 361.159Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M337.91 384.034C337.099 384.619 336.283 385.197 335.463 385.77L345.127 399.571C345.602 400.25 346.537 400.415 347.216 399.94C347.895 399.465 348.059 398.529 347.584 397.851L337.91 384.034Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M307.79 401.977C306.89 402.412 305.987 402.84 305.079 403.262L312.218 418.571C312.568 419.322 313.461 419.647 314.211 419.297C314.962 418.947 315.287 418.054 314.937 417.303L307.79 401.977Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M274.239 414.635C273.276 414.903 272.311 415.164 271.342 415.417L275.426 430.659C275.641 431.459 276.463 431.934 277.263 431.72C278.064 431.505 278.539 430.683 278.324 429.883L274.239 414.635Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M39.2106 155.198C39.5484 154.256 39.8932 153.317 40.2452 152.382L16.1731 143.621C15.3946 143.337 14.5338 143.739 14.2505 144.517C13.9672 145.296 14.3685 146.156 15.147 146.44L39.2106 155.198Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M53.2634 124.735C53.7605 123.866 54.2642 123.002 54.7744 122.143L32.7065 109.402C31.989 108.988 31.0716 109.234 30.6574 109.951C30.2432 110.668 30.489 111.586 31.2065 112L53.2634 124.735Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M72.4245 97.1695C73.0648 96.4011 73.7109 95.6378 74.3628 94.8797L54.9307 78.5742C54.2961 78.0417 53.3499 78.1244 52.8174 78.759C52.2849 79.3937 52.3677 80.3398 53.0023 80.8723L72.4245 97.1695Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M96.0904 73.3303C96.8539 72.6847 97.6225 72.0449 98.3961 71.411L82.1704 52.074C81.6379 51.4393 80.6918 51.3566 80.0572 51.8891C79.4226 52.4216 79.3398 53.3677 79.8723 54.0023L96.0904 73.3303Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M123.552 53.9464C124.415 53.4435 125.284 52.9472 126.156 52.4575L113.598 30.7065C113.184 29.989 112.266 29.7432 111.549 30.1574C110.832 30.5716 110.586 31.489 111 32.2065L123.552 53.9464Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M153.993 39.6472C154.931 39.3037 155.873 38.9673 156.818 38.6381L148.259 15.121C147.975 14.3425 147.115 13.9411 146.336 14.2244C145.558 14.5078 145.156 15.3685 145.44 16.147L153.993 39.6472Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M185.684 31.0578C186.667 30.8805 187.653 30.7106 188.641 30.5483L184.099 4.79097C183.955 3.97512 183.177 3.43037 182.361 3.57423C181.546 3.71808 181.001 4.49607 181.145 5.31191L185.684 31.0578Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M240.593 420.963C239.6 421.064 238.604 421.157 237.607 421.243L239 437.17C239.072 437.996 239.8 438.606 240.625 438.534C241.45 438.462 242.061 437.734 241.989 436.909L240.593 420.963Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M202.567 421.258C201.569 421.173 200.573 421.08 199.579 420.981L198.099 437.905C198.026 438.73 198.637 439.458 199.462 439.53C200.287 439.602 201.015 438.992 201.087 438.167L202.567 421.258Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M168.036 415.253C167.069 414.997 166.104 414.733 165.142 414.462L160.767 430.792C160.552 431.592 161.027 432.414 161.827 432.629C162.628 432.843 163.45 432.368 163.665 431.568L168.036 415.253Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M135.064 403.329C134.156 402.908 133.253 402.48 132.352 402.046L125.237 417.303C124.887 418.054 125.212 418.947 125.963 419.297C126.714 419.647 127.606 419.322 127.956 418.571L135.064 403.329Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M104.654 385.851C103.834 385.279 103.018 384.702 102.206 384.118L92.59 397.851C92.1149 398.529 92.2798 399.465 92.9584 399.94C93.637 400.415 94.5723 400.25 95.0475 399.571L104.654 385.851Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M77.7072 363.376C76.9974 362.672 76.2928 361.962 75.5935 361.247L63.8166 373.024C63.2308 373.61 63.2308 374.56 63.8166 375.146C64.4023 375.731 65.3521 375.731 65.9379 375.146L77.7072 363.376Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M55.016 336.58C54.4384 335.764 53.8667 334.944 53.3009 334.119L39.7913 343.578C39.1127 344.054 38.9477 344.989 39.4229 345.668C39.8981 346.346 40.8334 346.511 41.512 346.036L55.016 336.58Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M37.2819 306.24C36.8547 305.336 36.434 304.429 36.0198 303.518L21.2442 310.408C20.4934 310.758 20.1686 311.651 20.5187 312.401C20.8688 313.152 21.7612 313.477 22.5121 313.127L37.2819 306.24Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M24.7898 272.127C24.5327 271.161 24.2825 270.193 24.0394 269.222L7.65551 273.612C6.85532 273.826 6.38044 274.649 6.59485 275.449C6.80927 276.249 7.63177 276.724 8.43197 276.51L24.7898 272.127Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M18.7567 237.607C18.6708 236.612 18.5921 235.615 18.5207 234.616L2.56809 236.011C1.74281 236.084 1.13233 236.811 1.20453 237.636C1.27673 238.462 2.00428 239.072 2.82955 239L18.7567 237.607Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M18.6744 203.375C18.7557 202.377 18.8442 201.381 18.94 200.387L3.17818 199.008C2.3529 198.935 1.62535 199.546 1.55315 200.371C1.48095 201.196 2.09144 201.924 2.91671 201.996L18.6744 203.375Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M24.5941 168.614C24.848 167.646 25.1089 166.68 25.3768 165.718L10.2918 161.676C9.49158 161.461 8.66907 161.936 8.45466 162.737C8.24024 163.537 8.71512 164.359 9.51532 164.574L24.5941 168.614Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M36.5174 135.396C36.9369 134.488 37.363 133.583 37.7956 132.682L23.7799 126.146C23.0291 125.796 22.1366 126.121 21.7865 126.872C21.4364 127.623 21.7612 128.515 22.512 128.865L36.5174 135.396Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M54.0784 104.756C54.6498 103.935 55.227 103.118 55.8102 102.306L43.2327 93.4991C42.5541 93.0239 41.6188 93.1888 41.1436 93.8674C40.6685 94.546 40.8334 95.4814 41.512 95.9565L54.0784 104.756Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M76.7106 77.6197C77.4155 76.9103 78.1256 76.2062 78.8409 75.5073L68.0592 64.7256C67.4734 64.1398 66.5237 64.1398 65.9379 64.7256C65.3521 65.3114 65.3521 66.2611 65.9379 66.8469L76.7106 77.6197Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M103.719 54.8048C104.536 54.2286 105.357 53.6584 106.183 53.0941L97.505 40.7003C97.0298 40.0217 96.0945 39.8568 95.4159 40.332C94.7373 40.8071 94.5723 41.7424 95.0475 42.4211L103.719 54.8048Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M134.301 37.0272C135.206 36.6027 136.114 36.1847 137.026 35.7732L130.675 22.1532C130.325 21.4024 129.433 21.0776 128.682 21.4277C127.931 21.7778 127.606 22.6703 127.956 23.4211L134.301 37.0272Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M166.755 25.0912C167.719 24.8285 168.686 24.5728 169.655 24.324L165.479 8.73887C165.265 7.93867 164.442 7.46379 163.642 7.67821C162.842 7.89262 162.367 8.71513 162.581 9.51533L166.755 25.0912Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M223 2C223 1.17157 222.328 0.5 221.5 0.5C220.672 0.5 220 1.17157 220 2V28C221.002 28 222.002 28.0077 223 28.023V2Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M250.558 30.4185C251.547 30.5766 252.533 30.7423 253.517 30.9155L257.855 6.3119C257.999 5.49606 257.454 4.71808 256.639 4.57422C255.823 4.43037 255.045 4.97512 254.901 5.79096L250.558 30.4185Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M283.182 38.6381C284.127 38.9673 285.069 39.3037 286.007 39.6472L294.56 16.147C294.844 15.3685 294.442 14.5078 293.664 14.2244C292.885 13.9411 292.025 14.3425 291.741 15.1209L283.182 38.6381Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M313.844 52.4575C314.716 52.9472 315.585 53.4435 316.448 53.9464L329 32.2065C329.414 31.489 329.168 30.5716 328.451 30.1574C327.734 29.7432 326.816 29.989 326.402 30.7065L313.844 52.4575Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M341.604 71.411C342.378 72.0448 343.146 72.6847 343.91 73.3303L360.128 54.0023C360.66 53.3677 360.577 52.4216 359.943 51.889C359.308 51.3565 358.362 51.4393 357.83 52.0739L341.604 71.411Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M365.637 94.8797C366.289 95.6378 366.935 96.4011 367.576 97.1695L386.998 80.8723C387.632 80.3398 387.715 79.3937 387.183 78.7591C386.65 78.1245 385.704 78.0417 385.069 78.5742L365.637 94.8797Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M385.226 122.143C385.736 123.002 386.24 123.866 386.737 124.735L408.794 112C409.511 111.586 409.757 110.668 409.343 109.951C408.928 109.234 408.011 108.988 407.294 109.402L385.226 122.143Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M399.755 152.382C400.107 153.317 400.452 154.256 400.789 155.198L424.853 146.44C425.631 146.156 426.033 145.296 425.75 144.517C425.466 143.739 424.605 143.337 423.827 143.621L399.755 152.382Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M408.541 183.533C408.73 184.513 408.911 185.497 409.085 186.483L433.688 182.145C434.504 182.001 435.049 181.223 434.905 180.407C434.761 179.591 433.983 179.046 433.167 179.19L408.541 183.533Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M411.977 217C411.992 217.998 412 218.998 412 220H438C438.828 220 439.5 219.328 439.5 218.5C439.5 217.672 438.828 217 438 217H411.977Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M409.452 251.359C409.289 252.347 409.12 253.333 408.942 254.316L434.688 258.855C435.504 258.999 436.282 258.454 436.426 257.639C436.57 256.823 436.025 256.045 435.209 255.901L409.452 251.359Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M401.164 283.746C400.832 284.69 400.493 285.631 400.146 286.568L424.853 295.56C425.631 295.844 426.492 295.442 426.776 294.664C427.059 293.885 426.658 293.025 425.879 292.741L401.164 283.746Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M387.363 314.163C386.872 315.034 386.374 315.902 385.869 316.765L408.794 330C409.511 330.414 410.428 330.168 410.843 329.451C411.257 328.734 411.011 327.816 410.294 327.402L387.363 314.163Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M368.511 341.699C367.876 342.472 367.236 343.241 366.59 344.004L386.998 361.128C387.632 361.66 388.578 361.577 389.111 360.943C389.643 360.308 389.561 359.362 388.926 358.83L368.511 341.699Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M345.214 365.557C344.456 366.209 343.693 366.856 342.925 367.497L360.128 387.998C360.66 388.632 361.606 388.715 362.241 388.183C362.876 387.65 362.958 386.704 362.426 386.069L345.214 365.557Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M318.172 385.038C317.313 385.55 316.45 386.056 315.583 386.554L329 409.794C329.414 410.511 330.332 410.757 331.049 410.343C331.766 409.928 332.012 409.011 331.598 408.294L318.172 385.038Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M288.177 399.543C287.243 399.898 286.305 400.246 285.364 400.587L294.56 425.853C294.844 426.632 295.704 427.033 296.483 426.75C297.261 426.466 297.663 425.605 297.379 424.827L288.177 399.543Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M255.329 408.757C254.347 408.939 253.363 409.114 252.376 409.282L256.855 434.688C256.999 435.504 257.777 436.049 258.593 435.905C259.409 435.761 259.954 434.983 259.81 434.167L255.329 408.757Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M223 411.977C222.002 411.992 221.002 412 220 412V438C220 438.828 220.672 439.5 221.5 439.5C222.328 439.5 223 438.828 223 438V411.977Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M186.825 409.144C185.839 408.973 184.855 408.793 183.874 408.606L179.19 435.167C179.046 435.983 179.591 436.761 180.407 436.905C181.223 437.049 182.001 436.504 182.145 435.688L186.825 409.144Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M154.636 400.587C153.695 400.246 152.757 399.898 151.823 399.543L142.621 424.827C142.337 425.605 142.739 426.466 143.517 426.75C144.296 427.033 145.156 426.631 145.44 425.853L154.636 400.587Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M124.417 386.554C123.55 386.056 122.687 385.55 121.828 385.038L108.402 408.294C107.988 409.011 108.234 409.928 108.951 410.343C109.668 410.757 110.586 410.511 111 409.794L124.417 386.554Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M97.0748 367.497C96.3068 366.856 95.544 366.209 94.7862 365.557L77.5742 386.069C77.0417 386.704 77.1244 387.65 77.7591 388.183C78.3937 388.715 79.3398 388.632 79.8723 387.998L97.0748 367.497Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M73.41 344.004C72.7638 343.241 72.1235 342.472 71.4891 341.699L51.0739 358.83C50.4393 359.362 50.3566 360.308 50.8891 360.943C51.4216 361.577 52.3677 361.66 53.0023 361.128L73.41 344.004Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M54.1308 316.765C53.6263 315.902 53.1284 315.034 52.637 314.163L29.7065 327.402C28.989 327.816 28.7432 328.734 29.1574 329.451C29.5716 330.168 30.489 330.414 31.2065 330L54.1308 316.765Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M39.8536 286.568C39.5071 285.631 39.1678 284.69 38.8356 283.746L14.1209 292.741C13.3425 293.025 12.9411 293.885 13.2244 294.664C13.5078 295.442 14.3685 295.844 15.147 295.56L39.8536 286.568Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M30.8556 253.175C30.6842 252.191 30.5203 251.204 30.3639 250.215L3.79096 254.901C2.97512 255.045 2.43037 255.823 2.57422 256.639C2.71808 257.454 3.49607 257.999 4.31191 257.855L30.8556 253.175Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M28 220C28 218.998 28.0077 217.998 28.023 217H2C1.17157 217 0.5 217.672 0.5 218.5C0.5 219.328 1.17157 220 2 220H28Z",
-	            fill: "white"
-	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M30.7181 187.624C30.8857 186.637 31.0608 185.653 31.2435 184.671L5.83285 180.19C5.01701 180.046 4.23903 180.591 4.09517 181.407C3.95132 182.223 4.49607 183.001 5.31191 183.145L30.7181 187.624Z",
-	            fill: "white"
-	          })]
-	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 647,
-	          y: 997,
-	          width: "10",
-	          height: "10",
-	          stroke: "none",
-	          className: "text",
-	          "stroke-width": "3"
-	        })]
-	      })]
-	    })
-	  });
-	};
-
-	const FlightDirector = () => {
-	  const [FD_pitch] = useSimVar('AUTOPILOT FLIGHT DIRECTOR PITCH', 'degrees');
-	  const [FD_bank] = useSimVar('AUTOPILOT FLIGHT DIRECTOR BANK', 'degrees');
-	  const [pitch] = useSimVar("PLANE PITCH DEGREES", "degrees");
-	  const [bank] = useSimVar("PLANE BANK DEGREES", "degrees");
-	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
-	  useSimVar('INDICATED ALTITUDE', 'feet');
-	  useSimVar('GROUND VELOCITY', 'knots');
-	  useSimVar('VERTICAL SPEED', 'Feet per second');
-
-	  const degreesToPixels = angle => angle < 0 ? Math.max(angle * 8, -12 * 8) : Math.min(angle * 8, 12 * 8);
-
-	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	      visibility: isFD ? 'visible' : 'hidden',
-	      transform: "translate(".concat((degreesToPixels((-FD_bank + bank) / 2) || 0) * 0.8, " 0)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	        points: "586,295 586,453",
-	        className: "FDBar",
-	        strokeWidth: 5,
-	        fill: "black"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      visibility: isFD ? 'visible' : 'hidden',
-	      transform: "translate(0 ".concat((degreesToPixels(FD_pitch - pitch) || 0) * 0.8, ")"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	        points: "507,374 665,374",
-	        className: "FDBar",
-	        strokeWidth: 5,
-	        fill: "black"
-	      })
-	    })]
-	  });
-	};
-
-	const AltCircle = () => {
-	  var [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet');
-	  var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
-	  STD_ALT = Math.floor(STD_ALT);
-	  RA_ALT = Math.floor(RA_ALT);
-	  let RADISP = " ";
-
-	  if (RA_ALT > 1000) {
-	    RADISP = "";
-	  } else {
-	    RADISP = RA_ALT;
-	  }
-
-	  let indicator = 0;
-
-	  if (RA_ALT <= 100) {
-	    indicator = RA_ALT * 1.8 - 180;
-	  } else if (100 < RA_ALT && RA_ALT <= 400) {
-	    indicator = RA_ALT * 0.31 - 28;
-	  } else if (400 < RA_ALT && RA_ALT <= 1000) {
-	    indicator = RA_ALT * 0.083 + 54;
-	  } else {
-	    indicator = 140;
-	  }
-
-	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
-	    viewBox: "0 0 1280 1280",
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "translate(1000, 165)scale(1.25)",
-	        children: [/*#__PURE__*/jsxRuntime.jsx("svg", {
-	          width: "306",
-	          height: "306",
-	          viewBox: "0 0 306 306",
-	          fill: "none",
-	          children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	            d: "M304 153C304 236.395 236.395 304 153 304C69.605 304 2 236.395 2 153C2 89.4915 41.2076 35.1355 96.7455 12.8262C114.129 5.84343 133.113 2 153 2C236.395 2 304 69.605 304 153Z",
-	            stroke: "white",
-	            "stroke-width": "4"
-	          })
-	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(1, 2)scale(1.003)",
-	          children: /*#__PURE__*/jsxRuntime.jsxs("svg", {
-	            width: "300",
-	            height: "299",
-	            viewBox: "0 0 300 299",
-	            fill: "none",
-	            children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M150 22.0039C150.333 22.0013 150.666 22 151 22C152.338 22 153.672 22.0207 155 22.0618V0H150V22.0039Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M224.943 45.7335C226.298 46.7057 227.633 47.7038 228.948 48.7273L241.932 30.8565L237.887 27.9175L224.943 45.7335Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M270.867 106.933C271.418 108.502 271.939 110.086 272.429 111.682L293.749 104.755L292.204 100L270.867 106.933Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M272.629 185.658C272.148 187.258 271.636 188.844 271.093 190.417L291.862 197.165L293.407 192.409L272.629 185.658Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M227.369 250.482C226.039 251.485 224.688 252.462 223.318 253.413L236.728 271.87L240.773 268.931L227.369 250.482Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M155 275.938C153.672 275.979 152.338 276 151 276C150.666 276 150.333 275.999 150 275.996V298H155V275.938Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M79.7182 254.124C78.3385 253.187 76.9782 252.223 75.6381 251.233L62.1134 269.849L66.1585 272.788L79.7182 254.124Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M30.8265 190.184C30.2874 188.61 29.7784 187.023 29.3 185.423L7.79647 192.409L9.34156 197.165L30.8265 190.184Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M29.4991 111.918C29.9862 110.32 30.5039 108.735 31.0516 107.165L9.00003 100L7.45494 104.755L29.4991 111.918Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M78.0822 45.0061C76.7175 45.9648 75.3725 46.9496 74.048 47.9599L60.9549 29.9389L65 27L78.0822 45.0061Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M165.155 14.7833C166.152 14.8905 167.145 15.0085 168.135 15.1371L169.63 0.915178L166.646 0.601593L165.155 14.7833Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M182.554 17.8136C183.527 18.0497 184.497 18.2963 185.462 18.5533L188.796 4.66569L185.879 3.96535L182.554 17.8136Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M199.408 23.0954C200.342 23.4568 201.27 23.8284 202.194 24.2098L207.308 10.8858L204.508 9.81071L199.408 23.0954Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M215.427 30.539C216.305 31.0192 217.177 31.5089 218.043 32.0078L224.851 19.4691L222.214 18.0376L215.427 30.539Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M239.594 47.4072C240.348 48.0651 241.094 48.7312 241.832 49.4054L251.705 38.4404L249.476 36.433L239.594 47.4072Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M252.121 59.8685C252.783 60.6182 253.437 61.3752 254.082 62.1394L265.271 52.5828L263.323 50.3016L252.121 59.8685Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M262.934 73.8516C263.492 74.6805 264.042 75.5159 264.583 76.3576L276.875 68.3751L275.241 65.8591L262.934 73.8516Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M271.841 89.1284C272.287 90.0227 272.723 90.9227 273.149 91.8281L286.318 85.5468L285.027 82.8391L271.841 89.1284Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M282.568 119.064C282.792 120.037 283.004 121.014 283.207 121.995L296.811 119.104L296.187 116.169L282.568 119.064Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M285.388 136.542C285.483 137.535 285.566 138.532 285.639 139.531L299.463 138.444L299.227 135.453L285.388 136.542Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M285.918 154.245C285.884 155.247 285.839 156.246 285.783 157.242L299.567 157.964L299.724 154.968L285.918 154.245Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M284.161 171.878C283.997 172.866 283.822 173.851 283.636 174.832L297.123 177.331L297.669 174.382L284.161 171.878Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M275.099 202.836C274.705 203.756 274.301 204.67 273.887 205.58L287.031 211.432L288.251 208.691L275.099 202.836Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M267.05 218.652C266.539 219.512 266.018 220.365 265.489 221.213L277.715 228.705L279.283 226.147L267.05 218.652Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M256.999 233.284C256.38 234.07 255.752 234.849 255.116 235.62L266.224 244.615L268.112 242.284L256.999 233.284Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M245.123 246.489C244.407 247.187 243.684 247.877 242.953 248.56L252.754 258.889L254.931 256.824L245.123 246.489Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M221.47 264.95C220.618 265.474 219.761 265.99 218.898 266.495L225.447 277.839L228.045 276.339L221.47 264.95Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M205.751 273.261C204.838 273.669 203.921 274.067 202.998 274.455L207.99 286.506L210.761 285.358L205.751 273.261Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M189.069 279.432C188.111 279.716 187.149 279.989 186.183 280.252L189.55 292.82L192.448 292.043L189.069 279.432Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M171.717 283.349C170.731 283.504 169.741 283.648 168.748 283.782L170.445 296.673L173.419 296.282L171.717 283.349Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M139.815 284.585C138.815 284.507 137.819 284.418 136.826 284.319L135.387 298.007L138.371 298.32L139.815 284.585Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M122.204 282.041C121.224 281.833 120.248 281.614 119.276 281.385L116.068 294.746L118.985 295.446L122.204 282.041Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M105.08 277.2C104.137 276.864 103.198 276.519 102.265 276.163L97.3401 288.992L100.141 290.067L105.08 277.2Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M88.7464 270.142C87.8559 269.685 86.9711 269.219 86.0922 268.743L79.5231 280.842L82.1596 282.273L88.7464 270.142Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M60.5001 250.795C59.7527 250.13 59.0127 249.458 58.2802 248.777L49.3766 258.665L51.6061 260.673L60.5001 250.795Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M48.0118 238.14C47.3574 237.384 46.7112 236.621 46.0734 235.85L35.9284 244.515L37.8767 246.796L48.0118 238.14Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M37.2806 223.97C36.7305 223.135 36.1894 222.294 35.6574 221.447L24.4423 228.73L26.0762 231.246L37.2806 223.97Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M28.4957 208.522C28.0599 207.623 27.6337 206.718 27.2173 205.808L15.1148 211.581L16.4063 214.288L28.4957 208.522Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M18.0779 178.35C17.8663 177.374 17.6652 176.395 17.4748 175.411L3.67897 178.344L4.30271 181.278L18.0779 178.35Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M15.464 160.795C15.382 159.8 15.3106 158.803 15.2502 157.802L1.10578 158.915L1.34116 161.906L15.464 160.795Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M15.1504 143.058C15.1973 142.057 15.255 141.059 15.3235 140.063L1.09051 139.318L0.933502 142.313L15.1504 143.058Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M17.13 125.438C17.3068 124.452 17.4942 123.469 17.6921 122.491L3.63341 119.885L3.08671 122.835L17.13 125.438Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M26.2618 95.3298C26.6623 94.4125 27.0727 93.5005 27.4928 92.594L15.0617 87.0593L13.8415 89.7999L26.2618 95.3298Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M34.3976 79.6003L22.7387 72.4556L24.3062 69.8977L35.9758 77.0489C35.4406 77.893 34.9145 78.7436 34.3976 79.6003Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M136.352 14.7297C135.355 14.8331 134.362 14.9474 133.372 15.0723L131.548 1.22274L134.523 0.831158L136.352 14.7297Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M118.937 17.6956L115.32 4.19752L112.422 4.97397L116.026 18.4244C116.992 18.171 117.963 17.928 118.937 17.6956Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M102.055 22.9171L96.7215 10.0415L93.9499 11.1895L99.265 24.0213C99.5161 23.9186 99.7677 23.8167 100.02 23.7155C100.695 23.4441 101.374 23.1779 102.055 22.9171Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M85.9986 30.3075L79.0447 18.2631L76.4466 19.7631L83.3771 31.767C84.2449 31.2711 85.1188 30.7846 85.9986 30.3075Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M58.5961 49.9304L49.0828 39.9054L46.9066 41.9704L56.4147 51.9898C57.1342 51.2954 57.8614 50.6089 58.5961 49.9304Z",
-	              fill: "white"
-	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	              d: "M46.406 62.7497L35.7116 54.0896L33.8236 56.421L44.5096 65.0744C45.1333 64.2924 45.7655 63.5175 46.406 62.7497Z",
-	              fill: "white"
-	            })]
-	          })
-	        })]
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1200,
-	        y: 313,
-	        fontSize: 30,
-	        className: "text",
-	        children: "FEET"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1204,
-	        y: 235,
-	        fontSize: 35,
-	        className: "text",
-	        children: "0"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1285,
-	        y: 262,
-	        fontSize: 35,
-	        className: "text",
-	        children: "1"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1340,
-	        y: 330,
-	        fontSize: 35,
-	        className: "text",
-	        children: "2"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1340,
-	        y: 415,
-	        fontSize: 35,
-	        className: "text",
-	        children: "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1285,
-	        y: 480,
-	        fontSize: 35,
-	        className: "text",
-	        children: "4"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1204,
-	        y: 510,
-	        fontSize: 35,
-	        className: "text",
-	        children: "5"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1125,
-	        y: 480,
-	        fontSize: 35,
-	        className: "text",
-	        children: "6"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1070,
-	        y: 415,
-	        fontSize: 35,
-	        className: "text",
-	        children: "7"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1070,
-	        y: 330,
-	        fontSize: 35,
-	        className: "text",
-	        children: "8"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1120,
-	        y: 262,
-	        fontSize: 35,
-	        className: "text",
-	        children: "9"
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(952, 35)scale(1.35)",
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "rotate(".concat(STD_ALT * 4, ", 178, 217)"),
-	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	            points: "174,217 182,217 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
-	            fill: "white"
-	          })
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(1000, 87)scale(1.25)",
-	        children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	          points: " 95,183  160,183  160,174  205,174  205,265  160,265  160,257  95,256",
-	          stroke: "white",
-	          strokeWidth: 3,
-	          fill: "black"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "translate(1048, 495)scale(1.35)",
-	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "rotate(".concat(indicator, ", 178, 217)"),
-	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	            points: "174,217 182,217 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
-	            fill: "white"
-	          })
-	        }), /*#__PURE__*/jsxRuntime.jsx("circle", {
-	          cx: "180",
-	          cy: "220",
-	          r: "60",
-	          stroke: "none",
-	          fill: "black",
-	          "stroke-width": "4"
-	        })]
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1250,
-	        y: 375,
-	        fontSize: 46,
-	        className: "text",
-	        children: STD_ALT
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1338,
-	        y: 795,
-	        fontSize: 46,
-	        className: "text",
-	        children: RADISP
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1315,
-	        y: 830,
-	        fontSize: 30,
-	        className: "text",
-	        children: "RA"
-	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        transform: "translate(1125, 630)scale(1.25)",
-	        children: [/*#__PURE__*/jsxRuntime.jsx("circle", {
-	          cx: "131",
-	          cy: "131",
-	          r: "129",
-	          stroke: "white",
-	          fill: "none",
-	          "stroke-width": "4"
-	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	          "fill-rule": "evenodd",
-	          "clip-rule": "evenodd",
-	          d: "M129 23.0181C129.665 23.0061 130.332 23 131 23C131.334 23 131.667 23.0015 132 23.0045V2H129V23.0181ZM184.316 37.0559C185.185 37.5506 186.048 38.0571 186.902 38.5751L197.686 20.2605L195.101 18.7383L184.316 37.0559ZM224.342 76.6386C224.845 77.5017 225.337 78.3723 225.818 79.2504L244.486 68.6061L243 66L224.342 76.6386ZM238.996 130.039C238.999 130.359 239 130.679 239 131C239 131.681 238.994 132.361 238.981 133.039L259.006 133L259 130L238.996 130.039ZM208.046 206.683C207.345 207.396 206.634 208.1 205.914 208.794L220.925 223.167L223 221L208.046 206.683ZM132 238.995C131.667 238.998 131.334 239 131 239C130.332 239 129.665 238.994 129 238.982V259H132V238.995ZM23.0274 133.456C23.0092 132.64 23 131.821 23 131C23 130.819 23.0004 130.638 23.0013 130.456L0.5 130.5L0.505802 133.5L23.0274 133.456Z",
-	          fill: "white"
-	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	          "fill-rule": "evenodd",
-	          "clip-rule": "evenodd",
-	          d: "M158.487 19.3057C159.46 19.5443 160.428 19.7953 161.391 20.0585L164.901 6.76576L162 6L158.487 19.3057ZM212.212 49.5775C212.92 50.2837 213.619 50.9991 214.308 51.7235L224.098 42.1442L222 40L212.212 49.5775ZM241.92 100.53C242.184 101.492 242.435 102.46 242.675 103.433L255.782 99.8964L255 97L241.92 100.53ZM245.226 144.411C245.111 145.406 244.982 146.398 244.841 147.386L258.656 148.98L259 146L245.226 144.411ZM242.146 160.633C241.888 161.602 241.619 162.565 241.337 163.523L254.24 166.902L255 164L242.146 160.633ZM237.65 174.101C237.275 175.029 236.888 175.952 236.489 176.868L248.894 181.789L250 179L237.65 174.101ZM230.812 188.158C230.314 189.026 229.805 189.887 229.285 190.741L241.531 197.616L243 195L230.812 188.158ZM223.038 199.961C222.437 200.761 221.826 201.554 221.205 202.338L232.226 210.419L234 208L223.038 199.961ZM96.8503 240.845C95.8935 240.548 94.942 240.238 93.996 239.917L90.1208 253.157L93 254L96.8503 240.845ZM64.1904 224.614C63.3763 224.032 62.5701 223.439 61.7719 222.837L54.5334 233.292L57 235L64.1904 224.614ZM38.1745 198.899C37.5835 198.092 37.0028 197.278 36.4326 196.455L24.2037 205.597L26 208L38.1745 198.899ZM22.1158 168.1C21.7938 167.155 21.4837 166.204 21.1857 165.248L7.01624 170.166L7.99998 173L22.1158 168.1ZM20.8281 97.9226C21.1157 96.9633 21.4155 96.0092 21.7273 95.0605L8.87724 91.1311L7.99998 94L20.8281 97.9226ZM95.942 21.4416C94.9881 21.7465 94.0396 22.0636 93.0967 22.3927L89 10L91.8484 9.05838L95.942 21.4416ZM63.4095 37.9495L55.4056 27.2076L53 29L61.0068 39.746C61.7996 39.137 62.6005 38.5381 63.4095 37.9495ZM37.9424 63.4193L26.7235 55.5445L25 58L36.2092 65.868C36.7765 65.044 37.3543 64.2276 37.9424 63.4193Z",
-	          fill: "white"
-	        })]
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1300,
-	        y: 912,
-	        fontSize: 30,
-	        className: "text",
-	        children: "0"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1390,
-	        y: 885,
-	        fontSize: 30,
-	        className: "text",
-	        children: "10"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1190,
-	        y: 805,
-	        fontSize: 30,
-	        className: "text",
-	        children: "50"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1425,
-	        y: 805,
-	        fontSize: 30,
-	        className: "text",
-	        children: "4"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1405,
-	        y: 745,
-	        fontSize: 30,
-	        className: "text",
-	        children: "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1360,
-	        y: 705,
-	        fontSize: 30,
-	        className: "text",
-	        children: "2"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 1300,
-	        y: 690,
-	        fontSize: 30,
-	        className: "text",
-	        children: "1"
-	      })]
-	    })
-	  });
-	};
-
-	const VerticalSpeed = () => {
-	  var [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
-	  vs_raw = Math.floor(vs_raw);
-	  let needledir = vs_raw;
-	  let needleVertDir = 1;
-	  let dirVS = 0;
-
-	  if (0 < vs_raw) {
-	    dirVS = 180;
-	    needledir = -60;
-	    needleVertDir = -1;
-	  } else {
-	    dirVS = 0;
-	    needledir = -120;
-	    needleVertDir = 1;
-	  }
-
-	  vs_raw = Math.abs(vs_raw);
-	  let VSBarHeight = vs_raw;
-	  let indicator = 0;
-
-	  if (vs_raw <= 1000) {
-	    indicator = 23;
-	  } else if (1000 < vs_raw && vs_raw <= 2000) {
-	    indicator = 28;
-	  } else if (2000 < vs_raw && vs_raw <= 3000) {
-	    indicator = 31;
-	  } else if (3000 < vs_raw && vs_raw <= 4000) {
-	    indicator = 35;
-	  } else {
-	    indicator = 25;
-	  }
-
-	  if (VSBarHeight >= 4000) {
-	    VSBarHeight = 110;
-	  } else if (VSBarHeight <= -4000) {
-	    indicator = 110;
-	  } else {
-	    VSBarHeight = 0;
-	    VSBarHeight = vs_raw / indicator;
-	  }
-
-	  let vsdisparrow = 0;
-
-	  if (needleVertDir > 0) {
-	    vsdisparrow = 180;
-	  } else {
-	    vsdisparrow = 0;
-	  }
-
-	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 1010,
-	      y: 65,
-	      fontSize: 25,
-	      className: "text",
-	      children: vs_raw
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 225,
-	      fontSize: 20,
-	      className: "text",
-	      children: "0"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 165,
-	      fontSize: 20,
-	      className: "text",
-	      children: "1"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 135,
-	      fontSize: 20,
-	      className: "text",
-	      children: "2"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 115,
-	      fontSize: 20,
-	      className: "text",
-	      children: "3"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 90,
-	      fontSize: 20,
-	      className: "text",
-	      children: "4"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 280,
-	      fontSize: 20,
-	      className: "text",
-	      children: "1"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 310,
-	      fontSize: 20,
-	      className: "text",
-	      children: "2"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 335,
-	      fontSize: 20,
-	      className: "text",
-	      children: "3"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 986,
-	      y: 355,
-	      fontSize: 20,
-	      className: "text",
-	      children: "4"
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(928, 42)scale(0.7)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(vsdisparrow, ",12, 19)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
-	          d: "M13.0607 0.939339C12.4749 0.353553 11.5251 0.353553 10.9393 0.939339L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97918 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.939339ZM13.5 39L13.5 2L10.5 2L10.5 39L13.5 39Z",
-	          fill: "white"
-	        })
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(22, 8)rotate(".concat(dirVS, ",993, 208)"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 988,
-	        y: 208,
-	        width: 10,
-	        height: VSBarHeight,
-	        className: "VSBar"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(0, ".concat(VSBarHeight * needleVertDir, ")"),
-	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "translate(900, ".concat(needledir * needleVertDir / 5 + 92, ")scale(0.9,0.6)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "rotate(".concat(needledir, ", 178, 217)"),
-	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	            points: "174,217 182,217 182,150 179,140 179,125 178,120 177,125 177,140 174,150",
-	            fill: "white"
-	          })
-	        })
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(985, 85.3)scale(0.75)",
-	      children: [/*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 23.133L3.30233 0.363914C2.672 -0.173657 1.72523 -0.098466 1.18766 0.531859C0.650092 1.16218 0.725284 2.10895 1.35561 2.64652L30 27.0758V23.133Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 35.6014L14.9237 23.8181C14.271 23.308 13.3283 23.4236 12.8181 24.0763C12.308 24.729 12.4236 25.6717 13.0763 26.1818L30 39.409V35.6014Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 47.683L4.87071 29.7783C4.19603 29.2976 3.25939 29.4549 2.77867 30.1296C2.29795 30.8043 2.4552 31.7409 3.12989 32.2216L30 51.3666V47.683Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 59.531L14.8128 49.7393C14.1165 49.2904 13.1882 49.4909 12.7393 50.1872C12.2904 50.8834 12.4909 51.8118 13.1872 52.2607L30 63.1005V59.531Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 69.5351L4.76012 54.7067C4.04585 54.287 3.12662 54.5259 2.70698 55.2402C2.28734 55.9544 2.5262 56.8737 3.24048 57.2933L30 73.0145V69.5351Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 89.4192L14.6421 82.1444C13.8934 81.7897 12.999 82.1092 12.6444 82.8578C12.2897 83.6065 12.6092 84.5009 13.3578 84.8556L30 92.7387V89.4192Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 107.52L4.52082 98.0932C3.74387 97.8057 2.88098 98.2025 2.59351 98.9795C2.30604 99.7564 2.70284 100.619 3.47979 100.907L30 110.719V107.52Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 140.381L14.268 137.524C13.4529 137.376 12.6721 137.917 12.5241 138.732C12.3761 139.547 12.9169 140.328 13.732 140.476L30 143.43V140.381Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 172H4.0003C3.17187 172 2.5003 172.672 2.50029 173.5C2.5003 174.328 3.17187 175 4.0003 175H30V172Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 323.867L3.30231 346.636C2.67198 347.174 1.72522 347.098 1.18764 346.468C0.650073 345.838 0.725264 344.891 1.35559 344.354L30 319.924V323.867Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 311.399L14.9237 323.182C14.271 323.692 13.3283 323.576 12.8181 322.924C12.308 322.271 12.4235 321.328 13.0763 320.818L30 307.591V311.399Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 299.317L4.87069 317.222C4.19601 317.702 3.25937 317.545 2.77865 316.87C2.29794 316.196 2.45518 315.259 3.12987 314.778L30 295.633V299.317Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 287.469L14.8128 297.261C14.1165 297.71 13.1882 297.509 12.7393 296.813C12.2904 296.117 12.4909 295.188 13.1871 294.739L30 283.9V287.469Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 277.465L4.7601 292.293C4.04583 292.713 3.1266 292.474 2.70697 291.76C2.28732 291.046 2.52618 290.126 3.24046 289.707L30 273.986V277.465Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 257.581L14.6421 264.856C13.8934 265.21 12.999 264.891 12.6444 264.142C12.2897 263.393 12.6091 262.499 13.3578 262.144L30 254.261V257.581Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 239.48L4.5208 248.907C3.74385 249.194 2.88096 248.798 2.59349 248.021C2.30602 247.244 2.70282 246.381 3.47977 246.093L30 236.281V239.48Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 206.619L14.2679 209.476C13.4528 209.624 12.6721 209.083 12.5241 208.268C12.3761 207.453 12.9169 206.672 13.732 206.524L30 203.57V206.619Z",
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
-	        d: "M30 175H4.0003C3.17187 175 2.5003 174.328 2.50029 173.5C2.5003 172.672 3.17187 172 4.0003 172H30V175Z",
-	        fill: "white"
-	      })]
-	    }), /*#__PURE__*/jsxRuntime.jsx("polygon", {
-	      points: "1169,305 1169,510 1199,530 1199,530 1199,719 1165,740 1165,942 1220,942 1275,800 1275,453 1223,305",
-	      fill: "#242329"
+	      x: 812,
+	      y: 759,
+	      fontSize: 21,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "end",
+	      children: navmap_mode_name
+	    }), showOverlay && /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: "0",
+	      y: "0",
+	      width: "100%",
+	      height: "100%",
+	      fill: "#998e3f",
+	      opacity: 1
 	    })]
 	  });
 	};
@@ -29689,9 +27505,9 @@
 
 	const TacMap = ({}) => {
 	  // SimVar hooks to fetch required data
-	  const [latitude] = useSimVar("GPS POSITION LAT", "degree");
-	  const [longitude] = useSimVar("GPS POSITION LON", "degree");
-	  let [ac_heading] = useSimVar("PLANE HEADING DEGREES GYRO", "degrees");
+	  const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
+	  const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
+	  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
 	  const [zoom] = useSimVar("L:H60_TAC_MAP_SCALE", "number");
 	  ac_heading = Math.round(ac_heading * 100) / 100;
 	  let heading_adjusted = 0;
@@ -29828,6 +27644,2263 @@
 	  });
 	};
 
+	const ApReadout = () => {
+	  useSimVar('A:Autopilot altitude lock var', 'feet');
+	  useSimVar('A:Autopilot airspeed hold var', 'knots');
+	  useSimVar('A:Autopilot heading lock dir', 'degrees');
+	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
+	  useSimVar('A:Autopilot vertical hold var', 'ft/min');
+	  useSimVar('AUTOPILOT THROTTLE ARM', 'Bool');
+	  useSimVar('L:LNAV_ACTIVE', 'bool');
+	  const [Baro_Setting] = useSimVar('A:KOHLSMAN SETTING HG', 'inHg');
+	  let Baro_Formatted = Baro_Setting.toFixed(2);
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	      visibility: isFD ? 'visible' : 'hidden',
+	      children: /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 660,
+	        y: 30,
+	        fontSize: 27,
+	        fill: "#C3FF59",
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "FD1"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: 882,
+	      y: 359,
+	      fontSize: 20,
+	      textAnchor: "end",
+	      fill: "green",
+	      className: "text-radAltLow",
+	      children: [Baro_Formatted, " IN"]
+	    })]
+	  });
+	};
+
+	const HeadingBug = () => {
+	  let [AC_Bearing] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
+	  AC_Bearing = Math.floor(AC_Bearing * 10) / 10;
+	  let [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
+	  AP_HDG = Math.floor(AP_HDG);
+	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [isFD && /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(AP_HDG, ", 512.5,599.5)"),
+	        children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	          transform: "translate(497.4,423) scale(0.8,0.67)",
+	          children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M0.5 18.5V0H4L19 17V18.5H0.5Z",
+	            fill: "rgb(207, 5, 113)",
+	            className: "APReadout"
+	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M37.5 18.5V0H34L19 17V18.5H37.5Z",
+	            fill: "rgb(207, 5, 113)",
+	            className: "APReadout"
+	          })]
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 386,
+	        y: 411,
+	        fontSize: 20,
+	        className: "text-FD",
+	        textAnchor: "end",
+	        children: "HDG"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 394,
+	        y: 436,
+	        fontSize: 27,
+	        className: "text-FD",
+	        textAnchor: "end",
+	        children: AP_HDG
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(482.5,393.5)scale(0.72)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M2 40.5V2H81.5V40.5H55.5L41.5 54.5L27.5 40.5H2Z",
+	        stroke: "white",
+	        "stroke-width": "3",
+	        "stroke-linejoin": "bevel"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 512,
+	      y: 419,
+	      fontSize: 27,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: Math.floor(AC_Bearing)
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(AC_Bearing, ",512.5,599.5)"),
+	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(347,435)scale(0.747)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M203.989 2.56809C203.916 1.74281 203.189 1.13233 202.364 1.20453C201.538 1.27673 200.928 2.00428 201 2.82955L202.394 18.7567C203.388 18.6708 204.385 18.5921 205.384 18.5207L203.989 2.56809Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M234.789 18.5331C235.788 18.6054 236.785 18.6849 237.78 18.7717L239.087 3.82574C239.159 3.00047 238.549 2.27292 237.724 2.20072C236.898 2.12852 236.171 2.739 236.099 3.56428L234.789 18.5331Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M269.722 24.1653C270.692 24.4109 271.66 24.6636 272.625 24.9232L276.51 10.4243C276.724 9.62415 276.249 8.80164 275.449 8.58723C274.649 8.37281 273.826 8.84769 273.612 9.64789L269.722 24.1653Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M303.118 35.8382C304.029 36.2504 304.938 36.6691 305.842 37.0943L312.218 23.4211C312.568 22.6703 312.243 21.7778 311.492 21.4277C310.742 21.0776 309.849 21.4024 309.499 22.1532L303.118 35.8382Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M333.935 53.1747C334.76 53.7395 335.581 54.3104 336.398 54.8871L345.127 42.421C345.602 41.7424 345.437 40.8071 344.758 40.3319C344.08 39.8568 343.145 40.0217 342.669 40.7003L333.935 53.1747Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M361.247 75.5935C361.962 76.2928 362.672 76.9974 363.376 77.7071L374.236 66.8469C374.822 66.2611 374.822 65.3114 374.236 64.7256C373.651 64.1398 372.701 64.1398 372.115 64.7256L361.247 75.5935Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M384.248 102.387C384.831 103.2 385.408 104.016 385.979 104.838L398.662 95.9565C399.341 95.4814 399.506 94.5461 399.031 93.8674C398.556 93.1888 397.62 93.0239 396.942 93.4991L384.248 102.387Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M402.236 132.749C402.669 133.65 403.094 134.555 403.514 135.463L417.662 128.865C418.413 128.515 418.738 127.623 418.388 126.872C418.038 126.121 417.145 125.796 416.394 126.146L402.236 132.749Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M414.322 164.646C414.595 165.607 414.861 166.571 415.121 167.538L429.576 163.665C430.376 163.45 430.851 162.628 430.636 161.827C430.422 161.027 429.599 160.552 428.799 160.767L414.322 164.646Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M420.963 199.407C421.064 200.4 421.157 201.396 421.243 202.393L437.17 201C437.996 200.928 438.606 200.2 438.534 199.375C438.462 198.55 437.734 197.939 436.909 198.011L420.963 199.407Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M421.407 235.598C421.33 236.596 421.247 237.593 421.156 238.587L437.258 239.996C438.083 240.068 438.81 239.458 438.883 238.633C438.955 237.807 438.344 237.08 437.519 237.008L421.407 235.598Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M415.687 270.301C415.439 271.271 415.183 272.238 414.921 273.202L430.659 277.419C431.459 277.633 432.282 277.158 432.496 276.358C432.711 275.558 432.236 274.735 431.435 274.521L415.687 270.301Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M404.011 303.451C403.597 304.362 403.177 305.269 402.75 306.173L417.662 313.127C418.413 313.477 419.306 313.152 419.656 312.401C420.006 311.651 419.681 310.758 418.93 310.408L404.011 303.451Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M386.756 334.036C386.19 334.862 385.619 335.682 385.042 336.499L398.662 346.036C399.341 346.511 400.276 346.346 400.751 345.667C401.227 344.989 401.062 344.054 400.383 343.578L386.756 334.036Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M364.493 361.159C363.794 361.874 363.09 362.585 362.38 363.289L374.236 375.146C374.822 375.731 375.772 375.731 376.358 375.146C376.944 374.56 376.944 373.61 376.358 373.024L364.493 361.159Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M337.91 384.034C337.099 384.619 336.283 385.197 335.463 385.77L345.127 399.571C345.602 400.25 346.537 400.415 347.216 399.94C347.895 399.465 348.059 398.529 347.584 397.851L337.91 384.034Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M307.79 401.977C306.89 402.412 305.987 402.84 305.079 403.262L312.218 418.571C312.568 419.322 313.461 419.647 314.211 419.297C314.962 418.947 315.287 418.054 314.937 417.303L307.79 401.977Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M274.239 414.635C273.276 414.903 272.311 415.164 271.342 415.417L275.426 430.659C275.641 431.459 276.463 431.934 277.263 431.72C278.064 431.505 278.539 430.683 278.324 429.883L274.239 414.635Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M39.2106 155.198C39.5484 154.256 39.8932 153.317 40.2452 152.382L16.1731 143.621C15.3946 143.337 14.5338 143.739 14.2505 144.517C13.9672 145.296 14.3685 146.156 15.147 146.44L39.2106 155.198Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M53.2634 124.735C53.7605 123.866 54.2642 123.002 54.7744 122.143L32.7065 109.402C31.989 108.988 31.0716 109.234 30.6574 109.951C30.2432 110.668 30.489 111.586 31.2065 112L53.2634 124.735Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M72.4245 97.1695C73.0648 96.4011 73.7109 95.6378 74.3628 94.8797L54.9307 78.5742C54.2961 78.0417 53.3499 78.1244 52.8174 78.759C52.2849 79.3937 52.3677 80.3398 53.0023 80.8723L72.4245 97.1695Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M96.0904 73.3303C96.8539 72.6847 97.6225 72.0449 98.3961 71.411L82.1704 52.074C81.6379 51.4393 80.6918 51.3566 80.0572 51.8891C79.4226 52.4216 79.3398 53.3677 79.8723 54.0023L96.0904 73.3303Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M123.552 53.9464C124.415 53.4435 125.284 52.9472 126.156 52.4575L113.598 30.7065C113.184 29.989 112.266 29.7432 111.549 30.1574C110.832 30.5716 110.586 31.489 111 32.2065L123.552 53.9464Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M153.993 39.6472C154.931 39.3037 155.873 38.9673 156.818 38.6381L148.259 15.121C147.975 14.3425 147.115 13.9411 146.336 14.2244C145.558 14.5078 145.156 15.3685 145.44 16.147L153.993 39.6472Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M185.684 31.0578C186.667 30.8805 187.653 30.7106 188.641 30.5483L184.099 4.79097C183.955 3.97512 183.177 3.43037 182.361 3.57423C181.546 3.71808 181.001 4.49607 181.145 5.31191L185.684 31.0578Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M240.593 420.963C239.6 421.064 238.604 421.157 237.607 421.243L239 437.17C239.072 437.996 239.8 438.606 240.625 438.534C241.45 438.462 242.061 437.734 241.989 436.909L240.593 420.963Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M202.567 421.258C201.569 421.173 200.573 421.08 199.579 420.981L198.099 437.905C198.026 438.73 198.637 439.458 199.462 439.53C200.287 439.602 201.015 438.992 201.087 438.167L202.567 421.258Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M168.036 415.253C167.069 414.997 166.104 414.733 165.142 414.462L160.767 430.792C160.552 431.592 161.027 432.414 161.827 432.629C162.628 432.843 163.45 432.368 163.665 431.568L168.036 415.253Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M135.064 403.329C134.156 402.908 133.253 402.48 132.352 402.046L125.237 417.303C124.887 418.054 125.212 418.947 125.963 419.297C126.714 419.647 127.606 419.322 127.956 418.571L135.064 403.329Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M104.654 385.851C103.834 385.279 103.018 384.702 102.206 384.118L92.59 397.851C92.1149 398.529 92.2798 399.465 92.9584 399.94C93.637 400.415 94.5723 400.25 95.0475 399.571L104.654 385.851Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M77.7072 363.376C76.9974 362.672 76.2928 361.962 75.5935 361.247L63.8166 373.024C63.2308 373.61 63.2308 374.56 63.8166 375.146C64.4023 375.731 65.3521 375.731 65.9379 375.146L77.7072 363.376Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M55.016 336.58C54.4384 335.764 53.8667 334.944 53.3009 334.119L39.7913 343.578C39.1127 344.054 38.9477 344.989 39.4229 345.668C39.8981 346.346 40.8334 346.511 41.512 346.036L55.016 336.58Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M37.2819 306.24C36.8547 305.336 36.434 304.429 36.0198 303.518L21.2442 310.408C20.4934 310.758 20.1686 311.651 20.5187 312.401C20.8688 313.152 21.7612 313.477 22.5121 313.127L37.2819 306.24Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M24.7898 272.127C24.5327 271.161 24.2825 270.193 24.0394 269.222L7.65551 273.612C6.85532 273.826 6.38044 274.649 6.59485 275.449C6.80927 276.249 7.63177 276.724 8.43197 276.51L24.7898 272.127Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M18.7567 237.607C18.6708 236.612 18.5921 235.615 18.5207 234.616L2.56809 236.011C1.74281 236.084 1.13233 236.811 1.20453 237.636C1.27673 238.462 2.00428 239.072 2.82955 239L18.7567 237.607Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M18.6744 203.375C18.7557 202.377 18.8442 201.381 18.94 200.387L3.17818 199.008C2.3529 198.935 1.62535 199.546 1.55315 200.371C1.48095 201.196 2.09144 201.924 2.91671 201.996L18.6744 203.375Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M24.5941 168.614C24.848 167.646 25.1089 166.68 25.3768 165.718L10.2918 161.676C9.49158 161.461 8.66907 161.936 8.45466 162.737C8.24024 163.537 8.71512 164.359 9.51532 164.574L24.5941 168.614Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M36.5174 135.396C36.9369 134.488 37.363 133.583 37.7956 132.682L23.7799 126.146C23.0291 125.796 22.1366 126.121 21.7865 126.872C21.4364 127.623 21.7612 128.515 22.512 128.865L36.5174 135.396Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M54.0784 104.756C54.6498 103.935 55.227 103.118 55.8102 102.306L43.2327 93.4991C42.5541 93.0239 41.6188 93.1888 41.1436 93.8674C40.6685 94.546 40.8334 95.4814 41.512 95.9565L54.0784 104.756Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M76.7106 77.6197C77.4155 76.9103 78.1256 76.2062 78.8409 75.5073L68.0592 64.7256C67.4734 64.1398 66.5237 64.1398 65.9379 64.7256C65.3521 65.3114 65.3521 66.2611 65.9379 66.8469L76.7106 77.6197Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M103.719 54.8048C104.536 54.2286 105.357 53.6584 106.183 53.0941L97.505 40.7003C97.0298 40.0217 96.0945 39.8568 95.4159 40.332C94.7373 40.8071 94.5723 41.7424 95.0475 42.4211L103.719 54.8048Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M134.301 37.0272C135.206 36.6027 136.114 36.1847 137.026 35.7732L130.675 22.1532C130.325 21.4024 129.433 21.0776 128.682 21.4277C127.931 21.7778 127.606 22.6703 127.956 23.4211L134.301 37.0272Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M166.755 25.0912C167.719 24.8285 168.686 24.5728 169.655 24.324L165.479 8.73887C165.265 7.93867 164.442 7.46379 163.642 7.67821C162.842 7.89262 162.367 8.71513 162.581 9.51533L166.755 25.0912Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M223 2C223 1.17157 222.328 0.5 221.5 0.5C220.672 0.5 220 1.17157 220 2V28C221.002 28 222.002 28.0077 223 28.023V2Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M250.558 30.4185C251.547 30.5766 252.533 30.7423 253.517 30.9155L257.855 6.3119C257.999 5.49606 257.454 4.71808 256.639 4.57422C255.823 4.43037 255.045 4.97512 254.901 5.79096L250.558 30.4185Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M283.182 38.6381C284.127 38.9673 285.069 39.3037 286.007 39.6472L294.56 16.147C294.844 15.3685 294.442 14.5078 293.664 14.2244C292.885 13.9411 292.025 14.3425 291.741 15.1209L283.182 38.6381Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M313.844 52.4575C314.716 52.9472 315.585 53.4435 316.448 53.9464L329 32.2065C329.414 31.489 329.168 30.5716 328.451 30.1574C327.734 29.7432 326.816 29.989 326.402 30.7065L313.844 52.4575Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M341.604 71.411C342.378 72.0448 343.146 72.6847 343.91 73.3303L360.128 54.0023C360.66 53.3677 360.577 52.4216 359.943 51.889C359.308 51.3565 358.362 51.4393 357.83 52.0739L341.604 71.411Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M365.637 94.8797C366.289 95.6378 366.935 96.4011 367.576 97.1695L386.998 80.8723C387.632 80.3398 387.715 79.3937 387.183 78.7591C386.65 78.1245 385.704 78.0417 385.069 78.5742L365.637 94.8797Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M385.226 122.143C385.736 123.002 386.24 123.866 386.737 124.735L408.794 112C409.511 111.586 409.757 110.668 409.343 109.951C408.928 109.234 408.011 108.988 407.294 109.402L385.226 122.143Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M399.755 152.382C400.107 153.317 400.452 154.256 400.789 155.198L424.853 146.44C425.631 146.156 426.033 145.296 425.75 144.517C425.466 143.739 424.605 143.337 423.827 143.621L399.755 152.382Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M408.541 183.533C408.73 184.513 408.911 185.497 409.085 186.483L433.688 182.145C434.504 182.001 435.049 181.223 434.905 180.407C434.761 179.591 433.983 179.046 433.167 179.19L408.541 183.533Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M411.977 217C411.992 217.998 412 218.998 412 220H438C438.828 220 439.5 219.328 439.5 218.5C439.5 217.672 438.828 217 438 217H411.977Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M409.452 251.359C409.289 252.347 409.12 253.333 408.942 254.316L434.688 258.855C435.504 258.999 436.282 258.454 436.426 257.639C436.57 256.823 436.025 256.045 435.209 255.901L409.452 251.359Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M401.164 283.746C400.832 284.69 400.493 285.631 400.146 286.568L424.853 295.56C425.631 295.844 426.492 295.442 426.776 294.664C427.059 293.885 426.658 293.025 425.879 292.741L401.164 283.746Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M387.363 314.163C386.872 315.034 386.374 315.902 385.869 316.765L408.794 330C409.511 330.414 410.428 330.168 410.843 329.451C411.257 328.734 411.011 327.816 410.294 327.402L387.363 314.163Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M368.511 341.699C367.876 342.472 367.236 343.241 366.59 344.004L386.998 361.128C387.632 361.66 388.578 361.577 389.111 360.943C389.643 360.308 389.561 359.362 388.926 358.83L368.511 341.699Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M345.214 365.557C344.456 366.209 343.693 366.856 342.925 367.497L360.128 387.998C360.66 388.632 361.606 388.715 362.241 388.183C362.876 387.65 362.958 386.704 362.426 386.069L345.214 365.557Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M318.172 385.038C317.313 385.55 316.45 386.056 315.583 386.554L329 409.794C329.414 410.511 330.332 410.757 331.049 410.343C331.766 409.928 332.012 409.011 331.598 408.294L318.172 385.038Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M288.177 399.543C287.243 399.898 286.305 400.246 285.364 400.587L294.56 425.853C294.844 426.632 295.704 427.033 296.483 426.75C297.261 426.466 297.663 425.605 297.379 424.827L288.177 399.543Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M255.329 408.757C254.347 408.939 253.363 409.114 252.376 409.282L256.855 434.688C256.999 435.504 257.777 436.049 258.593 435.905C259.409 435.761 259.954 434.983 259.81 434.167L255.329 408.757Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M223 411.977C222.002 411.992 221.002 412 220 412V438C220 438.828 220.672 439.5 221.5 439.5C222.328 439.5 223 438.828 223 438V411.977Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M186.825 409.144C185.839 408.973 184.855 408.793 183.874 408.606L179.19 435.167C179.046 435.983 179.591 436.761 180.407 436.905C181.223 437.049 182.001 436.504 182.145 435.688L186.825 409.144Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M154.636 400.587C153.695 400.246 152.757 399.898 151.823 399.543L142.621 424.827C142.337 425.605 142.739 426.466 143.517 426.75C144.296 427.033 145.156 426.631 145.44 425.853L154.636 400.587Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M124.417 386.554C123.55 386.056 122.687 385.55 121.828 385.038L108.402 408.294C107.988 409.011 108.234 409.928 108.951 410.343C109.668 410.757 110.586 410.511 111 409.794L124.417 386.554Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M97.0748 367.497C96.3068 366.856 95.544 366.209 94.7862 365.557L77.5742 386.069C77.0417 386.704 77.1244 387.65 77.7591 388.183C78.3937 388.715 79.3398 388.632 79.8723 387.998L97.0748 367.497Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M73.41 344.004C72.7638 343.241 72.1235 342.472 71.4891 341.699L51.0739 358.83C50.4393 359.362 50.3566 360.308 50.8891 360.943C51.4216 361.577 52.3677 361.66 53.0023 361.128L73.41 344.004Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M54.1308 316.765C53.6263 315.902 53.1284 315.034 52.637 314.163L29.7065 327.402C28.989 327.816 28.7432 328.734 29.1574 329.451C29.5716 330.168 30.489 330.414 31.2065 330L54.1308 316.765Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M39.8536 286.568C39.5071 285.631 39.1678 284.69 38.8356 283.746L14.1209 292.741C13.3425 293.025 12.9411 293.885 13.2244 294.664C13.5078 295.442 14.3685 295.844 15.147 295.56L39.8536 286.568Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M30.8556 253.175C30.6842 252.191 30.5203 251.204 30.3639 250.215L3.79096 254.901C2.97512 255.045 2.43037 255.823 2.57422 256.639C2.71808 257.454 3.49607 257.999 4.31191 257.855L30.8556 253.175Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M28 220C28 218.998 28.0077 217.998 28.023 217H2C1.17157 217 0.5 217.672 0.5 218.5C0.5 219.328 1.17157 220 2 220H28Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M30.7181 187.624C30.8857 186.637 31.0608 185.653 31.2435 184.671L5.83285 180.19C5.01701 180.046 4.23903 180.591 4.09517 181.407C3.95132 182.223 4.49607 183.001 5.31191 183.145L30.7181 187.624Z",
+	          fill: "white"
+	        })]
+	      })
+	    })]
+	  });
+	};
+
+	const AltCircle = () => {
+	  let [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet');
+	  useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
+	  let Alt_Readout = Math.floor(STD_ALT / 10) * 10;
+	  STD_ALT = Math.floor(STD_ALT);
+
+	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
+	    viewBox: "0 0 1280 1280",
+	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(-12, 0)",
+	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(1000, 165)scale(1.25)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("svg", {
+	          width: "306",
+	          height: "306",
+	          viewBox: "0 0 306 306",
+	          fill: "none",
+	          children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M304 153C304 236.395 236.395 304 153 304C69.605 304 2 236.395 2 153C2 89.4915 41.2076 35.1355 96.7455 12.8262C114.129 5.84343 133.113 2 153 2C236.395 2 304 69.605 304 153Z",
+	            stroke: "white",
+	            "stroke-width": "4"
+	          })
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(1, 2)scale(1.003)",
+	          children: /*#__PURE__*/jsxRuntime.jsxs("svg", {
+	            width: "300",
+	            height: "299",
+	            viewBox: "0 0 300 299",
+	            fill: "none",
+	            children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M150 22.0039C150.333 22.0013 150.666 22 151 22C152.338 22 153.672 22.0207 155 22.0618V0H150V22.0039Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M224.943 45.7335C226.298 46.7057 227.633 47.7038 228.948 48.7273L241.932 30.8565L237.887 27.9175L224.943 45.7335Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M270.867 106.933C271.418 108.502 271.939 110.086 272.429 111.682L293.749 104.755L292.204 100L270.867 106.933Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M272.629 185.658C272.148 187.258 271.636 188.844 271.093 190.417L291.862 197.165L293.407 192.409L272.629 185.658Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M227.369 250.482C226.039 251.485 224.688 252.462 223.318 253.413L236.728 271.87L240.773 268.931L227.369 250.482Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M155 275.938C153.672 275.979 152.338 276 151 276C150.666 276 150.333 275.999 150 275.996V298H155V275.938Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M79.7182 254.124C78.3385 253.187 76.9782 252.223 75.6381 251.233L62.1134 269.849L66.1585 272.788L79.7182 254.124Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M30.8265 190.184C30.2874 188.61 29.7784 187.023 29.3 185.423L7.79647 192.409L9.34156 197.165L30.8265 190.184Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M29.4991 111.918C29.9862 110.32 30.5039 108.735 31.0516 107.165L9.00003 100L7.45494 104.755L29.4991 111.918Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M78.0822 45.0061C76.7175 45.9648 75.3725 46.9496 74.048 47.9599L60.9549 29.9389L65 27L78.0822 45.0061Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M165.155 14.7833C166.152 14.8905 167.145 15.0085 168.135 15.1371L169.63 0.915178L166.646 0.601593L165.155 14.7833Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M182.554 17.8136C183.527 18.0497 184.497 18.2963 185.462 18.5533L188.796 4.66569L185.879 3.96535L182.554 17.8136Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M199.408 23.0954C200.342 23.4568 201.27 23.8284 202.194 24.2098L207.308 10.8858L204.508 9.81071L199.408 23.0954Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M215.427 30.539C216.305 31.0192 217.177 31.5089 218.043 32.0078L224.851 19.4691L222.214 18.0376L215.427 30.539Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M239.594 47.4072C240.348 48.0651 241.094 48.7312 241.832 49.4054L251.705 38.4404L249.476 36.433L239.594 47.4072Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M252.121 59.8685C252.783 60.6182 253.437 61.3752 254.082 62.1394L265.271 52.5828L263.323 50.3016L252.121 59.8685Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M262.934 73.8516C263.492 74.6805 264.042 75.5159 264.583 76.3576L276.875 68.3751L275.241 65.8591L262.934 73.8516Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M271.841 89.1284C272.287 90.0227 272.723 90.9227 273.149 91.8281L286.318 85.5468L285.027 82.8391L271.841 89.1284Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M282.568 119.064C282.792 120.037 283.004 121.014 283.207 121.995L296.811 119.104L296.187 116.169L282.568 119.064Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M285.388 136.542C285.483 137.535 285.566 138.532 285.639 139.531L299.463 138.444L299.227 135.453L285.388 136.542Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M285.918 154.245C285.884 155.247 285.839 156.246 285.783 157.242L299.567 157.964L299.724 154.968L285.918 154.245Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M284.161 171.878C283.997 172.866 283.822 173.851 283.636 174.832L297.123 177.331L297.669 174.382L284.161 171.878Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M275.099 202.836C274.705 203.756 274.301 204.67 273.887 205.58L287.031 211.432L288.251 208.691L275.099 202.836Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M267.05 218.652C266.539 219.512 266.018 220.365 265.489 221.213L277.715 228.705L279.283 226.147L267.05 218.652Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M256.999 233.284C256.38 234.07 255.752 234.849 255.116 235.62L266.224 244.615L268.112 242.284L256.999 233.284Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M245.123 246.489C244.407 247.187 243.684 247.877 242.953 248.56L252.754 258.889L254.931 256.824L245.123 246.489Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M221.47 264.95C220.618 265.474 219.761 265.99 218.898 266.495L225.447 277.839L228.045 276.339L221.47 264.95Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M205.751 273.261C204.838 273.669 203.921 274.067 202.998 274.455L207.99 286.506L210.761 285.358L205.751 273.261Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M189.069 279.432C188.111 279.716 187.149 279.989 186.183 280.252L189.55 292.82L192.448 292.043L189.069 279.432Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M171.717 283.349C170.731 283.504 169.741 283.648 168.748 283.782L170.445 296.673L173.419 296.282L171.717 283.349Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M139.815 284.585C138.815 284.507 137.819 284.418 136.826 284.319L135.387 298.007L138.371 298.32L139.815 284.585Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M122.204 282.041C121.224 281.833 120.248 281.614 119.276 281.385L116.068 294.746L118.985 295.446L122.204 282.041Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M105.08 277.2C104.137 276.864 103.198 276.519 102.265 276.163L97.3401 288.992L100.141 290.067L105.08 277.2Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M88.7464 270.142C87.8559 269.685 86.9711 269.219 86.0922 268.743L79.5231 280.842L82.1596 282.273L88.7464 270.142Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M60.5001 250.795C59.7527 250.13 59.0127 249.458 58.2802 248.777L49.3766 258.665L51.6061 260.673L60.5001 250.795Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M48.0118 238.14C47.3574 237.384 46.7112 236.621 46.0734 235.85L35.9284 244.515L37.8767 246.796L48.0118 238.14Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M37.2806 223.97C36.7305 223.135 36.1894 222.294 35.6574 221.447L24.4423 228.73L26.0762 231.246L37.2806 223.97Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M28.4957 208.522C28.0599 207.623 27.6337 206.718 27.2173 205.808L15.1148 211.581L16.4063 214.288L28.4957 208.522Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M18.0779 178.35C17.8663 177.374 17.6652 176.395 17.4748 175.411L3.67897 178.344L4.30271 181.278L18.0779 178.35Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M15.464 160.795C15.382 159.8 15.3106 158.803 15.2502 157.802L1.10578 158.915L1.34116 161.906L15.464 160.795Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M15.1504 143.058C15.1973 142.057 15.255 141.059 15.3235 140.063L1.09051 139.318L0.933502 142.313L15.1504 143.058Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M17.13 125.438C17.3068 124.452 17.4942 123.469 17.6921 122.491L3.63341 119.885L3.08671 122.835L17.13 125.438Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M26.2618 95.3298C26.6623 94.4125 27.0727 93.5005 27.4928 92.594L15.0617 87.0593L13.8415 89.7999L26.2618 95.3298Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M34.3976 79.6003L22.7387 72.4556L24.3062 69.8977L35.9758 77.0489C35.4406 77.893 34.9145 78.7436 34.3976 79.6003Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M136.352 14.7297C135.355 14.8331 134.362 14.9474 133.372 15.0723L131.548 1.22274L134.523 0.831158L136.352 14.7297Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M118.937 17.6956L115.32 4.19752L112.422 4.97397L116.026 18.4244C116.992 18.171 117.963 17.928 118.937 17.6956Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M102.055 22.9171L96.7215 10.0415L93.9499 11.1895L99.265 24.0213C99.5161 23.9186 99.7677 23.8167 100.02 23.7155C100.695 23.4441 101.374 23.1779 102.055 22.9171Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M85.9986 30.3075L79.0447 18.2631L76.4466 19.7631L83.3771 31.767C84.2449 31.2711 85.1188 30.7846 85.9986 30.3075Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M58.5961 49.9304L49.0828 39.9054L46.9066 41.9704L56.4147 51.9898C57.1342 51.2954 57.8614 50.6089 58.5961 49.9304Z",
+	              fill: "white"
+	            }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	              d: "M46.406 62.7497L35.7116 54.0896L33.8236 56.421L44.5096 65.0744C45.1333 64.2924 45.7655 63.5175 46.406 62.7497Z",
+	              fill: "white"
+	            })]
+	          })
+	        })]
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1200,
+	        y: 313,
+	        fontSize: 30,
+	        className: "text",
+	        children: "FEET"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1204,
+	        y: 235,
+	        fontSize: 35,
+	        className: "text",
+	        children: "0"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1285,
+	        y: 262,
+	        fontSize: 35,
+	        className: "text",
+	        children: "1"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1340,
+	        y: 330,
+	        fontSize: 35,
+	        className: "text",
+	        children: "2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1340,
+	        y: 415,
+	        fontSize: 35,
+	        className: "text",
+	        children: "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1285,
+	        y: 480,
+	        fontSize: 35,
+	        className: "text",
+	        children: "4"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1204,
+	        y: 510,
+	        fontSize: 35,
+	        className: "text",
+	        children: "5"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1125,
+	        y: 480,
+	        fontSize: 35,
+	        className: "text",
+	        children: "6"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1070,
+	        y: 415,
+	        fontSize: 35,
+	        className: "text",
+	        children: "7"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1070,
+	        y: 330,
+	        fontSize: 35,
+	        className: "text",
+	        children: "8"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1120,
+	        y: 262,
+	        fontSize: 35,
+	        className: "text",
+	        children: "9"
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(952, 35)scale(1.35)",
+	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "rotate(".concat(STD_ALT * 4, ", 178, 217)"),
+	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	            points: "174,217 182,217 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
+	            fill: "white"
+	          })
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(998, 87)scale(1.25)",
+	        children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	          points: " 95,183  160,183  160,174  205,174  205,265  160,265  160,257  95,256",
+	          stroke: "white",
+	          strokeWidth: 3,
+	          fill: "black"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 1250,
+	        y: 376,
+	        fontSize: 46,
+	        textAnchor: "end",
+	        className: "readouts",
+	        children: Alt_Readout
+	      })]
+	    })
+	  });
+	};
+
+	const Collective = () => {
+	  useSimVar('L:STABILATOR_POS', 'enum');
+	  let [Egi_Failed] = useSimVar('L:H60_SYS_EGI_FAILED', 'bool');
+	  let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots');
+	  let [AC_Wind_Speed] = useSimVar('A:AMBIENT WIND VELOCITY', 'knots');
+	  let [AC_Wind_Dir] = useSimVar('A:AMBIENT WIND DIRECTION', 'degrees');
+	  let [AC_Bearing] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
+	  AC_Wind_Speed = Math.floor(AC_Wind_Speed);
+	  AC_Wind_Dir = Math.floor((AC_Wind_Dir - AC_Bearing + 360) % 360 * 10) / 10;
+	  let [collective_POS] = useSimVar('A:COLLECTIVE POSITION', 'percent');
+	  let [AFCS_Collective_FD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
+	  AC_GS = Math.floor(AC_GS);
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 248,
+	      y: 369,
+	      fontSize: 20,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "GS"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 278,
+	      y: 369.5,
+	      fontSize: 27,
+	      className: Egi_Failed ? "text-warning" : "readouts",
+	      textAnchor: "start",
+	      children: Egi_Failed ? "---" : AC_GS
+	    }), AC_Wind_Speed >= 4 && /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 284,
+	        y: 404,
+	        fontSize: 27,
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: AC_Wind_Speed
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(AC_Wind_Dir, ", 296, 425) translate(289, 410) "),
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M7.25 40L14.4669 27.5L0.0331204 27.5L7.25 40ZM6 -5.46392e-08L6 28.75L8.5 28.75L8.5 5.46392e-08L6 -5.46392e-08Z",
+	          fill: "white"
+	        })
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 28,
+	      y: 35.5,
+	      fontSize: 20,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "STB"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 29,
+	      y: 62,
+	      fontSize: 27,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: 20
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(26, 70)scale(0.73,0.73)rotate(".concat(-3, ")"),
+	      className: "text",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M3.05284 4.1724L1.97746 4.99231C0.887084 5.82365 0.681168 7.38339 1.51844 8.46921L2.86269 10.2125C5.76344 13.9744 9.30763 17.1928 13.331 19.7184C20.9569 24.5055 29.3324 27.9784 38.1082 29.9925L73 38L17.0956 3.48191C12.7233 0.7822 7.13925 1.05677 3.05284 4.1724Z",
+	        fill: "white",
+	        stroke: "white",
+	        "stroke-width": "2",
+	        "stroke-linejoin": "round"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(307, 302) scale(0.6)",
+	      className: "text",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M17.3635 0.656629C17.269 0.556654 17.1375 0.5 17 0.5C16.8625 0.5 16.731 0.556654 16.6365 0.656629L1.04809 17.1566C0.910985 17.3018 0.873353 17.5145 0.952367 17.6979C1.03138 17.8812 1.21189 18 1.41154 18H32.5885C32.7881 18 32.9686 17.8812 33.0476 17.6979C33.1266 17.5145 33.089 17.3018 32.9519 17.1566L17.3635 0.656629Z",
+	        fill: "white",
+	        stroke: "white",
+	        "stroke-linejoin": "round"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(307, 128) scale(0.6,-0.6)",
+	      className: "text",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M17.3635 0.656629C17.269 0.556654 17.1375 0.5 17 0.5C16.8625 0.5 16.731 0.556654 16.6365 0.656629L1.04809 17.1566C0.910985 17.3018 0.873353 17.5145 0.952367 17.6979C1.03138 17.8812 1.21189 18 1.41154 18H32.5885C32.7881 18 32.9686 17.8812 33.0476 17.6979C33.1266 17.5145 33.089 17.3018 32.9519 17.1566L17.3635 0.656629Z",
+	        fill: "white",
+	        stroke: "white",
+	        "stroke-linejoin": "round"
+	      })
+	    }), AFCS_Collective_FD && /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(307, ".concat(285 - collective_POS * 1.55, " ) scale(0.7)"),
+	      fill: "rgb(209, 1, 209)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M6.39604 1.5C5.94988 1.5 5.52688 1.69861 5.2419 2.0419L1.84586 6.13281C1.62234 6.40206 1.5 6.74098 1.5 7.09091V10.7273C1.5 11.0772 1.62234 11.4161 1.84586 11.6854L5.2419 15.7763C5.52688 16.1196 5.94988 16.3182 6.39604 16.3182H21.8631L25.2723 19.1574V23.9091C25.2723 24.5178 25.6401 25.0662 26.2034 25.297L30.0846 26.8879C30.4301 27.0296 30.8161 27.0372 31.167 26.9094L35.0456 25.4961L39.4039 26.9253C39.7075 27.0249 40.035 27.0249 40.3387 26.9253L44.7228 25.4877L49.1069 26.9253C49.5405 27.0675 50.0153 27.0046 50.3969 26.7543L52.8226 25.1634C53.2454 24.8862 53.5 24.4146 53.5 23.9091V7.09091C53.5 6.64879 53.305 6.22918 52.967 5.94418L48.1155 1.85327C47.8449 1.62513 47.5024 1.5 47.1485 1.5H6.39604Z",
+	        stroke: "none",
+	        "stroke-linecap": "round",
+	        "stroke-linejoin": "round"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(307, ".concat(285 - collective_POS * 1.55, " ) scale(0.7)"),
+	      fill: "none",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M6.39604 1.5C5.94988 1.5 5.52688 1.69861 5.2419 2.0419L1.84586 6.13281C1.62234 6.40206 1.5 6.74098 1.5 7.09091V10.7273C1.5 11.0772 1.62234 11.4161 1.84586 11.6854L5.2419 15.7763C5.52688 16.1196 5.94988 16.3182 6.39604 16.3182H21.8631L25.2723 19.1574V23.9091C25.2723 24.5178 25.6401 25.0662 26.2034 25.297L30.0846 26.8879C30.4301 27.0296 30.8161 27.0372 31.167 26.9094L35.0456 25.4961L39.4039 26.9253C39.7075 27.0249 40.035 27.0249 40.3387 26.9253L44.7228 25.4877L49.1069 26.9253C49.5405 27.0675 50.0153 27.0046 50.3969 26.7543L52.8226 25.1634C53.2454 24.8862 53.5 24.4146 53.5 23.9091V7.09091C53.5 6.64879 53.305 6.22918 52.967 5.94418L48.1155 1.85327C47.8449 1.62513 47.5024 1.5 47.1485 1.5H6.39604Z",
+	        stroke: "white",
+	        "stroke-width": "2.5",
+	        "stroke-linecap": "round",
+	        "stroke-linejoin": "round"
+	      })
+	    })]
+	  });
+	};
+
+	const HorizonLine = props => {
+	  useSimVar('PLANE BANK DEGREES', 'Degrees');
+	  useSimVar('PLANE PITCH DEGREES', 'Degrees');
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(0 ".concat(props.height, ") "),
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 537,
+	        y: 0,
+	        width: 85,
+	        height: 2,
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 520,
+	        y: 8,
+	        fontSize: 23,
+	        fill: "white",
+	        textAnchor: "middle",
+	        children: props.label
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 636,
+	        y: 8,
+	        fontSize: 23,
+	        fill: "white",
+	        textAnchor: "middle",
+	        children: props.label
+	      })]
+	    })
+	  });
+	};
+
+	const HorizonLine2 = props => {
+	  useSimVar('PLANE BANK DEGREES', 'Degrees');
+	  useSimVar('PLANE PITCH DEGREES', 'Degrees');
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(0 ".concat(props.height, ") "),
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 571,
+	        y: 12,
+	        width: 16,
+	        height: 2,
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 554,
+	        y: 22,
+	        width: 50,
+	        height: 2,
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 571,
+	        y: 32,
+	        width: 16,
+	        height: 2,
+	        fill: "white"
+	      })]
+	    })
+	  });
+	};
+
+	const Horizon = () => {
+	  const [roll] = useSimVar('PLANE BANK DEGREES', 'Degrees');
+	  let [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
+	  pitch = pitch;
+	  const elements = [];
+
+	  for (let i = 1; i < 10; i++) {
+	    let height2 = 548 - i * 45;
+	    let aircraftPitch = i * 10;
+
+	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine, {
+	      height: height2,
+	      label: aircraftPitch
+	    });
+
+	    elements.push(SpdMark);
+	  }
+
+	  for (let i = 1; i < 10; i++) {
+	    let height2 = 544 + i * 45;
+	    let aircraftPitch = i * 10;
+
+	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine, {
+	      height: height2,
+	      label: aircraftPitch
+	    });
+
+	    elements.push(SpdMark);
+	  }
+
+	  for (let i = 1; i < 10; i++) {
+	    let height2 = 503 - i * 45;
+
+	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine2, {
+	      height: height2
+	    });
+
+	    elements.push(SpdMark);
+	  }
+
+	  for (let i = 0; i < 9; i++) {
+	    let height2 = 589 + i * 45;
+
+	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine2, {
+	      height: height2
+	    });
+
+	    elements.push(SpdMark);
+	  }
+
+	  const [RA_Alt_Lo_Alert] = useSimVar('L:H60_CAS_RADALT_LO_ALERT', 'feet');
+	  const [RA_Alt_Hi_Alert] = useSimVar('L:H60_CAS_RADALT_HI_ALERT', 'bool');
+	  useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("clipPath", {
+	      id: "ah-clip",
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 350,
+	        y: 6,
+	        width: 326,
+	        height: 340,
+	        fill: "grey",
+	        rx: 40,
+	        ry: 40
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("clipPath", {
+	      id: "line-clip",
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 350,
+	        y: 62,
+	        width: 326,
+	        height: 248,
+	        fill: "grey",
+	        rx: 0,
+	        ry: 0
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      clipPath: "url(#ah-clip)",
+	      transform: "translate(6 30)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(roll, ", 512, 188)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(0 ".concat(pitch * -4.45, ") "),
+	          children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	            transform: "translate(-65 -360)",
+	            children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	              children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: -500,
+	                y: -953,
+	                height: 1500,
+	                width: 2000,
+	                fill: "#00bee6"
+	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: -500,
+	                y: 547,
+	                height: 1500,
+	                width: 2000,
+	                fill: "#ca9f30"
+	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: -500,
+	                y: 545,
+	                width: 2000,
+	                height: 3,
+	                fill: "white"
+	              })]
+	            })
+	          })
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(roll, ", 512, 188)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(-127 -70)",
+	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	            points: "630,120 640,100 650,120",
+	            fill: "white"
+	          })
+	        })
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      clipPath: "url(#line-clip)",
+	      transform: "translate(5 30)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(roll, ", 512, 188)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(0 ".concat(pitch * -4.45, ") "),
+	          children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	            transform: "translate(-65 -360)",
+	            children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	              children: [elements, /*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: 571,
+	                y: 512,
+	                width: 16,
+	                height: 2,
+	                fill: "white"
+	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: 554,
+	                y: 522,
+	                width: 50,
+	                height: 2,
+	                fill: "white"
+	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: 571,
+	                y: 578,
+	                width: 16,
+	                height: 2,
+	                fill: "white"
+	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	                x: 554,
+	                y: 568,
+	                width: 50,
+	                height: 2,
+	                fill: "white"
+	              })]
+	            })
+	          })
+	        })
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(402,210)scale(0.6)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M130.5 2V42.5H115.5V16H2V2H130.5Z",
+	        fill: "black"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M260.5 2V42.5H275.5V16H389V2H260.5Z",
+	        fill: "black"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M130.5 2V42.5H115.5V16H2V2H130.5Z",
+	        stroke: "white",
+	        "stroke-width": "3",
+	        "stroke-linejoin": "round"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M260.5 2V42.5H275.5V16H389V2H260.5Z",
+	        stroke: "white",
+	        "stroke-width": "3",
+	        "stroke-linejoin": "round"
+	      }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	        cx: "195",
+	        cy: "17.5",
+	        r: "16",
+	        stroke: "white",
+	        "stroke-width": "3",
+	        fill: "none"
+	      })]
+	    }), RA_Alt_Lo_Alert && /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 660,
+	      y: 200,
+	      fontSize: 35,
+	      className: "text-caution",
+	      textAnchor: "end",
+	      children: "LO"
+	    }), RA_Alt_Hi_Alert && /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 660,
+	      y: 200,
+	      fontSize: 35,
+	      className: "text-caution",
+	      textAnchor: "end",
+	      children: "HI"
+	    })]
+	  });
+	};
+
+	const PowerPod = () => {
+	  let [Fuel_1] = useSimVar('A:FUELSYSTEM TANK WEIGHT:1', 'pounds');
+	  let [Fuel_2] = useSimVar('A:FUELSYSTEM TANK WEIGHT:2', 'pounds');
+	  let [Tot_Fuel] = useSimVar('A:FUEL TOTAL QUANTITY WEIGHT', 'pounds');
+	  Tot_Fuel = Math.floor(Tot_Fuel / 5) * 5;
+	  let [Q1] = useSimVar('A:ENG TORQUE PERCENT:1', 'percent');
+	  let [Q2] = useSimVar('A:ENG TORQUE PERCENT:2', 'percent');
+	  let [NP_1] = useSimVar('A:ENG RPM ANIMATION PERCENT:1', 'percent');
+	  let [NP_2] = useSimVar('A:ENG RPM ANIMATION PERCENT:2', 'percent');
+	  NP_1 = Math.floor(NP_1);
+	  NP_2 = Math.floor(NP_2);
+	  Q1 = Math.floor(Q1);
+	  Q2 = Math.floor(Q2);
+	  let NR = 1;
+	  let [RTR_RPM] = useSimVar('A:ROTOR RPM PCT:1', 'percent');
+	  NR = Math.floor(RTR_RPM);
+	  let NRScale = 1;
+
+	  if (NR < 20) {
+	    NRScale = 0;
+	  } else if (20 <= NR && NR <= 90) {
+	    NRScale = 1.3;
+	  } else if (90 < NR && NR <= 95) {
+	    NRScale = 2.0;
+	  } else if (95 < NR && NR <= 100) {
+	    NRScale = 2.6;
+	  } else if (100 < NR && NR <= 105) {
+	    NRScale = 3.16;
+	  } else if (105 < NR && NR <= 110) {
+	    NRScale = 3.4;
+	  } else {
+	    NRScale = 1;
+	  }
+
+	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
+	    viewBox: "0 0 1280 1280",
+	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 278,
+	        y: 1229,
+	        width: "180",
+	        height: "40",
+	        stroke: "white",
+	        fill: "none",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 285,
+	        y: 1263,
+	        fontSize: 32,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "REF-BARO"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 285,
+	        y: 1060,
+	        fontSize: 44,
+	        fill: "#00EE00",
+	        className: "apdisp",
+	        textAnchor: "middle",
+	        children: Tot_Fuel
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 294,
+	        y: 835,
+	        fontSize: 32,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "FUEL"
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(270,855)scale(1.25)",
+	        fill: "none",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M5 7.47451V128H15V1H1V3.4902L5 7.47451Z",
+	          className: "bargauge"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M29 7.47451V128H19V1H33V3.4902L29 7.47451Z",
+	          className: "bargauge"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M5 7.47451V128H15V1H1V3.4902L5 7.47451Z",
+	          className: "barline",
+	          "stroke-linejoin": "round"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M29 7.47451V128H19V1H33V3.4902L29 7.47451Z",
+	          className: "barline",
+	          "stroke-linejoin": "round"
+	        })]
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 252,
+	        y: 1011,
+	        width: "75",
+	        height: "5",
+	        stroke: "none",
+	        className: "text",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 264,
+	        y: 841,
+	        width: "55",
+	        height: "3",
+	        stroke: "none",
+	        className: "text",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 266,
+	        y: 980,
+	        width: "50",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 266,
+	        y: 1011 + -(Fuel_1 / 12.7),
+	        width: "25",
+	        height: "3",
+	        stroke: "none",
+	        className: "text",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 291,
+	        y: 1011 + -(Fuel_2 / 12.7),
+	        width: "25",
+	        height: "3",
+	        stroke: "none",
+	        className: "text",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(180,-62.5,957)",
+	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: -80,
+	          y: 770,
+	          width: "35",
+	          height: Q1 * 3.1,
+	          stroke: "none",
+	          fill: "greenyellow",
+	          "stroke-width": "3"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -80,
+	        y: 770,
+	        width: "35",
+	        height: "375",
+	        stroke: "white",
+	        fill: "none",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: -40,
+	        y: 760,
+	        fontSize: 44,
+	        fill: "#00EE00",
+	        className: "apdisp",
+	        textAnchor: "end",
+	        children: Q1
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 50,
+	        y: 640,
+	        fontSize: 44,
+	        fill: "#00EE00",
+	        className: "apdisp",
+	        textAnchor: "end",
+	        children: NR
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(170,0)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "rotate(180,-62.5,957)",
+	          children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	            x: -80,
+	            y: 770,
+	            width: "35",
+	            height: Q2 * 3.1,
+	            stroke: "none",
+	            fill: "greenyellow",
+	            "stroke-width": "3"
+	          })
+	        }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: -80,
+	          y: 770,
+	          width: "35",
+	          height: "375",
+	          stroke: "white",
+	          fill: "none",
+	          "stroke-width": "3"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: -80,
+	          y: 760,
+	          fontSize: 44,
+	          fill: "#00EE00",
+	          className: "apdisp",
+	          textAnchor: "start",
+	          children: Q2
+	        })]
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 90,
+	        y: 895,
+	        width: "35",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -80,
+	        y: 895,
+	        width: "35",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 90,
+	        y: 788,
+	        width: "35",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -80,
+	        y: 788,
+	        width: "35",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 44,
+	        y: 816,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -32,
+	        y: 816,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 44,
+	        y: 1015,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -32,
+	        y: 1015,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -4,
+	        y: 1013,
+	        width: "48",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 44,
+	        y: 943,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -32,
+	        y: 943,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -4,
+	        y: 940,
+	        width: "48",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 44,
+	        y: 873,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -32,
+	        y: 873,
+	        width: "28",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -4,
+	        y: 872,
+	        width: "48",
+	        height: "3",
+	        stroke: "none",
+	        className: "barwarn",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: -4,
+	        y: 745,
+	        width: "48",
+	        height: "3",
+	        stroke: "none",
+	        className: "barmax",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(180,-62.5,957)translate(-85,-6)",
+	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: -80,
+	          y: 770,
+	          width: "35",
+	          height: NR * NRScale,
+	          stroke: "none",
+	          fill: "greenyellow",
+	          "stroke-width": "3"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(-32, ".concat(-NP_1 * 2.5 + 1130, " ) scale(1.27)"),
+	        fill: "none",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M17.5 0V22.5H15L0.5 8V0H17.5Z",
+	          className: "bargauge"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(73, ".concat(-NP_2 * 2.5 + 1130, " ) scale(-1.27,1.27)"),
+	        fill: "none",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M17.5 0V22.5H15L0.5 8V0H17.5Z",
+	          className: "bargauge"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(-35,665)scale(1.25)",
+	        fill: "none",
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M1.5 78H8M8 90H1.5M8 101.5H1.5M8 112.5H1.5M8 136.5H1.5M8 146.5H1.5M8 157.5H1.5M8 203H1.5M8 214.5H1.5M8 248H1.5M8 259.5H1.5M8 271H1.5M19 2H1.5V35.5M1.5 35.5H19M1.5 35.5V68M1.5 68H19M1.5 68V181M1.5 181H19M1.5 181V237M1.5 237H19M1.5 237V292.5M1.5 292.5H19M1.5 292.5V388H19M87.5 78H81M87.5 78V68M87.5 78V90M81 90H87.5M87.5 90V101.5M81 101.5H87.5M87.5 101.5V112.5M81 112.5H87.5M87.5 112.5V136.5M81 136.5H87.5M87.5 136.5V146.5M81 146.5H87.5M87.5 146.5V157.5M81 157.5H87.5M87.5 157.5V181M81 203H87.5M87.5 203V181M87.5 203V214.5M81 214.5H87.5M87.5 214.5V237M81 248H87.5M87.5 248V237M87.5 248V259.5M81 259.5H87.5M87.5 259.5V271M81 271H87.5M87.5 271V292.5M70 2H87.5V35.5M87.5 35.5H70M87.5 35.5V68M87.5 68H70M87.5 181H70M87.5 237H70M87.5 292.5H70M87.5 292.5V388H70",
+	          stroke: "white",
+	          "stroke-width": "3",
+	          "stroke-linecap": "square"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: -80,
+	        y: 710,
+	        fontSize: 32,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "Q1"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 80,
+	        y: 710,
+	        fontSize: 32,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "Q2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 5,
+	        y: 600,
+	        fontSize: 32,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "NR"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: -10,
+	        y: 675,
+	        fontSize: 31,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "120"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: -10,
+	        y: 760,
+	        fontSize: 31,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "110"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: -10,
+	        y: 900,
+	        fontSize: 31,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "100"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 0,
+	        y: 1040,
+	        fontSize: 31,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "90"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 0,
+	        y: 1160,
+	        fontSize: 31,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "start",
+	        children: "20"
+	      })]
+	    })
+	  });
+	};
+
+	const SpdIndicator = () => {
+	  const [speed] = useSimVar('AIRSPEED INDICATED', 'knots');
+	  useSimVar('GROUND VELOCITY', 'knots');
+	  const elements = []; //let ones: string = "";
+
+	  let indicator = 0;
+	  let ones = [];
+	  let ones_y = 0;
+	  let tens = "";
+	  let hundreds = "";
+
+	  for (let i = 0; i < 11; i++) {
+	    let y_ = 229 - i * 28;
+
+	    const tex = /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 186,
+	      y: y_,
+	      fontSize: 29,
+	      fill: "white",
+	      children: i % 10
+	    });
+
+	    ones.push(tex);
+	  }
+
+	  if (speed >= 40) {
+	    let y_ = 229 + 28;
+
+	    const tex = /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 186,
+	      y: y_,
+	      fontSize: 29,
+	      fill: "white",
+	      children: "9"
+	    });
+
+	    ones.push(tex);
+	  } // ------------------------------------------------
+
+
+	  if (speed <= 30) {
+	    //ones = "0"
+	    tens = "3";
+	    ones_y = 0;
+	  } else {
+	    //ones = Math.floor(speed % 10).toString()
+	    tens = Math.floor(Math.floor(speed % 100) / 10).toString();
+	    ones_y = speed % 10 * 28;
+	  }
+
+	  if (speed >= 100) {
+	    hundreds = Math.floor(Math.floor(speed % 1000) / 100).toString();
+	  } // Iterative adding of markers
+
+
+	  for (let i = 0; i < 6; i++) {
+	    let rot = -53 + i * 17.8;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  }
+
+	  for (let i = 0; i < 4; i++) {
+	    let rot = 55 + i * 17.8;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  }
+
+	  for (let i = 0; i < 2; i++) {
+	    let rot = 125 + i * 17.8;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  }
+
+	  for (let i = 0; i < 3; i++) {
+	    let rot = 159.5 + i * 17;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  }
+
+	  for (let i = 0; i < 2; i++) {
+	    let rot = 210 + i * 16.3;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  } // --------------------------------------------------------
+
+
+	  for (let i = 0; i < 5; i++) {
+	    let rot = -53 + i * 17.8 + 9;
+
+	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 9,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker2);
+	  }
+
+	  for (let i = 0; i < 4; i++) {
+	    let rot = 37 + i * 17.8 + 9;
+
+	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 9,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker2);
+	  }
+
+	  for (let i = 0; i < 7; i++) {
+	    let rot = 108 + i * 16.9 + 9;
+
+	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 9,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker2);
+	  }
+
+	  for (let i = 0; i < 3; i++) {
+	    let rot = 159.5 + i * 17;
+
+	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker2);
+	  }
+
+	  for (let i = 0; i < 2; i++) {
+	    let rot = 210 + i * 16.3;
+
+	    const marker2 = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker2);
+	  } // --------------------------------------------------------
+
+
+	  for (let i = 0; i < 4; i++) {
+	    let rot = -89.45 + i * 9.15;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 14,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  }
+
+	  for (let i = 0; i < 4; i++) {
+	    let rot = -89.45 + 4.5 + i * 9.15;
+
+	    const marker = /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(rot, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 66,
+	        y: 217,
+	        height: 3,
+	        width: 9,
+	        fill: "#ffffff"
+	      })
+	    });
+
+	    elements.push(marker);
+	  }
+
+	  if (speed >= 40) {
+	    indicator = speed * 1.712 - 207;
+	  } else {
+	    indicator = speed * 0.9 - 180;
+	  }
+
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(243.8, 268.6)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "0.523926",
+	        y: "18.88",
+	        width: "23.4989",
+	        height: "17.4717",
+	        transform: "rotate(-50.4719 0.523926 18.88)",
+	        fill: "#FF0000"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(-37, -5)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("svg", {
+	        width: "29",
+	        height: "30",
+	        viewBox: "0 0 29 30",
+	        fill: "none",
+	        xmlns: "http://www.w3.org/2000/svg",
+	        children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "0.523926",
+	          y: "18.88",
+	          width: "23.4989",
+	          height: "17.4717",
+	          transform: "rotate(-50.4719 0.523926 18.88)",
+	          fill: "#FF0000"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsxs("svg", {
+	        width: "473",
+	        height: "400",
+	        viewBox: "0 0 473 400",
+	        fill: "none",
+	        xmlns: "http://www.w3.org/2000/svg",
+	        children: [/*#__PURE__*/jsxRuntime.jsxs("mask", {
+	          id: "mask0_22_25",
+	          style: {
+	            maskType: 'alpha'
+	          },
+	          maskUnits: "userSpaceOnUse",
+	          x: "0",
+	          y: "0",
+	          width: "473",
+	          height: "400",
+	          children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M275.469 0.468445L472.029 172.532L311.574 319.655L115.013 147.591L275.469 0.468445Z",
+	            fill: "black"
+	          }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	            d: "M219.38 137.8L216.067 399.011L0.000732422 372.44L3.31349 111.23L219.38 137.8Z",
+	            fill: "black"
+	          })]
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          children: /*#__PURE__*/jsxRuntime.jsx("circle", {
+	            cx: "215",
+	            cy: "222",
+	            r: "113",
+	            stroke: "white",
+	            "stroke-width": "2.5"
+	          })
+	        })]
+	      })]
+	    }), elements, /*#__PURE__*/jsxRuntime.jsx("clipPath", {
+	      id: "spd-clip",
+	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	        points: "152,183 183,183 183,174 205,174 205,259 183,259 183,251 152,251",
+	        fill: "grey"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(indicator, ", 178, 217)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	        points: "174,217 182,217 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
+	        fill: "white"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	      points: "152,183 183,183 183,174 205,174 205,259 183,259 183,251 152,251",
+	      stroke: "white",
+	      strokeWidth: 2,
+	      fill: "black"
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      clipPath: "url(#spd-clip)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(0 ".concat(ones_y, ") "),
+	        children: ones
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 170,
+	      y: 229,
+	      fontSize: 29,
+	      fill: "white",
+	      children: tens
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 153,
+	      y: 229,
+	      fontSize: 29,
+	      fill: "white",
+	      children: hundreds
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 145,
+	      y: 178,
+	      "letter-spacing": "-1",
+	      fontSize: 20,
+	      fill: "white",
+	      children: "KTS"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 171,
+	      y: 310,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "0"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 139,
+	      y: 305,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "20"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 114,
+	      y: 291,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "40"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 87,
+	      y: 250,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "60"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 87,
+	      y: 200,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "80"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 109,
+	      y: 157,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "100"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 160,
+	      y: 140,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "120"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 206,
+	      y: 157,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "140"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 229,
+	      y: 196,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "160"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 234,
+	      y: 241,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "180"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 216,
+	      y: 282,
+	      "letter-spacing": "-2",
+	      fontSize: 22,
+	      fill: "white",
+	      children: "200"
+	    })]
+	  });
+	};
+
+	const FlightDirector = () => {
+	  const [FD_pitch] = useSimVar('AUTOPILOT FLIGHT DIRECTOR PITCH', 'degrees');
+	  const [FD_bank] = useSimVar('AUTOPILOT FLIGHT DIRECTOR BANK', 'degrees');
+	  const [pitch] = useSimVar("PLANE PITCH DEGREES", "degrees");
+	  const [bank] = useSimVar("PLANE BANK DEGREES", "degrees");
+	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
+	  useSimVar('INDICATED ALTITUDE', 'feet');
+	  useSimVar('GROUND VELOCITY', 'knots');
+	  useSimVar('VERTICAL SPEED', 'Feet per second');
+
+	  const degreesToPixels = angle => angle < 0 ? Math.max(angle * 8, -12 * 8) : Math.min(angle * 8, 12 * 8);
+
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	      visibility: isFD ? 'visible' : 'hidden',
+	      transform: "translate(".concat((degreesToPixels((-FD_bank + bank) / 2) || 0) * 0.8, " 0)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	        points: "586,295 586,453",
+	        className: "FDBar",
+	        strokeWidth: 5,
+	        fill: "black"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      visibility: isFD ? 'visible' : 'hidden',
+	      transform: "translate(0 ".concat((degreesToPixels(FD_pitch - pitch) || 0) * 0.8, ")"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	        points: "507,374 665,374",
+	        className: "FDBar",
+	        strokeWidth: 5,
+	        fill: "black"
+	      })
+	    })]
+	  });
+	};
+
+	const VerticalSpeed = () => {
+	  let [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
+	  vs_raw = Math.floor(vs_raw);
+	  let needledir = vs_raw;
+	  let needleVertDir = 1;
+	  let dirVS = 0;
+
+	  if (0 < vs_raw) {
+	    dirVS = 180;
+	    needledir = -60;
+	    needleVertDir = -1;
+	  } else {
+	    dirVS = 0;
+	    needledir = -120;
+	    needleVertDir = 1;
+	  }
+
+	  vs_raw = Math.abs(vs_raw);
+	  let VSBarHeight = vs_raw;
+	  let indicator = 0;
+
+	  if (vs_raw <= 1000) {
+	    indicator = 23;
+	  } else if (1000 < vs_raw && vs_raw <= 2000) {
+	    indicator = 28;
+	  } else if (2000 < vs_raw && vs_raw <= 3000) {
+	    indicator = 31;
+	  } else if (3000 < vs_raw && vs_raw <= 4000) {
+	    indicator = 35;
+	  } else {
+	    indicator = 25;
+	  }
+
+	  if (VSBarHeight >= 4000) {
+	    VSBarHeight = 110;
+	  } else if (VSBarHeight <= -4000) {
+	    indicator = 110;
+	  } else {
+	    VSBarHeight = 0;
+	    VSBarHeight = vs_raw / indicator;
+	  }
+
+	  let vsdisparrow = 0;
+
+	  if (needleVertDir > 0) {
+	    vsdisparrow = 180;
+	  } else {
+	    vsdisparrow = 0;
+	  }
+
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    transform: "translate(-10, 0)",
+	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 1010,
+	      y: 65,
+	      fontSize: 25,
+	      className: "text",
+	      children: vs_raw
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 225,
+	      fontSize: 20,
+	      className: "text",
+	      children: "0"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 165,
+	      fontSize: 20,
+	      className: "text",
+	      children: "1"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 135,
+	      fontSize: 20,
+	      className: "text",
+	      children: "2"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 115,
+	      fontSize: 20,
+	      className: "text",
+	      children: "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 90,
+	      fontSize: 20,
+	      className: "text",
+	      children: "4"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 280,
+	      fontSize: 20,
+	      className: "text",
+	      children: "1"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 310,
+	      fontSize: 20,
+	      className: "text",
+	      children: "2"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 335,
+	      fontSize: 20,
+	      className: "text",
+	      children: "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 986,
+	      y: 355,
+	      fontSize: 20,
+	      className: "text",
+	      children: "4"
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(928, 42)scale(0.7)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(vsdisparrow, ",12, 19)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M13.0607 0.939339C12.4749 0.353553 11.5251 0.353553 10.9393 0.939339L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97918 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.939339ZM13.5 39L13.5 2L10.5 2L10.5 39L13.5 39Z",
+	          fill: "white"
+	        })
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(22, 8)rotate(".concat(dirVS, ",993, 208)"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: 988,
+	        y: 208,
+	        width: 10,
+	        height: VSBarHeight,
+	        className: "VSBar"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(0, ".concat(VSBarHeight * needleVertDir, ")"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "translate(900, ".concat(needledir * needleVertDir / 5 + 92, ")scale(0.9,0.6)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "rotate(".concat(needledir, ", 178, 217)"),
+	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	            points: "174,217 182,217 182,150 179,140 179,125 178,120 177,125 177,140 174,150",
+	            fill: "white"
+	          })
+	        })
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(985, 85.3)scale(0.75)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 23.133L3.30233 0.363914C2.672 -0.173657 1.72523 -0.098466 1.18766 0.531859C0.650092 1.16218 0.725284 2.10895 1.35561 2.64652L30 27.0758V23.133Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 35.6014L14.9237 23.8181C14.271 23.308 13.3283 23.4236 12.8181 24.0763C12.308 24.729 12.4236 25.6717 13.0763 26.1818L30 39.409V35.6014Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 47.683L4.87071 29.7783C4.19603 29.2976 3.25939 29.4549 2.77867 30.1296C2.29795 30.8043 2.4552 31.7409 3.12989 32.2216L30 51.3666V47.683Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 59.531L14.8128 49.7393C14.1165 49.2904 13.1882 49.4909 12.7393 50.1872C12.2904 50.8834 12.4909 51.8118 13.1872 52.2607L30 63.1005V59.531Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 69.5351L4.76012 54.7067C4.04585 54.287 3.12662 54.5259 2.70698 55.2402C2.28734 55.9544 2.5262 56.8737 3.24048 57.2933L30 73.0145V69.5351Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 89.4192L14.6421 82.1444C13.8934 81.7897 12.999 82.1092 12.6444 82.8578C12.2897 83.6065 12.6092 84.5009 13.3578 84.8556L30 92.7387V89.4192Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 107.52L4.52082 98.0932C3.74387 97.8057 2.88098 98.2025 2.59351 98.9795C2.30604 99.7564 2.70284 100.619 3.47979 100.907L30 110.719V107.52Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 140.381L14.268 137.524C13.4529 137.376 12.6721 137.917 12.5241 138.732C12.3761 139.547 12.9169 140.328 13.732 140.476L30 143.43V140.381Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 172H4.0003C3.17187 172 2.5003 172.672 2.50029 173.5C2.5003 174.328 3.17187 175 4.0003 175H30V172Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 323.867L3.30231 346.636C2.67198 347.174 1.72522 347.098 1.18764 346.468C0.650073 345.838 0.725264 344.891 1.35559 344.354L30 319.924V323.867Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 311.399L14.9237 323.182C14.271 323.692 13.3283 323.576 12.8181 322.924C12.308 322.271 12.4235 321.328 13.0763 320.818L30 307.591V311.399Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 299.317L4.87069 317.222C4.19601 317.702 3.25937 317.545 2.77865 316.87C2.29794 316.196 2.45518 315.259 3.12987 314.778L30 295.633V299.317Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 287.469L14.8128 297.261C14.1165 297.71 13.1882 297.509 12.7393 296.813C12.2904 296.117 12.4909 295.188 13.1871 294.739L30 283.9V287.469Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 277.465L4.7601 292.293C4.04583 292.713 3.1266 292.474 2.70697 291.76C2.28732 291.046 2.52618 290.126 3.24046 289.707L30 273.986V277.465Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 257.581L14.6421 264.856C13.8934 265.21 12.999 264.891 12.6444 264.142C12.2897 263.393 12.6091 262.499 13.3578 262.144L30 254.261V257.581Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 239.48L4.5208 248.907C3.74385 249.194 2.88096 248.798 2.59349 248.021C2.30602 247.244 2.70282 246.381 3.47977 246.093L30 236.281V239.48Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 206.619L14.2679 209.476C13.4528 209.624 12.6721 209.083 12.5241 208.268C12.3761 207.453 12.9169 206.672 13.732 206.524L30 203.57V206.619Z",
+	        fill: "white"
+	      }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M30 175H4.0003C3.17187 175 2.5003 174.328 2.50029 173.5C2.5003 172.672 3.17187 172 4.0003 172H30V175Z",
+	        fill: "white"
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	      points: "1169,305 1169,510 1199,530 1199,530 1199,719 1165,740 1165,942 1220,942 1275,800 1275,453 1223,305",
+	      fill: "#242329"
+	    })]
+	  });
+	};
+
+	const RadarAltCircle = () => {
+	  function getRadarAltRotation(altitude) {
+	    if (altitude <= 50) {
+	      return 180 + altitude / 50 * 90;
+	    } else if (altitude <= 100) {
+	      return 180 + 90 + (altitude - 50) / 50 * 90;
+	    } else if (altitude <= 400) {
+	      return 180 + 180 + (altitude - 100) / 300 * 90;
+	    } else if (altitude <= 1050) {
+	      return 180 + 270 + (altitude - 400) / 600 * 45;
+	    } else if (altitude > 1050) {
+	      return 180 + 318.75;
+	    } else {
+	      return 180;
+	    }
+	  }
+
+	  useSimVar('A:PLANE ALTITUDE', 'feet');
+	  let [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
+	  const [AFCS_RadAlt] = useSimVar('L:H60_AFCS_RADALT', 'feet');
+	  const [RA_Alt_Lo] = useSimVar('L:H60_CAS_RADALT_LO', 'feet');
+	  const [RA_Alt_Hi] = useSimVar('L:H60_CAS_RADALT_HI', 'feet');
+	  const [RA_Alt_Lo_Alert] = useSimVar('L:H60_CAS_RADALT_LO_ALERT', 'feet');
+	  const [RA_Alt_Hi_Alert] = useSimVar('L:H60_CAS_RADALT_HI_ALERT', 'feet');
+	  let RA_Readout = Math.floor(RA_ALT);
+	  RA_ALT = Math.floor(RA_ALT);
+	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [RA_Readout <= 1050 && /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(730.5, 280)scale(0.9)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "rotate(".concat(getRadarAltRotation(RA_ALT), ", 178, 217)"),
+	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
+	            points: "174,187 182,187 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
+	            fill: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 'yellow' : 'white'
+	          })
+	        }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	          cx: "178",
+	          cy: "217",
+	          r: "41",
+	          fill: "black",
+	          "stroke-width": "3"
+	        })]
+	      }), RA_Alt_Hi > -1 && /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(getRadarAltRotation(RA_Alt_Hi), ", 891, 475) translate(881, 366) "),
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M0 0L9.5 13L19 0L14 0.619048L9.5 12.381L5 0.619048L0 0Z",
+	          fill: "#006EFF"
+	        })
+	      }), RA_Alt_Lo > -1 && /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(getRadarAltRotation(RA_Alt_Lo), ", 891, 475)translate(881, 371)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M0 8V0H2.5L9.5 5.33333L16.5 0H19V8H0Z",
+	          fill: "#9DFF00"
+	        })
+	      }), isFD && /*#__PURE__*/jsxRuntime.jsx("g", {
+	        transform: "rotate(".concat(getRadarAltRotation(AFCS_RadAlt), ",891, 475) translate(881, 391) scale(1, -1.3)"),
+	        children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	          d: "M0 8V0H2.5L9.5 5.33333L16.5 0H19V8H0Z",
+	          fill: "rgb(209, 1, 209)"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "translate(794, 378)scale(0.74)",
+	        children: [/*#__PURE__*/jsxRuntime.jsx("circle", {
+	          cx: "131",
+	          cy: "131",
+	          r: "129",
+	          stroke: "white",
+	          fill: "none",
+	          "stroke-width": "3.5"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          "fill-rule": "evenodd",
+	          "clip-rule": "evenodd",
+	          d: "M129 23.0181C129.665 23.0061 130.332 23 131 23C131.334 23 131.667 23.0015 132 23.0045V2H129V23.0181ZM184.316 37.0559C185.185 37.5506 186.048 38.0571 186.902 38.5751L197.686 20.2605L195.101 18.7383L184.316 37.0559ZM224.342 76.6386C224.845 77.5017 225.337 78.3723 225.818 79.2504L244.486 68.6061L243 66L224.342 76.6386ZM238.996 130.039C238.999 130.359 239 130.679 239 131C239 131.681 238.994 132.361 238.981 133.039L259.006 133L259 130L238.996 130.039ZM208.046 206.683C207.345 207.396 206.634 208.1 205.914 208.794L220.925 223.167L223 221L208.046 206.683ZM132 238.995C131.667 238.998 131.334 239 131 239C130.332 239 129.665 238.994 129 238.982V259H132V238.995ZM23.0274 133.456C23.0092 132.64 23 131.821 23 131C23 130.819 23.0004 130.638 23.0013 130.456L0.5 130.5L0.505802 133.5L23.0274 133.456Z",
+	          fill: "white"
+	        }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	          "fill-rule": "evenodd",
+	          "clip-rule": "evenodd",
+	          d: "M158.487 19.3057C159.46 19.5443 160.428 19.7953 161.391 20.0585L164.901 6.76576L162 6L158.487 19.3057ZM212.212 49.5775C212.92 50.2837 213.619 50.9991 214.308 51.7235L224.098 42.1442L222 40L212.212 49.5775ZM241.92 100.53C242.184 101.492 242.435 102.46 242.675 103.433L255.782 99.8964L255 97L241.92 100.53ZM245.226 144.411C245.111 145.406 244.982 146.398 244.841 147.386L258.656 148.98L259 146L245.226 144.411ZM242.146 160.633C241.888 161.602 241.619 162.565 241.337 163.523L254.24 166.902L255 164L242.146 160.633ZM237.65 174.101C237.275 175.029 236.888 175.952 236.489 176.868L248.894 181.789L250 179L237.65 174.101ZM230.812 188.158C230.314 189.026 229.805 189.887 229.285 190.741L241.531 197.616L243 195L230.812 188.158ZM223.038 199.961C222.437 200.761 221.826 201.554 221.205 202.338L232.226 210.419L234 208L223.038 199.961ZM96.8503 240.845C95.8935 240.548 94.942 240.238 93.996 239.917L90.1208 253.157L93 254L96.8503 240.845ZM64.1904 224.614C63.3763 224.032 62.5701 223.439 61.7719 222.837L54.5334 233.292L57 235L64.1904 224.614ZM38.1745 198.899C37.5835 198.092 37.0028 197.278 36.4326 196.455L24.2037 205.597L26 208L38.1745 198.899ZM22.1158 168.1C21.7938 167.155 21.4837 166.204 21.1857 165.248L7.01624 170.166L7.99998 173L22.1158 168.1ZM20.8281 97.9226C21.1157 96.9633 21.4155 96.0092 21.7273 95.0605L8.87724 91.1311L7.99998 94L20.8281 97.9226ZM95.942 21.4416C94.9881 21.7465 94.0396 22.0636 93.0967 22.3927L89 10L91.8484 9.05838L95.942 21.4416ZM63.4095 37.9495L55.4056 27.2076L53 29L61.0068 39.746C61.7996 39.137 62.6005 38.5381 63.4095 37.9495ZM37.9424 63.4193L26.7235 55.5445L25 58L36.2092 65.868C36.7765 65.044 37.3543 64.2276 37.9424 63.4193Z",
+	          fill: "white"
+	        })]
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 886,
+	        y: 546,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "0"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 811,
+	        y: 483,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "50"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 885,
+	        y: 414,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "1"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 921,
+	        y: 423,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 947,
+	        y: 447,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 958,
+	        y: 483,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "4"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 925,
+	        y: 531,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "10"
+	      })]
+	    }), RA_Readout <= 1500 && /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 833 : 856,
+	        y: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 434 : 448,
+	        width: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 120 : 76,
+	        height: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 45 : 33,
+	        fill: "black",
+	        stroke: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 'yellow' : 'white',
+	        strokeWidth: "2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 952 : 925,
+	        y: 475,
+	        textAnchor: "end",
+	        fontSize: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 50 : 27,
+	        className: RA_Alt_Lo_Alert || RA_Alt_Hi_Alert ? 'text-caution' : 'readouts',
+	        children: RA_Readout
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 881,
+	        y: 498,
+	        fontSize: 20,
+	        className: "readouts",
+	        children: "RA"
+	      })]
+	    }), RA_Alt_Lo > -1 && /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: 958,
+	      y: 610,
+	      fontSize: 27,
+	      textAnchor: "end",
+	      fill: "green",
+	      className: "text-radAltLow",
+	      children: [RA_Alt_Lo, " LO"]
+	    }), RA_Alt_Hi > -1 && /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: 958,
+	      y: 632,
+	      fontSize: 27,
+	      textAnchor: "end",
+	      fill: "green",
+	      className: "text-radAltHi",
+	      children: [RA_Alt_Hi, " HI"]
+	    }), isFD && /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: 990,
+	      y: 654,
+	      fontSize: 27,
+	      textAnchor: "end",
+	      fill: "green",
+	      className: "text-FD",
+	      children: [AFCS_RadAlt, " RALT"]
+	    })]
+	  });
+	};
+
+	const PFDBase = () => {
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx(Horizon, {}), /*#__PURE__*/jsxRuntime.jsx(SpdIndicator, {}), /*#__PURE__*/jsxRuntime.jsx(ApReadout, {}), /*#__PURE__*/jsxRuntime.jsx(PowerPod, {}), /*#__PURE__*/jsxRuntime.jsx(HeadingBug, {}), /*#__PURE__*/jsxRuntime.jsx(Collective, {}), /*#__PURE__*/jsxRuntime.jsx(AltCircle, {}), /*#__PURE__*/jsxRuntime.jsx(RadarAltCircle, {}), /*#__PURE__*/jsxRuntime.jsx(VerticalSpeed, {}), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(-67,-158)",
+	      children: /*#__PURE__*/jsxRuntime.jsx(FlightDirector, {})
+	    })]
+	  });
+	};
+
 	const PFD = () => {
 	  let DisplayID = getDisplayIndex();
 	  let displaycontrols = "L:H60_MFD_".concat(DisplayID, "_MODE");
@@ -29854,14 +29927,11 @@
 	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
 	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
 	          visibility: DISP_TYPE == 0 ? "visible" : "hidden",
-	          children: [/*#__PURE__*/jsxRuntime.jsx(Horizon, {}), /*#__PURE__*/jsxRuntime.jsx(SpdIndicator, {}), /*#__PURE__*/jsxRuntime.jsx(ApReadout, {}), /*#__PURE__*/jsxRuntime.jsx(PowerPod, {}), /*#__PURE__*/jsxRuntime.jsx(HeadingBug, {}), /*#__PURE__*/jsxRuntime.jsx(Collective, {}), /*#__PURE__*/jsxRuntime.jsx(AltCircle, {}), /*#__PURE__*/jsxRuntime.jsx(VerticalSpeed, {}), /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-67,-158)",
-	            children: /*#__PURE__*/jsxRuntime.jsx(FlightDirector, {})
-	          }), /*#__PURE__*/jsxRuntime.jsx("image", {
+	          children: [/*#__PURE__*/jsxRuntime.jsx(PFDBase, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
 	            xlinkHref: "/Images/pfd.png",
 	            x: 0,
 	            y: 0,
-	            opacity: 0
+	            opacity: 0.3
 	          })]
 	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
 	          visibility: DISP_TYPE == 2 ? "visible" : "hidden",
@@ -29966,7 +30036,7 @@ text {
   font-family: "mono";
 }
 
-.readouts, .text-warning, .text-caution, .text-safe, .CAS-readouts-unacknowledged, .CAS-readouts-acknowledged, .tacmap_cyantext, .readouts-vertical {
+.readouts, .text-FD, .text-radAltHi, .text-radAltLow, .text-warning, .text-caution, .text-safe, .CAS-readouts-unacknowledged, .CAS-readouts-acknowledged, .tacmap_cyantext, .readouts-vertical {
   font-style: "italic";
   font-family: "OCRB";
   letter-spacing: -0.1px;
@@ -30004,6 +30074,18 @@ text {
 
 .text-warning {
   fill: red;
+}
+
+.text-radAltLow {
+  fill: #9DFF00;
+}
+
+.text-radAltHi {
+  fill: #006EFF;
+}
+
+.text-FD {
+  fill: #cf0571;
 }
 
 .apdisp {

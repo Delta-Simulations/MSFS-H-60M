@@ -5,7 +5,7 @@ import { useSimVar } from '../../Hooks/simVars';
 
 export const RAIndicator = () => {
 
-    var [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet')
+    let [RA_ALT] = useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet')
     RA_ALT= Math.floor(RA_ALT*10) / 10
     
     if (RA_ALT > 250) {
@@ -14,7 +14,7 @@ export const RAIndicator = () => {
         RA_ALT = RA_ALT
     }
 
-    var [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
+    let [vs_raw] = useSimVar('VERTICAL SPEED', 'feet per minute');
     vs_raw= Math.floor(vs_raw*10) / -10 + 1
 
     if ( vs_raw>=2000) {

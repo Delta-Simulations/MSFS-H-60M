@@ -7,7 +7,7 @@ import { useSimVar } from '../../Hooks/simVars';
 export const Horizon = () => {
 
     const [roll] = useSimVar('PLANE BANK DEGREES', 'Degrees');
-    var [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
+    let [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
 
     pitch = pitch
 

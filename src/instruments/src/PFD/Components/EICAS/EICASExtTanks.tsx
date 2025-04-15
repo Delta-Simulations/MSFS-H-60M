@@ -5,7 +5,7 @@ import { useSimVar } from '../../../Hooks/simVars';
 
 export const EICASExtTanks = () => {
 
-        var [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
+    let [Ext_Tanks] = useSimVar('L:ADDITIONSVIS', 'enum');
         let TEST: number = 105 ;
         return(
                 <svg viewBox='0 0 1280 1280'>

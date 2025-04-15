@@ -1,15 +1,15 @@
 import React, {} from 'react';
-import "../style.scss";
+import "../../style.scss";
 
 import { useSimVar } from '../../Hooks/simVars';
 
 export const Collective = () => {
-        var [Stab_Pos] = useSimVar('L:STABILATOR_POS', 'enum')
-        var [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots')
+        let [Stab_Pos] = useSimVar('L:STABILATOR_POS', 'enum')
+        let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots')
 
-        var [isAT] = useSimVar('A:AUTOPILOT MANAGED THROTTLE ACTIVE', 'Bool')
-        var [TH_1] = useSimVar('A:GENERAL ENG THROTTLE LEVER POSITION:1','percent');
-        var [TH_2] = useSimVar('A:GENERAL ENG THROTTLE LEVER POSITION:2','percent');
+        let [isAT] = useSimVar('A:AUTOPILOT MANAGED THROTTLE ACTIVE', 'Bool')
+        let [TH_1] = useSimVar('A:GENERAL ENG THROTTLE LEVER POSITION:1','percent');
+        let [TH_2] = useSimVar('A:GENERAL ENG THROTTLE LEVER POSITION:2','percent');
         AC_GS= Math.floor(AC_GS)
         TH_1= Math.floor(TH_1)
         TH_2= Math.floor(TH_2)
@@ -19,7 +19,7 @@ export const Collective = () => {
         NR= Math.floor(NR)
 
         return(
-                <svg viewBox='0 0 1280 1280'>
+                
                     <g>
                         {/* SPEED/WIND */}
                         <text x={200} y={619} fontSize={38}  className='readouts' textAnchor="start">GS</text>
@@ -48,7 +48,7 @@ export const Collective = () => {
                         </g>
 
                     </g>
-                </svg>
+                
         )
         
     };

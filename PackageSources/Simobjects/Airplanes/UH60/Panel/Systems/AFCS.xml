@@ -3,7 +3,7 @@
 	<Comment>
 		*************************************************
 		FOR DELTA SIMULATIONS UH60M
-		Produced by Destroyer121 (delta.simulations0@gmail.com)
+	
 		*************************************************
 	</Comment>
 	<Element>
@@ -38,11 +38,11 @@
 
 					(A:AUTOPILOT HEADING LOCK DIR,degrees) (A:PLANE HEADING DEGREES GYRO,degrees) - 0 &gt;
 					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) -10 &gt; and
-					if{ (L:H60_AFCS_Rudd_Delta) (&gt;K:CYCLIC_LATERAL_RIGHT) }
+					if{ (L:H60_AFCS_Rudd_Delta) (&gt;K:ROTOR_LATERAL_TRIM_INC) }
 
 					(A:AUTOPILOT HEADING LOCK DIR,degrees) (A:PLANE HEADING DEGREES GYRO,degrees) - 0 &lt;
 					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) 10 &lt; and
-					if{ (L:H60_AFCS_Rudd_Delta) (&gt;K:CYCLIC_LATERAL_LEFT) }
+					if{ (L:H60_AFCS_Rudd_Delta) (&gt;K:ROTOR_LATERAL_TRIM_DEC) }
 				}
 
 				(L:H60_AFCS_HVR_HOLD, bool) 1 ==
@@ -73,56 +73,45 @@
 					(L:H60_AFCS_HVR_LONG, feet) (&gt;A:PLANE LONGITUDE,feet) 
 				}
 
-				(L:H60_AFCS_STAB_TRIM, bool) 1 ==
+				(L:H60_AFCS_RUDDER_TRIM, bool) 1 ==
 				if{ 
-					<!-- (A:SIM ON GROUND,bool) 0 ==
-					(A:YOKE Y POSITION,percent) 25 abs &lt; and
-					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 6 &lt; and
-					(A:VERTICAL SPEED,feet per minute) -50 &lt; and
-					if{ 0.001 (&gt;K:ROTOR_LONGITUDINAL_TRIM_DEC) }
+					(* 
+						(A:SIM ON GROUND,bool) 0 ==
+						(A:YOKE Y POSITION,percent) 25 abs &lt; and
+						(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 6 &lt; and
+						(A:VERTICAL SPEED,feet per minute) -50 &lt; and
+						if{ 0.001 (&gt;K:ROTOR_LONGITUDINAL_TRIM_DEC) }
 
-					(A:SIM ON GROUND,bool) 0 ==
-					(A:YOKE Y POSITION,percent) 25 abs &lt; and
-					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) -6 &gt; and
-					(A:VERTICAL SPEED,feet per minute) 50 &gt; and
-					if{ 0.001 (&gt;K:ROTOR_LONGITUDINAL_TRIM_INC) } -->
+						(A:SIM ON GROUND,bool) 0 ==
+						(A:YOKE Y POSITION,percent) 25 abs &lt; and
+						(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) -6 &gt; and
+						(A:VERTICAL SPEED,feet per minute) 50 &gt; and
+						if{ 0.001 (&gt;K:ROTOR_LONGITUDINAL_TRIM_INC) } 
+					*)
 					
 					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 2 &lt;
-					(A:ROTOR LONGITUDINAL TRIM PCT,percent) -50  &gt; and
 					(A:SIM ON GROUND,bool) 0 == and
-					(A:AIRSPEED INDICATED,knots) 90 &gt; and
+					(A:AIRSPEED INDICATED,knots) 30 &lt; and
+					(A:RUDDER PEDAL POSITION,percent) 2 &lt; and
+					
+
 					if{ 0.01 (&gt;K:ROTOR_LONGITUDINAL_TRIM_DEC) }
 
-					(A:ATTITUDE INDICATOR PITCH DEGREES,degrees) 2 &gt;
-					(A:ROTOR LONGITUDINAL TRIM PCT,percent) 50  &lt; and
-					(A:SIM ON GROUND,bool) 0 == and
-					(A:AIRSPEED INDICATED,knots) 90 &gt; and
-					if{ 0.01 (&gt;K:ROTOR_LONGITUDINAL_TRIM_INC) }
-
-					(A:YOKE X POSITION,percent) abs 4 &lt;
-					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) 2 &lt; and
-					(A:ROTOR LATERAL TRIM PCT,percent) -50  &gt; and
-					(A:SIM ON GROUND,bool) 0 == and
-					if{ 1 (&gt;K:ROTOR_LATERAL_TRIM_DEC) }
-
-					(A:YOKE X POSITION,percent) abs 4 &lt;
-					(A:ATTITUDE INDICATOR BANK DEGREES,degrees) 2 &gt; and
-					(A:ROTOR LATERAL TRIM PCT,percent) 50  &lt; and
-					(A:SIM ON GROUND,bool) 0 == and
-					if{ 1 (&gt;K:ROTOR_LATERAL_TRIM_INC) }
 					
-					<!-- RIGHT LEFT TRIM -->
-					<!-- (A:YOKE X POSITION,percent) abs 9 &lt;
-					(A:VELOCITY BODY X,Feet per second) 0 &gt; and
-					(A:ROTOR LATERAL TRIM PCT,percent) -50 &gt; and
-					(A:SIM ON GROUND,bool) 0 == and
-					if{ 0.1 (&gt;K:ROTOR_LATERAL_TRIM_DEC) }
+					(* 
+						RIGHT LEFT TRIM
+						(A:YOKE X POSITION,percent) abs 9 &lt;
+						(A:VELOCITY BODY X,Feet per second) 0 &gt; and
+						(A:ROTOR LATERAL TRIM PCT,percent) -50 &gt; and
+						(A:SIM ON GROUND,bool) 0 == and
+						if{ 0.1 (&gt;K:ROTOR_LATERAL_TRIM_DEC) }
 
-					(A:YOKE X POSITION,percent) abs 9 &lt;
-					(A:VELOCITY BODY X,Feet per second) 0 &lt; and
-					(A:ROTOR LATERAL TRIM PCT,percent) 50 &lt; and
-					(A:SIM ON GROUND,bool) 0 == and
-					if{ 0.1 (&gt;K:ROTOR_LATERAL_TRIM_INC) } -->
+						(A:YOKE X POSITION,percent) abs 9 &lt;
+						(A:VELOCITY BODY X,Feet per second) 0 &lt; and
+						(A:ROTOR LATERAL TRIM PCT,percent) 50 &lt; and
+						(A:SIM ON GROUND,bool) 0 == and
+						if{ 0.1 (&gt;K:ROTOR_LATERAL_TRIM_INC) } 
+					*)
 
 
 

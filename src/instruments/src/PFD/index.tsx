@@ -1,27 +1,19 @@
-import React, { FC, ReactNode, useState, useEffect } from "react";
+import React, {  } from "react";
 import { render } from "../Hooks/index";
 import { useSimVar } from "../Hooks/simVars";
-import { Horizon } from "./Components/horizon";
 //import { VerticalSpeed } from './Components/verticalSpeed';
-import { SpdIndicator } from "./Components/speedIndicator";
-import { ApReadout } from "./Components/ApReadout";
 import { Fixed } from "./Components/Fixed";
-import { PowerPod } from "./Components/PowerPod";
-import { Collective } from "./Components/Collective";
-import { HeadingBug } from "./Components/HeadingBug";
-import { FlightDirector } from "./Components/flightDirector";
-import { AltCircle } from "./Components/AltCircle";
-import { VerticalSpeed } from "./Components/verticalSpeed";
 import { getDisplayIndex } from "../Hooks/defaults";
 
 import { EICAS } from "./Components/EICAS/EICAS";
-import { EICASFuel } from "./Components/EICAS/EICASFuel";
 import { EICASExtTanks } from "./Components/EICAS/EICASExtTanks";
 import { Electricity_MFD } from "../Common/circuit";
 import "./style.scss";
 
 import { NDMain } from "./Components/NDMain";
 import { TacMap } from "./Components/TacMap/TacMap";
+import { PFDBase } from "./Components/PFD/PFDBase";
+import { Horizon } from "../AP/Components/horizon";
 
 const PFD = () => {
 	let DisplayID = getDisplayIndex();
@@ -53,23 +45,12 @@ const PFD = () => {
 					{/* PFD SPECIFIC */}
 					
 					<g visibility={DISP_TYPE == 0 ? "visible" : "hidden"}>
-						<Horizon />
-						<SpdIndicator />
-						<ApReadout />
-						<PowerPod />
-						<HeadingBug />
-						<Collective />
-						<AltCircle />
-
-						<VerticalSpeed />
-						<g transform="translate(-67,-158)">
-							<FlightDirector />
-						</g>
+						<PFDBase />
 						<image
 							xlinkHref="/Images/pfd.png"
 							x={0}
 							y={0}
-							opacity={0}
+							opacity={0.3}
 						/>
 					</g>
 

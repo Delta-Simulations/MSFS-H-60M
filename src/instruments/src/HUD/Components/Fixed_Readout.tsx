@@ -9,8 +9,8 @@ export const Fixed_Readout = () => {
     const [AC_Heading] = useSimVar('A:Plane heading degrees gyro','degrees');
     const [WP_DIST] = useSimVar('A:GPS WP DISTANCE','KiloMeters');
     const [WP_TIME] = useSimVar('A:GPS WP ETE','Seconds');
-    var [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots')
-    var [AC_IS] = useSimVar('AIRSPEED INDICATED', 'knots');
+    let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots')
+    let [AC_IS] = useSimVar('AIRSPEED INDICATED', 'knots');
     AC_IS =Math.floor(AC_IS)
     AC_GS = Math.floor(AC_GS)
 
