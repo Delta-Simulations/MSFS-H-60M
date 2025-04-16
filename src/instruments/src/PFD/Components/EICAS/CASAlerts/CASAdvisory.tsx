@@ -28,6 +28,7 @@ export const CASAdvisory: React.FC = () => {
 
   const [CargoHookArmed] = useSimVar('L:H60_CARGO_HOOK_ARMED', 'bool');
   const [CargoHookOpen] = useSimVar('L:H60_CARGO_HOOK_OPEN', 'bool');
+  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool");
 
 
   // Caution definitions (this can grow easily)
@@ -46,7 +47,11 @@ export const CASAdvisory: React.FC = () => {
     },
     {
       text: 'BACK UP PUMP ON',
-      simVar: false,
+      simVar: HYD_Leak_Test,
+    },
+    {
+      text: 'T/R SERVO 2 ON',
+      simVar: HYD_Leak_Test,
     },
     {
       text: 'BOOST PUMP 1 ON',

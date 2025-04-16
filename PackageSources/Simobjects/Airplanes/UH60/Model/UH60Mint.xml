@@ -113,6 +113,9 @@
   </Component>
 
 
+
+
+
   <Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
     <UseTemplate Name = "ASOBO_GT_Switch_3States">
       <ANIM_NAME>Lever_Eng2_Fuel</ANIM_NAME>
@@ -548,6 +551,40 @@
       <ANIMTIP_2>APU</ANIMTIP_2>
     </UseTemplate>
   </Component>
+
+      <Component ID="Switch_HYD_LEAK_TEST" Node="Switch_HYD_LEAK_TEST">
+        <UseTemplate Name="ASOBO_GT_Switch_3States">
+          <ANIM_NAME>Switch_HYD_LEAK_TEST</ANIM_NAME>
+          <NODE_ID>Switch_HYD_LEAK_TEST</NODE_ID>
+          <DEFAULT_POS>1</DEFAULT_POS>
+          <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+          <SWITCH_POSITION_VAR>H60_SYS_HYD_LEAK_TEST</SWITCH_POSITION_VAR>
+          <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+          <INVERT_ANIM>True</INVERT_ANIM>
+          <ANIMTIP_0>RESET</ANIMTIP_0>
+          <ANIMTIP_1>NORM</ANIMTIP_1>
+          <ANIMTIP_2>TEST</ANIMTIP_2>
+        </UseTemplate>
+      </Component>
+
+      <Component ID="Switch_RADALT_PWR" Node="Switch_RADALT_PWR">
+        <UseTemplate Name="ASOBO_GT_Switch_3States">
+          <ANIM_NAME>Switch_RADALT_PWR</ANIM_NAME>
+          <NODE_ID>Switch_RADALT_PWR</NODE_ID>
+          <DEFAULT_POS>1</DEFAULT_POS>
+          <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+          <SWITCH_POSITION_VAR>H60_SYS_RadAlt_Switch</SWITCH_POSITION_VAR>
+          <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+          <INVERT_ANIM>True</INVERT_ANIM>
+          <ANIMTIP_0>RESET</ANIMTIP_0>
+          <ANIMTIP_1>ON</ANIMTIP_1>
+          <ANIMTIP_2>OFF</ANIMTIP_2>
+        </UseTemplate>
+      </Component>
+
+
+
+
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(L:H60_EFB_MOVE, bool) 100 *</ANIM>
     <NODE_ID>EFB_MOVE</NODE_ID>
@@ -656,7 +693,14 @@
       (L:H60_SYS_EGI2, bool) ! (&gt;L:H60_SYS_EGI2, bool)
     </INTERACT_CODE>
   </UseTemplate>
-
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_CARGO_HOOK_ARMED, bool) 100 *</ANIM>
+    <NODE_ID>Switch_Cargohook_Arm</NODE_ID>
+    <TOOLTIPID>EGI 2</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_CARGO_HOOK_ARMED, bool) ! (&gt;L:H60_CARGO_HOOK_ARMED, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
   
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">

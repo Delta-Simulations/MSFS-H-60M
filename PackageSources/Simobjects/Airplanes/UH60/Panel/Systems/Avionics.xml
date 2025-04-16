@@ -73,4 +73,28 @@ if{
 </Value>
 </Select>
 </Element> 
+
+(* HYD TEST LOGIC 
+WoW, test switch (LVar=2) causes alerts to trigger, must be reset with reset (LVar = 0)
+*)
+<Element>
+<Select>
+<Value>
+
+(L:H60_SYS_HYD_LEAK_TEST, enum) 2 == 
+(A:SIM ON GROUND, bool) 1 == and
+if{ 
+   1 (&gt;L:H60_SYS_HYD_Leak_Test_Active)
+}
+
+(L:H60_SYS_HYD_LEAK_TEST, enum) 0 == 
+if{ 
+   0 (&gt;L:H60_SYS_HYD_Leak_Test_Active)
+}
+
+</Value>
+</Select>
+</Element> 
+
+
 </Gauge>

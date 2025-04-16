@@ -216,3 +216,5 @@ RudderTrimDisabled=False
 [LocalVars.0]
 H60_TroopDoor_L=1
 H60_TroopDoor_R=1
+H60_SYS_HYD_LEAK_TEST = 1
+H60_SYS_RadAlt_Switch = 1

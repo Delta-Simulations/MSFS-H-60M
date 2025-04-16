@@ -10,59 +10,45 @@ type CautionType = {
 
 // Component
 export const CASWarningsLH: React.FC = () => {
-  const [Starter_2] = useSimVar('A:GENERAL ENG STARTER ACTIVE:2', 'bool');
-  const [Oil_temp_2] = useSimVar("A:ENG OIL TEMPERATURE:2", "Celsius");
-  const [Oil_press_2] = useSimVar("A:ENG OIL PRESSURE:2", "psi");
-  const [Batt_1_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:1", "volts");
-  const [Batt_2_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:2", "volts");
-
+  const [Starter_1] = useSimVar('A:GENERAL ENG STARTER ACTIVE:1', 'bool');
+  const [Oil_temp_1] = useSimVar("A:ENG OIL TEMPERATURE:1", "Celsius");
+  const [Oil_press_1] = useSimVar("A:ENG OIL PRESSURE:1", "psi");
+  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool");
 
 
   // Caution definitions (this can grow easily)
   const advisoryList: CautionType[] = [
     {
-      text: 'APU FAIL',
+      text: 'ENG 1 OIL HOT',
+      simVar: Oil_temp_1 > 150,
+    },
+    {
+      text: 'ENG 1 OIL PRESS',
+      simVar: Oil_press_1 < 10,
+    },
+    {
+      text: 'ENG 1 STARTER ON',
+      simVar: Starter_1,
+    },
+    {
+      text: 'ICE DETECTED',
       simVar: false,
     },
     {
-      text: 'APU OIL HOT',
+      text: 'PRI SERVO 1 FAIL',
       simVar: false,
     },
     {
-      text: 'BATT LOW CHARGE',
-      simVar: Batt_1_volt < 20.5 || Batt_2_volt < 20.5,
+      text: 'T/R SERVO 1 FAIL',
+      simVar: HYD_Leak_Test,
     },
     {
-      text: 'CHIP IBIT FAIL',
+      text: 'TAIL XMSN OIL HOT',
       simVar: false,
     },
     {
-      text: 'ENG 2 OIL HOT',
-      simVar: Oil_temp_2 > 150,
-    },
-    {
-      text: 'ENG 2 OIL PRESS',
-      simVar: Oil_press_2 < 10,
-    },
-    {
-      text: 'ENG 2 STARTER ON',
-      simVar: Starter_2,
-    },
-    {
-      text: 'CONV 1 FAIL',
-      simVar: false,
-    },
-    {
-      text: 'CONV 2 FAIL',
-      simVar: false,
-    },
-    {
-      text: 'PRI SERVO 2 FAIL',
-      simVar: false,
-    },
-    {
-      text: 'MAIN XMSN OIL HOT',
-      simVar: false,
+      text: 'BACKUP RSVR LOW',
+      simVar: HYD_Leak_Test,
     },
 
   ];
@@ -83,10 +69,10 @@ const activeAdvisory = advisoryList
     if (caution.simVar) {
       elements.push(
       <g>
-        <rect x="694.5" y={yPos-22.5} width="290.5" height="26" fill="yellow" />
+        <rect x="38.5" y={yPos-22.5} width="290.5" height="26" fill="yellow" />
         <text
           key={`warning-${index}`}
-          x={695}
+          x={40}
           y={yPos}
           fontSize='27'
           className='CAS-readouts-unacknowledged'

@@ -112,11 +112,21 @@ export const HeadingBug = () => {
                             </g>
 
 
-                        
+
                         {/* 647 */}
-                        
+
 
                         </g>
+
+                    <g transform={`translate(0, 215.5)` }> 
+						<line x1="50%" y1="49.1%" x2="50%" y2="53.5%" stroke="black" stroke-width="4" />
+						<line x1="48.7%" y1="50%" x2="51.3%" y2="50%" stroke="black" stroke-width="4" />
+						<line x1="49.4%" y1="53%" x2="50.6%" y2="53%" stroke="black" stroke-width="4" />
+
+						<line x1="50%" y1="49.1%" x2="50%" y2="53.5%" stroke="white" stroke-width="2" />
+						<line x1="48.7%" y1="50%" x2="51.3%" y2="50%" stroke="white" stroke-width="2" />
+						<line x1="49.4%" y1="53%" x2="50.6%" y2="53%" stroke="white" stroke-width="2" />
+					</g>
                     </g>
                 
         )

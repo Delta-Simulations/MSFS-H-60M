@@ -52,8 +52,7 @@ export const PowerPod = () => {
                 <svg viewBox='0 0 1280 1280'>
                     <g>
                 {/* FUEL============ */}
-                        <rect x={278} y={1229} width="180" height="40" stroke="white" fill='none' stroke-width="3" />
-                        <text x={285} y={1263} fontSize={32} fill='#00EE00' className='readouts' textAnchor="start">REF-BARO</text>
+
                         <text x={285} y={1060} fontSize={44} fill='#00EE00' className='apdisp' textAnchor="middle">{Tot_Fuel}</text>
                         <text x={294} y={835} fontSize={32} fill='#00EE00' className='readouts' textAnchor="middle">FUEL</text>
                        

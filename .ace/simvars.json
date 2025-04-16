@@ -277,14 +277,14 @@
         },
         {
             "__uuid": "b3e7ae55-2f81-45d0-abd0-bc800be6573a",
-            "title": "radarAlt",
+            "title": "BaroALT",
             "varPrefix": "A",
-            "varName": "PLANE ALT ABOVE GROUND MINUS CG",
+            "varName": "INDICATED ALTITUDE",
             "varUnit": "feet",
             "style": {
                 "type": 2,
                 "min": 0,
-                "max": 1503,
+                "max": 20000,
                 "step": 0.1
             }
         },
@@ -342,6 +342,19 @@
             "varUnit": "number",
             "style": {
                 "type": 3
+            }
+        },
+        {
+            "__uuid": "fb322995-059c-49e5-80a6-5ac372c0fbd9",
+            "title": "refmode",
+            "varPrefix": "L",
+            "varName": "H60_AFCS_REF_SELECT_MODE",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 3,
+                "step": 1
             }
         }
     ]

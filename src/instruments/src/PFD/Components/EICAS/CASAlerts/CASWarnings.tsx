@@ -25,6 +25,7 @@ export const CASWarnings: React.FC = () => {
   const [TRIM] = useSimVar('L:H60_AFCS_TRIM', 'bool');
   const [EGI1] = useSimVar('L:H60_SYS_EGI1', 'bool');
   const [EGI2] = useSimVar('L:H60_SYS_EGI2', 'bool');
+  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool");
 
   const [Stab_Man_Mode] = useSimVar('L:H60_Stab_Man_Mode', 'bool');
   const [Stab_Unlocked] = useSimVar('L:H60_Stab_Unlocked', 'bool');
@@ -32,12 +33,12 @@ export const CASWarnings: React.FC = () => {
   // Caution definitions (this can grow easily)
   const advisoryList: CautionType[] = [
     { text: 'AFCS FAIL', simVar: false },
-    { text: 'BOOST SERVO OFF', simVar: false },
+    { text: 'BOOST SERVO OFF', simVar: HYD_Leak_Test },
     { text: 'CHECK EICAS', simVar: false },
     { text: 'FPS FAIL', simVar: !FPS },
     { text: 'ROTOR BRAKE', simVar: RotorBrake },
     { text: 'GUST LOCK ENGAGED', simVar: false },
-    { text: 'SAS OFF', simVar: !SAS1 || !SAS2 },
+    { text: 'SAS OFF', simVar: !SAS1 || !SAS2 || HYD_Leak_Test },
     { text: 'STAB MANUAL MODE', simVar: Stab_Man_Mode },
     { text: 'STAB UNLOCKED', simVar: Stab_Unlocked },
     { text: 'STBY INST NOT ARMD', simVar: !Batt_stby},

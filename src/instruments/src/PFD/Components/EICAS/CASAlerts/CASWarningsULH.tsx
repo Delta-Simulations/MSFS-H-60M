@@ -14,6 +14,7 @@ export const CASWarningsULH: React.FC = () => {
   const [Alternator_Connected_1] = useSimVar("A:GENERAL ENG MASTER ALTERNATOR:1", "bool");
   let [Alternator_Load_1] = useSimVar("A:ELECTRICAL GENALT BUS VOLTAGE:1", "volts");
   Alternator_Load_1 = Math.round(Alternator_Load_1 * 10) / 10;
+  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool");
 
 
   // Caution definitions (this can grow easily)
@@ -24,8 +25,8 @@ export const CASWarningsULH: React.FC = () => {
       simVar: !Alternator_Connected_1 || Alternator_Load_1 < 14,
     },
     {
-      text: 'HYD PUMP 1 FAIL',
-      simVar: false,
+      text: 'RSVR 1 LOW',
+      simVar: HYD_Leak_Test,
     },
 
 

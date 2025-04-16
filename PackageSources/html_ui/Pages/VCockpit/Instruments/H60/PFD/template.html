@@ -8540,7 +8540,7 @@
 	};
 	const getDisplayIndex = () => {
 	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; //return 1 
+	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; // return 1 
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -9037,7 +9037,8 @@
 	  const [SearchLight] = useSimVar('L:H60_SL_TOGGLE', 'bool');
 	  const [AC_Onground] = useSimVar('A:SIM ON GROUND', 'bool');
 	  const [CargoHookArmed] = useSimVar('L:H60_CARGO_HOOK_ARMED', 'bool');
-	  const [CargoHookOpen] = useSimVar('L:H60_CARGO_HOOK_OPEN', 'bool'); // Caution definitions (this can grow easily)
+	  const [CargoHookOpen] = useSimVar('L:H60_CARGO_HOOK_OPEN', 'bool');
+	  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool"); // Caution definitions (this can grow easily)
 
 	  const advisoryList = [{
 	    text: 'APU ON',
@@ -9050,7 +9051,10 @@
 	    simVar: false
 	  }, {
 	    text: 'BACK UP PUMP ON',
-	    simVar: false
+	    simVar: HYD_Leak_Test
+	  }, {
+	    text: 'T/R SERVO 2 ON',
+	    simVar: HYD_Leak_Test
 	  }, {
 	    text: 'BOOST PUMP 1 ON',
 	    simVar: Eng1_Boost_Pump == 1
@@ -9212,73 +9216,13 @@
 
 	// Component
 	const CASWarningsRH = () => {
-	  const [Starter_1] = useSimVar('A:GENERAL ENG STARTER ACTIVE:1', 'bool');
-	  const [Oil_temp_1] = useSimVar("A:ENG OIL TEMPERATURE:1", "Celsius");
-	  const [Oil_press_1] = useSimVar("A:ENG OIL PRESSURE:1", "psi"); // Caution definitions (this can grow easily)
-
-	  const advisoryList = [{
-	    text: 'ENG 1 OIL HOT',
-	    simVar: Oil_temp_1 > 150
-	  }, {
-	    text: 'ENG 1 OIL PRESS',
-	    simVar: Oil_press_1 < 10
-	  }, {
-	    text: 'ENG 1 STARTER ON',
-	    simVar: Starter_1
-	  }, {
-	    text: 'ICE DETECTED',
-	    simVar: false
-	  }, {
-	    text: 'PRI SERVO 1 FAIL',
-	    simVar: false
-	  }, {
-	    text: 'T/R SERVO 1 FAIL',
-	    simVar: false
-	  }, {
-	    text: 'TAIL XMSN OIL HOT',
-	    simVar: false
-	  }]; // Limit to 6 active cautions
-	  // Slice out the correct group for the current page
-
-	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 6); // Build the SVG elements array
-
-	  const elements = []; // Track vertical spacing
-
-	  let yPos = 355.5;
-	  activeAdvisory.forEach((caution, index) => {
-	    if (caution.simVar) {
-	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: "38.5",
-	          y: yPos - 22.5,
-	          width: "290.5",
-	          height: "26",
-	          fill: "yellow"
-	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	          x: 40,
-	          y: yPos,
-	          fontSize: "27",
-	          className: "CAS-readouts-unacknowledged",
-	          children: caution.text
-	        }, "warning-".concat(index))]
-	      }));
-	      yPos += 29; // move down for next caution
-	    }
-	  });
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	      children: elements
-	    })
-	  });
-	};
-
-	// Component
-	const CASWarningsLH = () => {
 	  const [Starter_2] = useSimVar('A:GENERAL ENG STARTER ACTIVE:2', 'bool');
 	  const [Oil_temp_2] = useSimVar("A:ENG OIL TEMPERATURE:2", "Celsius");
 	  const [Oil_press_2] = useSimVar("A:ENG OIL PRESSURE:2", "psi");
 	  const [Batt_1_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:1", "volts");
-	  const [Batt_2_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:2", "volts"); // Caution definitions (this can grow easily)
+	  const [Batt_2_volt] = useSimVar("A:ELECTRICAL BATTERY VOLTAGE:2", "volts");
+	  useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool");
+	  const [NR] = useSimVar("A:ROTOR RPM PCT:1", "percent"); // Caution definitions (this can grow easily)
 
 	  const advisoryList = [{
 	    text: 'APU FAIL',
@@ -9308,11 +9252,8 @@
 	    text: 'CONV 2 FAIL',
 	    simVar: false
 	  }, {
-	    text: 'PRI SERVO 2 FAIL',
-	    simVar: false
-	  }, {
-	    text: 'MAIN XMSN OIL HOT',
-	    simVar: false
+	    text: 'MAIN XMSN PRESS',
+	    simVar: NR < 60
 	  }]; // Limit to 6 active cautions
 	  // Slice out the correct group for the current page
 
@@ -9349,17 +9290,84 @@
 	};
 
 	// Component
+	const CASWarningsLH = () => {
+	  const [Starter_1] = useSimVar('A:GENERAL ENG STARTER ACTIVE:1', 'bool');
+	  const [Oil_temp_1] = useSimVar("A:ENG OIL TEMPERATURE:1", "Celsius");
+	  const [Oil_press_1] = useSimVar("A:ENG OIL PRESSURE:1", "psi");
+	  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool"); // Caution definitions (this can grow easily)
+
+	  const advisoryList = [{
+	    text: 'ENG 1 OIL HOT',
+	    simVar: Oil_temp_1 > 150
+	  }, {
+	    text: 'ENG 1 OIL PRESS',
+	    simVar: Oil_press_1 < 10
+	  }, {
+	    text: 'ENG 1 STARTER ON',
+	    simVar: Starter_1
+	  }, {
+	    text: 'ICE DETECTED',
+	    simVar: false
+	  }, {
+	    text: 'PRI SERVO 1 FAIL',
+	    simVar: false
+	  }, {
+	    text: 'T/R SERVO 1 FAIL',
+	    simVar: HYD_Leak_Test
+	  }, {
+	    text: 'TAIL XMSN OIL HOT',
+	    simVar: false
+	  }, {
+	    text: 'BACKUP RSVR LOW',
+	    simVar: HYD_Leak_Test
+	  }]; // Limit to 6 active cautions
+	  // Slice out the correct group for the current page
+
+	  const activeAdvisory = advisoryList.filter(c => c.simVar).slice(0, 6); // Build the SVG elements array
+
+	  const elements = []; // Track vertical spacing
+
+	  let yPos = 355.5;
+	  activeAdvisory.forEach((caution, index) => {
+	    if (caution.simVar) {
+	      elements.push( /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	          x: "38.5",
+	          y: yPos - 22.5,
+	          width: "290.5",
+	          height: "26",
+	          fill: "yellow"
+	        }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	          x: 40,
+	          y: yPos,
+	          fontSize: "27",
+	          className: "CAS-readouts-unacknowledged",
+	          children: caution.text
+	        }, "warning-".concat(index))]
+	      }));
+	      yPos += 29; // move down for next caution
+	    }
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsx("g", {
+	      children: elements
+	    })
+	  });
+	};
+
+	// Component
 	const CASWarningsULH = () => {
 	  const [Alternator_Connected_1] = useSimVar("A:GENERAL ENG MASTER ALTERNATOR:1", "bool");
 	  let [Alternator_Load_1] = useSimVar("A:ELECTRICAL GENALT BUS VOLTAGE:1", "volts");
-	  Alternator_Load_1 = Math.round(Alternator_Load_1 * 10) / 10; // Caution definitions (this can grow easily)
+	  Alternator_Load_1 = Math.round(Alternator_Load_1 * 10) / 10;
+	  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool"); // Caution definitions (this can grow easily)
 
 	  const advisoryList = [{
 	    text: 'GEN 1 FAIL',
 	    simVar: !Alternator_Connected_1 || Alternator_Load_1 < 14
 	  }, {
-	    text: 'HYD PUMP 1 FAIL',
-	    simVar: false
+	    text: 'RSVR 1 LOW',
+	    simVar: HYD_Leak_Test
 	  }]; // Limit to 6 active cautions
 	  // Slice out the correct group for the current page
 
@@ -9399,14 +9407,15 @@
 	const CASWarningsURH = () => {
 	  const [Alternator_Connected_2] = useSimVar("A:GENERAL ENG MASTER ALTERNATOR:2", "bool");
 	  let [Alternator_Load_2] = useSimVar("A:ELECTRICAL GENALT BUS VOLTAGE:2", "volts");
-	  Alternator_Load_2 = Math.round(Alternator_Load_2 * 10) / 10; // Caution definitions (this can grow easily)
+	  Alternator_Load_2 = Math.round(Alternator_Load_2 * 10) / 10;
+	  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool"); // Caution definitions (this can grow easily)
 
 	  const advisoryList = [{
 	    text: 'GEN 2 FAIL',
 	    simVar: !Alternator_Connected_2 || Alternator_Load_2 < 14
 	  }, {
-	    text: 'HYD PUMP 2 FAIL',
-	    simVar: false
+	    text: 'RSVR 2 LOW',
+	    simVar: HYD_Leak_Test
 	  }]; // Limit to 6 active cautions
 	  // Slice out the correct group for the current page
 
@@ -9506,6 +9515,7 @@
 	  const [TRIM] = useSimVar('L:H60_AFCS_TRIM', 'bool');
 	  const [EGI1] = useSimVar('L:H60_SYS_EGI1', 'bool');
 	  const [EGI2] = useSimVar('L:H60_SYS_EGI2', 'bool');
+	  const [HYD_Leak_Test] = useSimVar("L:H60_SYS_HYD_Leak_Test_Active", "bool");
 	  const [Stab_Man_Mode] = useSimVar('L:H60_Stab_Man_Mode', 'bool');
 	  const [Stab_Unlocked] = useSimVar('L:H60_Stab_Unlocked', 'bool'); // Caution definitions (this can grow easily)
 
@@ -9514,7 +9524,7 @@
 	    simVar: false
 	  }, {
 	    text: 'BOOST SERVO OFF',
-	    simVar: false
+	    simVar: HYD_Leak_Test
 	  }, {
 	    text: 'CHECK EICAS',
 	    simVar: false
@@ -9529,7 +9539,7 @@
 	    simVar: false
 	  }, {
 	    text: 'SAS OFF',
-	    simVar: !SAS1 || !SAS2
+	    simVar: !SAS1 || !SAS2 || HYD_Leak_Test
 	  }, {
 	    text: 'STAB MANUAL MODE',
 	    simVar: Stab_Man_Mode
@@ -27652,6 +27662,9 @@
 	  useSimVar('A:Autopilot vertical hold var', 'ft/min');
 	  useSimVar('AUTOPILOT THROTTLE ARM', 'Bool');
 	  useSimVar('L:LNAV_ACTIVE', 'bool');
+	  const [AFCS_REF_MODE] = useSimVar('L:H60_AFCS_REF_SELECT_MODE', 'enum');
+	  let ref_mode_names = ["BARO", "HI", "LO", "TIME"];
+	  let ref_mode_widths = [105, 78, 79, 105];
 	  const [Baro_Setting] = useSimVar('A:KOHLSMAN SETTING HG', 'inHg');
 	  let Baro_Formatted = Baro_Setting.toFixed(2);
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -27666,6 +27679,22 @@
 	        textAnchor: "middle",
 	        children: "FD1"
 	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	      x: 293,
+	      y: 741,
+	      width: ref_mode_widths[AFCS_REF_MODE],
+	      height: 21,
+	      stroke: "white",
+	      strokeWidth: 2.5,
+	      fill: "none"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: 295,
+	      y: 759,
+	      fontSize: 21,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: ["REF-", ref_mode_names[AFCS_REF_MODE]]
 	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
 	      x: 882,
 	      y: 359,
@@ -27953,16 +27982,60 @@
 	          fill: "white"
 	        })]
 	      })
+	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(0, 215.5)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "50%",
+	        y1: "49.1%",
+	        x2: "50%",
+	        y2: "53.5%",
+	        stroke: "black",
+	        "stroke-width": "4"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "48.7%",
+	        y1: "50%",
+	        x2: "51.3%",
+	        y2: "50%",
+	        stroke: "black",
+	        "stroke-width": "4"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "49.4%",
+	        y1: "53%",
+	        x2: "50.6%",
+	        y2: "53%",
+	        stroke: "black",
+	        "stroke-width": "4"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "50%",
+	        y1: "49.1%",
+	        x2: "50%",
+	        y2: "53.5%",
+	        stroke: "white",
+	        "stroke-width": "2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "48.7%",
+	        y1: "50%",
+	        x2: "51.3%",
+	        y2: "50%",
+	        stroke: "white",
+	        "stroke-width": "2"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "49.4%",
+	        y1: "53%",
+	        x2: "50.6%",
+	        y2: "53%",
+	        stroke: "white",
+	        "stroke-width": "2"
+	      })]
 	    })]
 	  });
 	};
 
 	const AltCircle = () => {
-	  let [STD_ALT] = useSimVar('A:PLANE ALTITUDE', 'feet');
-	  useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
-	  let Alt_Readout = Math.floor(STD_ALT / 10) * 10;
-	  STD_ALT = Math.floor(STD_ALT);
-
+	  let [Baro_Alt] = useSimVar('A:INDICATED ALTITUDE', 'feet');
+	  let Alt_Readout = Math.floor(Baro_Alt / 10) * 10;
+	  const Alt_hundreds = Math.floor(Baro_Alt * 20) / 20 % 1000;
+	  const Needle_rotation = Alt_hundreds / 1000 * 360;
 	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
 	    viewBox: "0 0 1280 1280",
 	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
@@ -28208,10 +28281,12 @@
 	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	        transform: "translate(952, 35)scale(1.35)",
 	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "rotate(".concat(STD_ALT * 4, ", 178, 217)"),
+	          transform: "rotate(".concat(Needle_rotation, ", 178, 237)"),
 	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
 	            points: "174,217 182,217 182,150 179,140 179,125 178,110 177,125 177,140 174,150",
-	            fill: "white"
+	            fill: "white",
+	            stroke: "black",
+	            strokeWidth: 1
 	          })
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
@@ -28639,23 +28714,7 @@
 	  return /*#__PURE__*/jsxRuntime.jsx("svg", {
 	    viewBox: "0 0 1280 1280",
 	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 278,
-	        y: 1229,
-	        width: "180",
-	        height: "40",
-	        stroke: "white",
-	        fill: "none",
-	        "stroke-width": "3"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 285,
-	        y: 1263,
-	        fontSize: 32,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "start",
-	        children: "REF-BARO"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("text", {
 	        x: 285,
 	        y: 1060,
 	        fontSize: 44,
