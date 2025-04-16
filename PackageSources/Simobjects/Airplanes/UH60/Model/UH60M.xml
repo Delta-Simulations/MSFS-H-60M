@@ -399,7 +399,7 @@
 					<ANIM_NAME>Rtr_cone</ANIM_NAME>
           <ANIM_LENGTH>200</ANIM_LENGTH>
 					<ANIM_CODE>
-              100 (A:ROTOR RPM PCT:1, percent) 0.9 * +
+              100
 					</ANIM_CODE>
           <ANIM_LAG>70</ANIM_LAG>
 				</UseTemplate>
@@ -536,7 +536,7 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>STAB_POS</ANIM_NAME>
 					<ANIM_CODE>
-            (A:AIRSPEED TRUE, Knots) 2 *
+            (A:ELECTRICAL MASTER BATTERY, bool) (A:AIRSPEED TRUE, Knots) * 20 - 2 *
 					</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
