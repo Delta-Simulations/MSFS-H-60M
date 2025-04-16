@@ -29802,7 +29802,7 @@
 	  const [RA_Alt_Lo_Alert] = useSimVar('L:H60_CAS_RADALT_LO_ALERT', 'feet');
 	  const [RA_Alt_Hi_Alert] = useSimVar('L:H60_CAS_RADALT_HI_ALERT', 'feet');
 	  let RA_Readout = Math.floor(RA_ALT);
-	  RA_ALT = Math.floor(RA_ALT);
+	  RA_ALT = Math.floor(RA_ALT * 20) / 20;
 	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [RA_Readout <= 1050 && /*#__PURE__*/jsxRuntime.jsxs("g", {

@@ -94,8 +94,6 @@
 					1 (&gt;K:HELICOPTER_ENGINE_1_GOVERNOR_SWITCH_ON) 
 					1 (&gt;K:HELICOPTER_ENGINE_2_GOVERNOR_SWITCH_ON) 
 				} 
-				<!-- (L:H60_PCL1, percent) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-				(L:H60_PCL2, percent) (&gt;A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) -->
 
 				(L:H60_PCL1, percent) 0 &gt;
 				(L:H60_Fuel1) 0 &gt; or

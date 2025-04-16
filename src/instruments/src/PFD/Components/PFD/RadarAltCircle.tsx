@@ -37,7 +37,7 @@ export const RadarAltCircle = () => {
 
 
     let RA_Readout = Math.floor(RA_ALT);
-    RA_ALT = Math.floor(RA_ALT)
+    RA_ALT = Math.floor(RA_ALT*20)/20;
     const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
 
 
