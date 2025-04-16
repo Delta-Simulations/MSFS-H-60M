@@ -6,21 +6,29 @@ import { useSimVar } from "../../Hooks/simVars";
 export const Fixed = () => {
 	let DisplayID = getDisplayIndex();
 
-	const [showOverlay, setShowOverlay] = useState(true);
+	
 	const [DISP_TYPE] = useSimVar(`L:H60_MFD_${DisplayID}_MODE`, "enum");
 	const [PFD_NavMap_Mode] = useSimVar(`L:H60_MFD_NavMap_Mode`, "enum");
 
 	let navmap_mode_names = ["FULL", "HOVER", "ARC"];
 	let navmap_mode_name = navmap_mode_names[PFD_NavMap_Mode];
 
-
+	const [showOverlay, setShowOverlay] = useState(true);
 	useEffect(() => {
+		// Random delay between 2500ms and 6000ms
+		const delay = Math.floor(Math.random() * (7000 - 3000 + 1)) + 2500;
+	  
 		const timer = setTimeout(() => {
-			setShowOverlay(false);
-		}, (3000)); // 3 seconds
+		  setShowOverlay(false);
+		}, delay);
+	  
+		return () => clearTimeout(timer); // Clear the actual timeout
+	  }, []);
 
-		return () => clearTimeout(Math.floor(Math.random() * (4100 - 2500+ 1)) + 2500); // Cleanup just in case
-	}, []);
+
+
+
+	
 
 	return (
 		<g>
@@ -82,6 +90,7 @@ export const Fixed = () => {
 			</text>
 
 			<text
+				visibility={DISP_TYPE == 0 ? "visible" : "hidden"}
 				x={812}
 				y={759}
 				fontSize={21}
