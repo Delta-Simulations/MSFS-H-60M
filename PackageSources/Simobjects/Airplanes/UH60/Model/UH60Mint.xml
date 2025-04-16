@@ -284,13 +284,10 @@
     <CCW_ANIMTIP>FORMATION LGT</CCW_ANIMTIP>
   </UseTemplate>
 
-  <UseTemplate Name="DELTASIM_PushButton_Template">
-    <NODE_ID>Switch_Pitot_L</NODE_ID>
-    <TOOLTIPID>CP PITOT</TOOLTIPID>
-    <LEFT_SINGLE_CODE>
-      (L:H60_cP_PITOT, bool) ! (&gt;L:H60_cP_PITOT, bool)
-    </LEFT_SINGLE_CODE>
-</UseTemplate>
+
+
+
+
 <Component ID="KNOB_AFCS_HDG_SEL" Node="KNOB_AFCS_HDG_SEL">
   <UseTemplate Name="ASOBO_GT_Knob_Infinite_Push">
     <NODE_ID>KNOB_AFCS_HDG_SEL</NODE_ID>
@@ -482,20 +479,24 @@
     <TOOLTIPID_NORM>ENG2 GEN</TOOLTIPID_NORM>
   </UseTemplate>
 
-  <UseTemplate Name="DELTASIM_PushButton_Template">
-    <NODE_ID>Switch_Pitot_L</NODE_ID>
-    <TOOLTIPID>CP PITOT</TOOLTIPID>
-    <LEFT_SINGLE_CODE>
-      (L:H60_cP_PITOT, bool) ! (&gt;L:H60_cP_PITOT, bool)
-    </LEFT_SINGLE_CODE>
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(L:H60_cP_PITOT, bool) 100 *</ANIM>
+  <NODE_ID>Switch_Pitot_L</NODE_ID>
+  <TOOLTIPID>CP PITOT</TOOLTIPID>
+  <INTERACT_CODE>
+    (L:H60_cP_PITOT, bool) ! (&gt;L:H60_cP_PITOT, bool)
+  </INTERACT_CODE>
 </UseTemplate>
-  <UseTemplate Name="DELTASIM_PushButton_Template">
-    <NODE_ID>Switch_Pitot_R</NODE_ID>
-    <TOOLTIPID>P PITOT</TOOLTIPID>
-    <LEFT_SINGLE_CODE>
-      (L:H60_P_PITOT, bool) ! (&gt;L:H60_P_PITOT, bool)
-    </LEFT_SINGLE_CODE>
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(L:H60_P_PITOT, bool) 100 *</ANIM>
+  <NODE_ID>Switch_Pitot_R</NODE_ID>
+  <TOOLTIPID>P PITOT</TOOLTIPID>
+  <INTERACT_CODE>
+    (L:H60_P_PITOT, bool) ! (&gt;L:H60_P_PITOT, bool)
+  </INTERACT_CODE>
 </UseTemplate>
+
+
 
   <UseTemplate Name="DELTASIM_PushButton_Template">
     <NODE_ID>Switch_ENG1_AntiIce</NODE_ID>
@@ -760,6 +761,27 @@
     (L:H60_Lamp_Test, bool) ! (&gt;L:H60_Lamp_Test, bool)
   </INTERACT_CODE>
 </UseTemplate>
+
+<UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Button_Tail_Wheel_Lock</NODE_ID>
+  <TOOLTIPID>TAIL WHEEL</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    1 (&gt;K:TOGGLE_TAILWHEEL_LOCK)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_Tail_wheel_Unlocked</NODE_ID>
+  <TRUECODE>
+    (A:TAILWHEEL LOCK ON, bool) 0 == 
+  </TRUECODE>
+</UseTemplate>
+<UseTemplate Name="Korry_Emmis_DELTASIM">
+  <NODE_ID>Korry_Tail_wheel_locked</NODE_ID>
+  <TRUECODE>
+    (A:TAILWHEEL LOCK ON, bool)
+  </TRUECODE>
+</UseTemplate>
+
 <UseTemplate Name="Korry_Emmis_DELTASIM">
   <NODE_ID>Korry_Eng1_Out</NODE_ID>
   <TRUECODE>
