@@ -85,8 +85,8 @@
         (L:H60_AFCS_REF_SELECT_MODE, enum) 0 == if{ 1 (&gt;K:KOHLSMAN_DEC) }
         (L:H60_AFCS_REF_SELECT_MODE, enum) 1 == if{ (L:H60_CAS_RADALT_HI) 10 - 0 max (&gt;L:H60_CAS_RADALT_HI) }
         (L:H60_AFCS_REF_SELECT_MODE, enum) 2 == if{ (L:H60_CAS_RADALT_LO) 10 - 0 max (&gt;L:H60_CAS_RADALT_LO) }
-        (L:H60_AFCS_REF_SELECT_MODE, enum) 1 == (L:H60_CAS_RADALT_HI) 0 == if{ -1 (&gt;L:H60_CAS_RADALT_HI) }
-        (L:H60_AFCS_REF_SELECT_MODE, enum) 2 == (L:H60_CAS_RADALT_LO) 0 == if{ -1 (&gt;L:H60_CAS_RADALT_LO) }
+        (L:H60_AFCS_REF_SELECT_MODE, enum) 1 == (L:H60_CAS_RADALT_HI) 0 == and if{ -1 (&gt;L:H60_CAS_RADALT_HI) }
+        (L:H60_AFCS_REF_SELECT_MODE, enum) 2 == (L:H60_CAS_RADALT_LO) 0 == and if{ -1 (&gt;L:H60_CAS_RADALT_LO) }
       </ANTICLOCKWISE_CODE_DEFAULT_IM>
       <CLOCKWISE_CODE_DRAG_IM>
         (L:H60_AFCS_REF_SELECT_MODE, enum) 0 == if{ 1 (&gt;K:KOHLSMAN_INC) }
@@ -98,8 +98,8 @@
         (L:H60_AFCS_REF_SELECT_MODE, enum) 1 == if{ (L:H60_CAS_RADALT_HI) 10 - 0 max (&gt;L:H60_CAS_RADALT_HI) }
         (L:H60_AFCS_REF_SELECT_MODE, enum) 2 == if{ (L:H60_CAS_RADALT_LO) 10 - 0 max (&gt;L:H60_CAS_RADALT_LO) }
 
-        (L:H60_AFCS_REF_SELECT_MODE, enum) 1 == (L:H60_CAS_RADALT_HI) 0 == if{ -1 (&gt;L:H60_CAS_RADALT_HI) }
-        (L:H60_AFCS_REF_SELECT_MODE, enum) 2 == (L:H60_CAS_RADALT_LO) 0 == if{ -1 (&gt;L:H60_CAS_RADALT_LO) }
+        (L:H60_AFCS_REF_SELECT_MODE, enum) 1 == (L:H60_CAS_RADALT_HI) 0 == and if{ -1 (&gt;L:H60_CAS_RADALT_HI) }
+        (L:H60_AFCS_REF_SELECT_MODE, enum) 2 == (L:H60_CAS_RADALT_LO) 0 == and if{ -1 (&gt;L:H60_CAS_RADALT_LO) }
       </ANTICLOCKWISE_CODE_DRAG_IM>
       <ANIMTIP_0>REF ADJUST LEFT</ANIMTIP_0>
       <ANIMTIP_0_ON_CURSOR>TurnLeft</ANIMTIP_0_ON_CURSOR>
