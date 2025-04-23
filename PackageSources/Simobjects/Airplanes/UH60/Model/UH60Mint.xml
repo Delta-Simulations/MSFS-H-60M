@@ -71,14 +71,14 @@
 <Component ID="OH_PCLS">
   <Component ID="Lever_PCL2" Node="Lever_PCL2">
     <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
-        <UP_CODE>
-          (L:H60_PCL2, percent) ++ 100 min (>L:H60_PCL2, percent)
-        </UP_CODE>
-        <DOWN_CODE>
-            (L:H60_PCL2, percent) -- 0 max (>L:H60_PCL2, percent)
-        </DOWN_CODE>
-        <AXIS>X</AXIS>
-        <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
+      <UP_CODE>
+        (L:H60_PCL2, percent) 9.9 &gt; if{ (L:H60_PCL2, percent) ++ 100 min (>L:H60_PCL2, percent) }
+      </UP_CODE>
+      <DOWN_CODE>
+        (L:H60_PCL2, percent) 9.9 &gt; if{ (L:H60_PCL2, percent) -- 10 max (>L:H60_PCL2, percent) }
+      </DOWN_CODE>
+      <AXIS>X</AXIS>
+      <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
     </UseTemplate>
     <UseTemplate Name="ASOBO_GT_Anim_Code">
       <PART_ID>Lever_PCL2</PART_ID>
@@ -93,10 +93,10 @@
   <Component ID="Lever_PCL1" Node="Lever_PCL1">
     <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
         <UP_CODE>
-          (L:H60_PCL1, percent) ++ 100 min (>L:H60_PCL1, percent)
+          (L:H60_PCL1, percent) 9.9 &gt; if{ (L:H60_PCL1, percent) ++ 100 min (>L:H60_PCL1, percent) }
         </UP_CODE>
         <DOWN_CODE>
-          (L:H60_PCL1, percent) -- 0 max (>L:H60_PCL1, percent)
+          (L:H60_PCL1, percent) 9.9 &gt; if{ (L:H60_PCL1, percent) -- 10 max (>L:H60_PCL1, percent) }
         </DOWN_CODE>
         <AXIS>X</AXIS>
         <DRAG_AXIS_SCALE>100</DRAG_AXIS_SCALE>
@@ -111,6 +111,37 @@
       <ANIM_LAG>300</ANIM_LAG>
     </UseTemplate>
   </Component>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_PCL1, percent) 10 *</ANIM>
+    <NODE_ID>Lever_PCL1_Cutoff</NODE_ID>
+    <TOOLTIPID>PCL CUTOFF</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_PCL1, percent) 0 == if{ 10 (&gt;L:H60_PCL1, percent) } els{
+        (L:H60_PCL1, percent) 10 == if{ 0 (&gt;L:H60_PCL1, percent) }
+      }
+    </INTERACT_CODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_PCL2, percent) 10 *</ANIM>
+    <NODE_ID>Lever_PCL2_Cutoff</NODE_ID>
+    <TOOLTIPID>PCL CUTOFF</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_PCL2, percent) 0 == if{ 10 (&gt;L:H60_PCL2, percent) } els{
+        (L:H60_PCL2, percent) 10 == if{ 0 (&gt;L:H60_PCL2, percent) }
+      }
+    </INTERACT_CODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>100</ANIM>
+    <NODE_ID>Lever_PCL2_Cutoff</NODE_ID>
+    <TOOLTIPID>PCL CUTOFF</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_PCL2, percent) 0 == if{ 10 (&gt;L:H60_PCL2, percent) } els{
+        (L:H60_PCL2, percent) 10 == if{ 0 (&gt;L:H60_PCL2, percent) }
+      }
+    </INTERACT_CODE>
+  </UseTemplate>
+
 
 
 
@@ -118,6 +149,8 @@
 
   <Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
     <UseTemplate Name = "ASOBO_GT_Switch_3States">
+      <ANIM_LAG>70</ANIM_LAG>
+      <WWISE_EVENT>Cpit_FuelLever</WWISE_EVENT>
       <ANIM_NAME>Lever_Eng2_Fuel</ANIM_NAME>
       <NODE_ID>Lever_Eng2_Fuel</NODE_ID>
       <DEFAULT_POS>0</DEFAULT_POS>
@@ -132,6 +165,8 @@
   </Component>
   <Component ID="Lever_Eng1_Fuel" Node="Lever_Eng1_Fuel">
     <UseTemplate Name = "ASOBO_GT_Switch_3States">
+      <ANIM_LAG>70</ANIM_LAG>
+      <WWISE_EVENT>Cpit_FuelLever</WWISE_EVENT>
       <ANIM_NAME>Lever_Eng1_Fuel</ANIM_NAME>
       <NODE_ID>Lever_Eng1_Fuel</NODE_ID>
       <DEFAULT_POS>0</DEFAULT_POS>
@@ -159,8 +194,8 @@
     <ANIM_LAG>300</ANIM_LAG>
     <ANIM_CODE>(A:ROTOR BRAKE ACTIVE, Bool) 100 *</ANIM_CODE>
     <LEFT_SINGLE_CODE>
-      (L:RotorBrakeActive) ! (&gt;L:RotorBrakeActive)
-      (L:RotorBrakeActive)
+      (L:H60_RotorBrakeActive) ! (&gt;L:H60_RotorBrakeActive)
+      (L:H60_RotorBrakeActive)
       if{
         (&gt;K:ROTOR_BRAKE_ON)
       } els{
@@ -173,7 +208,7 @@
   <UseTemplate Name="ASOBO_GT_Update">
     <FREQUENCY>1</FREQUENCY>
     <UPDATE_CODE>
-      (L:RotorBrakeActive) if{ (&gt;K:ROTOR_BRAKE_ON) }
+      (L:H60_RotorBrakeActive) if{ (&gt;K:ROTOR_BRAKE_ON) }
     </UPDATE_CODE>
   </UseTemplate>
 </Component>
@@ -205,6 +240,7 @@
     <ANIMTIP_0>BEACON UPPER</ANIMTIP_0>
     <ANIMTIP_1>BEACON BOTH</ANIMTIP_1>
     <ANIMTIP_2>BEACON LOWER</ANIMTIP_2>
+    <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
   </UseTemplate> </Component>
   <Component ID="Switch_AntiColl_PWR" Node="Switch_AntiColl_PWR"> <UseTemplate Name = "ASOBO_GT_Switch_3States">
     <ANIM_NAME>Switch_AntiColl_PWR</ANIM_NAME>
@@ -217,6 +253,7 @@
     <ANIMTIP_0>BEACON DAY</ANIMTIP_0>
     <ANIMTIP_1>BEACON OFF</ANIMTIP_1>
     <ANIMTIP_2>BEACON NIGHT</ANIMTIP_2>
+    <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
   </UseTemplate> </Component>
   <!-- NAV LIGHTS -->
 
@@ -231,18 +268,20 @@
     <ANIMTIP_0>NAV DIM</ANIMTIP_0>
     <ANIMTIP_1>NAV OFF</ANIMTIP_1>
     <ANIMTIP_2>NAV BRT</ANIMTIP_2>
+    <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
   </UseTemplate> </Component>
 
 
-
-  <UseTemplate Name="AircraftVar_Switch_DELTASIM">
-    <SIMVAR>MASTER IGNITION SWITCH</SIMVAR>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(A:MASTER IGNITION SWITCH, bool) 100 *</ANIM>
     <NODE_ID>Key_Master_Ignition</NODE_ID>
     <TOOLTIPID>MASTER INGITION</TOOLTIPID>
-    <EVENT_SIMVAR>TOGGLE_MASTER_IGNITION_SWITCH</EVENT_SIMVAR>
-    <INDEX>1</INDEX>
+    <INTERACT_CODE>
+      1 (&gt;K:TOGGLE_MASTER_IGNITION_SWITCH)
+    </INTERACT_CODE>
+    <WWISE_EVENT_1>Cpit_KeyLock</WWISE_EVENT_1>
+    <WWISE_EVENT_2>Cpit_KeyLock</WWISE_EVENT_2>
   </UseTemplate>
-
 
 
   <UseTemplate Name="DELTASIM_Finite_Knob_Template">
@@ -282,6 +321,7 @@
     </ANTICLOCKWISE_CODE>
     <CW_ANIMTIP>FORMATION LGT</CW_ANIMTIP>
     <CCW_ANIMTIP>FORMATION LGT</CCW_ANIMTIP>
+    <WWISE_EVENT>Cpit_Knob_Move_2</WWISE_EVENT>
   </UseTemplate>
 
 
@@ -290,6 +330,9 @@
 
 <Component ID="KNOB_AFCS_HDG_SEL" Node="KNOB_AFCS_HDG_SEL">
   <UseTemplate Name="ASOBO_GT_Knob_Infinite_Push">
+    <WWISE_EVENT>Cpit_Knob_Move_1</WWISE_EVENT>
+    <WWISE_EVENT_1>Cpit_Knob_Move_1</WWISE_EVENT_1>
+    <WWISE_EVENT_PUSH>Cpit_Soft_Button_1</WWISE_EVENT_PUSH>
     <NODE_ID>KNOB_AFCS_HDG_SEL</NODE_ID>
     <PART_ID>KNOB_AFCS_HDG_SEL</PART_ID>
     <ANIM_NAME_KNOB>KNOB_AFCS_HDG_SEL</ANIM_NAME_KNOB>
@@ -318,6 +361,7 @@
 </Component>
 <Component ID="KNOB_AFCS_ALT_SEL" Node="KNOB_AFCS_ALT_SEL">
   <UseTemplate Name="ASOBO_GT_Knob_Infinite_Push">
+    <WWISE_EVENT>Cpit_Knob_Move_1</WWISE_EVENT>
     <NODE_ID>KNOB_AFCS_ALT_SEL</NODE_ID>
     <PART_ID>KNOB_AFCS_ALT_SEL</PART_ID>
     <ANIM_NAME_KNOB>KNOB_AFCS_ALT_SEL</ANIM_NAME_KNOB>
@@ -349,6 +393,7 @@
 
 <Component ID="KNOB_AFCS_IAS_SEL" Node="KNOB_AFCS_IAS_SEL">
   <UseTemplate Name="ASOBO_GT_Knob_Infinite_Push">
+    <WWISE_EVENT>Cpit_Knob_Move_1</WWISE_EVENT>
     <NODE_ID>KNOB_AFCS_IAS_SEL</NODE_ID>
     <PART_ID>KNOB_AFCS_IAS_SEL</PART_ID>
     <ANIM_NAME_KNOB>KNOB_AFCS_IAS_SEL</ANIM_NAME_KNOB>
@@ -496,36 +541,42 @@
   </INTERACT_CODE>
 </UseTemplate>
 
-
-
-  <UseTemplate Name="DELTASIM_PushButton_Template">
-    <NODE_ID>Switch_ENG1_AntiIce</NODE_ID>
-    <TOOLTIPID>ENG ANTI ICE</TOOLTIPID>
-    <LEFT_SINGLE_CODE>
-      (K:ANTI_ICE_TOGGLE_ENG1) ! (&gt;K:ANTI_ICE_TOGGLE_ENG1)
-    </LEFT_SINGLE_CODE>
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(A:ENG ANTI ICE:1, bool) 100 *</ANIM>
+  <NODE_ID>Switch_ENG1_AntiIce</NODE_ID>
+  <TOOLTIPID>ENG ANTI ICE</TOOLTIPID>
+  <INTERACT_CODE>
+    1 (&gt;K:ANTI_ICE_TOGGLE_ENG1)
+  </INTERACT_CODE>
 </UseTemplate>
-<UseTemplate Name="DELTASIM_PushButton_Template">
+
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(A:ENG ANTI ICE:2, bool) 100 *</ANIM>
   <NODE_ID>Switch_ENG2_AntiIce</NODE_ID>
   <TOOLTIPID>ENG ANTI ICE</TOOLTIPID>
-  <LEFT_SINGLE_CODE>
-    (K:ANTI_ICE_TOGGLE_ENG2) ! (&gt;K:ANTI_ICE_TOGGLE_ENG2)
-  </LEFT_SINGLE_CODE>
+  <INTERACT_CODE>
+    1 (&gt;K:ANTI_ICE_TOGGLE_ENG2)
+  </INTERACT_CODE>
 </UseTemplate>
-  <UseTemplate Name="AircraftVar_Switch_DELTASIM">
-    <SIMVAR>FUELSYSTEM PUMP SWITCH</SIMVAR>
+
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(A:FUELSYSTEM PUMP SWITCH:1, bool) 100 *</ANIM>
     <NODE_ID>Switch_ENG1_Boost</NODE_ID>
     <TOOLTIPID>ENG1 BOOST PUMP</TOOLTIPID>
-    <EVENT_SIMVAR>FUELSYSTEM_PUMP_TOGGLE</EVENT_SIMVAR>
-    <INDEX>1</INDEX>
+    <INTERACT_CODE>
+      1 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+    </INTERACT_CODE>
   </UseTemplate>
-  <UseTemplate Name="AircraftVar_Switch_DELTASIM">
-    <SIMVAR>FUELSYSTEM PUMP SWITCH</SIMVAR>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(A:FUELSYSTEM PUMP SWITCH:2, bool) 100 *</ANIM>
     <NODE_ID>Switch_ENG2_Boost</NODE_ID>
     <TOOLTIPID>ENG2 BOOST PUMP</TOOLTIPID>
-    <EVENT_SIMVAR>FUELSYSTEM_PUMP_TOGGLE</EVENT_SIMVAR>
-    <INDEX>2</INDEX>
+    <INTERACT_CODE>
+      2 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+    </INTERACT_CODE>
   </UseTemplate>
+
   <Component ID="Switch_Pump_Prime" Node="Switch_Pump_Prime">
     <UseTemplate Name="ASOBO_GT_Switch_3States">
       <ANIM_NAME>Switch_Pump_Prime</ANIM_NAME>
@@ -537,7 +588,9 @@
       <ANIMTIP_0>PRIME GEN</ANIMTIP_0>
       <ANIMTIP_1>OFF</ANIMTIP_1>
       <ANIMTIP_2>PRIME APU</ANIMTIP_2>
+      <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
     </UseTemplate>
+
   </Component>
   <Component ID="Switch_AIR_SCRCE" Node="Switch_AIR_SCRCE">
     <UseTemplate Name="ASOBO_GT_Switch_3States">
@@ -550,6 +603,7 @@
       <ANIMTIP_0>ENGINE</ANIMTIP_0>
       <ANIMTIP_1>OFF</ANIMTIP_1>
       <ANIMTIP_2>APU</ANIMTIP_2>
+      <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
     </UseTemplate>
   </Component>
 
@@ -565,6 +619,7 @@
           <ANIMTIP_0>RESET</ANIMTIP_0>
           <ANIMTIP_1>NORM</ANIMTIP_1>
           <ANIMTIP_2>TEST</ANIMTIP_2>
+          <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
         </UseTemplate>
       </Component>
 
@@ -580,6 +635,7 @@
           <ANIMTIP_0>RESET</ANIMTIP_0>
           <ANIMTIP_1>ON</ANIMTIP_1>
           <ANIMTIP_2>OFF</ANIMTIP_2>
+          <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
         </UseTemplate>
       </Component>
 
@@ -637,6 +693,7 @@
 </Component>
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
     <ANIM>(L:H60_APU_START, bool) 100 *</ANIM>
     <NODE_ID>Switch_APU_CNTRL</NODE_ID>
     <TOOLTIPID>APU CNTRL</TOOLTIPID>
@@ -645,37 +702,34 @@
     </INTERACT_CODE>
   </UseTemplate>
 
-  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_AFCS_SAS1, bool) 100 *</ANIM>
+
+  <UseTemplate Name="DELTASIM_PushButton_Template">
     <NODE_ID>Button_SAS1</NODE_ID>
     <TOOLTIPID>AFCS SAS 1</TOOLTIPID>
-    <INTERACT_CODE>
+    <LEFT_SINGLE_CODE>
       (L:H60_AFCS_SAS1, bool) ! (&gt;L:H60_AFCS_SAS1, bool)
-    </INTERACT_CODE>
-  </UseTemplate>
-  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_AFCS_SAS2, bool) 100 *</ANIM>
+    </LEFT_SINGLE_CODE>
+  </UseTemplate> 
+  <UseTemplate Name="DELTASIM_PushButton_Template">
     <NODE_ID>Button_SAS2</NODE_ID>
     <TOOLTIPID>AFCS SAS 2</TOOLTIPID>
-    <INTERACT_CODE>
+    <LEFT_SINGLE_CODE>
       (L:H60_AFCS_SAS2, bool) ! (&gt;L:H60_AFCS_SAS2, bool)
-    </INTERACT_CODE>
+    </LEFT_SINGLE_CODE>
   </UseTemplate>
-  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_AFCS_FPS, bool) 100 *</ANIM>
+  <UseTemplate Name="DELTASIM_PushButton_Template">
     <NODE_ID>Button_FPS</NODE_ID>
     <TOOLTIPID>AFCS FPS</TOOLTIPID>
-    <INTERACT_CODE>
+    <LEFT_SINGLE_CODE>
       (L:H60_AFCS_FPS, bool) ! (&gt;L:H60_AFCS_FPS, bool)
-    </INTERACT_CODE>
+    </LEFT_SINGLE_CODE>
   </UseTemplate>
-  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_AFCS_TRIM, bool) 100 *</ANIM>
+  <UseTemplate Name="DELTASIM_PushButton_Template">
     <NODE_ID>Button_AFCS_TRIM</NODE_ID>
     <TOOLTIPID>AFCS TRIM</TOOLTIPID>
-    <INTERACT_CODE>
+    <LEFT_SINGLE_CODE>
       (L:H60_AFCS_TRIM, bool) ! (&gt;L:H60_AFCS_TRIM, bool)
-    </INTERACT_CODE>
+    </LEFT_SINGLE_CODE>
   </UseTemplate>
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
@@ -750,6 +804,8 @@
   <INTERACT_CODE>
     1 (&gt;K:PARKING_BRAKES)
   </INTERACT_CODE>
+  <WWISE_EVENT_1>Cpit_ParkBrake_On</WWISE_EVENT_1>
+  <WWISE_EVENT_2>Cpit_ParkBrake_Off</WWISE_EVENT_2>
 </UseTemplate>
 
 

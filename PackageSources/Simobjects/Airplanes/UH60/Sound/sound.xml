@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundInfo Version="1.0">
     <WwisePackages>
-		<MainPackage Name="DeltaSim_H60"/>
+        <MainPackage Name="DeltaSim_H60" />
 	</WwisePackages>
     <AcousticParameters>
-        <Parameter Name="ReverberationPreset" ShareSetInside="rev_inside_default"/>
-    <Parameter Name="Insulation_ExitClosed" Value="-202"/>
-    <Parameter Name="Insulation_ExitOpen" Value="-12"/>
+        <Parameter Name="ReverberationPreset" ShareSetInside="rev_inside_default" />
+        <Parameter Name="Insulation_ExitClosed" Value="-202" />
+        <Parameter Name="Insulation_ExitOpen" Value="-12" />
     </AcousticParameters>
 
 <EngineSoundStates>
-    <Sound WwiseData="true" WwiseEvent="Rotor_EXT_FAR" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
-        <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+    <Sound WwiseData="true" WwiseEvent="Rotor_EXT_FAR" NodeName="MAIN_ROTOR_HELPER" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
+            <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear"
+                RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
 
-    <Sound WwiseData="true" WwiseEvent="Rotor_INT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Inside" >
-        <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+    <Sound WwiseData="true" WwiseEvent="Rotor_INT" NodeName="MAIN_ROTOR_HELPER" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Inside" >
+            <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear"
+                RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
-        <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
-        <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear" RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
+        <Sound WwiseData="true" WwiseEvent="Rotor_EXT" NodeName="MAIN_ROTOR_HELPER" ConeHeading="0" RotorIndex="1" StateOff="true" StateStart="true" StateOn="true" FadeOutType="2" FadeOutTime="0.2"  ViewPoint="Outside" >
+            <WwiseRTPC SimVar="ROTOR RPM PCT" Units="Percent" RTPCReleaseType="Linear"
+                RTPCReleaseTime="0.1" Index="1" RTPCName="SIMVAR_ROTOR_RPM" />
     </Sound>
 
 </EngineSoundStates>
@@ -26,9 +29,9 @@
 
     <AlwaysPlaySounds>        
     </AlwaysPlaySounds>
-    <WindSounds/>
-    <GroundSounds/>
-    <MiscellaneousSounds/>
+    <WindSounds />
+    <GroundSounds />
+    <MiscellaneousSounds />
     <SimVarSounds>
 <!-- 
         <Sound WwiseData="true" WwiseEvent="Rotor_EXT" SimVar="ROTOR RPM" Units="percent" Index="1" NodeName="MAIN_ROTOR_HELPER" Continuous="false" ViewPoint="Outside" FadeOutType="1" FadeOutTime="0.1">
@@ -36,35 +39,42 @@
         </Sound> -->
 
 
-        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="3" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
-            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="3" RTPCName="APU_Fuel_Pump" />
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="3" Continuous="false" NodeName="Sound_FuelPump_Node" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
+            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="3"
+                RTPCName="APU_Fuel_Pump" />
             <Range LowerBound="1.0" />    
         </Sound>
 
-        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="1" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
-            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="1" RTPCName="APU_Fuel_Pump" />
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="1" Continuous="false" NodeName="Sound_FuelPump_Node" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
+            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="1"
+                RTPCName="APU_Fuel_Pump" />
             <Range LowerBound="1.0" />    
         </Sound>
 
-        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="2" Continuous="false" NodeName="Cabin8" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
-            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="2" RTPCName="APU_Fuel_Pump" />
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelPump" SimVar="FUELSYSTEM PUMP ACTIVE" Units="bool" Index="2" Continuous="false" NodeName="Sound_FuelPump_Node" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1">
+            <WwiseRTPC SimVar="FUELSYSTEM PUMP ACTIVE" Units="PERCENT" Index="2"
+                RTPCName="APU_Fuel_Pump" />
             <Range LowerBound="1.0" />    
         </Sound>
 
         <Sound WwiseData="true" WwiseEvent="eng1_starter" NodeName="FX_EXHAUST_LEFT" SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="1">
-            <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="1" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
+            <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="1"
+                RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
             <Range LowerBound="1.0" />
           </Sound>
           <Sound WwiseData="true" WwiseEvent="eng1_starter" NodeName="FX_EXHAUST_RIGHT" SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2">
-            <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2" RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
+            <WwiseRTPC SimVar="GENERAL ENG STARTER ACTIVE" Units="Boolean" Index="2"
+                RTPCName="SIMVAR_GENERAL_ENG_STARTER" />
             <Range LowerBound="1.0" />
           </Sound>
           <Sound WwiseData="true" WwiseEvent="eng1_Idle_EXT" NodeName="FX_EXHAUST_LEFT" SimVar="SIMVAR_TURB_ENG_JET_THRUST" Units="Boolean" Index="2">
-            <WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="Boolean" Index="1" RTPCName="SIMVAR_TURB_ENG_JET_THRUST" />
+            <WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="Boolean" Index="1"
+                RTPCName="SIMVAR_TURB_ENG_JET_THRUST" />
             <Range LowerBound="1.0" />
           </Sound>
           <Sound WwiseData="true" WwiseEvent="eng1_Idle_EXT" NodeName="FX_EXHAUST_RIGHT" SimVar="SIMVAR_TURB_ENG_JET_THRUST" Units="Boolean" Index="2">
-            <WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="Boolean" Index="2" RTPCName="SIMVAR_TURB_ENG_JET_THRUST" />
+            <WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="Boolean" Index="2"
+                RTPCName="SIMVAR_TURB_ENG_JET_THRUST" />
             <Range LowerBound="1.0" />
           </Sound>
 
@@ -74,18 +84,19 @@
           </Sound>
 
           <Sound WwiseData="true" WwiseEvent="APU_Starter" ConeHeading="40.0" NodeName="APU_NODE" SimVar="APU PCT STARTER" Units="PERCENT" Index="0">
-            <WwiseRTPC SimVar="APU PCT STARTER" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_STARTER" />
+            <WwiseRTPC SimVar="APU PCT STARTER" Units="PERCENT" Index="0"
+                RTPCName="SIMVAR_APU_PCT_STARTER" />
             <WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
-            <WwiseRTPC LocalVar="H60_APU_START" Units="ENUM" Index="0" RTPCName="APU_SWITCH_POS"/>
+            <WwiseRTPC LocalVar="H60_APU_START" Units="ENUM" Index="0" RTPCName="APU_SWITCH_POS" />
             <Range LowerBound="1.0" />
           </Sound>
 
         <Sound WwiseData="true" WwiseEvent="APU_Shutdown" ConeHeading="40.0" NodeName="APU_NODE" SimVar="APU PCT RPM" Units="PERCENT" Index="0">
             <WwiseRTPC SimVar="APU PCT RPM" Units="PERCENT" Index="0" RTPCName="SIMVAR_APU_PCT_RPM" />
-            <WwiseRTPC LocalVar="H60_APU_START" Units="BOOL" Index="0" RTPCName="APU_SWITCH_POS"  />
+            <WwiseRTPC LocalVar="H60_APU_START" Units="BOOL" Index="0" RTPCName="APU_SWITCH_POS" />
             <Range LowerBound="1.0" />  
         </Sound>
-        <Sound WwiseData="true" WwiseEvent="Cpit_Transformer" Continuous="true" LocalVar="H60_Cpit_Transformer" Units="Bool" Index="1" NodeName="AFCS" ViewPoint="Inside">
+        <Sound WwiseData="true" WwiseEvent="Cpit_Transformer" Continuous="true" LocalVar="H60_Cpit_Transformer" Units="Bool" Index="1" NodeName="Backing_FrontPanel" ViewPoint="Inside">
             <Range LowerBound="1.0" />  
         </Sound>
 
@@ -101,6 +112,9 @@
             <Range LowerBound="1.0" />    
         </Sound>
 
+        <Sound WwiseData="true" WwiseEvent="Alert_Stab_Manual" LocalVar="H60_ALERT_STAB_MODE_MANUAL" Continuous="false" NodeName="Glaresheild_Base" BreakOnStop="true" ViewPoint="Inside" FadeOutType="1" FadeOutTime="0.1" Model="Interior">
+            <Range LowerBound="1.0" />    
+        </Sound>
 
 
 
@@ -108,5 +122,22 @@
     <AvionicSounds>
 
     </AvionicSounds>
-    <AnimationSounds/>
+    <AnimationSounds>
+        <!-- COCKPIT INTERACTION SOUNDS -->
+        <Sound WwiseData="true" WwiseEvent="Cpit_Knob_Move_1" ViewPoint="Inside"/> 
+        <Sound WwiseData="true" WwiseEvent="Cpit_Soft_Button_1" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_Switch_Generic" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_ParkBrake_On" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_ParkBrake_Off" ViewPoint="Inside"/>
+
+        <Sound WwiseData="true" WwiseEvent="Cpit_FuelLever" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_KeyLock" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_Knob_Move_2" ViewPoint="Inside"/>  <!-- More mechanical sound -->
+        <Sound WwiseData="true" WwiseEvent="Cpit_PlasticButton_Toggle" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_PlasticButton_In" ViewPoint="Inside"/>
+        <Sound WwiseData="true" WwiseEvent="Cpit_PlasticButton_Out" ViewPoint="Inside"/>
+
+    </AnimationSounds>
+
+
 </SoundInfo>

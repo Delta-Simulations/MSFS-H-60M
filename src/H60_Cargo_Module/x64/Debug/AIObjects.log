@@ -1,0 +1,5 @@
+﻿  AIObjects.cpp
+SimConnect_debug.lib(client_proxy.obj) : warning LNK4099: PDB 'SimConnect_debug.pdb' was not found with 'SimConnect_debug.lib(client_proxy.obj)' or at 'D:\MSFS SDK\C-17 Cargo Drop\AIObjectsAndWaypoints\x64\Debug\SimConnect_debug.pdb'; linking object as if no debug info
+SimConnect_debug.lib(commClient.obj) : warning LNK4099: PDB 'SimConnect_debug.pdb' was not found with 'SimConnect_debug.lib(commClient.obj)' or at 'D:\MSFS SDK\C-17 Cargo Drop\AIObjectsAndWaypoints\x64\Debug\SimConnect_debug.pdb'; linking object as if no debug info
+SimConnect_debug.lib(SimConnectClient.obj) : warning LNK4099: PDB 'SimConnect_debug.pdb' was not found with 'SimConnect_debug.lib(SimConnectClient.obj)' or at 'D:\MSFS SDK\C-17 Cargo Drop\AIObjectsAndWaypoints\x64\Debug\SimConnect_debug.pdb'; linking object as if no debug info
+  AIObjects.vcxproj -> D:\MSFS SDK\C-17 Cargo Drop\AIObjectsAndWaypoints\x64\Debug\AIObjects.exe

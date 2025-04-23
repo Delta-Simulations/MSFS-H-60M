@@ -28,6 +28,7 @@
       (O:BTN, bool) ! (&gt;O:BTN, bool)
       #LEFT_SINGLE_CODE#
     </INTERACT_CODE>
+
   </UseTemplate>
 </Template>
 
@@ -127,6 +128,8 @@
     <INTERACT_CODE>
       (L:H60_MFD_#ID#_PWR_BTN, bool) ! (&gt;L:H60_MFD_#ID#_PWR_BTN, bool)
     </INTERACT_CODE>
+    <WWISE_EVENT_1>Cpit_PlasticButton_In</WWISE_EVENT_1>
+    <WWISE_EVENT_2>Cpit_PlasticButton_Out</WWISE_EVENT_2>
   </UseTemplate>
 
 

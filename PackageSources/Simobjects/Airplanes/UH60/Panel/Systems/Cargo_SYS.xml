@@ -1,0 +1,9 @@
+<Gauge Name="H60_CARGO_SYS" Version="1.0">
+<Comment>
+Cargo sling load system
+Using seperate WASM system to spawn in object
+************************************************
+</Comment>
+
+
+</Gauge>

@@ -399,9 +399,9 @@
 					<ANIM_NAME>Rtr_cone</ANIM_NAME>
           <ANIM_LENGTH>200</ANIM_LENGTH>
 					<ANIM_CODE>
-              100
+            (A:DISK CONING PCT:1, percent) 100 + 
 					</ANIM_CODE>
-          <ANIM_LAG>70</ANIM_LAG>
+          <ANIM_LAG>80</ANIM_LAG>
 				</UseTemplate>
 
 

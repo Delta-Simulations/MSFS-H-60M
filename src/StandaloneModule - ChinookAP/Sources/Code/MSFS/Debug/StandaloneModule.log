@@ -1,0 +1,202 @@
+﻿  Module.cpp
+  In file included from Module.cpp:3:
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(905,15): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\WASM\include\MSFS\MSFS_WindowsTypes.h(129,21): message : expanded from macro 'CALLBACK'
+  In file included from Module.cpp:3:
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(907,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(908,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(909,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(910,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(911,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(912,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(913,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(914,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(915,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(916,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(917,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(918,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(919,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(920,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(921,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(922,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(923,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(924,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(925,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(926,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(927,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(928,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(929,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(930,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(931,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(932,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(933,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(934,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(935,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(936,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(937,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(938,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(939,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(940,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(941,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(942,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(943,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(944,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(945,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(946,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(947,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(948,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(949,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(950,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(951,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(952,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(953,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(954,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(955,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(956,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(957,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(958,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(959,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(960,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(961,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(962,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(963,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(964,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(965,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(966,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(967,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(968,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(969,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(970,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(971,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(972,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(973,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(974,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(975,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(976,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(977,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(978,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(979,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(980,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(981,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(982,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(983,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(984,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(985,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(986,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(987,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(988,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(989,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(990,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(991,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(992,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(993,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(994,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(995,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(996,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(997,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
+Module.cpp(115,1): warning : 'static' is not permitted on a declaration of a type [-Wmissing-declarations]
+Module.cpp(185,6): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\WASM\include\MSFS\MSFS_WindowsTypes.h(129,21): message : expanded from macro 'CALLBACK'
+Module.cpp(198,41): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
+Module.cpp(211,41): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
+Module.cpp(226,41): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
+Module.cpp(369,52): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
+Module.cpp(380,47): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
+Module.cpp(428,44): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
+Module.cpp(453,49): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
+Module.cpp(315,23): warning : unused variable 'ObjectID' [-Wunused-variable]
+Module.cpp(548,33): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
+Module.cpp(187,13): warning : variable 'hr' set but not used [-Wunused-but-set-variable]
+  StandaloneModule.vcxproj -> C:\MSFS SDK\Samples\DevmodeProjects\Misc\StandaloneModule - ChinookAP\Sources\Code\MSFS\Debug\StandaloneModule.wasm
+          1 file(s) copied.

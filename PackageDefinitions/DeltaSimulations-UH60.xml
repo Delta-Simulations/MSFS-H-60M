@@ -11,6 +11,14 @@
 		<CanBeReferenced>true</CanBeReferenced>
 	</Flags>
 	<AssetGroups>
+		<AssetGroup Name="Cargo_ISU">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\Simobjects\Airplanes\UH60_CargoISU\</AssetDir>
+			<OutputDir>Simobjects\Airplanes\UH60_CargoISU\</OutputDir>
+		</AssetGroup>
 		<AssetGroup Name="ContentInfo">
 			<Type>ContentInfo</Type>
 			<Flags>
@@ -61,4 +69,3 @@
 		</AssetGroup>
 	</AssetGroups>
 </AssetPackage>
-
