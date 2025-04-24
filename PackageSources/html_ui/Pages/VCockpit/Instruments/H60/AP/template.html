@@ -9206,7 +9206,9 @@
 	  let [AP_HDG] = useSimVar('A:Autopilot heading lock dir', 'degrees');
 	  AP_HDG = Math.floor(AP_HDG);
 	  const [AP_VS] = useSimVar('A:Autopilot vertical hold var', 'ft/min');
-	  const [AP_HVR] = useSimVar('L:AP_STAB', 'bool');
+	  const [isHVRActive] = useSimVar('L:H60_AFCS_HVR', 'bool');
+	  const [AP_CPLD] = useSimVar('L:H60_AFCS_CPLD', 'bool');
+	  const [isFD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 50,
@@ -9217,13 +9219,59 @@
 	      textAnchor: "start",
 	      children: "GO"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 10,
-	      y: 450,
+	      x: 30,
+	      y: 440,
 	      fontSize: 35,
 	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "ARND"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 195,
+	      y: 390,
+	      fontSize: 35,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "DECL"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 515,
+	      y: 390,
+	      fontSize: 35,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "HVR"
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      visibility: isHVRActive ? 'visible' : 'hidden',
+	      children: /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 553,
+	        y: 440,
+	        fontSize: 35,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "****"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 710,
+	      y: 390,
+	      fontSize: 35,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "FD"
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      visibility: isFD ? 'visible' : 'hidden',
+	      children: /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: 730,
+	        y: 440,
+	        fontSize: 35,
+	        fill: "#00EE00",
+	        className: "readouts",
+	        textAnchor: "middle",
+	        children: "****"
+	      })
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 30,
 	      y: 220,
@@ -9233,7 +9281,15 @@
 	      textAnchor: "start",
 	      children: "FMS"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 310,
+	      x: 210,
+	      y: 220,
+	      fontSize: 35,
+	      fill: "#00EE00",
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "GS"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 355,
 	      y: 220,
 	      fontSize: 35,
 	      fill: "#00EE00",
@@ -9241,7 +9297,7 @@
 	      textAnchor: "start",
 	      children: "RALT"
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 490,
+	      x: 500,
 	      y: 220,
 	      fontSize: 35,
 	      fill: "#00EE00",
@@ -9319,28 +9375,17 @@
 	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "middle",
-	      children: "HVR"
+	      children: "CPLD"
 	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      visibility: AP_HVR ? 'hidden' : 'visible',
+	      visibility: AP_CPLD ? 'visible' : 'hidden',
 	      children: /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 390,
+	        x: 395,
 	        y: 120,
 	        fontSize: 35,
 	        fill: "#00EE00",
 	        className: "readouts",
 	        textAnchor: "middle",
-	        children: "--"
-	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      visibility: AP_HVR ? 'visible' : 'hidden',
-	      children: /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 390,
-	        y: 120,
-	        fontSize: 35,
-	        fill: "#00EE00",
-	        className: "readouts",
-	        textAnchor: "middle",
-	        children: "ACT"
+	        children: "****"
 	      })
 	    })]
 	  });
@@ -9551,14 +9596,6 @@
 	  useSimVar('L:AP_STAB', 'bool');
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 50,
-	      y: 385,
-	      fontSize: 35,
-	      fill: "#00EE00",
-	      className: "readouts",
-	      textAnchor: "start",
-	      children: "GO"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 882,
 	      y: 773,
 	      fontSize: 30,
@@ -9665,6 +9702,11 @@
 	          y: 650,
 	          xlinkHref: "/Images/clockH60.png",
 	          width: 600,
+	          opacity: 0.8
+	        }), /*#__PURE__*/jsxRuntime.jsx("image", {
+	          x: 0,
+	          y: 0,
+	          xlinkHref: "/Images/FDDCP_UV.png",
 	          opacity: 0.8
 	        })]
 	      })]

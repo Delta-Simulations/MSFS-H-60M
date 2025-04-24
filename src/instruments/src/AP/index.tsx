@@ -30,6 +30,8 @@ const AP = () => {
         <Clock />
         <image x={-400} y={550} xlinkHref="/Images/ESIS.png" width={1400} opacity={0.7} />
         <image x={600} y={650} xlinkHref="/Images/clockH60.png" width={600} opacity={0.8} />
+
+        <image x={0} y={0} xlinkHref="/Images/FDDCP_UV.png"opacity={0.8} />
       </g>
       
     </svg>

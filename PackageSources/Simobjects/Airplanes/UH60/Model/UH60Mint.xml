@@ -120,6 +120,7 @@
         (L:H60_PCL1, percent) 10 == if{ 0 (&gt;L:H60_PCL1, percent) }
       }
     </INTERACT_CODE>
+    <ANIM_LAG>300</ANIM_LAG>
   </UseTemplate>
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(L:H60_PCL2, percent) 10 *</ANIM>
@@ -130,16 +131,7 @@
         (L:H60_PCL2, percent) 10 == if{ 0 (&gt;L:H60_PCL2, percent) }
       }
     </INTERACT_CODE>
-  </UseTemplate>
-  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>100</ANIM>
-    <NODE_ID>Lever_PCL2_Cutoff</NODE_ID>
-    <TOOLTIPID>PCL CUTOFF</TOOLTIPID>
-    <INTERACT_CODE>
-      (L:H60_PCL2, percent) 0 == if{ 10 (&gt;L:H60_PCL2, percent) } els{
-        (L:H60_PCL2, percent) 10 == if{ 0 (&gt;L:H60_PCL2, percent) }
-      }
-    </INTERACT_CODE>
+    <ANIM_LAG>300</ANIM_LAG>
   </UseTemplate>
 
 
@@ -359,35 +351,7 @@
     <THRESHOLD_X_MOUSE>0.015</THRESHOLD_X_MOUSE>
   </UseTemplate>
 </Component>
-<Component ID="KNOB_AFCS_ALT_SEL" Node="KNOB_AFCS_ALT_SEL">
-  <UseTemplate Name="ASOBO_GT_Knob_Infinite_Push">
-    <WWISE_EVENT>Cpit_Knob_Move_1</WWISE_EVENT>
-    <NODE_ID>KNOB_AFCS_ALT_SEL</NODE_ID>
-    <PART_ID>KNOB_AFCS_ALT_SEL</PART_ID>
-    <ANIM_NAME_KNOB>KNOB_AFCS_ALT_SEL</ANIM_NAME_KNOB>
-<CLOCKWISE_CODE_DEFAULT_IM>
-  (&gt;K:AP_ALT_VAR_INC)
-</CLOCKWISE_CODE_DEFAULT_IM>
-<ANTICLOCKWISE_CODE_DEFAULT_IM>
-  (&gt;K:AP_ALT_VAR_DEC)
-</ANTICLOCKWISE_CODE_DEFAULT_IM>
-<CLOCKWISE_CODE_DRAG_IM>
-  (&gt;K:AP_ALT_VAR_INC)
-</CLOCKWISE_CODE_DRAG_IM>
-<ANTICLOCKWISE_CODE_DRAG_IM>
-  (&gt;K:AP_ALT_VAR_DEC)
-</ANTICLOCKWISE_CODE_DRAG_IM>
-<LEFT_SINGLE_CODE>(A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)</LEFT_SINGLE_CODE>
-<ANIMTIP_0>DEC ALTITUDE</ANIMTIP_0>
-<ANIMTIP_0_ON_CURSOR>TurnLeft</ANIMTIP_0_ON_CURSOR>
-<ANIMTIP_1>INC ALTITUDE</ANIMTIP_1>
-<ANIMTIP_1_ON_CURSOR>TurnRight</ANIMTIP_1_ON_CURSOR>
-<ANIMTIP_3>SET CURRENT</ANIMTIP_3>
-<ANIMTIP_3_ON_CURSOR>Hand</ANIMTIP_3_ON_CURSOR>
-<THRESHOLD_X_INPUT>0.05</THRESHOLD_X_INPUT>
-    <THRESHOLD_X_MOUSE>0.015</THRESHOLD_X_MOUSE>
-  </UseTemplate>
-</Component>
+
 
 
 
@@ -424,6 +388,23 @@
 </Component>
 
 <UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Button_Slew_Up</NODE_ID>
+  <TOOLTIPID>TRIM RESET</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    1 (&gt;K:ROTOR_TRIM_RESET)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+<UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Coll_HUD_Rocker_1_Toggle</NODE_ID>
+  <TOOLTIPID>HUD Toggle</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    (L:H60_HUD_PWR, bool) ! (&gt;L:H60_HUD_PWR, bool)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+
+<UseTemplate Name="DELTASIM_PushButton_Template">
   <NODE_ID>Button_HDG</NODE_ID>
   <TOOLTIPID>HDG MODE</TOOLTIPID>
   <LEFT_SINGLE_CODE>
@@ -449,27 +430,7 @@
     (K:AP_PANEL_SPEED_HOLD) ! (&gt;K:AP_PANEL_SPEED_HOLD)          
   </LEFT_SINGLE_CODE>
 </UseTemplate>
-<UseTemplate Name="DELTASIM_PushButton_Template">
-  <NODE_ID>Button_ALT</NODE_ID>
-  <TOOLTIPID>ALT HOLD</TOOLTIPID>
-  <LEFT_SINGLE_CODE>
-    (L:H60_AFCS_ALT_HOLD, bool) ! (&gt;L:H60_AFCS_ALT_HOLD, bool)
-  </LEFT_SINGLE_CODE>
-</UseTemplate>
-<UseTemplate Name="DELTASIM_PushButton_Template">
-  <NODE_ID>BUTTON_FD</NODE_ID>
-  <TOOLTIPID>FLIGHT DIRECTOR</TOOLTIPID>
-  <LEFT_SINGLE_CODE>
-    (K:TOGGLE_FLIGHT_DIRECTOR) ! (&gt;K:TOGGLE_FLIGHT_DIRECTOR)
-  </LEFT_SINGLE_CODE>
-</UseTemplate>
-<UseTemplate Name="DELTASIM_PushButton_Template">
-  <NODE_ID>Button_AP</NODE_ID>
-  <TOOLTIPID>AP MASTER</TOOLTIPID>
-  <LEFT_SINGLE_CODE>
-    (K:AP_MASTER) ! (&gt;K:AP_MASTER)
-  </LEFT_SINGLE_CODE>
-</UseTemplate>
+
 <UseTemplate Name="DELTASIM_PushButton_Template">
   <NODE_ID>Button_AT</NODE_ID>
   <TOOLTIPID>AT MASTER</TOOLTIPID>
@@ -767,36 +728,23 @@
     </INTERACT_CODE>
   </UseTemplate>
 
-<Component ID="Button_ENG1_Starter" Node="Button_ENG1_Starter">
-  <UseTemplate Name="ASOBO_GT_Push_Button">
-    <PART_ID>Button_ENG1_Starter</PART_ID>
-    <ANIM_NAME>Button_ENG1_Starter</ANIM_NAME>
-    <OVERRIDE_ANIM_CODE>(A:GENERAL ENG STARTER:1, Bool) 100 *</OVERRIDE_ANIM_CODE>
-    <LEFT_SINGLE_CODE>
-      1 (&gt;K:SET_STARTER1_HELD)
-    </LEFT_SINGLE_CODE>
-    <LEFT_LEAVE_CODE>
-      0 (&gt;K:SET_STARTER1_HELD)
-    </LEFT_LEAVE_CODE>
-    <TOOLTIPID>START ENGINE</TOOLTIPID>
-    <ANIM_LAG>600</ANIM_LAG>
-  </UseTemplate>
-</Component>
-<Component ID="Button_ENG2_Starter" Node="Button_ENG2_Starter">
-  <UseTemplate Name="ASOBO_GT_Push_Button">
-    <PART_ID>Button_ENG2_Starter</PART_ID>
-    <ANIM_NAME>Button_ENG2_Starter</ANIM_NAME>
-    <OVERRIDE_ANIM_CODE>(A:GENERAL ENG STARTER:2, Bool) 100 *</OVERRIDE_ANIM_CODE>
-    <LEFT_SINGLE_CODE>
-      1 (&gt;K:SET_STARTER2_HELD)
-    </LEFT_SINGLE_CODE>
-    <LEFT_LEAVE_CODE>
-      0 (&gt;K:SET_STARTER2_HELD)
-    </LEFT_LEAVE_CODE>
-    <TOOLTIPID>START ENGINE</TOOLTIPID>
-    <ANIM_LAG>600</ANIM_LAG>
-  </UseTemplate>
-</Component>
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(A:GENERAL ENG STARTER:1, Bool) 100 *</ANIM>
+  <NODE_ID>Button_ENG1_Starter</NODE_ID>
+  <TOOLTIPID>STARTER</TOOLTIPID>
+  <INTERACT_CODE>
+    1 (&gt;K:TOGGLE_STARTER1)
+  </INTERACT_CODE>
+</UseTemplate>
+<UseTemplate Name="GENERIC_Toggle_Switch_Template">
+  <ANIM>(A:GENERAL ENG STARTER:2, Bool) 100 *</ANIM>
+  <NODE_ID>Button_ENG2_Starter</NODE_ID>
+  <TOOLTIPID>STARTER</TOOLTIPID>
+  <INTERACT_CODE>
+    1 (&gt;K:TOGGLE_STARTER2)
+  </INTERACT_CODE>
+</UseTemplate>
+
 <UseTemplate Name="GENERIC_Toggle_Switch_Template">
   <ANIM>(A:BRAKE PARKING POSITION, bool) 100 *</ANIM>
   <NODE_ID>PARKING_BRAKE_HANDLE</NODE_ID>
@@ -1605,25 +1553,6 @@
             </Sim>
         </Parameter>
     </Animation>
-</PartInfo>
-
-<Animation name="HUD_ON" guid="045c9674-2afc-40b0-b267-02662f27080c" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-  <Name>HUD_ON</Name>
-  <AnimLength>100</AnimLength>
-  <Animation>
-    <Parameter>
-      <Code>(L:HUDPWR, bool) 100 *</Code>
-    </Parameter>
-  </Animation>
-  <MouseRect>
-    <Cursor>Hand</Cursor>
-    <TooltipText>HUD POWER</TooltipText>
-    <MouseFlags>LeftSingle</MouseFlags>
-    <CallbackCode>
-      (L:HUDPWR,bool) ! (&gt;L:HUDPWR,bool)
-    </CallbackCode>
-  </MouseRect>
 </PartInfo>
 
 

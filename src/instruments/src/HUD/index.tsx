@@ -3,8 +3,8 @@ import { render } from '../Hooks/index';
 import { useSimVar } from '../Hooks/simVars';
 import { Fixed_Readout } from './Components/Fixed_Readout';
 import { Fixed } from './Components/Fixed';
-import { Horizon } from './Components/Horizon';
-import { FlightDirector } from './Components/FlightDirector';
+import { Horizon } from './Components/horizon';
+import { FlightDirector } from './Components/flightDirector';
 import { HoverIndicator } from './Components/HoverIndicator';
 import { HUDPower } from '../Common/circuit';
 import './style.scss';
@@ -26,7 +26,7 @@ const HUD = () => {
     let indicator: boolean = HUD_OVERLAY
     return(
         <Electricity circuit='3'>
-            <HUDPower localVar="HUDPWR">
+            <HUDPower localVar="H60_HUD_PWR">
             <svg viewBox='0 0 1360 1350'>
                 <g>
                     

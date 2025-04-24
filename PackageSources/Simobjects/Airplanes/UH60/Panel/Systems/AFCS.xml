@@ -5,7 +5,7 @@
 		FOR DELTA SIMULATIONS UH60M
 	
 		*************************************************
-	</Comment>
+	
 	<Element>
 		<Select>
 			<Value>
@@ -123,7 +123,7 @@
 			</Value>
 		</Select>
 	</Element>
-	
+</Comment>
 	
 	</Gauge>
 	

@@ -14,7 +14,7 @@ export const Clock = () => {
     
     return(
         <g>
-            <text x={50} y={385} fontSize={35} fill='#00EE00' className='readouts' textAnchor="start">GO</text>
+           
 
             <text x={882} y={773} fontSize={30} fill='#00EE00' className='ESIS'>60</text>
             <text x={962} y={793} fontSize={30} fill='#00EE00' className='ESIS'>5</text>
