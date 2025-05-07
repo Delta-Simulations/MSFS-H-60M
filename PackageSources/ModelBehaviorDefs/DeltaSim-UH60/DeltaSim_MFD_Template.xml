@@ -164,48 +164,98 @@
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_NAV_MODE_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_GS_#ID#</NODE_ID>
         <TOOLTIPID>VERTICAL NAV MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_GS_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_RADALT_#ID#</NODE_ID>
         <TOOLTIPID>RADALT MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_RADALT_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_ALTP_#ID#</NODE_ID>
         <TOOLTIPID>PRESELECT ALT MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_ALTP_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_ALT_#ID#</NODE_ID>
         <TOOLTIPID>ALT MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_ALT_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_IAS_#ID#</NODE_ID>
         <TOOLTIPID>SPD MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_IAS_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_HDG_#ID#</NODE_ID>
         <TOOLTIPID>HDG MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_HDG_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_VS_#ID#</NODE_ID>
         <TOOLTIPID>VS MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_VS_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_COUPLE_#ID#</NODE_ID>
         <TOOLTIPID>COUPLE AUTOPILOT</TOOLTIPID>
@@ -226,12 +276,25 @@
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_GO_AROUND_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_DECL_#ID#</NODE_ID>
         <TOOLTIPID>DECL MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
         </LEFT_SINGLE_CODE>
       </UseTemplate>
+      <UseTemplate Name="Korry_Emmis_DELTASIM">
+        <NODE_ID>KORRY_AFCS_ENGAGED_DECL_#ID#</NODE_ID>
+        <TRUECODE>
+        </TRUECODE>
+      </UseTemplate>
+
+      
       <UseTemplate Name="DELTASIM_PushButton_Template">
         <NODE_ID>Button_HVR_#ID#</NODE_ID>
         <TOOLTIPID>HOVER MODE</TOOLTIPID>
