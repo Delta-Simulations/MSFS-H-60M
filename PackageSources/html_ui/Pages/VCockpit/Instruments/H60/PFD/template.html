@@ -26925,27 +26925,26 @@
 	    openTopoMap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
 	    CyclOSM: "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
 	    bg: "http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
-	    openaip: "https://api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=0396e876c80eaf82d1103890d3fb0d32",
-	    jawg: "https://tile.jawg.io/39f84be8-9d33-41c2-8a4b-1cb036d6c179/{z}/{x}/{y}{r}.png?access-token=vvwao8KGCFTxwoXvi5dTIe1rx7GeqkH9kW57dlJSz5gbu8yjVblQdK1ySa4oieqp",
 	    stamen: "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
-	    arcGis_Topo: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
+	    arcGis_Topo: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+	    osm_1: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+	    vfr_faa: "https://tiles.arcgis.com/tiles/ssFJjBXIUyZDrSYZ/arcgis/rest/services/VFR_Sectional/MapServer/tile/{z}/{y}/{x}"
 	  }; // CHART, TERRAIN, SATELLITE
 
 	  let providerUrl = "";
-	  let providerUrl_2 = "";
 
 	  if (map_mode === 1) {
-	    providerUrl = providers.bg;
-	    providerUrl_2 = providers.openaip;
+	    // CHART
+	    providerUrl = providers.vfr_faa;
 	  } else if (map_mode === 2) {
-	    providerUrl = providers.jawg;
-	    providerUrl_2 = "";
-	  } else if (map_mode === 3) {
-	    providerUrl = providers.esriSatellite;
-	    providerUrl_2 = "";
-	  } else if (map_mode === 4) {
+	    // TERRAIN
 	    providerUrl = providers.openTopoMap;
-	    providerUrl_2 = "";
+	  } else if (map_mode === 3) {
+	    // IMAGE
+	    providerUrl = providers.esriSatellite;
+	  } else if (map_mode === 4) {
+	    //TERRAIN 2
+	    providerUrl = providers.CyclOSM;
 	  }
 
 	  return /*#__PURE__*/jsxRuntime.jsxs(MapContainer // whenCreated={(mapInstance) => {
@@ -26960,8 +26959,6 @@
 	    markerZoomAnimation: false,
 	    children: [/*#__PURE__*/jsxRuntime.jsx(TileLayer, {
 	      url: providerUrl
-	    }), /*#__PURE__*/jsxRuntime.jsx(TileLayer, {
-	      url: providerUrl_2
 	    }), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
 	      lat: lat,
 	      lng: lng,
