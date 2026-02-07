@@ -1522,7 +1522,16 @@
        </CallbackCode>
       </MouseRect>
     </PartInfo>
-
+<Animation name="Compass_INTERIOR" guid="f264d62b-5c11-4899-9d09-ccd1c9c9532e" length="360" type="Sim" typeParam="AutoPlay" />
+        <PartInfo>
+            <Name>Compass_INTERIOR</Name>
+            <AnimLength>360</AnimLength>
+            <Animation>
+                <Parameter>
+                    <Code>(A:Plane heading degrees gyro,degrees) </Code>
+                </Parameter>
+            </Animation>
+        </PartInfo>
 
 <Animation name="lever_stick_l_r" guid="8F28026E-B903-4856-AFAE-40B71893D3F2" type="Sim" typeparam="AutoPlay" />
 <Animation name="lever_stick_fore_aft" guid="78C6AB3C-F440-443d-93C9-942BA892610E" type="Sim" typeparam="AutoPlay" />
