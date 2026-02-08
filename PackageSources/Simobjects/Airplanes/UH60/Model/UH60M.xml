@@ -680,7 +680,11 @@
         </Code>
       </Parameter> </Emissive> </Materials>
   </PartInfo>
-
+<Animation name="ModelPart_AVNCS_Bay_Default" guid="acec7437-b432-4757-92e8-9bfeecf530ea" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_AVNCS_Bay_Default</Name>
+<Visibility><Parameter><Code>
+						1
+</Code></Parameter></Visibility></PartInfo>
 <Animation name="ModelPart_Pylons_Stock" guid="e750f5fa-c437-45ef-af66-c095d73a608f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
   <Name>ModelPart_Pylons_Stock</Name>
   <Visibility><Parameter><Code>

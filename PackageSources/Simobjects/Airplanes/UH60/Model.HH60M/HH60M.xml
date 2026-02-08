@@ -71,7 +71,11 @@
 <Visibility><Parameter><Code>
 						0
 </Code></Parameter></Visibility></PartInfo>
-
+<Animation name="ModelPart_AVNCS_Bay_Default" guid="acec7437-b432-4757-92e8-9bfeecf530ea" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_AVNCS_Bay_Default</Name>
+<Visibility><Parameter><Code>
+						1
+</Code></Parameter></Visibility></PartInfo>
 
 <Animation name="ModelPart_Hoist" guid="fdf65699-d055-4329-bf4a-638f14f33122" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_Hoist</Name>

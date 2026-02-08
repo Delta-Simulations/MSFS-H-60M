@@ -89,6 +89,12 @@
 <Visibility><Parameter><Code>
 						1
 </Code></Parameter></Visibility></PartInfo>
+<Animation name="ModelPart_AVNCS_Bay_Default" guid="acec7437-b432-4757-92e8-9bfeecf530ea" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+<Name>ModelPart_AVNCS_Bay_Default</Name>
+<Visibility><Parameter><Code>
+						0
+</Code></Parameter></Visibility></PartInfo>
+
 <Animation name="ModelPart_RefuelProbe" guid="6d8e66b1-16c3-4547-808d-972e3ce6b2aa" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
 <Name>ModelPart_RefuelProbe</Name>
 <Visibility><Parameter><Code>
