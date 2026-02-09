@@ -101,23 +101,7 @@
               <UseTemplate Name="ASOBO_GEAR_Right_Template">
                 <ANIM_NAME>r_gear</ANIM_NAME>
               </UseTemplate>
-          
-              <UseTemplate Name="ASOBO_GEAR_Left_Tire_Template">
-                <ANIM_NAME>LEFT_WHEEL_ANIM</ANIM_NAME>
-                <NODE_ID_STILL>LEFT_WHEEL_STILL</NODE_ID_STILL>
-                <NODE_ID_BLURRED>LEFT_WHEEL_BLUR</NODE_ID_BLURRED>
-              </UseTemplate>
-              <UseTemplate Name="ASOBO_GEAR_Right_Tire_Template">
-                <ANIM_NAME>RIGHT_WHEEL_ANIM</ANIM_NAME>
-                <NODE_ID_STILL>RIGHT_WHEEL_STILL</NODE_ID_STILL>
-                <NODE_ID_BLURRED>RIGHT_WHEEL_BLUR</NODE_ID_BLURRED>
-              </UseTemplate>
-              <UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
-                <ANIM_NAME>REAR_WHEEL_ANIM</ANIM_NAME>
-                <NODE_ID_STILL>REAR_WHEEL_STILL</NODE_ID_STILL>
-                <NODE_ID_BLURRED>REAR_WHEEL_BLUR</NODE_ID_BLURRED>
-              </UseTemplate>
-          
+                
 
             </Component>
 
@@ -455,6 +439,27 @@
 					</ANIM_CODE>
           <ANIM_LENGTH>200</ANIM_LENGTH>
 				</UseTemplate>
+		<UseTemplate Name="ASOBO_GT_Anim">
+      	<ANIM_NAME>l_wheel_anim</ANIM_NAME>
+			<ANIM_SIMVAR>LEFT WHEEL ROTATION ANGLE</ANIM_SIMVAR>
+			<ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
+			<ANIM_LENGTH>360</ANIM_LENGTH>
+			<ANIM_WRAP>1</ANIM_WRAP>
+		</UseTemplate>
+		<UseTemplate Name="ASOBO_GT_Anim">
+      	<ANIM_NAME>r_wheel_anim</ANIM_NAME>
+			<ANIM_SIMVAR>RIGHT WHEEL ROTATION ANGLE</ANIM_SIMVAR>
+			<ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
+			<ANIM_LENGTH>360</ANIM_LENGTH>
+			<ANIM_WRAP>1</ANIM_WRAP>
+		</UseTemplate>
+		<UseTemplate Name="ASOBO_GT_Anim">
+      	<ANIM_NAME>c_wheel_anim</ANIM_NAME>
+			<ANIM_SIMVAR>CENTER WHEEL ROTATION ANGLE</ANIM_SIMVAR>
+			<ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
+			<ANIM_LENGTH>360</ANIM_LENGTH>
+			<ANIM_WRAP>1</ANIM_WRAP>
+		</UseTemplate>
 
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>SL_DownUp</ANIM_NAME>
