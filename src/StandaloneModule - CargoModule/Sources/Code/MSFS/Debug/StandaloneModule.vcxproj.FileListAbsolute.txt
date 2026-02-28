@@ -1,0 +1,3 @@
+C:\MSFS SDK\Samples\DevmodeProjects\Misc\StandaloneModule - ChinookAP\Sources\Code\MSFS\Debug\StandaloneModule.wasm
+D:\MSFS SDK\H-60M\src\StandaloneModule - ChinookAP\Sources\Code\MSFS\Debug\StandaloneModule.wasm
+D:\MSFS SDK\H-60M\src\StandaloneModule - CargoModule\Sources\Code\MSFS\Debug\StandaloneModule.wasm

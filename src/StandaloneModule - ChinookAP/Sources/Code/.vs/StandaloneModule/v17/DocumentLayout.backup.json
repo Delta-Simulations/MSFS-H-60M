@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\MSFS SDK\\StandaloneModule - ChinookAP\\Sources\\Code\\",
+  "WorkspaceRootPath": "D:\\MSFS SDK\\H-60M\\src\\StandaloneModule - ChinookAP\\Sources\\Code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{691392AC-AECF-4197-8F7F-37B7AEB41D4B}|StandaloneModule.vcxproj|D:\\MSFS SDK\\StandaloneModule - ChinookAP\\Sources\\Code\\Module.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{691392AC-AECF-4197-8F7F-37B7AEB41D4B}|StandaloneModule.vcxproj|D:\\MSFS SDK\\H-60M\\src\\StandaloneModule - ChinookAP\\Sources\\Code\\Module.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{691392AC-AECF-4197-8F7F-37B7AEB41D4B}|StandaloneModule.vcxproj|solutionrelative:Module.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Module.cpp",
-              "DocumentMoniker": "D:\\MSFS SDK\\StandaloneModule - ChinookAP\\Sources\\Code\\Module.cpp",
+              "DocumentMoniker": "D:\\MSFS SDK\\H-60M\\src\\StandaloneModule - ChinookAP\\Sources\\Code\\Module.cpp",
               "RelativeDocumentMoniker": "Module.cpp",
-              "ToolTip": "D:\\MSFS SDK\\StandaloneModule - ChinookAP\\Sources\\Code\\Module.cpp",
+              "ToolTip": "D:\\MSFS SDK\\H-60M\\src\\StandaloneModule - ChinookAP\\Sources\\Code\\Module.cpp",
               "RelativeToolTip": "Module.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAEgCAAAAAAAAAAAwwIICAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-30T22:28:53.794Z",
               "EditorCaption": ""

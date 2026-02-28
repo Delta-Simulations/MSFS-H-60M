@@ -186,6 +186,7 @@
         <NODE_ID>Button_RADALT_#ID#</NODE_ID>
         <TOOLTIPID>RADALT MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
+            1 (&gt;K:AP_ALT_RADIO_MODE_TOGGLE)
         </LEFT_SINGLE_CODE>
       </UseTemplate>
       <UseTemplate Name="Korry_Emmis_DELTASIM">
@@ -210,6 +211,7 @@
         <NODE_ID>Button_ALT_#ID#</NODE_ID>
         <TOOLTIPID>ALT MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
+            1 (&gt;K:AP_ALT_HOLD)
         </LEFT_SINGLE_CODE>
       </UseTemplate>
       <UseTemplate Name="Korry_Emmis_DELTASIM">
@@ -235,6 +237,7 @@
         <NODE_ID>Button_HDG_#ID#</NODE_ID>
         <TOOLTIPID>HDG MODE</TOOLTIPID>
         <LEFT_SINGLE_CODE>
+            1 (&gt;K:AP_HDG_HOLD)
         </LEFT_SINGLE_CODE>
       </UseTemplate>
       <UseTemplate Name="Korry_Emmis_DELTASIM">

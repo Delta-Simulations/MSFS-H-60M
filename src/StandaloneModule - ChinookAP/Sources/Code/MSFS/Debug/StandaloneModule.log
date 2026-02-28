@@ -198,5 +198,5 @@ Module.cpp(453,49): warning : implicit conversion of out of range value from 'do
 Module.cpp(315,23): warning : unused variable 'ObjectID' [-Wunused-variable]
 Module.cpp(548,33): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
 Module.cpp(187,13): warning : variable 'hr' set but not used [-Wunused-but-set-variable]
-  StandaloneModule.vcxproj -> C:\MSFS SDK\Samples\DevmodeProjects\Misc\StandaloneModule - ChinookAP\Sources\Code\MSFS\Debug\StandaloneModule.wasm
+  StandaloneModule.vcxproj -> D:\MSFS SDK\H-60M\src\StandaloneModule - ChinookAP\Sources\Code\MSFS\Debug\StandaloneModule.wasm
           1 file(s) copied.

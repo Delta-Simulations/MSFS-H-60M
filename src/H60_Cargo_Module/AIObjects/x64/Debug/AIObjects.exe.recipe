@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\MSFS SDK\C-17 Cargo Drop\AIObjectsAndWaypoints\x64\Debug\AIObjects.exe</FullPath>
+      <FullPath>D:\MSFS SDK\H-60M\src\H60_Cargo_Module\x64\Debug\AIObjects.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
