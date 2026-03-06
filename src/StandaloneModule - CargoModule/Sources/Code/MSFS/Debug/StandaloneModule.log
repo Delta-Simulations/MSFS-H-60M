@@ -1,8 +1,8 @@
 ﻿  Module.cpp
-  In file included from Module.cpp:3:
+  In file included from Module.cpp:4:
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(905,15): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
-C:\MSFS SDK\WASM\include\MSFS\MSFS_WindowsTypes.h(129,21): message : expanded from macro 'CALLBACK'
-  In file included from Module.cpp:3:
+C:\MSFS SDK\WASM\include\MSFS/MSFS_WindowsTypes.h(129,21): message : expanded from macro 'CALLBACK'
+  In file included from Module.cpp:4:
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(907,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(908,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
@@ -185,18 +185,11 @@ C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(996,1): warning : '__stdcall' ca
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(997,1): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
 C:\MSFS SDK\SimConnect SDK\include\SimConnect.h(901,42): message : expanded from macro 'SIMCONNECTAPI'
-Module.cpp(115,1): warning : 'static' is not permitted on a declaration of a type [-Wmissing-declarations]
-Module.cpp(185,6): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
-C:\MSFS SDK\WASM\include\MSFS\MSFS_WindowsTypes.h(129,21): message : expanded from macro 'CALLBACK'
-Module.cpp(198,41): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
-Module.cpp(211,41): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
-Module.cpp(226,41): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
-Module.cpp(369,52): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
-Module.cpp(380,47): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
-Module.cpp(428,44): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
-Module.cpp(453,49): warning : implicit conversion of out of range value from 'double' to 'DWORD' (aka 'unsigned long') is undefined [-Wliteral-conversion]
-Module.cpp(315,23): warning : unused variable 'ObjectID' [-Wunused-variable]
-Module.cpp(548,33): warning : format specifies type 'int' but the argument has type 'DWORD' (aka 'unsigned long') [-Wformat]
-Module.cpp(187,13): warning : variable 'hr' set but not used [-Wunused-but-set-variable]
-  StandaloneModule.vcxproj -> D:\MSFS SDK\H-60M\src\StandaloneModule - CargoModule\Sources\Code\MSFS\Debug\StandaloneModule.wasm
-          1 file(s) copied.
+Module.cpp(8,29): warning : implicit conversion of NULL constant to 'HANDLE' (aka 'unsigned long long') [-Wnull-conversion]
+Module.cpp(28,18): error : use of undeclared identifier 'aircraft_varget'
+Module.cpp(29,18): error : use of undeclared identifier 'aircraft_varget'
+Module.cpp(30,22): error : use of undeclared identifier 'aircraft_varget'
+Module.cpp(68,6): warning : '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C:\MSFS SDK\WASM\include\MSFS/MSFS_WindowsTypes.h(129,21): message : expanded from macro 'CALLBACK'
+Module.cpp(101,19): error : use of undeclared identifier 'GetAsyncKeyState'
+Module.cpp(123,21): warning : comparison between NULL and non-pointer ('HANDLE' (aka 'unsigned long long') and NULL) [-Wnull-arithmetic]

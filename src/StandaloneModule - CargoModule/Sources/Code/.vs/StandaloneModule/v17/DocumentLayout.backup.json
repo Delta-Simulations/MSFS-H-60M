@@ -5,6 +5,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{691392AC-AECF-4197-8F7F-37B7AEB41D4B}|StandaloneModule.vcxproj|D:\\MSFS SDK\\H-60M\\src\\StandaloneModule - CargoModule\\Sources\\Code\\Module.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{691392AC-AECF-4197-8F7F-37B7AEB41D4B}|StandaloneModule.vcxproj|solutionrelative:Module.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{691392AC-AECF-4197-8F7F-37B7AEB41D4B}|StandaloneModule.vcxproj|C:\\MSFS SDK\\WASM\\WASI-SYSROOT\\INCLUDE\\C\u002B\u002B\\V1\\CMATH||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +17,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "cmath",
+              "DocumentMoniker": "C:\\MSFS SDK\\WASM\\wasi-sysroot\\include\\c\u002B\u002B\\v1\\cmath",
+              "ToolTip": "C:\\MSFS SDK\\WASM\\wasi-sysroot\\include\\c\u002B\u002B\\v1\\cmath",
+              "ViewState": "AgIAADABAAAAAAAAAAAlwEABAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-06T18:07:39.65Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +38,7 @@
               "RelativeDocumentMoniker": "Module.cpp",
               "ToolTip": "D:\\MSFS SDK\\H-60M\\src\\StandaloneModule - CargoModule\\Sources\\Code\\Module.cpp",
               "RelativeToolTip": "Module.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAuwGEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-30T22:28:53.794Z",
               "EditorCaption": ""

@@ -1,5 +1,2 @@
 ﻿  AIObjects.cpp
-SimConnect_debug.lib(SimConnectClient.obj) : warning LNK4099: PDB '' was not found with 'SimConnect_debug.lib(SimConnectClient.obj)' or at ''; linking object as if no debug info
-SimConnect_debug.lib(commClient.obj) : warning LNK4099: PDB '' was not found with 'SimConnect_debug.lib(commClient.obj)' or at ''; linking object as if no debug info
-SimConnect_debug.lib(client_proxy.obj) : warning LNK4099: PDB '' was not found with 'SimConnect_debug.lib(client_proxy.obj)' or at ''; linking object as if no debug info
   AIObjects.vcxproj -> D:\MSFS SDK\H-60M\src\H60_Cargo_Module\x64\Debug\AIObjects.exe
