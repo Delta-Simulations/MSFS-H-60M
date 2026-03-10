@@ -25192,16 +25192,19 @@
 	  };
 	}, updateGridLayer);
 
+	// --- CACHE ICONS OUTSIDE COMPONENT ---
+	const iconsCache = {};
+
 	const MapComponent = props => {
 	  const {
 	    lat,
 	    lng,
-	    zoom,
 	    heading,
+	    zoom,
 	    map_mode,
 	    markers = [],
 	    flightPlan = []
-	  } = props; // Keep a ref for map centering
+	  } = props;
 
 	  const PosHandler = ({
 	    lat,
@@ -25215,14 +25218,7 @@
 	      });
 	    }, [lat, lng, zoom]);
 	    return null;
-	  }; // Marker icon
-
-
-	  leafletSrc.icon({
-	    iconUrl: "/Images/MFD/FMS_Waypoint.svg",
-	    iconSize: [32, 32],
-	    iconAnchor: [16, 16]
-	  }); // Function to return icon based on waypoint type
+	  };
 
 	  const getWaypointInformation = type => {
 	    let iconUrl = "/Images/MFD/FMS_Waypoint.svg";
@@ -25236,32 +25232,26 @@
 
 	      case "FMS_VOR":
 	        iconUrl = "/Images/MFD/VOR.svg";
-	        textColor = "white";
 	        break;
 
 	      case "FMS_VORTAC":
 	        iconUrl = "/Images/MFD/VORTAC.svg";
-	        textColor = "white";
 	        break;
 
 	      case "FMS_TACAN":
 	        iconUrl = "/Images/MFD/TACAN.svg";
-	        textColor = "white";
 	        break;
 
 	      case "FMS_NDB":
 	        iconUrl = "/Images/MFD/NDB.svg";
-	        textColor = "white";
 	        break;
 
 	      case "FMS_AIRPORT":
 	        iconUrl = "/Images/MFD/AIRPORT.svg";
-	        textColor = "white";
 	        break;
 
 	      case "FMS_INTERSECTION":
 	        iconUrl = "/Images/MFD/INTERSECTION.svg";
-	        textColor = "white";
 	        break;
 
 	      case "user":
@@ -25291,18 +25281,24 @@
 	    }
 
 	    return {
-	      icon: leafletSrc.icon({
-	        iconUrl,
-	        iconSize: [40, 40],
-	        iconAnchor: [20, 20]
-	      }),
+	      iconUrl,
 	      textColor
 	    };
-	  }; // Flight plan polyline coordinates
+	  };
 
+	  const getWaypointDivIcon = (type, heading = 0, label, textColor = "white") => {
+	    const {
+	      iconUrl
+	    } = getWaypointInformation(type);
+	    return leafletSrc.divIcon({
+	      html: "\n      <div style=\"position: relative; width: 40px; height: 40px; transform: rotate(".concat(heading, "deg);\">\n        <img src=\"").concat(iconUrl, "\" style=\"width: 40px; height: 40px; display:block;\" />\n        <div style=\"\n          position: absolute;\n          top: -18px;\n          left: 50%;\n          transform: translateX(-50%);\n          color: ").concat(textColor, ";\n          font-weight: bold;\n          font-size: 14px;\n          pointer-events: none;\n          white-space: nowrap;\n        \">\n          ").concat(label || "", "\n        </div>\n      </div>\n    "),
+	      iconSize: [40, 40],
+	      iconAnchor: [20, 20],
+	      className: "custom-div-icon"
+	    });
+	  };
 
-	  const flightPlanRoute = flightPlan.map(wp => [wp.lat, wp.lng]); // Tile providers
-
+	  const flightPlanRoute = flightPlan.map(wp => [wp.lat, wp.lng]);
 	  const providers = {
 	    esriSatellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
 	    openTopoMap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
@@ -25311,6 +25307,7 @@
 	  };
 	  let providerUrl = "";
 	  if (map_mode === 1) providerUrl = providers.vfr_faa;else if (map_mode === 2) providerUrl = providers.openTopoMap;else if (map_mode === 3) providerUrl = providers.esriSatellite;else if (map_mode === 4) providerUrl = providers.CyclOSM;
+	  const allMarkers = [...markers, ...flightPlan];
 	  return /*#__PURE__*/jsxRuntime.jsxs(MapContainer, {
 	    id: "mapContainer",
 	    center: [lat, lng],
@@ -25326,11 +25323,24 @@
 	        color: "magenta",
 	        weight: 2
 	      }
-	    }), "/* Unified marker rendering for independent markers + flight plan waypoints */", [...markers, ...flightPlan].map((wp, idx) => /*#__PURE__*/jsxRuntime.jsx(Marker, {
-	      position: [wp.lat, wp.lng],
-	      icon: getWaypointInformation(wp.type).icon // rotation={{ angle: heading || 0, origin: 'center' }}
+	    }), allMarkers.map((wp, idx) => {
+	      var _wp$heading;
 
-	    }, "marker-".concat(idx))), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
+	      const {
+	        textColor
+	      } = getWaypointInformation(wp.type);
+	      const headingToUse = (_wp$heading = wp.heading) !== null && _wp$heading !== void 0 ? _wp$heading : heading;
+	      const cacheKey = "".concat(idx, "-").concat(headingToUse, "-").concat(wp.type, "-").concat(wp.name);
+
+	      if (!iconsCache[cacheKey]) {
+	        iconsCache[cacheKey] = getWaypointDivIcon(wp.type, headingToUse, wp.name, textColor);
+	      }
+
+	      return /*#__PURE__*/jsxRuntime.jsx(Marker, {
+	        position: [wp.lat, wp.lng],
+	        icon: iconsCache[cacheKey]
+	      }, "marker-".concat(idx));
+	    }), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
 	      lat: lat,
 	      lng: lng,
 	      zoom: zoom
