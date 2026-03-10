@@ -25,7 +25,7 @@ class PFD_Logic extends BaseInstrument {
 
     get isInteractive() {
         // eslint-disable-next-line
-        return false;
+        return true;
     }
 
     get IsGlassCockpit() {

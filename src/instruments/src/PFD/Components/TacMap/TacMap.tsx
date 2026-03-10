@@ -101,6 +101,10 @@ await new Promise(res => setTimeout(res, 10));
 	useEffect(() => {
 		loadFlightPlan();
 		addMarker(26.8513, -113.1402, "SAM", "Hostile_Missile_Launcher");
+		addMarker(26.77036213115676, -113.5799318203904, "TRACK", "Hostile_Radar_Site");
+		addMarker(27.025066472526095, -113.89061123087161, "AB", "FMS_AIRPORT");
+		addMarker(27.137063268046617, -113.96125077955475, "RZ", "RendezVous_Point");
+
 	}, []);
 
 
@@ -111,9 +115,9 @@ await new Promise(res => setTimeout(res, 10));
 				<div
 					style={{
 						width: "1280px", // generous buffer
-						height: "1524px", // generous buffer
+						height: "1280px", // generous buffer
 						position: "absolute",
-						top: Map_Center ? "-398px" : "-259.5px", // center adjustment
+						top: Map_Center ? "-256px" : "-135px", // center adjustment
 						left: "-128px",
 						transform: `rotate(${-heading_adjusted}deg)`,
 						transformOrigin: "center center",

@@ -10,7 +10,7 @@ import { EICASExtTanks } from "./Components/EICAS/EICASExtTanks";
 import { Electricity_MFD } from "../Common/circuit";
 import "./style.scss";
 
-import { NDMain } from "./Components/NDMain";
+import { NDBase } from "./Components/ND/NDBase";
 import { TacMap } from "./Components/TacMap/TacMap";
 import { PFDBase } from "./Components/PFD/PFDBase";
 import { Horizon } from "../AP/Components/horizon";
@@ -47,7 +47,7 @@ const PFD = () => {
 					<g visibility={DISP_TYPE == 0 ? "visible" : "hidden"}>
 						<PFDBase />
 						<image
-							xlinkHref="/Images/pfd.png"
+							xlinkHref="/Images/REF/pfd.png"
 							x={0}
 							y={0}
 							opacity={0.3}
@@ -63,7 +63,7 @@ const PFD = () => {
 							fill="#00000"
 						/>
 						<image
-							xlinkHref="/Images/EICAS.png"
+							xlinkHref="/Images/REF/EICAS.png"
 							x={0}
 							y={0}
 							opacity={0.6}
@@ -90,7 +90,14 @@ const PFD = () => {
 							height={768}
 							fill="#00000"
 						/>
-						<NDMain />
+						<image
+							xlinkHref="/Images/REF/MPD_AVIONICS2.png"
+							x={0}
+							y={0}
+							opacity={0.6}
+						/>
+
+						<NDBase />
 					</g>
 
 					<Fixed />
