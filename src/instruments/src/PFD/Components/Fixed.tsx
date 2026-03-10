@@ -9,7 +9,7 @@ export const Fixed = () => {
 	
 	const [DISP_TYPE] = useSimVar(`L:H60_MFD_${DisplayID}_MODE`, "enum");
 	const [PFD_NavMap_Mode] = useSimVar(`L:H60_MFD_NavMap_Mode`, "enum");
-
+	const [debug_mode_active] = useSimVar(`L:H60_MFD_Debug_Mode`, "bool");	
 	let navmap_mode_names = ["FULL", "HOVER", "ARC"];
 	let navmap_mode_name = navmap_mode_names[PFD_NavMap_Mode];
 
@@ -104,7 +104,7 @@ export const Fixed = () => {
 
 
 			{/* Blue Overlay */}
-			{showOverlay && (
+			{showOverlay && ! debug_mode_active && (
 				<rect
 					x="0"
 					y="0"

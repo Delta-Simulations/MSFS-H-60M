@@ -56,10 +56,7 @@
             "varName": "GPS POSITION LAT",
             "varUnit": "Degrees",
             "style": {
-                "type": 2,
-                "min": -90,
-                "max": 90,
-                "step": 0.05
+                "type": 0
             }
         },
         {
@@ -69,10 +66,7 @@
             "varName": "GPS POSITION LON",
             "varUnit": "Degrees",
             "style": {
-                "type": 2,
-                "min": -180,
-                "max": 180,
-                "step": 0.01
+                "type": 0
             }
         },
         {
@@ -125,39 +119,6 @@
             }
         },
         {
-            "__uuid": "3396edc5-7ec4-4abe-9c07-d0389d48b4d9",
-            "title": "apu oct",
-            "varPrefix": "A",
-            "varName": "APU PCT RPM",
-            "varUnit": "number",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 100,
-                "step": 1
-            }
-        },
-        {
-            "__uuid": "6b61c999-64ac-47e4-989a-b13ba2d58588",
-            "title": "Apu gen on",
-            "varPrefix": "A",
-            "varName": "APU GENERATOR ACTIVE",
-            "varUnit": "bool",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "0f58aa8b-f420-4bab-875d-fa9fce069152",
-            "title": "hyd low",
-            "varPrefix": "L",
-            "varName": "HYDRAULIC_LOW",
-            "varUnit": "bool",
-            "style": {
-                "type": 3
-            }
-        },
-        {
             "__uuid": "149c91b9-116f-4427-85c8-4f19aa9ee69e",
             "title": "advis",
             "varPrefix": "L",
@@ -168,26 +129,6 @@
                 "min": 0,
                 "max": 4,
                 "step": 1
-            }
-        },
-        {
-            "__uuid": "6cbee5a7-7fca-4dac-bdd7-bb6d1b3ba4a2",
-            "title": "expwr",
-            "varPrefix": "A",
-            "varName": "EXTERNAL POWER CONNECTION ON",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "6824c06d-9d87-43a3-94cb-ecf6d19844f5",
-            "title": "ice",
-            "varPrefix": "A",
-            "varName": "ENG ANTI ICE",
-            "varUnit": "number",
-            "style": {
-                "type": 3
             }
         },
         {
@@ -355,6 +296,36 @@
                 "min": 0,
                 "max": 3,
                 "step": 1
+            }
+        },
+        {
+            "__uuid": "0e6dcefb-8c81-444a-bceb-03dba8cac0c3",
+            "title": "Disable slow render",
+            "varPrefix": "L",
+            "varName": "H60_MFD_Debug_Mode",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "319a6cca-d670-43d6-a59a-8a47367e8dd6",
+            "title": "ctr",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_CTR",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "0e0cc0d8-eb5e-4a7c-bec6-b405223a83fd",
+            "title": "map follows HDG or N?",
+            "varPrefix": "L",
+            "varName": "H60_TAC_MAP_ORIENT",
+            "varUnit": "number",
+            "style": {
+                "type": 3
             }
         }
     ]
