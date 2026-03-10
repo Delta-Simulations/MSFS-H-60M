@@ -11038,25 +11038,6 @@
 
 	  return /*#__PURE__*/react.forwardRef(ContainerComponent);
 	}
-	function createDivOverlayComponent(useElement) {
-	  function OverlayComponent(props, ref) {
-	    const [isOpen, setOpen] = react.useState(false);
-	    const {
-	      instance
-	    } = useElement(props, setOpen).current;
-	    react.useImperativeHandle(ref, () => instance);
-	    react.useEffect(function updateOverlay() {
-	      if (isOpen) {
-	        instance.update();
-	      }
-	    }, [instance, isOpen, props.children]); // @ts-ignore _contentNode missing in type definition
-
-	    const contentNode = instance._contentNode;
-	    return contentNode ? /*#__PURE__*/reactDom.createPortal(props.children, contentNode) : null;
-	  }
-
-	  return /*#__PURE__*/react.forwardRef(OverlayComponent);
-	}
 	function createLeafComponent(useElement) {
 	  function LeafComponent(props, ref) {
 	    const {
@@ -11098,17 +11079,6 @@
 	  return pane ? _objectSpread$2(_objectSpread$2({}, props), {}, {
 	    pane
 	  }) : props;
-	}
-
-	function createDivOverlayHook(useElement, useLifecycle) {
-	  return function useDivOverlay(props, setOpen) {
-	    const context = useLeafletContext();
-	    const elementRef = useElement(withPane(props, context), context);
-	    useAttribution(context.map, props.attribution);
-	    useEventHandlers(elementRef.current, props.eventHandlers);
-	    useLifecycle(elementRef.current, context, props, setOpen);
-	    return elementRef;
-	  };
 	}
 
 	var leafletSrc = createCommonjsModule(function (module, exports) {
@@ -24991,11 +24961,6 @@
 	  const useLayer = createLayerHook(useElement);
 	  return createContainerComponent(useLayer);
 	}
-	function createOverlayComponent(createElement, useLifecycle) {
-	  const useElement = createElementHook(createElement);
-	  const useOverlay = createDivOverlayHook(useElement, useLifecycle);
-	  return createDivOverlayComponent(useOverlay);
-	}
 	function createPathComponent(createElement, updateElement) {
 	  const useElement = createElementHook(createElement, updateElement);
 	  const usePath = createPathHook(useElement);
@@ -25227,62 +25192,12 @@
 	  };
 	}, updateGridLayer);
 
-	const Tooltip = createOverlayComponent(function createTooltip(props, context) {
-	  return {
-	    instance: new leafletSrc.Tooltip(props, context.overlayContainer),
-	    context
-	  };
-	}, function useTooltipLifecycle(element, context, props, setOpen) {
-	  const {
-	    onClose,
-	    onOpen
-	  } = props;
-	  react.useEffect(function addTooltip() {
-	    const container = context.overlayContainer;
-
-	    if (container == null) {
-	      return;
-	    }
-
-	    const {
-	      instance
-	    } = element;
-
-	    const onTooltipOpen = event => {
-	      if (event.tooltip === instance) {
-	        instance.update();
-	        setOpen(true);
-	        onOpen == null ? void 0 : onOpen();
-	      }
-	    };
-
-	    const onTooltipClose = event => {
-	      if (event.tooltip === instance) {
-	        setOpen(false);
-	        onClose == null ? void 0 : onClose();
-	      }
-	    };
-
-	    container.on({
-	      tooltipopen: onTooltipOpen,
-	      tooltipclose: onTooltipClose
-	    });
-	    container.bindTooltip(instance);
-	    return function removeTooltip() {
-	      container.off({
-	        tooltipopen: onTooltipOpen,
-	        tooltipclose: onTooltipClose
-	      });
-	      container.unbindTooltip();
-	    };
-	  }, [element, context, setOpen, onClose, onOpen]);
-	});
-
 	const MapComponent = props => {
 	  const {
 	    lat,
 	    lng,
 	    zoom,
+	    heading,
 	    map_mode,
 	    markers = [],
 	    flightPlan = []
@@ -25303,11 +25218,88 @@
 	  }; // Marker icon
 
 
-	  const waypointIcon = leafletSrc.icon({
-	    iconUrl: "/Images/WP_Icon.png",
+	  leafletSrc.icon({
+	    iconUrl: "/Images/MFD/FMS_Waypoint.svg",
 	    iconSize: [32, 32],
 	    iconAnchor: [16, 16]
-	  }); // Flight plan polyline coordinates
+	  }); // Function to return icon based on waypoint type
+
+	  const getWaypointInformation = type => {
+	    let iconUrl = "/Images/MFD/FMS_Waypoint.svg";
+	    let textColor = "white";
+
+	    switch (type) {
+	      case "FMS_WP":
+	        iconUrl = "/Images/MFD/FMS_Waypoint.svg";
+	        textColor = "magenta";
+	        break;
+
+	      case "FMS_VOR":
+	        iconUrl = "/Images/MFD/VOR.svg";
+	        textColor = "white";
+	        break;
+
+	      case "FMS_VORTAC":
+	        iconUrl = "/Images/MFD/VORTAC.svg";
+	        textColor = "white";
+	        break;
+
+	      case "FMS_TACAN":
+	        iconUrl = "/Images/MFD/TACAN.svg";
+	        textColor = "white";
+	        break;
+
+	      case "FMS_NDB":
+	        iconUrl = "/Images/MFD/NDB.svg";
+	        textColor = "white";
+	        break;
+
+	      case "FMS_AIRPORT":
+	        iconUrl = "/Images/MFD/AIRPORT.svg";
+	        textColor = "white";
+	        break;
+
+	      case "FMS_INTERSECTION":
+	        iconUrl = "/Images/MFD/INTERSECTION.svg";
+	        textColor = "white";
+	        break;
+
+	      case "user":
+	        iconUrl = "/Images/MFD/UserMarker.svg";
+	        textColor = "lime";
+	        break;
+
+	      case "RendezVous_Point":
+	        iconUrl = "/Images/MFD/10012500001811000000.svg";
+	        textColor = "lime";
+	        break;
+
+	      case "Friendly_Medical_Center":
+	        iconUrl = "/Images/MFD/10034000001313000000.svg";
+	        textColor = "blue";
+	        break;
+
+	      case "Hostile_Missile_Launcher":
+	        iconUrl = "/Images/MFD/10061500001110000000.svg";
+	        textColor = "red";
+	        break;
+
+	      case "Hostile_Radar_Site":
+	        iconUrl = "/Images/MFD/10061000001504000000.svg";
+	        textColor = "red";
+	        break;
+	    }
+
+	    return {
+	      icon: leafletSrc.icon({
+	        iconUrl,
+	        iconSize: [40, 40],
+	        iconAnchor: [20, 20]
+	      }),
+	      textColor
+	    };
+	  }; // Flight plan polyline coordinates
+
 
 	  const flightPlanRoute = flightPlan.map(wp => [wp.lat, wp.lng]); // Tile providers
 
@@ -25328,22 +25320,17 @@
 	    markerZoomAnimation: false,
 	    children: [/*#__PURE__*/jsxRuntime.jsx(TileLayer, {
 	      url: providerUrl
-	    }), markers.map((wp, idx) => /*#__PURE__*/jsxRuntime.jsx(Marker, {
-	      position: [wp.lat, wp.lng],
-	      icon: waypointIcon,
-	      children: /*#__PURE__*/jsxRuntime.jsx(Tooltip, {
-	        direction: "top",
-	        offset: [0, -16],
-	        permanent: true,
-	        children: wp.name
-	      })
-	    }, idx)), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
+	    }), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
 	      positions: flightPlanRoute,
 	      pathOptions: {
 	        color: "magenta",
 	        weight: 2
 	      }
-	    }), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
+	    }), "/* Unified marker rendering for independent markers + flight plan waypoints */", [...markers, ...flightPlan].map((wp, idx) => /*#__PURE__*/jsxRuntime.jsx(Marker, {
+	      position: [wp.lat, wp.lng],
+	      icon: getWaypointInformation(wp.type).icon // rotation={{ angle: heading || 0, origin: 'center' }}
+
+	    }, "marker-".concat(idx))), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
 	      lat: lat,
 	      lng: lng,
 	      zoom: zoom
@@ -25913,20 +25900,22 @@
 
 	  const [markers, setMarkers] = react.useState([]);
 
-	  const addMarker = (lat, lng, name) => {
+	  const addMarker = (lat, lng, name, type) => {
 	    setMarkers(prev => [...prev, {
 	      lat,
 	      lng,
-	      name
+	      name,
+	      type
 	    }]);
 	  }; // --- FLIGHT PLAN ---
 
 
-	  react.useState([]);
-	  const [waypoints, setWaypoints] = react.useState([]);
+	  const [flightplan, setFlightplan] = react.useState([]); // const addWaypoint = (lat: number, lng: number, name?: string) => { 
+	  // 	setFlightplan(prev => [...prev, { lat, lng, name }]); 
+	  // };
 
-	  const lat = SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
-	  const lon = SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
+	  SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
+	  SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
 
 	  const loadFlightPlan = async () => {
 	    const total = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointsNumber", "number");
@@ -25941,17 +25930,18 @@
 	      newWaypoints.push({
 	        lat,
 	        lng,
-	        name: ident
+	        name: ident,
+	        type: "FMS_WP"
 	      });
 	    }
 
-	    setWaypoints(newWaypoints);
+	    setFlightplan(newWaypoints);
 	    console.log("Flight plan polyline:", newWaypoints);
 	  };
 
 	  react.useEffect(() => {
 	    loadFlightPlan();
-	    addMarker(lat, lon, "NEXT WP");
+	    addMarker(26.8513, -113.1402, "SAM", "Hostile_Missile_Launcher");
 	  }, []); // --- RENDER ---
 
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
@@ -25977,7 +25967,7 @@
 	        map_symbology: Map_Declutter,
 	        markers: markers // normal markers
 	        ,
-	        flightPlan: waypoints // polyline flight plan
+	        flightPlan: flightplan // polyline flight plan
 
 	      })
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
@@ -28627,6 +28617,41 @@ text {
   font-family: "mono";
   background-color: transparent;
   color: yellow;
+}
+
+.marker-tooltip {
+  background: transparent !important;
+  border: none !important;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px black;
+  pointer-events: none;
+}
+
+.leaflet-tooltip.marker-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.marker-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;
+  /* remove the little arrow */
+}
+
+.marker-tooltip::before {
+  display: none !important;
 }
 /* required styles */
 

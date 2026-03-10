@@ -165,3 +165,37 @@ color: black;
 background-color: transparent;
 color: yellow;
 }
+
+.marker-tooltip {
+  background: transparent !important;
+  border: none !important;
+  color: white;       // text color
+  font-weight: bold;
+  font-size: 14px;
+    text-shadow: 1px 1px 2px black; // optional for readability
+
+  pointer-events: none; // lets you click through
+}
+.leaflet-tooltip.marker-tooltip {
+  background: transparent !important;  // remove bubble color
+  border: none !important;             // remove bubble border
+  box-shadow: none !important;         // remove tooltip shadow
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;                // allows clicks to pass through
+}
+.marker-tooltip {
+  background: transparent !important;  // remove bubble
+  border: none !important;             // remove border
+  box-shadow: none !important;         // remove shadow
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;
+
+  /* remove the little arrow */
+  &::before {
+    display: none !important;
+  }
+}

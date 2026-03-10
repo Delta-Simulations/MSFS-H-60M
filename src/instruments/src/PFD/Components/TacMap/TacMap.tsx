@@ -14,6 +14,16 @@ interface IWaypoint {
 	type?: string;
 }
 
+interface IFlightPlan {
+	lat: number;
+	lng: number;
+	name?: string;
+	id?: number;
+	type?: string;
+}
+
+
+
 export const TacMap = () => {
 	// --- SimVar hooks ---
 	const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
@@ -33,21 +43,19 @@ export const TacMap = () => {
 
 	// --- MARKERS ---
 	const [markers, setMarkers] = useState<IWaypoint[]>([]);
-	const addMarker = (lat: number, lng: number, name?: string) => {
-		setMarkers((prev) => [...prev, { lat, lng, name }]);
+	const addMarker = (lat: number, lng: number, name?: string, type?: string) => {
+		setMarkers((prev) => [...prev, { lat, lng, name, type }]);
 	};
 
 	// --- FLIGHT PLAN ---
-	const [flightPlan, setFlightPlan] = useState<IWaypoint[]>([]);
 
-	const [waypoints, setWaypoints] = useState<IWaypoint[]>([]); 
-	const addWaypoint = (lat: number, lng: number, name?: string) => { 
-		setWaypoints(prev => [...prev, { lat, lng, name }]); 
-	};
+	const [flightplan, setFlightplan] = useState<IFlightPlan[]>([]); 
+	// const addWaypoint = (lat: number, lng: number, name?: string) => { 
+	// 	setFlightplan(prev => [...prev, { lat, lng, name }]); 
+	// };
+	
 const lat = SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
 const lon = SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
-
-
 
 	const loadFlightPlan = async () => {
 		const total = SimVar.GetSimVarValue(
@@ -55,7 +63,7 @@ const lon = SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
 			"number"
 		);
 
-		const newWaypoints: IWaypoint[] = [];
+		const newWaypoints: IFlightPlan[] = [];
 
 		for (let i = 0; i < total; i++) {
 			await SimVar.SetSimVarValue(
@@ -83,15 +91,16 @@ await new Promise(res => setTimeout(res, 10));
 				lat,
 				lng,
 				name: ident,
+				type: "FMS_WP"
 			});
 		}
 
-		setWaypoints(newWaypoints);
+		setFlightplan(newWaypoints);
 		console.log("Flight plan polyline:", newWaypoints);
 	};
 	useEffect(() => {
 		loadFlightPlan();
-		addMarker(lat, lon, "NEXT WP");
+		addMarker(26.8513, -113.1402, "SAM", "Hostile_Missile_Launcher");
 	}, []);
 
 
@@ -118,7 +127,7 @@ await new Promise(res => setTimeout(res, 10));
 						map_mode={Disp_mode}
 						map_symbology={Map_Declutter}
 						markers={markers}      // normal markers
-						flightPlan={waypoints} // polyline flight plan
+						flightPlan={flightplan} // polyline flight plan
 					/>
 				</div>
 			)}
