@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap, Polyline } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap, Polyline, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "./MapComponent.scss";
+import { MilSymbol } from 'react-leaflet-milsymbol';
 
 interface IWaypoint {
   lat: number;
@@ -72,10 +73,17 @@ const MapComponent = (props: IMapComponentProps) => {
 
       {/* Markers */}
       {markers.map((wp, idx) => (
-        <Marker key={idx} position={[wp.lat, wp.lng]} icon={waypointIcon}>
-          <Popup>{wp.name || `Marker ${idx + 1}`}</Popup>
-        </Marker>
+  <Marker key={idx} position={[wp.lat, wp.lng]} icon={waypointIcon}>
+    {/* Permanently show the name above the marker */}
+    <Tooltip direction="top" offset={[0, -16]} permanent>
+      {wp.name}
+    </Tooltip>
+  </Marker>
+  
       ))}
+
+
+
 	{/* Flight plan polyline */}
       {flightPlanRoute.length > 1 && (
         <Polyline positions={flightPlanRoute} pathOptions={{ color: "magenta", weight: 2 }} />

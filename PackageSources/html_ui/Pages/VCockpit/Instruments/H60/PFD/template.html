@@ -25214,69 +25214,6 @@
 	  }
 	});
 
-	const Popup = createOverlayComponent(function createPopup(props, context) {
-	  return {
-	    instance: new leafletSrc.Popup(props, context.overlayContainer),
-	    context
-	  };
-	}, function usePopupLifecycle(element, context, props, setOpen) {
-	  const {
-	    onClose,
-	    onOpen,
-	    position
-	  } = props;
-	  react.useEffect(function addPopup() {
-	    const {
-	      instance
-	    } = element;
-
-	    function onPopupOpen(event) {
-	      if (event.popup === instance) {
-	        instance.update();
-	        setOpen(true);
-	        onOpen == null ? void 0 : onOpen();
-	      }
-	    }
-
-	    function onPopupClose(event) {
-	      if (event.popup === instance) {
-	        setOpen(false);
-	        onClose == null ? void 0 : onClose();
-	      }
-	    }
-
-	    context.map.on({
-	      popupopen: onPopupOpen,
-	      popupclose: onPopupClose
-	    });
-
-	    if (context.overlayContainer == null) {
-	      // Attach to a Map
-	      if (position != null) {
-	        instance.setLatLng(position);
-	      }
-
-	      instance.openOn(context.map);
-	    } else {
-	      // Attach to container component
-	      context.overlayContainer.bindPopup(instance);
-	    }
-
-	    return function removePopup() {
-	      context.map.off({
-	        popupopen: onPopupOpen,
-	        popupclose: onPopupClose
-	      });
-
-	      if (context.overlayContainer == null) {
-	        context.map.removeLayer(instance);
-	      } else {
-	        context.overlayContainer.unbindPopup();
-	      }
-	    };
-	  }, [element, context, setOpen, onClose, onOpen, position]);
-	});
-
 	const _excluded = ["url"];
 	const TileLayer = createTileLayerComponent(function createTileLayer(_ref, context) {
 	  let {
@@ -25289,6 +25226,57 @@
 	    context
 	  };
 	}, updateGridLayer);
+
+	const Tooltip = createOverlayComponent(function createTooltip(props, context) {
+	  return {
+	    instance: new leafletSrc.Tooltip(props, context.overlayContainer),
+	    context
+	  };
+	}, function useTooltipLifecycle(element, context, props, setOpen) {
+	  const {
+	    onClose,
+	    onOpen
+	  } = props;
+	  react.useEffect(function addTooltip() {
+	    const container = context.overlayContainer;
+
+	    if (container == null) {
+	      return;
+	    }
+
+	    const {
+	      instance
+	    } = element;
+
+	    const onTooltipOpen = event => {
+	      if (event.tooltip === instance) {
+	        instance.update();
+	        setOpen(true);
+	        onOpen == null ? void 0 : onOpen();
+	      }
+	    };
+
+	    const onTooltipClose = event => {
+	      if (event.tooltip === instance) {
+	        setOpen(false);
+	        onClose == null ? void 0 : onClose();
+	      }
+	    };
+
+	    container.on({
+	      tooltipopen: onTooltipOpen,
+	      tooltipclose: onTooltipClose
+	    });
+	    container.bindTooltip(instance);
+	    return function removeTooltip() {
+	      container.off({
+	        tooltipopen: onTooltipOpen,
+	        tooltipclose: onTooltipClose
+	      });
+	      container.unbindTooltip();
+	    };
+	  }, [element, context, setOpen, onClose, onOpen]);
+	});
 
 	const MapComponent = props => {
 	  const {
@@ -25343,8 +25331,11 @@
 	    }), markers.map((wp, idx) => /*#__PURE__*/jsxRuntime.jsx(Marker, {
 	      position: [wp.lat, wp.lng],
 	      icon: waypointIcon,
-	      children: /*#__PURE__*/jsxRuntime.jsx(Popup, {
-	        children: wp.name || "Marker ".concat(idx + 1)
+	      children: /*#__PURE__*/jsxRuntime.jsx(Tooltip, {
+	        direction: "top",
+	        offset: [0, -16],
+	        permanent: true,
+	        children: wp.name
 	      })
 	    }, idx)), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
 	      positions: flightPlanRoute,
@@ -25922,9 +25913,20 @@
 
 	  const [markers, setMarkers] = react.useState([]);
 
+	  const addMarker = (lat, lng, name) => {
+	    setMarkers(prev => [...prev, {
+	      lat,
+	      lng,
+	      name
+	    }]);
+	  }; // --- FLIGHT PLAN ---
+
 
 	  react.useState([]);
 	  const [waypoints, setWaypoints] = react.useState([]);
+
+	  const lat = SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
+	  const lon = SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
 
 	  const loadFlightPlan = async () => {
 	    const total = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointsNumber", "number");
@@ -25932,6 +25934,7 @@
 
 	    for (let i = 0; i < total; i++) {
 	      await SimVar.SetSimVarValue("C:fs9gps:FlightPlanWaypointIndex", "number", i);
+	      await new Promise(res => setTimeout(res, 10));
 	      const lat = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLatitude", "degree");
 	      const lng = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLongitude", "degree");
 	      const ident = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointIdent", "string");
@@ -25948,6 +25951,7 @@
 
 	  react.useEffect(() => {
 	    loadFlightPlan();
+	    addMarker(lat, lon, "NEXT WP");
 	  }, []); // --- RENDER ---
 
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {

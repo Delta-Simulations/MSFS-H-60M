@@ -5,6 +5,7 @@ import MapComponent from "./map_component/MapComponent";
 import { TacMapScales } from "./TacMapScales";
 import { TacMapSideBar } from "./TacMapSideBar";
 import { TacMapLegends } from "./TacMapLegends";
+import { MilSymbol } from 'react-leaflet-milsymbol';
 
 interface IWaypoint {
 	lat: number;
@@ -43,6 +44,9 @@ export const TacMap = () => {
 	const addWaypoint = (lat: number, lng: number, name?: string) => { 
 		setWaypoints(prev => [...prev, { lat, lng, name }]); 
 	};
+const lat = SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
+const lon = SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
+
 
 
 	const loadFlightPlan = async () => {
@@ -59,7 +63,7 @@ export const TacMap = () => {
 				"number",
 				i
 			);
-
+await new Promise(res => setTimeout(res, 10));
 			const lat = SimVar.GetSimVarValue(
 				"C:fs9gps:FlightPlanWaypointLatitude",
 				"degree"
@@ -87,6 +91,7 @@ export const TacMap = () => {
 	};
 	useEffect(() => {
 		loadFlightPlan();
+		addMarker(lat, lon, "NEXT WP");
 	}, []);
 
 
