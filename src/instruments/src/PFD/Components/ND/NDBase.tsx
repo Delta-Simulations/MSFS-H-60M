@@ -5,41 +5,68 @@ import { RadarAltCircle } from '../PFD/RadarAltCircle';
 import { NDFullDisplay } from './NDFullDisplay';
 import { NDStatic } from './NDStatic';
 import MapComponent from '../TacMap/map_component/MapComponent';
+import { useMapData } from '../../../Common/MapDataProvider';
 
 export const NDBase = () => {
-
+  const { markers, addMarker, updateMarker, removeMarker, flightPlan, refreshFlightPlan } = useMapData();
   const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
   const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
   const [heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
   const [Map_Center] = useSimVar("L:H60_TAC_MAP_CTR", "bool");
+  const [Map_Orientation] = useSimVar("L:H60_TAC_MAP_ORIENT", "bool");
+  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
+
+  ac_heading = Math.round(ac_heading * 100) / 100;
+  let heading_adjusted = Map_Orientation === 1 ? 0 : ac_heading;
 
   return (
     <>
+      {/* Quick Reload Button */}
+
 
       {/* MAP BACKGROUND */}
       <div
         style={{
           position: "absolute",
-          width: "1024px",
-          height: "768px",
+          width: "604px",
+          height: "604px",
+          top: "82px",
+          left: "107px",
           background: "black",
           overflow: "hidden",
-          zIndex: 1
+          zIndex: 1,
+          transform: `rotate(${-heading_adjusted}deg)`,
+          transformOrigin: "center center",
         }}
       >
         <MapComponent
           lat={latitude}
           lng={longitude}
           heading={heading}
-          zoom={10}
-          map_mode={2}
+          zoom={14}
+          map_mode={0}
           map_symbology={false}
-          markers={[]}
-          flightPlan={[]}
+          markers={markers}
+          flightPlan={flightPlan}
         />
       </div>
-
-
+      <button
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          zIndex: 200,
+          padding: "8px 12px",
+          backgroundColor: "#007bff",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer"
+        }}
+        onClick={refreshFlightPlan}
+      >
+        Reload Flight Plan
+      </button>
       {/* SVG AVIONICS LAYER */}
       <svg
         width="100%"
@@ -52,17 +79,13 @@ export const NDBase = () => {
         }}
       >
         <g>
-
           <g transform="translate(10,-358)">
             <RadarAltCircle />
           </g>
-
           <NDFullDisplay />
           <NDStatic />
-
         </g>
       </svg>
-
     </>
   );
 };

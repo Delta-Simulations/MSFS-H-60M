@@ -30,7 +30,7 @@ export const NDFullDisplay = () => {
     return (
         <g>
 
-            <g transform={`translate(409, 384) rotate(${Map_Orientation ? 0 : ac_heading})`}>
+            <g transform={`translate(409, 384) rotate(${Map_Orientation ? 0 : -ac_heading})`}>
 {lines_small.map((line, i) => ( <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke="black" strokeWidth={4} /> ))}
 {lines_large.map((line, i) => ( <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke="black" strokeWidth={4} /> ))}
 

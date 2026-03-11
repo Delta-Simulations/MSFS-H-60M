@@ -8638,9 +8638,9 @@
 	  }
 	});
 
-	function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 	const normalizeUnitName = unit => {
 	  switch (unit) {
@@ -8745,10 +8745,10 @@
 	      const newCache = {};
 
 	      for (const [key, update] of Object.entries(stateUpdates)) {
-	        newCache[key] = _objectSpread$3(_objectSpread$3({}, oldCache[key]), update);
+	        newCache[key] = _objectSpread$4(_objectSpread$4({}, oldCache[key]), update);
 	      }
 
-	      return _objectSpread$3(_objectSpread$3({}, oldCache), newCache);
+	      return _objectSpread$4(_objectSpread$4({}, oldCache), newCache);
 	    });
 	  });
 
@@ -8772,7 +8772,7 @@
 	    }
 
 	    const value = global ? SimVar.GetGlobalVarValue(name, unit) : SimVar.GetSimVarValue(name, unit);
-	    setCache(oldCache => _objectSpread$3(_objectSpread$3({}, oldCache), {}, {
+	    setCache(oldCache => _objectSpread$4(_objectSpread$4({}, oldCache), {}, {
 	      [key]: {
 	        value,
 	        lastUpdatedAgo: 0
@@ -8800,7 +8800,7 @@
 	    setCache(oldCache => {
 	      const newValue = typeof value === 'function' ? value(oldCache[key].value) : value;
 	      SimVar.SetSimVarValue(proxy || name, unit, newValue);
-	      return _objectSpread$3(_objectSpread$3({}, oldCache), {}, {
+	      return _objectSpread$4(_objectSpread$4({}, oldCache), {}, {
 	        [key]: {
 	          value: newValue,
 	          lastUpdatedAgo: 0
@@ -11209,7 +11209,7 @@
 	  ac_heading = Math.round(ac_heading * 100) / 100;
 	  return /*#__PURE__*/jsxRuntime.jsx("g", {
 	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(409, 384) rotate(".concat(Map_Orientation ? 0 : ac_heading, ")"),
+	      transform: "translate(409, 384) rotate(".concat(Map_Orientation ? 0 : -ac_heading, ")"),
 	      children: [lines_small.map((line, i) => /*#__PURE__*/jsxRuntime.jsx("line", {
 	        x1: line.x1,
 	        y1: line.y1,
@@ -11374,15 +11374,15 @@
 	  }, [element, eventHandlers]);
 	}
 
-	function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 	function withPane(props, context) {
 	  var _props$pane;
 
 	  const pane = (_props$pane = props.pane) !== null && _props$pane !== void 0 ? _props$pane : context.pane;
-	  return pane ? _objectSpread$2(_objectSpread$2({}, props), {}, {
+	  return pane ? _objectSpread$3(_objectSpread$3({}, props), {}, {
 	    pane
 	  }) : props;
 	}
@@ -25419,9 +25419,9 @@
 
 	const _excluded$2 = ["position"];
 
-	function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 	const Marker = createLayerComponent(function createMarker(_ref, ctx) {
 	  let {
 	    position
@@ -25431,7 +25431,7 @@
 	  const instance = new leafletSrc.Marker(position, options);
 	  return {
 	    instance,
-	    context: _objectSpread$1(_objectSpread$1({}, ctx), {}, {
+	    context: _objectSpread$2(_objectSpread$2({}, ctx), {}, {
 	      overlayContainer: instance
 	    })
 	  };
@@ -25463,9 +25463,9 @@
 
 	const _excluded$1 = ["positions"];
 
-	function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 	const Polyline = createPathComponent(function createPolyline(_ref, ctx) {
 	  let {
 	    positions
@@ -25475,7 +25475,7 @@
 	  const instance = new leafletSrc.Polyline(positions, options);
 	  return {
 	    instance,
-	    context: _objectSpread(_objectSpread({}, ctx), {}, {
+	    context: _objectSpread$1(_objectSpread$1({}, ctx), {}, {
 	      overlayContainer: instance
 	    })
 	  };
@@ -25654,31 +25654,138 @@
 	  });
 	};
 
+	function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	const MapDataContext = /*#__PURE__*/react.createContext(null);
+	const MapDataProvider = ({
+	  children
+	}) => {
+	  const [flightPlan, setFlightPlan] = react.useState([]);
+	  const [markers, setMarkers] = react.useState([]);
+	  const refreshFlightPlan = react.useCallback(async () => {
+	    const total = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointsNumber", "number");
+	    const newWaypoints = [];
+
+	    for (let i = 0; i < total; i++) {
+	      await SimVar.SetSimVarValue("C:fs9gps:FlightPlanWaypointIndex", "number", i);
+	      await new Promise(res => setTimeout(res, 10));
+	      const lat = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLatitude", "degree");
+	      const lng = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLongitude", "degree");
+	      const ident = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointIdent", "string");
+	      newWaypoints.push({
+	        lat,
+	        lng,
+	        name: ident,
+	        type: "FMS_WP"
+	      });
+	    }
+
+	    setFlightPlan(newWaypoints);
+	  }, []);
+
+	  const addMarker = (lat, lng, name, type) => {
+	    setMarkers(prev => [...prev, {
+	      lat,
+	      lng,
+	      name,
+	      type
+	    }]);
+	  };
+
+	  const updateMarker = (index, data) => {
+	    setMarkers(prev => {
+	      const copy = [...prev];
+	      copy[index] = _objectSpread(_objectSpread({}, copy[index]), data);
+	      return copy;
+	    });
+	  };
+
+	  const removeMarker = index => {
+	    setMarkers(prev => prev.filter((_, i) => i !== index));
+	  }; // --- Log updates whenever flightPlan or markers change ---
+
+
+	  react.useEffect(() => {
+	    console.log("Markers updated:", markers);
+	  }, [markers]);
+	  react.useEffect(() => {
+	    console.log("Flight Plan updated:", flightPlan);
+	  }, [flightPlan]);
+	  return /*#__PURE__*/jsxRuntime.jsx(MapDataContext.Provider, {
+	    value: {
+	      flightPlan,
+	      markers,
+	      refreshFlightPlan,
+	      addMarker,
+	      updateMarker,
+	      removeMarker
+	    },
+	    children: children
+	  });
+	};
+	const useMapData = () => {
+	  const ctx = react.useContext(MapDataContext);
+	  if (!ctx) throw new Error("useMapData must be inside MapDataProvider");
+	  return ctx;
+	};
+
 	const NDBase = () => {
+	  const {
+	    markers,
+	    addMarker,
+	    updateMarker,
+	    removeMarker,
+	    flightPlan,
+	    refreshFlightPlan
+	  } = useMapData();
 	  const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
 	  const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
 	  const [heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
 	  useSimVar("L:H60_TAC_MAP_CTR", "bool");
+	  const [Map_Orientation] = useSimVar("L:H60_TAC_MAP_ORIENT", "bool");
+	  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
+	  ac_heading = Math.round(ac_heading * 100) / 100;
+	  let heading_adjusted = Map_Orientation === 1 ? 0 : ac_heading;
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("div", {
 	      style: {
 	        position: "absolute",
-	        width: "1024px",
-	        height: "768px",
+	        width: "604px",
+	        height: "604px",
+	        top: "82px",
+	        left: "107px",
 	        background: "black",
 	        overflow: "hidden",
-	        zIndex: 1
+	        zIndex: 1,
+	        transform: "rotate(".concat(-heading_adjusted, "deg)"),
+	        transformOrigin: "center center"
 	      },
 	      children: /*#__PURE__*/jsxRuntime.jsx(MapComponent, {
 	        lat: latitude,
 	        lng: longitude,
 	        heading: heading,
-	        zoom: 10,
-	        map_mode: 2,
+	        zoom: 14,
+	        map_mode: 0,
 	        map_symbology: false,
-	        markers: [],
-	        flightPlan: []
+	        markers: markers,
+	        flightPlan: flightPlan
 	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("button", {
+	      style: {
+	        position: "absolute",
+	        top: "20px",
+	        right: "20px",
+	        zIndex: 200,
+	        padding: "8px 12px",
+	        backgroundColor: "#007bff",
+	        color: "white",
+	        border: "none",
+	        borderRadius: "4px",
+	        cursor: "pointer"
+	      },
+	      onClick: refreshFlightPlan,
+	      children: "Reload Flight Plan"
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
 	      width: "100%",
 	      height: "100%",
@@ -26244,7 +26351,17 @@
 	};
 
 	const TacMap = () => {
-	  // --- SimVar hooks ---
+	  const {
+	    markers,
+	    addMarker,
+	    updateMarker,
+	    removeMarker
+	  } = useMapData();
+	  const {
+	    flightPlan,
+	    refreshFlightPlan
+	  } = useMapData(); // --- SimVar hooks ---
+
 	  const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
 	  const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
 	  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
@@ -26256,56 +26373,7 @@
 	  const [Map_Declutter] = useSimVar("L:H60_TAC_MAP_DCLT", "enum");
 	  const [Map_Orientation] = useSimVar("L:H60_TAC_MAP_ORIENT", "bool");
 	  const [Map_Center] = useSimVar("L:H60_TAC_MAP_CTR", "bool");
-	  heading_adjusted = Map_Orientation === 1 ? 0 : ac_heading; // --- MARKERS ---
-
-	  const [markers, setMarkers] = react.useState([]);
-
-	  const addMarker = (lat, lng, name, type) => {
-	    setMarkers(prev => [...prev, {
-	      lat,
-	      lng,
-	      name,
-	      type
-	    }]);
-	  }; // --- FLIGHT PLAN ---
-
-
-	  const [flightplan, setFlightplan] = react.useState([]); // const addWaypoint = (lat: number, lng: number, name?: string) => { 
-	  // 	setFlightplan(prev => [...prev, { lat, lng, name }]); 
-	  // };
-
-	  SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
-	  SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
-
-	  const loadFlightPlan = async () => {
-	    const total = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointsNumber", "number");
-	    const newWaypoints = [];
-
-	    for (let i = 0; i < total; i++) {
-	      await SimVar.SetSimVarValue("C:fs9gps:FlightPlanWaypointIndex", "number", i);
-	      await new Promise(res => setTimeout(res, 10));
-	      const lat = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLatitude", "degree");
-	      const lng = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLongitude", "degree");
-	      const ident = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointIdent", "string");
-	      newWaypoints.push({
-	        lat,
-	        lng,
-	        name: ident,
-	        type: "FMS_WP"
-	      });
-	    }
-
-	    setFlightplan(newWaypoints);
-	    console.log("Flight plan polyline:", newWaypoints);
-	  };
-
-	  react.useEffect(() => {
-	    loadFlightPlan();
-	    addMarker(26.8513, -113.1402, "SAM", "Hostile_Missile_Launcher");
-	    addMarker(26.77036213115676, -113.5799318203904, "TRACK", "Hostile_Radar_Site");
-	    addMarker(27.025066472526095, -113.89061123087161, "AB", "FMS_AIRPORT");
-	    addMarker(27.137063268046617, -113.96125077955475, "RZ", "RendezVous_Point");
-	  }, []); // --- RENDER ---
+	  heading_adjusted = Map_Orientation === 1 ? 0 : ac_heading; // --- RENDER ---
 
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
 	    children: [Disp_mode < 5 && /*#__PURE__*/jsxRuntime.jsx("div", {
@@ -26330,7 +26398,7 @@
 	        map_symbology: Map_Declutter,
 	        markers: markers // normal markers
 	        ,
-	        flightPlan: flightplan // polyline flight plan
+	        flightPlan: flightPlan // polyline flight plan
 
 	      })
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
@@ -28566,67 +28634,64 @@
 	  let displaycontrols = "L:H60_MFD_".concat(DisplayID, "_MODE");
 	  const [DISP_TYPE] = useSimVar(displaycontrols, "enum");
 	  const [Ext_Tanks] = useSimVar("L:ADDITIONSVIS", "enum");
-	  return /*#__PURE__*/jsxRuntime.jsxs(Electricity_MFD, {
+	  return /*#__PURE__*/jsxRuntime.jsx(Electricity_MFD, {
 	    powerVar: "L:H60_MFD_".concat(DisplayID, "_PWR"),
-	    children: [/*#__PURE__*/jsxRuntime.jsx("div", {
-	      style: {
-	        position: "absolute",
-	        top: 0,
-	        width: "1024px",
-	        height: "768px",
-	        display: DISP_TYPE == 4 ? "block" : "none"
-	      },
-	      children: /*#__PURE__*/jsxRuntime.jsx(TacMap, {})
-	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
-	      viewBox: "0 0 1024 768",
-	      style: {
-	        position: "absolute",
-	        top: 0,
-	        zIndex: 100000
-	      },
-	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
-	          visibility: DISP_TYPE == 0 ? "visible" : "hidden",
-	          children: [/*#__PURE__*/jsxRuntime.jsx(PFDBase, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
-	            xlinkHref: "/Images/REF/pfd.png",
-	            x: 0,
-	            y: 0,
-	            opacity: 0.3
-	          })]
-	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	          visibility: DISP_TYPE == 2 ? "visible" : "hidden",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	            x: 0,
-	            y: 0,
-	            width: 1024,
-	            height: 768,
-	            fill: "#00000"
-	          }), /*#__PURE__*/jsxRuntime.jsx("image", {
-	            xlinkHref: "/Images/REF/EICAS.png",
-	            x: 0,
-	            y: 0,
-	            opacity: 0.6
-	          }), /*#__PURE__*/jsxRuntime.jsx(EICAS, {})]
-	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	          visibility: 2 == Ext_Tanks && DISP_TYPE == 2 ? "visible" : "hidden",
-	          children: /*#__PURE__*/jsxRuntime.jsx(EICASExtTanks, {})
-	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	          visibility: DISP_TYPE == 1 ? "visible" : "hidden",
-	          children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	            x: 0,
-	            y: 0,
-	            width: 1024,
-	            height: 768,
-	            fill: "#00000"
-	          }), /*#__PURE__*/jsxRuntime.jsx("image", {
-	            xlinkHref: "/Images/REF/MPD_AVIONICS2.png",
-	            x: 0,
-	            y: 0,
-	            opacity: 0.6
-	          }), /*#__PURE__*/jsxRuntime.jsx(NDBase, {})]
-	        }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {})]
-	      })
-	    })]
+	    children: /*#__PURE__*/jsxRuntime.jsxs(MapDataProvider, {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("div", {
+	        style: {
+	          position: "absolute",
+	          top: 0,
+	          width: "1024px",
+	          height: "768px",
+	          display: DISP_TYPE == 1 ? "block" : "none"
+	        },
+	        children: DISP_TYPE === 1 && /*#__PURE__*/jsxRuntime.jsx(NDBase, {})
+	      }), /*#__PURE__*/jsxRuntime.jsx("div", {
+	        style: {
+	          position: "absolute",
+	          top: 0,
+	          width: "1024px",
+	          height: "768px",
+	          display: DISP_TYPE == 4 ? "block" : "none"
+	        },
+	        children: DISP_TYPE === 4 && /*#__PURE__*/jsxRuntime.jsx(TacMap, {})
+	      }), /*#__PURE__*/jsxRuntime.jsx("svg", {
+	        viewBox: "0 0 1024 768",
+	        style: {
+	          position: "absolute",
+	          top: 0,
+	          zIndex: 100000
+	        },
+	        children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	          children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	            visibility: DISP_TYPE == 0 ? "visible" : "hidden",
+	            children: [/*#__PURE__*/jsxRuntime.jsx(PFDBase, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
+	              xlinkHref: "/Images/REF/pfd.png",
+	              x: 0,
+	              y: 0,
+	              opacity: 0.3
+	            })]
+	          }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	            visibility: DISP_TYPE == 2 ? "visible" : "hidden",
+	            children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	              x: 0,
+	              y: 0,
+	              width: 1024,
+	              height: 768,
+	              fill: "#00000"
+	            }), /*#__PURE__*/jsxRuntime.jsx("image", {
+	              xlinkHref: "/Images/REF/EICAS.png",
+	              x: 0,
+	              y: 0,
+	              opacity: 0.6
+	            }), /*#__PURE__*/jsxRuntime.jsx(EICAS, {})]
+	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	            visibility: 2 == Ext_Tanks && DISP_TYPE == 2 ? "visible" : "hidden",
+	            children: /*#__PURE__*/jsxRuntime.jsx(EICASExtTanks, {})
+	          }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {})]
+	        })
+	      })]
+	    })
 	  });
 	};
 
@@ -29618,6 +29683,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   height: 100%;
   width: 100%;
   display: inline-block;
+  background: black;
 }
     </style>
 </script>

@@ -6,6 +6,7 @@ import { TacMapScales } from "./TacMapScales";
 import { TacMapSideBar } from "./TacMapSideBar";
 import { TacMapLegends } from "./TacMapLegends";
 import { MilSymbol } from 'react-leaflet-milsymbol';
+import { useMapData } from "../../../Common/MapDataProvider";
 
 interface IWaypoint {
 	lat: number;
@@ -25,6 +26,10 @@ interface IFlightPlan {
 
 
 export const TacMap = () => {
+const { markers, addMarker, updateMarker, removeMarker } = useMapData();
+const { flightPlan, refreshFlightPlan } = useMapData();
+
+
 	// --- SimVar hooks ---
 	const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
 	const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
@@ -40,73 +45,6 @@ export const TacMap = () => {
 	const [Map_Center] = useSimVar("L:H60_TAC_MAP_CTR", "bool");
 
 	heading_adjusted = Map_Orientation === 1 ? 0 : ac_heading;
-
-	// --- MARKERS ---
-	const [markers, setMarkers] = useState<IWaypoint[]>([]);
-	const addMarker = (lat: number, lng: number, name?: string, type?: string) => {
-		setMarkers((prev) => [...prev, { lat, lng, name, type }]);
-	};
-
-	// --- FLIGHT PLAN ---
-
-	const [flightplan, setFlightplan] = useState<IFlightPlan[]>([]); 
-	// const addWaypoint = (lat: number, lng: number, name?: string) => { 
-	// 	setFlightplan(prev => [...prev, { lat, lng, name }]); 
-	// };
-	
-const lat = SimVar.GetSimVarValue("GPS WP NEXT LAT", "degree");
-const lon = SimVar.GetSimVarValue("GPS WP NEXT LON", "degree");
-
-	const loadFlightPlan = async () => {
-		const total = SimVar.GetSimVarValue(
-			"C:fs9gps:FlightPlanWaypointsNumber",
-			"number"
-		);
-
-		const newWaypoints: IFlightPlan[] = [];
-
-		for (let i = 0; i < total; i++) {
-			await SimVar.SetSimVarValue(
-				"C:fs9gps:FlightPlanWaypointIndex",
-				"number",
-				i
-			);
-await new Promise(res => setTimeout(res, 10));
-			const lat = SimVar.GetSimVarValue(
-				"C:fs9gps:FlightPlanWaypointLatitude",
-				"degree"
-			);
-
-			const lng = SimVar.GetSimVarValue(
-				"C:fs9gps:FlightPlanWaypointLongitude",
-				"degree"
-			);
-
-			const ident = SimVar.GetSimVarValue(
-				"C:fs9gps:FlightPlanWaypointIdent",
-				"string"
-			);
-
-			newWaypoints.push({
-				lat,
-				lng,
-				name: ident,
-				type: "FMS_WP"
-			});
-		}
-
-		setFlightplan(newWaypoints);
-		console.log("Flight plan polyline:", newWaypoints);
-	};
-	useEffect(() => {
-		loadFlightPlan();
-		addMarker(26.8513, -113.1402, "SAM", "Hostile_Missile_Launcher");
-		addMarker(26.77036213115676, -113.5799318203904, "TRACK", "Hostile_Radar_Site");
-		addMarker(27.025066472526095, -113.89061123087161, "AB", "FMS_AIRPORT");
-		addMarker(27.137063268046617, -113.96125077955475, "RZ", "RendezVous_Point");
-
-	}, []);
-
 
 	// --- RENDER ---
 	return (
@@ -131,7 +69,7 @@ await new Promise(res => setTimeout(res, 10));
 						map_mode={Disp_mode}
 						map_symbology={Map_Declutter}
 						markers={markers}      // normal markers
-						flightPlan={flightplan} // polyline flight plan
+						flightPlan={flightPlan} // polyline flight plan
 					/>
 				</div>
 			)}
