@@ -1,0 +1,20 @@
+[
+  {
+    "name": "SAM1",
+    "lat": 28.202454999896137,
+    "lng": -177.3848163624215,
+    "type": "Hostile_Missile_Launcher"
+  },
+  {
+    "name": "RADAR1",
+    "lat": 28.201208917345237,
+    "lng": -177.3885303589234,
+    "type": "Hostile_Radar_Site"
+  },
+  {
+    "name": "RZ",
+    "lat": 28.207055012800232,
+    "lng": -177.3753113733247,
+    "type": "RendezVous_Point"
+  }
+]

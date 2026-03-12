@@ -1,9 +1,9 @@
-import React, { } from "react";
+import React, { useEffect } from "react";
 import { render } from "../Hooks/index";
 import { useSimVar } from "../Hooks/simVars";
-//import { VerticalSpeed } from './Components/verticalSpeed';
 import { Fixed } from "./Components/Fixed";
 import { getDisplayIndex } from "../Hooks/defaults";
+
 
 import { EICAS } from "./Components/EICAS/EICAS";
 import { EICASExtTanks } from "./Components/EICAS/EICASExtTanks";
@@ -15,13 +15,17 @@ import { TacMap } from "./Components/TacMap/TacMap";
 import { PFDBase } from "./Components/PFD/PFDBase";
 import { Horizon } from "../AP/Components/horizon";
 import { MapDataProvider } from "../Common/MapDataProvider";
+import { JMVFBase } from "./Components/JMVF/JMVFBase";
 
 const PFD = () => {
+
+
 	let DisplayID = getDisplayIndex();
 	let displaycontrols = `L:H60_MFD_${DisplayID}_MODE`;
 
 	const [DISP_TYPE] = useSimVar(displaycontrols, "enum");
 	const [Ext_Tanks] = useSimVar("L:ADDITIONSVIS", "enum");
+
 
 	return (
 		<Electricity_MFD powerVar={`L:H60_MFD_${DisplayID}_PWR`}>
@@ -98,6 +102,10 @@ const PFD = () => {
 							<EICASExtTanks />
 						</g>
 
+						<g visibility={DISP_TYPE == 5 ? "visible" : "hidden"}>
+							<JMVFBase />
+						</g>
+
 						<Fixed />
 						
 					</g>
@@ -107,3 +115,11 @@ const PFD = () => {
 	);
 };
 render(<PFD />);
+function addMarker(arg0: number, arg1: number, arg2: string, arg3: string) {
+	throw new Error("Function not implemented.");
+}
+
+function refreshFlightPlan() {
+	throw new Error("Function not implemented.");
+}
+

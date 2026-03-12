@@ -25527,12 +25527,17 @@
 	  };
 
 	  const getWaypointInformation = type => {
-	    let iconUrl = "/Images/MFD/FMS_Waypoint.svg";
+	    let iconUrl = "/Images/MFD/Other_Waypoint.svg";
 	    let textColor = "white";
 
 	    switch (type) {
 	      case "FMS_WP":
 	        iconUrl = "/Images/MFD/FMS_Waypoint.svg";
+	        textColor = "magenta";
+	        break;
+
+	      case "Other_WP":
+	        iconUrl = "/Images/MFD/Other_Waypoint.svg";
 	        textColor = "magenta";
 	        break;
 
@@ -25669,7 +25674,7 @@
 
 	    for (let i = 0; i < total; i++) {
 	      await SimVar.SetSimVarValue("C:fs9gps:FlightPlanWaypointIndex", "number", i);
-	      await new Promise(res => setTimeout(res, 10));
+	      await new Promise(res => setTimeout(res, 50));
 	      const lat = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLatitude", "degree");
 	      const lng = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLongitude", "degree");
 	      const ident = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointIdent", "string");
@@ -25703,6 +25708,10 @@
 
 	  const removeMarker = index => {
 	    setMarkers(prev => prev.filter((_, i) => i !== index));
+	  };
+
+	  const clearMarkers = () => {
+	    setMarkers([]); // simply reset the markers array
 	  }; // --- Log updates whenever flightPlan or markers change ---
 
 
@@ -25712,6 +25721,10 @@
 	  react.useEffect(() => {
 	    console.log("Flight Plan updated:", flightPlan);
 	  }, [flightPlan]);
+	  react.useEffect(() => {
+	    addMarker(28.204725027226747, -177.37991140249193, "FARP", "Friendly_Medical_Center");
+	    refreshFlightPlan();
+	  }, []);
 	  return /*#__PURE__*/jsxRuntime.jsx(MapDataContext.Provider, {
 	    value: {
 	      flightPlan,
@@ -25719,7 +25732,9 @@
 	      refreshFlightPlan,
 	      addMarker,
 	      updateMarker,
-	      removeMarker
+	      removeMarker,
+	      clearMarkers // <--- added here
+
 	    },
 	    children: children
 	  });
@@ -25759,7 +25774,8 @@
 	        overflow: "hidden",
 	        zIndex: 1,
 	        transform: "rotate(".concat(-heading_adjusted, "deg)"),
-	        transformOrigin: "center center"
+	        transformOrigin: "center center",
+	        clipPath: "circle(302px at center)"
 	      },
 	      children: /*#__PURE__*/jsxRuntime.jsx(MapComponent, {
 	        lat: latitude,
@@ -25771,21 +25787,6 @@
 	        markers: markers,
 	        flightPlan: flightPlan
 	      })
-	    }), /*#__PURE__*/jsxRuntime.jsx("button", {
-	      style: {
-	        position: "absolute",
-	        top: "20px",
-	        right: "20px",
-	        zIndex: 200,
-	        padding: "8px 12px",
-	        backgroundColor: "#007bff",
-	        color: "white",
-	        border: "none",
-	        borderRadius: "4px",
-	        cursor: "pointer"
-	      },
-	      onClick: refreshFlightPlan,
-	      children: "Reload Flight Plan"
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
 	      width: "100%",
 	      height: "100%",
@@ -26489,7 +26490,7 @@
 	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapScales, {}), /*#__PURE__*/jsxRuntime.jsx(TacMapLegends, {
 	          rotation: ac_heading
 	        }), /*#__PURE__*/jsxRuntime.jsx(TacMapSideBar, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
-	          xlinkHref: "/Images/MPD_AVIONICS11.png",
+	          xlinkHref: "/Images/REF/MPD_AVIONICS11.png",
 	          x: 0,
 	          y: 0,
 	          opacity: 0
@@ -28629,6 +28630,43 @@
 	  });
 	};
 
+	const JMVFBase = () => {
+	  const [loadDtc] = useSimVar("L:H60_DTC_LOAD", "enum");
+	  const {
+	    addMarker,
+	    clearMarkers
+	  } = useMapData();
+	  const prevLoadDtc = react.useRef(loadDtc);
+
+	  const loadWaypointsFromCSV = async () => {
+	    try {
+	      const response = await fetch("/User/waypoints.csv");
+	      const text = await response.text();
+	      const rows = text.split("\n").slice(1); // skip header
+
+	      rows.forEach(row => {
+	        const [name, lat, lng, type] = row.split(",");
+	        addMarker(parseFloat(lat), parseFloat(lng), name, type);
+	      });
+	      console.log("Waypoints loaded from CSV");
+	    } catch (err) {
+	      console.error("Failed to load CSV:", err);
+	    }
+	  };
+
+	  react.useEffect(() => {
+	    // Only run when loadDtc increases
+	    if (loadDtc > prevLoadDtc.current) {
+	      console.log("DTC increased from ".concat(prevLoadDtc.current, " \u2192 ").concat(loadDtc));
+	      clearMarkers();
+	      loadWaypointsFromCSV();
+	    }
+
+	    prevLoadDtc.current = loadDtc;
+	  }, [loadDtc]);
+	  return null;
+	};
+
 	const PFD = () => {
 	  let DisplayID = getDisplayIndex();
 	  let displaycontrols = "L:H60_MFD_".concat(DisplayID, "_MODE");
@@ -28688,6 +28726,9 @@
 	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	            visibility: 2 == Ext_Tanks && DISP_TYPE == 2 ? "visible" : "hidden",
 	            children: /*#__PURE__*/jsxRuntime.jsx(EICASExtTanks, {})
+	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	            visibility: DISP_TYPE == 5 ? "visible" : "hidden",
+	            children: /*#__PURE__*/jsxRuntime.jsx(JMVFBase, {})
 	          }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {})]
 	        })
 	      })]
@@ -29683,7 +29724,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   height: 100%;
   width: 100%;
   display: inline-block;
-  background: black;
+  background: none;
 }
     </style>
 </script>

@@ -1,5 +1,0 @@
-[
-  { "lat": 48.4284, "lng": -123.3656, "name": "Waypoint A", "type": "FMS_WP", "heading": 90 },
-  { "lat": 48.4280, "lng": -123.3600, "name": "Waypoint B", "type": "FMS_VOR"},
-  { "lat": 48.4300, "lng": -123.3620, "name": "RendezVous", "type": "RendezVous_Point", "heading": 180 }
-]

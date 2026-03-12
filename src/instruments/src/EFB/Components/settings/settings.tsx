@@ -5,10 +5,10 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { useSimVar } from '../../../Hooks/simVars';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { Slider } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import './settings.scss';
-import Grid from '@material-ui/core/Grid';
 
 export const Settings = () => {
 	const [RtrMode, setRtrMode] = useSimVar('L:Uh60_RTR_Type', 'bool');

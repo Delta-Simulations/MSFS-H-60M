@@ -403,6 +403,14 @@
   </LEFT_SINGLE_CODE>
 </UseTemplate>
 
+<UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>LOAD_DTC</NODE_ID>
+  <TOOLTIPID>LOAD DTC</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    (L:H60_DTC_LOAD) ++ (&gt;L:H60_DTC_LOAD)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+
 
 <UseTemplate Name="DELTASIM_PushButton_Template">
   <NODE_ID>Button_HDG</NODE_ID>

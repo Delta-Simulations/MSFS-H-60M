@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { useSimVar } from '../Hooks/simVars';
 
 interface IWaypoint {
   lat: number;
@@ -24,6 +25,8 @@ interface MapDataContextType {
   addMarker: (lat: number, lng: number, name?: string, type?: string) => void;
   updateMarker: (index: number, data: Partial<IWaypoint>) => void;
   removeMarker: (index: number) => void;
+  clearMarkers: () => void; // <--- add this line
+
 }
 
 const MapDataContext = createContext<MapDataContextType | null>(null);
@@ -44,7 +47,7 @@ export const MapDataProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     for (let i = 0; i < total; i++) {
       await SimVar.SetSimVarValue("C:fs9gps:FlightPlanWaypointIndex", "number", i);
-      await new Promise(res => setTimeout(res, 10));
+      await new Promise(res => setTimeout(res, 50));
 
       const lat = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLatitude", "degree");
       const lng = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLongitude", "degree");
@@ -76,7 +79,9 @@ export const MapDataProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const removeMarker = (index: number) => {
     setMarkers(prev => prev.filter((_, i) => i !== index));
   };
-
+const clearMarkers = () => {
+  setMarkers([]); // simply reset the markers array
+};
   // --- Log updates whenever flightPlan or markers change ---
   useEffect(() => {
     console.log("Markers updated:", markers);
@@ -86,19 +91,26 @@ export const MapDataProvider: React.FC<{ children: React.ReactNode }> = ({ child
     console.log("Flight Plan updated:", flightPlan);
   }, [flightPlan]);
 
+  useEffect(() => {
+    addMarker(28.204725027226747, -177.37991140249193, "FARP", "Friendly_Medical_Center");
+    refreshFlightPlan();
+  }, []);
+
+
   return (
-    <MapDataContext.Provider
-      value={{
-        flightPlan,
-        markers,
-        refreshFlightPlan,
-        addMarker,
-        updateMarker,
-        removeMarker
-      }}
-    >
-      {children}
-    </MapDataContext.Provider>
+<MapDataContext.Provider
+  value={{
+    flightPlan,
+    markers,
+    refreshFlightPlan,
+    addMarker,
+    updateMarker,
+    removeMarker,
+    clearMarkers, // <--- added here
+  }}
+>
+  {children}
+</MapDataContext.Provider>
   );
 };
 

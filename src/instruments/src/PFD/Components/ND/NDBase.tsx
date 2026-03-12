@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../../style.scss";
 import { useSimVar } from '../../../Hooks/simVars';
 import { RadarAltCircle } from '../PFD/RadarAltCircle';
@@ -21,9 +21,6 @@ export const NDBase = () => {
 
   return (
     <>
-      {/* Quick Reload Button */}
-
-
       {/* MAP BACKGROUND */}
       <div
         style={{
@@ -37,6 +34,7 @@ export const NDBase = () => {
           zIndex: 1,
           transform: `rotate(${-heading_adjusted}deg)`,
           transformOrigin: "center center",
+          clipPath: "circle(302px at center)"
         }}
       >
         <MapComponent
@@ -50,23 +48,7 @@ export const NDBase = () => {
           flightPlan={flightPlan}
         />
       </div>
-      <button
-        style={{
-          position: "absolute",
-          top: "20px",
-          right: "20px",
-          zIndex: 200,
-          padding: "8px 12px",
-          backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer"
-        }}
-        onClick={refreshFlightPlan}
-      >
-        Reload Flight Plan
-      </button>
+
       {/* SVG AVIONICS LAYER */}
       <svg
         width="100%"

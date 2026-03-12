@@ -45,11 +45,12 @@ const MapComponent = (props: IMapComponentProps) => {
   };
 
   const getWaypointInformation = (type?: string) => {
-    let iconUrl = "/Images/MFD/FMS_Waypoint.svg";
+    let iconUrl = "/Images/MFD/Other_Waypoint.svg";
     let textColor = "white";
 
     switch (type) {
       case "FMS_WP": iconUrl = "/Images/MFD/FMS_Waypoint.svg"; textColor = "magenta"; break;
+      case "Other_WP": iconUrl = "/Images/MFD/Other_Waypoint.svg"; textColor = "magenta"; break;
       case "FMS_VOR": iconUrl = "/Images/MFD/VOR.svg"; break;
       case "FMS_VORTAC": iconUrl = "/Images/MFD/VORTAC.svg"; break;
       case "FMS_TACAN": iconUrl = "/Images/MFD/TACAN.svg"; break;

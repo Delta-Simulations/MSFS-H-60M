@@ -169,7 +169,7 @@ const { flightPlan, refreshFlightPlan } = useMapData();
 
 					<TacMapSideBar />
 					<image
-						xlinkHref="/Images/MPD_AVIONICS11.png"
+						xlinkHref="/Images/REF/MPD_AVIONICS11.png"
 						x={0}
 						y={0}
 						opacity={0}

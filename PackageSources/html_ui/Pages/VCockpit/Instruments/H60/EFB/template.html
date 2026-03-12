@@ -10,10 +10,8 @@
         // We embed it into this file, even though it is useless, because this file can
         // be hot-reloaded, but `template.js` cannot.
         /* eslint-disable */
-        (function (Typography, Grid) {
+        (function () {
 	'use strict';
-
-	function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 	function _mergeNamespaces(n, m) {
 		m.forEach(function (e) {
@@ -29,9 +27,6 @@
 		});
 		return Object.freeze(n);
 	}
-
-	var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
-	var Grid__default = /*#__PURE__*/_interopDefaultLegacy(Grid);
 
 	function getDefaultExportFromCjs (x) {
 		return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
@@ -10078,7 +10073,7 @@
 	  return target;
 	}
 
-	const _excluded$k = ["onClick", "reloadDocument", "replace", "state", "target", "to"],
+	const _excluded$m = ["onClick", "reloadDocument", "replace", "state", "target", "to"],
 	      _excluded2$1 = ["aria-current", "caseSensitive", "className", "end", "style", "to"];
 
 	function isModifiedEvent(event) {
@@ -10098,7 +10093,7 @@
 	    target,
 	    to
 	  } = _ref3,
-	      rest = _objectWithoutPropertiesLoose$1(_ref3, _excluded$k);
+	      rest = _objectWithoutPropertiesLoose$1(_ref3, _excluded$m);
 
 	  let href = useHref(to);
 	  let internalOnClick = useLinkClickHandler(to, {
@@ -11638,11 +11633,11 @@
 	  };
 	}
 
-	const _excluded$j = ["aria-label", "aria-valuetext", "className", "component", "classes", "disableSwap", "disabled", "getAriaLabel", "getAriaValueText", "marks", "max", "min", "name", "onChange", "onChangeCommitted", "onMouseDown", "orientation", "scale", "step", "tabIndex", "track", "value", "valueLabelDisplay", "valueLabelFormat", "isRtl", "components", "componentsProps"];
+	const _excluded$l = ["aria-label", "aria-valuetext", "className", "component", "classes", "disableSwap", "disabled", "getAriaLabel", "getAriaValueText", "marks", "max", "min", "name", "onChange", "onChangeCommitted", "onMouseDown", "orientation", "scale", "step", "tabIndex", "track", "value", "valueLabelDisplay", "valueLabelFormat", "isRtl", "components", "componentsProps"];
 
 	const Identity = x => x;
 
-	const useUtilityClasses$6 = ownerState => {
+	const useUtilityClasses$8 = ownerState => {
 	  const {
 	    disabled,
 	    dragging,
@@ -11699,7 +11694,7 @@
 	    components = {},
 	    componentsProps = {}
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$j); // all props with defaults
+	        other = _objectWithoutPropertiesLoose(props, _excluded$l); // all props with defaults
 	  // consider extracting to hook an reusing the lint rule for the varints
 
 
@@ -11758,7 +11753,7 @@
 	  const Input = components.Input || 'input';
 	  const inputProps = appendOwnerState(Input, componentsProps.input, ownerState);
 	  const hiddenInputProps = getHiddenInputProps();
-	  const classes = useUtilityClasses$6(ownerState);
+	  const classes = useUtilityClasses$8(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsxs(Root, _extends$1({}, rootProps, getRootProps({
 	    onMouseDown
 	  }), {
@@ -14418,7 +14413,7 @@
 	styleFunctionSx.filterProps = ['sx'];
 	var defaultStyleFunctionSx = styleFunctionSx;
 
-	const _excluded$i = ["sx"];
+	const _excluded$k = ["sx"];
 
 	const splitProps = props => {
 	  const result = {
@@ -14439,7 +14434,7 @@
 	  const {
 	    sx: inSx
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$i);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$k);
 
 	  const {
 	    systemProps,
@@ -14468,7 +14463,7 @@
 	  });
 	}
 
-	const _excluded$h = ["values", "unit", "step"]; // Sorted ASC by size. That's important.
+	const _excluded$j = ["values", "unit", "step"]; // Sorted ASC by size. That's important.
 
 	const sortBreakpointsValues = values => {
 	  const breakpointsAsArray = Object.keys(values).map(key => ({
@@ -14504,7 +14499,7 @@
 	    unit = 'px',
 	    step = 5
 	  } = breakpoints,
-	        other = _objectWithoutPropertiesLoose(breakpoints, _excluded$h);
+	        other = _objectWithoutPropertiesLoose(breakpoints, _excluded$j);
 
 	  const sortedValues = sortBreakpointsValues(values);
 	  const keys = Object.keys(sortedValues);
@@ -14592,7 +14587,7 @@
 	  return spacing;
 	}
 
-	const _excluded$g = ["breakpoints", "palette", "spacing", "shape"];
+	const _excluded$i = ["breakpoints", "palette", "spacing", "shape"];
 
 	function createTheme$1(options = {}, ...args) {
 	  const {
@@ -14601,7 +14596,7 @@
 	    spacing: spacingInput,
 	    shape: shapeInput = {}
 	  } = options,
-	        other = _objectWithoutPropertiesLoose(options, _excluded$g);
+	        other = _objectWithoutPropertiesLoose(options, _excluded$i);
 
 	  const breakpoints = createBreakpoints(breakpointsInput);
 	  const spacing = createSpacing(spacingInput);
@@ -14645,7 +14640,7 @@
 	  return useTheme$2(defaultTheme);
 	}
 
-	const _excluded$f = ["className", "component"];
+	const _excluded$h = ["className", "component"];
 	function createBox(options = {}) {
 	  const {
 	    defaultTheme,
@@ -14662,7 +14657,7 @@
 	      className,
 	      component = 'div'
 	    } = _extendSxProp,
-	          other = _objectWithoutPropertiesLoose(_extendSxProp, _excluded$f);
+	          other = _objectWithoutPropertiesLoose(_extendSxProp, _excluded$h);
 
 	    return /*#__PURE__*/jsxRuntime.jsx(BoxRoot, _extends$1({
 	      as: component,
@@ -14674,7 +14669,7 @@
 	  return Box;
 	}
 
-	const _excluded$e = ["variant"];
+	const _excluded$g = ["variant"];
 
 	function isEmpty$1(string) {
 	  return string.length === 0;
@@ -14690,7 +14685,7 @@
 	  const {
 	    variant
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$e);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$g);
 
 	  let classKey = variant || '';
 	  Object.keys(other).sort().forEach(key => {
@@ -14703,7 +14698,7 @@
 	  return classKey;
 	}
 
-	const _excluded$d = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"],
+	const _excluded$f = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"],
 	      _excluded2 = ["theme"],
 	      _excluded3 = ["theme"];
 
@@ -14782,7 +14777,7 @@
 	      skipSx: inputSkipSx,
 	      overridesResolver
 	    } = inputOptions,
-	          options = _objectWithoutPropertiesLoose(inputOptions, _excluded$d); // if skipVariantsResolver option is defined, take the value, otherwise, true for root and false for other slots.
+	          options = _objectWithoutPropertiesLoose(inputOptions, _excluded$f); // if skipVariantsResolver option is defined, take the value, otherwise, true for root and false for other slots.
 
 
 	    const skipVariantsResolver = inputSkipVariantsResolver !== undefined ? inputSkipVariantsResolver : componentSlot && componentSlot !== 'Root' || false;
@@ -15321,7 +15316,7 @@
 	};
 	var green$1 = green;
 
-	const _excluded$c = ["mode", "contrastThreshold", "tonalOffset"];
+	const _excluded$e = ["mode", "contrastThreshold", "tonalOffset"];
 	const light = {
 	  // The colors used to style the text.
 	  text: {
@@ -15505,7 +15500,7 @@
 	    contrastThreshold = 3,
 	    tonalOffset = 0.2
 	  } = palette,
-	        other = _objectWithoutPropertiesLoose(palette, _excluded$c);
+	        other = _objectWithoutPropertiesLoose(palette, _excluded$e);
 
 	  const primary = palette.primary || getDefaultPrimary(mode);
 	  const secondary = palette.secondary || getDefaultSecondary(mode);
@@ -15613,7 +15608,7 @@
 	  return paletteOutput;
 	}
 
-	const _excluded$b = ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"];
+	const _excluded$d = ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"];
 
 	function round(value) {
 	  return Math.round(value * 1e5) / 1e5;
@@ -15646,7 +15641,7 @@
 	    allVariants,
 	    pxToRem: pxToRem2
 	  } = _ref,
-	        other = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+	        other = _objectWithoutPropertiesLoose(_ref, _excluded$d);
 
 	  const coef = fontSize / 14;
 
@@ -15704,7 +15699,7 @@
 	const shadows = ['none', createShadow(0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0), createShadow(0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0), createShadow(0, 3, 3, -2, 0, 3, 4, 0, 0, 1, 8, 0), createShadow(0, 2, 4, -1, 0, 4, 5, 0, 0, 1, 10, 0), createShadow(0, 3, 5, -1, 0, 5, 8, 0, 0, 1, 14, 0), createShadow(0, 3, 5, -1, 0, 6, 10, 0, 0, 1, 18, 0), createShadow(0, 4, 5, -2, 0, 7, 10, 1, 0, 2, 16, 1), createShadow(0, 5, 5, -3, 0, 8, 10, 1, 0, 3, 14, 2), createShadow(0, 5, 6, -3, 0, 9, 12, 1, 0, 3, 16, 2), createShadow(0, 6, 6, -3, 0, 10, 14, 1, 0, 4, 18, 3), createShadow(0, 6, 7, -4, 0, 11, 15, 1, 0, 4, 20, 3), createShadow(0, 7, 8, -4, 0, 12, 17, 2, 0, 5, 22, 4), createShadow(0, 7, 8, -4, 0, 13, 19, 2, 0, 5, 24, 4), createShadow(0, 7, 9, -4, 0, 14, 21, 2, 0, 5, 26, 4), createShadow(0, 8, 9, -5, 0, 15, 22, 2, 0, 6, 28, 5), createShadow(0, 8, 10, -5, 0, 16, 24, 2, 0, 6, 30, 5), createShadow(0, 8, 11, -5, 0, 17, 26, 2, 0, 6, 32, 5), createShadow(0, 9, 11, -5, 0, 18, 28, 2, 0, 7, 34, 6), createShadow(0, 9, 12, -6, 0, 19, 29, 2, 0, 7, 36, 6), createShadow(0, 10, 13, -6, 0, 20, 31, 3, 0, 8, 38, 7), createShadow(0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7), createShadow(0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7), createShadow(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8), createShadow(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)];
 	var shadows$1 = shadows;
 
-	const _excluded$a = ["duration", "easing", "delay"]; // Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
+	const _excluded$c = ["duration", "easing", "delay"]; // Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
 	// to learn the context in which each easing should be used.
 
 	const easing = {
@@ -15759,7 +15754,7 @@
 	      easing: easingOption = mergedEasing.easeInOut,
 	      delay = 0
 	    } = options;
-	          _objectWithoutPropertiesLoose(options, _excluded$a);
+	          _objectWithoutPropertiesLoose(options, _excluded$c);
 
 	    return (Array.isArray(props) ? props : [props]).map(animatedProp => "".concat(animatedProp, " ").concat(typeof durationOption === 'string' ? durationOption : formatMs(durationOption), " ").concat(easingOption, " ").concat(typeof delay === 'string' ? delay : formatMs(delay))).join(',');
 	  };
@@ -15787,7 +15782,7 @@
 	};
 	var zIndex$1 = zIndex;
 
-	const _excluded$9 = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
+	const _excluded$b = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
 
 	function createTheme(options = {}, ...args) {
 	  const {
@@ -15796,7 +15791,7 @@
 	    transitions: transitionsInput = {},
 	    typography: typographyInput = {}
 	  } = options,
-	        other = _objectWithoutPropertiesLoose(options, _excluded$9);
+	        other = _objectWithoutPropertiesLoose(options, _excluded$b);
 
 	  const palette = createPalette(paletteInput);
 	  const systemTheme = createTheme$1(options);
@@ -16193,7 +16188,7 @@
 	var touchRippleClasses$1 = touchRippleClasses;
 
 	var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-	const _excluded$8 = ["center", "classes", "className"];
+	const _excluded$a = ["center", "classes", "className"];
 
 	let _ = t => t,
 	    _t,
@@ -16250,7 +16245,7 @@
 	    classes = {},
 	    className
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$8);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$a);
 
 	  const [ripples, setRipples] = react.useState([]);
 	  const nextKey = react.useRef(0);
@@ -16440,9 +16435,9 @@
 	const buttonBaseClasses = generateUtilityClasses('MuiButtonBase', ['root', 'disabled', 'focusVisible']);
 	var buttonBaseClasses$1 = buttonBaseClasses;
 
-	const _excluded$7 = ["action", "centerRipple", "children", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "LinkComponent", "onBlur", "onClick", "onContextMenu", "onDragLeave", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "tabIndex", "TouchRippleProps", "touchRippleRef", "type"];
+	const _excluded$9 = ["action", "centerRipple", "children", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "LinkComponent", "onBlur", "onClick", "onContextMenu", "onDragLeave", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "tabIndex", "TouchRippleProps", "touchRippleRef", "type"];
 
-	const useUtilityClasses$5 = ownerState => {
+	const useUtilityClasses$7 = ownerState => {
 	  const {
 	    disabled,
 	    focusVisible,
@@ -16547,7 +16542,7 @@
 	    touchRippleRef,
 	    type
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$7);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$9);
 
 	  const buttonRef = react.useRef(null);
 	  const rippleRef = react.useRef(null);
@@ -16735,7 +16730,7 @@
 	    focusVisible
 	  });
 
-	  const classes = useUtilityClasses$5(ownerState);
+	  const classes = useUtilityClasses$7(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsxs(ButtonBaseRoot, _extends$1({
 	    as: ComponentProp,
 	    className: clsx(classes.root, className),
@@ -16783,9 +16778,9 @@
 
 	var ButtonGroupContext$1 = ButtonGroupContext;
 
-	const _excluded$6 = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
+	const _excluded$8 = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
 
-	const useUtilityClasses$4 = ownerState => {
+	const useUtilityClasses$6 = ownerState => {
 	  const {
 	    color,
 	    disableElevation,
@@ -17013,7 +17008,7 @@
 	    type,
 	    variant = 'text'
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$6);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$8);
 
 	  const ownerState = _extends$1({}, props, {
 	    color,
@@ -17027,7 +17022,7 @@
 	    variant
 	  });
 
-	  const classes = useUtilityClasses$4(ownerState);
+	  const classes = useUtilityClasses$6(ownerState);
 
 	  const startIcon = startIconProp && /*#__PURE__*/jsxRuntime.jsx(ButtonStartIcon, {
 	    className: classes.startIcon,
@@ -17162,7 +17157,7 @@
 	  });
 	};
 
-	const _excluded$5 = ["component", "direction", "spacing", "divider", "children"];
+	const _excluded$7 = ["component", "direction", "spacing", "divider", "children"];
 
 	function joinChildren(children, separator) {
 	  const childrenArray = react.Children.toArray(children).filter(Boolean);
@@ -17258,7 +17253,7 @@
 	    divider,
 	    children
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$5);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$7);
 
 	  const ownerState = {
 	    direction,
@@ -17736,9 +17731,9 @@
 	}
 	generateUtilityClasses('MuiSvgIcon', ['root', 'colorPrimary', 'colorSecondary', 'colorAction', 'colorError', 'colorDisabled', 'fontSizeInherit', 'fontSizeSmall', 'fontSizeMedium', 'fontSizeLarge']);
 
-	const _excluded$4 = ["children", "className", "color", "component", "fontSize", "htmlColor", "inheritViewBox", "titleAccess", "viewBox"];
+	const _excluded$6 = ["children", "className", "color", "component", "fontSize", "htmlColor", "inheritViewBox", "titleAccess", "viewBox"];
 
-	const useUtilityClasses$3 = ownerState => {
+	const useUtilityClasses$5 = ownerState => {
 	  const {
 	    color,
 	    fontSize,
@@ -17806,7 +17801,7 @@
 	    titleAccess,
 	    viewBox = '0 0 24 24'
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$4);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$6);
 
 	  const ownerState = _extends$1({}, props, {
 	    color,
@@ -17823,7 +17818,7 @@
 	    more.viewBox = viewBox;
 	  }
 
-	  const classes = useUtilityClasses$3(ownerState);
+	  const classes = useUtilityClasses$5(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsxs(SvgIconRoot, _extends$1({
 	    as: component,
 	    className: clsx(classes.root, className),
@@ -17854,6 +17849,124 @@
 	  return /*#__PURE__*/react.memo( /*#__PURE__*/react.forwardRef(Component));
 	}
 
+	function getTypographyUtilityClass(slot) {
+	  return generateUtilityClass('MuiTypography', slot);
+	}
+	generateUtilityClasses('MuiTypography', ['root', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'inherit', 'button', 'caption', 'overline', 'alignLeft', 'alignRight', 'alignCenter', 'alignJustify', 'noWrap', 'gutterBottom', 'paragraph']);
+
+	const _excluded$5 = ["align", "className", "component", "gutterBottom", "noWrap", "paragraph", "variant", "variantMapping"];
+
+	const useUtilityClasses$4 = ownerState => {
+	  const {
+	    align,
+	    gutterBottom,
+	    noWrap,
+	    paragraph,
+	    variant,
+	    classes
+	  } = ownerState;
+	  const slots = {
+	    root: ['root', variant, ownerState.align !== 'inherit' && "align".concat(capitalize(align)), gutterBottom && 'gutterBottom', noWrap && 'noWrap', paragraph && 'paragraph']
+	  };
+	  return composeClasses(slots, getTypographyUtilityClass, classes);
+	};
+
+	const TypographyRoot = styled$1('span', {
+	  name: 'MuiTypography',
+	  slot: 'Root',
+	  overridesResolver: (props, styles) => {
+	    const {
+	      ownerState
+	    } = props;
+	    return [styles.root, ownerState.variant && styles[ownerState.variant], ownerState.align !== 'inherit' && styles["align".concat(capitalize(ownerState.align))], ownerState.noWrap && styles.noWrap, ownerState.gutterBottom && styles.gutterBottom, ownerState.paragraph && styles.paragraph];
+	  }
+	})(({
+	  theme,
+	  ownerState
+	}) => _extends$1({
+	  margin: 0
+	}, ownerState.variant && theme.typography[ownerState.variant], ownerState.align !== 'inherit' && {
+	  textAlign: ownerState.align
+	}, ownerState.noWrap && {
+	  overflow: 'hidden',
+	  textOverflow: 'ellipsis',
+	  whiteSpace: 'nowrap'
+	}, ownerState.gutterBottom && {
+	  marginBottom: '0.35em'
+	}, ownerState.paragraph && {
+	  marginBottom: 16
+	}));
+	const defaultVariantMapping = {
+	  h1: 'h1',
+	  h2: 'h2',
+	  h3: 'h3',
+	  h4: 'h4',
+	  h5: 'h5',
+	  h6: 'h6',
+	  subtitle1: 'h6',
+	  subtitle2: 'h6',
+	  body1: 'p',
+	  body2: 'p',
+	  inherit: 'p'
+	}; // TODO v6: deprecate these color values in v5.x and remove the transformation in v6
+
+	const colorTransformations = {
+	  primary: 'primary.main',
+	  textPrimary: 'text.primary',
+	  secondary: 'secondary.main',
+	  textSecondary: 'text.secondary',
+	  error: 'error.main'
+	};
+
+	const transformDeprecatedColors = color => {
+	  return colorTransformations[color] || color;
+	};
+
+	const Typography = /*#__PURE__*/react.forwardRef(function Typography(inProps, ref) {
+	  const themeProps = useThemeProps({
+	    props: inProps,
+	    name: 'MuiTypography'
+	  });
+	  const color = transformDeprecatedColors(themeProps.color);
+	  const props = extendSxProp(_extends$1({}, themeProps, {
+	    color
+	  }));
+
+	  const {
+	    align = 'inherit',
+	    className,
+	    component,
+	    gutterBottom = false,
+	    noWrap = false,
+	    paragraph = false,
+	    variant = 'body1',
+	    variantMapping = defaultVariantMapping
+	  } = props,
+	        other = _objectWithoutPropertiesLoose(props, _excluded$5);
+
+	  const ownerState = _extends$1({}, props, {
+	    align,
+	    color,
+	    className,
+	    component,
+	    gutterBottom,
+	    noWrap,
+	    paragraph,
+	    variant,
+	    variantMapping
+	  });
+
+	  const Component = component || (paragraph ? 'p' : variantMapping[variant] || defaultVariantMapping[variant]) || 'span';
+	  const classes = useUtilityClasses$4(ownerState);
+	  return /*#__PURE__*/jsxRuntime.jsx(TypographyRoot, _extends$1({
+	    as: Component,
+	    ref: ref,
+	    ownerState: ownerState,
+	    className: clsx(classes.root, className)
+	  }, other));
+	});
+	var Typography$1 = Typography;
+
 	/**
 	 * @ignore - internal component.
 	 */
@@ -17877,9 +17990,9 @@
 	}
 	generateUtilityClasses('PrivateSwitchBase', ['root', 'checked', 'disabled', 'input', 'edgeStart', 'edgeEnd']);
 
-	const _excluded$3 = ["autoFocus", "checked", "checkedIcon", "className", "defaultChecked", "disabled", "disableFocusRipple", "edge", "icon", "id", "inputProps", "inputRef", "name", "onBlur", "onChange", "onFocus", "readOnly", "required", "tabIndex", "type", "value"];
+	const _excluded$4 = ["autoFocus", "checked", "checkedIcon", "className", "defaultChecked", "disabled", "disableFocusRipple", "edge", "icon", "id", "inputProps", "inputRef", "name", "onBlur", "onChange", "onFocus", "readOnly", "required", "tabIndex", "type", "value"];
 
-	const useUtilityClasses$2 = ownerState => {
+	const useUtilityClasses$3 = ownerState => {
 	  const {
 	    classes,
 	    checked,
@@ -17943,7 +18056,7 @@
 	    type,
 	    value
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$3);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$4);
 
 	  const [checked, setCheckedState] = useControlled({
 	    controlled: checkedProp,
@@ -18005,7 +18118,7 @@
 	    edge
 	  });
 
-	  const classes = useUtilityClasses$2(ownerState);
+	  const classes = useUtilityClasses$3(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsxs(SwitchBaseRoot, _extends$1({
 	    component: "span",
 	    className: clsx(classes.root, className),
@@ -18059,9 +18172,9 @@
 	const checkboxClasses = generateUtilityClasses('MuiCheckbox', ['root', 'checked', 'disabled', 'indeterminate', 'colorPrimary', 'colorSecondary']);
 	var checkboxClasses$1 = checkboxClasses;
 
-	const _excluded$2 = ["checkedIcon", "color", "icon", "indeterminate", "indeterminateIcon", "inputProps", "size"];
+	const _excluded$3 = ["checkedIcon", "color", "icon", "indeterminate", "indeterminateIcon", "inputProps", "size"];
 
-	const useUtilityClasses$1 = ownerState => {
+	const useUtilityClasses$2 = ownerState => {
 	  const {
 	    classes,
 	    indeterminate,
@@ -18129,7 +18242,7 @@
 	    inputProps,
 	    size = 'medium'
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$2);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$3);
 
 	  const icon = indeterminate ? indeterminateIconProp : iconProp;
 	  const indeterminateIcon = indeterminate ? indeterminateIconProp : checkedIcon;
@@ -18140,7 +18253,7 @@
 	    size
 	  });
 
-	  const classes = useUtilityClasses$1(ownerState);
+	  const classes = useUtilityClasses$2(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsx(CheckboxRoot, _extends$1({
 	    type: "checkbox",
 	    inputProps: _extends$1({
@@ -18165,9 +18278,9 @@
 	}
 	generateUtilityClasses('MuiDivider', ['root', 'absolute', 'fullWidth', 'inset', 'middle', 'flexItem', 'light', 'vertical', 'withChildren', 'withChildrenVertical', 'textAlignRight', 'textAlignLeft', 'wrapper', 'wrapperVertical']);
 
-	const _excluded$1 = ["absolute", "children", "className", "component", "flexItem", "light", "orientation", "role", "textAlign", "variant"];
+	const _excluded$2 = ["absolute", "children", "className", "component", "flexItem", "light", "orientation", "role", "textAlign", "variant"];
 
-	const useUtilityClasses = ownerState => {
+	const useUtilityClasses$1 = ownerState => {
 	  const {
 	    absolute,
 	    children,
@@ -18311,7 +18424,7 @@
 	    textAlign = 'center',
 	    variant = 'fullWidth'
 	  } = props,
-	        other = _objectWithoutPropertiesLoose(props, _excluded$1);
+	        other = _objectWithoutPropertiesLoose(props, _excluded$2);
 
 	  const ownerState = _extends$1({}, props, {
 	    absolute,
@@ -18324,7 +18437,7 @@
 	    variant
 	  });
 
-	  const classes = useUtilityClasses(ownerState);
+	  const classes = useUtilityClasses$1(ownerState);
 	  return /*#__PURE__*/jsxRuntime.jsx(DividerRoot, _extends$1({
 	    as: component,
 	    className: clsx(classes.root, className),
@@ -18340,6 +18453,354 @@
 	  }));
 	});
 	var Divider$1 = Divider;
+
+	/**
+	 * @ignore - internal component.
+	 */
+
+	const GridContext = /*#__PURE__*/react.createContext();
+
+	var GridContext$1 = GridContext;
+
+	function getGridUtilityClass(slot) {
+	  return generateUtilityClass('MuiGrid', slot);
+	}
+	const SPACINGS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	const DIRECTIONS = ['column-reverse', 'column', 'row-reverse', 'row'];
+	const WRAPS = ['nowrap', 'wrap-reverse', 'wrap'];
+	const GRID_SIZES = ['auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+	const gridClasses = generateUtilityClasses('MuiGrid', ['root', 'container', 'item', 'zeroMinWidth', // spacings
+	...SPACINGS.map(spacing => "spacing-xs-".concat(spacing)), // direction values
+	...DIRECTIONS.map(direction => "direction-xs-".concat(direction)), // wrap values
+	...WRAPS.map(wrap => "wrap-xs-".concat(wrap)), // grid sizes for all breakpoints
+	...GRID_SIZES.map(size => "grid-xs-".concat(size)), ...GRID_SIZES.map(size => "grid-sm-".concat(size)), ...GRID_SIZES.map(size => "grid-md-".concat(size)), ...GRID_SIZES.map(size => "grid-lg-".concat(size)), ...GRID_SIZES.map(size => "grid-xl-".concat(size))]);
+
+	const _excluded$1 = ["className", "columns", "columnSpacing", "component", "container", "direction", "item", "lg", "md", "rowSpacing", "sm", "spacing", "wrap", "xl", "xs", "zeroMinWidth"]; // A grid component using the following libs as inspiration.
+
+	function getOffset(val) {
+	  const parse = parseFloat(val);
+	  return "".concat(parse).concat(String(val).replace(String(parse), '') || 'px');
+	}
+
+	function generateGrid({
+	  theme,
+	  ownerState
+	}) {
+	  let size;
+	  return theme.breakpoints.keys.reduce((globalStyles, breakpoint) => {
+	    // Use side effect over immutability for better performance.
+	    let styles = {};
+
+	    if (ownerState[breakpoint]) {
+	      size = ownerState[breakpoint];
+	    }
+
+	    if (!size) {
+	      return globalStyles;
+	    }
+
+	    if (size === true) {
+	      // For the auto layouting
+	      styles = {
+	        flexBasis: 0,
+	        flexGrow: 1,
+	        maxWidth: '100%'
+	      };
+	    } else if (size === 'auto') {
+	      styles = {
+	        flexBasis: 'auto',
+	        flexGrow: 0,
+	        flexShrink: 0,
+	        maxWidth: 'none',
+	        width: 'auto'
+	      };
+	    } else {
+	      const columnsBreakpointValues = resolveBreakpointValues({
+	        values: ownerState.columns,
+	        breakpoints: theme.breakpoints.values
+	      });
+	      const columnValue = typeof columnsBreakpointValues === 'object' ? columnsBreakpointValues[breakpoint] : columnsBreakpointValues;
+
+	      if (columnValue === undefined || columnValue === null) {
+	        return globalStyles;
+	      } // Keep 7 significant numbers.
+
+
+	      const width = "".concat(Math.round(size / columnValue * 10e7) / 10e5, "%");
+	      let more = {};
+
+	      if (ownerState.container && ownerState.item && ownerState.columnSpacing !== 0) {
+	        const themeSpacing = theme.spacing(ownerState.columnSpacing);
+
+	        if (themeSpacing !== '0px') {
+	          const fullWidth = "calc(".concat(width, " + ").concat(getOffset(themeSpacing), ")");
+	          more = {
+	            flexBasis: fullWidth,
+	            maxWidth: fullWidth
+	          };
+	        }
+	      } // Close to the bootstrap implementation:
+	      // https://github.com/twbs/bootstrap/blob/8fccaa2439e97ec72a4b7dc42ccc1f649790adb0/scss/mixins/_grid.scss#L41
+
+
+	      styles = _extends$1({
+	        flexBasis: width,
+	        flexGrow: 0,
+	        maxWidth: width
+	      }, more);
+	    } // No need for a media query for the first size.
+
+
+	    if (theme.breakpoints.values[breakpoint] === 0) {
+	      Object.assign(globalStyles, styles);
+	    } else {
+	      globalStyles[theme.breakpoints.up(breakpoint)] = styles;
+	    }
+
+	    return globalStyles;
+	  }, {});
+	}
+	function generateDirection({
+	  theme,
+	  ownerState
+	}) {
+	  const directionValues = resolveBreakpointValues({
+	    values: ownerState.direction,
+	    breakpoints: theme.breakpoints.values
+	  });
+	  return handleBreakpoints({
+	    theme
+	  }, directionValues, propValue => {
+	    const output = {
+	      flexDirection: propValue
+	    };
+
+	    if (propValue.indexOf('column') === 0) {
+	      output["& > .".concat(gridClasses.item)] = {
+	        maxWidth: 'none'
+	      };
+	    }
+
+	    return output;
+	  });
+	}
+	function generateRowGap({
+	  theme,
+	  ownerState
+	}) {
+	  const {
+	    container,
+	    rowSpacing
+	  } = ownerState;
+	  let styles = {};
+
+	  if (container && rowSpacing !== 0) {
+	    const rowSpacingValues = resolveBreakpointValues({
+	      values: rowSpacing,
+	      breakpoints: theme.breakpoints.values
+	    });
+	    styles = handleBreakpoints({
+	      theme
+	    }, rowSpacingValues, propValue => {
+	      const themeSpacing = theme.spacing(propValue);
+
+	      if (themeSpacing !== '0px') {
+	        return {
+	          marginTop: "-".concat(getOffset(themeSpacing)),
+	          ["& > .".concat(gridClasses.item)]: {
+	            paddingTop: getOffset(themeSpacing)
+	          }
+	        };
+	      }
+
+	      return {};
+	    });
+	  }
+
+	  return styles;
+	}
+	function generateColumnGap({
+	  theme,
+	  ownerState
+	}) {
+	  const {
+	    container,
+	    columnSpacing
+	  } = ownerState;
+	  let styles = {};
+
+	  if (container && columnSpacing !== 0) {
+	    const columnSpacingValues = resolveBreakpointValues({
+	      values: columnSpacing,
+	      breakpoints: theme.breakpoints.values
+	    });
+	    styles = handleBreakpoints({
+	      theme
+	    }, columnSpacingValues, propValue => {
+	      const themeSpacing = theme.spacing(propValue);
+
+	      if (themeSpacing !== '0px') {
+	        return {
+	          width: "calc(100% + ".concat(getOffset(themeSpacing), ")"),
+	          marginLeft: "-".concat(getOffset(themeSpacing)),
+	          ["& > .".concat(gridClasses.item)]: {
+	            paddingLeft: getOffset(themeSpacing)
+	          }
+	        };
+	      }
+
+	      return {};
+	    });
+	  }
+
+	  return styles;
+	}
+	function resolveSpacingClasses(spacing, container, styles = {}) {
+	  // in case of grid item or undefined/null or `spacing` <= 0
+	  if (!container || !spacing || spacing <= 0) {
+	    return [];
+	  } // in case of string/number `spacing`
+
+
+	  if (typeof spacing === 'string' && !Number.isNaN(Number(spacing)) || typeof spacing === 'number') {
+	    return [styles["spacing-xs-".concat(String(spacing))] || "spacing-xs-".concat(String(spacing))];
+	  } // in case of object `spacing`
+
+
+	  const {
+	    xs,
+	    sm,
+	    md,
+	    lg,
+	    xl
+	  } = spacing;
+	  return [Number(xs) > 0 && (styles["spacing-xs-".concat(String(xs))] || "spacing-xs-".concat(String(xs))), Number(sm) > 0 && (styles["spacing-sm-".concat(String(sm))] || "spacing-sm-".concat(String(sm))), Number(md) > 0 && (styles["spacing-md-".concat(String(md))] || "spacing-md-".concat(String(md))), Number(lg) > 0 && (styles["spacing-lg-".concat(String(lg))] || "spacing-lg-".concat(String(lg))), Number(xl) > 0 && (styles["spacing-xl-".concat(String(xl))] || "spacing-xl-".concat(String(xl)))];
+	} // Default CSS values
+	// flex: '0 1 auto',
+	// flexDirection: 'row',
+	// alignItems: 'flex-start',
+	// flexWrap: 'nowrap',
+	// justifyContent: 'flex-start',
+
+	const GridRoot = styled$1('div', {
+	  name: 'MuiGrid',
+	  slot: 'Root',
+	  overridesResolver: (props, styles) => {
+	    const {
+	      container,
+	      direction,
+	      item,
+	      lg,
+	      md,
+	      sm,
+	      spacing,
+	      wrap,
+	      xl,
+	      xs,
+	      zeroMinWidth
+	    } = props.ownerState;
+	    return [styles.root, container && styles.container, item && styles.item, zeroMinWidth && styles.zeroMinWidth, ...resolveSpacingClasses(spacing, container, styles), direction !== 'row' && styles["direction-xs-".concat(String(direction))], wrap !== 'wrap' && styles["wrap-xs-".concat(String(wrap))], xs !== false && styles["grid-xs-".concat(String(xs))], sm !== false && styles["grid-sm-".concat(String(sm))], md !== false && styles["grid-md-".concat(String(md))], lg !== false && styles["grid-lg-".concat(String(lg))], xl !== false && styles["grid-xl-".concat(String(xl))]];
+	  }
+	})(({
+	  ownerState
+	}) => _extends$1({
+	  boxSizing: 'border-box'
+	}, ownerState.container && {
+	  display: 'flex',
+	  flexWrap: 'wrap',
+	  width: '100%'
+	}, ownerState.item && {
+	  margin: 0 // For instance, it's useful when used with a `figure` element.
+
+	}, ownerState.zeroMinWidth && {
+	  minWidth: 0
+	}, ownerState.wrap !== 'wrap' && {
+	  flexWrap: ownerState.wrap
+	}), generateDirection, generateRowGap, generateColumnGap, generateGrid);
+
+	const useUtilityClasses = ownerState => {
+	  const {
+	    classes,
+	    container,
+	    direction,
+	    item,
+	    lg,
+	    md,
+	    sm,
+	    spacing,
+	    wrap,
+	    xl,
+	    xs,
+	    zeroMinWidth
+	  } = ownerState;
+	  const slots = {
+	    root: ['root', container && 'container', item && 'item', zeroMinWidth && 'zeroMinWidth', ...resolveSpacingClasses(spacing, container), direction !== 'row' && "direction-xs-".concat(String(direction)), wrap !== 'wrap' && "wrap-xs-".concat(String(wrap)), xs !== false && "grid-xs-".concat(String(xs)), sm !== false && "grid-sm-".concat(String(sm)), md !== false && "grid-md-".concat(String(md)), lg !== false && "grid-lg-".concat(String(lg)), xl !== false && "grid-xl-".concat(String(xl))]
+	  };
+	  return composeClasses(slots, getGridUtilityClass, classes);
+	};
+
+	const Grid = /*#__PURE__*/react.forwardRef(function Grid(inProps, ref) {
+	  const themeProps = useThemeProps({
+	    props: inProps,
+	    name: 'MuiGrid'
+	  });
+	  const props = extendSxProp(themeProps);
+
+	  const {
+	    className,
+	    columns: columnsProp,
+	    columnSpacing: columnSpacingProp,
+	    component = 'div',
+	    container = false,
+	    direction = 'row',
+	    item = false,
+	    lg = false,
+	    md = false,
+	    rowSpacing: rowSpacingProp,
+	    sm = false,
+	    spacing = 0,
+	    wrap = 'wrap',
+	    xl = false,
+	    xs = false,
+	    zeroMinWidth = false
+	  } = props,
+	        other = _objectWithoutPropertiesLoose(props, _excluded$1);
+
+	  const rowSpacing = rowSpacingProp || spacing;
+	  const columnSpacing = columnSpacingProp || spacing;
+	  const columnsContext = react.useContext(GridContext$1); // columns set with default breakpoint unit of 12
+
+	  const columns = container ? columnsProp || 12 : columnsContext;
+
+	  const ownerState = _extends$1({}, props, {
+	    columns,
+	    container,
+	    direction,
+	    item,
+	    lg,
+	    md,
+	    sm,
+	    rowSpacing,
+	    columnSpacing,
+	    wrap,
+	    xl,
+	    xs,
+	    zeroMinWidth
+	  });
+
+	  const classes = useUtilityClasses(ownerState);
+	  return /*#__PURE__*/jsxRuntime.jsx(GridContext$1.Provider, {
+	    value: columns,
+	    children: /*#__PURE__*/jsxRuntime.jsx(GridRoot, _extends$1({
+	      ownerState: ownerState,
+	      className: clsx(classes.root, className),
+	      as: component,
+	      ref: ref
+	    }, other))
+	  });
+	});
+
+	var Grid$1 = Grid;
 
 	const _excluded = ["component", "components", "componentsProps", "color", "size"];
 	const sliderClasses = _extends$1({}, sliderUnstyledClasses$1, generateUtilityClasses('MuiSlider', ['colorPrimary', 'colorSecondary', 'thumbColorPrimary', 'thumbColorSecondary', 'sizeSmall', 'thumbSizeSmall']));
@@ -20082,7 +20543,7 @@
 	    width: "1040",
 	    height: "750",
 	    src: "https://www.bing.com/",
-	    frameborder: "0"
+	    frameBorder: "0"
 	  });
 	};
 
@@ -20150,14 +20611,14 @@
 	          color: Downwash ? 'primary' : 'success',
 	          variant: Downwash ? 'outlined' : 'contained',
 	          children: "Downwash"
-	        }), /*#__PURE__*/jsxRuntime.jsx(Typography__default["default"], {
+	        }), /*#__PURE__*/jsxRuntime.jsx(Typography$1, {
 	          id: "continuous-slider",
 	          gutterBottom: true,
 	          children: "Brightness"
-	        }), /*#__PURE__*/jsxRuntime.jsx(Grid__default["default"], {
+	        }), /*#__PURE__*/jsxRuntime.jsx(Grid$1, {
 	          container: true,
 	          spacing: 0,
-	          children: /*#__PURE__*/jsxRuntime.jsx(Grid__default["default"], {
+	          children: /*#__PURE__*/jsxRuntime.jsx(Grid$1, {
 	            item: true,
 	            xs: true,
 	            children: /*#__PURE__*/jsxRuntime.jsx(Slider$1, {
@@ -20235,7 +20696,7 @@
 
 	render( /*#__PURE__*/jsxRuntime.jsx(EFB, {}));
 
-})(Typography, Grid);
+})();
 
     </script>
     <style id="EFB_BUNDLED_STYLE">

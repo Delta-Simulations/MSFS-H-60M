@@ -69,6 +69,7 @@
         "rollup-plugin-node-builtins": "^2.1.2",
         "rollup-plugin-postcss": "^4.0.0",
         "rollup-plugin-scss": "^2.6.1",
-        "tailwindcss": "^2.0.3"
+        "tailwindcss": "^2.0.3",
+        "zod": "^4.3.6"
     }
 }
