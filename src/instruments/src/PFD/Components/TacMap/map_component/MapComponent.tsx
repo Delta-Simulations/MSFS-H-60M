@@ -50,16 +50,21 @@ const MapComponent = (props: IMapComponentProps) => {
 
     switch (type) {
       case "FMS_WP": iconUrl = "/Images/MFD/FMS_Waypoint.svg"; textColor = "magenta"; break;
-      case "Other_WP": iconUrl = "/Images/MFD/Other_Waypoint.svg"; textColor = "magenta"; break;
+      case "Other_WP": iconUrl = "/Images/MFD/Other_Waypoint.svg"; break;
       case "FMS_VOR": iconUrl = "/Images/MFD/VOR.svg"; break;
       case "FMS_VORTAC": iconUrl = "/Images/MFD/VORTAC.svg"; break;
       case "FMS_TACAN": iconUrl = "/Images/MFD/TACAN.svg"; break;
       case "FMS_NDB": iconUrl = "/Images/MFD/NDB.svg"; break;
       case "FMS_AIRPORT": iconUrl = "/Images/MFD/AIRPORT.svg"; break;
       case "FMS_INTERSECTION": iconUrl = "/Images/MFD/INTERSECTION.svg"; break;
-      case "user": iconUrl = "/Images/MFD/UserMarker.svg"; textColor = "lime"; break;
-      case "RendezVous_Point": iconUrl = "/Images/MFD/10012500001811000000.svg"; textColor = "lime"; break;
+      case "user_point": iconUrl = "/Images/MFD/INTERSECTION.svg"; break;
+      case "RendezVous_Point": iconUrl = "/Images/MFD/10012500001811000000.svg"; break;
+      case "Downed_Pilot": iconUrl = "/Images/MFD/10012500001803000000.svg"; break;
+      case "Civ_Vehicle": iconUrl = "/Images/MFD/10041500001604030000.svg"; textColor = "rgb(255,161,255)"; break;
+
+      case "Friendly_Helipad": iconUrl = "/Images/MFD/10032000001213050000.svg"; textColor = "blue"; break;
       case "Friendly_Medical_Center": iconUrl = "/Images/MFD/10034000001313000000.svg"; textColor = "blue"; break;
+
       case "Hostile_Missile_Launcher": iconUrl = "/Images/MFD/10061500001110000000.svg"; textColor = "red"; break;
       case "Hostile_Radar_Site": iconUrl = "/Images/MFD/10061000001504000000.svg"; textColor = "red"; break;
     }
@@ -76,14 +81,15 @@ const getWaypointDivIcon = (type?: string, heading = 0, label?: string, textColo
         <img src="${iconUrl}" style="width: 40px; height: 40px; display:block;" />
         <div style="
           position: absolute;
-          top: -18px;
-          left: 50%;
-          transform: translateX(-50%);
+          top: 30px;
+          left: 30px;
+          
           color: ${textColor};
           font-weight: bold;
           font-size: 14px;
           pointer-events: none;
           white-space: nowrap;
+          text-shadow: 1px 1px 2px black;
         ">
           ${label || ""}
         </div>
@@ -113,40 +119,41 @@ const getWaypointDivIcon = (type?: string, heading = 0, label?: string, textColo
   const allMarkers = [...markers, ...flightPlan];
 
   return (
-    <MapContainer
-      id="mapContainer"
-      center={[lat, lng]}
-      zoom={zoom}
-      zoomAnimation={false}
-      fadeAnimation={false}
-      markerZoomAnimation={false}
-    >
-      <TileLayer url={providerUrl} />
+<MapContainer
+  id="mapContainer"
+  center={[lat, lng]}
+  zoom={zoom}
+  zoomAnimation={false}
+  fadeAnimation={false}
+  markerZoomAnimation={false}
+>
+  {/* Add key based on map_mode to force reload */}
+  <TileLayer key={map_mode} url={providerUrl} />
 
-      {flightPlanRoute.length > 1 && (
-        <Polyline positions={flightPlanRoute} pathOptions={{ color: "magenta", weight: 2 }} />
-      )}
+  {flightPlanRoute.length > 1 && (
+    <Polyline positions={flightPlanRoute} pathOptions={{ color: "magenta", weight: 2 }} />
+  )}
 
-      {allMarkers.map((wp, idx) => {
-        const { textColor } = getWaypointInformation(wp.type);
-        const headingToUse = wp.heading ?? heading;
+  {allMarkers.map((wp, idx) => {
+    const { textColor } = getWaypointInformation(wp.type);
+    const headingToUse = wp.heading ?? heading;
 
-        const cacheKey = `${idx}-${headingToUse}-${wp.type}-${wp.name}`;
-        if (!iconsCache[cacheKey]) {
-          iconsCache[cacheKey] = getWaypointDivIcon(wp.type, headingToUse, wp.name, textColor);
-        }
+    const cacheKey = `${idx}-${headingToUse}-${wp.type}-${wp.name}`;
+    if (!iconsCache[cacheKey]) {
+      iconsCache[cacheKey] = getWaypointDivIcon(wp.type, headingToUse, wp.name, textColor);
+    }
 
-        return (
-          <Marker
-            key={`marker-${idx}`}
-            position={[wp.lat, wp.lng]}
-            icon={iconsCache[cacheKey]}
-          />
-        );
-      })}
+    return (
+      <Marker
+        key={`marker-${idx}`}
+        position={[wp.lat, wp.lng]}
+        icon={iconsCache[cacheKey]}
+      />
+    );
+  })}
 
-      <PosHandler lat={lat} lng={lng} zoom={zoom} />
-    </MapContainer>
+  <PosHandler lat={lat} lng={lng} zoom={zoom} />
+</MapContainer>
   );
 };
 

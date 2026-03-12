@@ -382,7 +382,7 @@
     </UseTemplate>
 
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
-        <NODE_ID>Button_MFD_#ID#_L_1</NODE_ID>
+        <NODE_ID>Button_MFD_#ID#_L_1</NODE_ID>     
         <LEFT_SINGLE_CODE>
             (L:H60_MFD_#ID#_MODE, bool) 4 == 
             (L:H60_TAC_MAP_LEGEND_VIS, bool) 0 == and
@@ -489,7 +489,10 @@
             if{
                 (L:H60_EICAS_Page_Warning) 1 + (&gt;L:H60_EICAS_Page_Warning)
             }
-
+            (L:H60_MFD_#ID#_MODE, bool) 5 == 
+            if{
+                (L:H60_DTC_LOAD) ++ (&gt;L:H60_DTC_LOAD)
+            }
         </LEFT_SINGLE_CODE>
     </UseTemplate>
     <UseTemplate Name="DELTASIM_MFD_Button_Template">

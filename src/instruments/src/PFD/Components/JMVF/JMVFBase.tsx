@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useMapData } from '../../../Common/MapDataProvider';
 import { useSimVar } from '../../../Hooks/simVars';
+import { JMVFShapes } from './JMVFShapes';
 
 export const JMVFBase = () => {
   const [loadDtc] = useSimVar("L:H60_DTC_LOAD", "enum");
@@ -14,10 +15,22 @@ export const JMVFBase = () => {
       const rows = text.split("\n").slice(1); // skip header
 
       rows.forEach(row => {
-        const [name, lat, lng, type] = row.split(",");
-        addMarker(parseFloat(lat), parseFloat(lng), name, type);
+        if (!row.trim()) return; // skip empty lines
+
+        const [nameRaw, latRaw, lngRaw, typeRaw] = row.split(",");
+        if (!nameRaw || !latRaw || !lngRaw) return; // skip invalid rows
+
+        const name = nameRaw.trim();
+        const lat = parseFloat(latRaw.trim());
+        const lng = parseFloat(lngRaw.trim());
+        const type = typeRaw ? typeRaw.trim() : undefined;
+
+        if (isNaN(lat) || isNaN(lng)) return; // skip invalid coords
+
+        addMarker(lat, lng, name, type);
       });
-      console.log("Waypoints loaded from CSV");
+
+      console.log("Waypoints loaded successfully from CSV");
     } catch (err) {
       console.error("Failed to load CSV:", err);
     }
@@ -27,11 +40,27 @@ export const JMVFBase = () => {
     // Only run when loadDtc increases
     if (loadDtc > prevLoadDtc.current) {
       console.log(`DTC increased from ${prevLoadDtc.current} → ${loadDtc}`);
-      clearMarkers(); 
+      clearMarkers();
       loadWaypointsFromCSV();
     }
     prevLoadDtc.current = loadDtc;
   }, [loadDtc]);
 
-  return null;
+  return (
+
+    <g >
+      <JMVFShapes />
+				<text
+					x="1008"
+					y="541"
+					fontSize={19.5}
+					className="readouts"
+					textAnchor="end"
+				>
+					LOAD DTC
+				</text>
+
+
+    </g>
+  );
 };

@@ -8949,10 +8949,12 @@
 	const Fixed = () => {
 	  let DisplayID = getDisplayIndex();
 	  const [DISP_TYPE] = useSimVar("L:H60_MFD_".concat(DisplayID, "_MODE"), "enum");
-	  const [PFD_NavMap_Mode] = useSimVar("L:H60_MFD_NavMap_Mode", "enum");
+	  useSimVar("L:H60_MFD_NavMap_Mode", "enum");
 	  const [debug_mode_active] = useSimVar("L:H60_MFD_Debug_Mode", "bool");
-	  let navmap_mode_names = ["FULL", "HOVER", "ARC"];
-	  let navmap_mode_name = navmap_mode_names[PFD_NavMap_Mode];
+	  let pfd_map_mode_names = ["FULL", "HOVER", "ARC"];
+	  let nd_mode_names = ["FULL", "PLAN"];
+	  let pfd_map_mode_name = pfd_map_mode_names[DISP_TYPE];
+	  let nd_mode_name = nd_mode_names[0];
 	  const [showOverlay, setShowOverlay] = react.useState(true);
 	  react.useEffect(() => {
 	    // Random delay between 2500ms and 6000ms
@@ -8967,7 +8969,6 @@
 	      x: 26,
 	      y: 759,
 	      fontSize: 21,
-	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "PFD"
@@ -8975,7 +8976,6 @@
 	      x: 121.5,
 	      y: 759,
 	      fontSize: 21,
-	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "ND"
@@ -8983,7 +8983,6 @@
 	      x: 195,
 	      y: 759,
 	      fontSize: 21,
-	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "EICAS"
@@ -8991,7 +8990,6 @@
 	      x: 857,
 	      y: 759,
 	      fontSize: 21,
-	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "TAC"
@@ -8999,7 +8997,6 @@
 	      x: 942,
 	      y: 759,
 	      fontSize: 21,
-	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "start",
 	      children: "JMVF"
@@ -9008,10 +9005,17 @@
 	      x: 812,
 	      y: 759,
 	      fontSize: 21,
-	      fill: "#00EE00",
 	      className: "readouts",
 	      textAnchor: "end",
-	      children: navmap_mode_name
+	      children: pfd_map_mode_name
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      visibility: DISP_TYPE == 1 ? "visible" : "hidden",
+	      x: 812,
+	      y: 759,
+	      fontSize: 21,
+	      className: "readouts",
+	      textAnchor: "end",
+	      children: nd_mode_name
 	    }), showOverlay && !debug_mode_active && /*#__PURE__*/jsxRuntime.jsx("rect", {
 	      x: "0",
 	      y: "0",
@@ -11207,8 +11211,8 @@
 	  const [Map_Orientation] = useSimVar("L:H60_TAC_MAP_ORIENT", "bool");
 	  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
 	  ac_heading = Math.round(ac_heading * 100) / 100;
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
 	      transform: "translate(409, 384) rotate(".concat(Map_Orientation ? 0 : -ac_heading, ")"),
 	      children: [lines_small.map((line, i) => /*#__PURE__*/jsxRuntime.jsx("line", {
 	        x1: line.x1,
@@ -11239,7 +11243,23 @@
 	        stroke: "white",
 	        strokeWidth: 2
 	      }, i))]
-	    })
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "translate(380.5,36)scale(0.72)",
+	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
+	        d: "M2 40.5V2H81.5V40.5H55.5L41.5 54.5L27.5 40.5H2Z",
+	        stroke: "white",
+	        "stroke-width": "3",
+	        "stroke-linejoin": "bevel"
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 410,
+	      y: 62,
+	      fontSize: 27,
+	      fill: "White",
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: Math.floor(ac_heading)
+	    })]
 	  });
 	};
 
@@ -25538,7 +25558,6 @@
 
 	      case "Other_WP":
 	        iconUrl = "/Images/MFD/Other_Waypoint.svg";
-	        textColor = "magenta";
 	        break;
 
 	      case "FMS_VOR":
@@ -25565,14 +25584,26 @@
 	        iconUrl = "/Images/MFD/INTERSECTION.svg";
 	        break;
 
-	      case "user":
-	        iconUrl = "/Images/MFD/UserMarker.svg";
-	        textColor = "lime";
+	      case "user_point":
+	        iconUrl = "/Images/MFD/INTERSECTION.svg";
 	        break;
 
 	      case "RendezVous_Point":
 	        iconUrl = "/Images/MFD/10012500001811000000.svg";
-	        textColor = "lime";
+	        break;
+
+	      case "Downed_Pilot":
+	        iconUrl = "/Images/MFD/10012500001803000000.svg";
+	        break;
+
+	      case "Civ_Vehicle":
+	        iconUrl = "/Images/MFD/10041500001604030000.svg";
+	        textColor = "rgb(255,161,255)";
+	        break;
+
+	      case "Friendly_Helipad":
+	        iconUrl = "/Images/MFD/10032000001213050000.svg";
+	        textColor = "blue";
 	        break;
 
 	      case "Friendly_Medical_Center":
@@ -25602,7 +25633,7 @@
 	      iconUrl
 	    } = getWaypointInformation(type);
 	    return leafletSrc.divIcon({
-	      html: "\n      <div style=\"position: relative; width: 40px; height: 40px; transform: rotate(".concat(heading, "deg);\">\n        <img src=\"").concat(iconUrl, "\" style=\"width: 40px; height: 40px; display:block;\" />\n        <div style=\"\n          position: absolute;\n          top: -18px;\n          left: 50%;\n          transform: translateX(-50%);\n          color: ").concat(textColor, ";\n          font-weight: bold;\n          font-size: 14px;\n          pointer-events: none;\n          white-space: nowrap;\n        \">\n          ").concat(label || "", "\n        </div>\n      </div>\n    "),
+	      html: "\n      <div style=\"position: relative; width: 40px; height: 40px; transform: rotate(".concat(heading, "deg);\">\n        <img src=\"").concat(iconUrl, "\" style=\"width: 40px; height: 40px; display:block;\" />\n        <div style=\"\n          position: absolute;\n          top: 30px;\n          left: 30px;\n          \n          color: ").concat(textColor, ";\n          font-weight: bold;\n          font-size: 14px;\n          pointer-events: none;\n          white-space: nowrap;\n          text-shadow: 1px 1px 2px black;\n        \">\n          ").concat(label || "", "\n        </div>\n      </div>\n    "),
 	      iconSize: [40, 40],
 	      iconAnchor: [20, 20],
 	      className: "custom-div-icon"
@@ -25628,7 +25659,7 @@
 	    markerZoomAnimation: false,
 	    children: [/*#__PURE__*/jsxRuntime.jsx(TileLayer, {
 	      url: providerUrl
-	    }), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
+	    }, map_mode), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
 	      positions: flightPlanRoute,
 	      pathOptions: {
 	        color: "magenta",
@@ -25760,6 +25791,7 @@
 	  useSimVar("L:H60_TAC_MAP_CTR", "bool");
 	  const [Map_Orientation] = useSimVar("L:H60_TAC_MAP_ORIENT", "bool");
 	  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
+	  const [TacMap_Scale] = useSimVar('L:H60_TAC_MAP_SCALE', 'enum');
 	  ac_heading = Math.round(ac_heading * 100) / 100;
 	  let heading_adjusted = Map_Orientation === 1 ? 0 : ac_heading;
 	  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
@@ -25770,23 +25802,34 @@
 	        height: "604px",
 	        top: "82px",
 	        left: "107px",
-	        background: "black",
 	        overflow: "hidden",
 	        zIndex: 1,
 	        transform: "rotate(".concat(-heading_adjusted, "deg)"),
-	        transformOrigin: "center center",
-	        clipPath: "circle(302px at center)"
+	        transformOrigin: "center center"
 	      },
 	      children: /*#__PURE__*/jsxRuntime.jsx(MapComponent, {
 	        lat: latitude,
 	        lng: longitude,
 	        heading: heading,
-	        zoom: 14,
+	        zoom: TacMap_Scale,
 	        map_mode: 0,
 	        map_symbology: false,
 	        markers: markers,
 	        flightPlan: flightPlan
 	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("div", {
+	      style: {
+	        position: "absolute",
+	        top: "82px",
+	        left: "107px",
+	        width: "604px",
+	        height: "604px",
+	        pointerEvents: "none",
+	        zIndex: 50,
+	        borderRadius: "50%",
+	        boxShadow: "0 0 0 150px black" // fills **outside** the element
+
+	      }
 	    }), /*#__PURE__*/jsxRuntime.jsx("svg", {
 	      width: "100%",
 	      height: "100%",
@@ -28630,6 +28673,61 @@
 	  });
 	};
 
+	const JMVFShapes = () => {
+	  return /*#__PURE__*/jsxRuntime.jsx("g", {
+	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	      transform: "translate(36,8)",
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "1.5",
+	        y: "1.5",
+	        width: "678",
+	        height: "49",
+	        rx: "1.5",
+	        stroke: "#00EE00",
+	        "stroke-width": "3",
+	        "stroke-linejoin": "round"
+	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "168.5",
+	        y: "55.5",
+	        width: "452",
+	        height: "411",
+	        rx: "1.5",
+	        stroke: "#00FFFF",
+	        "stroke-width": "3",
+	        "stroke-linejoin": "round"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "167",
+	        y1: "165.5",
+	        x2: "622",
+	        y2: "165.5",
+	        stroke: "#00FFFF",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "167",
+	        y1: "241.5",
+	        x2: "622",
+	        y2: "241.5",
+	        stroke: "#00FFFF",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "167",
+	        y1: "422.5",
+	        x2: "622",
+	        y2: "422.5",
+	        stroke: "#00FFFF",
+	        "stroke-width": "3"
+	      }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: "167",
+	        y1: "351.5",
+	        x2: "622",
+	        y2: "351.5",
+	        stroke: "#00FFFF",
+	        "stroke-width": "3"
+	      })]
+	    })
+	  });
+	};
+
 	const JMVFBase = () => {
 	  const [loadDtc] = useSimVar("L:H60_DTC_LOAD", "enum");
 	  const {
@@ -28645,10 +28743,20 @@
 	      const rows = text.split("\n").slice(1); // skip header
 
 	      rows.forEach(row => {
-	        const [name, lat, lng, type] = row.split(",");
-	        addMarker(parseFloat(lat), parseFloat(lng), name, type);
+	        if (!row.trim()) return; // skip empty lines
+
+	        const [nameRaw, latRaw, lngRaw, typeRaw] = row.split(",");
+	        if (!nameRaw || !latRaw || !lngRaw) return; // skip invalid rows
+
+	        const name = nameRaw.trim();
+	        const lat = parseFloat(latRaw.trim());
+	        const lng = parseFloat(lngRaw.trim());
+	        const type = typeRaw ? typeRaw.trim() : undefined;
+	        if (isNaN(lat) || isNaN(lng)) return; // skip invalid coords
+
+	        addMarker(lat, lng, name, type);
 	      });
-	      console.log("Waypoints loaded from CSV");
+	      console.log("Waypoints loaded successfully from CSV");
 	    } catch (err) {
 	      console.error("Failed to load CSV:", err);
 	    }
@@ -28664,7 +28772,16 @@
 
 	    prevLoadDtc.current = loadDtc;
 	  }, [loadDtc]);
-	  return null;
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx(JMVFShapes, {}), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "1008",
+	      y: "541",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "end",
+	      children: "LOAD DTC"
+	    })]
+	  });
 	};
 
 	const PFD = () => {
@@ -28680,8 +28797,7 @@
 	          position: "absolute",
 	          top: 0,
 	          width: "1024px",
-	          height: "768px",
-	          display: DISP_TYPE == 1 ? "block" : "none"
+	          height: "768px"
 	        },
 	        children: DISP_TYPE === 1 && /*#__PURE__*/jsxRuntime.jsx(NDBase, {})
 	      }), /*#__PURE__*/jsxRuntime.jsx("div", {
@@ -28689,8 +28805,7 @@
 	          position: "absolute",
 	          top: 0,
 	          width: "1024px",
-	          height: "768px",
-	          display: DISP_TYPE == 4 ? "block" : "none"
+	          height: "768px"
 	        },
 	        children: DISP_TYPE === 4 && /*#__PURE__*/jsxRuntime.jsx(TacMap, {})
 	      }), /*#__PURE__*/jsxRuntime.jsx("svg", {
@@ -28727,8 +28842,21 @@
 	            visibility: 2 == Ext_Tanks && DISP_TYPE == 2 ? "visible" : "hidden",
 	            children: /*#__PURE__*/jsxRuntime.jsx(EICASExtTanks, {})
 	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	            visibility: DISP_TYPE == 1 ? "visible" : "hidden",
+	            children: /*#__PURE__*/jsxRuntime.jsx("image", {
+	              xlinkHref: "/Images/REF/MPD_AVIONICS2.png",
+	              x: 0,
+	              y: 0,
+	              opacity: 0.1
+	            })
+	          }), /*#__PURE__*/jsxRuntime.jsxs("g", {
 	            visibility: DISP_TYPE == 5 ? "visible" : "hidden",
-	            children: /*#__PURE__*/jsxRuntime.jsx(JMVFBase, {})
+	            children: [/*#__PURE__*/jsxRuntime.jsx(JMVFBase, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
+	              xlinkHref: "/Images/REF/MPD_AVIONICS10.png",
+	              x: 0,
+	              y: 0,
+	              opacity: 0.3
+	            })]
 	          }), /*#__PURE__*/jsxRuntime.jsx(Fixed, {})]
 	        })
 	      })]

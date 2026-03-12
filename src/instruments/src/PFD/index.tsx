@@ -36,7 +36,7 @@ const PFD = () => {
 						top: 0,
 						width: "1024px",
 						height: "768px",
-						display: DISP_TYPE == 1 ? "block" : "none",
+						
 					}}
 				>
 					{DISP_TYPE === 1 && <NDBase />}
@@ -48,7 +48,7 @@ const PFD = () => {
 						top: 0,
 						width: "1024px",
 						height: "768px",
-						display: DISP_TYPE == 4 ? "block" : "none",
+						
 					}}
 				>
 					{DISP_TYPE === 4 && <TacMap />}
@@ -102,8 +102,23 @@ const PFD = () => {
 							<EICASExtTanks />
 						</g>
 
+						<g visibility={DISP_TYPE == 1 ? "visible" : "hidden"}>
+														<image
+								xlinkHref="/Images/REF/MPD_AVIONICS2.png"
+								x={0}
+								y={0}
+								opacity={0.1}
+							/>
+						</g>
+
 						<g visibility={DISP_TYPE == 5 ? "visible" : "hidden"}>
 							<JMVFBase />
+														<image
+								xlinkHref="/Images/REF/MPD_AVIONICS10.png"
+								x={0}
+								y={0}
+								opacity={0.3}
+							/>
 						</g>
 
 						<Fixed />

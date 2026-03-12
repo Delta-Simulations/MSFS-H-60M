@@ -10,8 +10,10 @@ export const Fixed = () => {
 	const [DISP_TYPE] = useSimVar(`L:H60_MFD_${DisplayID}_MODE`, "enum");
 	const [PFD_NavMap_Mode] = useSimVar(`L:H60_MFD_NavMap_Mode`, "enum");
 	const [debug_mode_active] = useSimVar(`L:H60_MFD_Debug_Mode`, "bool");	
-	let navmap_mode_names = ["FULL", "HOVER", "ARC"];
-	let navmap_mode_name = navmap_mode_names[PFD_NavMap_Mode];
+	let pfd_map_mode_names = ["FULL", "HOVER", "ARC"];
+	let nd_mode_names = ["FULL", "PLAN"];
+	let pfd_map_mode_name = pfd_map_mode_names[DISP_TYPE];
+	let nd_mode_name = nd_mode_names[0];
 
 	const [showOverlay, setShowOverlay] = useState(true);
 	useEffect(() => {
@@ -38,7 +40,6 @@ export const Fixed = () => {
 				x={26}
 				y={759}
 				fontSize={21}
-				fill="#00EE00"
 				className="readouts"
 				textAnchor="start"
 			>
@@ -49,7 +50,6 @@ export const Fixed = () => {
 				x={121.5}
 				y={759}
 				fontSize={21}
-				fill="#00EE00"
 				className="readouts"
 				textAnchor="start"
 			>
@@ -60,7 +60,6 @@ export const Fixed = () => {
 				x={195}
 				y={759}
 				fontSize={21}
-				fill="#00EE00"
 				className="readouts"
 				textAnchor="start"
 			>
@@ -71,7 +70,6 @@ export const Fixed = () => {
 				x={857}
 				y={759}
 				fontSize={21}
-				fill="#00EE00"
 				className="readouts"
 				textAnchor="start"
 			>
@@ -82,7 +80,7 @@ export const Fixed = () => {
 				x={942}
 				y={759}
 				fontSize={21}
-				fill="#00EE00"
+
 				className="readouts"
 				textAnchor="start"
 			>
@@ -94,13 +92,23 @@ export const Fixed = () => {
 				x={812}
 				y={759}
 				fontSize={21}
-				fill="#00EE00"
+
 				className="readouts"
 				textAnchor="end"
 			>
-				{navmap_mode_name}
+				{pfd_map_mode_name}
 			</text>
-
+			<text
+				visibility={DISP_TYPE == 1 ? "visible" : "hidden"}
+				x={812}
+				y={759}
+				fontSize={21}
+					
+				className="readouts"
+				textAnchor="end"
+			>
+				{nd_mode_name}
+			</text>
 
 
 			{/* Blue Overlay */}
