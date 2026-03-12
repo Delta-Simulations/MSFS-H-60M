@@ -681,7 +681,7 @@
     <AnimLength>1</AnimLength>
     <Materials> <Emissive> <Parameter>
         <Code>
-          (A:LIGHT POTENTIOMETER:10, percent) 0.007 * (A:ELECTRICAL MASTER BATTERY, bool) *
+          (A:LIGHT POTENTIOMETER:10, percent) 0.001 * (A:ELECTRICAL MASTER BATTERY, bool) *
         </Code>
       </Parameter> </Emissive> </Materials>
   </PartInfo>
