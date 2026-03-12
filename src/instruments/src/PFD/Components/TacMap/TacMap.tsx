@@ -31,6 +31,8 @@ const { flightPlan, refreshFlightPlan } = useMapData();
 
 
 	// --- SimVar hooks ---
+	const [map_bklighting] = useSimVar("L:H60_MFD_BKLT", "enum");
+
 	const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
 	const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
 	let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
@@ -85,6 +87,8 @@ const { flightPlan, refreshFlightPlan } = useMapData();
 				}}
 			>
 				<g>
+					<rect x={0} y={0} width="100%" height="100%" opacity={map_bklighting/10} fill="black" />	
+
 					<g visibility={Disp_mode > 4 ? "visible" : "hidden"}>
 						<rect x={0} y={0} width={1024} height={768} fill="blue" />
 						<rect
