@@ -8637,9 +8637,9 @@
 	  }
 	});
 
-	function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 	const normalizeUnitName = unit => {
 	  switch (unit) {
@@ -8744,10 +8744,10 @@
 	      const newCache = {};
 
 	      for (const [key, update] of Object.entries(stateUpdates)) {
-	        newCache[key] = _objectSpread$4(_objectSpread$4({}, oldCache[key]), update);
+	        newCache[key] = _objectSpread$5(_objectSpread$5({}, oldCache[key]), update);
 	      }
 
-	      return _objectSpread$4(_objectSpread$4({}, oldCache), newCache);
+	      return _objectSpread$5(_objectSpread$5({}, oldCache), newCache);
 	    });
 	  });
 
@@ -8771,7 +8771,7 @@
 	    }
 
 	    const value = global ? SimVar.GetGlobalVarValue(name, unit) : SimVar.GetSimVarValue(name, unit);
-	    setCache(oldCache => _objectSpread$4(_objectSpread$4({}, oldCache), {}, {
+	    setCache(oldCache => _objectSpread$5(_objectSpread$5({}, oldCache), {}, {
 	      [key]: {
 	        value,
 	        lastUpdatedAgo: 0
@@ -8799,7 +8799,7 @@
 	    setCache(oldCache => {
 	      const newValue = typeof value === 'function' ? value(oldCache[key].value) : value;
 	      SimVar.SetSimVarValue(proxy || name, unit, newValue);
-	      return _objectSpread$4(_objectSpread$4({}, oldCache), {}, {
+	      return _objectSpread$5(_objectSpread$5({}, oldCache), {}, {
 	        [key]: {
 	          value: newValue,
 	          lastUpdatedAgo: 0
@@ -11393,15 +11393,15 @@
 	  }, [element, eventHandlers]);
 	}
 
-	function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 	function withPane(props, context) {
 	  var _props$pane;
 
 	  const pane = (_props$pane = props.pane) !== null && _props$pane !== void 0 ? _props$pane : context.pane;
-	  return pane ? _objectSpread$3(_objectSpread$3({}, props), {}, {
+	  return pane ? _objectSpread$4(_objectSpread$4({}, props), {}, {
 	    pane
 	  }) : props;
 	}
@@ -25210,6 +25210,16 @@
 	  });
 	});
 
+	function splitClassName(className) {
+	  return className.split(' ').filter(Boolean);
+	}
+
+	function addClassName(element, className) {
+	  splitClassName(className).forEach(cls => {
+	    leafletSrc.DomUtil.addClass(element, cls);
+	  });
+	}
+
 	function createElementHook(createElement, updateElement) {
 	  if (updateElement == null) {
 	    return function useImmutableLeafletElement(props, context) {
@@ -25438,9 +25448,9 @@
 
 	const _excluded$2 = ["position"];
 
-	function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 	const Marker = createLayerComponent(function createMarker(_ref, ctx) {
 	  let {
 	    position
@@ -25450,7 +25460,7 @@
 	  const instance = new leafletSrc.Marker(position, options);
 	  return {
 	    instance,
-	    context: _objectSpread$2(_objectSpread$2({}, ctx), {}, {
+	    context: _objectSpread$3(_objectSpread$3({}, ctx), {}, {
 	      overlayContainer: instance
 	    })
 	  };
@@ -25479,6 +25489,77 @@
 	    }
 	  }
 	});
+
+	function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+	function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+	function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
+
+	function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+	const DEFAULT_PANES = ['mapPane', 'markerPane', 'overlayPane', 'popupPane', 'shadowPane', 'tilePane', 'tooltipPane'];
+
+	function omitPane(obj, pane) {
+	  const others = _objectWithoutProperties(obj, [pane].map(_toPropertyKey));
+
+	  return others;
+	}
+
+	function createPane(props, context) {
+	  var _props$pane;
+
+	  const name = props.name;
+
+	  if (DEFAULT_PANES.indexOf(name) !== -1) {
+	    throw new Error("You must use a unique name for a pane that is not a default Leaflet pane: ".concat(name));
+	  }
+
+	  if (context.map.getPane(name) != null) {
+	    throw new Error("A pane with this name already exists: ".concat(name));
+	  }
+
+	  const parentPaneName = (_props$pane = props.pane) != null ? _props$pane : context.pane;
+	  const parentPane = parentPaneName ? context.map.getPane(parentPaneName) : undefined;
+	  const element = context.map.createPane(name, parentPane);
+
+	  if (props.className != null) {
+	    addClassName(element, props.className);
+	  }
+
+	  if (props.style != null) {
+	    Object.keys(props.style).forEach(key => {
+	      // @ts-ignore
+	      element.style[key] = props.style[key];
+	    });
+	  }
+
+	  return element;
+	}
+
+	function Pane(props) {
+	  const context = useLeafletContext();
+	  const [paneElement] = react.useState(() => createPane(props, context));
+	  const [newContext] = react.useState(() => _objectSpread$2(_objectSpread$2({}, context), {}, {
+	    pane: props.name
+	  }));
+	  react.useEffect(() => {
+	    return function removeCreatedPane() {
+	      const pane = context.map.getPane(props.name);
+	      pane == null ? void 0 : pane.remove == null ? void 0 : pane.remove(); // @ts-ignore map internals
+
+	      if (context.map._panes != null) {
+	        // @ts-ignore map internals
+	        context.map._panes = omitPane(context.map._panes, props.name); // @ts-ignore map internals
+
+	        context.map._paneRenderers = omitPane( // @ts-ignore map internals
+	        context.map._paneRenderers, props.name);
+	      }
+	    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+	  }, []);
+	  return props.children != null ? /*#__PURE__*/reactDom.createPortal( /*#__PURE__*/react.createElement(LeafletProvider, {
+	    value: newContext
+	  }, props.children), paneElement) : null;
+	}
 
 	const _excluded$1 = ["positions"];
 
@@ -25517,7 +25598,7 @@
 	  };
 	}, updateGridLayer);
 
-	// --- CACHE ICONS OUTSIDE COMPONENT ---
+	// --- ICON CACHE ---
 	const iconsCache = {};
 
 	const MapComponent = props => {
@@ -25527,6 +25608,7 @@
 	    heading,
 	    zoom,
 	    map_mode,
+	    map_brightness,
 	    markers = [],
 	    flightPlan = []
 	  } = props;
@@ -25632,7 +25714,7 @@
 	      iconUrl
 	    } = getWaypointInformation(type);
 	    return leafletSrc.divIcon({
-	      html: "\n      <div style=\"position: relative; width: 40px; height: 40px; transform: rotate(".concat(heading, "deg);\">\n        <img src=\"").concat(iconUrl, "\" style=\"width: 40px; height: 40px; display:block;\" />\n        <div style=\"\n          position: absolute;\n          top: 30px;\n          left: 30px;\n          \n          color: ").concat(textColor, ";\n          font-weight: bold;\n          font-size: 14px;\n          pointer-events: none;\n          white-space: nowrap;\n          text-shadow: 1px 1px 2px black;\n        \">\n          ").concat(label || "", "\n        </div>\n      </div>\n    "),
+	      html: "\n        <div style=\"position: relative; width: 40px; height: 40px;\">\n          <img src=\"".concat(iconUrl, "\" style=\"width: 40px; height: 40px; display:block;\" />\n          <div style=\"\n            position: absolute;\n            top: 30px;\n            left: 30px;\n            color: ").concat(textColor, ";\n            font-weight: bold;\n            font-size: 14px;\n            pointer-events: none;\n            white-space: nowrap;\n            text-shadow: 1px 1px 2px black;\n          \">\n            ").concat(label || "", "\n          </div>\n        </div>\n      "),
 	      iconSize: [40, 40],
 	      iconAnchor: [20, 20],
 	      className: "custom-div-icon"
@@ -25648,7 +25730,9 @@
 	  };
 	  let providerUrl = "";
 	  if (map_mode === 1) providerUrl = providers.vfr_faa;else if (map_mode === 2) providerUrl = providers.openTopoMap;else if (map_mode === 3) providerUrl = providers.esriSatellite;else if (map_mode === 4) providerUrl = providers.CyclOSM;
-	  const allMarkers = [...markers, ...flightPlan];
+	  const allMarkers = react.useMemo(() => {
+	    return [...markers, ...flightPlan];
+	  }, [markers, flightPlan]);
 	  return /*#__PURE__*/jsxRuntime.jsxs(MapContainer, {
 	    id: "mapContainer",
 	    center: [lat, lng],
@@ -25656,9 +25740,14 @@
 	    zoomAnimation: false,
 	    fadeAnimation: false,
 	    markerZoomAnimation: false,
-	    children: [/*#__PURE__*/jsxRuntime.jsx(TileLayer, {
-	      url: providerUrl
-	    }, map_mode), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
+	    preferCanvas: true,
+	    children: [/*#__PURE__*/jsxRuntime.jsx(Pane, {
+	      name: "dimmedTiles",
+	      children: /*#__PURE__*/jsxRuntime.jsx(TileLayer, {
+	        url: providerUrl,
+	        opacity: 1 - map_brightness
+	      }, map_mode)
+	    }), flightPlanRoute.length > 1 && /*#__PURE__*/jsxRuntime.jsx(Polyline, {
 	      positions: flightPlanRoute,
 	      pathOptions: {
 	        color: "magenta",
@@ -25671,16 +25760,18 @@
 	        textColor
 	      } = getWaypointInformation(wp.type);
 	      const headingToUse = (_wp$heading = wp.heading) !== null && _wp$heading !== void 0 ? _wp$heading : heading;
-	      const cacheKey = "".concat(idx, "-").concat(headingToUse, "-").concat(wp.type, "-").concat(wp.name);
+	      const cacheKey = "".concat(wp.lat, "-").concat(wp.lng, "-").concat(wp.type, "-").concat(wp.name);
+	      const icon = react.useMemo(() => {
+	        if (!iconsCache[cacheKey]) {
+	          iconsCache[cacheKey] = getWaypointDivIcon(wp.type, headingToUse, wp.name, textColor);
+	        }
 
-	      if (!iconsCache[cacheKey]) {
-	        iconsCache[cacheKey] = getWaypointDivIcon(wp.type, headingToUse, wp.name, textColor);
-	      }
-
+	        return iconsCache[cacheKey];
+	      }, [cacheKey]);
 	      return /*#__PURE__*/jsxRuntime.jsx(Marker, {
 	        position: [wp.lat, wp.lng],
-	        icon: iconsCache[cacheKey]
-	      }, "marker-".concat(idx));
+	        icon: icon
+	      }, "marker-".concat(cacheKey));
 	    }), /*#__PURE__*/jsxRuntime.jsx(PosHandler, {
 	      lat: lat,
 	      lng: lng,
@@ -25814,7 +25905,8 @@
 	        map_mode: 0,
 	        map_symbology: false,
 	        markers: markers,
-	        flightPlan: flightPlan
+	        flightPlan: flightPlan,
+	        map_brightness: 1
 	      })
 	    }), /*#__PURE__*/jsxRuntime.jsx("div", {
 	      style: {
@@ -26440,6 +26532,7 @@
 	        zoom: zoom_limited,
 	        map_mode: Disp_mode,
 	        map_symbology: Map_Declutter,
+	        map_brightness: map_bklighting / 10,
 	        markers: markers // normal markers
 	        ,
 	        flightPlan: flightPlan // polyline flight plan
@@ -26455,14 +26548,7 @@
 	        zIndex: 10000
 	      },
 	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	        children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	          x: 0,
-	          y: 0,
-	          width: "100%",
-	          height: "100%",
-	          opacity: map_bklighting / 10,
-	          fill: "black"
-	        }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
 	          visibility: Disp_mode > 4 ? "visible" : "hidden",
 	          children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
 	            x: 0,
@@ -29236,6 +29322,7 @@ text {
 }
 
 .leaflet-marker-pane {
+  will-change: transform;
   z-index: 600;
 }
 

@@ -10,7 +10,7 @@
     <Template Name="Switch_3Pos_Norm_DELTASIM">
         <DefaultTemplateParameters>
             <TOOLTIPID_NORM>TOGGLE</TOOLTIPID_NORM>
-            <INVERT_ANIM>False</INVERT_ANIM>
+            <INVERT_ANIM>True</INVERT_ANIM>
             <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
         </DefaultTemplateParameters>
         <Component ID="#NODE_ID#" Node="#NODE_ID#">
@@ -32,7 +32,7 @@
                     #CODE_POS_1#
                 </CODE_POS_1>
                 <CODE_POS_2>
-                        #CODE_POS_2#
+                    #CODE_POS_2#
                 </CODE_POS_2>
               </UseTemplate> 
         </Component>
@@ -72,8 +72,9 @@
         </Component>
         <UseTemplate Name="ASOBO_GT_Anim">
             <ANIM_NAME>#NODE_ID#</ANIM_NAME>
-            <ANIM_CODE>(L:H60_#NODE_ID#) 50 * 50 +</ANIM_CODE>
+            <ANIM_CODE>(L:H60_#NODE_ID#) -50 * 50 +</ANIM_CODE>
             <ANIM_LENGTH>100</ANIM_LENGTH>
+            <ANIM_LAG>200</ANIM_LAG>
         </UseTemplate>
     </Component>
 </Template>
@@ -89,7 +90,7 @@
 		<ANIMREF_ID>0</ANIMREF_ID>
 		<ANIMTIP_0_ON_PERCENT>0.0</ANIMTIP_0_ON_PERCENT>
 		<ANIMTIP_1_ON_PERCENT>1.0</ANIMTIP_1_ON_PERCENT>
-		<ANIM_LAG>400</ANIM_LAG>			
+		<ANIM_LAG>200</ANIM_LAG>			
         <WWISE_EVENT_1>Cpit_Switch_Generic</WWISE_EVENT_1>
         <WWISE_EVENT_2>Cpit_Switch_Generic</WWISE_EVENT_2>
         
@@ -101,6 +102,7 @@
         <UseTemplate Name="ASOBO_GT_Switch_Code">
             <ANIM_NAME>#NODE_ID#</ANIM_NAME>
             <PART_ID>#NODE_ID#</PART_ID>
+            <ANIM_LAG>#ANIM_LAG#</ANIM_LAG>	
             <LEFT_SINGLE_CODE>
                 #INTERACT_CODE#
             </LEFT_SINGLE_CODE>

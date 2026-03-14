@@ -45,6 +45,7 @@ return (
         map_symbology={false}
         markers={markers}
         flightPlan={flightPlan}
+        map_brightness={1}
       />
     </div>
 

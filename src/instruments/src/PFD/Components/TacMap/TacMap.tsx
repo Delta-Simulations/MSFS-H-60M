@@ -70,6 +70,7 @@ const { flightPlan, refreshFlightPlan } = useMapData();
 						zoom={zoom_limited}
 						map_mode={Disp_mode}
 						map_symbology={Map_Declutter}
+						map_brightness={map_bklighting/10}
 						markers={markers}      // normal markers
 						flightPlan={flightPlan} // polyline flight plan
 					/>
@@ -86,8 +87,7 @@ const { flightPlan, refreshFlightPlan } = useMapData();
 					zIndex: 10000,
 				}}
 			>
-				<g>
-					<rect x={0} y={0} width="100%" height="100%" opacity={map_bklighting/10} fill="black" />	
+				<g>	
 
 					<g visibility={Disp_mode > 4 ? "visible" : "hidden"}>
 						<rect x={0} y={0} width={1024} height={768} fill="blue" />
