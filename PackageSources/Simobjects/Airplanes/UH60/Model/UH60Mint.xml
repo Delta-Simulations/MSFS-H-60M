@@ -720,7 +720,7 @@
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(L:H60_CARGO_HOOK_ARMED, bool) 100 *</ANIM>
     <NODE_ID>Switch_Cargohook_Arm</NODE_ID>
-    <TOOLTIPID>EGI 2</TOOLTIPID>
+    <TOOLTIPID>CargoHook</TOOLTIPID>
     <INTERACT_CODE>
       (L:H60_CARGO_HOOK_ARMED, bool) ! (&gt;L:H60_CARGO_HOOK_ARMED, bool)
     </INTERACT_CODE>
@@ -933,7 +933,7 @@
   </UseTemplate>
   <Component ID="Soldiers_main" Node="Soldiers_main">
     <UseTemplate Name="ASOBO_GT_Visibility">
-      <VISIBILITY_CODE>(L:H60_SoldierVis) </VISIBILITY_CODE>
+      <VISIBILITY_CODE>(L:H60_CARGO_HOOK_ARMED) </VISIBILITY_CODE>
     </UseTemplate>
   </Component>
   <Component ID="DoorPilot" Node="DoorPilot">
