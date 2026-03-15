@@ -47,7 +47,7 @@ export const MapDataProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     for (let i = 0; i < total; i++) {
       await SimVar.SetSimVarValue("C:fs9gps:FlightPlanWaypointIndex", "number", i);
-      await new Promise(res => setTimeout(res, 50));
+      await new Promise(res => setTimeout(res, 10));
 
       const lat = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLatitude", "degree");
       const lng = SimVar.GetSimVarValue("C:fs9gps:FlightPlanWaypointLongitude", "degree");

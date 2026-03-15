@@ -470,6 +470,33 @@
 			<ANIM_WRAP>1</ANIM_WRAP>
 		</UseTemplate>
 
+
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>FLIR_UP_Down</ANIM_NAME>
+					<ANIM_CODE>
+             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
+              if{
+            (A:PLANE PITCH DEGREES, percent) neg 90 + 1 + 0 max
+              } els{-1}
+					</ANIM_CODE>
+          <ANIM_LENGTH>181</ANIM_LENGTH>
+          <ANIM_LAG>50</ANIM_LAG>
+				</UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>FLIR_L_R</ANIM_NAME>
+					<ANIM_CODE>
+             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
+              if{
+            (A:PLANE BANK DEGREES, percent) neg 90 + 1 + 0 max
+              } els{-1}
+					</ANIM_CODE>
+          <ANIM_LENGTH>181</ANIM_LENGTH>
+          <ANIM_LAG>50</ANIM_LAG>
+				</UseTemplate>
+
+
+
+
         <UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>SL_DownUp</ANIM_NAME>
 					<ANIM_CODE>
@@ -587,22 +614,11 @@
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
 				</UseTemplate>
-        <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>elevator_percent_key</ANIM_NAME>
-					<ANIM_CODE>
-            (A:YOKE Y POSITION, percent) 0.5 * 50 +
-					</ANIM_CODE>
-          <ANIM_LENGTH>100</ANIM_LENGTH>
-          <ANIM_LAG>80</ANIM_LAG>
-				</UseTemplate>
-        <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>rudder_percent_key</ANIM_NAME>
-					<ANIM_CODE>
-            (A:TAIL ROTOR PEDAL POSITION, percent) 50 +
-					</ANIM_CODE>
-          <ANIM_LENGTH>100</ANIM_LENGTH>
-          <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
+
+
+
+        
+
         <Component ID="DoorAR" Node="DoorR">
           <UseTemplate Name="ASOBO_GT_Visibility">
             <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>

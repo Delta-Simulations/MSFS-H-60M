@@ -130,11 +130,6 @@ const PFD = () => {
 	);
 };
 render(<PFD />);
-function addMarker(arg0: number, arg1: number, arg2: string, arg3: string) {
-	throw new Error("Function not implemented.");
-}
 
-function refreshFlightPlan() {
-	throw new Error("Function not implemented.");
-}
+
 

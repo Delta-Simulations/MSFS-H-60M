@@ -931,7 +931,11 @@
     <ANIM_LAG>20</ANIM_LAG>
     <ANIM_LENGTH>100</ANIM_LENGTH>
   </UseTemplate>
-
+  <Component ID="Soldiers_main" Node="Soldiers_main">
+    <UseTemplate Name="ASOBO_GT_Visibility">
+      <VISIBILITY_CODE>(L:H60_SoldierVis) </VISIBILITY_CODE>
+    </UseTemplate>
+  </Component>
   <Component ID="DoorPilot" Node="DoorPilot">
     <UseTemplate Name="ASOBO_GT_Visibility">
       <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
@@ -1037,33 +1041,7 @@
   </Parameter> </Emissive> </Materials>
   </PartInfo>
 
-  <Animation name="AmbientSoldierL" guid="48f5fa6d-7e1c-494b-9b28-8b8f641035fc" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>AmbientSoldierL</Name>
-    <AnimLength>100</AnimLength>
-    <Visibility>
-      <Parameter>
-       <Code>
-        (L:DOORS_OPEN_REAR_L, bool) if{ 1 } els{ 0 }
-       </Code>
-         </Parameter>
-        </Visibility>
-  </PartInfo>
   
-  <Animation name="AmbientSoldierR" guid="52b277b3-1d2f-4e61-a202-fa01acc0a887" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>AmbientSoldierR</Name>
-    <AnimLength>100</AnimLength>
-
-    <Visibility>
-      <Parameter>
-       <Code>
-        (L:DOORS_OPEN_REAR_R, bool) if{ 1 } els{ 0 }
-       </Code>
-         </Parameter>
-         </Visibility>
-  </PartInfo>
-
 
 <Animation name="HH-60W" guid="ceb0c4db-ca4a-4075-b406-a1dd795ada5e" length="100" type="Sim" typeparam="AutoPlay" />
 <PartInfo>
