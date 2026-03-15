@@ -114,5 +114,14 @@
     <Visibility><Parameter><Code>
                 0
     </Code></Parameter></Visibility></PartInfo>
-
+  <Animation name="Modelpart_bubble_Window" guid="c1b9e4c8-384b-4394-8789-11fd99a5c27a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+    <Name>Modelpart_bubble_Window</Name>
+    <Visibility><Parameter><Code>
+                0
+    </Code></Parameter></Visibility></PartInfo>
+  <Animation name="Modelpart_norm_Window" guid="321fcb5d-d7ee-4aae-850d-8040dfd2607a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+    <Name>Modelpart_norm_Window</Name>
+    <Visibility><Parameter><Code>
+                1
+    </Code></Parameter></Visibility></PartInfo>
 </ModelInfo>

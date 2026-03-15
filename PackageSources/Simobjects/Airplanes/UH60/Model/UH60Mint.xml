@@ -961,7 +961,7 @@
   <UseTemplate name="Generic_Anim_DELTASIM">
     <ANIM_NAME>MGDOOR</ANIM_NAME>
     <ANIM_CODE>
-      (L:PART2, bool) 100 *
+      (L:H60_GunnerDoor, bool) 100 *
     </ANIM_CODE>
     <ANIM_LENGTH>100</ANIM_LENGTH>
     <ANIM_LAG>20</ANIM_LAG>
@@ -1406,43 +1406,6 @@
         <Lag>60</Lag>
       </Parameter>
     </Animation>
-</PartInfo>
-
-<Animation name="Part2" guid="02d87ba9-3058-48c3-8e09-59415270a103" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>Part2</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-        <Parameter>
-              <Code>(L:PART2, bool) 100 *</Code>
-        
-    </Parameter>
-    </Animation>
-    <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>TOGGLE GUNNER DOORS</TooltipText>
-          <CallbackCode>
-    (L:PART2, bool) ! (>L:PART2, bool)
-          </CallbackCode>
-    </MouseRect>
-</PartInfo>
-
-<Animation name="Part3" guid="7e5b85be-4761-4d27-a980-9017741f8e55" type="Sim" typeParam="AutoPlay" />
-<PartInfo>
-    <Name>Part3</Name>
-    <AnimLength>100</AnimLength>
-    <Animation>
-        <Parameter>
-              <Code>(L:DOORS_OPEN_REAR, bool) 100 *</Code>
-    </Parameter>
-    </Animation>
-    <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>TOGGLE REAR DOORS</TooltipText>
-          <CallbackCode>
-    (L:DOORS_OPEN_REAR, bool) ! (>L:DOORS_OPEN_REAR, bool)
-          </CallbackCode>
-    </MouseRect>
 </PartInfo>
 
 <Animation name="FLARE_TOGGLE" guid="3b308098-bbb1-4f24-b694-787549039f04" type="Sim" typeParam="AutoPlay" />
