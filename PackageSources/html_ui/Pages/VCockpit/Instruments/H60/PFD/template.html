@@ -8539,8 +8539,13 @@
 	  throw new Error('Could not find rootElement');
 	};
 	const getDisplayIndex = () => {
-	  const url = document.getElementsByTagName('pfd-element')[0].getAttribute('url');
-	  return url ? parseInt(url.substring(url.length - 1), 10) : 0; // return 1 
+	  try {
+	    const elem = document.getElementsByTagName('pfd-element')[0];
+	    const url = elem ? elem.getAttribute('url') : null;
+	    return url ? parseInt(url.substring(url.length - 1), 10) : 1; // default to 1
+	  } catch (e) {
+	    return 1; // fallback if anything goes wrong
+	  }
 	};
 
 	var defineProperty = createCommonjsModule(function (module) {
@@ -9015,6 +9020,14 @@
 	      className: "readouts",
 	      textAnchor: "end",
 	      children: nd_mode_name
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      visibility: DISP_TYPE == 7 ? "visible" : "hidden",
+	      x: 812,
+	      y: 759,
+	      fontSize: 21,
+	      className: "readouts",
+	      textAnchor: "end",
+	      children: "IVHMS"
 	    }), showOverlay && !debug_mode_active && /*#__PURE__*/jsxRuntime.jsx("rect", {
 	      x: "0",
 	      y: "0",
@@ -26497,7 +26510,7 @@
 	    refreshFlightPlan
 	  } = useMapData(); // --- SimVar hooks ---
 
-	  const [map_bklighting] = useSimVar("L:H60_MFD_BKLT", "enum");
+	  const [map_bklighting] = useSimVar("L:H60_MFD_VID_BRT", "enum");
 	  const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
 	  const [longitude] = useSimVar("A:GPS POSITION LON", "degree");
 	  let [ac_heading] = useSimVar("A:PLANE HEADING DEGREES GYRO", "degrees");
@@ -28828,6 +28841,7 @@
 	    clearMarkers
 	  } = useMapData();
 	  const prevLoadDtc = react.useRef(loadDtc);
+	  const [dtcLoaded, setdtcLoaded] = useSimVar("L:H60_DTC_LOADED", "bool");
 
 	  const loadWaypointsFromCSV = async () => {
 	    try {
@@ -28861,6 +28875,7 @@
 	      console.log("DTC increased from ".concat(prevLoadDtc.current, " \u2192 ").concat(loadDtc));
 	      clearMarkers();
 	      loadWaypointsFromCSV();
+	      setdtcLoaded(1);
 	    }
 
 	    prevLoadDtc.current = loadDtc;
@@ -28872,7 +28887,148 @@
 	      fontSize: 19.5,
 	      className: "readouts",
 	      textAnchor: "end",
-	      children: "LOAD DTC"
+	      children: "LOAD DTS"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "462",
+	      y: "541",
+	      fontSize: 19.5,
+	      className: "tacmap_cyantext",
+	      textAnchor: "middle",
+	      children: "STATUS"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "462",
+	      y: "575",
+	      fontSize: 19.5,
+	      className: "tacmap_cyantext",
+	      textAnchor: "middle",
+	      children: ["DTS - ", dtcLoaded ? "LOADED" : "NOT LOADED"]
+	    })]
+	  });
+	};
+
+	const IVHMSBase = () => {
+	  const [dtcLoaded] = useSimVar("L:H60_DTC_LOADED", "bool");
+	  const [atcId] = useSimVar("A:ATC ID", "string");
+	  const [atcFlightNumber] = useSimVar("A:ATC FLIGHT NUMBER", "string");
+	  const [acname] = useSimVar("A:TITLE", "string");
+	  let aircraft_name = typeof acname === "string" && acname.trim() ? acname.trim() : "UH-60M";
+	  useSimVar("L:H60_VERSION_ID", "number");
+	  const [version, setVersion] = react.useState("N/A");
+	  const [debug_mode_active] = useSimVar("L:H60_MFD_Debug_Mode", "bool");
+	  react.useEffect(() => {
+	    fetch("/User/version.txt").then(res => res.text()).then(text => setVersion(text.trim())).catch(() => setVersion("N/A"));
+	  }, []);
+	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "52",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "---------------------------\xA0\xA0\xA0\xA0MAIN-ADMIN\xA0\xA0\xA0\xA0---------------------------"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "121",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "------------------------------------------------------------------------"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "102",
+	      y: "85",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: ["DTS STATUS : ", dtcLoaded ? "LOADED" : "NOT LOADED"]
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "400",
+	      y: "85",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: ["AIRCRAFT VERSION: ", version]
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "720",
+	      y: "85",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "start",
+	      children: "IEVENT: 0 REM"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "153",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "ADMINISTRATION ( ADMIN )"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "220",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "AIRCRAFT CONFIGURATION"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "50%",
+	      y: "286",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: ["TYPE / MODEL : ", aircraft_name]
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: "50%",
+	      y: "352",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: ["TAIL NUMBER: #", atcId, "#", atcFlightNumber]
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "418",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "CAGE CODE: 15123"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "690",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "* TO LOGIN AS ADMINISTRATOR PRESS ADMIN LOGIN *"
+	    }), debug_mode_active && /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
+	        x: "260",
+	        y: "655",
+	        width: "500",
+	        height: "60",
+	        fill: "black",
+	        stroke: "cyan",
+	        strokeWidth: 3,
+	        strokeDasharray: 10
+	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	        x: "50%",
+	        y: "690",
+	        fontSize: 19.5,
+	        className: "tacmap_cyantext",
+	        textAnchor: "middle",
+	        fill: "cyan",
+	        children: "* DEBUG MODE ACTIVE *"
+	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "50%",
+	      y: "720",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "middle",
+	      children: "_____________________________________________________________________"
+	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: "1008",
+	      y: "541",
+	      fontSize: 19.5,
+	      className: "readouts",
+	      textAnchor: "end",
+	      children: "ADMIN LOGIN"
 	    })]
 	  });
 	};
@@ -28934,6 +29090,14 @@
 	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	            visibility: 2 == Ext_Tanks && DISP_TYPE == 2 ? "visible" : "hidden",
 	            children: /*#__PURE__*/jsxRuntime.jsx(EICASExtTanks, {})
+	          }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	            visibility: DISP_TYPE == 7 ? "visible" : "hidden",
+	            children: [/*#__PURE__*/jsxRuntime.jsx(IVHMSBase, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
+	              xlinkHref: "/Images/REF/MPD_AVIONICS4.png",
+	              x: 0,
+	              y: 0,
+	              opacity: 0.3
+	            })]
 	          }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	            visibility: DISP_TYPE == 1 ? "visible" : "hidden",
 	            children: /*#__PURE__*/jsxRuntime.jsx("image", {

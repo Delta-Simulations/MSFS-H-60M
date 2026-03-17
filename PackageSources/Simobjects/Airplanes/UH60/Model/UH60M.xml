@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- BY DESTROYER121-NO UNAUTHORISED REDISTRIBUTION -->
 <ModelInfo>
 	<LODS>
     <LOD minSize="0" 	ModelFile="UH60M_LOD00.gltf"/>
@@ -9,6 +8,17 @@
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
     <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
     <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
+    
+    <Component ID="AC_VERSION">
+      <!-- AIRCRAFT VERSION -->
+      <UseTemplate Name="ASOBO_GT_Update">
+        <FREQUENCY>Once</FREQUENCY>
+        <UPDATE_CODE>
+          5.02 (&gt;L:H60_VERSION_ID, number)
+        </UPDATE_CODE>
+      </UseTemplate>
+    </Component>
+
     <!-- WATER FX-->
     <Component ID="LARG1" Node="FX_WATER">
       <UseTemplate Name="ASOBO_GT_FX"> 
@@ -49,7 +59,7 @@
       <UseTemplate Name="ASOBO_LANDING_FX"/>
     </Component>
 
-      <!-- FLARE-->
+    <!-- FLARE-->
       <Component ID="fLAREFX1" Node="Flare_1">
       <UseTemplate Name="ASOBO_GT_FX"> 
         <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
@@ -148,7 +158,7 @@
           </EMISSIVE_CODE>
         </UseTemplate>
         </Component>
-        <!-- <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE> -->
+    <!-- <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE> -->
       <Component ID="FXS">
 
         <Component ID="FX_EXHAUST_LEFT"  Node="FX_EXHAUST_LEFT">
@@ -193,7 +203,7 @@
   </Component>
 
 
-	<!-- <Component ID="DOWNWASH_TEST" Node="DOWNWASH">
+      <!-- <Component ID="DOWNWASH_TEST" Node="DOWNWASH">
 		<Component ID="FX_LOW_ALTITUDE_DUST_DOWNWASHNEW"  Node="DOWNWASH">
 			<UseTemplate Name="ASOBO_GT_FX">
 				<FX_CODE>
@@ -698,7 +708,7 @@
 
     </Component>	
 </Behaviors>
-	<!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->
+  <!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->
 
   <Animation name="SLIMELGT" guid="05844ecd-e147-4c76-a2df-9dee0d13c5f2" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
@@ -706,7 +716,7 @@
     <AnimLength>1</AnimLength>
     <Materials> <Emissive> <Parameter>
         <Code>
-          (A:LIGHT POTENTIOMETER:10, percent) 0.001 * (A:ELECTRICAL MASTER BATTERY, bool) *
+          (A:LIGHT POTENTIOMETER:10, percent) 0.003 * (A:ELECTRICAL MASTER BATTERY, bool) *
         </Code>
       </Parameter> </Emissive> </Materials>
   </PartInfo>

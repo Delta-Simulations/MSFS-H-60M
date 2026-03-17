@@ -31,7 +31,7 @@ const { flightPlan, refreshFlightPlan } = useMapData();
 
 
 	// --- SimVar hooks ---
-	const [map_bklighting] = useSimVar("L:H60_MFD_BKLT", "enum");
+	const [map_bklighting] = useSimVar("L:H60_MFD_VID_BRT", "enum");
 
 	const [latitude] = useSimVar("A:GPS POSITION LAT", "degree");
 	const [longitude] = useSimVar("A:GPS POSITION LON", "degree");

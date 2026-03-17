@@ -109,7 +109,17 @@ export const Fixed = () => {
 			>
 				{nd_mode_name}
 			</text>
-
+			<text
+				visibility={DISP_TYPE == 7 ? "visible" : "hidden"}
+				x={812}
+				y={759}
+				fontSize={21}
+					
+				className="readouts"
+				textAnchor="end"
+			>
+				IVHMS
+			</text>
 
 			{/* Blue Overlay */}
 			{showOverlay && ! debug_mode_active && (

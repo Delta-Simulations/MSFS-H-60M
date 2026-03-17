@@ -16,6 +16,7 @@ import { PFDBase } from "./Components/PFD/PFDBase";
 import { Horizon } from "../AP/Components/horizon";
 import { MapDataProvider } from "../Common/MapDataProvider";
 import { JMVFBase } from "./Components/JMVF/JMVFBase";
+import { IVHMSBase } from "./Components/IVHMS/IVHMSBase";
 
 const PFD = () => {
 
@@ -101,6 +102,19 @@ const PFD = () => {
 						>
 							<EICASExtTanks />
 						</g>
+
+						<g visibility={DISP_TYPE == 7 ? "visible" : "hidden"}>
+							<IVHMSBase />
+							<image
+								xlinkHref="/Images/REF/MPD_AVIONICS4.png"
+								x={0}
+								y={0}
+								opacity={0.3}
+							/>
+						</g>
+
+
+
 
 						<g visibility={DISP_TYPE == 1 ? "visible" : "hidden"}>
 														<image

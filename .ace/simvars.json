@@ -19,7 +19,7 @@
             "style": {
                 "type": 2,
                 "min": 0,
-                "max": 6,
+                "max": 7,
                 "step": 1
             }
         },

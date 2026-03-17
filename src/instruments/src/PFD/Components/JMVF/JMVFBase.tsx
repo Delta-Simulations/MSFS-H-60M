@@ -7,7 +7,7 @@ export const JMVFBase = () => {
   const [loadDtc] = useSimVar("L:H60_DTC_LOAD", "enum");
   const { addMarker, clearMarkers } = useMapData();
   const prevLoadDtc = useRef(loadDtc);
-
+  const [dtcLoaded, setdtcLoaded] = useSimVar("L:H60_DTC_LOADED", "bool");
   const loadWaypointsFromCSV = async () => {
     try {
       const response = await fetch("/User/waypoints.csv");
@@ -42,6 +42,7 @@ export const JMVFBase = () => {
       console.log(`DTC increased from ${prevLoadDtc.current} → ${loadDtc}`);
       clearMarkers();
       loadWaypointsFromCSV();
+      setdtcLoaded(1);
     }
     prevLoadDtc.current = loadDtc;
   }, [loadDtc]);
@@ -57,8 +58,32 @@ export const JMVFBase = () => {
 					className="readouts"
 					textAnchor="end"
 				>
-					LOAD DTC
+					LOAD DTS
 				</text>
+
+				<text
+					x="462"
+					y="541"
+					fontSize={19.5}
+					className="tacmap_cyantext"
+					textAnchor="middle"
+				>
+					STATUS
+				</text>
+
+				<text
+					x="462"
+					y="575"
+					fontSize={19.5}
+					className="tacmap_cyantext"
+					textAnchor="middle"
+				>
+					DTS - {dtcLoaded ? "LOADED" : "NOT LOADED"}
+				</text>
+
+
+
+
 
 
     </g>

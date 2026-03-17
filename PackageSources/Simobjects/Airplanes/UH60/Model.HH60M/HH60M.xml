@@ -7,7 +7,7 @@
 		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
     <Component ID="Parts_LIVERY_CHECKER">
       <UseTemplate Name="ASOBO_GT_Update">
-        <FREQUENCY>5</FREQUENCY>
+        <FREQUENCY>1</FREQUENCY>
         <UPDATE_CODE>
           1 (&gt;L:H60_HasHoist)
         </UPDATE_CODE>
@@ -20,7 +20,7 @@
     <AnimLength>1</AnimLength>
     <Materials> <Emissive> <Parameter>
         <Code>
-          (A:LIGHT POTENTIOMETER:10, percent) 0.05 * (A:ELECTRICAL MASTER BATTERY, bool) *
+          (A:LIGHT POTENTIOMETER:10, percent) 0.003 * (A:ELECTRICAL MASTER BATTERY, bool) *
         </Code>
       </Parameter> </Emissive> </Materials>
   </PartInfo>
