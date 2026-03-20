@@ -22,46 +22,46 @@
         {
             "extras" : {
                 "sna_starttime_vechms" : [
-                    20,
-                    49,
-                    40
+                    19,
+                    0,
+                    23
                 ],
                 "sna_startdate_vecymd" : [
                     2026,
                     3,
-                    16
+                    19
                 ],
-                "sna_startttomin" : 1249,
-                "sna_previous_sesion" : 2,
-                "sna_full_time" : 9414,
+                "sna_startttomin" : 1140,
+                "sna_previous_sesion" : 4,
+                "sna_full_time" : 9499,
                 "sna_sesion_str" : "",
-                "sna_all_sesions_str" : "2026-03-16 -  2min \n2026-03-16 -  3min \n2026-03-14 -  5min \n2026-03-14 -  9min \n2026-03-14 -  19min \n2026-03-14 -  1h 6min \n2026-03-14 -  2min \n2026-03-14 -  3min \n2026-03-14 -  15min \n2026-03-14 -  9min \n2026-03-14 -  6min \n2026-03-14 -  13min \n2026-03-14 -  1h 39min \n2026-03-14 -  36min \n2026-03-14 -  11min \n2026-03-14 -  49min \n2026-03-14 -  10min \n2026-03-14 -  40min \n2026-03-13 -  3h 3min \n2026-03-13 -  4min \n2026-03-13 -  1h 1min \n2026-03-13 -  13min \n2026-03-13 -  6min \n2026-03-13 -  3min \n2026-03-12 -  1h 11min \n2026-03-12 -  0min \n2026-03-12 -  8min \n2026-03-11 -  13min \n2026-03-11 -  19min \n2026-03-11 -  20min \n2026-03-09 -  0min \n2026-03-07 -  0min \n2026-03-06 -  16min \n2026-03-06 -  13min \n2026-03-06 -  1h 1min \n2026-03-06 -  10min \n2026-03-06 -  4h 4min \n2026-03-05 -  13min \n2026-03-05 -  36min \n2026-03-01 -  27min \n2026-03-01 -  31min \n2026-03-01 -  2min \n2026-03-01 -  0min \n2026-03-01 -  28min \n2026-03-01 -  1h 22min \n2026-03-01 -  1h 42min \n2026-02-28 -  2h 2min \n2026-02-27 -  5min \n2026-02-27 -  3min \n2026-02-27 -  2h 51min \n2026-02-27 -  1h 30min \n2026-02-26 -  3min \n2026-02-13 -  27min \n2026-02-11 -  1h 11min \n2026-02-10 -  6min \n2026-02-10 -  1h 9min \n2026-02-10 -  1min \n2026-02-10 -  21min \n2026-02-10 -  46min \n2026-02-10 -  7min \n2026-02-10 -  7min \n2026-02-10 -  2min \n2026-02-10 -  11min \n2026-02-09 -  11min \n2026-02-09 -  2min \n2026-02-09 -  0min \n2026-02-08 -  25min \n2026-02-08 -  4min \n2026-02-08 -  14min \n2026-02-08 -  5min \n2026-02-08 -  5min \n2026-02-08 -  1h 15min \n2026-02-08 -  15min \n2026-02-08 -  0min \n2026-02-07 -  1min \n2026-02-07 -  23min \n2026-02-07 -  58min \n2026-02-07 -  4min \n2026-02-07 -  11min \n2026-02-07 -  26min \n2026-02-07 -  22min \n2026-02-07 -  8min \n2026-02-07 -  4min \n2026-02-07 -  38min \n2026-02-07 -  1h 53min \n2026-02-07 -  40min \n2026-02-07 -  48min \n2026-02-06 -  2h 32min \n2026-02-06 -  2h 53min \n2026-02-06 -  31min \n2026-02-06 -  5min \n2026-02-06 -  2min \n2026-02-06 -  0min \n2026-02-06 -  1min \n2026-02-06 -  7min \n2026-02-06 -  3min \n2026-02-06 -  30min \n2026-02-06 -  16min \n2026-02-06 -  48min \n2026-02-06 -  20min \n2026-02-06 -  59min \n2026-02-06 -  25min \n2026-02-06 -  1h 4min \n2026-02-05 -  1min \n2026-02-04 -  11min \n2026-02-04 -  10min \n2026-02-04 -  49min \n2026-02-04 -  23min \n2026-02-04 -  4min \n2026-02-03 -  16min \n2026-02-03 -  6min \n2026-02-03 -  58min \n2026-02-03 -  1h 7min \n2026-02-03 -  13min \n2026-02-02 -  55min \n2026-02-01 -  1h 45min \n2026-01-31 -  54min \n2025-12-11 -  0min \n2025-12-11 -  3h 11min \n2025-12-09 -  0min \n2025-12-09 -  3min \n2025-12-09 -  0min \n2025-12-03 -  0min \n2025-12-03 -  4min \n2025-12-03 -  12min \n2025-11-30 -  8min \n2025-11-29 -  0min \n2025-11-29 -  3min \n2025-05-06 -  1min \n2025-05-06 -  5min \n2025-05-06 -  42min \n2025-04-23 -  24min \n2025-04-23 -  23min \n2025-04-23 -  45min \n2025-04-23 -  3min \n2025-04-22 -  18min \n2025-04-22 -  2h 14min \n2025-04-21 -  16min \n2025-04-21 -  39min \n2025-04-21 -  1h 16min \n2025-04-21 -  7min \n2025-04-16 -  25min \n2025-04-16 -  4min \n2025-04-16 -  2h 10min \n2025-04-15 -  21min \n2025-04-15 -  1min \n2025-04-15 -  0min \n2025-04-15 -  35min \n2025-04-15 -  40min \n2025-04-15 -  29min \n2025-04-14 -  44min \n2025-04-14 -  10min \n2025-04-13 -  0min \n2025-04-13 -  24min \n2025-04-13 -  26min \n2025-04-13 -  27min \n2025-04-13 -  1min \n2025-04-12 -  3min \n2025-04-12 -  14min \n2025-04-12 -  2h 18min \n2025-04-12 -  1h 7min \n2025-04-11 -  11min \n2025-04-11 -  1h 5min \n2025-04-11 -  14min \n2025-04-11 -  2h 6min \n2025-04-11 -  15min \n2025-04-11 -  14min \n2025-04-11 -  11min \n2025-04-10 -  24min \n2025-04-10 -  52min \n2025-04-10 -  0min \n2025-04-10 -  2min \n2025-04-10 -  54min \n2025-04-10 -  10min \n2025-04-10 -  8min \n2025-04-10 -  7min \n2025-04-10 -  4h 43min \n2025-04-09 -  13min \n2025-04-09 -  53min \n2025-04-09 -  44min \n2025-04-09 -  1h 43min \n2025-04-09 -  6min \n2025-04-09 -  24min \n2025-04-09 -  2h 16min \n2025-04-07 -  26min \n2025-04-06 -  0min \n2025-04-06 -  1min \n2025-04-06 -  9min \n2025-04-06 -  2h 46min \n2025-04-06 -  7min \n2025-04-06 -  4h 58min \n2025-04-05 -  10min \n2025-03-31 -  3min \n2025-03-31 -  1h 34min \n2025-03-31 -  42min \n2025-03-31 -  3min \n2025-03-31 -  2h 30min \n2025-03-30 -  2min \n2025-03-30 -  46min \n2025-03-30 -  0min \n2025-03-30 -  38min \n2025-03-30 -  56min \n2025-03-30 -  31min \n2025-03-29 -  4min \n2025-03-29 -  40min \n2025-03-29 -  1h 0min \n2025-03-29 -  2min \n2025-03-29 -  1min \n2025-03-29 -  22min \n2025-03-28 -  1h 7min \n2025-03-28 -  18min \n2025-03-28 -  4min \n2025-03-28 -  37min \n2025-03-28 -  4min \n2025-03-28 -  23min \n2025-03-28 -  5min \n2025-03-28 -  42min \n2025-03-28 -  1h 13min \n2025-03-28 -  2min \n2025-03-28 -  22min \n2025-03-28 -  12min \n2025-03-27 -  19min \n2025-03-27 -  3min \n2025-03-27 -  3min \n2025-03-27 -  14min \n2025-03-27 -  1h 5min \n2025-03-26 -  6min \n2025-03-26 -  7min \n2025-03-26 -  20min \n2025-03-22 -  5min \n2025-03-22 -  1h 53min \n2025-03-22 -  1min \n2025-03-22 -  3min \n2025-03-22 -  19min \n2025-03-22 -  9min \n2025-03-21 -  47min \n2025-03-21 -  1min \n2025-03-21 -  21min \n2025-03-21 -  0min \n2025-03-18 -  6min \n2025-03-18 -  3min \n2025-03-18 -  4min \n2025-03-18 -  23min \n2025-03-17 -  2min \n2025-03-17 -  9min \n2025-03-17 -  1h 2min \n2025-03-17 -  9min \n2025-03-17 -  36min \n2025-03-17 -  0min \n2025-03-17 -  19min \n2025-03-17 -  14min \n2025-03-17 -  6min \n2025-03-17 -  13min \n2025-03-17 -  1min \n2025-03-17 -  20min \n2025-03-17 -  0min \n2025-03-17 -  12min \n2025-03-17 -  50min \n2025-03-17 -  24min \n2025-03-15 -  6h 13min \n2025-03-14 -  4min \n2025-03-14 -  4min \n2025-03-14 -  7min \n2025-03-14 -  0min \n2025-03-13 -  7min \n2025-03-12 -  1h 21min \n2025-03-12 -  25min \n2025-03-12 -  7min \n2025-03-12 -  8min \n2025-03-10 -  1h 27min \n2025-03-10 -  3min \n2025-03-10 -  33min \n2025-03-09 -  3min \n2025-03-09 -  6min \n2025-03-09 -  10min \n2025-03-08 -  15min \n2025-03-08 -  14min \n2025-03-08 -  26min \n2025-03-08 -  3h 10min \n2025-03-07 -  38min \n2025-03-07 -  14min \n2025-03-07 -  1h 20min \n2025-03-07 -  1h 51min \n2025-03-07 -  1min \n2025-03-07 -  25min \n -  0min \n",
-                "sna_delta_time_min" : 12,
+                "sna_all_sesions_str" : "2026-03-19 -  4min \n2026-03-19 -  10min \n2026-03-18 -  35min \n2026-03-18 -  0min \n2026-03-16 -  6min \n2026-03-16 -  30min \n2026-03-16 -  2min \n2026-03-16 -  3min \n2026-03-14 -  5min \n2026-03-14 -  9min \n2026-03-14 -  19min \n2026-03-14 -  1h 6min \n2026-03-14 -  2min \n2026-03-14 -  3min \n2026-03-14 -  15min \n2026-03-14 -  9min \n2026-03-14 -  6min \n2026-03-14 -  13min \n2026-03-14 -  1h 39min \n2026-03-14 -  36min \n2026-03-14 -  11min \n2026-03-14 -  49min \n2026-03-14 -  10min \n2026-03-14 -  40min \n2026-03-13 -  3h 3min \n2026-03-13 -  4min \n2026-03-13 -  1h 1min \n2026-03-13 -  13min \n2026-03-13 -  6min \n2026-03-13 -  3min \n2026-03-12 -  1h 11min \n2026-03-12 -  0min \n2026-03-12 -  8min \n2026-03-11 -  13min \n2026-03-11 -  19min \n2026-03-11 -  20min \n2026-03-09 -  0min \n2026-03-07 -  0min \n2026-03-06 -  16min \n2026-03-06 -  13min \n2026-03-06 -  1h 1min \n2026-03-06 -  10min \n2026-03-06 -  4h 4min \n2026-03-05 -  13min \n2026-03-05 -  36min \n2026-03-01 -  27min \n2026-03-01 -  31min \n2026-03-01 -  2min \n2026-03-01 -  0min \n2026-03-01 -  28min \n2026-03-01 -  1h 22min \n2026-03-01 -  1h 42min \n2026-02-28 -  2h 2min \n2026-02-27 -  5min \n2026-02-27 -  3min \n2026-02-27 -  2h 51min \n2026-02-27 -  1h 30min \n2026-02-26 -  3min \n2026-02-13 -  27min \n2026-02-11 -  1h 11min \n2026-02-10 -  6min \n2026-02-10 -  1h 9min \n2026-02-10 -  1min \n2026-02-10 -  21min \n2026-02-10 -  46min \n2026-02-10 -  7min \n2026-02-10 -  7min \n2026-02-10 -  2min \n2026-02-10 -  11min \n2026-02-09 -  11min \n2026-02-09 -  2min \n2026-02-09 -  0min \n2026-02-08 -  25min \n2026-02-08 -  4min \n2026-02-08 -  14min \n2026-02-08 -  5min \n2026-02-08 -  5min \n2026-02-08 -  1h 15min \n2026-02-08 -  15min \n2026-02-08 -  0min \n2026-02-07 -  1min \n2026-02-07 -  23min \n2026-02-07 -  58min \n2026-02-07 -  4min \n2026-02-07 -  11min \n2026-02-07 -  26min \n2026-02-07 -  22min \n2026-02-07 -  8min \n2026-02-07 -  4min \n2026-02-07 -  38min \n2026-02-07 -  1h 53min \n2026-02-07 -  40min \n2026-02-07 -  48min \n2026-02-06 -  2h 32min \n2026-02-06 -  2h 53min \n2026-02-06 -  31min \n2026-02-06 -  5min \n2026-02-06 -  2min \n2026-02-06 -  0min \n2026-02-06 -  1min \n2026-02-06 -  7min \n2026-02-06 -  3min \n2026-02-06 -  30min \n2026-02-06 -  16min \n2026-02-06 -  48min \n2026-02-06 -  20min \n2026-02-06 -  59min \n2026-02-06 -  25min \n2026-02-06 -  1h 4min \n2026-02-05 -  1min \n2026-02-04 -  11min \n2026-02-04 -  10min \n2026-02-04 -  49min \n2026-02-04 -  23min \n2026-02-04 -  4min \n2026-02-03 -  16min \n2026-02-03 -  6min \n2026-02-03 -  58min \n2026-02-03 -  1h 7min \n2026-02-03 -  13min \n2026-02-02 -  55min \n2026-02-01 -  1h 45min \n2026-01-31 -  54min \n2025-12-11 -  0min \n2025-12-11 -  3h 11min \n2025-12-09 -  0min \n2025-12-09 -  3min \n2025-12-09 -  0min \n2025-12-03 -  0min \n2025-12-03 -  4min \n2025-12-03 -  12min \n2025-11-30 -  8min \n2025-11-29 -  0min \n2025-11-29 -  3min \n2025-05-06 -  1min \n2025-05-06 -  5min \n2025-05-06 -  42min \n2025-04-23 -  24min \n2025-04-23 -  23min \n2025-04-23 -  45min \n2025-04-23 -  3min \n2025-04-22 -  18min \n2025-04-22 -  2h 14min \n2025-04-21 -  16min \n2025-04-21 -  39min \n2025-04-21 -  1h 16min \n2025-04-21 -  7min \n2025-04-16 -  25min \n2025-04-16 -  4min \n2025-04-16 -  2h 10min \n2025-04-15 -  21min \n2025-04-15 -  1min \n2025-04-15 -  0min \n2025-04-15 -  35min \n2025-04-15 -  40min \n2025-04-15 -  29min \n2025-04-14 -  44min \n2025-04-14 -  10min \n2025-04-13 -  0min \n2025-04-13 -  24min \n2025-04-13 -  26min \n2025-04-13 -  27min \n2025-04-13 -  1min \n2025-04-12 -  3min \n2025-04-12 -  14min \n2025-04-12 -  2h 18min \n2025-04-12 -  1h 7min \n2025-04-11 -  11min \n2025-04-11 -  1h 5min \n2025-04-11 -  14min \n2025-04-11 -  2h 6min \n2025-04-11 -  15min \n2025-04-11 -  14min \n2025-04-11 -  11min \n2025-04-10 -  24min \n2025-04-10 -  52min \n2025-04-10 -  0min \n2025-04-10 -  2min \n2025-04-10 -  54min \n2025-04-10 -  10min \n2025-04-10 -  8min \n2025-04-10 -  7min \n2025-04-10 -  4h 43min \n2025-04-09 -  13min \n2025-04-09 -  53min \n2025-04-09 -  44min \n2025-04-09 -  1h 43min \n2025-04-09 -  6min \n2025-04-09 -  24min \n2025-04-09 -  2h 16min \n2025-04-07 -  26min \n2025-04-06 -  0min \n2025-04-06 -  1min \n2025-04-06 -  9min \n2025-04-06 -  2h 46min \n2025-04-06 -  7min \n2025-04-06 -  4h 58min \n2025-04-05 -  10min \n2025-03-31 -  3min \n2025-03-31 -  1h 34min \n2025-03-31 -  42min \n2025-03-31 -  3min \n2025-03-31 -  2h 30min \n2025-03-30 -  2min \n2025-03-30 -  46min \n2025-03-30 -  0min \n2025-03-30 -  38min \n2025-03-30 -  56min \n2025-03-30 -  31min \n2025-03-29 -  4min \n2025-03-29 -  40min \n2025-03-29 -  1h 0min \n2025-03-29 -  2min \n2025-03-29 -  1min \n2025-03-29 -  22min \n2025-03-28 -  1h 7min \n2025-03-28 -  18min \n2025-03-28 -  4min \n2025-03-28 -  37min \n2025-03-28 -  4min \n2025-03-28 -  23min \n2025-03-28 -  5min \n2025-03-28 -  42min \n2025-03-28 -  1h 13min \n2025-03-28 -  2min \n2025-03-28 -  22min \n2025-03-28 -  12min \n2025-03-27 -  19min \n2025-03-27 -  3min \n2025-03-27 -  3min \n2025-03-27 -  14min \n2025-03-27 -  1h 5min \n2025-03-26 -  6min \n2025-03-26 -  7min \n2025-03-26 -  20min \n2025-03-22 -  5min \n2025-03-22 -  1h 53min \n2025-03-22 -  1min \n2025-03-22 -  3min \n2025-03-22 -  19min \n2025-03-22 -  9min \n2025-03-21 -  47min \n2025-03-21 -  1min \n2025-03-21 -  21min \n2025-03-21 -  0min \n2025-03-18 -  6min \n2025-03-18 -  3min \n2025-03-18 -  4min \n2025-03-18 -  23min \n2025-03-17 -  2min \n2025-03-17 -  9min \n2025-03-17 -  1h 2min \n2025-03-17 -  9min \n2025-03-17 -  36min \n2025-03-17 -  0min \n2025-03-17 -  19min \n2025-03-17 -  14min \n2025-03-17 -  6min \n2025-03-17 -  13min \n2025-03-17 -  1min \n2025-03-17 -  20min \n2025-03-17 -  0min \n2025-03-17 -  12min \n2025-03-17 -  50min \n2025-03-17 -  24min \n2025-03-15 -  6h 13min \n2025-03-14 -  4min \n2025-03-14 -  4min \n2025-03-14 -  7min \n2025-03-14 -  0min \n2025-03-13 -  7min \n2025-03-12 -  1h 21min \n2025-03-12 -  25min \n2025-03-12 -  7min \n2025-03-12 -  8min \n2025-03-10 -  1h 27min \n2025-03-10 -  3min \n2025-03-10 -  33min \n2025-03-09 -  3min \n2025-03-09 -  6min \n2025-03-09 -  10min \n2025-03-08 -  15min \n2025-03-08 -  14min \n2025-03-08 -  26min \n2025-03-08 -  3h 10min \n2025-03-07 -  38min \n2025-03-07 -  14min \n2025-03-07 -  1h 20min \n2025-03-07 -  1h 51min \n2025-03-07 -  1min \n2025-03-07 -  25min \n -  0min \n",
+                "sna_delta_time_min" : 5,
                 "projectile_settings" : {},
-                "sna_activesec_add" : 314805,
+                "sna_activesec_add" : 316555,
                 "sna_mausewindow" : [
-                    1666,
-                    727
+                    2298,
+                    919
                 ],
                 "sna_asctivestring" : "LEFTMOUSE",
                 "msfs_importer_properties" : {},
                 "msfs_exporter_properties" : {
                     "use_unique_id" : 1
                 },
-                "sna_inactivesec" : 43978,
+                "sna_inactivesec" : 44557,
                 "sna_endtime_vechms" : [
-                    21,
-                    1,
-                    7
+                    19,
+                    5,
+                    10
                 ],
                 "sna_enddate_vecymd" : [
                     2026,
                     3,
-                    16
+                    19
                 ],
-                "sna_enddatestr" : "2026-03-16",
-                "sna_endttomin" : 1261,
-                "sna_delta_sec" : 727,
+                "sna_enddatestr" : "2026-03-19",
+                "sna_endttomin" : 1145,
+                "sna_delta_sec" : 310,
                 "svg_export" : {},
                 "msfs_multi_exporter_current_tab" : 1,
                 "msfs_multi_exporter_presets" : [
@@ -324,7 +324,8 @@
                                     "type" : "Collection"
                                 }
                             }
-                        ]
+                        ],
+                        "expanded" : 1
                     }
                 ],
                 "msfs_multi_exporter_settings" : {
@@ -345,7 +346,7 @@
                     "active_main_mode_id" : 1,
                     "tile_count_x" : 1,
                     "use_blender_tile_grid" : 0,
-                    "precision" : 770,
+                    "precision" : 800,
                     "rotation_step" : 90
                 },
                 "automirror" : {
@@ -383,7 +384,7 @@
                 "zen_sets_object_list" : [
                     {
                         "level" : 0,
-                        "layer_name" : "zen_sets_object_layer_853c1754-9bbc-425b-9ef6-0d0278516fc8",
+                        "layer_name" : "zen_sets_object_layer_ec36800d-3542-4bed-b171-4d5c70a6b111",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Scene Collection",
@@ -394,7 +395,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_db4c61f9-3e85-48db-a8cc-868e57472d2a",
+                        "layer_name" : "zen_sets_object_layer_d0c3e7ca-93ac-448b-8e49-853d2074b9e0",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "REF",
@@ -408,7 +409,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_96ec2a9f-6526-4b1e-b280-5b705204d2a7",
+                        "layer_name" : "zen_sets_object_layer_36f9004e-cf9c-4996-8173-b1d03c72ad17",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "INT",
@@ -422,7 +423,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_67472c78-6019-4566-9184-1e3384cf47a6",
+                        "layer_name" : "zen_sets_object_layer_7bc23780-4c81-43d1-87c1-b236ead0996e",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "STA",
@@ -436,7 +437,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_e7f6286a-aa40-4e41-ad10-489463840ac8",
+                        "layer_name" : "zen_sets_object_layer_4f047aab-93bc-430d-b59b-83199aeecfff",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Exterior",
@@ -450,7 +451,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_35436d44-f1b2-47f7-9f54-abf0417080a5",
+                        "layer_name" : "zen_sets_object_layer_8c3b49f5-3221-459e-b7b6-d0364bc132bf",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "VICTOR",
@@ -464,7 +465,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_5f6e153e-01a6-4acb-87a6-fa4bd9c0d658",
+                        "layer_name" : "zen_sets_object_layer_9fbeb817-74a7-4ebc-8d3a-77478b4ec015",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "MIKE",
@@ -478,7 +479,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_23377399-97c4-420a-b428-354940091f68",
+                        "layer_name" : "zen_sets_object_layer_63723066-214d-4311-b221-8f770f69d8cb",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Rotor",
@@ -492,7 +493,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_a49ca754-f18a-45c1-ac4e-05e374a0d3f7",
+                        "layer_name" : "zen_sets_object_layer_9de1513d-c6b3-41f3-b3c3-9476e1b24d64",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "NEW Blur",
@@ -506,7 +507,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_890d828f-dca2-4b36-a980-a22698babb3d",
+                        "layer_name" : "zen_sets_object_layer_39d8d783-40a4-449c-9302-a9e357a595c9",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Med",
@@ -520,7 +521,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_45f215f9-b2ad-4c33-88c3-f2512f33e5a0",
+                        "layer_name" : "zen_sets_object_layer_c6aaa795-53a3-4f82-87e7-f508b59ec11b",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Gear",
@@ -534,7 +535,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_f8895bfc-23ee-4142-98d8-f2a06d342130",
+                        "layer_name" : "zen_sets_object_layer_1178324e-ff5e-4864-949c-0f4cec59085b",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "FX",
@@ -548,7 +549,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_343d33c0-db22-49d7-962b-50f314936432",
+                        "layer_name" : "zen_sets_object_layer_989e680b-f18d-4050-9de9-de0fd8b1b8c7",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Cargo",
@@ -562,7 +563,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_bbd52e79-ef0d-4c9f-84b3-c3ef5a86d070",
+                        "layer_name" : "zen_sets_object_layer_e2f5263d-77f8-4dc1-aab6-c14db2d48fda",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "VARIANTS",
@@ -576,7 +577,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_b9968632-53f2-4db9-8cf8-21951f56f913",
+                        "layer_name" : "zen_sets_object_layer_b767a3ae-73a8-40eb-a743-1599ab5e21d7",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "SKIS",
@@ -590,7 +591,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_15ebf51e-8625-4894-94b2-79b92dc8fa45",
+                        "layer_name" : "zen_sets_object_layer_cec553aa-62d3-4f01-b012-b827a1c37beb",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "EIBF",
@@ -604,7 +605,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_422fbb2d-91af-4875-a723-2045bf7bfa1a",
+                        "layer_name" : "zen_sets_object_layer_f91ef770-41d7-4d76-83a0-9629c38bd678",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "PROBE",
@@ -618,7 +619,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_7d8f4efd-a286-4d4b-a400-6d752c97c30f",
+                        "layer_name" : "zen_sets_object_layer_d1c07f72-094a-42de-a710-e35edeebbfb6",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "HH-60W",
@@ -632,7 +633,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_774d1dd9-bc2b-410a-b02a-e85d03986e63",
+                        "layer_name" : "zen_sets_object_layer_e5df7a33-d5cf-403e-9173-dfa0a0a80764",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Hoist",
@@ -646,7 +647,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_ab8d90a0-676a-4c39-bf3f-663a5b5018c9",
+                        "layer_name" : "zen_sets_object_layer_0d5424a7-0b8a-42ad-9686-d7027a91b306",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "MH-60M",
@@ -660,7 +661,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_1bd628e7-f8f9-4533-ad5b-4ee72a9f71bf",
+                        "layer_name" : "zen_sets_object_layer_acd91cd5-ec6d-429d-a944-1f91ceb243b8",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "HH-60M",
@@ -674,7 +675,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_c277df05-8b1a-47c3-963e-a91f545b79bd",
+                        "layer_name" : "zen_sets_object_layer_c1abcc23-fa88-430f-b29f-f37c369d5c7f",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "DECALS",
@@ -688,7 +689,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_b7dea8d3-e48d-4331-b1fe-2fee2876da52",
+                        "layer_name" : "zen_sets_object_layer_ad19fb34-5b43-43ad-a4ec-9698950afecc",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "TEXT",
@@ -702,7 +703,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_525a7da1-dc48-4335-98a0-0cd75a512f9f",
+                        "layer_name" : "zen_sets_object_layer_931f1c7f-ac14-4cd4-9aed-53a50e78dd35",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "RIVETS",
@@ -716,7 +717,7 @@
                     },
                     {
                         "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_c1329787-697c-4bb0-91a8-f6d49ba39378",
+                        "layer_name" : "zen_sets_object_layer_23039767-d349-46ac-bdac-c51e58a42749",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "STAB",
@@ -730,7 +731,7 @@
                     },
                     {
                         "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_f5f97cb9-fed0-454e-a1ee-3dc7e4056d5f",
+                        "layer_name" : "zen_sets_object_layer_873bfddb-a746-4f97-af5d-5a6b8a06dfad",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "TAIL",
@@ -744,7 +745,7 @@
                     },
                     {
                         "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_a2da2051-f48d-415b-a57b-529d9417da29",
+                        "layer_name" : "zen_sets_object_layer_6894e78c-495a-44c8-b782-f12af7e78e14",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "BELLY",
@@ -758,7 +759,7 @@
                     },
                     {
                         "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_67bcacc8-1cdd-44a8-bd67-4acb4365628e",
+                        "layer_name" : "zen_sets_object_layer_01afea70-6944-4969-aaed-e8147d79af2e",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "TROOP DOOR TO TAIL",
@@ -772,7 +773,7 @@
                     },
                     {
                         "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_682256c4-80ef-4865-9822-cd155e71c715",
+                        "layer_name" : "zen_sets_object_layer_41e021ee-30d1-4513-b930-f0ba13747e32",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "R",
@@ -786,7 +787,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_229748a0-35e4-4a8d-b8c3-f2d924347ca3",
+                        "layer_name" : "zen_sets_object_layer_7a9a7563-03c4-40be-adc6-7994d7db35b3",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Livery",
@@ -800,7 +801,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_71c61700-12d7-459d-b027-5da25ea68856",
+                        "layer_name" : "zen_sets_object_layer_8c49031c-bd06-402f-865a-54a8709a4a0e",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Main",
@@ -814,7 +815,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_b897317e-989a-49d8-9c09-5f5f17856a1d",
+                        "layer_name" : "zen_sets_object_layer_cdeb597b-585d-4ed2-8fde-ca88d3c1d5ef",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Interior",
@@ -828,7 +829,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_385bad65-e54c-4887-a2dc-a9cfae5703dd",
+                        "layer_name" : "zen_sets_object_layer_1ad0cb3f-988b-4b89-a57f-feb6e58f18b0",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Panels",
@@ -842,7 +843,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_8576a9f7-a59d-48ac-bdd0-adf021c939f8",
+                        "layer_name" : "zen_sets_object_layer_125113f2-88d4-4f85-9ffc-c223bbb70892",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "OH",
@@ -856,7 +857,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_90a5e4a3-c945-47da-89d9-ba6d2508fbae",
+                        "layer_name" : "zen_sets_object_layer_8b71c062-feae-4b57-aa01-5ac200ed2bc3",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Controls",
@@ -870,7 +871,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_6106e61f-01fc-41c3-ad66-1ba26a8903c5",
+                        "layer_name" : "zen_sets_object_layer_208f5373-3e0d-4054-a035-03533ff36d1e",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Walls",
@@ -884,7 +885,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_8ff5c173-2b95-4a6a-afd9-7104275014ee",
+                        "layer_name" : "zen_sets_object_layer_9c582728-4fab-4170-8096-7863d4dbc8f2",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "InstanceArrayBolts",
@@ -898,7 +899,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_862f2fce-6d04-4a91-a00d-af6904954922",
+                        "layer_name" : "zen_sets_object_layer_53eee7a3-ed7b-4195-a89b-abfc31b30f2c",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Seats",
@@ -912,7 +913,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_f500aa70-0718-47f5-8607-d763daca3448",
+                        "layer_name" : "zen_sets_object_layer_93c674af-b28d-4d70-8d6a-7bc7baa0203f",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Cabin",
@@ -926,7 +927,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_0e159a56-c7f4-4d7c-8ed0-a00429a936a2",
+                        "layer_name" : "zen_sets_object_layer_0343dc83-ba97-4e20-8bf2-ececbc0633bb",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Decals",
@@ -940,7 +941,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_1c811c4b-feb2-43df-874f-592264a0ea6f",
+                        "layer_name" : "zen_sets_object_layer_cc4734a9-1208-4de7-906d-b792f4c61199",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "PILOTS",
@@ -954,7 +955,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_f67e95c5-61d3-480a-8aff-183317365580",
+                        "layer_name" : "zen_sets_object_layer_27938148-a7c7-46fc-8321-9e24bda816bb",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "SOLIDER",
@@ -967,8 +968,22 @@
                         "parent_idx" : 31
                     },
                     {
+                        "level" : 2,
+                        "layer_name" : "zen_sets_object_layer_e791b54b-79ef-4405-9d64-9cfe4afb4c0b",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "DAP",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "Interior",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 31
+                    },
+                    {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_08bf24a0-27b1-4f86-ab18-53f32667d45f",
+                        "layer_name" : "zen_sets_object_layer_d1a2bc22-ad5b-47e7-ae36-41c7239851b8",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Render",
@@ -982,7 +997,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_8258d305-853d-4daf-94c9-ef53a31ccf9b",
+                        "layer_name" : "zen_sets_object_layer_52572f9c-4cd4-45f3-8b86-ff8e60f8f1af",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "OLD",
@@ -1000,7 +1015,7 @@
                 },
                 "zen_sets_active_mode" : 4,
                 "zen_sets_last_edge_mode" : "edge",
-                "zen_sets_object_list_index" : 1,
+                "zen_sets_object_list_index" : 0,
                 "zen_sets_last_face_mode" : "face",
                 "zen_uv" : {
                     "ui" : {
@@ -1029,7 +1044,9 @@
                     "initialized" : 1
                 },
                 "zenuv_trim_color_palette" : {},
-                "zen_uv_checker" : {},
+                "zen_uv_checker" : {
+                    "prev_color_type" : "TEXTURE"
+                },
                 "zen_sets_last_vert_mode" : "vert"
             },
             "name" : "Scene",
@@ -28996,7 +29013,7 @@
             "name" : "Plane.006",
             "translation" : [
                 -0.019900918006896973,
-                -0.08937452733516693,
+                -0.0893746018409729,
                 0
             ]
         },
@@ -29021,9 +29038,9 @@
                 0.974911630153656
             ],
             "translation" : [
-                -0.0023717880249023438,
-                -0.0002807527780532837,
-                0.00023627281188964844
+                -0.0023720264434814453,
+                -0.00028079748153686523,
+                0.00023651123046875
             ]
         },
         {
@@ -29047,9 +29064,9 @@
                 0.974911630153656
             ],
             "translation" : [
-                -0.10747581720352173,
-                0.00328943133354187,
-                0.07135796546936035
+                -0.10747578740119934,
+                0.003289461135864258,
+                0.07135772705078125
             ]
         },
         {
@@ -29070,7 +29087,7 @@
             "name" : "Circle.090",
             "translation" : [
                 0.09028273820877075,
-                0.24365609884262085,
+                0.2436562180519104,
                 0
             ]
         },
@@ -29088,6 +29105,12 @@
             },
             "mesh" : 591,
             "name" : "RudderPedalBase",
+            "rotation" : [
+                -0.08715573698282242,
+                0,
+                0,
+                0.9961947202682495
+            ],
             "translation" : [
                 -0.5424959659576416,
                 -0.4811558723449707,
@@ -40297,7 +40320,12 @@
                 0,
                 0
             ],
-            "extras" : {},
+            "extras" : {
+                "zen_uv" : {
+                    "world_size_image" : {},
+                    "trimsheet_image" : {}
+                }
+            },
             "name" : "BlackRotorBrake",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -40362,7 +40390,12 @@
                 0,
                 0
             ],
-            "extras" : {},
+            "extras" : {
+                "zen_uv" : {
+                    "world_size_image" : {},
+                    "trimsheet_image" : {}
+                }
+            },
             "name" : "BlackFabric",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [

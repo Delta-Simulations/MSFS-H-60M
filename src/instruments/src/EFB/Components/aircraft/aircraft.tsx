@@ -20,8 +20,7 @@ export const Airctaft = () => {
 	let [HasMissile] = useSimVar('L:H60_HasMissile', 'bool');
 	let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
 	let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
-	let [rearDoorL, setRearDoorL] = useSimVar('L:H60_TroopDoor_L', 'bool');
-	let [rearDoorR, setRearDoorR] = useSimVar('L:H60_TroopDoor_R', 'bool');
+	let [rearDoor, setRearDoor] = useSimVar('L:H60_TroopDoor', 'bool');
 	let [doorR, setDoorR] = useSimVar('L:H60_DoorP', 'bool');
 	let [doorL, setDoorL] = useSimVar('L:H60_DoorCP', 'bool');
 	let [doorHide, setDoorHide] = useSimVar('L:H60_FrontDoorVis', 'bool');
@@ -451,34 +450,7 @@ export const Airctaft = () => {
 						Gunner Window
 					</Button>
 				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 79,
-						height: 52,
-						backgroundColor: '16161E',
-						borderRadius: 1,
-						left: 329,
-						top: 630,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						onClick={() => setRearDoorR(!rearDoorR)}
-						color={rearDoorR ? 'error' : 'success'}
-						size="small"
-						variant="contained"
-					>
-						Rear Door R
-					</Button>
-				</Box>
+
 				<Box
 					sx={{
 						position: 'absolute',
@@ -499,12 +471,12 @@ export const Airctaft = () => {
 					}}
 				>
 					<Button
-						onClick={() => setRearDoorL(!rearDoorL)}
-						color={rearDoorL ? 'error' : 'success'}
+						onClick={() => setRearDoor(!rearDoor)}
+						color={rearDoor ? 'error' : 'success'}
 						size="small"
 						variant="contained"
 					>
-						Rear Door L
+						Troop Door
 					</Button>
 				</Box>
 			</Box>

@@ -436,17 +436,9 @@
           <ANIM_LENGTH>100</ANIM_LENGTH>
 				</UseTemplate>
 				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>reardoorR</ANIM_NAME>
+					<ANIM_NAME>reardoor</ANIM_NAME>
 					<ANIM_CODE>
-            (L:H60_TroopDoor_R, bool) 50 *
-					</ANIM_CODE>
-          <ANIM_LAG>20</ANIM_LAG>
-          <ANIM_LENGTH>50</ANIM_LENGTH>
-				</UseTemplate>
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>reardoorL</ANIM_NAME>
-					<ANIM_CODE>
-            (L:H60_TroopDoor_R, bool) 50 *
+            (L:H60_TroopDoor, bool) 50 *
 					</ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
           <ANIM_LENGTH>50</ANIM_LENGTH>

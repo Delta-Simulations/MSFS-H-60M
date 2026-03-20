@@ -110,6 +110,13 @@
 <Visibility><Parameter><Code>
 						1
 </Code></Parameter></Visibility></PartInfo>
+
+  <Animation name="Base_IRCM" guid="06bd9c0c-bc6b-4e00-9c5d-3a22ded66887" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
+    <Name>Base_IRCM</Name>
+    <Visibility><Parameter><Code>
+                0
+    </Code></Parameter></Visibility></PartInfo>
+
   <Animation name="Modelpart_bubble_Window" guid="c1b9e4c8-384b-4394-8789-11fd99a5c27a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
     <Name>Modelpart_bubble_Window</Name>
     <Visibility><Parameter><Code>
