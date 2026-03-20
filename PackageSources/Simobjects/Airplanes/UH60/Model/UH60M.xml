@@ -397,7 +397,7 @@
             
             (A:SIM ON GROUND, bool) 0 == 
             if{ 
-              170
+              180
             } els{
               (A:DISK CONING PCT:1, percent) 100 + 
             }

@@ -50,7 +50,7 @@
           <!-- GUN FX======================================================-->
     <Component ID="GUNFX1" Node="FX_GUN_1">
       <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE>(L:EFFECT_GUN,bool) 0 &gt; </FX_CODE>
+      <FX_CODE>(L:H60_Gun_Firing,bool) </FX_CODE>
       <FX_OFFSET_X>0</FX_OFFSET_X>
       <FX_OFFSET_Y>0</FX_OFFSET_Y>
       <FX_OFFSET_Z>0</FX_OFFSET_Z>
@@ -60,7 +60,7 @@
 
     <Component ID="GUNFX2" Node="FX_GUN_2">
       <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE>(L:EFFECT_GUN,bool) 0 &gt; </FX_CODE>
+      <FX_CODE>(L:H60_Gun_Firing,bool) </FX_CODE>
       <FX_OFFSET_X>0</FX_OFFSET_X>
       <FX_OFFSET_Y>0</FX_OFFSET_Y>
       <FX_OFFSET_Z>0</FX_OFFSET_Z>
@@ -198,7 +198,7 @@
     <ANIMTIP_1>ROTOR BRAKE (ENGAGED)</ANIMTIP_1>
   </UseTemplate>
   <UseTemplate Name="ASOBO_GT_Update">
-    <FREQUENCY>1</FREQUENCY>
+    <FREQUENCY>1000</FREQUENCY>
     <UPDATE_CODE>
       (L:H60_RotorBrakeActive) if{ (&gt;K:ROTOR_BRAKE_ON) }
     </UPDATE_CODE>
@@ -672,6 +672,53 @@
     </UseTemplate>
 </Component>
 
+  <Component ID="MG_MOUNT_L" Node="MG_MOUNT_L">
+    <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
+        <UP_CODE>
+            (L:H60_Gun_L_Pivot, number) ++ 100 min (>L:H60_Gun_L_Pivot, number)
+        </UP_CODE>
+        <DOWN_CODE>
+            (L:H60_Gun_L_Pivot, number) -- 0 max (>L:H60_Gun_L_Pivot, number)
+        </DOWN_CODE>
+        <AXIS>X</AXIS>
+        <DRAG_AXIS_SCALE>300</DRAG_AXIS_SCALE>
+    </UseTemplate>
+    <UseTemplate Name="ASOBO_GT_Anim_Code">
+      <PART_ID>MG_MOUNT_L</PART_ID>
+      <ANIM_NAME>MG_MOUNT_L</ANIM_NAME>
+      <NODE_ID>MG_MOUNT_L</NODE_ID>
+      <ANIM_CODE>
+        (L:H60_Gun_L_Pivot, number)
+      </ANIM_CODE>
+      <ANIM_LAG>200</ANIM_LAG>
+    </UseTemplate>
+</Component>
+
+				<UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>Gun_Firing</ANIM_NAME>
+					<ANIM_CODE>
+                (L:H60_Gun_Firing, bool) 1 == if{ 
+                (E:ABSOLUTE TIME, second) 0.1 % 100 *
+                } els{ 0 }
+					</ANIM_CODE>
+          <ANIM_LAG>100</ANIM_LAG>
+          <ANIM_WRAP>1</ANIM_WRAP>
+				</UseTemplate>
+
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
+    <ANIM>(L:H60_APU_START, bool) 100 *</ANIM>
+    <NODE_ID>Switch_APU_CNTRL</NODE_ID>
+    <TOOLTIPID>APU CNTRL</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_APU_START, bool) ! (&gt;L:H60_APU_START, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
+
+
+
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
     <ANIM>(L:H60_APU_START, bool) 100 *</ANIM>
@@ -1088,59 +1135,8 @@
   </Parameter> </Emissive> </Materials>
   </PartInfo>
 
-<!-- MG GUN======================================-->
-  <Animation name="GUN_CLICK" guid="a9755737-b144-4166-9c2b-ea37eb4c2ab5" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>GUN_CLICK</Name>
-      <AnimLength>50</AnimLength>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <TooltipText>SHOOT</TooltipText>
-        <MouseFlags>LeftRelease+LeftSingle+WheelDown+WheelUp</MouseFlags>
-        <CallbackCode>
-          (M:Event) 'LeftSingle' scmp 0 == if{ 1 (&gt;L:EFFECT_GUN,bool,bool) }
-          (M:Event) 'LeftRelease' scmp 0 == if{ 0 (&gt;L:EFFECT_GUN,bool,bool) }
-          (M:Event) 'WheelDown' scmp 0 ==
-          if{ (L:GunUPDOWN, enum) --  0 max (>L:GunUPDOWN, enum) }
-          (M:Event) 'WheelUp' scmp 0 ==
-          if{ (L:GunUPDOWN, enum) ++  10 min (>L:GunUPDOWN, enum) }
-        </CallbackCode>
-      </MouseRect>
-      <Visibility>
-        <Parameter>
-          <Code>
-            (L:MODEL_TYPE, enum) 0 == if{ 0 }
-            (L:MODEL_TYPE, enum) 1 == if{ 1 }
-            (L:MODEL_TYPE, enum) 2 == if{ 0 }
-          </Code>
-          <Lag>10</Lag>
-        </Parameter>
-      </Visibility>
-      <Animation>
-      <Parameter>
-        <Code>
-            (L:EFFECT_GUN,bool) 100 *
-        </Code>
-    </Parameter>
-  </Animation>
-  </PartInfo>
 
 
-
-  <Animation name="GUN_MOVE" guid="da17f7a2-96dd-4e69-bc74-5ca678d3bdf7" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>GUN_MOVE</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-          <Parameter>
-               <Code>
-                (L:MINIGUN, bool) 1 == if{ 
-                (E:ABSOLUTE TIME, second) 0.1 % 100 *
-                } els{ 0 }
-               </Code>
-      </Parameter>
-      </Animation>
-  </PartInfo>
   <Animation name="DOOR4" guid="24860126-548e-40fe-bdca-68a2a9b80349" length="1" type="Sim" typeParam="AutoPlay" />
   <PartInfo>
     <Name>DOOR4</Name>
@@ -1153,68 +1149,6 @@
       </Code>
     </Parameter>
     </Visibility>
-  </PartInfo>
-  <Animation name="GunUPDOWN" guid="ca79dd08-45a6-43e7-9406-fa7c7601dc2b" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>GunUPDOWN</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>
-              (L:GunUPDOWN,enum) 10 *
-          </Code>
-          <Lag>50</Lag>
-      </Parameter>
-      </Animation>
-    </PartInfo>
-
-  <Animation name="MG_MOUNT_R" guid="68865927-ef7d-439d-b7fe-99f0b4c82b8b" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>MG_MOUNT_R</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>
-              (L:GUN1ANGLE,enum) 10 *
-          </Code>
-          <Lag>50</Lag>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <MouseFlags>Wheel</MouseFlags>
-        <TooltipText>SWIVEL GUN</TooltipText>
-        <CallbackCode>
-          (M:Event) 'WheelDown' scmp 0 ==
-          if{ (L:GUN1ANGLE, enum) --  0 max (>L:GUN1ANGLE, enum) }
-          (M:Event) 'WheelUp' scmp 0 ==
-          if{ (L:GUN1ANGLE, enum) ++  10 min (>L:GUN1ANGLE, enum) }
-       </CallbackCode>
-          </MouseRect>   
-  </PartInfo>
-  <Animation name="MG_MOUNT_L" guid="28316fba-422d-4f71-87f4-30fe65081094" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-      <Name>MG_MOUNT_L</Name>
-      <AnimLength>100</AnimLength>
-      <Animation>
-        <Parameter>
-          <Code>
-              (L:GUN2ANGLE,enum) 10 *
-          </Code>
-          <Lag>50</Lag>
-      </Parameter>
-      </Animation>
-      <MouseRect>
-        <Cursor>Hand</Cursor>
-        <MouseFlags>Wheel</MouseFlags>
-        <TooltipText>SWIVEL GUN</TooltipText>
-        <CallbackCode>
-          (M:Event) 'WheelDown' scmp 0 ==
-          if{ (L:GUN2ANGLE, enum) --  0 max (>L:GUN2ANGLE, enum) }
-          (M:Event) 'WheelUp' scmp 0 ==
-          if{ (L:GUN2ANGLE, enum) ++  10 min (>L:GUN2ANGLE, enum) }
-       </CallbackCode>
-          </MouseRect>
   </PartInfo>
 
 
