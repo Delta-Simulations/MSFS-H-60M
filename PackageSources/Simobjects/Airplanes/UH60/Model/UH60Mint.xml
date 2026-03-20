@@ -944,7 +944,10 @@
   </UseTemplate>
   <Component ID="Soldiers_main" Node="Soldiers_main">
     <UseTemplate Name="ASOBO_GT_Visibility">
-      <VISIBILITY_CODE>(L:H60_CARGO_HOOK_ARMED) </VISIBILITY_CODE>
+      <VISIBILITY_CODE>
+        (L:H60_CARGO_HOOK_ARMED) 1 == 
+        (L:H60_TroopDoor, bool) 1 == and
+      </VISIBILITY_CODE>
     </UseTemplate>
   </Component>
   <Component ID="DoorPilot" Node="DoorPilot">
@@ -958,17 +961,9 @@
     </UseTemplate>
   </Component>
   <UseTemplate name="Generic_Anim_DELTASIM">
-    <ANIM_NAME>reardoorR</ANIM_NAME>
-    <ANIM_CODE>
-      (L:H60_TroopDoor_R, bool) 50 *
-    </ANIM_CODE>
-    <ANIM_LAG>20</ANIM_LAG>
-    <ANIM_LENGTH>50</ANIM_LENGTH>
-  </UseTemplate>
-  <UseTemplate name="Generic_Anim_DELTASIM">
     <ANIM_NAME>reardoorL</ANIM_NAME>
     <ANIM_CODE>
-      (L:H60_TroopDoor_L, bool) 50 *
+      (L:H60_TroopDoor, bool) 50 *
     </ANIM_CODE>
     <ANIM_LAG>20</ANIM_LAG>
     <ANIM_LENGTH>50</ANIM_LENGTH>
