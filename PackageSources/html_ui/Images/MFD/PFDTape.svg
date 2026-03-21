@@ -1,0 +1,50 @@
+<svg width="1024" height="1416" viewBox="0 0 1024 1416" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" width="1024" height="708" fill="#00BEE6"/>
+<rect x="0" y="708" width="1024" height="708" fill="#CCA23E"/>
+<line x1="397.711" y1="707.5" x2="628.283" y2="707.5" stroke="white" stroke-width="3"/>
+<line x1="507.034" y1="717.5" x2="519.954" y2="717.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 699)" stroke="white" stroke-width="3"/>
+<line x1="490.138" y1="728.5" x2="535.855" y2="728.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="45.7169" y2="-1.5" transform="matrix(1 0 0 -1 490.138 688)" stroke="white" stroke-width="3"/>
+<line x1="507.034" y1="739.5" x2="519.954" y2="739.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 677)" stroke="white" stroke-width="3"/>
+<line x1="477.218" y1="750.5" x2="549.769" y2="750.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 666)" stroke="white" stroke-width="3"/>
+<line x1="507.034" y1="761.5" x2="519.954" y2="761.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 655)" stroke="white" stroke-width="3"/>
+<line x1="490.138" y1="772.5" x2="535.855" y2="772.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="45.7169" y2="-1.5" transform="matrix(1 0 0 -1 490.138 644)" stroke="white" stroke-width="3"/>
+<line x1="507.034" y1="783.5" x2="519.954" y2="783.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 633)" stroke="white" stroke-width="3"/>
+<line x1="477.218" y1="794.5" x2="549.769" y2="794.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 622)" stroke="white" stroke-width="3"/>
+<line x1="507.034" y1="805.5" x2="519.954" y2="805.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 611)" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 567)" stroke="white" stroke-width="3"/>
+<line x1="490.138" y1="816.5" x2="535.855" y2="816.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="45.7169" y2="-1.5" transform="matrix(1 0 0 -1 490.138 600)" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="45.7169" y2="-1.5" transform="matrix(1 0 0 -1 490.138 556)" stroke="white" stroke-width="3"/>
+<line x1="507.034" y1="827.5" x2="519.954" y2="827.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 589)" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="12.92" y2="-1.5" transform="matrix(1 0 0 -1 507.034 545)" stroke="white" stroke-width="3"/>
+<line x1="477.218" y1="838.5" x2="549.769" y2="838.5" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 578)" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 534)" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 490)" stroke="white" stroke-width="3"/>
+<line x1="477.218" y1="882.5" x2="549.769" y2="882.5" stroke="white" stroke-width="3"/>
+<line x1="477.218" y1="1014.5" x2="549.769" y2="1014.5" stroke="white" stroke-width="3"/>
+<line x1="477.218" y1="1102.5" x2="549.769" y2="1102.5" stroke="white" stroke-width="3"/>
+<path d="M490.138 445L513.991 481.5L537.346 445" stroke="black" stroke-width="6"/>
+<line x1="477.218" y1="937.5" x2="549.769" y2="937.5" stroke="white" stroke-width="3"/>
+<path d="M491.132 1089.5H469.268L513.494 1029L556.726 1089.5H534.862" stroke="black" stroke-width="6"/>
+<path d="M489.642 996.5L513.494 960L536.849 996.5" stroke="black" stroke-width="6"/>
+<path d="M489.642 930.5L513.494 894L536.849 930.5" stroke="black" stroke-width="6"/>
+<path d="M491.132 1089.5H469.268L513.494 1029L556.726 1089.5H534.862" stroke="#FF0000" stroke-width="3"/>
+<path d="M489.642 996.5L513.494 960L536.849 996.5" stroke="#FF0000" stroke-width="3"/>
+<path d="M489.642 930.5L513.494 894L536.849 930.5" stroke="#FF0000" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 314)" stroke="white" stroke-width="3"/>
+<line y1="-1.5" x2="72.5508" y2="-1.5" transform="matrix(1 0 0 -1 477.218 435)" stroke="white" stroke-width="3"/>
+<path d="M487.157 339H460.323L514.601 413L567.658 339H540.825" stroke="black" stroke-width="6"/>
+<path d="M487.157 339H460.323L514.601 413L567.658 339H540.825" stroke="#FF0000" stroke-width="3"/>
+<path d="M490.138 445L513.991 481.5L537.346 445" stroke="#FF0000" stroke-width="3"/>
+</svg>

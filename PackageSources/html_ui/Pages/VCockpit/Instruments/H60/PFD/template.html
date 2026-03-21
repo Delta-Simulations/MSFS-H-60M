@@ -27411,116 +27411,9 @@
 	  });
 	};
 
-	const HorizonLine = props => {
-	  useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  useSimVar('PLANE PITCH DEGREES', 'Degrees');
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(0 ".concat(props.height, ") "),
-	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 537,
-	        y: 0,
-	        width: 85,
-	        height: 2,
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 520,
-	        y: 8,
-	        fontSize: 23,
-	        fill: "white",
-	        textAnchor: "middle",
-	        children: props.label
-	      }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	        x: 636,
-	        y: 8,
-	        fontSize: 23,
-	        fill: "white",
-	        textAnchor: "middle",
-	        children: props.label
-	      })]
-	    })
-	  });
-	};
-
-	const HorizonLine2 = props => {
-	  useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  useSimVar('PLANE PITCH DEGREES', 'Degrees');
-	  return /*#__PURE__*/jsxRuntime.jsx("g", {
-	    children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(0 ".concat(props.height, ") "),
-	      children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 571,
-	        y: 12,
-	        width: 16,
-	        height: 2,
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 554,
-	        y: 22,
-	        width: 50,
-	        height: 2,
-	        fill: "white"
-	      }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	        x: 571,
-	        y: 32,
-	        width: 16,
-	        height: 2,
-	        fill: "white"
-	      })]
-	    })
-	  });
-	};
-
 	const Horizon = () => {
-	  const [roll] = useSimVar('PLANE BANK DEGREES', 'Degrees');
-	  let [pitch] = useSimVar('PLANE PITCH DEGREES', 'Degrees');
-	  pitch = pitch;
-	  const elements = [];
-
-	  for (let i = 1; i < 10; i++) {
-	    let height2 = 548 - i * 45;
-	    let aircraftPitch = i * 10;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine, {
-	      height: height2,
-	      label: aircraftPitch
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  for (let i = 1; i < 10; i++) {
-	    let height2 = 544 + i * 45;
-	    let aircraftPitch = i * 10;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine, {
-	      height: height2,
-	      label: aircraftPitch
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  for (let i = 1; i < 10; i++) {
-	    let height2 = 503 - i * 45;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine2, {
-	      height: height2
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
-	  for (let i = 0; i < 9; i++) {
-	    let height2 = 589 + i * 45;
-
-	    const SpdMark = /*#__PURE__*/jsxRuntime.jsx(HorizonLine2, {
-	      height: height2
-	    });
-
-	    elements.push(SpdMark);
-	  }
-
+	  const [roll] = useSimVar('A:PLANE BANK DEGREES', 'Degrees');
+	  const [pitch] = useSimVar('A:PLANE PITCH DEGREES', 'Degrees');
 	  const [RA_Alt_Lo_Alert] = useSimVar('L:H60_CAS_RADALT_LO_ALERT', 'feet');
 	  const [RA_Alt_Hi_Alert] = useSimVar('L:H60_CAS_RADALT_HI_ALERT', 'bool');
 	  useSimVar('A:PLANE ALT ABOVE GROUND MINUS CG', 'feet');
@@ -27529,8 +27422,8 @@
 	      id: "ah-clip",
 	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 350,
-	        y: 6,
-	        width: 326,
+	        y: 36,
+	        width: 325,
 	        height: 340,
 	        fill: "grey",
 	        rx: 40,
@@ -27541,95 +27434,189 @@
 	      children: /*#__PURE__*/jsxRuntime.jsx("rect", {
 	        x: 350,
 	        y: 62,
-	        width: 326,
+	        width: 325,
 	        height: 248,
 	        fill: "grey",
 	        rx: 0,
 	        ry: 0
 	      })
-	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
+	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
 	      clipPath: "url(#ah-clip)",
-	      transform: "translate(6 30)",
-	      children: [/*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(roll, ", 512, 188)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(0 ".concat(pitch * -4.45, ") "),
-	          children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-65 -360)",
-	            children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	              children: [/*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: -500,
-	                y: -953,
-	                height: 1500,
-	                width: 2000,
-	                fill: "#00bee6"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: -500,
-	                y: 547,
-	                height: 1500,
-	                width: 2000,
-	                fill: "#ca9f30"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: -500,
-	                y: 545,
-	                width: 2000,
-	                height: 3,
-	                fill: "white"
-	              })]
-	            })
-	          })
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(roll, ", 512, 188)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(-127 -70)",
+	      children: /*#__PURE__*/jsxRuntime.jsxs("g", {
+	        transform: "rotate(".concat(roll, ", 511, 215)"),
+	        children: [/*#__PURE__*/jsxRuntime.jsxs("g", {
+	          transform: "translate(0 ".concat(pitch * -4.3, ")"),
+	          children: [/*#__PURE__*/jsxRuntime.jsx("image", {
+	            xlinkHref: "/Images/MFD/PFDTape.svg",
+	            x: 0,
+	            y: -491,
+	            width: 1024,
+	            height: 1416
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: -167,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "90"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: -167,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "90"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 185,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "10"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 141,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "20"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 97,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "30"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 53,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "40"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 9,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "50"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 185,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "10"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 141,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "20"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 97,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "30"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 53,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "40"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 9,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "50"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 268,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "10"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 312,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "20"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 356,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "30"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 400,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "40"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 268,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "10"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 312,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "20"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 356,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "30"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 400,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "40"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 553,
+	            y: 620,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "90"
+	          }), /*#__PURE__*/jsxRuntime.jsx("text", {
+	            x: 450,
+	            y: 620,
+	            fontSize: 20,
+	            className: "readouts",
+	            textAnchor: "start",
+	            children: "40"
+	          })]
+	        }), /*#__PURE__*/jsxRuntime.jsx("g", {
+	          transform: "translate(-127 -42)",
 	          children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
 	            points: "630,120 640,100 650,120",
 	            fill: "white"
 	          })
-	        })
-	      })]
-	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      clipPath: "url(#line-clip)",
-	      transform: "translate(5 30)",
-	      children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	        transform: "rotate(".concat(roll, ", 512, 188)"),
-	        children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	          transform: "translate(0 ".concat(pitch * -4.45, ") "),
-	          children: /*#__PURE__*/jsxRuntime.jsx("g", {
-	            transform: "translate(-65 -360)",
-	            children: /*#__PURE__*/jsxRuntime.jsxs("g", {
-	              children: [elements, /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 571,
-	                y: 512,
-	                width: 16,
-	                height: 2,
-	                fill: "white"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 554,
-	                y: 522,
-	                width: 50,
-	                height: 2,
-	                fill: "white"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 571,
-	                y: 578,
-	                width: 16,
-	                height: 2,
-	                fill: "white"
-	              }), /*#__PURE__*/jsxRuntime.jsx("rect", {
-	                x: 554,
-	                y: 568,
-	                width: 50,
-	                height: 2,
-	                fill: "white"
-	              })]
-	            })
-	          })
-	        })
+	        })]
 	      })
 	    }), /*#__PURE__*/jsxRuntime.jsxs("g", {
-	      transform: "translate(402,210)scale(0.6)",
+	      transform: "translate(367,210)scale(0.75)",
 	      children: [/*#__PURE__*/jsxRuntime.jsx("path", {
 	        d: "M130.5 2V42.5H115.5V16H2V2H130.5Z",
 	        fill: "black"
@@ -27648,12 +27635,81 @@
 	        "stroke-linejoin": "round"
 	      }), /*#__PURE__*/jsxRuntime.jsx("circle", {
 	        cx: "195",
-	        cy: "17.5",
-	        r: "16",
+	        cy: "10.5",
+	        r: "12",
 	        stroke: "white",
 	        "stroke-width": "3",
 	        fill: "none"
 	      })]
+	    }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	      d: "M512.5 58L499.943 36L525.057 36L512.5 58Z",
+	      fill: "white"
+	    }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	      d: "M631.532 81.693L645.733 95.8945L625.484 101.942L631.532 81.693Z",
+	      fill: "none",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("path", {
+	      d: "M393.468 81.693L379.267 95.8945L399.516 101.942L393.468 81.693Z",
+	      fill: "none",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      x1: "540.517",
+	      y1: "58.7719",
+	      x2: "542.517",
+	      y2: "45.7719",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      y1: "-1.5",
+	      x2: "13.1529",
+	      y2: "-1.5",
+	      transform: "matrix(-0.152057 -0.988372 -0.988372 0.152057 483 59)",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      x1: "565.638",
+	      y1: "66.3714",
+	      x2: "571.638",
+	      y2: "53.3714",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      y1: "-1.5",
+	      x2: "14.3178",
+	      y2: "-1.5",
+	      transform: "matrix(-0.419058 -0.907959 -0.907959 0.419058 458 67)",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      x1: "591.72",
+	      y1: "77.2178",
+	      x2: "602.72",
+	      y2: "59.2178",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      y1: "-1.5",
+	      x2: "21.095",
+	      y2: "-1.5",
+	      transform: "matrix(-0.52145 -0.853282 -0.853282 0.52145 432 78)",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      x1: "651.239",
+	      y1: "135.707",
+	      x2: "668.239",
+	      y2: "125.707",
+	      stroke: "white",
+	      "stroke-width": "3"
+	    }), /*#__PURE__*/jsxRuntime.jsx("line", {
+	      y1: "-1.5",
+	      x2: "19.7231",
+	      y2: "-1.5",
+	      transform: "matrix(-0.861934 -0.50702 -0.50702 0.861934 373 137)",
+	      stroke: "white",
+	      "stroke-width": "3"
 	    }), RA_Alt_Lo_Alert && /*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 660,
 	      y: 200,
@@ -29071,7 +29127,7 @@
 	              xlinkHref: "/Images/REF/pfd.png",
 	              x: 0,
 	              y: 0,
-	              opacity: 0.3
+	              opacity: 0.25
 	            })]
 	          }), /*#__PURE__*/jsxRuntime.jsxs("g", {
 	            visibility: DISP_TYPE == 2 ? "visible" : "hidden",

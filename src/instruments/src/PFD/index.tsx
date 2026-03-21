@@ -55,13 +55,10 @@ const PFD = () => {
 					{DISP_TYPE === 4 && <TacMap />}
 				</div>
 
-
-
 				<svg
 					viewBox="0 0 1024 768"
 					style={{ position: "absolute", top: 0, zIndex: 100000 }}
 				>
-					{/* <rect x={0} y={0} width={1024} height={768} fill="#000000" /> */}
 					<g>
 						{/* PFD SPECIFIC */}
 
@@ -71,7 +68,7 @@ const PFD = () => {
 								xlinkHref="/Images/REF/pfd.png"
 								x={0}
 								y={0}
-								opacity={0.3}
+								opacity={0.25}
 							/>
 						</g>
 

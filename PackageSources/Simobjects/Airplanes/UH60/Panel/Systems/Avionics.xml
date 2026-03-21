@@ -95,6 +95,37 @@ if{
 </Value>
 </Select>
 </Element> 
+<!-- CLOCK MODES -->
+
+<!-- 
+0 starts
+1 stops
+2 resets
+
+
+-->
+<Element>
+<Select>
+<Value>
+; --- RUNNING ---
+(L:H60_Clock_Control_Mode, enum) 0 ==
+if{
+  (E:ABSOLUTE TIME, seconds)
+  (L:H60_Clock_Time_Baseline, seconds)
+  -
+  abs
+  (>L:H60_Clock_Timer_Sec, seconds)
+}
+
+; --- RESET ---
+(L:H60_Clock_Control_Mode, enum) 2 ==
+if{
+  0 (>L:H60_Clock_Timer_Sec, seconds)
+}
+</Value>
+</Select>
+</Element> 
+
 
 
 </Gauge>

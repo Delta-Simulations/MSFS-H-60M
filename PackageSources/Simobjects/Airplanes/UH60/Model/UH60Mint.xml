@@ -424,6 +424,43 @@
 
 
 <UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Button_Clock_set</NODE_ID>
+  <TOOLTIPID>Clock Mode toggle</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+    (L:H60_Clock_Mode, bool) ! (&gt;L:H60_Clock_Mode, bool)
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+<UseTemplate Name="DELTASIM_PushButton_Template">
+  <NODE_ID>Button_Clock_Cntrl</NODE_ID>
+  <TOOLTIPID>Clock Control</TOOLTIPID>
+  <LEFT_SINGLE_CODE>
+(L:H60_Clock_Mode, bool) 1 ==
+if{
+
+  ; --- HANDLE MODE SWITCH ---
+  (L:H60_Clock_Control_Mode, enum) 2 >=
+  if{
+    0 (>L:H60_Clock_Control_Mode, enum)
+  } els{
+    (L:H60_Clock_Control_Mode, enum) 1 + (>L:H60_Clock_Control_Mode, enum)
+  }
+
+  ; --- IF ENTERING RUN MODE (0), SET BASELINE ---
+  (L:H60_Clock_Control_Mode, enum) 0 ==
+  if{
+    (E:ABSOLUTE TIME, seconds) (>L:H60_Clock_Time_Baseline, seconds)
+  }
+}
+
+  </LEFT_SINGLE_CODE>
+</UseTemplate>
+
+
+
+
+
+<UseTemplate Name="DELTASIM_PushButton_Template">
   <NODE_ID>Button_HDG</NODE_ID>
   <TOOLTIPID>HDG MODE</TOOLTIPID>
   <LEFT_SINGLE_CODE>

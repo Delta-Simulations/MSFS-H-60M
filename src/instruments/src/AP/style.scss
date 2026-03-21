@@ -6,6 +6,11 @@
     font-family: "mono";
     src: url("/Fonts/mono.ttf") format("truetype");
 }
+@font-face {
+    font-family: "OCRB";
+    src: url("/Fonts/OcrB2.ttf") format("truetype");
+}
+
 text {
     font-family: "BoeingFont";
     letter-spacing: -2px;
@@ -26,4 +31,14 @@ text {
 }
 .YellowVS {
     fill: rgb(175, 190, 11)
+}
+.readouts {
+    font-style: 'italic';
+    font-family: "OCRB";
+    letter-spacing: -0.1px;
+}
+
+.readouts_white {
+ @extend .readouts;
+    fill: white;
 }

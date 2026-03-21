@@ -184,19 +184,6 @@
             }
         },
         {
-            "__uuid": "0b4ac811-f5a7-4217-8cb7-7104dcc228ef",
-            "title": "WindDir",
-            "varPrefix": "A",
-            "varName": "AMBIENT WIND DIRECTION",
-            "varUnit": "number",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 360,
-                "step": 1
-            }
-        },
-        {
             "__uuid": "7d59262d-0173-4a68-847d-649c1c02c855",
             "title": "Egis failed",
             "varPrefix": "L",
@@ -215,7 +202,7 @@
             "style": {
                 "type": 2,
                 "min": 0,
-                "max": 20000,
+                "max": 2000,
                 "step": 0.1
             }
         },
@@ -266,29 +253,6 @@
             }
         },
         {
-            "__uuid": "d2a315c1-a69a-4696-b87a-bbe5a5617c8e",
-            "title": "radalt alert",
-            "varPrefix": "L",
-            "varName": "H60_CAS_RADALT_HI_ALERT",
-            "varUnit": "number",
-            "style": {
-                "type": 3
-            }
-        },
-        {
-            "__uuid": "fb322995-059c-49e5-80a6-5ac372c0fbd9",
-            "title": "refmode",
-            "varPrefix": "L",
-            "varName": "H60_AFCS_REF_SELECT_MODE",
-            "varUnit": "number",
-            "style": {
-                "type": 2,
-                "min": 0,
-                "max": 3,
-                "step": 1
-            }
-        },
-        {
             "__uuid": "0e6dcefb-8c81-444a-bceb-03dba8cac0c3",
             "title": "Disable slow render",
             "varPrefix": "L",
@@ -328,6 +292,45 @@
                 "type": 2,
                 "min": -10,
                 "max": 1000,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "81459500-6024-4a8a-b4e4-879c74f057f9",
+            "title": "BANK",
+            "varPrefix": "A",
+            "varName": "PLANE BANK DEGREES",
+            "varUnit": "degrees",
+            "style": {
+                "type": 2,
+                "min": -90,
+                "max": 90,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "d48868ea-4c0b-4e6e-a545-b2bdaea77e9d",
+            "title": "pitch",
+            "varPrefix": "A",
+            "varName": "PLANE PITCH DEGREES",
+            "varUnit": "degres",
+            "style": {
+                "type": 2,
+                "min": -90,
+                "max": 90,
+                "step": 1
+            }
+        },
+        {
+            "__uuid": "54f126d7-ea8c-49aa-bcb1-a42a795ed08c",
+            "title": "Local time",
+            "varPrefix": "E",
+            "varName": "LOCAL TIME",
+            "varUnit": "number",
+            "style": {
+                "type": 2,
+                "min": 0,
+                "max": 86400,
                 "step": 1
             }
         }

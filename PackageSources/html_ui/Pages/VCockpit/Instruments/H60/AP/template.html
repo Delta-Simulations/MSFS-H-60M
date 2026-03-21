@@ -9589,75 +9589,137 @@
 	};
 
 	const Clock = () => {
-	  useSimVar('A:Autopilot altitude lock var', 'feet');
-	  useSimVar('A:Autopilot airspeed hold var', 'knots');
-	  useSimVar('A:Autopilot heading lock dir', 'degrees');
-	  useSimVar('A:Autopilot vertical hold var', 'ft/min');
-	  useSimVar('L:AP_STAB', 'bool');
+	  const [clockMode] = useSimVar('L:H60_Clock_Mode', 'bool'); // 0 = C, 1 = ET
+
+	  const [timer_sec] = useSimVar('L:H60_Clock_Timer_Sec', 'seconds'); // Timer seconds (for ET mode)
+
+	  const [time] = useSimVar('E:LOCAL TIME', 'seconds');
+	  let active_time = 0;
+
+	  if (clockMode) {
+	    active_time = timer_sec;
+	  } else {
+	    active_time = Math.floor(time * 100) / 100;
+	  } // --- FORMAT TIME (HH:MM:SS) ---
+
+
+	  const {
+	    hh,
+	    mm,
+	    ss
+	  } = react.useMemo(() => {
+	    const hours = Math.floor(active_time / 3600) % 24;
+	    const minutes = Math.floor(active_time % 3600 / 60);
+	    const seconds = Math.floor(active_time % 60);
+	    return {
+	      hh: String(hours).padStart(2, '0'),
+	      mm: String(minutes).padStart(2, '0'),
+	      ss: String(seconds).padStart(2, '0')
+	    };
+	  }, [active_time]); // --- NEEDLE ROTATION (seconds → 360°) ---
+
+	  const seconds = active_time % 60;
+	  const angle = seconds * 6; // 360 / 60
+	  // --- CENTER OF YOUR DIAL (adjust if needed) ---
+
+	  const cx = 896; // ~center of your numbers
+
+	  const cy = 940; // --- DIAL NUMBERS ---
+
+	  const numbers = [{
+	    val: "60",
+	    x: 882,
+	    y: 773
+	  }, {
+	    val: "5",
+	    x: 966,
+	    y: 793
+	  }, {
+	    val: "10",
+	    x: 1018,
+	    y: 846
+	  }, {
+	    val: "15",
+	    x: 1046,
+	    y: 936
+	  }, {
+	    val: "20",
+	    x: 1026,
+	    y: 1016
+	  }, {
+	    val: "25",
+	    x: 970,
+	    y: 1078
+	  }, {
+	    val: "30",
+	    x: 882,
+	    y: 1103
+	  }, {
+	    val: "35",
+	    x: 788,
+	    y: 1072
+	  }, {
+	    val: "40",
+	    x: 748,
+	    y: 1010
+	  }, {
+	    val: "45",
+	    x: 735,
+	    y: 930
+	  }, {
+	    val: "50",
+	    x: 760,
+	    y: 850
+	  }, {
+	    val: "55",
+	    x: 810,
+	    y: 793
+	  }];
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
-	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 882,
-	      y: 773,
+	    children: [numbers.map((n, i) => /*#__PURE__*/jsxRuntime.jsx("text", {
+	      x: 14 + n.x,
+	      y: n.y,
 	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "60"
+	      textAnchor: "middle",
+	      className: "readouts_white",
+	      children: n.val
+	    }, i)), /*#__PURE__*/jsxRuntime.jsx("g", {
+	      transform: "rotate(".concat(angle, " ").concat(cx, " ").concat(cy, ")"),
+	      children: /*#__PURE__*/jsxRuntime.jsx("line", {
+	        x1: cx,
+	        y1: cy,
+	        x2: cx,
+	        y2: cy - 140 // length of needle
+	        ,
+	        stroke: "white",
+	        strokeWidth: 3
+	      })
+	    }), /*#__PURE__*/jsxRuntime.jsx("circle", {
+	      cx: cx,
+	      cy: cy,
+	      r: 100,
+	      fill: "black"
+	    }), /*#__PURE__*/jsxRuntime.jsxs("text", {
+	      x: cx,
+	      y: cy - 43,
+	      fontSize: 50,
+	      textAnchor: "middle",
+	      className: "readouts_white",
+	      children: [hh, mm]
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 962,
-	      y: 793,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "5"
+	      x: cx,
+	      y: cy + 11,
+	      fontSize: 50,
+	      textAnchor: "middle",
+	      className: "readouts_white",
+	      children: ss
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 1018,
-	      y: 846,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "10"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 1046,
-	      y: 936,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "15"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 1026,
-	      y: 1016,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "20"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 970,
-	      y: 1078,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "25"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 882,
-	      y: 1103,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "30"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 788,
-	      y: 1072,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "35"
-	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
-	      x: 748,
-	      y: 1010,
-	      fontSize: 30,
-	      fill: "#00EE00",
-	      className: "ESIS",
-	      children: "40"
+	      x: cx,
+	      y: cy + 67,
+	      fontSize: 50,
+	      textAnchor: "middle",
+	      className: "readouts_white",
+	      children: clockMode ? "ET" : "C"
 	    })]
 	  });
 	};
@@ -9694,15 +9756,15 @@
 	        children: [/*#__PURE__*/jsxRuntime.jsx(Ap_Disp, {}), /*#__PURE__*/jsxRuntime.jsx(Clock, {}), /*#__PURE__*/jsxRuntime.jsx("image", {
 	          x: -400,
 	          y: 550,
-	          xlinkHref: "/Images/ESIS.png",
+	          xlinkHref: "/Images/REF/ESIS.png",
 	          width: 1400,
-	          opacity: 0.7
+	          opacity: 0
 	        }), /*#__PURE__*/jsxRuntime.jsx("image", {
 	          x: 600,
 	          y: 650,
-	          xlinkHref: "/Images/clockH60.png",
+	          xlinkHref: "/Images/REF/clockH60.png",
 	          width: 600,
-	          opacity: 0.8
+	          opacity: 0.2
 	        }), /*#__PURE__*/jsxRuntime.jsx("image", {
 	          x: 0,
 	          y: 0,
@@ -9733,6 +9795,12 @@
   src: url("/Fonts/mono.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "OCRB";
+
+  src: url("/Fonts/OcrB2.ttf") format("truetype");
+}
+
 text {
   font-family: "BoeingFont";
   letter-spacing: -2px;
@@ -9758,6 +9826,16 @@ text {
 
 .YellowVS {
   fill: rgb(175, 190, 11);
+}
+
+.readouts, .readouts_white {
+  font-style: "italic";
+  font-family: "OCRB";
+  letter-spacing: -0.1px;
+}
+
+.readouts_white {
+  fill: white;
 }
     </style>
 </script>
