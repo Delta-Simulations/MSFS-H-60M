@@ -1,5 +1,5 @@
 <ModelBehaviors>
-    <!-- CREATED FOR DELTA SIMULATION AIRCRAFT###################################### -->
+    <!-- UH-60M Variant Initialization ###################################### -->
     <Include ModelBehaviorFile="Asobo\Common.xml" />
     <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml" />
     <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml" />

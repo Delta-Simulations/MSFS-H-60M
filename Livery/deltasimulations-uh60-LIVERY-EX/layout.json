@@ -1,0 +1,74 @@
+{
+  "content": [
+    {
+      "path": "MSFSLayoutGenerator.exe",
+      "size": 363520,
+      "date": 132892273220000000
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/aircraft.cfg",
+      "size": 1708,
+      "date": 134186985211139226
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/model.EXAMPLE/model.CFG",
+      "size": 696,
+      "date": 134186987188989932
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/model.EXAMPLE/UH60VariantExample.xml",
+      "size": 3785,
+      "date": 134186992347280392
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/EXT_BODY_1_BASECOLOR.PNG.DDS",
+      "size": 11184952,
+      "date": 134186979154566058
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/EXT_BODY_1_BASECOLOR.PNG.DDS.json",
+      "size": 102,
+      "date": 134186979154566058
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/EXT_BODY_2_BASECOLOR.PNG.DDS",
+      "size": 11184952,
+      "date": 134186979145384903
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/EXT_BODY_2_BASECOLOR.PNG.DDS.json",
+      "size": 102,
+      "date": 134186979145384903
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/EXT_BODY_PARTS_BASECOLOR.PNG.DDS",
+      "size": 2796344,
+      "date": 134186979142083733
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/EXT_BODY_PARTS_BASECOLOR.PNG.DDS.json",
+      "size": 102,
+      "date": 134186979142083733
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/LIVERY_EXT.PNG.DDS",
+      "size": 22369776,
+      "date": 134186981909537338
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/LIVERY_EXT.PNG.DDS.json",
+      "size": 119,
+      "date": 134186981909537338
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/texture.CFG",
+      "size": 318,
+      "date": 134186986069912043
+    },
+    {
+      "path": "SimObjects/Airplanes/UH60LiveryExample/TEXTURE.EXAMPLE/thumbnail.jpg",
+      "size": 240478,
+      "date": 134186986504621416
+    }
+  ]
+}

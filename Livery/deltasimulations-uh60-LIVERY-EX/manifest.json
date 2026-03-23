@@ -1,0 +1,15 @@
+{
+    "dependencies": [],
+    "content_type": "LIVERY",
+    "title": "UH-60M LIVERY EXAMPLE",
+    "manufacturer": "Sikorsky",
+    "creator": "Joseph",
+    "package_version": "1.0.0",
+    "minimum_game_version": "1.12.1",
+    "release_notes": {
+        "neutral": {
+            "LastUpdate": "",
+            "OlderHistory": ""
+        }
+    }
+}
