@@ -1,816 +1,458 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModelInfo>
-	<LODS>
-    <LOD minSize="0" 	ModelFile="UH60M_LOD00.gltf"/>
-	</LODS>
-	<Behaviors>
-		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
-    <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
-    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
-    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
-    
-    <Component ID="AC_VERSION">
-      <!-- AIRCRAFT VERSION -->
-      <UseTemplate Name="ASOBO_GT_Update">
-        <FREQUENCY>Once</FREQUENCY>
-        <UPDATE_CODE>
-          5.02 (&gt;L:H60_VERSION_ID, number)
-        </UPDATE_CODE>
-      </UseTemplate>
-    </Component>
+  <LODS>
+    <LOD minSize="0" ModelFile="UH60M_LOD00.gltf" />
+  </LODS>
+  <Behaviors>
+    <Include ModelBehaviorFile="Asobo\Exterior.xml" />
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml" />
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Variants_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_FX_Template.xml" />
+    <Component ID="UH60M_Exterior_Main">
 
-    <!-- WATER FX-->
-    <Component ID="LARG1" Node="FX_WATER">
-      <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE><!--(L:EFFECT_WATER,bool) 0 &gt;  -->
-        (L:EFFECT_WATER,bool) (L:Part5, bool) and
-      </FX_CODE>
-      <FX_OFFSET_X>0</FX_OFFSET_X>
-      <FX_OFFSET_Y>0</FX_OFFSET_Y>
-      <FX_OFFSET_Z>0</FX_OFFSET_Z>
-      <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
-      </UseTemplate>
-    </Component>
-
-    <Component ID="MISSILE_VFX" Node="ROCKET_FX1">
-      <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE>
-        (L:ROCKET_anim,bool)
-      </FX_CODE>
-      <FX_OFFSET_X>0</FX_OFFSET_X>
-      <FX_OFFSET_Y>0</FX_OFFSET_Y>
-      <FX_OFFSET_Z>0</FX_OFFSET_Z>
-      <FX_GUID>{2836E9C1-5FF5-4AAD-9015-461573C3D9D8}</FX_GUID>
-      </UseTemplate>
-    </Component>
-    <Component ID="MISSILE_VFX2" Node="ROCKET_FX2">
-      <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE>
-        (L:ROCKET_anim,bool)
-      </FX_CODE>
-      <FX_OFFSET_X>0</FX_OFFSET_X>
-      <FX_OFFSET_Y>0</FX_OFFSET_Y>
-      <FX_OFFSET_Z>0</FX_OFFSET_Z>
-      <FX_GUID>{2836E9C1-5FF5-4AAD-9015-461573C3D9D8}</FX_GUID>
-      </UseTemplate>
-    </Component>
-
-    <Component ID="LANDING_FX">
-      <UseTemplate Name="ASOBO_LANDING_FX"/>
-    </Component>
-
-    <!-- FLARE-->
-      <Component ID="fLAREFX1" Node="Flare_1">
-      <UseTemplate Name="ASOBO_GT_FX"> 
-        <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
-        <FX_OFFSET_X>0</FX_OFFSET_X>
-        <FX_OFFSET_Y>0</FX_OFFSET_Y>
-        <FX_OFFSET_Z>0</FX_OFFSET_Z>
-        <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+      <!-- SET AIRCRAFT VERSION -->
+      <Component ID="AC_VERSION">
+        <UseTemplate Name="ASOBO_GT_Update">
+          <UPDATE_ONCE>True</UPDATE_ONCE>
+          <UPDATE_CODE>
+            5.04 (&gt;L:H60_VERSION_ID, number)
+          </UPDATE_CODE>
         </UseTemplate>
-        </Component>
+      </Component>
 
-        <Component ID="fLAREFX2" Node="Flare_2">
-          <UseTemplate Name="ASOBO_GT_FX"> 
-            <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
-            <FX_OFFSET_X>0</FX_OFFSET_X>
-            <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>0</FX_OFFSET_Z>
-            <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
-            </UseTemplate>
-            </Component>
-        <Component ID="fLAREFX3" Node="Flare_3">
-          <UseTemplate Name="ASOBO_GT_FX"> 
-            <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
-            <FX_OFFSET_X>0</FX_OFFSET_X>
-            <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>0</FX_OFFSET_Z>
-            <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
-            </UseTemplate>
-            </Component>
-        <Component ID="fLAREFX4" Node="Flare_4">
-          <UseTemplate Name="ASOBO_GT_FX"> 
-            <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
-            <FX_OFFSET_X>0</FX_OFFSET_X>
-            <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>0</FX_OFFSET_Z>
-            <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
-            </UseTemplate>
-            </Component>
 
-            <Component ID="GEARS">
+      <UseTemplate Name="DELTASIM_FX_Template">
+      </UseTemplate>
 
-              <UseTemplate Name="ASOBO_GEAR_Center_Template">
-                <ANIM_NAME>c_gear</ANIM_NAME>
-              </UseTemplate>
-          
-              <UseTemplate Name="ASOBO_GEAR_Left_Template">
-                <ANIM_NAME>l_gear</ANIM_NAME>
-              </UseTemplate>
-          
-              <UseTemplate Name="ASOBO_GEAR_Right_Template">
-                <ANIM_NAME>r_gear</ANIM_NAME>
-              </UseTemplate>
-                
 
-            </Component>
+      <!-- FLARE-->
 
-     <Component ID="Light_60W_Nav" Node="Light_60W_Nav">
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-				<EMISSIVE_CODE>
-				   (A:LIGHT NAV ON,bool) 1 == if{ 100 } els{ 0 }
-				</EMISSIVE_CODE>
-			</UseTemplate>
-		  </Component>
-     <Component ID="nav1" Node="NAV_MAST">
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-				<EMISSIVE_CODE>
-				   (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
-				</EMISSIVE_CODE>
-			</UseTemplate>
-		  </Component>
+
+      <Component ID="GEARS">
+        <UseTemplate Name="ASOBO_GEAR_Center_Template">
+          <ANIM_NAME>c_gear</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Left_Template">
+          <ANIM_NAME>l_gear</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Right_Template">
+          <ANIM_NAME>r_gear</ANIM_NAME>
+        </UseTemplate>
+      </Component>
+
+      <Component ID="Light_60W_Nav" Node="Light_60W_Nav">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT NAV ON,bool) 1 == if{ 100 } els{ 0 }
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="nav1" Node="NAV_MAST">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
       <Component ID="nav7" Node="DETAILS.016">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
-             (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+            (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
           </EMISSIVE_CODE>
         </UseTemplate>
-        </Component>
-        <Component ID="nav6" Node="DETAILS.017">
-          <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-            <EMISSIVE_CODE>
-               (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
-            </EMISSIVE_CODE>
-          </UseTemplate>
-          </Component>
-        <Component ID="nav2" Node="ldg1">
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-				<EMISSIVE_CODE>
-				   (A:LIGHT TAXI ON,bool) 1 == if{ 50 } els{ 0 }
-				</EMISSIVE_CODE>
-			</UseTemplate>
-		  </Component>
+      </Component>
+      <Component ID="nav6" Node="DETAILS.017">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT NAV ON,bool) 1 == if{ 50 } els{ 0 }
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="nav2" Node="ldg1">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT TAXI ON,bool) 1 == if{ 50 } els{ 0 }
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+
+      <!-- Slime Lighting -->
+      <Component ID="Slime_Fwd" Node="Slime_Fwd">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT POTENTIOMETER:10, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="Slime_Aft" Node="Slime_Aft">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT POTENTIOMETER:10, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="Slime_Stab" Node="Slime_Stab">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            (A:LIGHT POTENTIOMETER:10, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+
 
       <Component ID="nav3" Node="ldg2">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
-             (A:LIGHT LANDING ON,bool) 1 == if{ 50 } els{ 0 }
+            (A:LIGHT LANDING ON,bool) 1 == if{ 50 } els{ 0 }
           </EMISSIVE_CODE>
         </UseTemplate>
-        </Component>
-    <!-- <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE> -->
-      <Component ID="FXS">
-
-        <Component ID="FX_EXHAUST_LEFT"  Node="FX_EXHAUST_LEFT">
-          <UseTemplate Name="ASOBO_GT_FX">
-              <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
-              <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
-              <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
-              <FX_CODE>(A:GENERAL ENG COMBUSTION:1, Bool) 0 &gt;</FX_CODE>
-          </UseTemplate>
       </Component>
-      <Component ID="FX_EXHAUST_RIGHT"  Node="FX_EXHAUST_RIGHT">
-          <UseTemplate Name="ASOBO_GT_FX">
-              <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
-              <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
-              <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
-              <FX_CODE>(A:GENERAL ENG COMBUSTION:2, Bool) 0 &gt;</FX_CODE>
-          </UseTemplate>
-      </Component>
-      <Component ID="APU_NODE"  Node="APU_NODE">
-        <UseTemplate Name="ASOBO_GT_FX">
-            <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
-            <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
-            <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
-            <FX_CODE>(L:H60_APURunning, Bool) 0 &gt;</FX_CODE>
-        </UseTemplate>
-    </Component>
-    <Component ID="FX_EXHAUST_LEFT_2"  Node="FX_EXHAUST_LEFT">
-      <UseTemplate Name="ASOBO_GT_FX">
-          <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
-          <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
-          <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
-          <FX_CODE>(A:GENERAL ENG COMBUSTION:1, Bool) 0 &gt;</FX_CODE>
-      </UseTemplate>
-  </Component>
-  <Component ID="FX_EXHAUST_RIGHT_2"  Node="FX_EXHAUST_RIGHT">
-      <UseTemplate Name="ASOBO_GT_FX">
-          <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
-          <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
-          <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
-          <FX_CODE>(A:GENERAL ENG COMBUSTION:2, Bool) 0 &gt;</FX_CODE>
-      </UseTemplate>
-  </Component>
 
-
-      <!-- <Component ID="DOWNWASH_TEST" Node="DOWNWASH">
-		<Component ID="FX_LOW_ALTITUDE_DUST_DOWNWASHNEW"  Node="DOWNWASH">
-			<UseTemplate Name="ASOBO_GT_FX">
-				<FX_CODE>
-          (A:PLANE ALT ABOVE GROUND, Feet) 100 &lt; 
-          (A:ROTOR RPM PCT:1, percent) 60 &gt; and
-        </FX_CODE>
-        <FX_GUID>{C8FB3147-D775-4CD1-AC8F-AEB717924F86}</FX_GUID>
-        <FX_NAME>FX_LOW_ALTITUDE_DUST</FX_NAME>
-        <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
-        <FX_NODE>__NO_NODE__</FX_NODE>
-        <ENABLE_SURFACE_TYPE_0>DUST</ENABLE_SURFACE_TYPE_0>
-        <ENABLE_SURFACE_TYPE_1>SNOW</ENABLE_SURFACE_TYPE_1>
-        <ENABLE_SURFACE_TYPE_2>DIRT</ENABLE_SURFACE_TYPE_2>
-			</UseTemplate>
-		</Component>
-  </Component> -->
-
-
-        <Component ID="DOWNWASH_1_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_2_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_3_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_4_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_SAND_1_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_SAND_2_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_SAND_3_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_SAND_4_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_WATER_1_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
-            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
-            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
-            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
-            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
-            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_WATER_2_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
-            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
-            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
-            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
-            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
-            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_WATER_3_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
-            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
-            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
-            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
-            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
-            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
-          </UseTemplate>
-        </Component>
-        <Component ID="DOWNWASH_WATER_4_NODE" Node="DOWNWASH">
-          <UseTemplate Name="ASOBO_GT_FX">
-            <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
-            <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
-            <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
-            <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
-            <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
-            <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
-            <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
-            <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
-            <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
-            <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
-            <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
-          </UseTemplate>
-        </Component>
-      </Component>
       <UseTemplate Name="ASOBO_GT_Update">
-        <FREQUENCY>Once</FREQUENCY>
+        <UPDATE_ONCE>True</UPDATE_ONCE>
         <UPDATE_CODE>
-					100 (&gt;A:GENERAL ENG MIXTURE LEVER POSITION:1, Percent)
-					100 (&gt;A:GENERAL ENG MIXTURE LEVER POSITION:2, Percent)
+          100 (&gt;A:GENERAL ENG MIXTURE LEVER POSITION:1, Percent)
+          100 (&gt;A:GENERAL ENG MIXTURE LEVER POSITION:2, Percent)
         </UPDATE_CODE>
-    </UseTemplate>
-
-    <Component ID="RTRRot">
-		<UseTemplate Name="ASOBO_GT_Update">
-			<UPDATE_ONCE>True</UPDATE_ONCE>
-			<UPDATE_CODE>1 (&gt;O:test_rotor)</UPDATE_CODE>
-		</UseTemplate>
-
-		<UseTemplate Name="Generic_Anim_DELTASIM">
-      <ANIM_NAME>RTR_Rot</ANIM_NAME>
-			<ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
-			<ANIM_LENGTH>360</ANIM_LENGTH>
-			<ANIM_WRAP>1</ANIM_WRAP>
-			<ANIM_DELTA>1</ANIM_DELTA>
-		</UseTemplate>
-
-    <UseTemplate Name="ASOBO_GT_Anim">
-      <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
-			<ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
-			<ANIM_LENGTH>360</ANIM_LENGTH>
-			<ANIM_WRAP>1</ANIM_WRAP>
-			<ANIM_DELTA>1</ANIM_DELTA>
-		</UseTemplate>
-  </Component>	
-  <Component ID="Exterior_Anim">
-      <UseTemplate name="Generic_Anim_DELTASIM">
-        <ANIM_NAME>Exhaust_RotorWake</ANIM_NAME>
-        <ANIM_CODE>
-          (A:ROTOR RPM PCT:1, percent) 300 *
-        </ANIM_CODE>
-        <ANIM_LAG>20</ANIM_LAG>
       </UseTemplate>
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Rtr_cone</ANIM_NAME>
+
+      <Component ID="RTRRot">
+        <Component ID="RotorsMain">
+
+          <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Rotor_Main_Still1</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Rotor_Main_Still2</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Rotor_Main_Still3</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Rotor_Main_Still4</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Main_Rotor_Blur1</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Main_Rotor_Blur2</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Main_Rotor_Blur3</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Main_Rotor_Blur4</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Still1</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Still2</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Still3</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Still4</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Blur1</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Blur2</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Blur3</MODEL_ID>
+          </UseTemplate>
+          <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
+            <MODEL_ID>Tail_Rotor_Blur4</MODEL_ID>
+          </UseTemplate>
+        </Component>
+        <UseTemplate Name="ASOBO_GT_Update">
+          <UPDATE_ONCE>True</UPDATE_ONCE>
+          <UPDATE_CODE>1 (&gt;O:test_rotor)</UPDATE_CODE>
+        </UseTemplate>
+
+        <UseTemplate Name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>RTR_Rot</ANIM_NAME>
+          <ANIM_CODE>(A:ROTOR RPM:1, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+          <ANIM_DELTA>1</ANIM_DELTA>
+        </UseTemplate>
+
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
+          <ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+          <ANIM_DELTA>1</ANIM_DELTA>
+        </UseTemplate>
+      </Component>
+      <Component ID="Exterior_Anim">
+        <UseTemplate name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>Exhaust_RotorWake</ANIM_NAME>
+          <ANIM_CODE>
+            (A:ROTOR RPM PCT:1, percent) 300 *
+          </ANIM_CODE>
+          <ANIM_LAG>20</ANIM_LAG>
+        </UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>Rtr_cone</ANIM_NAME>
           <ANIM_LENGTH>200</ANIM_LENGTH>
-					<ANIM_CODE>
-            
-            
-            (A:SIM ON GROUND, bool) 0 == 
-            if{ 
-              180
+          <ANIM_CODE>
+
+
+            (A:SIM ON GROUND, bool) 0 ==
+            if{
+            180
             } els{
-              (A:DISK CONING PCT:1, percent) 100 + 
+            (A:DISK CONING PCT:1, percent) 100 +
             }
 
 
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
 
 
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>WIPER_MOVE</ANIM_NAME>
-					<ANIM_CODE>
-            (L:H60_WIPER, bool) 1 == 
+        <UseTemplate name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>WIPER_MOVE</ANIM_NAME>
+          <ANIM_CODE>
+            (L:H60_WIPER, bool) 1 ==
             (A:CIRCUIT ON:58,bool) 1 == and
-            if{ 
+            if{
             (E:ABSOLUTE TIME, second) 2 % 100 *
             } els{ 0 }
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>DoorP</ANIM_NAME>
-					<ANIM_CODE>
-            (L:H60_DoorP, bool) 100 * 
-					</ANIM_CODE>
-          <ANIM_LAG>20</ANIM_LAG>
-          <ANIM_LENGTH>100</ANIM_LENGTH>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>DoorCP</ANIM_NAME>
-					<ANIM_CODE>
-            (L:H60_DoorCP, bool) 100 * 
-					</ANIM_CODE>
+          <ANIM_NAME>DoorP</ANIM_NAME>
+          <ANIM_CODE>
+            (L:H60_DoorP, bool) 100 *
+          </ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-				</UseTemplate>
-				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>reardoor</ANIM_NAME>
-					<ANIM_CODE>
+        </UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>DoorCP</ANIM_NAME>
+          <ANIM_CODE>
+            (L:H60_DoorCP, bool) 100 *
+          </ANIM_CODE>
+          <ANIM_LAG>20</ANIM_LAG>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+        </UseTemplate>
+        <UseTemplate name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>reardoor</ANIM_NAME>
+          <ANIM_CODE>
             (L:H60_TroopDoor, bool) 50 *
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LAG>20</ANIM_LAG>
           <ANIM_LENGTH>50</ANIM_LENGTH>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>c_wheel</ANIM_NAME>
-					<ANIM_CODE>
-            (A:GEAR CENTER STEER ANGLE, grads) 0 &gt; if{ (A:GEAR CENTER STEER ANGLE, grads) 0.5 * } els{ (A:GEAR CENTER STEER ANGLE, grads) 0.5 * 200 + }
-					</ANIM_CODE>
+          <ANIM_NAME>c_wheel</ANIM_NAME>
+          <ANIM_CODE>
+            (A:GEAR CENTER STEER ANGLE, grads) 0 &gt; if{ (A:GEAR CENTER STEER ANGLE, grads) 0.5 * }
+            els{ (A:GEAR CENTER STEER ANGLE, grads) 0.5 * 200 + }
+          </ANIM_CODE>
           <ANIM_LENGTH>200</ANIM_LENGTH>
-				</UseTemplate>
-		<UseTemplate Name="ASOBO_GT_Anim">
-      	<ANIM_NAME>l_wheel_anim</ANIM_NAME>
-			<ANIM_SIMVAR>LEFT WHEEL ROTATION ANGLE</ANIM_SIMVAR>
-			<ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
-			<ANIM_LENGTH>360</ANIM_LENGTH>
-			<ANIM_WRAP>1</ANIM_WRAP>
-		</UseTemplate>
-		<UseTemplate Name="ASOBO_GT_Anim">
-      	<ANIM_NAME>r_wheel_anim</ANIM_NAME>
-			<ANIM_SIMVAR>RIGHT WHEEL ROTATION ANGLE</ANIM_SIMVAR>
-			<ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
-			<ANIM_LENGTH>360</ANIM_LENGTH>
-			<ANIM_WRAP>1</ANIM_WRAP>
-		</UseTemplate>
-		<UseTemplate Name="ASOBO_GT_Anim">
-      	<ANIM_NAME>c_wheel_anim</ANIM_NAME>
-			<ANIM_SIMVAR>CENTER WHEEL ROTATION ANGLE</ANIM_SIMVAR>
-			<ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
-			<ANIM_LENGTH>360</ANIM_LENGTH>
-			<ANIM_WRAP>1</ANIM_WRAP>
-		</UseTemplate>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>l_wheel_anim</ANIM_NAME>
+          <ANIM_SIMVAR>LEFT WHEEL ROTATION ANGLE</ANIM_SIMVAR>
+          <ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>r_wheel_anim</ANIM_NAME>
+          <ANIM_SIMVAR>RIGHT WHEEL ROTATION ANGLE</ANIM_SIMVAR>
+          <ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>c_wheel_anim</ANIM_NAME>
+          <ANIM_SIMVAR>CENTER WHEEL ROTATION ANGLE</ANIM_SIMVAR>
+          <ANIM_SIMVAR_UNITS>degrees</ANIM_SIMVAR_UNITS>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+        </UseTemplate>
 
 
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>FLIR_UP_Down</ANIM_NAME>
-					<ANIM_CODE>
-             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
-              if{
+          <ANIM_NAME>FLIR_UP_Down</ANIM_NAME>
+          <ANIM_CODE>
+            (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
+            if{
             (A:PLANE PITCH DEGREES, percent) neg 90 + 1 + 0 max
-              } els{-1}
-					</ANIM_CODE>
+            } els{-1}
+          </ANIM_CODE>
           <ANIM_LENGTH>181</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>FLIR_L_R</ANIM_NAME>
-					<ANIM_CODE>
-             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
-              if{
+          <ANIM_NAME>FLIR_L_R</ANIM_NAME>
+          <ANIM_CODE>
+            (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
+            if{
             (A:PLANE BANK DEGREES, percent) neg 90 + 1 + 0 max
-              } els{-1}
-					</ANIM_CODE>
+            } els{-1}
+          </ANIM_CODE>
           <ANIM_LENGTH>181</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
-
-
+        </UseTemplate>
 
 
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>SL_DownUp</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>SL_DownUp</ANIM_NAME>
+          <ANIM_CODE>
             (L:H60_SL_DownUp,enum)
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>SL_RightLeft</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>SL_RightLeft</ANIM_NAME>
+          <ANIM_CODE>
             (L:H60_SL_RightLeft,enum)
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Hoist_Lower</ANIM_NAME>
-					<ANIM_CODE>
-            (L:H60_Winch, bool) 1 == if{ 
-              (A:RADIO HEIGHT, feet) 20 +
-           } els{100}
-					</ANIM_CODE>
+          <ANIM_NAME>Hoist_Lower</ANIM_NAME>
+          <ANIM_CODE>
+            (L:H60_Winch, bool) 1 == if{
+            (A:RADIO HEIGHT, feet) 20 +
+            } els{100}
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>40</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>DAP_Missile_tilt</ANIM_NAME>
-					<ANIM_CODE>
-            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) -1 * 180 + 
-					</ANIM_CODE>
+          <ANIM_NAME>DAP_Missile_tilt</ANIM_NAME>
+          <ANIM_CODE>
+            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) -1 * 180 +
+          </ANIM_CODE>
           <ANIM_LENGTH>360</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>ROCKET_anim</ANIM_NAME>
-					<ANIM_CODE>
-            (L:ROCKET_anim, bool) 1 == 
-            if{ 
-              (E:ABSOLUTE TIME, second) 2 % 5 * (L:ROCKET_anim, bool) *
+          <ANIM_NAME>ROCKET_anim</ANIM_NAME>
+          <ANIM_CODE>
+            (L:ROCKET_anim, bool) 1 ==
+            if{
+            (E:ABSOLUTE TIME, second) 2 % 5 * (L:ROCKET_anim, bool) *
             } els{ 0 }
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>10</ANIM_LENGTH>
           <ANIM_LAG>110</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Swashplate_Tilt</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>Swashplate_Tilt</ANIM_NAME>
+          <ANIM_CODE>
             (A:ROTOR COLLECTIVE BLADE PITCH PCT, percent)
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Rotor_percent</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>Rotor_percent</ANIM_NAME>
+          <ANIM_CODE>
             (A:TURB ENG1 CORRECTED N1,PERCENT) 40 *
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Probe_ext</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>Probe_ext</ANIM_NAME>
+          <ANIM_CODE>
             (L:Fuel_Door, bool) 100 *
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Hook_Unlock</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>Hook_Unlock</ANIM_NAME>
+          <ANIM_CODE>
             (L:H60_CARGO_HOOK_OPEN, bool) 100 *
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>STAB_POS</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>STAB_POS</ANIM_NAME>
+          <ANIM_CODE>
             (A:ELECTRICAL MASTER BATTERY, bool) (A:AIRSPEED TRUE, Knots) * 20 - 2 *
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>FX_Height</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>FX_Height</ANIM_NAME>
+          <ANIM_CODE>
             (A:RADIO HEIGHT, feet)
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>200</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>DOWNWASH</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>DOWNWASH</ANIM_NAME>
+          <ANIM_CODE>
             (A:RADIO HEIGHT, meters) (A:PLANE PITCH DEGREES, radians) cos / 18 +
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>200</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Hook_ASSY_Extend</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>Hook_ASSY_Extend</ANIM_NAME>
+          <ANIM_CODE>
             (L:Cargo_Hook_EXTEND, bool) if{ 0 } els{ 100 }
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>MGDOOR</ANIM_NAME>
-					<ANIM_CODE>
+          <ANIM_NAME>MGDOOR</ANIM_NAME>
+          <ANIM_CODE>
             (L:H60_GunnerDoor, bool) 100 *
-					</ANIM_CODE>
+          </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
+        </UseTemplate>
 
 
+        <UseTemplate Name="DELTASIM_Variants_Template">
+        </UseTemplate>
 
-        
 
-        <Component ID="DoorAR" Node="DoorR">
-          <UseTemplate Name="ASOBO_GT_Visibility">
-            <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
+        <Component ID="Cargo_Hoist">
+          <UseTemplate name="Generic_Anim_DELTASIM">
+            <ANIM_NAME>Cargo_swingFB</ANIM_NAME>
+            <ANIM_CODE>
+              (A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 +
+              (A:WINDSHIELD WIND VELOCITY, feet) 10 / +
+            </ANIM_CODE>
+            <ANIM_LENGTH>360</ANIM_LENGTH>
+            <ANIM_LAG>20</ANIM_LAG>
+          </UseTemplate>
+          <UseTemplate name="Generic_Anim_DELTASIM">
+            <ANIM_NAME>Cargo_swingLR</ANIM_NAME>
+            <ANIM_CODE>
+              (A:ATTITUDE INDICATOR BANK DEGREES, degree) 180 +
+            </ANIM_CODE>
+            <ANIM_LENGTH>360</ANIM_LENGTH>
+            <ANIM_LAG>30</ANIM_LAG>
           </UseTemplate>
         </Component>
-        <Component ID="DoorAL" Node="DoorL">
-          <UseTemplate Name="ASOBO_GT_Visibility">
-            <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
-          </UseTemplate>
-        </Component>
-        <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Cargo_swingFB</ANIM_NAME>
-					<ANIM_CODE>
-            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 + 
-            (A:WINDSHIELD WIND VELOCITY, feet) 10 / +
-					</ANIM_CODE>
-          <ANIM_LENGTH>360</ANIM_LENGTH>
-          <ANIM_LAG>20</ANIM_LAG>
-				</UseTemplate>
-        <UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>Cargo_swingLR</ANIM_NAME>
-					<ANIM_CODE>
-            (A:ATTITUDE INDICATOR BANK DEGREES, degree) 180 +
-					</ANIM_CODE>
-          <ANIM_LENGTH>360</ANIM_LENGTH>
-          <ANIM_LAG>30</ANIM_LAG>
-				</UseTemplate>
-        <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Rotor_Main_Still1</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Rotor_Main_Still2</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Rotor_Main_Still3</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Rotor_Main_Still4</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Blur1</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Blur2</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Blur3</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Main_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Main_Rotor_Blur4</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Still1</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Still2</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Still3</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Still_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Still4</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Blur1</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Blur2</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Blur3</MODEL_ID>
-        </UseTemplate>
-        <UseTemplate Name="Tail_Rotor_Blur_Visibility_DELTASIM">
-          <MODEL_ID>Tail_Rotor_Blur4</MODEL_ID>
-        </UseTemplate>
 
 
-    </Component>	
-</Behaviors>
-  <!-- CUSTOM ANIMATIONS GO BELOW RTR_Rot -->
-
-  <Animation name="SLIMELGT" guid="05844ecd-e147-4c76-a2df-9dee0d13c5f2" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>SLIMELGT</Name>
-    <AnimLength>1</AnimLength>
-    <Materials> <Emissive> <Parameter>
-        <Code>
-          (A:LIGHT POTENTIOMETER:10, percent) 0.003 * (A:ELECTRICAL MASTER BATTERY, bool) *
-        </Code>
-      </Parameter> </Emissive> </Materials>
-  </PartInfo>
-<Animation name="ModelPart_AVNCS_Bay_Default" guid="acec7437-b432-4757-92e8-9bfeecf530ea" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_AVNCS_Bay_Default</Name>
-<Visibility><Parameter><Code>
-						1
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Pylons_Stock" guid="e750f5fa-c437-45ef-af66-c095d73a608f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Pylons_Stock</Name>
-  <Visibility><Parameter><Code>
-              (L:H60_Pylons_Fuel)
-  </Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Pylons_Fuel" guid="b2c4313a-097d-42ba-bcd6-837983581c79" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Pylons_Fuel</Name>
-  <Visibility><Parameter><Code>
-              (L:H60_Pylons_Fuel)
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_Pylons_Missiles" guid="afdd56b9-c89f-4f17-8412-ce20c6e74cf6" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Pylons_Missiles</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_Skis" guid="c38ec082-0489-43f3-9daf-eed03164f3b9" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Skis</Name>
-  <Visibility><Parameter><Code>
-            (L:H60_Skis)
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_Nose_FLIR" guid="851c8820-6346-4283-a0fa-8ca665116b5f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Nose_FLIR</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_Bambi_Bucket" guid="a276a975-9db9-49af-9915-dd91c64c7b70" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Bambi_Bucket</Name>
-  <Visibility><Parameter><Code>
-            (L:H60_Fire_Bucket) (A:RADIO HEIGHT, feet) 17 &gt; and
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_EBF" guid="01931e75-5f93-4b19-b64b-4fdd7d77f520" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_EBF</Name>
-  <Visibility><Parameter><Code>
-    (L:H60_EBF)
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_Antenna_Stock" guid="27322194-af80-4560-a157-ceb672930f76" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Antenna_Stock</Name>
-  <Visibility><Parameter><Code>
-              1
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_60M_Sensors" guid="041b89e9-d9be-4b1f-8d20-bdfc91f7c596" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_60M_Sensors</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  
-  <Animation name="ModelPart_Hoist" guid="fdf65699-d055-4329-bf4a-638f14f33122" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Hoist</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_ECM" guid="bd75bc59-59a2-45c2-a3b4-86929672ff73" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_ECM</Name>
-  <Visibility><Parameter><Code>
-              1
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_60W_Sensors" guid="6ef37306-4650-4121-8504-a5170451d90c" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_60W_Sensors</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_RefuelProbe" guid="6d8e66b1-16c3-4547-808d-972e3ce6b2aa" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_RefuelProbe</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_FrontFlare" guid="f90683eb-35d4-4489-9db2-de73029ddd04" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_FrontFlare</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-  <Animation name="ModelPart_Antenna_FM" guid="a58ec8ad-2053-4342-8255-5c260c8c3df5" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>ModelPart_Antenna_FM</Name>
-    <Visibility><Parameter><Code>
-                0
-    </Code></Parameter></Visibility></PartInfo>
-
-  <Animation name="Base_IRCM" guid="06bd9c0c-bc6b-4e00-9c5d-3a22ded66887" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>Base_IRCM</Name>
-    <Visibility><Parameter><Code>
-                1
-    </Code></Parameter></Visibility></PartInfo>
-
-  <Animation name="Modelpart_bubble_Window" guid="c1b9e4c8-384b-4394-8789-11fd99a5c27a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>Modelpart_bubble_Window</Name>
-    <Visibility><Parameter><Code>
-                0
-    </Code></Parameter></Visibility></PartInfo>
-  <Animation name="Modelpart_norm_Window" guid="321fcb5d-d7ee-4aae-850d-8040dfd2607a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>Modelpart_norm_Window</Name>
-    <Visibility><Parameter><Code>
-                1
-    </Code></Parameter></Visibility></PartInfo>
-
-
-
+      </Component>
+    </Component>
+  </Behaviors>
 </ModelInfo>

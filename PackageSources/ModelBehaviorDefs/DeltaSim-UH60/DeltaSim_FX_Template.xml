@@ -1,0 +1,285 @@
+<ModelBehaviors>
+    <!-- CREATED FOR DELTA SIMULATION AIRCRAFT###################################### -->
+    <Include ModelBehaviorFile="Asobo\Common.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\FMC.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml" />
+    <Include Path="DeltaSim_Switch_Template.xml" />
+    <Include Path="DeltaSim_Lighting_Template.xml" />
+    <Include Path="DeltaSim_Anim_Template.xml" />
+
+    <Template Name="DELTASIM_FX_Template">
+        <Component ID="Effects_UH60M">
+
+            <Component ID="FX_EXHAUST_LEFT" Node="FX_EXHAUST_LEFT">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+                    <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+                    <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+                    <FX_CODE>(A:GENERAL ENG COMBUSTION:1, Bool) 0 &gt;</FX_CODE>
+                </UseTemplate>
+            </Component>
+            <Component ID="FX_EXHAUST_RIGHT" Node="FX_EXHAUST_RIGHT">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+                    <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+                    <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+                    <FX_CODE>(A:GENERAL ENG COMBUSTION:2, Bool) 0 &gt;</FX_CODE>
+                </UseTemplate>
+            </Component>
+            <Component ID="APU_NODE" Node="APU_NODE">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+                    <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+                    <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+                    <FX_CODE>(L:H60_APURunning, Bool) 0 &gt;</FX_CODE>
+                </UseTemplate>
+            </Component>
+            <Component ID="FX_EXHAUST_LEFT_2" Node="FX_EXHAUST_LEFT">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+                    <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+                    <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+                    <FX_CODE>(A:GENERAL ENG COMBUSTION:1, Bool) 0 &gt;</FX_CODE>
+                </UseTemplate>
+            </Component>
+            <Component ID="FX_EXHAUST_RIGHT_2" Node="FX_EXHAUST_RIGHT">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_GUID>{605EBB42-DA6B-4965-9199-9AE59BF7FD83}</FX_GUID>
+                    <FX_NAME>FX_EXHAUST_HEAT</FX_NAME>
+                    <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+                    <FX_CODE>(A:GENERAL ENG COMBUSTION:2, Bool) 0 &gt;</FX_CODE>
+                </UseTemplate>
+            </Component>
+
+
+            <!-- <Component ID="DOWNWASH_TEST" Node="DOWNWASH">
+		<Component ID="FX_LOW_ALTITUDE_DUST_DOWNWASHNEW"  Node="DOWNWASH">
+			<UseTemplate Name="ASOBO_GT_FX">
+				<FX_CODE>
+          (A:PLANE ALT ABOVE GROUND, Feet) 100 &lt; 
+          (A:ROTOR RPM PCT:1, percent) 60 &gt; and
+        </FX_CODE>
+        <FX_GUID>{C8FB3147-D775-4CD1-AC8F-AEB717924F86}</FX_GUID>
+        <FX_NAME>FX_LOW_ALTITUDE_DUST</FX_NAME>
+        <FX_CONTACT_POINT_ID>-1</FX_CONTACT_POINT_ID>
+        <FX_NODE>__NO_NODE__</FX_NODE>
+        <ENABLE_SURFACE_TYPE_0>DUST</ENABLE_SURFACE_TYPE_0>
+        <ENABLE_SURFACE_TYPE_1>SNOW</ENABLE_SURFACE_TYPE_1>
+        <ENABLE_SURFACE_TYPE_2>DIRT</ENABLE_SURFACE_TYPE_2>
+			</UseTemplate>
+		</Component>
+  </Component> -->
+
+
+            <Component ID="DOWNWASH_1_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_2_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_3_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_4_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{936C9B32-A095-47F6-9619-15D8EE073614}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_SAND_1_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_SAND_2_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_SAND_3_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_SAND_4_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{7FAFB2D3-26B7-46C2-972F-D2A5A4A011B1}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>SAND</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>DIRT</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>GRASS</ENABLE_SURFACE_TYPE_2>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_WATER_1_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>0.0</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+                    <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+                    <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+                    <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+                    <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+                    <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_WATER_2_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>90</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+                    <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+                    <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+                    <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+                    <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+                    <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_WATER_3_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>180</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+                    <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+                    <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+                    <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+                    <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+                    <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+                </UseTemplate>
+            </Component>
+            <Component ID="DOWNWASH_WATER_4_NODE" Node="DOWNWASH">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:UH60_EFFECT_DOWNWASH,bool) 0 == </FX_CODE>
+                    <FX_ROTATION_OFFSET_H>270</FX_ROTATION_OFFSET_H>
+                    <FX_GUID>{D5BEC8C6-F805-4A46-ADF4-7DF97083E642}</FX_GUID>
+                    <ENABLE_SURFACE_TYPE_0>RIVER</ENABLE_SURFACE_TYPE_0>
+                    <ENABLE_SURFACE_TYPE_1>WASTE_WATER</ENABLE_SURFACE_TYPE_1>
+                    <ENABLE_SURFACE_TYPE_2>WATER</ENABLE_SURFACE_TYPE_2>
+                    <ENABLE_SURFACE_TYPE_3>POND</ENABLE_SURFACE_TYPE_3>
+                    <ENABLE_SURFACE_TYPE_4>LAKE</ENABLE_SURFACE_TYPE_4>
+                    <ENABLE_SURFACE_TYPE_5>OCEAN</ENABLE_SURFACE_TYPE_5>
+                    <ENABLE_SURFACE_TYPE_6>WATER_FSX</ENABLE_SURFACE_TYPE_6>
+                    <ENABLE_SURFACE_TYPE_7>SNOW</ENABLE_SURFACE_TYPE_7>
+                </UseTemplate>
+            </Component>
+
+            <!-- WATER FX-->
+            <Component ID="LARG1" Node="FX_WATER">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE><!--(L:EFFECT_WATER,bool)
+                        0 &gt;  --> (L:EFFECT_WATER,bool) (L:Part5, bool) and </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="MISSILE_VFX" Node="ROCKET_FX1">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>
+                        (L:ROCKET_anim,bool)
+                    </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{2836E9C1-5FF5-4AAD-9015-461573C3D9D8}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="MISSILE_VFX2" Node="ROCKET_FX2">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>
+                        (L:ROCKET_anim,bool)
+                    </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{2836E9C1-5FF5-4AAD-9015-461573C3D9D8}</FX_GUID>
+                </UseTemplate>
+            </Component>
+
+            <Component ID="fLAREFX1" Node="Flare_1">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+                </UseTemplate>
+            </Component>
+
+            <Component ID="fLAREFX2" Node="Flare_2">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="fLAREFX3" Node="Flare_3">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="fLAREFX4" Node="Flare_4">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:EFFECT_FLARE,bool) 0 &gt; </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{5D0A70AF-3C3D-403F-B929-199559C72F2D}</FX_GUID>
+                </UseTemplate>
+            </Component>
+
+            <Component ID="LANDING_FX">
+                <UseTemplate Name="ASOBO_LANDING_FX" />
+            </Component>
+
+
+        </Component>
+    </Template>
+</ModelBehaviors>

@@ -11,7 +11,7 @@
         <DefaultTemplateParameters>
             <VISIBILITY_CODE>0</VISIBILITY_CODE>
         </DefaultTemplateParameters>
-        <Component ID="#MODEL_ID#" Node="#MODEL_ID#">
+        <Component ID="#Node#" Node="#Node#">
             <UseTemplate Name="ASOBO_GT_Visibility">
                 <VISIBILITY_CODE>#VISIBILITY_CODE#</VISIBILITY_CODE>
             </UseTemplate>

@@ -43,7 +43,6 @@
 			<AssetDir>PackageSources\MaterialLibs\materials-flares\</AssetDir>
 			<OutputDir>MaterialLibs\materials-flares\</OutputDir>
 		</AssetGroup>
-
 		<AssetGroup Name="Flares_Material_Lib">
 			<Type>Copy</Type>
 			<Flags>
@@ -52,7 +51,6 @@
 			<AssetDir>PackageSources\VisualEffectLibs\UH60Flares\effects-flares\</AssetDir>
 			<OutputDir>VisualEffectLibs\UH60Flares\effects-flares\</OutputDir>
 		</AssetGroup>
-
 		<AssetGroup Name="ModelBehaviorDefs">
 			<Type>Copy</Type>
 			<Flags>
@@ -87,3 +85,4 @@
 		</AssetGroup>
 	</AssetGroups>
 </AssetPackage>
+

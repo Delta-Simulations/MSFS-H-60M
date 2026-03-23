@@ -1,0 +1,209 @@
+<ModelBehaviors>
+    <!-- CREATED FOR DELTA SIMULATION AIRCRAFT###################################### -->
+    <Include ModelBehaviorFile="Asobo\Common.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\FMC.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml" />
+    <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml" />
+    <Include Path="DeltaSim_Switch_Template.xml" />
+    <Include Path="DeltaSim_Lighting_Template.xml" />
+    <Include Path="DeltaSim_Anim_Template.xml" />
+
+    <Template Name="DELTASIM_Variants_Template">
+        <DefaultTemplateParameters>
+            <EIBF_INSTALLED>(L:H60_EBF)</EIBF_INSTALLED>
+            <SKIS_INSTALLED>(L:H60_Skis)</SKIS_INSTALLED>
+            <CPITDOORS_INSTALLED>(L:H60_FrontDoorVis) ! </CPITDOORS_INSTALLED>
+            <AVNCS_DEFAULT_INSTALLED>1</AVNCS_DEFAULT_INSTALLED>
+            <DAP_PYLONS_INSTALLED>0</DAP_PYLONS_INSTALLED>
+            <HH60M_Flir_INSTALLED>0</HH60M_Flir_INSTALLED>
+            <Stock_Tail_Antenna_INSTALLED>1</Stock_Tail_Antenna_INSTALLED>
+            <MH60M_Parts_INSTALLED>0</MH60M_Parts_INSTALLED>
+            <Hoist_INSTALLED>0</Hoist_INSTALLED>
+            <Tail_CM_INSTALLED>1</Tail_CM_INSTALLED>
+            <HH60W_Parts_INSTALLED>0</HH60W_Parts_INSTALLED>
+            <Fuel_Probe_INSTALLED>0</Fuel_Probe_INSTALLED>
+            <MLG_CM_INSTALLED>0</MLG_CM_INSTALLED>
+            <FM_ANTENNA_INSTALLED>0</FM_ANTENNA_INSTALLED>
+            <Stock_MWS_INSTALLED>1</Stock_MWS_INSTALLED>
+            <Bubble_Window_INSTALLED>0</Bubble_Window_INSTALLED>
+            <UES_INSTALLED>1</UES_INSTALLED>
+        </DefaultTemplateParameters>
+
+    <Component ID="Parts_LIVERY_CHECKER">
+      <UseTemplate Name="ASOBO_GT_Update">
+        <UPDATE_ONCE>True</UPDATE_ONCE>
+        <UPDATE_CODE>
+          #Fuel_Probe_INSTALLED# (&gt;L:H60_HasProbe)
+          #Hoist_INSTALLED# (&gt;L:H60_HasHoist)
+          #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasMissile)
+        </UPDATE_CODE>
+      </UseTemplate>
+    </Component>
+
+        <!-- SKIS -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#SKIS_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Ski_L</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#SKIS_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Ski_C</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#SKIS_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Ski_R</NODE>
+        </UseTemplate>
+
+        <!-- ENGINE FILTER -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#EIBF_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Variant_EIBF</NODE>
+        </UseTemplate>
+
+
+        <!-- Cockpit Doors -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#CPITDOORS_INSTALLED#</VISIBILITY_CODE>
+            <NODE>DoorR</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#CPITDOORS_INSTALLED#</VISIBILITY_CODE>
+            <NODE>DoorL</NODE>
+        </UseTemplate>
+
+        <!-- Avionics Intake, hidden for HH60W -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#AVNCS_DEFAULT_INSTALLED#</VISIBILITY_CODE>
+            <NODE>ModelPart_AVNCS_Bay_Default</NODE>
+        </UseTemplate>
+
+        <!-- MH60M DAP Pylons -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED#</VISIBILITY_CODE>
+            <NODE>DAP_Pylon</NODE>
+        </UseTemplate>
+
+        <!-- HH60M Flir -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
+            <NODE>60M_Flir</NODE>
+        </UseTemplate>
+
+        <!-- Stock Tail antennas, hidden in HH60W -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Stock_Tail_Antenna_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Stock_Tail_Antenna</NODE>
+        </UseTemplate>
+
+        <!-- MH-60M / 160th sensors, parts -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#MH60M_Parts_INSTALLED#</VISIBILITY_CODE>
+            <NODE>MH60M_Parts</NODE>
+        </UseTemplate>
+
+        <!-- Hoist Installed? -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Hoist_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Hoist_Main</NODE>
+        </UseTemplate>
+
+        <!-- Military Components installed? Hidden for civs-->
+        <Component ID="Mil_Components">
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
+            <NODE>ChaffFlare_Parent</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Tail_MWS</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Nose_Heat_MWS</NODE>
+        </UseTemplate>
+        </Component>
+        <!-- HH-60W Sensors, parts -->
+        <Component ID="HH60W">
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60W_Parts_INSTALLED#</VISIBILITY_CODE>
+                <NODE>HH60W_Static</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60W_Parts_INSTALLED#</VISIBILITY_CODE>
+                <NODE>HH60W_Extended_Fuel</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60W_Parts_INSTALLED#</VISIBILITY_CODE>
+                <NODE>GAU-21_L</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60W_Parts_INSTALLED#</VISIBILITY_CODE>
+                <NODE>MG_MOUNT_L</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60W_Parts_INSTALLED#</VISIBILITY_CODE>
+                <NODE>MG_MOUNT_R</NODE>
+            </UseTemplate>
+        </Component>
+
+        <!-- Refueling Probe Installed? -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Fuel_Probe_INSTALLED#</VISIBILITY_CODE>
+            <NODE>RefuelProbe_Main</NODE>
+        </UseTemplate>
+
+        <!-- FrontGear Bucket Installed? Only on HH60W -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#MLG_CM_INSTALLED#</VISIBILITY_CODE>
+            <NODE>FrontChaff_MLG</NODE>
+        </UseTemplate>
+
+        <!-- Top FM Antennas Installed? On MH60M and HRT-->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#FM_ANTENNA_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Front_FM</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#FM_ANTENNA_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Rear_FM</NODE>
+        </UseTemplate>
+        <!-- Base Missile Warning Sensors Installed? Hidden for MH60M, Civ -->
+        <Component ID="StockMWS_Group">
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#Stock_MWS_INSTALLED#</VISIBILITY_CODE>
+                <NODE>Nose_MWS</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#Stock_MWS_INSTALLED#</VISIBILITY_CODE>
+                <NODE>Rear_ANAVR2_Mounts</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#Stock_MWS_INSTALLED#</VISIBILITY_CODE>
+                <NODE>ANAVR2_MLG</NODE>
+            </UseTemplate>
+        </Component>
+
+        <!-- Troop Bubble window installed? On HH60M -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Bubble_Window_INSTALLED#</VISIBILITY_CODE>
+            <NODE>Bubble_Window</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#Bubble_Window_INSTALLED# ! </VISIBILITY_CODE>
+            <NODE>Norm_window</NODE>
+        </UseTemplate>
+
+        <!-- UES / Upturned Exhaust System Installed, or HIRSS?-->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#UES_INSTALLED#</VISIBILITY_CODE>
+            <NODE>UES_Main</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#UES_INSTALLED# ! </VISIBILITY_CODE>
+            <NODE>HIRSS_Main</NODE>
+        </UseTemplate>
+
+    </Template>
+</ModelBehaviors>

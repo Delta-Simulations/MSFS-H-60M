@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModelInfo>
+	<LODS>
+		<LOD minSize="0" ModelFile="..\model\UH60M_LOD00.gltf"/>
+	</LODS>
+	<Behaviors>
+		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
+    <Include ModelBehaviorFile="Asobo\Exterior.xml" />
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml" />
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Variants_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_FX_Template.xml" />
+
+<Component ID="Variant_Configuration">
+      <UseTemplate Name = "DELTASIM_Variants_Template">      
+        <UES_INSTALLED>         0     </UES_INSTALLED>
+      </UseTemplate>
+</Component>
+</Behaviors>
+</ModelInfo>

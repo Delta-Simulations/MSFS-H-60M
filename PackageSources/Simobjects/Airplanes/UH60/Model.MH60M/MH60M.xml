@@ -5,126 +5,47 @@
 	</LODS>
 	<Behaviors>
 		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
-    <Component ID="Parts_LIVERY_CHECKER">
-      <UseTemplate Name="ASOBO_GT_Update">
-        <FREQUENCY>1</FREQUENCY>
-        <UPDATE_CODE>
-          1 (&gt;L:H60_HasProbe)
-          1 (&gt;L:H60_HasHoist)
-        </UPDATE_CODE>
+    <Include ModelBehaviorFile="Asobo\Exterior.xml" />
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml" />
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Variants_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_FX_Template.xml" />
+
+<Component ID="Variant_Configuration">
+      <UseTemplate Name = "DELTASIM_Variants_Template"> 
+        <EIBF_INSTALLED>                  (L:H60_EBF)      </EIBF_INSTALLED>                  
+        <SKIS_INSTALLED>                  (L:H60_Skis)</SKIS_INSTALLED>                  
+        <CPITDOORS_INSTALLED>             (L:H60_FrontDoorVis) ! </CPITDOORS_INSTALLED> 
+        <!-- Avionics Intake, hidden for HH60W -->
+        <AVNCS_DEFAULT_INSTALLED>         1     </AVNCS_DEFAULT_INSTALLED>      
+        <!-- Stock Tail antennas, hidden in HH60W -->                       
+        <Stock_Tail_Antenna_INSTALLED>    0     </Stock_Tail_Antenna_INSTALLED>
+        <!-- Hoist Installed? -->                         
+        <Hoist_INSTALLED>                 1     </Hoist_INSTALLED>        
+        <!-- Tail Chaff/Flare Bucket Installed? -->          
+        <Tail_CM_INSTALLED>               1     </Tail_CM_INSTALLED>   
+        <!-- Refueling Probe Installed?-->               
+        <Fuel_Probe_INSTALLED>            1     </Fuel_Probe_INSTALLED>      
+        <!-- FrontGear Chaff/Flare bucket Installed? Only on HH60W -->            
+        <MLG_CM_INSTALLED>                0     </MLG_CM_INSTALLED>      
+        <!-- Top FM Antennas Installed? On MH60M and HRT-->            
+        <FM_ANTENNA_INSTALLED>            1     </FM_ANTENNA_INSTALLED>  
+        <!-- Base Missile Warning Sensors Installed? Hidden for MH60M, Civ -->                
+        <Stock_MWS_INSTALLED>             0     </Stock_MWS_INSTALLED>        
+        <!-- Troop Bubble window installed? On HH60M -->          
+        <Bubble_Window_INSTALLED>         0     </Bubble_Window_INSTALLED>
+
+        <!-- Specific variant parts -->
+        <!-- MH-60M / 160th sensors, parts -->
+        <MH60M_Parts_INSTALLED>           1     </MH60M_Parts_INSTALLED> 
+        <!-- HH60M Flir -->     
+        <HH60M_Flir_INSTALLED>            0     </HH60M_Flir_INSTALLED> 
+        <!-- HH-60W Sensors, parts -->  
+        <HH60W_Parts_INSTALLED>           0     </HH60W_Parts_INSTALLED>
+        <!-- MH60M DAP Pylons -->      
+        <DAP_PYLONS_INSTALLED>            0     </DAP_PYLONS_INSTALLED>          
       </UseTemplate>
-    </Component>	
-	</Behaviors>
-  <Animation name="SLIMELGT" guid="05844ecd-e147-4c76-a2df-9dee0d13c5f2" type="Sim" typeParam="AutoPlay" />
-  <PartInfo>
-    <Name>SLIMELGT</Name>
-    <AnimLength>1</AnimLength>
-    <Materials> <Emissive> <Parameter>
-        <Code>
-          (A:LIGHT POTENTIOMETER:10, percent) 0.003 * (A:ELECTRICAL MASTER BATTERY, bool) *
-        </Code>
-      </Parameter> </Emissive> </Materials>
-  </PartInfo>
-
-<Animation name="ModelPart_Pylons_Stock" guid="e750f5fa-c437-45ef-af66-c095d73a608f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Pylons_Stock</Name>
-  <Visibility><Parameter><Code>
-              1
-  </Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Pylons_Missiles" guid="134bf79e-7348-4e73-b2dd-0d5763e5a21d" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Pylons_Missiles</Name>
-  <Visibility><Parameter><Code>
-              0
-  </Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Pylons_Fuel" guid="b2c4313a-097d-42ba-bcd6-837983581c79" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_Pylons_Fuel</Name>
-<Visibility><Parameter><Code>
-						0
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Skis" guid="c38ec082-0489-43f3-9daf-eed03164f3b9" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_Skis</Name>
-<Visibility><Parameter><Code>
-	(L:H60_Skis)
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Nose_FLIR" guid="851c8820-6346-4283-a0fa-8ca665116b5f" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_Nose_FLIR</Name>
-<Visibility><Parameter><Code>
-						0
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Bambi_Bucket" guid="a276a975-9db9-49af-9915-dd91c64c7b70" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_Bambi_Bucket</Name>
-<Visibility><Parameter><Code>
-  (L:H60_Fire_Bucket) (A:RADIO HEIGHT, feet) 17 &gt; and
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_EBF" guid="01931e75-5f93-4b19-b64b-4fdd7d77f520" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_EBF</Name>
-<Visibility><Parameter><Code>
-  (L:H60_EBF)
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Antenna_Stock" guid="27322194-af80-4560-a157-ceb672930f76" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_Antenna_Stock</Name>
-<Visibility><Parameter><Code>
-						1
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_60M_Sensors" guid="041b89e9-d9be-4b1f-8d20-bdfc91f7c596" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_60M_Sensors</Name>
-<Visibility><Parameter><Code>
-						1
-</Code></Parameter></Visibility></PartInfo>
-
-
-<Animation name="ModelPart_Hoist" guid="fdf65699-d055-4329-bf4a-638f14f33122" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_Hoist</Name>
-<Visibility><Parameter><Code>
-						1 
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_ECM" guid="bd75bc59-59a2-45c2-a3b4-86929672ff73" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_ECM</Name>
-<Visibility><Parameter><Code>
-						1
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_60W_Sensors" guid="050b997c-d59b-4a7e-acdb-9fc5da39c1cf" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_60W_Sensors</Name>
-<Visibility><Parameter><Code>
-						0
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_RefuelProbe" guid="6d8e66b1-16c3-4547-808d-972e3ce6b2aa" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_RefuelProbe</Name>
-<Visibility><Parameter><Code>
-						1 
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_FrontFlare" guid="f90683eb-35d4-4489-9db2-de73029ddd04" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_FrontFlare</Name>
-<Visibility><Parameter><Code>
-						0
-</Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_Antenna_FM" guid="a58ec8ad-2053-4342-8255-5c260c8c3df5" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-  <Name>ModelPart_Antenna_FM</Name>
-  <Visibility><Parameter><Code>
-              1
-  </Code></Parameter></Visibility></PartInfo>
-<Animation name="ModelPart_AVNCS_Bay_Default" guid="acec7437-b432-4757-92e8-9bfeecf530ea" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-<Name>ModelPart_AVNCS_Bay_Default</Name>
-<Visibility><Parameter><Code>
-						1
-</Code></Parameter></Visibility></PartInfo>
-
-  <Animation name="Base_IRCM" guid="06bd9c0c-bc6b-4e00-9c5d-3a22ded66887" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>Base_IRCM</Name>
-    <Visibility><Parameter><Code>
-                0
-    </Code></Parameter></Visibility></PartInfo>
-
-    
-  <Animation name="Modelpart_bubble_Window" guid="c1b9e4c8-384b-4394-8789-11fd99a5c27a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>Modelpart_bubble_Window</Name>
-    <Visibility><Parameter><Code>
-                0
-    </Code></Parameter></Visibility></PartInfo>
-  <Animation name="Modelpart_norm_Window" guid="321fcb5d-d7ee-4aae-850d-8040dfd2607a" length="1" type="Sim" typeparam="AutoPlay" /><PartInfo>
-    <Name>Modelpart_norm_Window</Name>
-    <Visibility><Parameter><Code>
-                1
-    </Code></Parameter></Visibility></PartInfo>
-
+</Component>
+</Behaviors>
 </ModelInfo>
