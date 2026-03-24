@@ -1060,7 +1060,7 @@ if{
     <ANIM_LENGTH>100</ANIM_LENGTH>
     <ANIM_LAG>20</ANIM_LAG>
   </UseTemplate>
-		<Component ID="PILOT_VISIBILITY1" Node="Pilot_Head.004">
+		<Component ID="PILOT_VISIBILITY1" Node="Pilot_main">
 			<UseTemplate Name="ASOBO_GT_Visibility">
 				<VISIBILITY_CODE>
 					(A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and
