@@ -17,7 +17,7 @@
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
-            5.04 (&gt;L:H60_VERSION_ID, number)
+            5.05 (&gt;L:H60_VERSION_ID, number)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -290,7 +290,7 @@
             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
             if{
             (A:PLANE PITCH DEGREES, percent) neg 90 + 1 + 0 max
-            } els{-1}
+            } els{ -1 }
           </ANIM_CODE>
           <ANIM_LENGTH>181</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
@@ -301,7 +301,7 @@
             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
             if{
             (A:PLANE BANK DEGREES, percent) neg 90 + 1 + 0 max
-            } els{-1}
+            } els{ -1 }
           </ANIM_CODE>
           <ANIM_LENGTH>181</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
@@ -327,9 +327,10 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>Hoist_Lower</ANIM_NAME>
           <ANIM_CODE>
-            (L:H60_Winch, bool) 1 == if{
+            (L:H60_Winch, bool) 1 ==
+            if{
             (A:RADIO HEIGHT, feet) 20 +
-            } els{100}
+            } els{ 0 }
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
           <ANIM_LAG>40</ANIM_LAG>
