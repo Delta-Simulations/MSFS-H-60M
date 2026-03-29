@@ -17,9 +17,6 @@
     <Include Path="DeltaSim-UH60\Index.xml" />
 <Component ID="BaseInteriorComponent">
 
-        <UseTemplate Name="DELTASIM_Variants_Template">
-        </UseTemplate>
-
 <Component ID="MFD">
   <UseTemplate Name="DELTASIM_FDDCP_Template">
     <ID>1</ID>
@@ -673,7 +670,10 @@ if{
     <NODE>New_ipad_mount</NODE>
   </UseTemplate>
 
-
+  <UseTemplate Name="Generic_Visibility_DELTASIM">
+    <VISIBILITY_CODE>(L:H60_HasMissile, bool)</VISIBILITY_CODE>
+    <NODE>DAP_Targeting_Base</NODE>
+  </UseTemplate>
 
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
