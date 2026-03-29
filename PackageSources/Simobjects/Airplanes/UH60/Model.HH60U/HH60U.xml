@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModelInfo>
+	<LODS>
+		<LOD minSize="0" ModelFile="..\model\UH60M_LOD00.gltf"/>
+	</LODS>
+	<Behaviors>
+		<IncludeBase RelativeFile="..\Model\UH60M.XML"/>
+    <Include ModelBehaviorFile="Asobo\Exterior.xml" />
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml" />
+    <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_Variants_Template.xml" />
+    <Include Path="DeltaSim-UH60\DeltaSim_FX_Template.xml" />
+
+<Component ID="Variant_Configuration">
+      <UseTemplate Name = "DELTASIM_Variants_Template"> 
+        <EIBF_INSTALLED>                  (L:H60_EBF)      </EIBF_INSTALLED>                  
+        <SKIS_INSTALLED>                  (L:H60_Skis)</SKIS_INSTALLED>                  
+        <CPITDOORS_INSTALLED>             (L:H60_FrontDoorVis) ! </CPITDOORS_INSTALLED> 
+        <!-- Avionics Intake, hidden for HH60W -->
+        <AVNCS_DEFAULT_INSTALLED>         1     </AVNCS_DEFAULT_INSTALLED>      
+        <!-- Stock Tail antennas, hidden in HH60W -->                       
+        <Stock_Tail_Antenna_INSTALLED>    1     </Stock_Tail_Antenna_INSTALLED>
+        <!-- Hoist Installed?-->                         
+        <Hoist_INSTALLED>                 1     </Hoist_INSTALLED>        
+        <!-- Tail Chaff/Flare Bucket Installed? -->          
+        <Tail_CM_INSTALLED>               0     </Tail_CM_INSTALLED>   
+        <!-- Refueling Probe Installed?-->               
+        <Fuel_Probe_INSTALLED>            0     </Fuel_Probe_INSTALLED>      
+        <!-- FrontGear Chaff/Flare bucket Installed? Only on HH60W -->            
+        <MLG_CM_INSTALLED>                0     </MLG_CM_INSTALLED>      
+        <!-- Top FM Antennas Installed? On MH60M and HRT-->            
+        <FM_ANTENNA_INSTALLED>            0     </FM_ANTENNA_INSTALLED>  
+        <!-- Base Missile Warning Sensors Installed? Hidden for MH60M, Civ -->                
+        <Stock_MWS_INSTALLED>             0     </Stock_MWS_INSTALLED>        
+        <!-- Troop Bubble window installed? On HH60M -->          
+        <Bubble_Window_INSTALLED>         0     </Bubble_Window_INSTALLED>
+        
+        <UES_INSTALLED>1</UES_INSTALLED>
+        <!-- Specific variant parts -->
+        <!-- MH-60M / 160th sensors, parts -->
+        <MH60M_Parts_INSTALLED>           0     </MH60M_Parts_INSTALLED> 
+        <!-- HH60M Flir -->     
+        <HH60M_Flir_INSTALLED>            1     </HH60M_Flir_INSTALLED> 
+        <!-- HH-60W Sensors, parts -->  
+        <HH60W_Parts_INSTALLED>           0     </HH60W_Parts_INSTALLED>
+        <!-- MH60M DAP Pylons -->      
+        <DAP_PYLONS_INSTALLED>            0     </DAP_PYLONS_INSTALLED>          
+      </UseTemplate>
+</Component>
+</Behaviors>
+</ModelInfo>

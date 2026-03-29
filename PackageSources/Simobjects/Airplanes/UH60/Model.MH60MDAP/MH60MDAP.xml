@@ -44,7 +44,7 @@
         <!-- HH-60W Sensors, parts -->  
         <HH60W_Parts_INSTALLED>           0     </HH60W_Parts_INSTALLED>
         <!-- MH60M DAP Pylons -->      
-        <DAP_PYLONS_INSTALLED>            0     </DAP_PYLONS_INSTALLED>          
+        <DAP_PYLONS_INSTALLED>            1     </DAP_PYLONS_INSTALLED>          
       </UseTemplate>
 </Component>
 </Behaviors>

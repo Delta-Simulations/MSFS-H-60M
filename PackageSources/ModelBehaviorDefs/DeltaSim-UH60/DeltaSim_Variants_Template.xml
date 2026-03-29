@@ -79,11 +79,18 @@
             <NODE>ModelPart_AVNCS_Bay_Default</NODE>
         </UseTemplate>
 
-        <!-- MH60M DAP Pylons -->
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED#</VISIBILITY_CODE>
-            <NODE>DAP_Pylon</NODE>
-        </UseTemplate>
+        <!-- MH60M DAP Parts -->
+        <Component ID="Dap_parts">
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED#</VISIBILITY_CODE>
+                <NODE>DAP_Pylon</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED#</VISIBILITY_CODE>
+                <NODE>DAP_Targeting_Base</NODE>
+            </UseTemplate>
+        </Component>
+       
 
         <!-- HH60M Flir -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">

@@ -1,0 +1,10 @@
+<ModelBehaviors>
+	<!-- Common Templates -->
+
+	<Include RelativeFile="DeltaSim_Variants_Template.xml"/>
+	<Include RelativeFile="DeltaSim_Switch_Template.xml"/>
+	<Include RelativeFile="DeltaSim_MFD_Template.xml"/>
+	<Include RelativeFile="DeltaSim_Lighting_Template.xml"/>
+	<Include RelativeFile="DeltaSim_FX_Template.xml"/>
+	<Include RelativeFile="DeltaSim_Anim_Template.xml"/>
+</ModelBehaviors>

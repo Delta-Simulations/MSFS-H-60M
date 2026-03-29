@@ -204,10 +204,9 @@
             </Component>
 
             <!-- WATER FX-->
-            <Component ID="LARG1" Node="FX_WATER">
+            <Component ID="WaterdropFX" Node="FX_WATER">
                 <UseTemplate Name="ASOBO_GT_FX">
-                    <FX_CODE><!--(L:EFFECT_WATER,bool)
-                        0 &gt;  --> (L:EFFECT_WATER,bool) (L:Part5, bool) and </FX_CODE>
+                    <FX_CODE>(L:H60_BambiBucket_Drop_FX,bool)</FX_CODE>
                     <FX_OFFSET_X>0</FX_OFFSET_X>
                     <FX_OFFSET_Y>0</FX_OFFSET_Y>
                     <FX_OFFSET_Z>0</FX_OFFSET_Z>

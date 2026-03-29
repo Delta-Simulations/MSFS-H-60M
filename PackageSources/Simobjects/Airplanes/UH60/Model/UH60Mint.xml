@@ -14,11 +14,11 @@
 		<Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
     <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml"/>
-    <Include Path="DeltaSim-UH60\DeltaSim_Switch_Template.xml"/>
-    <Include Path="DeltaSim-UH60\DeltaSim_Lighting_Template.xml"/>
-    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml"/>
-    <Include Path="DeltaSim-UH60\DeltaSim_MFD_Template.xml"/>
-    
+    <Include Path="DeltaSim-UH60\Index.xml" />
+<Component ID="BaseInteriorComponent">
+
+        <UseTemplate Name="DELTASIM_Variants_Template">
+        </UseTemplate>
 
 <Component ID="MFD">
   <UseTemplate Name="DELTASIM_FDDCP_Template">
@@ -1105,7 +1105,7 @@ if{
 </Component>
 
 </Component>
-
+</Component>
 </Behaviors>
 
 	<!-- CUSTOM ANIMATIONS GO BELOW -->

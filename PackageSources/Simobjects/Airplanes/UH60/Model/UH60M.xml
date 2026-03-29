@@ -7,9 +7,8 @@
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml" />
     <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml" />
-    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml" />
-    <Include Path="DeltaSim-UH60\DeltaSim_Variants_Template.xml" />
-    <Include Path="DeltaSim-UH60\DeltaSim_FX_Template.xml" />
+    <Include Path="DeltaSim-UH60\Index.xml" />
+
     <Component ID="UH60M_Exterior_Main">
 
       <!-- SET AIRCRAFT VERSION -->
@@ -17,7 +16,7 @@
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
-            5.05 (&gt;L:H60_VERSION_ID, number)
+            5.06 (&gt;L:H60_VERSION_ID, number)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -25,10 +24,6 @@
 
       <UseTemplate Name="DELTASIM_FX_Template">
       </UseTemplate>
-
-
-      <!-- FLARE-->
-
 
       <Component ID="GEARS">
         <UseTemplate Name="ASOBO_GEAR_Center_Template">
@@ -101,6 +96,14 @@
         </UseTemplate>
       </Component>
 
+  <UseTemplate Name="Generic_Visibility_DELTASIM">
+    <VISIBILITY_CODE>
+            (A:RADIO HEIGHT, feet) 20 &gt; if{ 
+              (L:H60_BambiBucket, bool) 1 ==
+           } els{ 0 }
+    </VISIBILITY_CODE>
+    <NODE>CARGO_HELPER</NODE>
+  </UseTemplate>
 
       <Component ID="nav3" Node="ldg2">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
@@ -437,7 +440,7 @@
             <ANIM_NAME>Cargo_swingFB</ANIM_NAME>
             <ANIM_CODE>
               (A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 +
-              (A:WINDSHIELD WIND VELOCITY, feet) 10 / +
+              (A:WINDSHIELD WIND VELOCITY, feet) 5 / +
             </ANIM_CODE>
             <ANIM_LENGTH>360</ANIM_LENGTH>
             <ANIM_LAG>20</ANIM_LAG>
