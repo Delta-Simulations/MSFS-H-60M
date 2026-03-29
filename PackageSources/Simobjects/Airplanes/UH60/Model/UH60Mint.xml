@@ -660,13 +660,21 @@ if{
 
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_EFB_MOVE, bool) 100 *</ANIM>
-    <NODE_ID>EFB_MOVE</NODE_ID>
+    <ANIM></ANIM>
+    <NODE_ID>HideEFB_Click</NODE_ID>
     <TOOLTIPID>EFB HIDE/SHOW</TOOLTIPID>
     <INTERACT_CODE>
       (L:H60_EFB_MOVE, bool) ! (&gt;L:H60_EFB_MOVE, bool)
     </INTERACT_CODE>
   </UseTemplate>
+
+  <UseTemplate Name="Generic_Visibility_DELTASIM">
+    <VISIBILITY_CODE>(L:H60_EFB_MOVE, bool) !</VISIBILITY_CODE>
+    <NODE>New_ipad_mount</NODE>
+  </UseTemplate>
+
+
+
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <ANIM>(L:H60_SL_TOGGLE, bool) 100 *</ANIM>
@@ -1067,13 +1075,6 @@ if{
 				</VISIBILITY_CODE>
 			</UseTemplate>
 		</Component>
-  <Component ID="PILOT_VISIBILITY2" Node="Pilot_Legs.004">
-    <UseTemplate Name="ASOBO_GT_Visibility">
-      <VISIBILITY_CODE>
-        (A:CAMERA STATE, Enum) 2 != (L:H60_Pilot_Vis) 1 == and (L:UH60_Pilot_VRMODE) 1 == or
-      </VISIBILITY_CODE>
-    </UseTemplate>
-  </Component>
   <Component ID="PILOT_VISIBILITY3" Node="Pilot_torso.004">
     <UseTemplate Name="ASOBO_GT_Visibility">
       <VISIBILITY_CODE>
@@ -1095,7 +1096,7 @@ if{
     </VISIBILITY_CODE>
   </UseTemplate>
 </Component>
-<Component ID="PILOT_VISIBILITY6" Node="Pilot_torso.003">
+<Component ID="PILOT_VISIBILITY6" Node="CoPilot_main">
   <UseTemplate Name="ASOBO_GT_Visibility">
     <VISIBILITY_CODE>
       (L:H60_CoPilot_Vis) 1 ==
