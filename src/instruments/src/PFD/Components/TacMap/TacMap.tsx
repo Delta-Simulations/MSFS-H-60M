@@ -7,6 +7,7 @@ import { TacMapSideBar } from "./TacMapSideBar";
 import { TacMapLegends } from "./TacMapLegends";
 import { MilSymbol } from 'react-leaflet-milsymbol';
 import { useMapData } from "../../../Common/MapDataProvider";
+import { BingMap } from "../../../Common/BingMap";
 
 interface IWaypoint {
 	lat: number;
