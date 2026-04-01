@@ -29,6 +29,7 @@
             <Stock_MWS_INSTALLED>1</Stock_MWS_INSTALLED>
             <Bubble_Window_INSTALLED>0</Bubble_Window_INSTALLED>
             <UES_INSTALLED>1</UES_INSTALLED>
+             <HH60M_Fuse_Mods_INSTALLED>0</HH60M_Fuse_Mods_INSTALLED>
         </DefaultTemplateParameters>
 
     <Component ID="Parts_LIVERY_CHECKER">
@@ -87,13 +88,39 @@
             </UseTemplate>
         </Component>
        
-
+<Component ID="HH60M_parts">
         <!-- HH60M Flir -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">
             <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
             <NODE>60M_Flir</NODE>
         </UseTemplate>
-
+         <!-- Tweak to nose decal to wrap the nose -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
+            <NODE>HH60M_Livery_Nose</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Flir_INSTALLED# !</VISIBILITY_CODE>
+            <NODE>Stock_Livery_Nose</NODE>
+        </UseTemplate>
+        <!-- Gunner door changes, etc on the HH-60M for medivac cabin -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED#</VISIBILITY_CODE>
+            <NODE>60M_SealedGunnerDoor</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
+            <NODE>CrewCfR</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
+            <NODE>CrewCfL</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
+            <NODE>Railings_GunnerDoors</NODE>
+        </UseTemplate>
+</Component>
         <!-- Stock Tail antennas, hidden in HH60W -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">
             <VISIBILITY_CODE>#Stock_Tail_Antenna_INSTALLED#</VISIBILITY_CODE>

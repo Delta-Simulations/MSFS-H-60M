@@ -38,6 +38,8 @@
         <MH60M_Parts_INSTALLED>           0     </MH60M_Parts_INSTALLED> 
         <!-- HH60M Flir -->     
         <HH60M_Flir_INSTALLED>            1     </HH60M_Flir_INSTALLED> 
+        <!-- HH60M Fuselage Changes to accomodate medivac cabin -->     
+        <HH60M_Fuse_Mods_INSTALLED>       1     </HH60M_Fuse_Mods_INSTALLED>
         <!-- HH-60W Sensors, parts -->  
         <HH60W_Parts_INSTALLED>           0     </HH60W_Parts_INSTALLED>
         <!-- MH60M DAP Pylons -->      

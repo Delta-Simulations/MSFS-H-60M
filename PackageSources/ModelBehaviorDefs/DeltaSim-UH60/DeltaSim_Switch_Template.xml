@@ -12,6 +12,7 @@
             <TOOLTIPID_NORM>TOGGLE</TOOLTIPID_NORM>
             <INVERT_ANIM>True</INVERT_ANIM>
             <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
+            <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>
         </DefaultTemplateParameters>
         <Component ID="#NODE_ID#" Node="#NODE_ID#">
                 <UseTemplate Name = "ASOBO_GT_Switch_3States">
@@ -35,6 +36,7 @@
                     #CODE_POS_2#
                 </CODE_POS_2>
               </UseTemplate> 
+              <WWISE_EVENT>#WWISE_EVENT#</WWISE_EVENT>
         </Component>
     </Template>
 
