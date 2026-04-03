@@ -16,7 +16,7 @@
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
-            5.06 (&gt;L:H60_VERSION_ID, number)
+            5.07 (&gt;L:H60_VERSION_ID, number)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
