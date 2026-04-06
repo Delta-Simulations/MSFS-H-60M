@@ -49,15 +49,7 @@ export const Settings = () => {
 							color={RtrMode ? 'success' : 'primary'}
 							variant={RtrMode ? 'contained' : 'outlined'}
 						>
-							Rotor Type
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setShowHEAD(!ShowHEAD)}
-							color={ShowHEAD ? 'success' : 'primary'}
-							variant={ShowHEAD ? 'contained' : 'outlined'}
-						>
-							Pilot VR Mode
+							Rotor Type - Mesh/Blurred
 						</Button>
 						<Button
 							size="large"
@@ -65,16 +57,20 @@ export const Settings = () => {
 							color={Downwash ? 'primary' : 'success'}
 							variant={Downwash ? 'outlined' : 'contained'}
 						>
-							Downwash
+							Custom Downwash FX
 						</Button>
 						<Typography id="continuous-slider" gutterBottom>
-							Brightness
+							EFB Brightness
 						</Typography>
 						<Grid container spacing={0} >
 							<Grid item xs>
 							<Slider aria-labelledby="brightness" value={brightnessEFB} onChange={handleChange}/>                
 							</Grid>
 						</Grid>
+
+						<Typography gutterBottom>
+							To use Bambi/Trigger - Bind "Toggle Water Rudder" in your MSFS Settings
+						</Typography>
 
 					</Stack>
 

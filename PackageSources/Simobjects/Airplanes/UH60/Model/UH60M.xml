@@ -98,8 +98,9 @@
 
   <UseTemplate Name="Generic_Visibility_DELTASIM">
     <VISIBILITY_CODE>
-            (A:RADIO HEIGHT, feet) (L:H60_CargoStaticHeight, enum) &gt; if{ 
-              (L:H60_Cargo_BambiBucket, bool) 1 ==
+            (A:SIM ON GROUND, bool) 0 ==
+            if{ 
+              (L:H60_Cargo_BambiBucket_Installed, bool) 1 ==
            } els{ 0 }
     </VISIBILITY_CODE>
     <NODE>CARGO_HELPER</NODE>
@@ -420,9 +421,9 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>STAB_POS</ANIM_NAME>
           <ANIM_CODE>
-            (A:ELECTRICAL MASTER BATTERY, bool) (A:AIRSPEED TRUE, Knots) * 20 - 2 *
+            (L:H60_Stab_POS, degrees) 45 +
           </ANIM_CODE>
-          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LENGTH>55</ANIM_LENGTH>
           <ANIM_LAG>20</ANIM_LAG>
         </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">

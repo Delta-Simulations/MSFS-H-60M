@@ -1,15 +1,30 @@
 <Gauge Name="AFCS_SYS" Version="1.0">
-	
-<Comment> 
-************************************************* 
-FOR DELTA SIMULATIONS UH60M
-************************************************* 
-<Update Frequency="10" />
-</Comment>
-		
+
+    <Comment> ************************************************* FOR DELTA SIMULATIONS UH60M
+        ************************************************* Stab logic <Update Frequency="10" />
+    </Comment>
+
 <Element>
 <Select>
 <Value>
+
+(L:H60_Cpit_26VPower) 1 ==
+if{
+    (A:SIM ON GROUND, bool) 0 ==
+    (L:Stab_Man_Mode, bool) 0 == and
+    if{
+        45
+        (A:AIRSPEED TRUE, Knots) 20 -
+        0 max
+        -
+        neg
+        3 min
+        (&gt;L:H60_Stab_POS, degrees)
+    }
+} els{
+    0 (&gt;L:H60_Stab_POS, degrees)
+}
+
 </Value>
 </Select>
 </Element>

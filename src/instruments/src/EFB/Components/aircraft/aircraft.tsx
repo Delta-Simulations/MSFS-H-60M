@@ -7,6 +7,7 @@ import Container from '@mui/material/Container';
 import { useSimVar } from '../../../Hooks/simVars';
 
 import './aircraft.scss';
+import { Typography } from '@mui/material';
 
 export const Airctaft = () => {
 	let [fireGun, setFireGun] = useSimVar('L:EFFECT_GUN', 'Bool');
@@ -32,20 +33,21 @@ export const Airctaft = () => {
 	let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
 
 	let [ACOnGround] = useSimVar('A:SIM ON GROUND', 'bool');
+	let [State_ColdandDark, setState_ColdandDark] = useSimVar('L:H60_State_ColdandDark', 'bool');
+	let [State_Startup, setState_Startup] = useSimVar('L:H60_State_Startup', 'bool');
+	let [State_Taxi, setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
 
-	let [State_ColdandDark,setState_ColdandDark] = useSimVar('L:H60_State_ColdandDark', 'bool');
-	let [State_Startup,setState_Startup] = useSimVar('L:H60_State_Startup', 'bool');
-	let [State_Taxi,setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
-	
+	let [eqip_bambi, setEquip_bambi] = useSimVar('L:H60_Cargo_BambiBucket_Installed', 'bool');
+	let [fill_bambi, setFill_bambi] = useSimVar('L:H60_Cargo_Bambi_Water_Lvl', 'enum');
 	useEffect(() => {
 		if (HasProbe || HasHoist || HasMissile) {
-		  setModelVariant(true);
+			setModelVariant(true);
 		}
-	  }, [HasProbe, HasHoist, HasMissile]); // Run the effect whenever these variables change
+	}, [HasProbe, HasHoist, HasMissile]); // Run the effect whenever these variables change
 
-	  
-	  
-	  
+
+
+
 	return (
 		<div className="aircraftContainer">
 			<Box
@@ -59,22 +61,22 @@ export const Airctaft = () => {
 
 				}}
 			>
-			<Box
-				sx={{
-					position: 'absolute',
-					width: 1000,
-					height: 1000,
-					left: -250,
-					top: -20,
-					backgroundImage: 'url(/images/LineArtEXT.png)',
-					backgroundPosition: 'right',
-					backgroundSize: '80%',
-					backgroundRepeat: 'no-repeat',
-					transform: 'rotate(90deg)', // Apply the rotation here
+				<Box
+					sx={{
+						position: 'absolute',
+						width: 1000,
+						height: 1000,
+						left: -250,
+						top: -20,
+						backgroundImage: 'url(/images/LineArtEXT.png)',
+						backgroundPosition: 'right',
+						backgroundSize: '80%',
+						backgroundRepeat: 'no-repeat',
+						transform: 'rotate(90deg)', // Apply the rotation here
 
-				}}
-			/>
-							<Box
+					}}
+				/>
+				<Box
 					sx={{
 						position: 'absolute',
 						width: 200,
@@ -95,15 +97,15 @@ export const Airctaft = () => {
 				>
 					<h1 style={{ marginTop: 0 }}>Search Light</h1>
 					<Button
-							size="large"
-							onClick={() => setSLDownUp(Math.min(SLDownUp - 5, 100))}
-							color='primary'
-							variant='outlined'
-						>
-							RETR
-						</Button>
+						size="large"
+						onClick={() => setSLDownUp(Math.min(SLDownUp - 5, 100))}
+						color='primary'
+						variant='outlined'
+					>
+						RETR
+					</Button>
 					<Stack direction="row" spacing={0}>
-					<Button
+						<Button
 							size="large"
 							onClick={() => setSLLeftRight(Math.max(SLLeftRight - 5, 0))}
 							color='primary'
@@ -115,7 +117,7 @@ export const Airctaft = () => {
 							size="large"
 							onClick={() => setSLPWR(!SLPWR)}
 							variant="contained"
-							color={SLPWR ?  'success':'error'}
+							color={SLPWR ? 'success' : 'error'}
 						>
 							PWR
 						</Button>
@@ -127,17 +129,17 @@ export const Airctaft = () => {
 						>
 							R
 						</Button>
-						</Stack>
-						<Button
-							size="large"
-							onClick={() => setSLDownUp(Math.max(SLDownUp + 5, 0))}
-							color='primary'
-							variant='outlined'
-						>
-							EXTD
-						</Button>
+					</Stack>
+					<Button
+						size="large"
+						onClick={() => setSLDownUp(Math.max(SLDownUp + 5, 0))}
+						color='primary'
+						variant='outlined'
+					>
+						EXTD
+					</Button>
 
-					
+
 				</Box>
 				<Box
 					sx={{
@@ -174,6 +176,14 @@ export const Airctaft = () => {
 							variant={EIBF ? 'contained' : 'outlined'}
 						>
 							EIBF
+						</Button>
+						<Button
+							size="large"
+							onClick={() => setEquip_bambi(!eqip_bambi)}
+							color={eqip_bambi ? 'primary' : 'primary'}
+							variant={eqip_bambi ? 'contained' : 'outlined'}
+						>
+							BAMBI
 						</Button>
 					</Stack>
 				</Box>
@@ -227,9 +237,66 @@ export const Airctaft = () => {
 						</Button>
 					</Stack>
 				</Box>
+				{eqip_bambi && <Box
 
+					sx={{
+						position: 'absolute',
+						width: 300,
+						height: 180,
+						backgroundColor: '16161E',
+						borderRadius: 2,
+						left: 675,
+						top: 360,
+						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+						color: '#1B93FF',
+						justifyContent: 'center',
+						display: 'flex',
+						flexDirection: 'column',
+						textAlign: 'center',
+						alignItems: 'center',
+						fontSize: 14,
+					}}
+				>
+					<h1 style={{ marginTop: 0 }}>Bambi Configuration</h1>
+					<Stack direction="row" spacing={2}>
+						<Button
+							size="large"
+							onClick={() => setFill_bambi(100)}
+							color={fill_bambi ? 'primary' : 'primary'}
+							variant={fill_bambi ? 'contained' : 'outlined'}
+						>
+							Force Fill
+						</Button>
+						<Box
+  sx={{
+    position: 'relative',
+    width: '100%',
+    height: 100,
+    backgroundColor: '#333',
+    borderRadius: 1,
+    overflow: 'hidden'
+  }}
+>
+<Box
+  sx={{
+    width: '100%',
+    height: `${fill_bambi}%`,
+    backgroundColor: '#1B93FF',
+    transition: 'height 0.3s ease',
+    position: 'absolute',
+    bottom: 0
+  }}
+/>
+						</Box>
+					</Stack>
+					<Typography sx={{ mt: 1 }}>
+						{Math.round(fill_bambi)}% FULL
+					</Typography>
+
+				</Box>
+				}
 				{ModelVariant && <Box
-				
+
 					sx={{
 						position: 'absolute',
 						width: 500,
@@ -279,7 +346,7 @@ export const Airctaft = () => {
 						</Button>
 					</Stack>
 				</Box>
-			}
+				}
 
 				<Box
 					sx={{
@@ -301,13 +368,13 @@ export const Airctaft = () => {
 					}}
 				>
 					<Button
-							size="small"
-							onClick={() => setshowPilot(!showPilot)}
-							color={showPilot ? 'primary' : 'primary'}
-							variant={showPilot ? 'contained' : 'outlined'}
-						>
-							Pilot
-						</Button>
+						size="small"
+						onClick={() => setshowPilot(!showPilot)}
+						color={showPilot ? 'primary' : 'primary'}
+						variant={showPilot ? 'contained' : 'outlined'}
+					>
+						Pilot
+					</Button>
 
 				</Box>
 				<Box
@@ -330,13 +397,13 @@ export const Airctaft = () => {
 					}}
 				>
 					<Button
-							size="small"
-							onClick={() => setshowCoPilot(!showCoPilot)}
-							color={showCoPilot ? 'primary' : 'primary'}
-							variant={showCoPilot ? 'contained' : 'outlined'}
-						>
-							CoPilot
-						</Button>
+						size="small"
+						onClick={() => setshowCoPilot(!showCoPilot)}
+						color={showCoPilot ? 'primary' : 'primary'}
+						variant={showCoPilot ? 'contained' : 'outlined'}
+					>
+						CoPilot
+					</Button>
 				</Box>
 				<Box
 					sx={{

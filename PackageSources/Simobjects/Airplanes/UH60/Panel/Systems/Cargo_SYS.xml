@@ -9,7 +9,6 @@ Using seperate WASM system to spawn in object
 <Select>
 <Value>
 10 (&gt;L:H60_CargoStaticHeight, feet)
-1  (&gt;L:H60_Cargo_BambiBucket, bool)
 
 (A:WATER RUDDER HANDLE POSITION, percent over 100) (&gt;L:H60_Trigger_Held, bool)
 
@@ -24,7 +23,7 @@ if{ 100 (&gt;L:H60_Cargo_Bambi_Water_Lvl,enum) }
 (L:H60_Cargo_Bambi_Water_Lvl,number) 0 &gt;
 (L:H60_Trigger_Held, bool) 1 == and
 if{ 
-    (L:H60_Cargo_Bambi_Water_Lvl,number) 0.5 - 
+    (L:H60_Cargo_Bambi_Water_Lvl,number) 0.2 - 
     (&gt;L:H60_Cargo_Bambi_Water_Lvl,number)
 }
  

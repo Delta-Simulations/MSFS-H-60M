@@ -333,6 +333,29 @@
                 "max": 86400,
                 "step": 1
             }
+        },
+        {
+            "__uuid": "7cfa3172-d2ef-4c5e-b4d0-fbdb9964a36e",
+            "title": "Stab Angle",
+            "varPrefix": "L",
+            "varName": "H60_Stab_POS",
+            "varUnit": "degrees",
+            "style": {
+                "type": 2,
+                "min": -45,
+                "max": 10,
+                "step": 0.1
+            }
+        },
+        {
+            "__uuid": "9bb199d2-09c3-497f-8312-39c2921341e9",
+            "title": "bambi?",
+            "varPrefix": "L",
+            "varName": "H60_Cargo_BambiBucket_Installed",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
         }
     ]
 }

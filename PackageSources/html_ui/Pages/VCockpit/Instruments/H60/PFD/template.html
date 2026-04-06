@@ -27305,7 +27305,7 @@
 	};
 
 	const Collective = () => {
-	  useSimVar('L:STABILATOR_POS', 'enum');
+	  let [Stab_Pos] = useSimVar('L:H60_Stab_POS', 'degrees');
 	  let [Egi_Failed] = useSimVar('L:H60_SYS_EGI_FAILED', 'bool');
 	  let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots');
 	  let [AC_Wind_Speed] = useSimVar('A:AMBIENT WIND VELOCITY', 'knots');
@@ -27316,6 +27316,14 @@
 	  let [collective_POS] = useSimVar('A:COLLECTIVE POSITION', 'percent');
 	  let [AFCS_Collective_FD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
 	  AC_GS = Math.floor(AC_GS);
+	  let Stab_Pos_Disp;
+
+	  if (Stab_Pos < 0) {
+	    Stab_Pos_Disp = Math.floor(Math.abs(Stab_Pos)); // remove negative sign
+	  } else {
+	    Stab_Pos_Disp = "+" + Math.floor(Stab_Pos); // add + for positive
+	  }
+
 	  return /*#__PURE__*/jsxRuntime.jsxs("g", {
 	    children: [/*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 248,
@@ -27356,12 +27364,12 @@
 	    }), /*#__PURE__*/jsxRuntime.jsx("text", {
 	      x: 29,
 	      y: 62,
-	      fontSize: 27,
+	      fontSize: 23,
 	      className: "readouts",
 	      textAnchor: "start",
-	      children: 20
+	      children: Stab_Pos_Disp
 	    }), /*#__PURE__*/jsxRuntime.jsx("g", {
-	      transform: "translate(26, 70)scale(0.73,0.73)rotate(".concat(-3, ")"),
+	      transform: "translate(26, 75)scale(0.65,0.65)rotate(".concat(-30 - Stab_Pos, ")"),
 	      className: "text",
 	      children: /*#__PURE__*/jsxRuntime.jsx("path", {
 	        d: "M3.05284 4.1724L1.97746 4.99231C0.887084 5.82365 0.681168 7.38339 1.51844 8.46921L2.86269 10.2125C5.76344 13.9744 9.30763 17.1928 13.331 19.7184C20.9569 24.5055 29.3324 27.9784 38.1082 29.9925L73 38L17.0956 3.48191C12.7233 0.7822 7.13925 1.05677 3.05284 4.1724Z",

@@ -4,7 +4,7 @@ import "../../style.scss";
 import { useSimVar } from '../../../Hooks/simVars';
 
 export const Collective = () => {
-    let [Stab_Pos] = useSimVar('L:STABILATOR_POS', 'enum');
+    let [Stab_Pos] = useSimVar('L:H60_Stab_POS', 'degrees');
     let [Egi_Failed] = useSimVar('L:H60_SYS_EGI_FAILED', 'bool');
 
     let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots');
@@ -19,7 +19,12 @@ export const Collective = () => {
     let [AFCS_Collective_FD] = useSimVar('AUTOPILOT FLIGHT DIRECTOR ACTIVE', 'Bool');
 
     AC_GS = Math.floor(AC_GS)
-
+    let Stab_Pos_Disp;
+    if (Stab_Pos < 0) {
+        Stab_Pos_Disp = Math.floor(Math.abs(Stab_Pos)); // remove negative sign
+    } else {
+        Stab_Pos_Disp = "+" + Math.floor(Stab_Pos); // add + for positive
+    }
  
 
     return (
@@ -40,8 +45,8 @@ export const Collective = () => {
 
                 {/* STAB */}
                 <text x={28} y={35.5} fontSize={20} className='readouts' textAnchor="start">STB</text>
-                <text x={29} y={62} fontSize={27} className='readouts' textAnchor="start">{20}</text>
-                <g transform={`translate(26, 70)scale(0.73,0.73)rotate(${-3})`} className='text'>
+                <text x={29} y={62} fontSize={23} className='readouts' textAnchor="start">{Stab_Pos_Disp}</text>
+                <g transform={`translate(26, 75)scale(0.65,0.65)rotate(${-30-Stab_Pos})`} className='text'>
                     <path d="M3.05284 4.1724L1.97746 4.99231C0.887084 5.82365 0.681168 7.38339 1.51844 8.46921L2.86269 10.2125C5.76344 13.9744 9.30763 17.1928 13.331 19.7184C20.9569 24.5055 29.3324 27.9784 38.1082 29.9925L73 38L17.0956 3.48191C12.7233 0.7822 7.13925 1.05677 3.05284 4.1724Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round" />
                 </g>
 

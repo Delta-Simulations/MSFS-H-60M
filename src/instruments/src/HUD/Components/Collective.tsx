@@ -4,7 +4,7 @@ import "../../style.scss";
 import { useSimVar } from '../../Hooks/simVars';
 
 export const Collective = () => {
-        let [Stab_Pos] = useSimVar('L:STABILATOR_POS', 'enum')
+        let [Stab_Pos] = useSimVar('L:H60_Stab_POS', 'degrees')
         let [AC_GS] = useSimVar('A:GROUND VELOCITY', 'knots')
 
         let [isAT] = useSimVar('A:AUTOPILOT MANAGED THROTTLE ACTIVE', 'Bool')
@@ -14,8 +14,7 @@ export const Collective = () => {
         TH_1= Math.floor(TH_1)
         TH_2= Math.floor(TH_2)
         let NR: number = (TH_1+TH_2)/2;
-        Stab_Pos = Stab_Pos/4;
-        Stab_Pos= Math.floor(Stab_Pos)
+
         NR= Math.floor(NR)
 
         return(
