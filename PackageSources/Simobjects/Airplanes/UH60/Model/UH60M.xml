@@ -98,12 +98,14 @@
 
   <UseTemplate Name="Generic_Visibility_DELTASIM">
     <VISIBILITY_CODE>
-            (A:RADIO HEIGHT, feet) 20 &gt; if{ 
-              (L:H60_BambiBucket, bool) 1 ==
+            (A:RADIO HEIGHT, feet) (L:H60_CargoStaticHeight, enum) &gt; if{ 
+              (L:H60_Cargo_BambiBucket, bool) 1 ==
            } els{ 0 }
     </VISIBILITY_CODE>
     <NODE>CARGO_HELPER</NODE>
   </UseTemplate>
+
+
 
       <Component ID="nav3" Node="ldg2">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
@@ -175,7 +177,9 @@
         </Component>
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
-          <UPDATE_CODE>1 (&gt;O:test_rotor)</UPDATE_CODE>
+          <UPDATE_CODE>
+            0 (&gt;A:WATER RUDDER HANDLE POSITION, percent over 100)
+          </UPDATE_CODE>
         </UseTemplate>
 
         <UseTemplate Name="Generic_Anim_DELTASIM">
@@ -185,6 +189,30 @@
           <ANIM_WRAP>1</ANIM_WRAP>
           <ANIM_DELTA>1</ANIM_DELTA>
         </UseTemplate>
+
+				<UseTemplate name="Generic_Anim_DELTASIM">
+					<ANIM_NAME>Water_face</ANIM_NAME>
+					<ANIM_CODE>
+                (E:ABSOLUTE TIME, second) 10 * 100 %
+					</ANIM_CODE>
+          <ANIM_LAG>100</ANIM_LAG>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+				</UseTemplate>
+        <UseTemplate Name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>Water_face_Scale</ANIM_NAME>
+          <ANIM_CODE>
+             100 (L:H60_Cargo_Bambi_Water_Lvl,number)  -
+          </ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+        </UseTemplate>
+    <UseTemplate Name="Generic_Visibility_DELTASIM">
+      <VISIBILITY_CODE>
+          (L:H60_Cargo_Bambi_Water_Lvl,number)
+      </VISIBILITY_CODE>
+      <NODE>Water_face_Main</NODE>
+    </UseTemplate>
+
 
         <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>

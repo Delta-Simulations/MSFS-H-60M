@@ -206,10 +206,14 @@
             <!-- WATER FX-->
             <Component ID="WaterdropFX" Node="FX_WATER">
                 <UseTemplate Name="ASOBO_GT_FX">
-                    <FX_CODE>(L:H60_BambiBucket_Drop_FX,bool)</FX_CODE>
+                    <FX_CODE>
+                        (L:H60_Trigger_Held, bool)
+                        (L:H60_Cargo_Bambi_Water_Lvl,enum) 0 &gt; and
+                    </FX_CODE>
                     <FX_OFFSET_X>0</FX_OFFSET_X>
                     <FX_OFFSET_Y>0</FX_OFFSET_Y>
                     <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    
                     <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
                 </UseTemplate>
             </Component>

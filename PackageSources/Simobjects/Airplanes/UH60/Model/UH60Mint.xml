@@ -455,7 +455,14 @@ if{
 
 
 
-
+<Component ID="ALTIMETER_1_P">
+  <Component ID="ALTIMETER_1_CALIBRATION">
+      <UseTemplate Name="ASOBO_INSTRUMENT_Altimeter_Template">
+          <KNOB_NODE_ID>Knob_Altimeter_Set</KNOB_NODE_ID>
+          <KNOB_ANIM_NAME>Knob_Altimeter_Set</KNOB_ANIM_NAME>
+      </UseTemplate>
+  </Component>
+</Component>
 
 <UseTemplate Name="DELTASIM_PushButton_Template">
   <NODE_ID>Button_HDG</NODE_ID>
@@ -670,6 +677,19 @@ if{
   <UseTemplate Name="Generic_Visibility_DELTASIM">
     <VISIBILITY_CODE>(L:H60_EFB_MOVE, bool) !</VISIBILITY_CODE>
     <NODE>New_ipad_mount</NODE>
+  </UseTemplate>
+
+  <UseTemplate Name="Generic_Visibility_DELTASIM">
+    <VISIBILITY_CODE>(L:H60_EFB_MOVE, bool) 0 == </VISIBILITY_CODE>
+    <NODE>TABLET_Hidden</NODE>
+  </UseTemplate>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM></ANIM>
+    <NODE_ID>Click_EFB</NODE_ID>
+    <TOOLTIPID>EFB HIDE/SHOW</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_EFB_MOVE, bool) ! (&gt;L:H60_EFB_MOVE, bool)
+    </INTERACT_CODE>
   </UseTemplate>
 
   <UseTemplate Name="Generic_Visibility_DELTASIM">

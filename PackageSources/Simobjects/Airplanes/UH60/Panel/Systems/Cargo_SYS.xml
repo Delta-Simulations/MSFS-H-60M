@@ -1,9 +1,36 @@
 <Gauge Name="H60_CARGO_SYS" Version="1.0">
 <Comment>
-Cargo sling load system
+Bambi bucket system
+
 Using seperate WASM system to spawn in object
 ************************************************
 </Comment>
+<Element>
+<Select>
+<Value>
+10 (&gt;L:H60_CargoStaticHeight, feet)
+1  (&gt;L:H60_Cargo_BambiBucket, bool)
 
+(A:WATER RUDDER HANDLE POSITION, percent over 100) (&gt;L:H60_Trigger_Held, bool)
+
+(A:SURFACE TYPE, enum) 2 ==
+if{ 1 (&gt;L:H60_Above_Water,bool) }
+els{ 0 (&gt;L:H60_Above_Water,bool) }
+
+(L:H60_Above_Water, bool) 1 ==
+(A:RADIO HEIGHT, feet) 20 &lt; and
+if{ 100 (&gt;L:H60_Cargo_Bambi_Water_Lvl,enum) }
+
+(L:H60_Cargo_Bambi_Water_Lvl,number) 0 &gt;
+(L:H60_Trigger_Held, bool) 1 == and
+if{ 
+    (L:H60_Cargo_Bambi_Water_Lvl,number) 0.5 - 
+    (&gt;L:H60_Cargo_Bambi_Water_Lvl,number)
+}
+ 
+
+</Value>
+</Select>
+</Element>	
 
 </Gauge>
