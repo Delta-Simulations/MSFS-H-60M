@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { useMapData } from '../../../Common/MapDataProvider';
 import { useSimVar } from '../../../Hooks/simVars';
+import { Dev_Page } from './DEV_Page';
 
 export const IVHMSBase = () => {
 	const [dtcLoaded] = useSimVar("L:H60_DTC_LOADED", "bool");
@@ -14,18 +14,8 @@ export const IVHMSBase = () => {
 
 	const [versionlvar] = useSimVar("L:H60_VERSION_ID", "number");
 
-	const [version, setVersion] = React.useState("N/A");
 
 	const [debug_mode_active] = useSimVar(`L:H60_MFD_Debug_Mode`, "bool");
-
-
-	React.useEffect(() => {
-		fetch("/User/version.txt")
-			.then(res => res.text())
-			.then(text => setVersion(text.trim()))
-			.catch(() => setVersion("N/A"));
-	}, []);
-
 
 
 	return (
@@ -68,7 +58,7 @@ export const IVHMSBase = () => {
 				className="readouts"
 				textAnchor="start"
 			>
-				AIRCRAFT VERSION: {version}
+				AIRCRAFT VERSION: {versionlvar}
 			</text>
 			<text
 				x="720"
@@ -156,7 +146,7 @@ export const IVHMSBase = () => {
 						strokeWidth={3}
 						strokeDasharray={10}
 					/>
-
+					<Dev_Page />
 					<text
 						x="50%"
 						y="690"

@@ -39,6 +39,8 @@ export const Airctaft = () => {
 
 	let [eqip_bambi, setEquip_bambi] = useSimVar('L:H60_Cargo_BambiBucket_Installed', 'bool');
 	let [fill_bambi, setFill_bambi] = useSimVar('L:H60_Cargo_Bambi_Water_Lvl', 'enum');
+	let [trigger, setTrigger] = useSimVar('L:H60_Trigger_Override', 'bool');
+
 	useEffect(() => {
 		if (HasProbe || HasHoist || HasMissile) {
 			setModelVariant(true);
@@ -241,7 +243,7 @@ export const Airctaft = () => {
 
 					sx={{
 						position: 'absolute',
-						width: 300,
+						width: 340,
 						height: 180,
 						backgroundColor: '16161E',
 						borderRadius: 2,
@@ -266,6 +268,14 @@ export const Airctaft = () => {
 							variant={fill_bambi ? 'contained' : 'outlined'}
 						>
 							Force Fill
+						</Button>
+						<Button
+							size="large"
+							onClick={() => setTrigger(!trigger)}
+							color={trigger ? 'primary' : 'primary'}
+							variant={trigger ? 'contained' : 'outlined'}
+						>
+							Drop
 						</Button>
 						<Box
   sx={{

@@ -18754,6 +18754,7 @@
 	  let [State_Taxi, setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
 	  let [eqip_bambi, setEquip_bambi] = useSimVar('L:H60_Cargo_BambiBucket_Installed', 'bool');
 	  let [fill_bambi, setFill_bambi] = useSimVar('L:H60_Cargo_Bambi_Water_Lvl', 'enum');
+	  let [trigger, setTrigger] = useSimVar('L:H60_Trigger_Override', 'bool');
 	  react.useEffect(() => {
 	    if (HasProbe || HasHoist || HasMissile) {
 	      setModelVariant(true);
@@ -18939,7 +18940,7 @@
 	      }), eqip_bambi && /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
 	        sx: {
 	          position: 'absolute',
-	          width: 300,
+	          width: 340,
 	          height: 180,
 	          backgroundColor: '16161E',
 	          borderRadius: 2,
@@ -18968,6 +18969,12 @@
 	            color: fill_bambi ? 'primary' : 'primary',
 	            variant: fill_bambi ? 'contained' : 'outlined',
 	            children: "Force Fill"
+	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	            size: "large",
+	            onClick: () => setTrigger(!trigger),
+	            color: trigger ? 'primary' : 'primary',
+	            variant: trigger ? 'contained' : 'outlined',
+	            children: "Drop"
 	          }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	            sx: {
 	              position: 'relative',

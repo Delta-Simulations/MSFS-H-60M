@@ -106,8 +106,6 @@
     <NODE>CARGO_HELPER</NODE>
   </UseTemplate>
 
-
-
       <Component ID="nav3" Node="ldg2">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
@@ -209,7 +207,13 @@
         </UseTemplate>
     <UseTemplate Name="Generic_Visibility_DELTASIM">
       <VISIBILITY_CODE>
-          (L:H60_Cargo_Bambi_Water_Lvl,number)
+          
+            (A:SIM ON GROUND, bool) 0 ==
+            if{ 
+              (L:H60_Cargo_BambiBucket_Installed, bool)
+              (L:H60_Cargo_Bambi_Water_Lvl,number) and
+           } els{ 0 }
+
       </VISIBILITY_CODE>
       <NODE>Water_face_Main</NODE>
     </UseTemplate>
