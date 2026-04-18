@@ -8,9 +8,7 @@
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml" />
     <Include ModelBehaviorFile="Asobo\AircraftTypes\Rotorcrafts.xml" />
-    <Include Path="DeltaSim-UH60\DeltaSim_Anim_Template.xml" />
-    <Include Path="DeltaSim-UH60\DeltaSim_Variants_Template.xml" />
-    <Include Path="DeltaSim-UH60\DeltaSim_FX_Template.xml" />
+    <Include Path="DeltaSim-UH60\Index.xml" />
 <!-- Variant configuration
  If set up correctly, this will allow you to configure the parts to exactly what you want.
  This is set up through visibility conditions, where 1 is showing the described part, and 0 is not
@@ -60,7 +58,9 @@
         <!-- HH-60W Sensors, parts -->  
         <HH60W_Parts_INSTALLED>           0     </HH60W_Parts_INSTALLED>
         <!-- MH60M DAP Pylons -->      
-        <DAP_PYLONS_INSTALLED>            0     </DAP_PYLONS_INSTALLED>          
+        <DAP_PYLONS_INSTALLED>            0     </DAP_PYLONS_INSTALLED>   
+        <!-- Gunner Window Plugs 0 = stock 1 = plugged (For HH-60M) -->
+        <DAP_PYLONS_INSTALLED>            0     </DAP_PYLONS_INSTALLED>     
       </UseTemplate>
 </Component>
 </Behaviors>
