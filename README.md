@@ -88,7 +88,10 @@ Chances are, yes! While we do not guarantee every single detail of the aircraft 
 We have two mainline versions: stable and development. The stable version is a 'snapshot' of the development which we regard as stable with the current version of the simulator. The developer build is updated more frequently and is a constant work in progress, with more volatility.
 
  
-  
+## Contributors
+- Thank you to xovolovo for permitting us to use their GAU-21 Model
+- Thank you to Rohr3D for permitting us to use their HIRSS Model
+- Thank you to Dano, Nace, Venom, Kenny, cpt_airwolf, and the rest of the MSFS Development community for their assistance over these years. Without them, this project could never have continued.
 
 ## License
 
