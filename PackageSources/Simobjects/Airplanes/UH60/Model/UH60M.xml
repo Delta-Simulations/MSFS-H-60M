@@ -411,7 +411,7 @@
           <ANIM_CODE>
             (A:ELECTRICAL MASTER BATTERY, bool)
             if{
-            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) -1 * 5 + 
+            5
             } els{ 15 }
             
           </ANIM_CODE>
