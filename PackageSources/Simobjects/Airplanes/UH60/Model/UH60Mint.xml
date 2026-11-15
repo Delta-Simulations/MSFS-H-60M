@@ -196,8 +196,18 @@
       (L:H60_RotorBrakeActive) if{ (&gt;K:ROTOR_BRAKE_ON) }
     </UPDATE_CODE>
   </UseTemplate>
-</Component>
 
+
+</Component>
+    <Component ID="SET_INITS">
+        <UseTemplate Name="ASOBO_GT_Update">
+          <UPDATE_ONCE>True</UPDATE_ONCE>
+          <UPDATE_CODE>
+            0 (&gt;L:H60_EFB_MOVE, bool)
+            1 (&gt;L:H60_GUNSIGHT_PWR, bool)
+          </UPDATE_CODE>
+        </UseTemplate>
+      </Component>
 </Component>
 
 <Component ID="OH_ELEC">
@@ -1065,7 +1075,7 @@ if{
       <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
     </UseTemplate>
   </Component>
-  <Component ID="DoorL" Node="L Pilot Door">
+  <Component ID="DoorCoPilot" Node="DoorCopilotShell">
     <UseTemplate Name="ASOBO_GT_Visibility">
       <VISIBILITY_CODE>(L:H60_FrontDoorVis) ! </VISIBILITY_CODE>
     </UseTemplate>

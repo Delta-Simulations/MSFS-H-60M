@@ -372,7 +372,7 @@
             (A:ELECTRICAL MASTER BATTERY, bool) 1 ==
             if{
             (A:PLANE BANK DEGREES, percent) neg 90 + 1 + 0 max
-            } els{ 19 }
+            } els{ 0 }
           </ANIM_CODE>
           <ANIM_LENGTH>181</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
