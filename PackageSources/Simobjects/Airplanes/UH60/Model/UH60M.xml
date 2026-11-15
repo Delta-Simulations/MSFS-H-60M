@@ -205,6 +205,34 @@
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
+
+        <UseTemplate Name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>Helitank_Hose</ANIM_NAME>
+          <ANIM_CODE>
+            (A:SIM ON GROUND, bool) 0 ==
+            if{
+              (L:Helitank_hose, percent) 100 *
+            } els{ 0 }
+          </ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>100</ANIM_LAG>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>Helitank_Fill_Level</ANIM_NAME>
+          <ANIM_CODE>
+             (L:H60_Cargo_Bambi_Water_Lvl,enum)
+          </ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>80</ANIM_LAG>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>Helitank_Door</ANIM_NAME>
+          <ANIM_CODE>
+             (L:Helitank_Door, percent) 10 *
+          </ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+        </UseTemplate>
+        <!-- TODO: Tie into the Bambi Bucket variables and onto EFB -->
     <UseTemplate Name="Generic_Visibility_DELTASIM">
       <VISIBILITY_CODE>
           
