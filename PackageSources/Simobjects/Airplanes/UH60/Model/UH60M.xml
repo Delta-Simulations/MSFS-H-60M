@@ -245,7 +245,14 @@
       </VISIBILITY_CODE>
       <NODE>Water_face_Main</NODE>
     </UseTemplate>
+    <UseTemplate Name="Generic_Visibility_DELTASIM">
+      <VISIBILITY_CODE>
+          
+      (L:H60_Waterdrop_Type, bool) 1 ==
 
+      </VISIBILITY_CODE>
+      <NODE>Firetank_Belly</NODE>
+    </UseTemplate>
 
         <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
@@ -278,7 +285,7 @@
 
 
           </ANIM_CODE>
-          <ANIM_LAG>20</ANIM_LAG>
+          <ANIM_LAG>30</ANIM_LAG>
         </UseTemplate>
 
 
@@ -402,9 +409,13 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>DAP_Missile_tilt</ANIM_NAME>
           <ANIM_CODE>
-            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) -1 * 180 +
+            (A:ELECTRICAL MASTER BATTERY, bool)
+            if{
+            (A:ATTITUDE INDICATOR PITCH DEGREES, degree) -1 * 5 + 
+            } els{ 15 }
+            
           </ANIM_CODE>
-          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_LENGTH>15</ANIM_LENGTH>
           <ANIM_LAG>50</ANIM_LAG>
         </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">

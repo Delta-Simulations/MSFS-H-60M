@@ -44,26 +44,22 @@
       </UseTemplate>
       </Component>
 
-          <!-- GUN FX======================================================-->
-    <Component ID="GUNFX1" Node="FX_GUN_1">
-      <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE>(L:H60_Gun_Firing,bool) </FX_CODE>
-      <FX_OFFSET_X>0</FX_OFFSET_X>
-      <FX_OFFSET_Y>0</FX_OFFSET_Y>
-      <FX_OFFSET_Z>0</FX_OFFSET_Z>
-      <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_GUNSIGHT_PWR, bool) 100 *</ANIM>
+    <NODE_ID>Switch_GUNSIGHT_PWR</NODE_ID>
+    <TOOLTIPID>GUNSIGHT POWER</TOOLTIPID>
+    <INTERACT_CODE>
+      (L:H60_GUNSIGHT_PWR, bool) ! (&gt;L:H60_GUNSIGHT_PWR, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+    <Component ID="Gunsight_BRT" Node="GunsightDisp">
+      <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+        <EMISSIVE_CODE>
+          (A:GLASSCOCKPIT AUTOMATIC BRIGHTNESS, percent over 100) 2.5 *
+        </EMISSIVE_CODE>
       </UseTemplate>
-    </Component>
+      </Component>
 
-    <Component ID="GUNFX2" Node="FX_GUN_2">
-      <UseTemplate Name="ASOBO_GT_FX"> 
-      <FX_CODE>(L:H60_Gun_Firing,bool) </FX_CODE>
-      <FX_OFFSET_X>0</FX_OFFSET_X>
-      <FX_OFFSET_Y>0</FX_OFFSET_Y>
-      <FX_OFFSET_Z>0</FX_OFFSET_Z>
-      <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
-      </UseTemplate>
-    </Component>
 
 <Component ID="OH_PCLS">
   <Component ID="Lever_PCL2" Node="Lever_PCL2">

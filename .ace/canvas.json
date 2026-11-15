@@ -1,11 +1,11 @@
 {
     "elements": [
         {
-            "__uuid": "bf714078-d880-4b8a-af1e-7f8fd1890d68",
+            "__uuid": "47d1d6e6-f040-4b61-836f-78448645dc57",
             "__kind": "instrument",
             "dataKind": "bundled",
-            "title": "EFB",
-            "instrumentName": "EFB",
+            "title": "Gunsight",
+            "instrumentName": "Gunsight",
             "position": {
                 "x": 0,
                 "y": 0

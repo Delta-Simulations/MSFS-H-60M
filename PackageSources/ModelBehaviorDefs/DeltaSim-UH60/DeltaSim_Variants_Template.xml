@@ -29,7 +29,7 @@
             <Stock_MWS_INSTALLED>1</Stock_MWS_INSTALLED>
             <Bubble_Window_INSTALLED>0</Bubble_Window_INSTALLED>
             <UES_INSTALLED>1</UES_INSTALLED>
-             <HH60M_Fuse_Mods_INSTALLED>0</HH60M_Fuse_Mods_INSTALLED>
+            <HH60M_Fuse_Mods_INSTALLED>0</HH60M_Fuse_Mods_INSTALLED>
         </DefaultTemplateParameters>
 
     <Component ID="Parts_LIVERY_CHECKER">
@@ -87,7 +87,12 @@
                 <NODE>DAP_Pylon</NODE>
             </UseTemplate>
         </Component>
-       
+        <Component ID="Stock_pylon_Stub">
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED# !</VISIBILITY_CODE> 
+                <NODE>Stub_Pylon</NODE>
+            </UseTemplate>
+        </Component>
 <Component ID="HH60M_parts">
         <!-- HH60M Flir -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">

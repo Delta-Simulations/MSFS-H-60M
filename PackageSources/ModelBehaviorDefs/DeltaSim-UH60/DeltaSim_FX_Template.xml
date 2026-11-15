@@ -203,6 +203,27 @@
                 </UseTemplate>
             </Component>
 
+            <!-- GUN FX======================================================-->
+            <Component ID="GUNFX1" Node="DAP_240_R">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:H60_Gun_Firing,bool) </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
+                </UseTemplate>
+            </Component>
+
+            <Component ID="GUNFX2" Node="DAP_240_L">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(L:H60_Gun_Firing,bool) </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{C1DCC871-3672-4DB4-8498-6BB651BC926D}</FX_GUID>
+                </UseTemplate>
+            </Component>
+
             <!-- WATER FX-->
             <Component ID="WaterdropFX" Node="FX_WATER">
                 <UseTemplate Name="ASOBO_GT_FX">
@@ -214,7 +235,7 @@
                     <FX_OFFSET_X>0</FX_OFFSET_X>
                     <FX_OFFSET_Y>0</FX_OFFSET_Y>
                     <FX_OFFSET_Z>0</FX_OFFSET_Z>
-                    
+
                     <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
                 </UseTemplate>
             </Component>
@@ -228,7 +249,7 @@
                     <FX_OFFSET_X>0</FX_OFFSET_X>
                     <FX_OFFSET_Y>0</FX_OFFSET_Y>
                     <FX_OFFSET_Z>0</FX_OFFSET_Z>
-                    
+
                     <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
                 </UseTemplate>
             </Component>
