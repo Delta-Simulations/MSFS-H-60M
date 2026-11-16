@@ -90,6 +90,7 @@ We have two mainline versions: stable and development. The stable version is a '
  
 ## Contributors
 - Thank you to xovolovo for permitting us to use their GAU-21 Model
+- Thank you to ghqstops for the Helitak model
 - Thank you to RiverX for permitting us to use their Crew Chief Seat Model and Textures
 - Thank you to Rohr3D for permitting us to use their HIRSS Model
 - Thank you to Dano, Nace, Venom, Kenny, cpt_airwolf, and the rest of the MSFS Development community for their assistance over these years. Without them, this project could never have continued.
