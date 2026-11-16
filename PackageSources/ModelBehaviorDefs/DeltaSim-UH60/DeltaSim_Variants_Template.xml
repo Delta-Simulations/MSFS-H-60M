@@ -30,6 +30,7 @@
             <Bubble_Window_INSTALLED>0</Bubble_Window_INSTALLED>
             <UES_INSTALLED>1</UES_INSTALLED>
             <HH60M_Fuse_Mods_INSTALLED>0</HH60M_Fuse_Mods_INSTALLED>
+            <Helitank_INSTALLED>0</Helitank_INSTALLED>
         </DefaultTemplateParameters>
 
     <Component ID="Parts_LIVERY_CHECKER">
@@ -39,6 +40,7 @@
           #Fuel_Probe_INSTALLED# (&gt;L:H60_HasProbe)
           #Hoist_INSTALLED# (&gt;L:H60_HasHoist)
           #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasMissile)
+          #Helitank_INSTALLED# (&gt;L:H60_Helitank_Installed)
         </UPDATE_CODE>
       </UseTemplate>
     </Component>
@@ -84,7 +86,7 @@
         <Component ID="Dap_parts">
             <UseTemplate Name="Generic_Visibility_DELTASIM">
                 <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED#</VISIBILITY_CODE>
-                <NODE>DAP_Pylon</NODE>
+                <NODE>DAP_BASE</NODE>
             </UseTemplate>
         </Component>
         <Component ID="Stock_pylon_Stub">

@@ -24,37 +24,37 @@
         {
             "extras" : {
                 "sna_starttime_vechms" : [
-                    3,
-                    27,
-                    2
+                    12,
+                    5,
+                    44
                 ],
                 "sna_startdate_vecymd" : [
                     2026,
                     11,
                     15
                 ],
-                "sna_startttomin" : 207,
-                "sna_previous_sesion" : 21,
-                "sna_full_time" : 11923,
+                "sna_startttomin" : 725,
+                "sna_previous_sesion" : 15,
+                "sna_full_time" : 12057,
                 "sna_sesion_str" : "",
-                "sna_all_sesions_str" : "2026-11-15 -  21min \n2026-11-15 -  16min \n2026-11-15 -  30min \n2026-11-15 -  25min \n2026-11-15 -  39min \n2026-11-15 -  7min \n2026-11-15 -  18min \n2026-11-14 -  1h 42min \n2026-11-14 -  0min \n2026-09-09 -  5min \n2026-04-07 -  2min \n2026-04-07 -  7min \n2026-04-07 -  1h 5min \n2026-04-07 -  29min \n2026-04-07 -  36min \n2026-04-06 -  2min \n2026-04-06 -  1min \n2026-04-06 -  0min \n2026-04-06 -  6min \n2026-04-06 -  1h 59min \n2026-04-06 -  9min \n2026-04-06 -  5min \n2026-04-06 -  4min \n2026-04-06 -  7min \n2026-04-06 -  28min \n2026-04-06 -  1h 32min \n2026-04-06 -  48min \n2026-04-06 -  0min \n2026-04-06 -  0min \n2026-04-06 -  39min \n2026-04-06 -  3min \n2026-04-06 -  26min \n2026-04-05 -  1h 6min \n2026-04-05 -  10min \n2026-04-05 -  55min \n2026-04-05 -  1h 25min \n2026-04-05 -  1min \n2026-04-05 -  23min \n2026-04-02 -  6min \n2026-04-02 -  1h 38min \n2026-04-02 -  0min \n2026-04-02 -  4min \n2026-04-02 -  33min \n2026-04-02 -  6min \n2026-04-02 -  5min \n2026-04-01 -  9min \n2026-03-31 -  1h 34min \n2026-03-31 -  26min \n2026-03-31 -  11min \n2026-03-31 -  2h 1min \n2026-03-29 -  0min \n2026-03-29 -  4min \n2026-03-29 -  27min \n2026-03-29 -  45min \n2026-03-29 -  28min \n2026-03-29 -  4min \n2026-03-29 -  21min \n2026-03-29 -  5min \n2026-03-29 -  0min \n2026-03-29 -  1min \n2026-03-28 -  11min \n2026-03-28 -  26min \n2026-03-28 -  58min \n2026-03-28 -  25min \n2026-03-23 -  14min \n2026-03-23 -  6min \n2026-03-23 -  1h 1min \n2026-03-23 -  13min \n2026-03-22 -  2min \n2026-03-22 -  20min \n2026-03-22 -  2min \n2026-03-22 -  29min \n2026-03-22 -  1h 0min \n2026-03-22 -  16min \n2026-03-22 -  7min \n2026-03-22 -  1min \n2026-03-22 -  1h 39min \n2026-03-22 -  16min \n2026-03-21 -  0min \n2026-03-21 -  21min \n2026-03-21 -  30min \n2026-03-21 -  4min \n2026-03-21 -  1min \n2026-03-21 -  1min \n2026-03-21 -  0min \n2026-03-21 -  1h 11min \n2026-03-20 -  3min \n2026-03-20 -  1h 23min \n2026-03-20 -  4min \n2026-03-20 -  1h 3min \n2026-03-20 -  47min \n2026-03-20 -  4min \n2026-03-19 -  1min \n2026-03-19 -  46min \n2026-03-19 -  4min \n2026-03-19 -  10min \n2026-03-18 -  35min \n2026-03-18 -  0min \n2026-03-16 -  6min \n2026-03-16 -  30min \n2026-03-16 -  2min \n2026-03-16 -  3min \n2026-03-14 -  5min \n2026-03-14 -  9min \n2026-03-14 -  19min \n2026-03-14 -  1h 6min \n2026-03-14 -  2min \n2026-03-14 -  3min \n2026-03-14 -  15min \n2026-03-14 -  9min \n2026-03-14 -  6min \n2026-03-14 -  13min \n2026-03-14 -  1h 39min \n2026-03-14 -  36min \n2026-03-14 -  11min \n2026-03-14 -  49min \n2026-03-14 -  10min \n2026-03-14 -  40min \n2026-03-13 -  3h 3min \n2026-03-13 -  4min \n2026-03-13 -  1h 1min \n2026-03-13 -  13min \n2026-03-13 -  6min \n2026-03-13 -  3min \n2026-03-12 -  1h 11min \n2026-03-12 -  0min \n2026-03-12 -  8min \n2026-03-11 -  13min \n2026-03-11 -  19min \n2026-03-11 -  20min \n2026-03-09 -  0min \n2026-03-07 -  0min \n2026-03-06 -  16min \n2026-03-06 -  13min \n2026-03-06 -  1h 1min \n2026-03-06 -  10min \n2026-03-06 -  4h 4min \n2026-03-05 -  13min \n2026-03-05 -  36min \n2026-03-01 -  27min \n2026-03-01 -  31min \n2026-03-01 -  2min \n2026-03-01 -  0min \n2026-03-01 -  28min \n2026-03-01 -  1h 22min \n2026-03-01 -  1h 42min \n2026-02-28 -  2h 2min \n2026-02-27 -  5min \n2026-02-27 -  3min \n2026-02-27 -  2h 51min \n2026-02-27 -  1h 30min \n2026-02-26 -  3min \n2026-02-13 -  27min \n2026-02-11 -  1h 11min \n2026-02-10 -  6min \n2026-02-10 -  1h 9min \n2026-02-10 -  1min \n2026-02-10 -  21min \n2026-02-10 -  46min \n2026-02-10 -  7min \n2026-02-10 -  7min \n2026-02-10 -  2min \n2026-02-10 -  11min \n2026-02-09 -  11min \n2026-02-09 -  2min \n2026-02-09 -  0min \n2026-02-08 -  25min \n2026-02-08 -  4min \n2026-02-08 -  14min \n2026-02-08 -  5min \n2026-02-08 -  5min \n2026-02-08 -  1h 15min \n2026-02-08 -  15min \n2026-02-08 -  0min \n2026-02-07 -  1min \n2026-02-07 -  23min \n2026-02-07 -  58min \n2026-02-07 -  4min \n2026-02-07 -  11min \n2026-02-07 -  26min \n2026-02-07 -  22min \n2026-02-07 -  8min \n2026-02-07 -  4min \n2026-02-07 -  38min \n2026-02-07 -  1h 53min \n2026-02-07 -  40min \n2026-02-07 -  48min \n2026-02-06 -  2h 32min \n2026-02-06 -  2h 53min \n2026-02-06 -  31min \n2026-02-06 -  5min \n2026-02-06 -  2min \n2026-02-06 -  0min \n2026-02-06 -  1min \n2026-02-06 -  7min \n2026-02-06 -  3min \n2026-02-06 -  30min \n2026-02-06 -  16min \n2026-02-06 -  48min \n2026-02-06 -  20min \n2026-02-06 -  59min \n2026-02-06 -  25min \n2026-02-06 -  1h 4min \n2026-02-05 -  1min \n2026-02-04 -  11min \n2026-02-04 -  10min \n2026-02-04 -  49min \n2026-02-04 -  23min \n2026-02-04 -  4min \n2026-02-03 -  16min \n2026-02-03 -  6min \n2026-02-03 -  58min \n2026-02-03 -  1h 7min \n2026-02-03 -  13min \n2026-02-02 -  55min \n2026-02-01 -  1h 45min \n2026-01-31 -  54min \n2025-12-11 -  0min \n2025-12-11 -  3h 11min \n2025-12-09 -  0min \n2025-12-09 -  3min \n2025-12-09 -  0min \n2025-12-03 -  0min \n2025-12-03 -  4min \n2025-12-03 -  12min \n2025-11-30 -  8min \n2025-11-29 -  0min \n2025-11-29 -  3min \n2025-05-06 -  1min \n2025-05-06 -  5min \n2025-05-06 -  42min \n2025-04-23 -  24min \n2025-04-23 -  23min \n2025-04-23 -  45min \n2025-04-23 -  3min \n2025-04-22 -  18min \n2025-04-22 -  2h 14min \n2025-04-21 -  16min \n2025-04-21 -  39min \n2025-04-21 -  1h 16min \n2025-04-21 -  7min \n2025-04-16 -  25min \n2025-04-16 -  4min \n2025-04-16 -  2h 10min \n2025-04-15 -  21min \n2025-04-15 -  1min \n2025-04-15 -  0min \n2025-04-15 -  35min \n2025-04-15 -  40min \n2025-04-15 -  29min \n2025-04-14 -  44min \n2025-04-14 -  10min \n2025-04-13 -  0min \n2025-04-13 -  24min \n2025-04-13 -  26min \n2025-04-13 -  27min \n2025-04-13 -  1min \n2025-04-12 -  3min \n2025-04-12 -  14min \n2025-04-12 -  2h 18min \n2025-04-12 -  1h 7min \n2025-04-11 -  11min \n2025-04-11 -  1h 5min \n2025-04-11 -  14min \n2025-04-11 -  2h 6min \n2025-04-11 -  15min \n2025-04-11 -  14min \n2025-04-11 -  11min \n2025-04-10 -  24min \n2025-04-10 -  52min \n2025-04-10 -  0min \n2025-04-10 -  2min \n2025-04-10 -  54min \n2025-04-10 -  10min \n2025-04-10 -  8min \n2025-04-10 -  7min \n2025-04-10 -  4h 43min \n2025-04-09 -  13min \n2025-04-09 -  53min \n2025-04-09 -  44min \n2025-04-09 -  1h 43min \n2025-04-09 -  6min \n2025-04-09 -  24min \n2025-04-09 -  2h 16min \n2025-04-07 -  26min \n2025-04-06 -  0min \n2025-04-06 -  1min \n2025-04-06 -  9min \n2025-04-06 -  2h 46min \n2025-04-06 -  7min \n2025-04-06 -  4h 58min \n2025-04-05 -  10min \n2025-03-31 -  3min \n2025-03-31 -  1h 34min \n2025-03-31 -  42min \n2025-03-31 -  3min \n2025-03-31 -  2h 30min \n2025-03-30 -  2min \n2025-03-30 -  46min \n2025-03-30 -  0min \n2025-03-30 -  38min \n2025-03-30 -  56min \n2025-03-30 -  31min \n2025-03-29 -  4min \n2025-03-29 -  40min \n2025-03-29 -  1h 0min \n2025-03-29 -  2min \n2025-03-29 -  1min \n2025-03-29 -  22min \n2025-03-28 -  1h 7min \n2025-03-28 -  18min \n2025-03-28 -  4min \n2025-03-28 -  37min \n2025-03-28 -  4min \n2025-03-28 -  23min \n2025-03-28 -  5min \n2025-03-28 -  42min \n2025-03-28 -  1h 13min \n2025-03-28 -  2min \n2025-03-28 -  22min \n2025-03-28 -  12min \n2025-03-27 -  19min \n2025-03-27 -  3min \n2025-03-27 -  3min \n2025-03-27 -  14min \n2025-03-27 -  1h 5min \n2025-03-26 -  6min \n2025-03-26 -  7min \n2025-03-26 -  20min \n2025-03-22 -  5min \n2025-03-22 -  1h 53min \n2025-03-22 -  1min \n2025-03-22 -  3min \n2025-03-22 -  19min \n2025-03-22 -  9min \n2025-03-21 -  47min \n2025-03-21 -  1min \n2025-03-21 -  21min \n2025-03-21 -  0min \n2025-03-18 -  6min \n2025-03-18 -  3min \n2025-03-18 -  4min \n2025-03-18 -  23min \n2025-03-17 -  2min \n2025-03-17 -  9min \n2025-03-17 -  1h 2min \n2025-03-17 -  9min \n2025-03-17 -  36min \n2025-03-17 -  0min \n2025-03-17 -  19min \n2025-03-17 -  14min \n2025-03-17 -  6min \n2025-03-17 -  13min \n2025-03-17 -  1min \n2025-03-17 -  20min \n2025-03-17 -  0min \n2025-03-17 -  12min \n2025-03-17 -  50min \n2025-03-17 -  24min \n2025-03-15 -  6h 13min \n2025-03-14 -  4min \n2025-03-14 -  4min \n2025-03-14 -  7min \n2025-03-14 -  0min \n2025-03-13 -  7min \n2025-03-12 -  1h 21min \n2025-03-12 -  25min \n2025-03-12 -  7min \n2025-03-12 -  8min \n2025-03-10 -  1h 27min \n2025-03-10 -  3min \n2025-03-10 -  33min \n2025-03-09 -  3min \n2025-03-09 -  6min \n2025-03-09 -  10min \n2025-03-08 -  15min \n2025-03-08 -  14min \n2025-03-08 -  26min \n2025-03-08 -  3h 10min \n2025-03-07 -  38min \n2025-03-07 -  14min \n2025-03-07 -  1h 20min \n2025-03-07 -  1h 51min \n2025-03-07 -  1min \n2025-03-07 -  25min \n -  0min \n",
-                "sna_delta_time_min" : 52,
+                "sna_all_sesions_str" : "2026-11-15 -  15min \n2026-11-15 -  48min \n2026-11-15 -  1h 11min \n2026-11-15 -  21min \n2026-11-15 -  16min \n2026-11-15 -  30min \n2026-11-15 -  25min \n2026-11-15 -  39min \n2026-11-15 -  7min \n2026-11-15 -  18min \n2026-11-14 -  1h 42min \n2026-11-14 -  0min \n2026-09-09 -  5min \n2026-04-07 -  2min \n2026-04-07 -  7min \n2026-04-07 -  1h 5min \n2026-04-07 -  29min \n2026-04-07 -  36min \n2026-04-06 -  2min \n2026-04-06 -  1min \n2026-04-06 -  0min \n2026-04-06 -  6min \n2026-04-06 -  1h 59min \n2026-04-06 -  9min \n2026-04-06 -  5min \n2026-04-06 -  4min \n2026-04-06 -  7min \n2026-04-06 -  28min \n2026-04-06 -  1h 32min \n2026-04-06 -  48min \n2026-04-06 -  0min \n2026-04-06 -  0min \n2026-04-06 -  39min \n2026-04-06 -  3min \n2026-04-06 -  26min \n2026-04-05 -  1h 6min \n2026-04-05 -  10min \n2026-04-05 -  55min \n2026-04-05 -  1h 25min \n2026-04-05 -  1min \n2026-04-05 -  23min \n2026-04-02 -  6min \n2026-04-02 -  1h 38min \n2026-04-02 -  0min \n2026-04-02 -  4min \n2026-04-02 -  33min \n2026-04-02 -  6min \n2026-04-02 -  5min \n2026-04-01 -  9min \n2026-03-31 -  1h 34min \n2026-03-31 -  26min \n2026-03-31 -  11min \n2026-03-31 -  2h 1min \n2026-03-29 -  0min \n2026-03-29 -  4min \n2026-03-29 -  27min \n2026-03-29 -  45min \n2026-03-29 -  28min \n2026-03-29 -  4min \n2026-03-29 -  21min \n2026-03-29 -  5min \n2026-03-29 -  0min \n2026-03-29 -  1min \n2026-03-28 -  11min \n2026-03-28 -  26min \n2026-03-28 -  58min \n2026-03-28 -  25min \n2026-03-23 -  14min \n2026-03-23 -  6min \n2026-03-23 -  1h 1min \n2026-03-23 -  13min \n2026-03-22 -  2min \n2026-03-22 -  20min \n2026-03-22 -  2min \n2026-03-22 -  29min \n2026-03-22 -  1h 0min \n2026-03-22 -  16min \n2026-03-22 -  7min \n2026-03-22 -  1min \n2026-03-22 -  1h 39min \n2026-03-22 -  16min \n2026-03-21 -  0min \n2026-03-21 -  21min \n2026-03-21 -  30min \n2026-03-21 -  4min \n2026-03-21 -  1min \n2026-03-21 -  1min \n2026-03-21 -  0min \n2026-03-21 -  1h 11min \n2026-03-20 -  3min \n2026-03-20 -  1h 23min \n2026-03-20 -  4min \n2026-03-20 -  1h 3min \n2026-03-20 -  47min \n2026-03-20 -  4min \n2026-03-19 -  1min \n2026-03-19 -  46min \n2026-03-19 -  4min \n2026-03-19 -  10min \n2026-03-18 -  35min \n2026-03-18 -  0min \n2026-03-16 -  6min \n2026-03-16 -  30min \n2026-03-16 -  2min \n2026-03-16 -  3min \n2026-03-14 -  5min \n2026-03-14 -  9min \n2026-03-14 -  19min \n2026-03-14 -  1h 6min \n2026-03-14 -  2min \n2026-03-14 -  3min \n2026-03-14 -  15min \n2026-03-14 -  9min \n2026-03-14 -  6min \n2026-03-14 -  13min \n2026-03-14 -  1h 39min \n2026-03-14 -  36min \n2026-03-14 -  11min \n2026-03-14 -  49min \n2026-03-14 -  10min \n2026-03-14 -  40min \n2026-03-13 -  3h 3min \n2026-03-13 -  4min \n2026-03-13 -  1h 1min \n2026-03-13 -  13min \n2026-03-13 -  6min \n2026-03-13 -  3min \n2026-03-12 -  1h 11min \n2026-03-12 -  0min \n2026-03-12 -  8min \n2026-03-11 -  13min \n2026-03-11 -  19min \n2026-03-11 -  20min \n2026-03-09 -  0min \n2026-03-07 -  0min \n2026-03-06 -  16min \n2026-03-06 -  13min \n2026-03-06 -  1h 1min \n2026-03-06 -  10min \n2026-03-06 -  4h 4min \n2026-03-05 -  13min \n2026-03-05 -  36min \n2026-03-01 -  27min \n2026-03-01 -  31min \n2026-03-01 -  2min \n2026-03-01 -  0min \n2026-03-01 -  28min \n2026-03-01 -  1h 22min \n2026-03-01 -  1h 42min \n2026-02-28 -  2h 2min \n2026-02-27 -  5min \n2026-02-27 -  3min \n2026-02-27 -  2h 51min \n2026-02-27 -  1h 30min \n2026-02-26 -  3min \n2026-02-13 -  27min \n2026-02-11 -  1h 11min \n2026-02-10 -  6min \n2026-02-10 -  1h 9min \n2026-02-10 -  1min \n2026-02-10 -  21min \n2026-02-10 -  46min \n2026-02-10 -  7min \n2026-02-10 -  7min \n2026-02-10 -  2min \n2026-02-10 -  11min \n2026-02-09 -  11min \n2026-02-09 -  2min \n2026-02-09 -  0min \n2026-02-08 -  25min \n2026-02-08 -  4min \n2026-02-08 -  14min \n2026-02-08 -  5min \n2026-02-08 -  5min \n2026-02-08 -  1h 15min \n2026-02-08 -  15min \n2026-02-08 -  0min \n2026-02-07 -  1min \n2026-02-07 -  23min \n2026-02-07 -  58min \n2026-02-07 -  4min \n2026-02-07 -  11min \n2026-02-07 -  26min \n2026-02-07 -  22min \n2026-02-07 -  8min \n2026-02-07 -  4min \n2026-02-07 -  38min \n2026-02-07 -  1h 53min \n2026-02-07 -  40min \n2026-02-07 -  48min \n2026-02-06 -  2h 32min \n2026-02-06 -  2h 53min \n2026-02-06 -  31min \n2026-02-06 -  5min \n2026-02-06 -  2min \n2026-02-06 -  0min \n2026-02-06 -  1min \n2026-02-06 -  7min \n2026-02-06 -  3min \n2026-02-06 -  30min \n2026-02-06 -  16min \n2026-02-06 -  48min \n2026-02-06 -  20min \n2026-02-06 -  59min \n2026-02-06 -  25min \n2026-02-06 -  1h 4min \n2026-02-05 -  1min \n2026-02-04 -  11min \n2026-02-04 -  10min \n2026-02-04 -  49min \n2026-02-04 -  23min \n2026-02-04 -  4min \n2026-02-03 -  16min \n2026-02-03 -  6min \n2026-02-03 -  58min \n2026-02-03 -  1h 7min \n2026-02-03 -  13min \n2026-02-02 -  55min \n2026-02-01 -  1h 45min \n2026-01-31 -  54min \n2025-12-11 -  0min \n2025-12-11 -  3h 11min \n2025-12-09 -  0min \n2025-12-09 -  3min \n2025-12-09 -  0min \n2025-12-03 -  0min \n2025-12-03 -  4min \n2025-12-03 -  12min \n2025-11-30 -  8min \n2025-11-29 -  0min \n2025-11-29 -  3min \n2025-05-06 -  1min \n2025-05-06 -  5min \n2025-05-06 -  42min \n2025-04-23 -  24min \n2025-04-23 -  23min \n2025-04-23 -  45min \n2025-04-23 -  3min \n2025-04-22 -  18min \n2025-04-22 -  2h 14min \n2025-04-21 -  16min \n2025-04-21 -  39min \n2025-04-21 -  1h 16min \n2025-04-21 -  7min \n2025-04-16 -  25min \n2025-04-16 -  4min \n2025-04-16 -  2h 10min \n2025-04-15 -  21min \n2025-04-15 -  1min \n2025-04-15 -  0min \n2025-04-15 -  35min \n2025-04-15 -  40min \n2025-04-15 -  29min \n2025-04-14 -  44min \n2025-04-14 -  10min \n2025-04-13 -  0min \n2025-04-13 -  24min \n2025-04-13 -  26min \n2025-04-13 -  27min \n2025-04-13 -  1min \n2025-04-12 -  3min \n2025-04-12 -  14min \n2025-04-12 -  2h 18min \n2025-04-12 -  1h 7min \n2025-04-11 -  11min \n2025-04-11 -  1h 5min \n2025-04-11 -  14min \n2025-04-11 -  2h 6min \n2025-04-11 -  15min \n2025-04-11 -  14min \n2025-04-11 -  11min \n2025-04-10 -  24min \n2025-04-10 -  52min \n2025-04-10 -  0min \n2025-04-10 -  2min \n2025-04-10 -  54min \n2025-04-10 -  10min \n2025-04-10 -  8min \n2025-04-10 -  7min \n2025-04-10 -  4h 43min \n2025-04-09 -  13min \n2025-04-09 -  53min \n2025-04-09 -  44min \n2025-04-09 -  1h 43min \n2025-04-09 -  6min \n2025-04-09 -  24min \n2025-04-09 -  2h 16min \n2025-04-07 -  26min \n2025-04-06 -  0min \n2025-04-06 -  1min \n2025-04-06 -  9min \n2025-04-06 -  2h 46min \n2025-04-06 -  7min \n2025-04-06 -  4h 58min \n2025-04-05 -  10min \n2025-03-31 -  3min \n2025-03-31 -  1h 34min \n2025-03-31 -  42min \n2025-03-31 -  3min \n2025-03-31 -  2h 30min \n2025-03-30 -  2min \n2025-03-30 -  46min \n2025-03-30 -  0min \n2025-03-30 -  38min \n2025-03-30 -  56min \n2025-03-30 -  31min \n2025-03-29 -  4min \n2025-03-29 -  40min \n2025-03-29 -  1h 0min \n2025-03-29 -  2min \n2025-03-29 -  1min \n2025-03-29 -  22min \n2025-03-28 -  1h 7min \n2025-03-28 -  18min \n2025-03-28 -  4min \n2025-03-28 -  37min \n2025-03-28 -  4min \n2025-03-28 -  23min \n2025-03-28 -  5min \n2025-03-28 -  42min \n2025-03-28 -  1h 13min \n2025-03-28 -  2min \n2025-03-28 -  22min \n2025-03-28 -  12min \n2025-03-27 -  19min \n2025-03-27 -  3min \n2025-03-27 -  3min \n2025-03-27 -  14min \n2025-03-27 -  1h 5min \n2025-03-26 -  6min \n2025-03-26 -  7min \n2025-03-26 -  20min \n2025-03-22 -  5min \n2025-03-22 -  1h 53min \n2025-03-22 -  1min \n2025-03-22 -  3min \n2025-03-22 -  19min \n2025-03-22 -  9min \n2025-03-21 -  47min \n2025-03-21 -  1min \n2025-03-21 -  21min \n2025-03-21 -  0min \n2025-03-18 -  6min \n2025-03-18 -  3min \n2025-03-18 -  4min \n2025-03-18 -  23min \n2025-03-17 -  2min \n2025-03-17 -  9min \n2025-03-17 -  1h 2min \n2025-03-17 -  9min \n2025-03-17 -  36min \n2025-03-17 -  0min \n2025-03-17 -  19min \n2025-03-17 -  14min \n2025-03-17 -  6min \n2025-03-17 -  13min \n2025-03-17 -  1min \n2025-03-17 -  20min \n2025-03-17 -  0min \n2025-03-17 -  12min \n2025-03-17 -  50min \n2025-03-17 -  24min \n2025-03-15 -  6h 13min \n2025-03-14 -  4min \n2025-03-14 -  4min \n2025-03-14 -  7min \n2025-03-14 -  0min \n2025-03-13 -  7min \n2025-03-12 -  1h 21min \n2025-03-12 -  25min \n2025-03-12 -  7min \n2025-03-12 -  8min \n2025-03-10 -  1h 27min \n2025-03-10 -  3min \n2025-03-10 -  33min \n2025-03-09 -  3min \n2025-03-09 -  6min \n2025-03-09 -  10min \n2025-03-08 -  15min \n2025-03-08 -  14min \n2025-03-08 -  26min \n2025-03-08 -  3h 10min \n2025-03-07 -  38min \n2025-03-07 -  14min \n2025-03-07 -  1h 20min \n2025-03-07 -  1h 51min \n2025-03-07 -  1min \n2025-03-07 -  25min \n -  0min \n",
+                "sna_delta_time_min" : 48,
                 "projectile_settings" : {},
-                "sna_activesec_add" : 380285,
+                "sna_activesec_add" : 383990,
                 "sna_mausewindow" : [
-                    2098,
-                    1053
+                    974,
+                    936
                 ],
-                "sna_asctivestring" : "TAB",
+                "sna_asctivestring" : "LEFTMOUSE",
                 "msfs_importer_properties" : {},
                 "msfs_exporter_properties" : {
                     "use_unique_id" : 1
                 },
-                "sna_inactivesec" : 59852,
+                "sna_inactivesec" : 60602,
                 "sna_endtime_vechms" : [
-                    4,
-                    19,
-                    18
+                    12,
+                    53,
+                    5
                 ],
                 "sna_enddate_vecymd" : [
                     2026,
@@ -62,8 +62,8 @@
                     15
                 ],
                 "sna_enddatestr" : "2026-11-15",
-                "sna_endttomin" : 259,
-                "sna_delta_sec" : 3138,
+                "sna_endttomin" : 773,
+                "sna_delta_sec" : 2885,
                 "svg_export" : {},
                 "msfs_multi_exporter_current_tab" : 1,
                 "msfs_multi_exporter_presets" : [
@@ -729,7 +729,7 @@
                 "zen_sets_object_list" : [
                     {
                         "level" : 0,
-                        "layer_name" : "zen_sets_object_layer_bfaa070a-0edd-4f2e-957c-37e79d6e8d40",
+                        "layer_name" : "zen_sets_object_layer_217c46ba-374f-4925-8302-b024de188a77",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Scene Collection",
@@ -740,7 +740,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_602b5878-c9d2-4f1e-bc60-65b4c89baca1",
+                        "layer_name" : "zen_sets_object_layer_e32f2623-c831-46bd-a664-bad42c69b833",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "REF",
@@ -754,7 +754,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_454609f3-b895-47db-9d5f-7044310f605d",
+                        "layer_name" : "zen_sets_object_layer_0e0d17fa-1623-4ce0-aac3-e62454b850b5",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "INT",
@@ -768,7 +768,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_addf8b7d-788b-4107-bc88-dc5e183472d7",
+                        "layer_name" : "zen_sets_object_layer_0431dca7-40a3-41b1-8564-d72d7e35c66c",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "STA",
@@ -782,7 +782,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_95235fe5-2ec1-4462-9b69-55daadf25b28",
+                        "layer_name" : "zen_sets_object_layer_a2ce9c43-7911-417c-aaea-7b9026d239f1",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Exterior",
@@ -796,7 +796,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_7cd4c813-9b5c-4ae5-87f2-41ca655cfca6",
+                        "layer_name" : "zen_sets_object_layer_30ffe9ac-b421-4cc8-b642-f2aedb2e7644",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "VICTOR",
@@ -810,7 +810,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_d407bfe1-7601-4c01-b69b-af213df9028f",
+                        "layer_name" : "zen_sets_object_layer_3ee96293-6f98-4b50-833c-b22202189d0a",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "MIKE",
@@ -824,7 +824,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_64f109e9-53c6-44f1-a250-240160985424",
+                        "layer_name" : "zen_sets_object_layer_2055c234-1ead-4914-9db1-b241c8a25b69",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Rotor",
@@ -838,7 +838,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_48e9f17e-9b65-4397-9e81-a0d4a10fe882",
+                        "layer_name" : "zen_sets_object_layer_0a41790a-565a-4365-9b28-e4dec483053e",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "NEW Blur",
@@ -852,7 +852,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_4077f10f-7de6-419f-b6eb-ff1d1180346d",
+                        "layer_name" : "zen_sets_object_layer_38de42d1-cea0-4f31-878a-aabb2b15cdfe",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Med",
@@ -866,7 +866,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_ce2316c1-a3c7-49ca-9340-6cb01d9f5120",
+                        "layer_name" : "zen_sets_object_layer_f2b321bf-1ce4-4c56-81c3-2c2da26de43d",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Gear",
@@ -880,7 +880,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_41a93172-277f-4a4f-bce4-a437c0cfd2a4",
+                        "layer_name" : "zen_sets_object_layer_a92471f7-2ee4-4631-abb0-1a32ae1ea9f3",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "FX",
@@ -894,7 +894,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_b27c31bf-cd34-4975-b2ac-59a6cd6ffb3b",
+                        "layer_name" : "zen_sets_object_layer_1790ebec-93b9-4cad-83a4-a1f762586cbc",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Cargo",
@@ -908,7 +908,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_2a65ff67-0392-49b7-bd07-f92ecdbf7694",
+                        "layer_name" : "zen_sets_object_layer_b986c513-4df8-4a69-ba01-d90399efb6b8",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "ISU",
@@ -922,7 +922,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_8fd3b0b4-8385-4ae0-b467-24ebfa3ad7e2",
+                        "layer_name" : "zen_sets_object_layer_d6db6910-99e5-4180-a439-ab8637e537bd",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Helitank",
@@ -936,301 +936,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_d7fd9a77-cc86-4612-a8ac-140c17da7e7b",
-                        "has_children" : 1,
-                        "collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "Exterior",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 4
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_ce32feb2-5577-4ebf-92d2-afa59efec670",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "SKIS",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_62cda060-5d2c-4645-b59d-bf085de5cbd2",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "EIBF",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_2fbf89ab-a8eb-40b0-88f2-6ef7850a717f",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "PROBE",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_b7d6e745-4085-424f-8707-25f30eff2628",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "HH-60W",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_ef34319d-9fe8-4c83-91bc-1884a1102f09",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "Hoist",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_ef1ae71e-fa53-4376-aadf-acf8c28ad220",
-                        "has_children" : 1,
-                        "collection" : {
-                            "name" : "MH-60M",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_06f3f29e-f227-44f3-8e9d-d749d9d3aa38",
-                        "has_children" : 1,
-                        "collection" : {
-                            "name" : "DAP",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "MH-60M",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 21
-                    },
-                    {
-                        "level" : 5,
-                        "layer_name" : "zen_sets_object_layer_70765baf-12f9-4c0a-b07b-c85177d0cbd7",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "Rocket",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "DAP",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 22
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_9f2df3ca-f3b7-4be7-9078-d8a11f822d55",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "HH-60M",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_313bc40b-80c4-4e55-978e-1078adf70724",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "Mil Only",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_9bc9a5d4-3fdc-46b0-a425-33cc1f17181f",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "GunnerDoors",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "VARIANTS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 15
-                    },
-                    {
-                        "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_073ead16-10a0-4e31-8c92-064ffeb24879",
-                        "has_children" : 1,
-                        "collection" : {
-                            "name" : "DECALS",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "Exterior",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 4
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_3ca19b82-a56a-4e7f-a596-eeca6755d568",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "TEXT",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "DECALS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 27
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_e1d99fb5-c589-473b-b3a1-48a139883e1a",
-                        "has_children" : 1,
-                        "collection" : {
-                            "name" : "RIVETS",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "DECALS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 27
-                    },
-                    {
-                        "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_72f3a61f-5d99-4643-b7a9-6a6d5ac8a7b5",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "STAB",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "RIVETS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 29
-                    },
-                    {
-                        "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_d69212f9-e8ed-4f8f-b967-2615fb03c01d",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "TAIL",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "RIVETS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 29
-                    },
-                    {
-                        "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_68d9635e-e1f8-445d-8aad-9e829ca2013c",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "BELLY",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "RIVETS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 29
-                    },
-                    {
-                        "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_2b26394b-85a7-4f13-95f3-c4d31973063d",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "TROOP DOOR TO TAIL",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "RIVETS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 29
-                    },
-                    {
-                        "level" : 4,
-                        "layer_name" : "zen_sets_object_layer_2e680c5f-4a47-40ec-8d70-3ecb7fd4e78c",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "R",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "RIVETS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 29
-                    },
-                    {
-                        "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_cee025b7-5201-4f4f-b447-dea3a37c30e9",
-                        "has_children" : 0,
-                        "collection" : {
-                            "name" : "Livery",
-                            "type" : "Collection"
-                        },
-                        "parent_collection" : {
-                            "name" : "DECALS",
-                            "type" : "Collection"
-                        },
-                        "parent_idx" : 27
-                    },
-                    {
-                        "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_ba12dce9-5df3-4f0d-91bc-3495a39d8ecb",
+                        "layer_name" : "zen_sets_object_layer_edcb7f81-d0ad-4b96-8bba-0e859b16b7e0",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Main",
@@ -1243,8 +949,302 @@
                         "parent_idx" : 4
                     },
                     {
+                        "level" : 2,
+                        "layer_name" : "zen_sets_object_layer_72cf5c4d-96ae-4952-81fb-6dc3df6a3ddc",
+                        "has_children" : 1,
+                        "collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "Exterior",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 4
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_d01da312-a521-4a35-9456-560015203f4a",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "SKIS",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_6989a475-aba7-47dd-b277-bcb29798a315",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "EIBF",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_c89491c7-b017-4b6d-85b8-c2904787585d",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "PROBE",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_5cb13510-4eb7-40f1-8195-63ebed2eb9b4",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "HH-60W",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_af7a09db-0a00-41e5-b12e-fe89c75eacb3",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "Hoist",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_de2ac1c6-b53c-44a5-ab5a-5cf45610b957",
+                        "has_children" : 1,
+                        "collection" : {
+                            "name" : "MH-60M",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 4,
+                        "layer_name" : "zen_sets_object_layer_bf62501e-7a13-4ff8-8a50-9903c39267e1",
+                        "has_children" : 1,
+                        "collection" : {
+                            "name" : "DAP",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "MH-60M",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 22
+                    },
+                    {
+                        "level" : 5,
+                        "layer_name" : "zen_sets_object_layer_194764b1-9831-4587-b1c2-ed55665dc712",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "Rocket",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "DAP",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 23
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_b0865d28-e57d-4f99-8f06-cd370382ecf7",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "HH-60M",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_659c5c32-f996-4983-94b7-6bc61436c0cf",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "Mil Only",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_7fec2422-7fc2-4b3b-aecb-32bbe8c6af93",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "GunnerDoors",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "VARIANTS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 16
+                    },
+                    {
+                        "level" : 2,
+                        "layer_name" : "zen_sets_object_layer_7587a393-9967-4d0a-af87-db635503cd66",
+                        "has_children" : 1,
+                        "collection" : {
+                            "name" : "DECALS",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "Exterior",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 4
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_bee73c82-462c-4382-bed1-fb02462e02be",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "TEXT",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "DECALS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 28
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_b104e072-f33d-4ec1-8139-78db404b13c5",
+                        "has_children" : 1,
+                        "collection" : {
+                            "name" : "RIVETS",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "DECALS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 28
+                    },
+                    {
+                        "level" : 4,
+                        "layer_name" : "zen_sets_object_layer_8da95be8-f5eb-4d25-bd07-b7fc69f537bd",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "STAB",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "RIVETS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 30
+                    },
+                    {
+                        "level" : 4,
+                        "layer_name" : "zen_sets_object_layer_d86db549-8d3e-4ea9-951b-0283cf351318",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "TAIL",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "RIVETS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 30
+                    },
+                    {
+                        "level" : 4,
+                        "layer_name" : "zen_sets_object_layer_09e7de14-ed89-4091-9495-af1eab7f9449",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "BELLY",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "RIVETS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 30
+                    },
+                    {
+                        "level" : 4,
+                        "layer_name" : "zen_sets_object_layer_7c0c4f1a-e301-4437-93fd-83be2eba9e77",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "TROOP DOOR TO TAIL",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "RIVETS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 30
+                    },
+                    {
+                        "level" : 4,
+                        "layer_name" : "zen_sets_object_layer_1732543c-8ae4-439d-8ee9-0930d4c23d37",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "R",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "RIVETS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 30
+                    },
+                    {
+                        "level" : 3,
+                        "layer_name" : "zen_sets_object_layer_a0208c3e-863a-456c-a71a-a4b2c7681042",
+                        "has_children" : 0,
+                        "collection" : {
+                            "name" : "Livery",
+                            "type" : "Collection"
+                        },
+                        "parent_collection" : {
+                            "name" : "DECALS",
+                            "type" : "Collection"
+                        },
+                        "parent_idx" : 28
+                    },
+                    {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_5846f95d-8266-42fa-a45a-82f838425678",
+                        "layer_name" : "zen_sets_object_layer_ba79160c-3f72-4e4a-bc25-28fa2fae8ee2",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Interior",
@@ -1258,7 +1258,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_a00a6ff3-4b2a-4062-8e2b-68fd4ecfef66",
+                        "layer_name" : "zen_sets_object_layer_97f10d67-6804-4d38-ba1f-9a1b13690f80",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Panels",
@@ -1272,7 +1272,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_2f4507b4-e4eb-4388-b05a-401026b6e32a",
+                        "layer_name" : "zen_sets_object_layer_dead82a6-be84-4bdb-bf6c-ed00aedb3010",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "OH",
@@ -1286,7 +1286,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_f2ad60d6-8b29-4146-983d-84f9c25ed500",
+                        "layer_name" : "zen_sets_object_layer_f56bbb99-dc71-459b-9552-f2d4a086cb84",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Controls",
@@ -1300,7 +1300,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_0dd405a9-218d-4e7a-aa11-4e1d32f6776a",
+                        "layer_name" : "zen_sets_object_layer_83874298-197d-4ab5-bbaf-d4e33ce4b5cd",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "Walls",
@@ -1314,7 +1314,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_aff6170f-9cc3-466d-b5cc-82b1a68a26d2",
+                        "layer_name" : "zen_sets_object_layer_cd5f510f-1eb3-4f92-9375-8819df51554f",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "InstanceArrayBolts",
@@ -1328,7 +1328,7 @@
                     },
                     {
                         "level" : 3,
-                        "layer_name" : "zen_sets_object_layer_fea3e4ca-c96c-48ba-9b48-5170d91db832",
+                        "layer_name" : "zen_sets_object_layer_a4e50ca3-8f62-42d2-ab1b-9b6334be5c4f",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Seats",
@@ -1342,7 +1342,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_2548af61-f88c-48e5-84fc-8b92b7d0e821",
+                        "layer_name" : "zen_sets_object_layer_fb73bc85-9a3f-4bf6-8a38-66bec00e47f6",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Cabin",
@@ -1356,7 +1356,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_73b60d1f-4ce3-4f8f-99b9-55092a36e4f8",
+                        "layer_name" : "zen_sets_object_layer_af653bbc-deb3-4618-ac7d-4ed98655b40d",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Decals",
@@ -1370,7 +1370,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_ad07e293-f190-4c68-b48f-ee8c803a6f8a",
+                        "layer_name" : "zen_sets_object_layer_22ae305b-df42-449f-ad6d-4a183cd73b38",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "PILOTS",
@@ -1384,7 +1384,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_724d1224-d39f-41ef-80d1-3964e6128eed",
+                        "layer_name" : "zen_sets_object_layer_d5e50281-ea8e-4369-8074-2c931f16a3fa",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "SOLIDER",
@@ -1398,7 +1398,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_011ef2f3-dc58-46c8-bed6-9d17baf60860",
+                        "layer_name" : "zen_sets_object_layer_69f61e01-d9e8-4fc9-8ac8-407d9ce5fcce",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "DAP_INT",
@@ -1412,7 +1412,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_51742f67-232d-41b1-8ebe-edfee6414bfb",
+                        "layer_name" : "zen_sets_object_layer_8c167741-034c-402b-a3d2-346bec89756d",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Render",
@@ -1426,7 +1426,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_0c62e654-3030-48e1-a2e1-8754cf9bf009",
+                        "layer_name" : "zen_sets_object_layer_178dbc85-7014-4f11-95b5-38d112e9f8a9",
                         "has_children" : 1,
                         "collection" : {
                             "name" : "OLD.001",
@@ -1440,7 +1440,7 @@
                     },
                     {
                         "level" : 2,
-                        "layer_name" : "zen_sets_object_layer_bfe3d9d3-2e2a-4f0a-afc2-2580958756ab",
+                        "layer_name" : "zen_sets_object_layer_ddb1df20-f528-4904-a503-20e316b18735",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "OLD",
@@ -1454,7 +1454,7 @@
                     },
                     {
                         "level" : 1,
-                        "layer_name" : "zen_sets_object_layer_cafb4f70-09a1-4da3-80fe-d98c519cd93d",
+                        "layer_name" : "zen_sets_object_layer_21e5bb83-c9c8-477d-8560-72556f285080",
                         "has_children" : 0,
                         "collection" : {
                             "name" : "Collection 6",
@@ -1470,9 +1470,9 @@
                 "zsts_color_palette" : {
                     "palette" : {}
                 },
-                "zen_sets_active_mode" : 0,
+                "zen_sets_active_mode" : 2,
                 "zen_sets_last_edge_mode" : "edge",
-                "zen_sets_object_list_index" : 42,
+                "zen_sets_object_list_index" : 0,
                 "zen_sets_last_face_mode" : "face",
                 "zen_uv" : {
                     "ui" : {
@@ -32431,7 +32431,7 @@
             "mesh" : 560,
             "name" : "MFOS_River",
             "translation" : [
-                0.29713699221611023,
+                0.42713698744773865,
                 -0.5739445090293884,
                 1.5990227460861206
             ]
@@ -32451,7 +32451,7 @@
                 7.549790126404332e-08
             ],
             "translation" : [
-                -0.29713699221611023,
+                -0.42713698744773865,
                 -0.5739445090293884,
                 1.5990227460861206
             ]

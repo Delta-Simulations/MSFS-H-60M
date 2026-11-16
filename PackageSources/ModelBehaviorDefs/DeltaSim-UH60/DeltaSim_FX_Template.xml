@@ -225,18 +225,19 @@
             </Component>
 
             <!-- WATER FX-->
+             <!-- WATER FX - RED DROP : CB97C6AB-BBA5-447E-BE8D-7BA401F454A9-->
             <Component ID="WaterdropFX" Node="FX_WATER">
                 <UseTemplate Name="ASOBO_GT_FX">
                     <FX_CODE>
                         (L:H60_Trigger_Held, bool)
                         (L:H60_Cargo_Bambi_Water_Lvl,enum) 0 &gt; and
-                        (L:H60_Waterdrop_Type, bool) 0 == and
+                        (L:H60_Helitank_Installed, bool) 0 == and
                     </FX_CODE>
                     <FX_OFFSET_X>0</FX_OFFSET_X>
                     <FX_OFFSET_Y>0</FX_OFFSET_Y>
                     <FX_OFFSET_Z>0</FX_OFFSET_Z>
 
-                    <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
+                    <FX_GUID>{86C463F9-4FDC-4E4A-B486-5B9484F3EFB8}</FX_GUID>
                 </UseTemplate>
             </Component>
             <Component ID="WaterdropFX_Helitank" Node="FX_WATER_Helitank">
@@ -244,13 +245,13 @@
                     <FX_CODE>
                         (L:H60_Trigger_Held, bool)
                         (L:H60_Cargo_Bambi_Water_Lvl,enum) 0 &gt; and
-                        (L:H60_Waterdrop_Type, bool) 1 ==
+                        (L:H60_Helitank_Installed, bool) 1 == and
                     </FX_CODE>
                     <FX_OFFSET_X>0</FX_OFFSET_X>
                     <FX_OFFSET_Y>0</FX_OFFSET_Y>
                     <FX_OFFSET_Z>0</FX_OFFSET_Z>
 
-                    <FX_GUID>{35E73086-F85B-4973-8270-F686107C8422}</FX_GUID>
+                    <FX_GUID>{98D8DF02-9E15-4CA4-99E8-7355E7DF8100}</FX_GUID>
                 </UseTemplate>
             </Component>
 

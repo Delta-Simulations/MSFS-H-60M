@@ -38,6 +38,8 @@ export const Airctaft = () => {
 	let [State_Taxi, setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
 
 	let [eqip_bambi, setEquip_bambi] = useSimVar('L:H60_Cargo_BambiBucket_Installed', 'bool');
+	const [eqip_helitak] = useSimVar('L:H60_Helitank_Installed', 'bool');
+
 	let [fill_bambi, setFill_bambi] = useSimVar('L:H60_Cargo_Bambi_Water_Lvl', 'enum');
 	let [trigger, setTrigger] = useSimVar('L:H60_Trigger_Override', 'bool');
 
@@ -179,14 +181,15 @@ export const Airctaft = () => {
 						>
 							EIBF
 						</Button>
-						<Button
-							size="large"
-							onClick={() => setEquip_bambi(!eqip_bambi)}
-							color={eqip_bambi ? 'primary' : 'primary'}
-							variant={eqip_bambi ? 'contained' : 'outlined'}
-						>
-							BAMBI
-						</Button>
+<Button
+    size="large"
+    disabled={eqip_helitak}
+    onClick={() => setEquip_bambi(!eqip_bambi)}
+    color="primary"
+    variant={eqip_helitak || eqip_bambi ? 'contained' : 'outlined'}
+>
+    {eqip_helitak ? 'HELITAK' : 'BAMBI'}
+</Button>
 					</Stack>
 				</Box>
 
@@ -239,7 +242,7 @@ export const Airctaft = () => {
 						</Button>
 					</Stack>
 				</Box>
-				{eqip_bambi && <Box
+				{(eqip_bambi || eqip_helitak) && <Box
 
 					sx={{
 						position: 'absolute',
@@ -278,25 +281,25 @@ export const Airctaft = () => {
 							Drop
 						</Button>
 						<Box
-  sx={{
-    position: 'relative',
-    width: '100%',
-    height: 100,
-    backgroundColor: '#333',
-    borderRadius: 1,
-    overflow: 'hidden'
-  }}
->
-<Box
-  sx={{
-    width: '100%',
-    height: `${fill_bambi}%`,
-    backgroundColor: '#1B93FF',
-    transition: 'height 0.3s ease',
-    position: 'absolute',
-    bottom: 0
-  }}
-/>
+							sx={{
+								position: 'relative',
+								width: '100%',
+								height: 100,
+								backgroundColor: '#333',
+								borderRadius: 1,
+								overflow: 'hidden'
+							}}
+						>
+							<Box
+								sx={{
+									width: '100%',
+									height: `${fill_bambi}%`,
+									backgroundColor: '#1B93FF',
+									transition: 'height 0.3s ease',
+									position: 'absolute',
+									bottom: 0
+								}}
+							/>
 						</Box>
 					</Stack>
 					<Typography sx={{ mt: 1 }}>

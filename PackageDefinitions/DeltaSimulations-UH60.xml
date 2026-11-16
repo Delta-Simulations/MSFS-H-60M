@@ -75,6 +75,14 @@
 			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</AssetDir>
 			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-downwash\</OutputDir>
 		</AssetGroup>
+		<AssetGroup Name="VisualEffectLibWaterDrop">
+			<Type>VisualEffectLib</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\VisualEffectLibs\touchingcloud\touchingcloud-effect-waterdrop\</AssetDir>
+			<OutputDir>VisualEffectLibs\touchingcloud\touchingcloud-effect-waterdrop\</OutputDir>
+		</AssetGroup>
 		<AssetGroup Name="uh60">
 			<Type>SimObject</Type>
 			<Flags>

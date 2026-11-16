@@ -18753,6 +18753,7 @@
 	  let [State_Startup, setState_Startup] = useSimVar('L:H60_State_Startup', 'bool');
 	  let [State_Taxi, setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
 	  let [eqip_bambi, setEquip_bambi] = useSimVar('L:H60_Cargo_BambiBucket_Installed', 'bool');
+	  const [eqip_helitak] = useSimVar('L:H60_Helitank_Installed', 'bool');
 	  let [fill_bambi, setFill_bambi] = useSimVar('L:H60_Cargo_Bambi_Water_Lvl', 'enum');
 	  let [trigger, setTrigger] = useSimVar('L:H60_Trigger_Override', 'bool');
 	  react.useEffect(() => {
@@ -18883,10 +18884,11 @@
 	            children: "EIBF"
 	          }), /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	            size: "large",
+	            disabled: eqip_helitak,
 	            onClick: () => setEquip_bambi(!eqip_bambi),
-	            color: eqip_bambi ? 'primary' : 'primary',
-	            variant: eqip_bambi ? 'contained' : 'outlined',
-	            children: "BAMBI"
+	            color: "primary",
+	            variant: eqip_helitak || eqip_bambi ? 'contained' : 'outlined',
+	            children: eqip_helitak ? 'HELITAK' : 'BAMBI'
 	          })]
 	        })]
 	      }), /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
@@ -18937,7 +18939,7 @@
 	            children: "Ready for Taxi"
 	          })]
 	        })]
-	      }), eqip_bambi && /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
+	      }), (eqip_bambi || eqip_helitak) && /*#__PURE__*/jsxRuntime.jsxs(Box$1, {
 	        sx: {
 	          position: 'absolute',
 	          width: 340,

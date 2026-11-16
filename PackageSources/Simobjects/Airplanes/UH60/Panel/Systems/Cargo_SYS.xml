@@ -8,7 +8,14 @@ Using seperate WASM system to spawn in object
 <Element>
 <Select>
 <Value>
-10 (&gt;L:H60_CargoStaticHeight, feet)
+
+(L:H60_Helitank_Installed, bool) 1 ==
+if{ 
+    14 (&gt;L:H60_WaterIntakeHeight, feet) 
+    0 (&gt;L:H60_Cargo_BambiBucket_Installed, bool)
+}
+els{ 20 (&gt;L:H60_WaterIntakeHeight, feet) }
+
 
 (A:WATER RUDDER HANDLE POSITION, percent over 100)
 (L:H60_Trigger_Override, bool) or
@@ -19,7 +26,8 @@ if{ 1 (&gt;L:H60_Above_Water,bool) }
 els{ 0 (&gt;L:H60_Above_Water,bool) }
 
 (L:H60_Above_Water, bool) 1 ==
-(A:RADIO HEIGHT, feet) 20 &lt; and
+(A:RADIO HEIGHT, feet) (L:H60_WaterIntakeHeight, feet) &lt; and
+(A:AIRSPEED TRUE, knots) abs 5 &lt; and
 if{ 100 (&gt;L:H60_Cargo_Bambi_Water_Lvl,enum) }
 
 (L:H60_Cargo_Bambi_Water_Lvl,number) 0 &gt;

@@ -106,6 +106,16 @@
     <NODE>CARGO_HELPER</NODE>
   </UseTemplate>
 
+  <UseTemplate Name="Generic_Visibility_DELTASIM">
+    <VISIBILITY_CODE>
+            (A:SIM ON GROUND, bool) 0 ==
+            if{ 
+              (L:H60_Cargo_BambiBucket_Installed, bool) 1 ==
+           } els{ 0 }
+    </VISIBILITY_CODE>
+    <NODE>Firefighting_BambiBucket</NODE>
+  </UseTemplate>
+
       <Component ID="nav3" Node="ldg2">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
@@ -211,24 +221,29 @@
           <ANIM_CODE>
             (A:SIM ON GROUND, bool) 0 ==
             if{
-              (L:Helitank_hose, percent) 100 *
+              100
+              (A:AIRSPEED TRUE, knots) 2 /
+              -
+              30 max
             } els{ 0 }
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-          <ANIM_LAG>100</ANIM_LAG>
+          <ANIM_LAG>60</ANIM_LAG>
         </UseTemplate>
+
+
         <UseTemplate Name="Generic_Anim_DELTASIM">
           <ANIM_NAME>Helitank_Fill_Level</ANIM_NAME>
           <ANIM_CODE>
              (L:H60_Cargo_Bambi_Water_Lvl,enum)
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-          <ANIM_LAG>80</ANIM_LAG>
+          <ANIM_LAG>30</ANIM_LAG>
         </UseTemplate>
         <UseTemplate Name="Generic_Anim_DELTASIM">
           <ANIM_NAME>Helitank_Door</ANIM_NAME>
           <ANIM_CODE>
-             (L:Helitank_Door, percent) 10 *
+             (L:H60_Trigger_Held, bool) 100 *
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
@@ -245,11 +260,10 @@
       </VISIBILITY_CODE>
       <NODE>Water_face_Main</NODE>
     </UseTemplate>
+
     <UseTemplate Name="Generic_Visibility_DELTASIM">
       <VISIBILITY_CODE>
-          
-      (L:H60_Waterdrop_Type, bool) 1 ==
-
+      (L:H60_Helitank_Installed, bool) 1 ==
       </VISIBILITY_CODE>
       <NODE>Firetank_Belly</NODE>
     </UseTemplate>
@@ -274,16 +288,12 @@
           <ANIM_NAME>Rtr_cone</ANIM_NAME>
           <ANIM_LENGTH>200</ANIM_LENGTH>
           <ANIM_CODE>
-
-
             (A:SIM ON GROUND, bool) 0 ==
             if{
             180
             } els{
             (A:DISK CONING PCT:1, percent) 100 +
             }
-
-
           </ANIM_CODE>
           <ANIM_LAG>30</ANIM_LAG>
         </UseTemplate>
@@ -507,12 +517,11 @@
         </UseTemplate>
 
 
-        <Component ID="Cargo_Hoist">
+<!--        <Component ID="Cargo_Hoist">
           <UseTemplate name="Generic_Anim_DELTASIM">
             <ANIM_NAME>Cargo_swingFB</ANIM_NAME>
             <ANIM_CODE>
               (A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 +
-              (A:WINDSHIELD WIND VELOCITY, feet) 5 / +
             </ANIM_CODE>
             <ANIM_LENGTH>360</ANIM_LENGTH>
             <ANIM_LAG>20</ANIM_LAG>
@@ -525,7 +534,7 @@
             <ANIM_LENGTH>360</ANIM_LENGTH>
             <ANIM_LAG>30</ANIM_LAG>
           </UseTemplate>
-        </Component>
+        </Component>-->
 
 
       </Component>
