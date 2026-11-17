@@ -8651,9 +8651,9 @@
 	  }
 	});
 
-	function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+	function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+	function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 	const normalizeUnitName = unit => {
 	  switch (unit) {
@@ -8758,10 +8758,10 @@
 	      const newCache = {};
 
 	      for (const [key, update] of Object.entries(stateUpdates)) {
-	        newCache[key] = _objectSpread(_objectSpread({}, oldCache[key]), update);
+	        newCache[key] = _objectSpread$1(_objectSpread$1({}, oldCache[key]), update);
 	      }
 
-	      return _objectSpread(_objectSpread({}, oldCache), newCache);
+	      return _objectSpread$1(_objectSpread$1({}, oldCache), newCache);
 	    });
 	  });
 
@@ -8785,7 +8785,7 @@
 	    }
 
 	    const value = global ? SimVar.GetGlobalVarValue(name, unit) : SimVar.GetSimVarValue(name, unit);
-	    setCache(oldCache => _objectSpread(_objectSpread({}, oldCache), {}, {
+	    setCache(oldCache => _objectSpread$1(_objectSpread$1({}, oldCache), {}, {
 	      [key]: {
 	        value,
 	        lastUpdatedAgo: 0
@@ -8813,7 +8813,7 @@
 	    setCache(oldCache => {
 	      const newValue = typeof value === 'function' ? value(oldCache[key].value) : value;
 	      SimVar.SetSimVarValue(proxy || name, unit, newValue);
-	      return _objectSpread(_objectSpread({}, oldCache), {}, {
+	      return _objectSpread$1(_objectSpread$1({}, oldCache), {}, {
 	        [key]: {
 	          value: newValue,
 	          lastUpdatedAgo: 0
@@ -17070,31 +17070,11 @@
 	        style: {
 	          textDecoration: 'none'
 	        },
-	        to: "/Checklist",
-	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
-	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "outlined",
-	          children: "Checklist"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
-	        style: {
-	          textDecoration: 'none'
-	        },
 	        to: "/Map",
 	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
 	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
 	          variant: "outlined",
 	          children: "Map"
-	        })
-	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
-	        style: {
-	          textDecoration: 'none'
-	        },
-	        to: "/Browser",
-	        className: isActive => 'BottomButton' + (isActive ? 'ButtomButtonActive' : ''),
-	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
-	          variant: "outlined",
-	          children: "Browser"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(NavLink, {
 	        style: {
@@ -18726,16 +18706,19 @@
 	});
 	var Slider$1 = Slider;
 
+	function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 	const Airctaft = () => {
 	  useSimVar('L:EFFECT_GUN', 'Bool');
-	  let [fireRocket, setFireRocket] = useSimVar('L:ROCKET_anim', 'Bool');
+	  let [fireRocket, setFireRocket] = useSimVar('L:H60_Gun_Trigger_Held', 'Bool');
 	  useSimVar('L:EFFECT_FLARE', 'Bool');
 	  let [lift, setLift] = useSimVar('L:H60_Winch', 'bool');
 	  let [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
 	  let [EIBF, setEIBF] = useSimVar('L:H60_EBF', 'bool');
 	  let [HasProbe] = useSimVar('L:H60_HasProbe', 'bool');
 	  let [HasHoist] = useSimVar('L:H60_HasHoist', 'bool');
-	  let [HasMissile] = useSimVar('L:H60_HasMissile', 'bool');
+	  let [HasMissile] = useSimVar('L:H60_HasWeaponPylon', 'bool');
 	  let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
 	  let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
 	  let [rearDoor, setRearDoor] = useSimVar('L:H60_TroopDoor', 'bool');
@@ -18745,6 +18728,8 @@
 	  let [gunnerDoor, setGunnerDoor] = useSimVar('L:H60_GunnerDoor', 'bool');
 	  let [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
 	  let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+	  let [showCrewChief, setshowCrewChief] = useSimVar('L:H60_CrewChief_Vis', 'bool');
+	  let [showSoliders, setshowSoliders] = useSimVar('L:H60_Soliders_Vis', 'bool');
 	  let [SLPWR, setSLPWR] = useSimVar('L:H60_SL_TOGGLE', 'bool');
 	  let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
 	  let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
@@ -19049,7 +19034,7 @@
 	            color: fireRocket ? 'error' : 'primary',
 	            variant: fireRocket ? 'contained' : 'outlined',
 	            disabled: !HasMissile,
-	            children: "Missiles"
+	            children: "Fire Gun"
 	          })]
 	        })]
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
@@ -19075,6 +19060,12 @@
 	          onClick: () => setshowPilot(!showPilot),
 	          color: showPilot ? 'primary' : 'primary',
 	          variant: showPilot ? 'contained' : 'outlined',
+	          sx: _objectSpread({}, !showPilot && {
+	            backgroundColor: '#1a1b26',
+	            '&:hover': {
+	              backgroundColor: '#1a1b26'
+	            }
+	          }),
 	          children: "Pilot"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
@@ -19100,6 +19091,12 @@
 	          onClick: () => setshowCoPilot(!showCoPilot),
 	          color: showCoPilot ? 'primary' : 'primary',
 	          variant: showCoPilot ? 'contained' : 'outlined',
+	          sx: _objectSpread({}, !showCoPilot && {
+	            backgroundColor: '#1a1b26',
+	            '&:hover': {
+	              backgroundColor: '#1a1b26'
+	            }
+	          }),
 	          children: "CoPilot"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
@@ -19184,8 +19181,8 @@
 	          height: 52,
 	          backgroundColor: '16161E',
 	          borderRadius: 1,
-	          left: 210,
-	          top: 485,
+	          left: 205,
+	          top: 550,
 	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 	          color: '#1B93FF',
 	          justifyContent: 'center',
@@ -19201,6 +19198,31 @@
 	          variant: "contained",
 	          color: gunnerDoor ? 'error' : 'success',
 	          children: "Gunner Window"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
+	        sx: {
+	          position: 'absolute',
+	          width: 79,
+	          height: 52,
+	          backgroundColor: '16161E',
+	          borderRadius: 1,
+	          left: 205,
+	          top: 485,
+	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+	          color: '#1B93FF',
+	          justifyContent: 'center',
+	          display: 'flex',
+	          flexDirection: 'column',
+	          textAlign: 'center',
+	          alignItems: 'center',
+	          fontSize: 14
+	        },
+	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	          size: "small",
+	          onClick: () => setshowCrewChief(!showCrewChief),
+	          color: showCrewChief ? 'primary' : 'primary',
+	          variant: showCrewChief ? 'contained' : 'outlined',
+	          children: "Crew Chief"
 	        })
 	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
 	        sx: {
@@ -19226,6 +19248,37 @@
 	          size: "small",
 	          variant: "contained",
 	          children: "Troop Door"
+	        })
+	      }), /*#__PURE__*/jsxRuntime.jsx(Box$1, {
+	        sx: {
+	          position: 'absolute',
+	          width: 79,
+	          height: 52,
+	          backgroundColor: '16161E',
+	          borderRadius: 1,
+	          left: 310,
+	          top: 630,
+	          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+	          color: '#1B93FF',
+	          justifyContent: 'center',
+	          display: 'flex',
+	          flexDirection: 'column',
+	          textAlign: 'center',
+	          alignItems: 'center',
+	          fontSize: 14
+	        },
+	        children: /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+	          size: "small",
+	          onClick: () => setshowSoliders(!showSoliders),
+	          color: "primary",
+	          variant: showSoliders ? 'contained' : 'outlined',
+	          sx: _objectSpread({}, !showSoliders && {
+	            backgroundColor: '#1a1b26',
+	            '&:hover': {
+	              backgroundColor: '#1a1b26'
+	            }
+	          }),
+	          children: "Troops"
 	        })
 	      })]
 	    })
@@ -20592,7 +20645,7 @@
 	    width: "1040",
 	    height: "750",
 	    src: "https://www.bing.com/",
-	    frameBorder: "0"
+	    frameborder: "0"
 	  });
 	};
 
@@ -20670,9 +20723,9 @@
 	              onChange: handleChange
 	            })
 	          })
-	        }), /*#__PURE__*/jsxRuntime.jsx(Typography$1, {
+	        }), /*#__PURE__*/jsxRuntime.jsxs(Typography$1, {
 	          gutterBottom: true,
-	          children: "To use Bambi/Trigger - Bind \"Toggle Water Rudder\" in your MSFS Settings"
+	          children: ["Fire Gun Binding - Increase Mac Cready", /*#__PURE__*/jsxRuntime.jsx("br", {}), "Release Water - Decrease Mac Cready"]
 	        })]
 	      })]
 	    })

@@ -11,12 +11,37 @@
 
     <Component ID="UH60M_Exterior_Main">
 
+      <Component ID="Event_Intercept_GunTrigger">
+        <UseInputEvent ID="ASOBO_GIE_Base">
+          <BINDING_SET_0_EVENT_ID>MAC_CREADY_SETTING_INC</BINDING_SET_0_EVENT_ID>
+          <INPUT_EVENT_ID_SOURCE>GF</INPUT_EVENT_ID_SOURCE> <!-- INPUT_EVENT_ID_SOURCE+IE_NAME form
+          unique ID for this entry. -->
+          <IE_NAME>MC_INC</IE_NAME> <!-- as above, simply used to extend INPUT_EVENT_ID_SOURCE -->
+          <INIT_CODE></INIT_CODE><!-- RPN executed on plane load -->
+          <SET_CODE>
+            (L:H60_Gun_Trigger_Held, enum) 1 + (&gt;L:H60_Gun_Trigger_Held, enum)
+          </SET_CODE> <!-- RPN executed when event occurs -->
+          <BINDING_SET_0>L0</BINDING_SET_0> <!-- required as not defaulted in template -->
+        </UseInputEvent>
+      </Component>
+      <Component ID="Event_Intercept_WaterDrop">
+        <UseInputEvent ID="ASOBO_GIE_Base">
+          <BINDING_SET_0_EVENT_ID>MAC_CREADY_SETTING_DEC</BINDING_SET_0_EVENT_ID>
+          <INPUT_EVENT_ID_SOURCE>BL</INPUT_EVENT_ID_SOURCE> <!-- INPUT_EVENT_ID_SOURCE+IE_NAME form
+          unique ID for this entry. -->
+          <IE_NAME>BLANK</IE_NAME> <!-- as above, simply used to extend INPUT_EVENT_ID_SOURCE -->
+          <INIT_CODE>0 (&gt;L:H60_Trigger_Override)</INIT_CODE><!-- RPN executed on plane load -->
+          <SET_CODE>(L:H60_Trigger_Override) ! (&gt;L:H60_Trigger_Override)</SET_CODE> <!-- RPN executed when event occurs -->
+          <BINDING_SET_0>L0</BINDING_SET_0> <!-- required as not defaulted in template -->
+        </UseInputEvent>
+      </Component>
+
       <!-- SET AIRCRAFT VERSION -->
       <Component ID="AC_VERSION">
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
-            5.07 (&gt;L:H60_VERSION_ID, number)
+            5.21 (&gt;L:H60_VERSION_ID, number)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -268,6 +293,7 @@
       <NODE>Firetank_Belly</NODE>
     </UseTemplate>
 
+
         <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>RTR_Tail_Rot</ANIM_NAME>
           <ANIM_CODE>(A:ROTOR RPM:2, degrees per second) (A:ANIMATION DELTA TIME, seconds) *</ANIM_CODE>
@@ -517,7 +543,7 @@
         </UseTemplate>
 
 
-<!--        <Component ID="Cargo_Hoist">
+        <!--        <Component ID="Cargo_Hoist">
           <UseTemplate name="Generic_Anim_DELTASIM">
             <ANIM_NAME>Cargo_swingFB</ANIM_NAME>
             <ANIM_CODE>

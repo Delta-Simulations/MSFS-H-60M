@@ -6,7 +6,7 @@ export const Browser = () => {
 			width="1040"
 			height="750"
 			src="https://www.bing.com/"
-			frameBorder="0"
+			frameborder="0"
 		></iframe>
 	);
 };

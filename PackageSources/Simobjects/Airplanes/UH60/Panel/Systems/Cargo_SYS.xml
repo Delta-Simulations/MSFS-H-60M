@@ -4,7 +4,57 @@ Bambi bucket system
 
 Using seperate WASM system to spawn in object
 ************************************************
+(A:SIMULATION TIME, seconds)
+(L:H60_Gun_Trigger_Time, seconds) -
+0.2 >=
+if{
+    (L:H60_Gun_Trigger_Held, enum)
+    (L:H60_Gun_Trigger_Store, enum)
+    >
+    if{
+        1 (>L:H60_Gun_Firing, bool)
+    }
+    els{
+        0 (>L:H60_Gun_Firing, bool)
+    }
+}
+els{
+    0 (>L:H60_Gun_Firing, bool)
+}
+
+(L:H60_Gun_Trigger_Held, enum)
+(L:H60_Gun_Trigger_Store, enum)
+>
+if{
+    (A:SIMULATION TIME, seconds)
+    (>L:H60_Gun_Trigger_Time, seconds)
+}
+
+(L:H60_Gun_Trigger_Held, enum)
+(>L:H60_Gun_Trigger_Store, enum)
+
+Custom trigger logic
 </Comment>
+<Element>
+<Select>
+<Value>
+
+(L:H60_Gun_Trigger_Held, enum)
+(L:H60_Gun_Trigger_Store, enum)
+>
+if{
+    1 (>L:H60_Gun_Firing, bool)
+}
+els{
+    0 (>L:H60_Gun_Firing, bool)
+}
+
+(L:H60_Gun_Trigger_Held, enum)
+(>L:H60_Gun_Trigger_Store, enum)
+</Value>
+</Select>
+</Element>	
+
 <Element>
 <Select>
 <Value>
@@ -17,8 +67,10 @@ if{
 els{ 20 (&gt;L:H60_WaterIntakeHeight, feet) }
 
 
-(A:WATER RUDDER HANDLE POSITION, percent over 100)
-(L:H60_Trigger_Override, bool) or
+
+
+(L:H60_Trigger_Override, bool) 
+(A:SIM ON GROUND, bool) 0 == and
 (&gt;L:H60_Trigger_Held, bool)
 
 (A:SURFACE TYPE, enum) 2 ==

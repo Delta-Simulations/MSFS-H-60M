@@ -39,7 +39,7 @@
         <UPDATE_CODE>
           #Fuel_Probe_INSTALLED# (&gt;L:H60_HasProbe)
           #Hoist_INSTALLED# (&gt;L:H60_HasHoist)
-          #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasMissile)
+          #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasWeaponPylon)
           #Helitank_INSTALLED# (&gt;L:H60_Helitank_Installed)
         </UPDATE_CODE>
       </UseTemplate>

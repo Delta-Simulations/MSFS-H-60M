@@ -11,14 +11,14 @@ import { Typography } from '@mui/material';
 
 export const Airctaft = () => {
 	let [fireGun, setFireGun] = useSimVar('L:EFFECT_GUN', 'Bool');
-	let [fireRocket, setFireRocket] = useSimVar('L:ROCKET_anim', 'Bool');
+	let [fireRocket, setFireRocket] = useSimVar('L:H60_Gun_Trigger_Held', 'Bool');
 	let [fireFlare, setFireFlare] = useSimVar('L:EFFECT_FLARE', 'Bool');
 	let [lift, setLift] = useSimVar('L:H60_Winch', 'bool');
 	let [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
 	let [EIBF, setEIBF] = useSimVar('L:H60_EBF', 'bool');
 	let [HasProbe] = useSimVar('L:H60_HasProbe', 'bool');
 	let [HasHoist] = useSimVar('L:H60_HasHoist', 'bool');
-	let [HasMissile] = useSimVar('L:H60_HasMissile', 'bool');
+	let [HasMissile] = useSimVar('L:H60_HasWeaponPylon', 'bool');
 	let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
 	let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
 	let [rearDoor, setRearDoor] = useSimVar('L:H60_TroopDoor', 'bool');
@@ -28,6 +28,9 @@ export const Airctaft = () => {
 	let [gunnerDoor, setGunnerDoor] = useSimVar('L:H60_GunnerDoor', 'bool');
 	let [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
 	let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+	let [showCrewChief, setshowCrewChief] = useSimVar('L:H60_CrewChief_Vis', 'bool');
+	let [showSoliders, setshowSoliders] = useSimVar('L:H60_Soliders_Vis', 'bool');
+
 	let [SLPWR, setSLPWR] = useSimVar('L:H60_SL_TOGGLE', 'bool');
 	let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
 	let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
@@ -181,15 +184,15 @@ export const Airctaft = () => {
 						>
 							EIBF
 						</Button>
-<Button
-    size="large"
-    disabled={eqip_helitak}
-    onClick={() => setEquip_bambi(!eqip_bambi)}
-    color="primary"
-    variant={eqip_helitak || eqip_bambi ? 'contained' : 'outlined'}
->
-    {eqip_helitak ? 'HELITAK' : 'BAMBI'}
-</Button>
+						<Button
+							size="large"
+							disabled={eqip_helitak}
+							onClick={() => setEquip_bambi(!eqip_bambi)}
+							color="primary"
+							variant={eqip_helitak || eqip_bambi ? 'contained' : 'outlined'}
+						>
+							{eqip_helitak ? 'HELITAK' : 'BAMBI'}
+						</Button>
 					</Stack>
 				</Box>
 
@@ -355,7 +358,7 @@ export const Airctaft = () => {
 							variant={fireRocket ? 'contained' : 'outlined'}
 							disabled={!HasMissile}
 						>
-							Missiles
+							Fire Gun
 						</Button>
 					</Stack>
 				</Box>
@@ -385,6 +388,14 @@ export const Airctaft = () => {
 						onClick={() => setshowPilot(!showPilot)}
 						color={showPilot ? 'primary' : 'primary'}
 						variant={showPilot ? 'contained' : 'outlined'}
+						sx={{
+							...(!showPilot && {
+								backgroundColor: '#1a1b26',
+								'&:hover': {
+									backgroundColor: '#1a1b26',
+								},
+							}),
+						}}
 					>
 						Pilot
 					</Button>
@@ -414,6 +425,14 @@ export const Airctaft = () => {
 						onClick={() => setshowCoPilot(!showCoPilot)}
 						color={showCoPilot ? 'primary' : 'primary'}
 						variant={showCoPilot ? 'contained' : 'outlined'}
+						sx={{
+							...(!showCoPilot && {
+								backgroundColor: '#1a1b26',
+								'&:hover': {
+									backgroundColor: '#1a1b26',
+								},
+							}),
+						}}
 					>
 						CoPilot
 					</Button>
@@ -509,8 +528,8 @@ export const Airctaft = () => {
 						height: 52,
 						backgroundColor: '16161E',
 						borderRadius: 1,
-						left: 210,
-						top: 485,
+						left: 205,
+						top: 550,
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
@@ -528,6 +547,35 @@ export const Airctaft = () => {
 						color={gunnerDoor ? 'error' : 'success'}
 					>
 						Gunner Window
+					</Button>
+				</Box>
+
+				<Box
+					sx={{
+						position: 'absolute',
+						width: 79,
+						height: 52,
+						backgroundColor: '16161E',
+						borderRadius: 1,
+						left: 205,
+						top: 485,
+						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+						color: '#1B93FF',
+						justifyContent: 'center',
+						display: 'flex',
+						flexDirection: 'column',
+						textAlign: 'center',
+						alignItems: 'center',
+						fontSize: 14,
+					}}
+				>
+					<Button
+						size="small"
+						onClick={() => setshowCrewChief(!showCrewChief)}
+						color={showCrewChief ? 'primary' : 'primary'}
+						variant={showCrewChief ? 'contained' : 'outlined'}
+					>
+						Crew Chief
 					</Button>
 				</Box>
 
@@ -559,6 +607,44 @@ export const Airctaft = () => {
 						Troop Door
 					</Button>
 				</Box>
+				<Box
+					sx={{
+						position: 'absolute',
+						width: 79,
+						height: 52,
+						backgroundColor: '16161E',
+						borderRadius: 1,
+						left: 310,
+						top: 630,
+						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
+						color: '#1B93FF',
+						justifyContent: 'center',
+						display: 'flex',
+						flexDirection: 'column',
+						textAlign: 'center',
+						alignItems: 'center',
+						fontSize: 14,
+					}}
+				>
+					<Button
+						size="small"
+						onClick={() => setshowSoliders(!showSoliders)}
+						color="primary"
+						variant={showSoliders ? 'contained' : 'outlined'}
+						sx={{
+							...(!showSoliders && {
+								backgroundColor: '#1a1b26',
+								'&:hover': {
+									backgroundColor: '#1a1b26',
+								},
+							}),
+						}}
+					>
+						Troops
+					</Button>
+				</Box>
+
+
 			</Box>
 		</div>
 	);

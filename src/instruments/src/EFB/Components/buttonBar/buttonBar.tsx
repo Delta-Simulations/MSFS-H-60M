@@ -26,7 +26,7 @@ export const ButtonBar = () => {
 					<Button variant="outlined">Aircraft</Button>
 				</NavLink>
 
-				<NavLink
+				{/* <NavLink
 					style={{ textDecoration: 'none' }}
 					to="/Checklist"
 					className={(isActive) =>
@@ -34,7 +34,7 @@ export const ButtonBar = () => {
 					}
 				>
 					<Button variant="outlined">Checklist</Button>
-				</NavLink>
+				</NavLink> */}
 
 				<NavLink
 					style={{ textDecoration: 'none' }}
@@ -46,7 +46,7 @@ export const ButtonBar = () => {
 					<Button variant="outlined">Map</Button>
 				</NavLink>
 
-				<NavLink
+				{/* <NavLink
 					style={{ textDecoration: 'none' }}
 					to="/Browser"
 					className={(isActive) =>
@@ -54,7 +54,7 @@ export const ButtonBar = () => {
 					}
 				>
 					<Button variant="outlined">Browser</Button>
-				</NavLink>
+				</NavLink> */}
 				<NavLink
 					style={{ textDecoration: 'none' }}
 					to="/Settings"

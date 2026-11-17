@@ -8,6 +8,8 @@ import { useSimVar } from '../../../Hooks/simVars';
 import Typography from '@mui/material/Typography';
 import { Slider } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import Table from '@mui/material/Table';
+
 import './settings.scss';
 
 export const Settings = () => {
@@ -69,7 +71,9 @@ export const Settings = () => {
 						</Grid>
 
 						<Typography gutterBottom>
-							To use Bambi/Trigger - Bind "Toggle Water Rudder" in your MSFS Settings
+							Fire Gun Binding - Increase Mac Cready
+							<br />
+							Release Water - Decrease Mac Cready
 						</Typography>
 
 					</Stack>

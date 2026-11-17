@@ -204,7 +204,9 @@
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
             0 (&gt;L:H60_EFB_MOVE, bool)
+            1 (&gt;L:H60_CrewChief_Vis, bool)
             1 (&gt;L:H60_GUNSIGHT_PWR, bool)
+            -1 (&gt;L:H60_Gun_Trigger_Store, enum)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -699,7 +701,7 @@ if{
   </UseTemplate>
 
   <UseTemplate Name="Generic_Visibility_DELTASIM">
-    <VISIBILITY_CODE>(L:H60_HasMissile, bool)</VISIBILITY_CODE>
+    <VISIBILITY_CODE>(L:H60_HasWeaponPylon, bool)</VISIBILITY_CODE>
     <NODE>DAP_Targeting_Base</NODE>
   </UseTemplate>
 
@@ -726,13 +728,14 @@ if{
   <Component ID="Armor_side_move" Node="Armor_side_move">
     <UseTemplate Name="ASOBO_GT_Interaction_DraggingAxis_Code">
         <UP_CODE>
-            (L:H60_ARMOR_P, number) ++ 100 min (>L:H60_ARMOR_P, number)
+            (L:H60_ARMOR_P, number) -- 0 max (>L:H60_ARMOR_P, number)
         </UP_CODE>
         <DOWN_CODE>
-            (L:H60_ARMOR_P, number) -- 0 max (>L:H60_ARMOR_P, number)
+            
+            (L:H60_ARMOR_P, number) ++ 100 min (>L:H60_ARMOR_P, number)
         </DOWN_CODE>
         <AXIS>X</AXIS>
-        <DRAG_AXIS_SCALE>300</DRAG_AXIS_SCALE>
+        <DRAG_AXIS_SCALE>500</DRAG_AXIS_SCALE>
     </UseTemplate>
     <UseTemplate Name="ASOBO_GT_Anim_Code">
       <PART_ID>Armor_side_move</PART_ID>
@@ -1065,7 +1068,7 @@ if{
   <Component ID="Soldiers_main" Node="Soldiers_main">
     <UseTemplate Name="ASOBO_GT_Visibility">
       <VISIBILITY_CODE>
-        (L:H60_CARGO_HOOK_ARMED) 1 == 
+        (L:H60_Soliders_Vis) 1 == 
         (L:H60_TroopDoor, bool) 1 == and
       </VISIBILITY_CODE>
     </UseTemplate>
