@@ -24,6 +24,29 @@
           <BINDING_SET_0>L0</BINDING_SET_0> <!-- required as not defaulted in template -->
         </UseInputEvent>
       </Component>
+
+        <UseTemplate Name="Control_Intercept_DELTASIM">
+          <NAME>Searchlight_OUT</NAME>
+          <BINDING_SET_0_EVENT_ID>INC_COWL_FLAPS4</BINDING_SET_0_EVENT_ID>
+          <SET_CODE>(L:H60_SL_DownUp, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min (>L:H60_SL_DownUp, enum)</SET_CODE>
+        </UseTemplate>
+        <UseTemplate Name="Control_Intercept_DELTASIM">
+          <NAME>Searchlight_IN</NAME>
+          <BINDING_SET_0_EVENT_ID>DEC_COWL_FLAPS4</BINDING_SET_0_EVENT_ID>
+          <SET_CODE>(L:H60_SL_DownUp, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_SL_DownUp, enum)</SET_CODE>
+        </UseTemplate>
+        <UseTemplate Name="Control_Intercept_DELTASIM">
+          <NAME>Searchlight_LEFT</NAME>
+          <BINDING_SET_0_EVENT_ID>INC_COWL_FLAPS3</BINDING_SET_0_EVENT_ID>
+          <SET_CODE>(L:H60_SL_RightLeft, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_SL_RightLeft, enum)</SET_CODE>
+        </UseTemplate>
+        <UseTemplate Name="Control_Intercept_DELTASIM">
+          <NAME>Searchlight_RIGHT</NAME>
+          <BINDING_SET_0_EVENT_ID>DEC_COWL_FLAPS3</BINDING_SET_0_EVENT_ID>
+          <SET_CODE>(L:H60_SL_RightLeft, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min (>L:H60_SL_RightLeft, enum)</SET_CODE>
+        </UseTemplate>
+
+
       <Component ID="Event_Intercept_WaterDrop">
         <UseInputEvent ID="ASOBO_GIE_Base">
           <BINDING_SET_0_EVENT_ID>MAC_CREADY_SETTING_DEC</BINDING_SET_0_EVENT_ID>
@@ -256,6 +279,14 @@
           <ANIM_LAG>60</ANIM_LAG>
         </UseTemplate>
 
+        <UseTemplate Name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>BambiArmature</ANIM_NAME>
+          <ANIM_CODE>
+             (L:H60_Trigger_Held, bool) 50 *
+          </ANIM_CODE>
+          <ANIM_LENGTH>50</ANIM_LENGTH>
+          <ANIM_LAG>100</ANIM_LAG>
+        </UseTemplate>
 
         <UseTemplate Name="Generic_Anim_DELTASIM">
           <ANIM_NAME>Helitank_Fill_Level</ANIM_NAME>
@@ -421,7 +452,7 @@
             (L:H60_SL_DownUp,enum)
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-          <ANIM_LAG>20</ANIM_LAG>
+          <ANIM_LAG>70</ANIM_LAG>
         </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>SL_RightLeft</ANIM_NAME>
@@ -429,8 +460,22 @@
             (L:H60_SL_RightLeft,enum)
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-          <ANIM_LAG>20</ANIM_LAG>
+          <ANIM_LAG>70</ANIM_LAG>
         </UseTemplate>
+
+        <UseTemplate name="Generic_Anim_DELTASIM">
+          <ANIM_NAME>LandingLGT_DownUp</ANIM_NAME>
+          <ANIM_CODE>
+            (L:H60_LDG_LT_DownUp,enum)
+          </ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+          <ANIM_LAG>40</ANIM_LAG>
+        </UseTemplate>
+
+
+
+
+
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>Hoist_Lower</ANIM_NAME>
           <ANIM_CODE>
@@ -543,14 +588,14 @@
         </UseTemplate>
 
 
-        <!--        <Component ID="Cargo_Hoist">
+        <Component ID="Cargo_Hoist">
           <UseTemplate name="Generic_Anim_DELTASIM">
             <ANIM_NAME>Cargo_swingFB</ANIM_NAME>
             <ANIM_CODE>
-              (A:ATTITUDE INDICATOR PITCH DEGREES, degree) 180 +
+              (A:ATTITUDE INDICATOR PITCH DEGREES, degrees) 180 +
             </ANIM_CODE>
             <ANIM_LENGTH>360</ANIM_LENGTH>
-            <ANIM_LAG>20</ANIM_LAG>
+            <ANIM_LAG>50</ANIM_LAG>
           </UseTemplate>
           <UseTemplate name="Generic_Anim_DELTASIM">
             <ANIM_NAME>Cargo_swingLR</ANIM_NAME>
@@ -558,9 +603,9 @@
               (A:ATTITUDE INDICATOR BANK DEGREES, degree) 180 +
             </ANIM_CODE>
             <ANIM_LENGTH>360</ANIM_LENGTH>
-            <ANIM_LAG>30</ANIM_LAG>
+            <ANIM_LAG>50</ANIM_LAG>
           </UseTemplate>
-        </Component>-->
+        </Component>
 
 
       </Component>

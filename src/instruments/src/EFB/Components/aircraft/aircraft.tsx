@@ -31,7 +31,7 @@ export const Airctaft = () => {
 	let [showCrewChief, setshowCrewChief] = useSimVar('L:H60_CrewChief_Vis', 'bool');
 	let [showSoliders, setshowSoliders] = useSimVar('L:H60_Soliders_Vis', 'bool');
 
-	let [SLPWR, setSLPWR] = useSimVar('L:H60_SL_TOGGLE', 'bool');
+	let [SLPWR, setSLPWR] = useSimVar('A:LIGHT LANDING:1', 'bool');
 	let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
 	let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
 

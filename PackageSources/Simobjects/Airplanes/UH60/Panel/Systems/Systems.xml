@@ -91,13 +91,6 @@ if{
 }
 
 
-(L:H60_SL_TOGGLE, bool)
-if{ 
-    1 (&gt;K:LANDING_LIGHTS_ON) 
-} els{ 
-    1 (&gt;K:LANDING_LIGHTS_OFF) 
-}
-
 </Value>
 </Select>
 </Element> 

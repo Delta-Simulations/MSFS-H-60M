@@ -132,38 +132,52 @@
 
 
 
-  <Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
-    <UseTemplate Name = "ASOBO_GT_Switch_3States">
-      <ANIM_LAG>70</ANIM_LAG>
-      <WWISE_EVENT>Cpit_FuelLever</WWISE_EVENT>
-      <ANIM_NAME>Lever_Eng2_Fuel</ANIM_NAME>
-      <NODE_ID>Lever_Eng2_Fuel</NODE_ID>
-      <DEFAULT_POS>0</DEFAULT_POS>
-      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-      <SWITCH_POSITION_VAR>H60_Fuel2</SWITCH_POSITION_VAR>
-      <SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
-      <INVERT_ANIM>False</INVERT_ANIM>
-      <ANIMTIP_0>ENG2 FUEL OFF</ANIMTIP_0>
-      <ANIMTIP_1>ENG2 FUEL DIR</ANIMTIP_1>
-      <ANIMTIP_2>ENG2 FUEL XFD</ANIMTIP_2>
-    </UseTemplate>
-  </Component>
-  <Component ID="Lever_Eng1_Fuel" Node="Lever_Eng1_Fuel">
-    <UseTemplate Name = "ASOBO_GT_Switch_3States">
-      <ANIM_LAG>70</ANIM_LAG>
-      <WWISE_EVENT>Cpit_FuelLever</WWISE_EVENT>
-      <ANIM_NAME>Lever_Eng1_Fuel</ANIM_NAME>
-      <NODE_ID>Lever_Eng1_Fuel</NODE_ID>
-      <DEFAULT_POS>0</DEFAULT_POS>
-      <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-      <SWITCH_POSITION_VAR>H60_Fuel1</SWITCH_POSITION_VAR>
-      <SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
-      <INVERT_ANIM>False</INVERT_ANIM>
-      <ANIMTIP_0>ENG1 FUEL OFF</ANIMTIP_0>
-      <ANIMTIP_1>ENG1 FUEL DIR</ANIMTIP_1>
-      <ANIMTIP_2>ENG1 FUEL XFD</ANIMTIP_2>
-    </UseTemplate>
-  </Component>
+<Component ID="Lever_Eng2_Fuel" Node="Lever_Eng2_Fuel">
+  <UseTemplate Name="ASOBO_GT_Switch_3States">
+    <ANIM_LAG>70</ANIM_LAG>
+    <WWISE_EVENT>Cpit_FuelLever</WWISE_EVENT>
+    <ANIM_NAME>Lever_Eng2_Fuel</ANIM_NAME>
+    <NODE_ID>Lever_Eng2_Fuel</NODE_ID>
+    <DEFAULT_POS>0</DEFAULT_POS>
+    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+    <SWITCH_POSITION_VAR>H60_Fuel2</SWITCH_POSITION_VAR>
+    <SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
+    <INVERT_ANIM>False</INVERT_ANIM>
+    <ANIMTIP_0>ENG2 FUEL OFF</ANIMTIP_0>
+    <ANIMTIP_1>ENG2 FUEL DIR</ANIMTIP_1>
+    <ANIMTIP_2>ENG2 FUEL XFD</ANIMTIP_2>
+
+    <!-- Junction option control for RightENGJctn (Junction.2) -->
+    <!-- Option 0 = same-side (Right tank) feed, Option 1 = crossfeed (Left tank) -->
+    <!-- Position 0 (OFF): close the engine feed valve -->
+    <!-- Position 1 (DIR):  Option 0 -> Right tank feeds Right engine -->
+    <!-- Position 2 (XFD):  Option 1 -> Left tank feeds Right engine  -->
+  </UseTemplate>
+</Component>
+
+<Component ID="Lever_Eng1_Fuel" Node="Lever_Eng1_Fuel">
+  <UseTemplate Name="ASOBO_GT_Switch_3States">
+    <ANIM_LAG>70</ANIM_LAG>
+    <WWISE_EVENT>Cpit_FuelLever</WWISE_EVENT>
+    <ANIM_NAME>Lever_Eng1_Fuel</ANIM_NAME>
+    <NODE_ID>Lever_Eng1_Fuel</NODE_ID>
+    <DEFAULT_POS>0</DEFAULT_POS>
+    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+    <SWITCH_POSITION_VAR>H60_Fuel1</SWITCH_POSITION_VAR>
+    <SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
+    <INVERT_ANIM>False</INVERT_ANIM>
+    <ANIMTIP_0>ENG1 FUEL OFF</ANIMTIP_0>
+    <ANIMTIP_1>ENG1 FUEL DIR</ANIMTIP_1>
+    <ANIMTIP_2>ENG1 FUEL XFD</ANIMTIP_2>
+
+    <!-- Junction option control for LeftENGJctn (Junction.1) -->
+    <!-- Option 0 = same-side (Left tank) feed, Option 1 = crossfeed (Right tank) -->
+    <!-- Position 0 (OFF): set selector to DIR but close the engine feed valve -->
+    <!-- Position 1 (DIR):  Option 0 -> Left tank feeds Left engine -->
+    <!-- Position 2 (XFD):  Option 1 -> Right tank feeds Left engine  -->
+
+  </UseTemplate>
+</Component>
 
   <!-- <UseTemplate Name="ASOBO_ROTORCRAFT_Lever_Rotor_Brake_Template">
     <ANIM_NAME>Lever_Rotor_Brake</ANIM_NAME>
@@ -207,6 +221,8 @@
             1 (&gt;L:H60_CrewChief_Vis, bool)
             1 (&gt;L:H60_GUNSIGHT_PWR, bool)
             -1 (&gt;L:H60_Gun_Trigger_Store, enum)
+            0 (&gt;L:H60_SL_DownUp, enum)
+            50 (&gt;L:H60_SL_RightLeft, enum)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -214,18 +230,46 @@
 
 <Component ID="OH_ELEC">
 <!-- EXTERNAL LIGHTING -->
-<!-- BEACON -->
-<Component ID="Joystick_SL_POS" Node="Joystick_SL_POS">
-  <UseTemplate Name="ASOBO_GT_Joystick">
-      <TOOLTIPID>SEARCH LIGHT POSITION</TOOLTIPID>
-      <ANIM_NAME_L_R>Joystick_SL_POS_LeftRight</ANIM_NAME_L_R>
-      <ANIM_NAME_DN_UP>Joystick_SL_POS_UpDn</ANIM_NAME_DN_UP>
-      <JOYSTICK_X_CODE_LEFT>(L:H60_SL_RightLeft, enum) 1 (A:CIRCUIT ON:54, Bool) * - 0 max (>L:H60_SL_RightLeft, enum)</JOYSTICK_X_CODE_LEFT>
-      <JOYSTICK_X_CODE_RIGHT>(L:H60_SL_RightLeft, enum) 1 (A:CIRCUIT ON:54, Bool) * + 100 min (>L:H60_SL_RightLeft, enum)</JOYSTICK_X_CODE_RIGHT>
-      <JOYSTICK_Y_CODE_DOWN>(L:H60_SL_DownUp, enum) 1 (A:CIRCUIT ON:54, Bool) * + 100 min (>L:H60_SL_DownUp, enum)</JOYSTICK_Y_CODE_DOWN>
-      <JOYSTICK_Y_CODE_UP>(L:H60_SL_DownUp, enum) 1 (A:CIRCUIT ON:54, Bool) * - 0 max (>L:H60_SL_DownUp, enum)</JOYSTICK_Y_CODE_UP>
-  </UseTemplate>
-</Component>
+
+				<Component ID="Push_SL_Control">
+					<Parameters Type="Default">
+						<NODE_ID>Push_SL_Control</NODE_ID>
+						<PAN_X>Joystick_SL_POS_LeftRight</PAN_X>
+						<PAN_Y>Joystick_SL_POS_UpDn</PAN_Y>
+						<WWISE_EVENT>switch_select</WWISE_EVENT>
+					</Parameters>
+					<Parameters Type="Default">
+						<TOOLTIP_TITLE>'PAN'</TOOLTIP_TITLE>
+						<TOOLTIP_TITLE_IS_DYNAMIC>True</TOOLTIP_TITLE_IS_DYNAMIC>
+						<TT_ICON>MOVE_AXIS</TT_ICON>
+						<TT_INTERACTION_FLAGS>PRIMARY_DOWN</TT_INTERACTION_FLAGS>
+						<TT_DESCRIPTION>'ADJUST PAN'</TT_DESCRIPTION>
+						<TOOLTIP_DISABLED>True</TOOLTIP_DISABLED>
+					</Parameters>
+					<Component ID="#NODE_ID#" Node="#NODE_ID#">
+						<Update Once="True"> 50 (&gt;L:#PAN_X#, enum) 50 (&gt;L:#PAN_Y#, enum) </Update>
+						<UseInputEvent ID="GEN_TOOLTIP">
+							<TT_BASIC_ONLY>#NODE_ID#</TT_BASIC_ONLY>
+						</UseInputEvent>
+						<UseTemplate Name="ASOBO_GT_Joystick_Interaction_Knob">
+							<TOOLTIP_ENTRY_0>GE_#NODE_ID#</TOOLTIP_ENTRY_0>
+							<JOYSTICK_ID>#NODE_ID#</JOYSTICK_ID>
+							<ANIM_NAME_L_R>yoke_r_pan_x</ANIM_NAME_L_R>
+							<ANIM_NAME_DN_UP>yoke_r_pan_y</ANIM_NAME_DN_UP>
+							<USE_DEFAULT_ANIMATION>False</USE_DEFAULT_ANIMATION>
+							<ANIM_CODE_AXIS_X>(L:#PAN_X#, enum) 1 *</ANIM_CODE_AXIS_X>
+							<ANIM_CODE_AXIS_Y>(L:#PAN_Y#, enum) 1 *</ANIM_CODE_AXIS_Y>
+							<JOYSTICK_X_CODE_LEFT>(L:#PAN_X#, enum) ++ 10 min (&gt;L:#PAN_X#, enum)</JOYSTICK_X_CODE_LEFT>
+							<JOYSTICK_X_CODE_RIGHT>(L:#PAN_X#, enum) -- 0 max (&gt;L:#PAN_X#, enum)</JOYSTICK_X_CODE_RIGHT>
+							<JOYSTICK_Y_CODE_DOWN>(L:#PAN_Y#, enum) -- 0 max (&gt;L:#PAN_Y#, enum)</JOYSTICK_Y_CODE_DOWN>
+							<JOYSTICK_Y_CODE_UP>(L:#PAN_Y#, enum) ++ 10 min (&gt;L:#PAN_Y#, enum)</JOYSTICK_Y_CODE_UP>
+						</UseTemplate>
+					</Component>
+				</Component>
+
+
+
+
 <Component ID="Switch_AntiColl_Mode" Node="Switch_AntiColl_Mode"> <UseTemplate Name = "ASOBO_GT_Switch_3States">
     <ANIM_NAME>Switch_AntiColl_Mode</ANIM_NAME>
     <NODE_ID>Switch_AntiColl_Mode</NODE_ID>
@@ -707,16 +751,25 @@ if{
 
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_SL_TOGGLE, bool) 100 *</ANIM>
+    <ANIM>(A:LIGHT LANDING:1, bool) 100 *</ANIM>
     <NODE_ID>Push_SL_Control</NODE_ID>
     <TOOLTIPID>Search Light CNTRL</TOOLTIPID>
     <INTERACT_CODE>
-      (L:H60_SL_TOGGLE, bool) ! (&gt;L:H60_SL_TOGGLE, bool)
+      (A:LIGHT LANDING:1, bool) ! (&gt;A:LIGHT LANDING:1, bool)
     </INTERACT_CODE>
   </UseTemplate>
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
-    <ANIM>(L:H60_SL_TOGGLE, bool) 100 *</ANIM>
+    <ANIM>(A:LIGHT TAXI:1, bool) 100 *</ANIM>
+    <NODE_ID>Push_LDG_LT_Control</NODE_ID>
+    <TOOLTIPID>Landing Light CNTRL</TOOLTIPID>
+    <INTERACT_CODE>
+      (A:LIGHT TAXI:1, bool) ! (&gt;A:LIGHT TAXI:1, bool)
+    </INTERACT_CODE>
+  </UseTemplate>
+
+  <UseTemplate Name="GENERIC_Toggle_Switch_Template">
+    <ANIM>(L:H60_CAS_Master_Caution_ACK) 100 *</ANIM>
     <NODE_ID>ACK_BUTTON</NODE_ID>
     <TOOLTIPID>ACK MASTER CAUTION</TOOLTIPID>
     <INTERACT_CODE>
@@ -731,7 +784,6 @@ if{
             (L:H60_ARMOR_P, number) -- 0 max (>L:H60_ARMOR_P, number)
         </UP_CODE>
         <DOWN_CODE>
-            
             (L:H60_ARMOR_P, number) ++ 100 min (>L:H60_ARMOR_P, number)
         </DOWN_CODE>
         <AXIS>X</AXIS>
@@ -769,7 +821,6 @@ if{
       <ANIM_LAG>200</ANIM_LAG>
     </UseTemplate>
 </Component>
-
 				<UseTemplate name="Generic_Anim_DELTASIM">
 					<ANIM_NAME>Gun_Firing</ANIM_NAME>
 					<ANIM_CODE>
@@ -780,7 +831,6 @@ if{
           <ANIM_LAG>100</ANIM_LAG>
           <ANIM_WRAP>1</ANIM_WRAP>
 				</UseTemplate>
-
 
   <UseTemplate Name="GENERIC_Toggle_Switch_Template">
     <WWISE_EVENT>Cpit_Switch_Generic</WWISE_EVENT>

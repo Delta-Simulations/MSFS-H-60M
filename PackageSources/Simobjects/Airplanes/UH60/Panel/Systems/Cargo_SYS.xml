@@ -42,6 +42,7 @@ Custom trigger logic
 (L:H60_Gun_Trigger_Held, enum)
 (L:H60_Gun_Trigger_Store, enum)
 >
+(L:H60_HasWeaponPylon, bool) and
 if{
     1 (>L:H60_Gun_Firing, bool)
 }

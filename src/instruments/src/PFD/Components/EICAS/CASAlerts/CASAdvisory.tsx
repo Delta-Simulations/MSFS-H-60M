@@ -23,7 +23,7 @@ export const CASAdvisory: React.FC = () => {
   const [Xpdr_Stby] = useSimVar('A:TRANSPONDER STATE', 'enum');
   const [Landing_light] = useSimVar('A:LIGHT LANDING ON', 'bool');
   const [Park_brake] = useSimVar('A:BRAKE PARKING POSITION', 'bool');
-  const [SearchLight] = useSimVar('L:H60_SL_TOGGLE', 'bool');
+  const [SearchLight] = useSimVar('A:LIGHT LANDING:1', 'bool');
   const [AC_Onground] = useSimVar('A:SIM ON GROUND', 'bool');
 
   const [CargoHookArmed] = useSimVar('L:H60_CARGO_HOOK_ARMED', 'bool');

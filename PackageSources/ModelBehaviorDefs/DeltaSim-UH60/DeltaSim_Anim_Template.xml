@@ -7,7 +7,28 @@
     <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml" />
     <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml" />
 
+    <Template Name="Control_Intercept_DELTASIM">
+        <DefaultTemplateParameters>
+            <INIT_CODE></INIT_CODE>
+        </DefaultTemplateParameters>
 
+      <Component ID="#NAME#">
+        <UseInputEvent ID="ASOBO_GIE_Base">
+          <BINDING_SET_0_EVENT_ID>#BINDING_SET_0_EVENT_ID#</BINDING_SET_0_EVENT_ID>
+          <INPUT_EVENT_ID_SOURCE>#NAME#</INPUT_EVENT_ID_SOURCE> <!-- INPUT_EVENT_ID_SOURCE+IE_NAME form
+          unique ID for this entry. -->
+          <IE_NAME>#NAME#</IE_NAME> <!-- as above, simply used to extend INPUT_EVENT_ID_SOURCE -->
+          <INIT_CODE>#INIT_CODE#</INIT_CODE><!-- RPN executed on plane load -->
+          <SET_CODE>
+            #SET_CODE#
+          </SET_CODE> <!-- RPN executed when event occurs -->
+          <BINDING_SET_0>L0</BINDING_SET_0> <!-- required as not defaulted in template -->
+        </UseInputEvent>
+      </Component>
+
+
+
+    </Template>
 
     <Template Name="Generic_Visibility_DELTASIM">
         <DefaultTemplateParameters>
