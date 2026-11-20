@@ -1,0 +1,29 @@
+<Material Version="1.4.0" Name="Tracer_Red" Guid="{DE200BD8-06DF-422A-A2F4-C8F6E0C76E17}" SurfaceType="UNDEFINED" Type="CODE_DIFFUSE" Metal="0.000000" Rough="1.000000" Opacity="1.000000" BlendMode="Transparent">
+	<TagList/>
+	<FlagList/>
+	<TextureList>
+		<Texture FileName="Textures\TC_FLAME.PNG" Binding="MTL_BITMAP_DECAL0"/>
+	</TextureList>
+	<Attributes>
+		<Diffuse Red="1.000000" Green="0.000000" Blue="0.000000"/>
+		<Emissive Red="1.000000" Green="0.000000" Blue="0.000000"/>
+		<UVOffset U="0.000000" V="0.000000"/>
+		<UVScale U="1.000000" V="1.000000"/>
+		<UVRotate>0.000000</UVRotate>
+		<ExtraParameters>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+		</ExtraParameters>
+	</Attributes>
+</Material>
+

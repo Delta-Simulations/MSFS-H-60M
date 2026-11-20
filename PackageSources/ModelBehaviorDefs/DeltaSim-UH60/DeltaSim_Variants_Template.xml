@@ -41,6 +41,7 @@
           #Hoist_INSTALLED# (&gt;L:H60_HasHoist)
           #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasWeaponPylon)
           #Helitank_INSTALLED# (&gt;L:H60_Helitank_Installed)
+          #MH60M_Parts_INSTALLED# (&gt;L:H60_GunnerDoorBlocked)
         </UPDATE_CODE>
       </UseTemplate>
     </Component>
@@ -139,7 +140,15 @@
             <VISIBILITY_CODE>#MH60M_Parts_INSTALLED#</VISIBILITY_CODE>
             <NODE>MH60M_Parts</NODE>
         </UseTemplate>
-
+        <!-- M134 FLAME RING -->
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>(A:LIGHT WING:1,bool)</VISIBILITY_CODE>
+            <NODE>GunFiring_Flame</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>(A:LIGHT WING:1,bool)</VISIBILITY_CODE>
+            <NODE>GunFiring_Flame_2</NODE>
+        </UseTemplate>
         <!-- Hoist Installed? -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">
             <VISIBILITY_CODE>#Hoist_INSTALLED#</VISIBILITY_CODE>

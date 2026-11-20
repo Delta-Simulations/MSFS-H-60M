@@ -33,7 +33,7 @@ if{
 (L:H60_Gun_Trigger_Held, enum)
 (>L:H60_Gun_Trigger_Store, enum)
 
-Custom trigger logic
+Custom trigger logic ^
 </Comment>
 <Element>
 <Select>
@@ -51,7 +51,22 @@ els{
 }
 
 (L:H60_Gun_Trigger_Held, enum)
+(L:H60_Gun_Trigger_Store, enum)
+>
+(L:H60_HasWeaponPylon, bool) 0 == and
+if{
+    1 (&gt;K:WING_LIGHTS_ON)
+}
+els{
+    1 (&gt;K:WING_LIGHTS_OFF)
+}
+
+
+(L:H60_Gun_Trigger_Held, enum)
 (>L:H60_Gun_Trigger_Store, enum)
+
+
+
 </Value>
 </Select>
 </Element>	

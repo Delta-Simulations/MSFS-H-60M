@@ -2,5 +2,7 @@
 	<VisualEffect File="WaterDropFXWhite"/>
 	<VisualEffect File="WaterDropFXRed"/>
 	<VisualEffect File="WaterdropWhiteTank"/>
+	<VisualEffect File="LargeCalGun"/>
+	<VisualEffect File="TracerMinigun"/>
 </VisualEffectLibrary>
 

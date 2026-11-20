@@ -1,0 +1,30 @@
+<Material Version="1.4.0" Name="MATERIAL FLARES" Guid="{A8C1FD70-41AB-46BD-9459-DFED92634E0F}" SurfaceType="UNDEFINED" Type="CODE_DIFFUSE" Metal="0.000000" Rough="0.000000" Opacity="1.000000" BlendMode="Transparent">
+	<TagList/>
+	<FlagList/>
+	<TextureList>
+		<Texture FileName="Textures\SMOKE16CLEAR.tif" Binding="MTL_BITMAP_DECAL0"/>
+		<Texture FileName="Textures\NORMAL_NORMALDUST16.tif" Binding="MTL_BITMAP_NORMAL"/>
+	</TextureList>
+	<Attributes>
+		<Diffuse Red="1.000000" Green="1.000000" Blue="1.000000"/>
+		<Emissive Red="1.000000" Green="0.500000" Blue="0.000000"/>
+		<UVOffset U="0.000000" V="0.000000"/>
+		<UVScale U="1.000000" V="1.000000"/>
+		<UVRotate>0.000000</UVRotate>
+		<ExtraParameters>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+			<Parameter Value="0.000000"/>
+		</ExtraParameters>
+	</Attributes>
+</Material>
+

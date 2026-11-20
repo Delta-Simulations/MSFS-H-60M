@@ -224,6 +224,26 @@
                 </UseTemplate>
             </Component>
 
+            <Component ID="M134_FX1" Node="M134_GunFX_Node">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(A:LIGHT WING:1,bool) </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{BDED513B-5C30-4017-A219-864755A4F974}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="M134_FX2" Node="M134_GunFX_Node_2">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(A:LIGHT WING:1,bool) </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{BDED513B-5C30-4017-A219-864755A4F974}</FX_GUID>
+                </UseTemplate>
+            </Component>
+
+
             <!-- WATER FX-->
              <!-- WATER FX - RED DROP : CB97C6AB-BBA5-447E-BE8D-7BA401F454A9-->
             <Component ID="WaterdropFX" Node="FX_WATER">
