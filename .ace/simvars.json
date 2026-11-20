@@ -19,6 +19,16 @@
             "style": {
                 "type": 3
             }
+        },
+        {
+            "__uuid": "9c77d84a-d8ac-4ed4-98bb-30aaed145add",
+            "title": "DAP?",
+            "varPrefix": "L",
+            "varName": "H60_HasWeaponPylon",
+            "varUnit": "number",
+            "style": {
+                "type": 3
+            }
         }
     ]
 }

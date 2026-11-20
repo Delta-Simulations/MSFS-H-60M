@@ -5,20 +5,20 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { useSimVar } from '../../../Hooks/simVars';
+import Slider from '@mui/material/Slider';
 
 import './aircraft.scss';
 import { Typography } from '@mui/material';
 
 export const Airctaft = () => {
-	let [fireGun, setFireGun] = useSimVar('L:EFFECT_GUN', 'Bool');
-	let [fireRocket, setFireRocket] = useSimVar('L:H60_Gun_Trigger_Held', 'Bool');
+	let [fireGun, setFireGun] = useSimVar('L:H60_Gun_Trigger_Oride', 'Bool');
 	let [fireFlare, setFireFlare] = useSimVar('L:EFFECT_FLARE', 'Bool');
 	let [lift, setLift] = useSimVar('L:H60_Winch', 'bool');
 	let [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
 	let [EIBF, setEIBF] = useSimVar('L:H60_EBF', 'bool');
 	let [HasProbe] = useSimVar('L:H60_HasProbe', 'bool');
 	let [HasHoist] = useSimVar('L:H60_HasHoist', 'bool');
-	let [HasMissile] = useSimVar('L:H60_HasWeaponPylon', 'bool');
+	const [IsArmed] = useSimVar('L:H60_Is_Armed', 'bool');
 	let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
 	let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
 	let [rearDoor, setRearDoor] = useSimVar('L:H60_TroopDoor', 'bool');
@@ -30,6 +30,9 @@ export const Airctaft = () => {
 	let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
 	let [showCrewChief, setshowCrewChief] = useSimVar('L:H60_CrewChief_Vis', 'bool');
 	let [showSoliders, setshowSoliders] = useSimVar('L:H60_Soliders_Vis', 'bool');
+
+	let [LDGDownUp, setLDGDownUp] = useSimVar('L:H60_LDG_LT_DownUp', 'enum');
+	let [LDGPWR, setLDGPWR] = useSimVar('A:LIGHT TAXI:1', 'bool');
 
 	let [SLPWR, setSLPWR] = useSimVar('A:LIGHT LANDING:1', 'bool');
 	let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
@@ -47,10 +50,10 @@ export const Airctaft = () => {
 	let [trigger, setTrigger] = useSimVar('L:H60_Trigger_Override', 'bool');
 
 	useEffect(() => {
-		if (HasProbe || HasHoist || HasMissile) {
+		if (HasProbe || HasHoist || IsArmed) {
 			setModelVariant(true);
 		}
-	}, [HasProbe, HasHoist, HasMissile]); // Run the effect whenever these variables change
+	}, [HasProbe, HasHoist, IsArmed]); // Run the effect whenever these variables change
 
 
 
@@ -83,15 +86,15 @@ export const Airctaft = () => {
 
 					}}
 				/>
-				<Box
+								<Box
 					sx={{
 						position: 'absolute',
-						width: 200,
-						height: 200,
+						width: 240, 
+						height: 'auto', 
 						backgroundColor: '16161E',
 						borderRadius: 2,
-						left: 445,
-						top: 360,
+						left: 425, 
+						top: 360, 
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
@@ -100,53 +103,83 @@ export const Airctaft = () => {
 						textAlign: 'center',
 						alignItems: 'center',
 						fontSize: 14,
+						p: 2,
 					}}
 				>
-					<h1 style={{ marginTop: 0 }}>Search Light</h1>
-					<Button
-						size="large"
-						onClick={() => setSLDownUp(Math.min(SLDownUp - 5, 100))}
-						color='primary'
-						variant='outlined'
-					>
-						RETR
-					</Button>
-					<Stack direction="row" spacing={0}>
-						<Button
-							size="large"
-							onClick={() => setSLLeftRight(Math.max(SLLeftRight - 5, 0))}
-							color='primary'
-							variant='outlined'
-						>
-							L
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setSLPWR(!SLPWR)}
-							variant="contained"
-							color={SLPWR ? 'success' : 'error'}
-						>
-							PWR
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setSLLeftRight(Math.min(SLLeftRight + 5, 100))}
-							color='primary'
-							variant='outlined'
-						>
-							R
-						</Button>
+					<h1 style={{ marginTop: 0, marginBottom: 5 }}>Search Light</h1>
+					
+					{/* Tilt Control (Retract / Extend) */}
+					<Typography variant="caption" sx={{ alignSelf: 'flex-start', ml: 2, mb: -1 }}>
+						Tilt
+					</Typography>
+					<Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%', px: 2, mb: 1 }}>
+						<Typography variant="caption">RETR</Typography>
+						<Slider
+							value={SLDownUp}
+							onChange={(e, val) => setSLDownUp(val as number)}
+							onKeyDown={(e) => e.preventDefault()} // <-- Prevents keyboard control
+							min={0}
+							max={100}
+							size="small"
+							sx={{ color: '#1B93FF' }}
+						/>
+						<Typography variant="caption">EXTD</Typography>
 					</Stack>
+
+					{/* Pan Control (Left / Right) */}
+					<Typography variant="caption" sx={{ alignSelf: 'flex-start', ml: 2, mb: -1 }}>
+						Pan
+					</Typography>
+					<Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%', px: 2, mb: 1 }}>
+						<Typography variant="caption">L</Typography>
+						<Slider
+							value={SLLeftRight}
+							onChange={(e, val) => setSLLeftRight(val as number)}
+							onKeyDown={(e) => e.preventDefault()} // <-- Prevents keyboard control
+							min={0}
+							max={100}
+							size="small"
+							sx={{ color: '#1B93FF' }}
+						/>
+						<Typography variant="caption">R</Typography>
+					</Stack>
+
+					{/* Power Button */}
 					<Button
 						size="large"
-						onClick={() => setSLDownUp(Math.max(SLDownUp + 5, 0))}
-						color='primary'
-						variant='outlined'
+						onClick={() => setSLPWR(!SLPWR)}
+						variant="contained"
+						color={SLPWR ? 'success' : 'error'}
+						sx={{ mt: 1, width: '80%' }}
 					>
-						EXTD
+						SL PWR
 					</Button>
-
-
+					<h1 style={{ marginTop: 5, marginBottom: 5 }}>Landing Light</h1>
+					<Typography variant="caption" sx={{ alignSelf: 'flex-start', ml: 2, mb: -1 }}>
+						Tilt
+					</Typography>
+					<Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%', px: 2, mb: 1 }}>
+						<Typography variant="caption">RETR</Typography>
+						<Slider
+							value={LDGDownUp}
+							onChange={(e, val) => setLDGDownUp(val as number)}
+							onKeyDown={(e) => e.preventDefault()} // <-- Prevents keyboard control
+							min={0}
+							max={100}
+							size="small"
+							sx={{ color: '#1B93FF' }}
+						/>
+						<Typography variant="caption">EXTD</Typography>
+					</Stack>
+										<Button
+						size="large"
+						onClick={() => setLDGPWR(!LDGPWR)}
+						variant="contained"
+						color={LDGPWR ? 'success' : 'error'}
+						sx={{ mt: 1, width: '80%' }}
+					>
+						LDG PWR
+					</Button>
 				</Box>
 				<Box
 					sx={{
@@ -196,65 +229,17 @@ export const Airctaft = () => {
 					</Stack>
 				</Box>
 
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 500,
-						height: 150,
-						backgroundColor: '16161E',
-						borderRadius: 2,
-						left: 445,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<h1 style={{ marginTop: 0 }}>Set Aircraft State</h1>
-					<Stack direction="row" spacing={2}>
-						<Button
-							size="large"
-							onClick={() => setState_ColdandDark(!State_ColdandDark)}
-							color={State_ColdandDark ? 'primary' : 'primary'}
-							variant={State_ColdandDark ? 'contained' : 'outlined'}
-							disabled={!ACOnGround}
-						>
-							Cold&Dark
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setState_Startup(!State_Startup)}
-							color={State_Startup ? 'primary' : 'primary'}
-							variant={State_Startup ? 'contained' : 'outlined'}
-							disabled={!ACOnGround}
-						>
-							Ready for Startup
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setState_Taxi(!State_Taxi)}
-							color={State_Taxi ? 'primary' : 'primary'}
-							variant={State_Taxi ? 'contained' : 'outlined'}
-							disabled={!ACOnGround}
-						>
-							Ready for Taxi
-						</Button>
-					</Stack>
-				</Box>
+
 				{(eqip_bambi || eqip_helitak) && <Box
 
 					sx={{
 						position: 'absolute',
-						width: 340,
-						height: 180,
+						width: 240, // Slightly wider to fit sliders comfortably
+						height: 250, // Taller to accommodate sliders
 						backgroundColor: '16161E',
 						borderRadius: 2,
-						left: 675,
-						top: 360,
+						left: 725, // Adjusted left position to keep it centered
+						top: 450, // Adjusted top position
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
@@ -263,9 +248,10 @@ export const Airctaft = () => {
 						textAlign: 'center',
 						alignItems: 'center',
 						fontSize: 14,
+						p: 2,
 					}}
 				>
-					<h1 style={{ marginTop: 0 }}>Bambi Configuration</h1>
+					<h1 style={{ marginTop: -30, marginBottom: 5 }}>Water Configuration</h1>
 					<Stack direction="row" spacing={2}>
 						<Button
 							size="large"
@@ -315,12 +301,11 @@ export const Airctaft = () => {
 
 					sx={{
 						position: 'absolute',
-						width: 500,
+						width: 400,
 						height: 150,
 						backgroundColor: '16161E',
 						borderRadius: 2,
-						left: 445,
-						top: 580,
+						left: 465,
 						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
 						color: '#1B93FF',
 						justifyContent: 'center',
@@ -353,10 +338,10 @@ export const Airctaft = () => {
 						</Button>
 						<Button
 							size="large"
-							onClick={() => setFireRocket(!fireRocket)}
-							color={fireRocket ? 'error' : 'primary'}
-							variant={fireRocket ? 'contained' : 'outlined'}
-							disabled={!HasMissile}
+							onClick={() => setFireGun(!fireGun)}
+							color={fireGun ? 'error' : 'primary'}
+							variant={fireGun ? 'contained' : 'outlined'}
+							disabled={!IsArmed}
 						>
 							Fire Gun
 						</Button>

@@ -33,14 +33,12 @@
       <UseTemplate Name="Control_Intercept_DELTASIM">
         <NAME>Searchlight_LEFT</NAME>
         <BINDING_SET_0_EVENT_ID>INC_COWL_FLAPS3</BINDING_SET_0_EVENT_ID>
-        <SET_CODE>(L:H60_SL_RightLeft, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_SL_RightLeft,
-          enum)</SET_CODE>
+        <SET_CODE>(L:H60_SL_RightLeft, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_SL_RightLeft, enum)</SET_CODE>
       </UseTemplate>
       <UseTemplate Name="Control_Intercept_DELTASIM">
         <NAME>Searchlight_RIGHT</NAME>
         <BINDING_SET_0_EVENT_ID>DEC_COWL_FLAPS3</BINDING_SET_0_EVENT_ID>
-        <SET_CODE>(L:H60_SL_RightLeft, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min
-          (>L:H60_SL_RightLeft, enum)</SET_CODE>
+        <SET_CODE>(L:H60_SL_RightLeft, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min (>L:H60_SL_RightLeft, enum)</SET_CODE>
       </UseTemplate>
 
 
@@ -132,13 +130,7 @@
           </EMISSIVE_CODE>
         </UseTemplate>
       </Component>
-      <Component ID="nav2" Node="ldg1">
-        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-          <EMISSIVE_CODE>
-            (A:LIGHT TAXI ON,bool) 1 == if{ 50 } els{ 0 }
-          </EMISSIVE_CODE>
-        </UseTemplate>
-      </Component>
+
 
       <!-- Slime Lighting -->
       <Component ID="Slime_Fwd" Node="Slime_Fwd">
@@ -313,14 +305,24 @@
         <UseTemplate Name="Generic_Anim_DELTASIM">
           <ANIM_NAME>M134_Yaw_R</ANIM_NAME>
           <ANIM_CODE>
-            (L:H60_M134_Yaw, enum) 50 +
+            (L:H60_HasWeaponPylon, bool) 1 ==
+            if{
+              (L:H60_M134_Yaw, enum) 0 min 50 +  
+            } els{
+              (L:H60_M134_Yaw, enum) 50 +
+            }
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
         <UseTemplate Name="Generic_Anim_DELTASIM">
           <ANIM_NAME>M134_Yaw_L</ANIM_NAME>
           <ANIM_CODE>
-            (L:H60_M134_Yaw, enum) 50 +
+            (L:H60_HasWeaponPylon, bool) 1 ==
+            if{
+              (L:H60_M134_Yaw, enum) 0 min 50 +  
+            } els{
+              (L:H60_M134_Yaw, enum) 50 +
+            }
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
@@ -456,10 +458,15 @@
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>reardoor</ANIM_NAME>
           <ANIM_CODE>
-            (L:H60_TroopDoor, bool) 50 *
+            (L:H60_HasWeaponPylon, bool) 1 ==
+            if{
+            (L:H60_TroopDoor, bool) 76 *
+          } els{
+            (L:H60_TroopDoor, bool) 100 *
+          }
           </ANIM_CODE>
-          <ANIM_LAG>20</ANIM_LAG>
-          <ANIM_LENGTH>50</ANIM_LENGTH>
+          <ANIM_LAG>50</ANIM_LAG>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
         <UseTemplate name="Generic_Anim_DELTASIM">
           <ANIM_NAME>c_wheel</ANIM_NAME>

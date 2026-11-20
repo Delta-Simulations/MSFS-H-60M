@@ -42,6 +42,11 @@
           #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasWeaponPylon)
           #Helitank_INSTALLED# (&gt;L:H60_Helitank_Installed)
           #MH60M_Parts_INSTALLED# (&gt;L:H60_GunnerDoorBlocked)
+
+        #MH60M_Parts_INSTALLED# 
+        #DAP_PYLONS_INSTALLED# or
+        (&gt;L:H60_Is_Armed)
+
         </UPDATE_CODE>
       </UseTemplate>
     </Component>

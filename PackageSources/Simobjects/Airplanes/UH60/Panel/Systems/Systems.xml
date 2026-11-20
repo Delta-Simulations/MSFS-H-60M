@@ -90,6 +90,10 @@ if{
     2 (&gt;K:NAV_LIGHTS_ON)
 }
 
+(L:H60_SL_DownUp, enum) 0 ==
+if{
+    50 (>L:H60_SL_RightLeft, enum)
+}
 
 </Value>
 </Select>
