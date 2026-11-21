@@ -33,23 +33,25 @@
             <Helitank_INSTALLED>0</Helitank_INSTALLED>
         </DefaultTemplateParameters>
 
-    <Component ID="Parts_LIVERY_CHECKER">
-      <UseTemplate Name="ASOBO_GT_Update">
-        <UPDATE_ONCE>True</UPDATE_ONCE>
-        <UPDATE_CODE>
-          #Fuel_Probe_INSTALLED# (&gt;L:H60_HasProbe)
-          #Hoist_INSTALLED# (&gt;L:H60_HasHoist)
-          #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasWeaponPylon)
-          #Helitank_INSTALLED# (&gt;L:H60_Helitank_Installed)
-          #MH60M_Parts_INSTALLED# (&gt;L:H60_GunnerDoorBlocked)
+        <Component ID="Parts_LIVERY_CHECKER">
+            <UseTemplate Name="ASOBO_GT_Update">
+                <UPDATE_ONCE>True</UPDATE_ONCE>
+                <UPDATE_CODE>
+                    #Fuel_Probe_INSTALLED# (&gt;L:H60_HasProbe)
+                    #Hoist_INSTALLED# (&gt;L:H60_HasHoist)
+                    #DAP_PYLONS_INSTALLED# (&gt;L:H60_HasWeaponPylon)
+                    #Helitank_INSTALLED# (&gt;L:H60_Helitank_Installed)
+                    #MH60M_Parts_INSTALLED# (&gt;L:H60_GunnerDoorBlocked)
+                    #HH60W_Parts_INSTALLED# (&gt;L:H60_Model_Is_HH60W)
 
-        #MH60M_Parts_INSTALLED# 
-        #DAP_PYLONS_INSTALLED# or
-        (&gt;L:H60_Is_Armed)
+                    #MH60M_Parts_INSTALLED#
+                    #DAP_PYLONS_INSTALLED# or
+                    #HH60W_Parts_INSTALLED# or
+                    (&gt;L:H60_Variant_Is_Armed)
 
-        </UPDATE_CODE>
-      </UseTemplate>
-    </Component>
+                </UPDATE_CODE>
+            </UseTemplate>
+        </Component>
 
         <!-- SKIS -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">
@@ -97,43 +99,43 @@
         </Component>
         <Component ID="Stock_pylon_Stub">
             <UseTemplate Name="Generic_Visibility_DELTASIM">
-                <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED# !</VISIBILITY_CODE> 
+                <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED# !</VISIBILITY_CODE>
                 <NODE>Stub_Pylon</NODE>
             </UseTemplate>
         </Component>
-<Component ID="HH60M_parts">
-        <!-- HH60M Flir -->
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
-            <NODE>60M_Flir</NODE>
-        </UseTemplate>
-         <!-- Tweak to nose decal to wrap the nose -->
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
-            <NODE>HH60M_Livery_Nose</NODE>
-        </UseTemplate>
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Flir_INSTALLED# !</VISIBILITY_CODE>
-            <NODE>Stock_Livery_Nose</NODE>
-        </UseTemplate>
-        <!-- Gunner door changes, etc on the HH-60M for medivac cabin -->
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED#</VISIBILITY_CODE>
-            <NODE>60M_SealedGunnerDoor</NODE>
-        </UseTemplate>
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
-            <NODE>CrewCfR</NODE>
-        </UseTemplate>
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
-            <NODE>CrewCfL</NODE>
-        </UseTemplate>
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
-            <NODE>Railings_GunnerDoors</NODE>
-        </UseTemplate>
-</Component>
+        <Component ID="HH60M_parts">
+            <!-- HH60M Flir -->
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
+                <NODE>60M_Flir</NODE>
+            </UseTemplate>
+            <!-- Tweak to nose decal to wrap the nose -->
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Flir_INSTALLED#</VISIBILITY_CODE>
+                <NODE>HH60M_Livery_Nose</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Flir_INSTALLED# !</VISIBILITY_CODE>
+                <NODE>Stock_Livery_Nose</NODE>
+            </UseTemplate>
+            <!-- Gunner door changes, etc on the HH-60M for medivac cabin -->
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED#</VISIBILITY_CODE>
+                <NODE>60M_SealedGunnerDoor</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
+                <NODE>CrewCfR</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
+                <NODE>CrewCfL</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
+                <NODE>Railings_GunnerDoors</NODE>
+            </UseTemplate>
+        </Component>
         <!-- Stock Tail antennas, hidden in HH60W -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">
             <VISIBILITY_CODE>#Stock_Tail_Antenna_INSTALLED#</VISIBILITY_CODE>
@@ -145,13 +147,17 @@
             <VISIBILITY_CODE>#MH60M_Parts_INSTALLED#</VISIBILITY_CODE>
             <NODE>MH60M_Parts</NODE>
         </UseTemplate>
-        <!-- M134 FLAME RING -->
+        <!-- MINIGUN FLAME RING -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>(A:LIGHT WING:1,bool)</VISIBILITY_CODE>
+            <VISIBILITY_CODE>
+                (A:LIGHT WING:1,bool)
+            </VISIBILITY_CODE>
             <NODE>GunFiring_Flame</NODE>
         </UseTemplate>
         <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>(A:LIGHT WING:1,bool)</VISIBILITY_CODE>
+            <VISIBILITY_CODE>
+                (A:LIGHT WING:1,bool)
+            </VISIBILITY_CODE>
             <NODE>GunFiring_Flame_2</NODE>
         </UseTemplate>
         <!-- Hoist Installed? -->
@@ -160,21 +166,22 @@
             <NODE>Hoist_Main</NODE>
         </UseTemplate>
 
-        <!-- Military Components installed? Hidden for civs-->
+        <!-- Military Sensors installed? Hidden for civs-->
         <Component ID="Mil_Components">
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
-            <NODE>ChaffFlare_Parent</NODE>
-        </UseTemplate>
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
-            <NODE>Tail_MWS</NODE>
-        </UseTemplate>
-        <UseTemplate Name="Generic_Visibility_DELTASIM">
-            <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
-            <NODE>Nose_Heat_MWS</NODE>
-        </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
+                <NODE>ChaffFlare_Parent</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
+                <NODE>Tail_MWS</NODE>
+            </UseTemplate>
+            <UseTemplate Name="Generic_Visibility_DELTASIM">
+                <VISIBILITY_CODE>#Tail_CM_INSTALLED#</VISIBILITY_CODE>
+                <NODE>Nose_Heat_MWS</NODE>
+            </UseTemplate>
         </Component>
+
         <!-- HH-60W Sensors, parts -->
         <Component ID="HH60W">
             <UseTemplate Name="Generic_Visibility_DELTASIM">
@@ -197,6 +204,22 @@
                 <VISIBILITY_CODE>#HH60W_Parts_INSTALLED#</VISIBILITY_CODE>
                 <NODE>MG_MOUNT_R</NODE>
             </UseTemplate>
+
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>
+                (A:LIGHT WING:2,bool)
+            </VISIBILITY_CODE>
+            <NODE>GunFiring_Flame_3</NODE>
+        </UseTemplate>
+        <UseTemplate Name="Generic_Visibility_DELTASIM">
+            <VISIBILITY_CODE>
+                (A:LIGHT WING:2,bool)
+            </VISIBILITY_CODE>
+            <NODE>GunFiring_Flame_4</NODE>
+        </UseTemplate>
+
+
+
         </Component>
 
         <!-- Refueling Probe Installed? -->

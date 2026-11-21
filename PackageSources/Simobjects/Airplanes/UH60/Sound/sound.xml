@@ -140,6 +140,18 @@
             ViewPoint="All">
             <Range LowerBound="1.0" />
         </Sound>
+
+        <Sound WwiseData="true" WwiseEvent="M134_Fire" Continuous="true" 
+             SimVar="LIGHT WING" Units="Bool" Index="2" NodeName="FX_GUN_2"
+            ViewPoint="All">
+            <Range LowerBound="1.0" />
+        </Sound>
+        <Sound WwiseData="true" WwiseEvent="M134_Fire" Continuous="true" 
+             SimVar="LIGHT WING" Units="Bool" Index="2" NodeName="FX_GUN_1"
+            ViewPoint="All">
+            <Range LowerBound="1.0" />
+        </Sound>
+
     </SimVarSounds>
     <AvionicSounds>
 

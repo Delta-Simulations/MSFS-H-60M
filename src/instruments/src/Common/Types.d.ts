@@ -201,5 +201,6 @@ declare global {
     class Attribute {
     }
 }
+declare module '*.scss' {}
 
 export {};

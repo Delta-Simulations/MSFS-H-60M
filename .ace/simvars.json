@@ -11,21 +11,41 @@
             }
         },
         {
-            "__uuid": "c489724d-de5d-490b-bf37-0d8f3eb8475c",
-            "title": "PWR gunsuight ",
+            "__uuid": "9c77d84a-d8ac-4ed4-98bb-30aaed145add",
+            "title": "DAP?",
             "varPrefix": "L",
-            "varName": "H60_GUNSIGHT_PWR",
+            "varName": "H60_HasWeaponPylon",
             "varUnit": "number",
             "style": {
                 "type": 3
             }
         },
         {
-            "__uuid": "9c77d84a-d8ac-4ed4-98bb-30aaed145add",
-            "title": "DAP?",
+            "__uuid": "331d11d5-4a9a-4555-96b1-7aa782e0c4fc",
+            "title": "wpn",
             "varPrefix": "L",
-            "varName": "H60_HasWeaponPylon",
+            "varName": "H60_Is_Armed",
             "varUnit": "number",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "794aa865-153d-47a9-a8b5-07f7da2c41f6",
+            "title": "Triger",
+            "varPrefix": "L",
+            "varName": "H60_Gun_Trigger_Oride",
+            "varUnit": "bool",
+            "style": {
+                "type": 3
+            }
+        },
+        {
+            "__uuid": "0019eecd-6129-4ff4-9d64-5f6be9e2ecc5",
+            "title": "bambi equip",
+            "varPrefix": "L",
+            "varName": "H60_Cargo_BambiBucket_Installed",
+            "varUnit": "bool",
             "style": {
                 "type": 3
             }

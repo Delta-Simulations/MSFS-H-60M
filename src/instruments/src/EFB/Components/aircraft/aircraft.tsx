@@ -1,636 +1,517 @@
-import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
+
+import React from 'react';
+import {
+    Box,
+    Stack,
+    Button,
+    ButtonGroup,
+    Slider,
+    Typography,
+    ThemeProvider,
+    Divider,
+} from '@mui/material';
+
 import { useSimVar } from '../../../Hooks/simVars';
-import Slider from '@mui/material/Slider';
-
+import { ButtonColour } from '../ThemesEFB';
 import './aircraft.scss';
-import { Typography } from '@mui/material';
 
-export const Airctaft = () => {
-	let [fireGun, setFireGun] = useSimVar('L:H60_Gun_Trigger_Oride', 'Bool');
-	let [fireFlare, setFireFlare] = useSimVar('L:EFFECT_FLARE', 'Bool');
-	let [lift, setLift] = useSimVar('L:H60_Winch', 'bool');
-	let [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
-	let [EIBF, setEIBF] = useSimVar('L:H60_EBF', 'bool');
-	let [HasProbe] = useSimVar('L:H60_HasProbe', 'bool');
-	let [HasHoist] = useSimVar('L:H60_HasHoist', 'bool');
-	const [IsArmed] = useSimVar('L:H60_Is_Armed', 'bool');
-	let [ModelVariant, setModelVariant] = useSimVar('L:H60_IsVariant', 'bool');
-	let [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
-	let [rearDoor, setRearDoor] = useSimVar('L:H60_TroopDoor', 'bool');
-	let [doorR, setDoorR] = useSimVar('L:H60_DoorP', 'bool');
-	let [doorL, setDoorL] = useSimVar('L:H60_DoorCP', 'bool');
-	let [doorHide, setDoorHide] = useSimVar('L:H60_FrontDoorVis', 'bool');
-	let [gunnerDoor, setGunnerDoor] = useSimVar('L:H60_GunnerDoor', 'bool');
-	let [showPilot, setshowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
-	let [showCoPilot, setshowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
-	let [showCrewChief, setshowCrewChief] = useSimVar('L:H60_CrewChief_Vis', 'bool');
-	let [showSoliders, setshowSoliders] = useSimVar('L:H60_Soliders_Vis', 'bool');
+// Define outside Aircraft
+const buttonSx = {
+    minHeight: 38,
+    fontSize: 13,
+};
 
-	let [LDGDownUp, setLDGDownUp] = useSimVar('L:H60_LDG_LT_DownUp', 'enum');
-	let [LDGPWR, setLDGPWR] = useSimVar('A:LIGHT TAXI:1', 'bool');
+const ControlButton = ({
+    label,
+    value,
+    onClick,
+    disabled = false,
+}: {
+    label: string;
+    value: boolean;
+    onClick: () => void;
+    disabled?: boolean;
+}) => (
+    <Button
+        fullWidth
+        size="large"
+        variant={value ? 'contained' : 'outlined'}
+        disabled={disabled}
+        onClick={onClick}
+        sx={buttonSx}
+    >
+        {label}
+    </Button>
+);
 
-	let [SLPWR, setSLPWR] = useSimVar('A:LIGHT LANDING:1', 'bool');
-	let [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
-	let [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
+const SliderControl = ({
+    label,
+    value,
+    onChange,
+    left,
+    right,
+}: {
+    label: string;
+    value: number;
+    onChange: (value: number) => void;
+    left: string;
+    right: string;
+}) => {
+    const sliderValue = Math.max(
+        0,
+        Math.min(100, Number(value) || 0)
+    );
 
-	let [ACOnGround] = useSimVar('A:SIM ON GROUND', 'bool');
-	let [State_ColdandDark, setState_ColdandDark] = useSimVar('L:H60_State_ColdandDark', 'bool');
-	let [State_Startup, setState_Startup] = useSimVar('L:H60_State_Startup', 'bool');
-	let [State_Taxi, setState_Taxi] = useSimVar('L:H60_State_Taxi', 'bool');
-
-	let [eqip_bambi, setEquip_bambi] = useSimVar('L:H60_Cargo_BambiBucket_Installed', 'bool');
-	const [eqip_helitak] = useSimVar('L:H60_Helitank_Installed', 'bool');
-
-	let [fill_bambi, setFill_bambi] = useSimVar('L:H60_Cargo_Bambi_Water_Lvl', 'enum');
-	let [trigger, setTrigger] = useSimVar('L:H60_Trigger_Override', 'bool');
-
-	useEffect(() => {
-		if (HasProbe || HasHoist || IsArmed) {
-			setModelVariant(true);
-		}
-	}, [HasProbe, HasHoist, IsArmed]); // Run the effect whenever these variables change
-
-
-
-
-	return (
-		<div className="aircraftContainer">
-			<Box
-				sx={{
-					position: 'absolute',
-					width: 1040,
-					height: 810,
-					backgroundPosition: 'right',
-					backgroundSize: '80%',
-					backgroundRepeat: 'no-repeat',
-
-				}}
-			>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 1000,
-						height: 1000,
-						left: -250,
-						top: -20,
-						backgroundImage: 'url(/images/LineArtEXT.png)',
-						backgroundPosition: 'right',
-						backgroundSize: '80%',
-						backgroundRepeat: 'no-repeat',
-						transform: 'rotate(90deg)', // Apply the rotation here
-
-					}}
-				/>
-								<Box
-					sx={{
-						position: 'absolute',
-						width: 240, 
-						height: 'auto', 
-						backgroundColor: '16161E',
-						borderRadius: 2,
-						left: 425, 
-						top: 360, 
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-						p: 2,
-					}}
-				>
-					<h1 style={{ marginTop: 0, marginBottom: 5 }}>Search Light</h1>
-					
-					{/* Tilt Control (Retract / Extend) */}
-					<Typography variant="caption" sx={{ alignSelf: 'flex-start', ml: 2, mb: -1 }}>
-						Tilt
-					</Typography>
-					<Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%', px: 2, mb: 1 }}>
-						<Typography variant="caption">RETR</Typography>
-						<Slider
-							value={SLDownUp}
-							onChange={(e, val) => setSLDownUp(val as number)}
-							onKeyDown={(e) => e.preventDefault()} // <-- Prevents keyboard control
-							min={0}
-							max={100}
-							size="small"
-							sx={{ color: '#1B93FF' }}
-						/>
-						<Typography variant="caption">EXTD</Typography>
-					</Stack>
-
-					{/* Pan Control (Left / Right) */}
-					<Typography variant="caption" sx={{ alignSelf: 'flex-start', ml: 2, mb: -1 }}>
-						Pan
-					</Typography>
-					<Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%', px: 2, mb: 1 }}>
-						<Typography variant="caption">L</Typography>
-						<Slider
-							value={SLLeftRight}
-							onChange={(e, val) => setSLLeftRight(val as number)}
-							onKeyDown={(e) => e.preventDefault()} // <-- Prevents keyboard control
-							min={0}
-							max={100}
-							size="small"
-							sx={{ color: '#1B93FF' }}
-						/>
-						<Typography variant="caption">R</Typography>
-					</Stack>
-
-					{/* Power Button */}
-					<Button
-						size="large"
-						onClick={() => setSLPWR(!SLPWR)}
-						variant="contained"
-						color={SLPWR ? 'success' : 'error'}
-						sx={{ mt: 1, width: '80%' }}
-					>
-						SL PWR
-					</Button>
-					<h1 style={{ marginTop: 5, marginBottom: 5 }}>Landing Light</h1>
-					<Typography variant="caption" sx={{ alignSelf: 'flex-start', ml: 2, mb: -1 }}>
-						Tilt
-					</Typography>
-					<Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%', px: 2, mb: 1 }}>
-						<Typography variant="caption">RETR</Typography>
-						<Slider
-							value={LDGDownUp}
-							onChange={(e, val) => setLDGDownUp(val as number)}
-							onKeyDown={(e) => e.preventDefault()} // <-- Prevents keyboard control
-							min={0}
-							max={100}
-							size="small"
-							sx={{ color: '#1B93FF' }}
-						/>
-						<Typography variant="caption">EXTD</Typography>
-					</Stack>
-										<Button
-						size="large"
-						onClick={() => setLDGPWR(!LDGPWR)}
-						variant="contained"
-						color={LDGPWR ? 'success' : 'error'}
-						sx={{ mt: 1, width: '80%' }}
-					>
-						LDG PWR
-					</Button>
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 350,
-						height: 150,
-						backgroundColor: '16161E',
-						borderRadius: 2,
-						left: 65,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<h1 style={{ marginTop: 0 }}>Configuration</h1>
-					<Stack direction="row" spacing={4}>
-						<Button
-							size="large"
-							onClick={() => setSkis(!skis)}
-							color={skis ? 'primary' : 'primary'}
-							variant={skis ? 'contained' : 'outlined'}
-						>
-							Skis
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setEIBF(!EIBF)}
-							color={EIBF ? 'primary' : 'primary'}
-							variant={EIBF ? 'contained' : 'outlined'}
-						>
-							EIBF
-						</Button>
-						<Button
-							size="large"
-							disabled={eqip_helitak}
-							onClick={() => setEquip_bambi(!eqip_bambi)}
-							color="primary"
-							variant={eqip_helitak || eqip_bambi ? 'contained' : 'outlined'}
-						>
-							{eqip_helitak ? 'HELITAK' : 'BAMBI'}
-						</Button>
-					</Stack>
-				</Box>
+    return (
+        <Box sx={{ width: '100%', mb: 1 }}>
+            <Typography variant="body2" sx={{ mb: 0.5, color: '#aeb0b3' }}>
+                {label}
+            </Typography>
 
 
-				{(eqip_bambi || eqip_helitak) && <Box
 
-					sx={{
-						position: 'absolute',
-						width: 240, // Slightly wider to fit sliders comfortably
-						height: 250, // Taller to accommodate sliders
-						backgroundColor: '16161E',
-						borderRadius: 2,
-						left: 725, // Adjusted left position to keep it centered
-						top: 450, // Adjusted top position
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-						p: 2,
-					}}
-				>
-					<h1 style={{ marginTop: -30, marginBottom: 5 }}>Water Configuration</h1>
-					<Stack direction="row" spacing={2}>
-						<Button
-							size="large"
-							onClick={() => setFill_bambi(100)}
-							color={fill_bambi ? 'primary' : 'primary'}
-							variant={fill_bambi ? 'contained' : 'outlined'}
-						>
-							Force Fill
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setTrigger(!trigger)}
-							color={trigger ? 'primary' : 'primary'}
-							variant={trigger ? 'contained' : 'outlined'}
-						>
-							Drop
-						</Button>
-						<Box
-							sx={{
-								position: 'relative',
-								width: '100%',
-								height: 100,
-								backgroundColor: '#333',
-								borderRadius: 1,
-								overflow: 'hidden'
-							}}
-						>
-							<Box
-								sx={{
-									width: '100%',
-									height: `${fill_bambi}%`,
-									backgroundColor: '#1B93FF',
-									transition: 'height 0.3s ease',
-									position: 'absolute',
-									bottom: 0
-								}}
-							/>
-						</Box>
-					</Stack>
-					<Typography sx={{ mt: 1 }}>
-						{Math.round(fill_bambi)}% FULL
-					</Typography>
+            <Slider
+                value={sliderValue}
+                min={0}
+                max={100}
+                step={1}
+                onChange={(_, newValue) => onChange(newValue as number)}
+                onKeyDown={(event) => event.preventDefault()}
+                size="small"
+                sx={{
+                    height: 3,
+                    py: 0,
+                    my: 0,
+                    '& .MuiSlider-thumb': {
+                        width: 11,
+                        height: 11,
+                    },
+                    '& .MuiSlider-track': {
+                        border: 'none',
+                    },
+                    '& .MuiSlider-rail': {
+                        height: 3,
+                    },
+                }}
+            />
 
-				</Box>
-				}
-				{ModelVariant && <Box
+            <Stack
+                direction="row"
+                justifyContent="space-between"
+                sx={{ mt: '-7px', lineHeight: 1 }}
+            >
+                <Typography variant="caption" sx={{ fontSize: 10, lineHeight: 1 }}>
+                    {left}
+                </Typography>
+                <Typography variant="caption" sx={{ fontSize: 10, lineHeight: 1 }}>
+                    {right}
+                </Typography>
+            </Stack>
+        </Box>
+    );
+};
 
-					sx={{
-						position: 'absolute',
-						width: 400,
-						height: 150,
-						backgroundColor: '16161E',
-						borderRadius: 2,
-						left: 465,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<h1 style={{ marginTop: 0 }}>Variant Configuration</h1>
-					<Stack direction="row" spacing={2}>
-						<Button
-							size="large"
-							onClick={() => setProbe(!probe)}
-							color={probe ? 'primary' : 'primary'}
-							variant={probe ? 'contained' : 'outlined'}
-							disabled={!HasProbe}
-						>
-							Probe Position
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setLift(!lift)}
-							color={lift ? 'primary' : 'primary'}
-							variant={lift ? 'contained' : 'outlined'}
-							disabled={!HasHoist}
-						>
-							Hoist
-						</Button>
-						<Button
-							size="large"
-							onClick={() => setFireGun(!fireGun)}
-							color={fireGun ? 'error' : 'primary'}
-							variant={fireGun ? 'contained' : 'outlined'}
-							disabled={!IsArmed}
-						>
-							Fire Gun
-						</Button>
-					</Stack>
-				</Box>
-				}
+export const Aircraft = () => {
 
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 71,
-						height: 35,
-						backgroundColor: '16161E',
-						borderRadius: 1.5,
-						left: 270,
-						top: 340,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						size="small"
-						onClick={() => setshowPilot(!showPilot)}
-						color={showPilot ? 'primary' : 'primary'}
-						variant={showPilot ? 'contained' : 'outlined'}
-						sx={{
-							...(!showPilot && {
-								backgroundColor: '#1a1b26',
-								'&:hover': {
-									backgroundColor: '#1a1b26',
-								},
-							}),
-						}}
-					>
-						Pilot
-					</Button>
+    // Configuration
+    const [skis, setSkis] = useSimVar('L:H60_Skis', 'bool');
+    const [EIBF, setEIBF] = useSimVar('L:H60_EBF', 'bool');
 
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 85,
-						height: 35,
-						backgroundColor: '16161E',
-						borderRadius: 1.5,
-						left: 150,
-						top: 340,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						size="small"
-						onClick={() => setshowCoPilot(!showCoPilot)}
-						color={showCoPilot ? 'primary' : 'primary'}
-						variant={showCoPilot ? 'contained' : 'outlined'}
-						sx={{
-							...(!showCoPilot && {
-								backgroundColor: '#1a1b26',
-								'&:hover': {
-									backgroundColor: '#1a1b26',
-								},
-							}),
-						}}
-					>
-						CoPilot
-					</Button>
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 110,
-						height: 35,
-						backgroundColor: '16161E',
-						borderRadius: 1.5,
-						left: 195,
-						top: 377,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						onClick={() => setDoorHide(!doorHide)}
-						size="small"
-						variant="contained"
-						color={doorHide ? 'error' : 'success'}
-					>
-						Hide Doors
-					</Button>
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 71,
-						height: 35,
-						backgroundColor: '16161E',
-						borderRadius: 1.5,
-						left: 100,
-						top: 380,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						onClick={() => setDoorL(!doorL)}
-						size="small"
-						variant="contained"
-						color={doorL ? 'error' : 'success'}
-					>
-						Door
-					</Button>
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 71,
-						height: 35,
-						backgroundColor: '16161E',
-						borderRadius: 1.5,
-						left: 329,
-						top: 380,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						onClick={() => setDoorR(!doorR)}
-						size="small"
-						variant="contained"
-						color={doorR ? 'error' : 'success'}
-					>
-						Door
-					</Button>
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 79,
-						height: 52,
-						backgroundColor: '16161E',
-						borderRadius: 1,
-						left: 205,
-						top: 550,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						onClick={() => setGunnerDoor(!gunnerDoor)}
-						size="small"
-						variant="contained"
-						color={gunnerDoor ? 'error' : 'success'}
-					>
-						Gunner Window
-					</Button>
-				</Box>
+    // Equipment
+    const [HasProbe] = useSimVar('L:H60_HasProbe', 'bool');
+    const [HasHoist] = useSimVar('L:H60_HasHoist', 'bool');
 
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 79,
-						height: 52,
-						backgroundColor: '16161E',
-						borderRadius: 1,
-						left: 205,
-						top: 485,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						size="small"
-						onClick={() => setshowCrewChief(!showCrewChief)}
-						color={showCrewChief ? 'primary' : 'primary'}
-						variant={showCrewChief ? 'contained' : 'outlined'}
-					>
-						Crew Chief
-					</Button>
-				</Box>
+    const [probe, setProbe] = useSimVar('L:Fuel_door', 'bool');
+    const [lift, setLift] = useSimVar('L:H60_Winch', 'bool');
 
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 79,
-						height: 52,
-						backgroundColor: '16161E',
-						borderRadius: 1,
-						left: 100,
-						top: 630,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						onClick={() => setRearDoor(!rearDoor)}
-						color={rearDoor ? 'error' : 'success'}
-						size="small"
-						variant="contained"
-					>
-						Troop Door
-					</Button>
-				</Box>
-				<Box
-					sx={{
-						position: 'absolute',
-						width: 79,
-						height: 52,
-						backgroundColor: '16161E',
-						borderRadius: 1,
-						left: 310,
-						top: 630,
-						boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.699)',
-						color: '#1B93FF',
-						justifyContent: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						textAlign: 'center',
-						alignItems: 'center',
-						fontSize: 14,
-					}}
-				>
-					<Button
-						size="small"
-						onClick={() => setshowSoliders(!showSoliders)}
-						color="primary"
-						variant={showSoliders ? 'contained' : 'outlined'}
-						sx={{
-							...(!showSoliders && {
-								backgroundColor: '#1a1b26',
-								'&:hover': {
-									backgroundColor: '#1a1b26',
-								},
-							}),
-						}}
-					>
-						Troops
-					</Button>
-				</Box>
+    // Doors
+    const [rearDoor, setRearDoor] = useSimVar('L:H60_TroopDoor', 'bool');
+    const [doorR, setDoorR] = useSimVar('L:H60_DoorP', 'bool');
+    const [doorL, setDoorL] = useSimVar('L:H60_DoorCP', 'bool');
+    const [doorHide, setDoorHide] = useSimVar('L:H60_FrontDoorVis', 'bool');
+    const [gunnerDoor, setGunnerDoor] = useSimVar('L:H60_GunnerDoor', 'bool');
+
+    // Crew
+    const [showPilot, setShowPilot] = useSimVar('L:H60_Pilot_Vis', 'bool');
+    const [showCoPilot, setShowCoPilot] = useSimVar('L:H60_CoPilot_Vis', 'bool');
+    const [showCrewChief, setShowCrewChief] = useSimVar('L:H60_CrewChief_Vis', 'bool');
+    const [showSoliders, setShowSoliders] = useSimVar('L:H60_Soliders_Vis', 'bool');
+
+    // Lighting
+    const [LDGDownUp, setLDGDownUp] = useSimVar('L:H60_LDG_LT_DownUp', 'enum');
+    const [LDGPWR, setLDGPWR] = useSimVar('A:LIGHT TAXI:1', 'bool');
+
+    const [SLPWR, setSLPWR] = useSimVar('A:LIGHT LANDING:1', 'bool');
+    const [SLDownUp, setSLDownUp] = useSimVar('L:H60_SL_DownUp', 'enum');
+    const [SLLeftRight, setSLLeftRight] = useSimVar('L:H60_SL_RightLeft', 'enum');
+
+    const [GunTrigger, setGunTrigger] = useSimVar('L:H60_Gun_Trigger_Oride', 'bool');
+    const [Gun_Slew, setGun_Slew] = useSimVar('L:H60_DoorGun_Yaw', 'enum');
+    const [Gun_UpDown, setGun_UpDown] = useSimVar('L:H60_DoorGun_Pitch', 'enum');
+    const [MasterArm, setMasterArm] = useSimVar('L:H60_Master_Arm', 'bool');
+
+    const [showWeapons] = useSimVar('L:H60_Variant_Is_Armed', 'bool');
+
+    // Water system
+    const [eqip_bambi, setEquip_bambi] = useSimVar(
+        'L:H60_Cargo_BambiBucket_Installed', 'bool'
+    );
+
+    const [eqip_helitak] = useSimVar(
+        'L:H60_Helitank_Installed', 'bool'
+    );
+
+    const [fill_bambi, setFill_bambi] = useSimVar(
+        'L:H60_Cargo_Bambi_Water_Lvl', 'enum'
+    );
+
+    const [BambiTrigger, setBambiTrigger] = useSimVar(
+        'L:H60_Trigger_Override', 'bool'
+    );
+
+    const hasWaterEquipment = Boolean(eqip_bambi || eqip_helitak);
+    const waterLevel = Math.max(0, Math.min(100, Number(fill_bambi) || 0));
+
+    const panelStyle = {
+        backgroundColor: '#343a40',
+        borderRadius: 1,
+        padding: 1.1,
+        boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.699)',
+        color: '#aeb0b3',
+    };
+
+    const headingStyle = {
+        color: '#aeb0b3',
+        fontSize: 17,
+        fontWeight: 'bold',
+        marginBottom: 1.5,
+    };
 
 
-			</Box>
-		</div>
-	);
+
+    return (
+        <ThemeProvider theme={ButtonColour}>
+            <Box className="aircraftContainer">
+
+                {/* MAIN CONTENT */}
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        left: 15,
+                        top: 15,
+                        width: 1010,
+                        height: 640,
+                        display: 'grid',
+                        gridTemplateColumns: '220px 1fr 180px',
+                        gap: 1.5,
+                    }}
+                >
+
+                    {/* LEFT COLUMN */}
+                    <Stack spacing={1.5}>
+
+                        <Box sx={panelStyle}>
+                            <Typography sx={headingStyle}>
+                                CONFIGURATION
+                            </Typography>
+
+                            <Stack spacing={1}>
+                                <ControlButton
+                                    label="SKIS"
+                                    value={skis}
+                                    onClick={() => setSkis(!skis)}
+                                />
+                                <ControlButton
+                                    label="EIBF"
+                                    value={EIBF}
+                                    onClick={() => setEIBF(!EIBF)}
+                                />
+
+                                <ControlButton
+                                    label="BAMBI BUCKET"
+                                    value={Boolean(eqip_bambi || eqip_helitak)}
+                                    disabled={Boolean(eqip_helitak)}
+                                    onClick={() => setEquip_bambi(!eqip_bambi)}
+                                />
+                            </Stack>
+                        </Box>
+
+                        <Box sx={panelStyle}>
+                            <Typography sx={headingStyle}>
+                                CREW VISIBILITY
+                            </Typography>
+
+                            <Stack spacing={1}>
+                                <ControlButton label="PILOT" value={Boolean(showPilot)} onClick={() => setShowPilot(!showPilot)} />
+                                <ControlButton label="CO-PILOT" value={Boolean(showCoPilot)} onClick={() => setShowCoPilot(!showCoPilot)} />
+                                <ControlButton label="CREW CHIEF" value={Boolean(showCrewChief)} onClick={() => setShowCrewChief(!showCrewChief)} />
+                                <ControlButton label="TROOPS" value={Boolean(showSoliders)} onClick={() => setShowSoliders(!showSoliders)} />
+                            </Stack>
+                        </Box>
+
+                    </Stack>
+
+                    {/* CENTRE COLUMN */}
+                    <Stack spacing={1.5}>
+
+                        <Box
+                            sx={{
+                                ...panelStyle,
+                                height: 410,
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <Typography sx={headingStyle}>
+                                AIRCRAFT LAYOUT
+                            </Typography>
+
+                            <Box
+                                sx={{
+                                    flex: 1,
+                                    minHeight: 0,
+                                    width: '100%',
+                                    backgroundImage: "url('/images/EFB/H60_TopDown.png')",
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundPosition: 'center',
+                                    backgroundSize: 'auto 150%',
+                                }}
+                            />
+                            <Box sx={panelStyle}>
+                                <Typography sx={headingStyle}>
+                                    DOOR CONFIGURATION
+                                </Typography>
+
+                                <Box
+                                    sx={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(3, 1fr)',
+                                        gap: 1,
+                                    }}
+                                >
+                                    <ControlButton label="HIDE DOORS" value={Boolean(doorHide)} onClick={() => setDoorHide(!doorHide)} />
+                                    <ControlButton label="DOOR L" value={Boolean(doorL)} onClick={() => setDoorL(!doorL)} />
+                                    <ControlButton label="DOOR R" value={Boolean(doorR)} onClick={() => setDoorR(!doorR)} />
+                                    <ControlButton label="TROOP DOOR" value={Boolean(rearDoor)} onClick={() => setRearDoor(!rearDoor)} />
+                                    <ControlButton label="GUNNER WIN" value={Boolean(gunnerDoor)} onClick={() => setGunnerDoor(!gunnerDoor)} />
+                                </Box>
+                            </Box>
+                        </Box>
+
+
+
+                    </Stack>
+
+                    {/* RIGHT COLUMN */}
+                    <Stack spacing={1}>
+
+                        <Box sx={panelStyle}>
+                            <Typography sx={headingStyle}>
+                                EQUIPMENT
+                            </Typography>
+
+                            <Stack spacing={1}>
+                                <ControlButton label="PROBE" value={Boolean(probe)} disabled={!HasProbe} onClick={() => setProbe(!probe)} />
+                                <ControlButton label="HOIST" value={Boolean(lift)} disabled={!HasHoist} onClick={() => setLift(!lift)} />
+                            </Stack>
+                        </Box>
+
+                        <Box sx={panelStyle}>
+                            <Typography sx={headingStyle}>
+                                WATER SYSTEM
+                            </Typography>
+
+                            <Typography variant="caption">
+                                {eqip_helitak ? 'HELITAK' : eqip_bambi ? 'BAMBI' : ''}
+                            </Typography>
+                            {hasWaterEquipment ? (
+                                <>
+                                    <Stack spacing={1} sx={{ mt: 1 }}>
+                                        <Button fullWidth variant="outlined" onClick={() => setFill_bambi(100)}>
+                                            FORCE FILL
+                                        </Button>
+
+                                        <ControlButton
+                                            label="DROP"
+                                            value={Boolean(BambiTrigger)}
+                                            onClick={() => setBambiTrigger(!BambiTrigger)}
+                                        />
+                                    </Stack>
+
+                                    <Box
+                                        sx={{
+                                            height: 80,
+                                            width: 55,
+                                            border: '2px solid #aeb0b3',
+                                            borderRadius: 1,
+                                            position: 'relative',
+                                            overflow: 'hidden',
+                                            mx: 'auto',
+                                            mt: 2,
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                position: 'absolute',
+                                                bottom: 0,
+                                                width: '100%',
+                                                height: `${waterLevel}%`,
+                                                backgroundColor: '#1f6feb',
+                                            }}
+                                        />
+                                    </Box>
+
+                                    <Typography align="center" sx={{ mt: 1 }}>
+                                        {Math.round(waterLevel)}%
+                                    </Typography>
+                                </>
+                            ) : (
+                                <Typography variant="caption">
+                                    NO WATER EQUIPMENT
+                                </Typography>
+                            )}
+                        </Box>
+
+                    </Stack>
+
+                </Box>
+
+                {/* LIGHTING PANEL */}
+                <Box
+                    sx={{
+                        ...panelStyle,
+                        position: 'absolute',
+                        left: 15,
+                        top: 455,
+                        width: 610,
+                        height: 300,
+                        boxSizing: 'border-box',
+                        overflow: 'visible',
+                        p: 2, // Increased padding for inner breathing room
+                    }}
+                >
+                    <Typography sx={headingStyle}>
+                        AIRCRAFT LIGHTING
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr auto 1fr', // Use 'auto' for the divider column
+                            columnGap: 3,                        // Explicit horizontal separation
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <Stack spacing={1.5}>
+                            <Typography fontWeight="bold">SEARCH LIGHT</Typography>
+
+                            <ControlButton
+                                label={SLPWR ? 'POWER ON' : 'POWER OFF'}
+                                value={Boolean(SLPWR)}
+                                onClick={() => setSLPWR(!SLPWR)}
+                            />
+
+                            <SliderControl
+                                label="EXTENSION"
+                                value={SLDownUp}
+                                onChange={setSLDownUp}
+                                left="RETRACT"
+                                right="EXTEND"
+                            />
+
+                            <SliderControl
+                                label="DIRECTION"
+                                value={SLLeftRight}
+                                onChange={setSLLeftRight}
+                                left="LEFT"
+                                right="RIGHT"
+                            />
+                        </Stack>
+
+                        <Divider orientation="vertical" flexItem sx={{ my: 1, borderColor: 'rgba(255,255,255,0.1)' }} />
+
+                        <Stack spacing={1.5}>
+                            <Typography fontWeight="bold">LANDING LIGHT</Typography>
+
+                            <ControlButton
+                                label={LDGPWR ? 'POWER ON' : 'POWER OFF'}
+                                value={Boolean(LDGPWR)}
+                                onClick={() => setLDGPWR(!LDGPWR)}
+                            />
+
+                            <SliderControl
+                                label="EXTENSION"
+                                value={LDGDownUp}
+                                onChange={setLDGDownUp}
+                                left="RETRACT"
+                                right="EXTEND"
+                            />
+                        </Stack>
+                    </Box></Box>
+                {/* WEAPONS PANEL */}
+                {showWeapons && (
+                    <Box
+                        sx={{
+                            ...panelStyle,
+                            position: 'absolute',
+                            left: 640,
+                            top: 425,
+                            width: 370,
+                            height: 350,
+                            boxSizing: 'border-box',
+                            p: 2,
+                        }}
+                    >
+                        <Typography sx={headingStyle}>
+                            WEAPONS SYSTEM
+                        </Typography>
+
+                        <Stack spacing={1}>
+
+                            <Box
+                                sx={{
+                                    backgroundColor: '#252a2f',
+                                    borderRadius: 1,
+                                    p: 1.5,
+                                }}
+                            >
+                                <ControlButton
+                                    label={`MASTER ARM: ${MasterArm ? 'ARMED' : 'SAFE'}`}
+                                    value={MasterArm}
+                                    onClick={() => setMasterArm(!MasterArm)}
+                                    sx={MasterArm ? {
+                                        backgroundColor: '#d32f2f',
+                                        color: '#fff',
+                                        borderColor: '#d32f2f',
+                                        '&:hover': {
+                                            backgroundColor: '#b71c1c',
+                                        },
+                                    } : {}}
+                                />
+                            </Box>
+                            <ControlButton label="FIRE" value={GunTrigger} onClick={() => setGunTrigger(!GunTrigger)} />
+
+                            <SliderControl
+                                label="MINIGUN YAW"
+                                value={Gun_Slew}
+                                onChange={setGun_Slew}
+                                left="IN"
+                                right="OUT"
+                            />
+                            <SliderControl
+                                label="MINIGUN UP/DOWN"
+                                value={Gun_UpDown}
+                                onChange={setGun_UpDown}
+                                left="UP"
+                                right="DOWN"
+                            />
+
+
+                        </Stack>
+
+                    </Box>)}
+
+            </Box>
+        </ThemeProvider>
+    );
 };

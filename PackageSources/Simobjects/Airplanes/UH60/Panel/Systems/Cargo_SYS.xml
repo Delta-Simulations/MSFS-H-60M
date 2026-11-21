@@ -44,6 +44,7 @@ Custom trigger logic ^
 >
 (L:H60_Gun_Trigger_Oride, bool) or
 (L:H60_HasWeaponPylon, bool) and
+(L:H60_MASTER_ARM, bool) and
 if{
     1 (>L:H60_Gun_Firing, bool)
 }
@@ -57,12 +58,29 @@ els{
 (L:H60_HasWeaponPylon, bool) 0 == and
 (L:H60_Gun_Trigger_Oride, bool) or
 (L:H60_GunnerDoorBlocked, bool) 1 == and
+(L:H60_Model_Is_HH60W, bool) 0 == and
+(L:H60_MASTER_ARM, bool) and
 if{
     1 (&gt;K:WING_LIGHTS_ON)
 }
 els{
     1 (&gt;K:WING_LIGHTS_OFF)
 }
+
+(L:H60_Gun_Trigger_Held, enum)
+(L:H60_Gun_Trigger_Store, enum)
+>
+(L:H60_HasWeaponPylon, bool) 0 == and
+(L:H60_Gun_Trigger_Oride, bool) or
+(L:H60_Model_Is_HH60W, bool) and
+(L:H60_MASTER_ARM, bool) and
+if{
+    2 (&gt;K:WING_LIGHTS_ON)
+}
+els{
+    2 (&gt;K:WING_LIGHTS_OFF)
+}
+
 
 
 (L:H60_Gun_Trigger_Held, enum)

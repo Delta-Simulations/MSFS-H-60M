@@ -242,6 +242,25 @@
                     <FX_GUID>{BDED513B-5C30-4017-A219-864755A4F974}</FX_GUID>
                 </UseTemplate>
             </Component>
+                    <!-- HH-60W MINIGUNS -->
+            <Component ID="60W_minigun1" Node="FX_GUN_1">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(A:LIGHT WING:2,bool) </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{BDED513B-5C30-4017-A219-864755A4F974}</FX_GUID>
+                </UseTemplate>
+            </Component>
+            <Component ID="60W_minigun2" Node="FX_GUN_2">
+                <UseTemplate Name="ASOBO_GT_FX">
+                    <FX_CODE>(A:LIGHT WING:2,bool) </FX_CODE>
+                    <FX_OFFSET_X>0</FX_OFFSET_X>
+                    <FX_OFFSET_Y>0</FX_OFFSET_Y>
+                    <FX_OFFSET_Z>0</FX_OFFSET_Z>
+                    <FX_GUID>{BDED513B-5C30-4017-A219-864755A4F974}</FX_GUID>
+                </UseTemplate>
+            </Component>
 
 
             <!-- WATER FX-->

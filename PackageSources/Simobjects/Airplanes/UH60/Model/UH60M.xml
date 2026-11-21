@@ -46,26 +46,26 @@
         <NAME>Minigun_UP</NAME>
         <BINDING_SET_0_EVENT_ID>MIXTURE4_INCR</BINDING_SET_0_EVENT_ID>
         <SET_CODE>
-          (L:H60_M134_Pitch, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min (>L:H60_M134_Pitch,enum)
+          (L:H60_DoorGun_Pitch, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min (>L:H60_DoorGun_Pitch,enum)
         </SET_CODE>
       </UseTemplate>
       <UseTemplate Name="Control_Intercept_DELTASIM">
         <NAME>Minigun_DOWN</NAME>
         <BINDING_SET_0_EVENT_ID>MIXTURE4_DECR</BINDING_SET_0_EVENT_ID>
-        <SET_CODE>(L:H60_M134_Pitch, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_M134_Pitch, enum)</SET_CODE>
+        <SET_CODE>(L:H60_DoorGun_Pitch, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_DoorGun_Pitch, enum)</SET_CODE>
       </UseTemplate>
       <UseTemplate Name="Control_Intercept_DELTASIM">
         <NAME>Minigun_Left</NAME>
         <BINDING_SET_0_EVENT_ID>MIXTURE3_INCR</BINDING_SET_0_EVENT_ID>
         <SET_CODE>
-          (L:H60_M134_Yaw, enum) (A:CIRCUIT ON:1, bool) * -- -50 max (>L:H60_M134_Yaw,enum)
+          (L:H60_DoorGun_Yaw, enum) (A:CIRCUIT ON:1, bool) * -- 0 max (>L:H60_DoorGun_Yaw,enum)
         </SET_CODE>
       </UseTemplate>
       <UseTemplate Name="Control_Intercept_DELTASIM">
         <NAME>Minigun_Right</NAME>
         <BINDING_SET_0_EVENT_ID>MIXTURE3_DECR</BINDING_SET_0_EVENT_ID>
         <SET_CODE>
-          (L:H60_M134_Yaw, enum) (A:CIRCUIT ON:1, bool) * ++ 50 min (>L:H60_M134_Yaw, enum)
+          (L:H60_DoorGun_Yaw, enum) (A:CIRCUIT ON:1, bool) * ++ 100 min (>L:H60_DoorGun_Yaw, enum)
         </SET_CODE>
       </UseTemplate>
 
@@ -81,7 +81,7 @@
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
-            5.22 (&gt;L:H60_VERSION_ID, number)
+            5.23 (&gt;L:H60_VERSION_ID, number)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -189,11 +189,28 @@
           </EMISSIVE_CODE>
         </UseTemplate>
       </Component>
+      <Component ID="GunFire3" Node="GunFiring_Flame_3">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            1000
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="GunFire_4" Node="GunFiring_Flame_4">
+        <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+          <EMISSIVE_CODE>
+            1000
+          </EMISSIVE_CODE>
+        </UseTemplate>
+      </Component>
+
+
 
 				<UseTemplate name="Generic_Anim_DELTASIM">
-					<ANIM_NAME>M134_Spin</ANIM_NAME>
+					<ANIM_NAME>Minigun_Spin</ANIM_NAME>
 					<ANIM_CODE>
                 (A:LIGHT WING:1,bool) 1 ==
+                (A:LIGHT WING:2,bool) 1 == or
                 if{ 
                 (E:ABSOLUTE TIME, second) 0.1 % 100 *
                 } els{ 0 }
@@ -303,34 +320,34 @@
         </UseTemplate>
 
         <UseTemplate Name="Generic_Anim_DELTASIM">
-          <ANIM_NAME>M134_Yaw_R</ANIM_NAME>
+          <ANIM_NAME>Minigun_Yaw_R</ANIM_NAME>
           <ANIM_CODE>
             (L:H60_HasWeaponPylon, bool) 1 ==
             if{
-              (L:H60_M134_Yaw, enum) 0 min 50 +  
+              (L:H60_DoorGun_Yaw, enum) 50 min
             } els{
-              (L:H60_M134_Yaw, enum) 50 +
+              (L:H60_DoorGun_Yaw, enum)
             }
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
         <UseTemplate Name="Generic_Anim_DELTASIM">
-          <ANIM_NAME>M134_Yaw_L</ANIM_NAME>
+          <ANIM_NAME>Minigun_Yaw_L</ANIM_NAME>
           <ANIM_CODE>
             (L:H60_HasWeaponPylon, bool) 1 ==
             if{
-              (L:H60_M134_Yaw, enum) 0 min 50 +  
+              (L:H60_DoorGun_Yaw, enum) 50 min
             } els{
-              (L:H60_M134_Yaw, enum) 50 +
+              (L:H60_DoorGun_Yaw, enum)
             }
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
 
         <UseTemplate Name="Generic_Anim_DELTASIM">
-          <ANIM_NAME>M134_Pitch</ANIM_NAME>
+          <ANIM_NAME>Minigun_Pitch</ANIM_NAME>
           <ANIM_CODE>
-            (L:H60_M134_Pitch, enum)
+            (L:H60_DoorGun_Pitch, enum)
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
         </UseTemplate>
