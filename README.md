@@ -89,9 +89,9 @@ We have two mainline versions: stable and development. The stable version is a '
 
  
 ## Contributors
+- RiverX and the Hatchet Team - MFOS Model, DAP Weapons, Cockpit Seats
 - xovolovo - GAU-21 Model
 - [GHQST](https://flightsim.to/profile/GHQST) - Helitak model
-- RiverX - MFOS Model
 - Rohr3D - HIRSS Model
 - Thank you to Dano, Nace, Venom, Kenny, cpt_airwolf, and the rest of the MSFS Development community for their assistance over these years. Without them, this project could never have continued.
 
