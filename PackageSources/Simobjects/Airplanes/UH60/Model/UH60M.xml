@@ -17,7 +17,7 @@
         <UseTemplate Name="ASOBO_GT_Update">
           <UPDATE_ONCE>True</UPDATE_ONCE>
           <UPDATE_CODE>
-            5.24 (&gt;L:H60_VERSION_ID, number)
+            5.25 (&gt;L:H60_VERSION_ID, number)
           </UPDATE_CODE>
         </UseTemplate>
       </Component>
@@ -480,7 +480,7 @@
           <ANIM_CODE>
             (L:H60_HasWeaponPylon, bool) 1 ==
             if{
-            (L:H60_TroopDoor, bool) 76 *
+            (L:H60_TroopDoor, bool) 100 * 15 +
           } els{
             (L:H60_TroopDoor, bool) 100 *
           }
@@ -673,8 +673,10 @@
           <ANIM_CODE>
             (L:H60_GunnerDoorBlocked, bool) 0 == 
             if{
-(L:H60_GunnerDoor, bool) 100 *
-            } els{ 100 }
+              (L:H60_GunnerDoor, bool) 100 *
+            } els{
+               100 
+            }
             
           </ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>

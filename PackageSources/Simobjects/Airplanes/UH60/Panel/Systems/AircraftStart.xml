@@ -23,18 +23,22 @@ if{
     1 (&gt;L:H60_AntiColl_Mode) 
     100 (&gt;K:LIGHT_POTENTIOMETER_11_SET)
 
-    (E:TIME OF DAY, enum) 1 &lt;
+    (E:TIME OF DAY, enum) 3 ==
     if{
-        0 (&gt;L:H60_AntiColl_PWR) 
-        0 (&gt;L:H60_Nav_PWR) 
-        1 (&gt;L:H60_Cabin_LGT_Mode)
-    } els{
         2 (&gt;L:H60_AntiColl_PWR) 
         2 (&gt;L:H60_Nav_PWR) 
         2 (&gt;L:H60_Cabin_LGT_Mode) 
         1 (&gt;L:H60_Cpit_Light_Mode)
         1 (&gt;L:H60_P_Util_Lgt_Mode)
-        1 (&gt;L:H60_CP_Util_Lgt_Mode)
+        1 (&gt;L:H60_CP_Util_Lgt_Mode) 
+    } els{
+        0 (&gt;L:H60_AntiColl_PWR) 
+        0 (&gt;L:H60_Nav_PWR) 
+        1 (&gt;L:H60_Cabin_LGT_Mode)
+        0 (&gt;L:H60_Cpit_Light_Mode)
+        0 (&gt;L:H60_P_Util_Lgt_Mode)
+        0 (&gt;L:H60_CP_Util_Lgt_Mode) 
+        
     }
 
     1 (>L:H60_INITALIZED)
