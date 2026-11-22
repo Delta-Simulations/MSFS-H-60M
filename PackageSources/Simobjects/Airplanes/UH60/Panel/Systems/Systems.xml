@@ -8,6 +8,77 @@ Cockpit Lights  and External lighting - Delta Simulations UH60 for MSFS
 [1] [0] (>K:2:[key_event_name])
 </Comment>
 
+<!-- Cockpit LIGHTING -->
+<Element>
+<Select>
+<Value>
+<!-- Pilot Util Light ==========================-->
+(A:LIGHT POTENTIOMETER:12, percent) 0 > 
+(A:LIGHT PANEL:3, bool) 0 == and 
+if{ 3 (&gt;K:PANEL_LIGHTS_ON) }
+(A:LIGHT POTENTIOMETER:12, percent) 0 == 
+(A:LIGHT PANEL:3, bool) 1 == and 
+(L:H60_P_Util_Lgt_Mode, bool) 1 == or
+if{ 3 (&gt;K:PANEL_LIGHTS_OFF) }
+(A:LIGHT POTENTIOMETER:12, percent) 0 > 
+(A:LIGHT PANEL:4, bool) 0 == and 
+if{ 4 (&gt;K:PANEL_LIGHTS_ON) }
+(A:LIGHT POTENTIOMETER:12, percent) 0 == 
+(A:LIGHT PANEL:4, bool) 1 == and 
+(L:H60_P_Util_Lgt_Mode, bool) 0 == or
+if{ 4 (&gt;K:PANEL_LIGHTS_OFF) }
+
+<!-- CoPilot Util Light ==========================-->
+(A:LIGHT POTENTIOMETER:13, percent) 0 > 
+(A:LIGHT PANEL:5, bool) 0 == and 
+if{ 5 (&gt;K:PANEL_LIGHTS_ON) }
+(A:LIGHT POTENTIOMETER:13, percent) 0 == 
+(A:LIGHT PANEL:5, bool) 1 == and 
+(L:H60_CP_Util_Lgt_Mode, bool) 1 == or
+if{ 5 (&gt;K:PANEL_LIGHTS_OFF) }
+(A:LIGHT POTENTIOMETER:13, percent) 0 > 
+(A:LIGHT PANEL:6, bool) 0 == and 
+if{ 6 (&gt;K:PANEL_LIGHTS_ON) }
+(A:LIGHT POTENTIOMETER:13, percent) 0 == 
+(A:LIGHT PANEL:6, bool) 1 == and 
+(L:H60_CP_Util_Lgt_Mode, bool) 0 == or
+if{ 6 (&gt;K:PANEL_LIGHTS_OFF) }
+
+<!-- Cockpit Flood ==========================-->
+(A:LIGHT POTENTIOMETER:10, percent) 0 > 
+(A:LIGHT PANEL:1, bool) 0 == and 
+if{ 1 (&gt;K:PANEL_LIGHTS_ON) }
+(A:LIGHT POTENTIOMETER:10, percent) 0 == 
+(A:LIGHT PANEL:1, bool) 1 == and 
+(L:H60_Cpit_Light_Mode, bool) 1 == or
+if{ 1 (&gt;K:PANEL_LIGHTS_OFF) }
+(A:LIGHT POTENTIOMETER:10, percent) 0 > 
+(A:LIGHT PANEL:2, bool) 0 == and 
+if{ 2 (&gt;K:PANEL_LIGHTS_ON) }
+(A:LIGHT POTENTIOMETER:10, percent) 0 == 
+(A:LIGHT PANEL:2, bool) 1 == and 
+(L:H60_Cpit_Light_Mode, bool) 0 == or
+if{ 2 (&gt;K:PANEL_LIGHTS_OFF) }
+
+(L:H60_Cabin_LGT_Mode, bool) 0 ==
+if{
+    1 (&gt;K:CABIN_LIGHTS_ON)
+}
+(L:H60_Cabin_LGT_Mode, bool) 1 ==
+if{
+    1 (&gt;K:CABIN_LIGHTS_OFF)
+    2 (&gt;K:CABIN_LIGHTS_OFF)
+    100 (&gt;K:LIGHT_POTENTIOMETER_11_SET)
+}
+(L:H60_Cabin_LGT_Mode, bool) 2 ==
+if{
+    2 (&gt;K:CABIN_LIGHTS_ON)
+}
+
+
+</Value>
+</Select>
+</Element>	
    <!-- Cockpit Cpas-->
    <Element>
     <Select>
@@ -33,7 +104,7 @@ Cockpit Lights  and External lighting - Delta Simulations UH60 for MSFS
 <Select>
 <Value>
 <!-- BEACON DAY/NIGHT CNTRL -->
-(L:H60_AntiColl_Mode, enum) 0 ==
+(L:H60_AntiColl_Mode, enum) 2 ==
 if{ 
     2 (&gt;K:BEACON_LIGHTS_OFF)
     1 (&gt;K:BEACON_LIGHTS_ON)
@@ -47,7 +118,7 @@ if{
     2 (&gt;K:STROBES_ON)
     1 (&gt;K:STROBES_ON)
 }
-(L:H60_AntiColl_Mode, enum) 2 ==
+(L:H60_AntiColl_Mode, enum) 0 ==
 if{ 
     1 (&gt;K:BEACON_LIGHTS_OFF)
     2 (&gt;K:BEACON_LIGHTS_ON)
@@ -85,7 +156,7 @@ if{
 }
 (L:H60_Nav_PWR, enum) 2 ==
 if{ 
-    30 (&gt;K:LIGHT_POTENTIOMETER_1_SET)
+    20 (&gt;K:LIGHT_POTENTIOMETER_1_SET)
     1 (&gt;K:NAV_LIGHTS_ON)
     2 (&gt;K:NAV_LIGHTS_ON)
 }
@@ -98,6 +169,7 @@ if{
 </Value>
 </Select>
 </Element> 
+
 
 
 </Gauge>

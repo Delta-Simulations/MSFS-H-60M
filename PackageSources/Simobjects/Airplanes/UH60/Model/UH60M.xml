@@ -10,6 +10,18 @@
     <Include Path="DeltaSim-UH60\Index.xml" />
 
     <Component ID="UH60M_Exterior_Main">
+        <UseTemplate Name="DELTASIM_Variants_Template">
+        </UseTemplate>
+      <!-- SET AIRCRAFT VERSION -->
+      <Component ID="AC_VERSION">
+        <UseTemplate Name="ASOBO_GT_Update">
+          <UPDATE_ONCE>True</UPDATE_ONCE>
+          <UPDATE_CODE>
+            5.24 (&gt;L:H60_VERSION_ID, number)
+          </UPDATE_CODE>
+        </UseTemplate>
+      </Component>
+
 
       <UseTemplate Name="Control_Intercept_DELTASIM">
         <NAME>Gun_Trigger</NAME>
@@ -76,15 +88,6 @@
       </UseTemplate>
       
 
-      <!-- SET AIRCRAFT VERSION -->
-      <Component ID="AC_VERSION">
-        <UseTemplate Name="ASOBO_GT_Update">
-          <UPDATE_ONCE>True</UPDATE_ONCE>
-          <UPDATE_CODE>
-            5.23 (&gt;L:H60_VERSION_ID, number)
-          </UPDATE_CODE>
-        </UseTemplate>
-      </Component>
 
 
       <UseTemplate Name="DELTASIM_FX_Template">
@@ -136,21 +139,21 @@
       <Component ID="Slime_Fwd" Node="Slime_Fwd">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
-            (A:LIGHT POTENTIOMETER:10, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
+            (A:LIGHT POTENTIOMETER:9, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
           </EMISSIVE_CODE>
         </UseTemplate>
       </Component>
       <Component ID="Slime_Aft" Node="Slime_Aft">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
-            (A:LIGHT POTENTIOMETER:10, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
+            (A:LIGHT POTENTIOMETER:9, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
           </EMISSIVE_CODE>
         </UseTemplate>
       </Component>
       <Component ID="Slime_Stab" Node="Slime_Stab">
         <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
           <EMISSIVE_CODE>
-            (A:LIGHT POTENTIOMETER:10, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
+            (A:LIGHT POTENTIOMETER:9, percent) 0.005 * (A:ELECTRICAL MASTER BATTERY, bool) *
           </EMISSIVE_CODE>
         </UseTemplate>
       </Component>
@@ -679,8 +682,7 @@
         </UseTemplate>
 
 
-        <UseTemplate Name="DELTASIM_Variants_Template">
-        </UseTemplate>
+
 
 
         <Component ID="Cargo_Hoist">

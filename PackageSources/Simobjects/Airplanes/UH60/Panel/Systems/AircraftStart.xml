@@ -5,85 +5,60 @@ FOR DELTA SIMULATIONS UH60M
 Produced by Destroyer121 (delta.simulations0@gmail.com)
 *************************************************
 </Comment>
+<Element>
+<Select>
+<Value>
+(L:H60_INITALIZED) 0 == 
+if{
+    0 (&gt;L:H60_EFB_MOVE, bool)
+    1 (&gt;L:H60_CrewChief_Vis, bool)
+    1 (&gt;L:H60_GUNSIGHT_PWR, bool)
+    -1 (&gt;L:H60_Gun_Trigger_Store, enum)
+    0 (&gt;L:H60_SL_DownUp, enum)
+    50 (&gt;L:H60_SL_RightLeft, enum)
+    20 (&gt;L:H60_GUNSIGHT_BRT)
+    30 (&gt;L:H60_DoorGun_Yaw)
+    
+    1 (&gt;K:ALL_LIGHTS_TOGGLE)
+    1 (&gt;L:H60_AntiColl_Mode) 
+    100 (&gt;K:LIGHT_POTENTIOMETER_11_SET)
+
+    (E:TIME OF DAY, enum) 1 &lt;
+    if{
+        0 (&gt;L:H60_AntiColl_PWR) 
+        0 (&gt;L:H60_Nav_PWR) 
+        1 (&gt;L:H60_Cabin_LGT_Mode)
+    } els{
+        2 (&gt;L:H60_AntiColl_PWR) 
+        2 (&gt;L:H60_Nav_PWR) 
+        2 (&gt;L:H60_Cabin_LGT_Mode) 
+        1 (&gt;L:H60_Cpit_Light_Mode)
+        1 (&gt;L:H60_P_Util_Lgt_Mode)
+        1 (&gt;L:H60_CP_Util_Lgt_Mode)
+    }
+
+    1 (>L:H60_INITALIZED)
+    1 (&gt;K:ALL_LIGHTS_TOGGLE)
+}
+</Value>
+</Select>
+</Element>
 
 <Element>
 <Select>
 <Value>
-(L:H60_State_ColdandDark)
+(L:H60_CFG_FLIGHT) 1 ==
 if{
-
-0 (>L:H60_State_ColdandDark)
-0 (>L:H60_Switch_EXT_PWR)
-0 (>L:H60_PCL1)
-0 (>L:H60_PCL2)
-0 (>L:H60_Switch_BATT1)
-0 (>L:H60_Switch_BATT2)
-0 (>L:H60_Switch_BATT_STBY)
-0 (>L:H60_Switch_GEN_APU)
-0 (>L:H60_Switch_GEN_ENG1)
-0 (>L:H60_Switch_GEN_ENG2)
-0 (>L:H60_Fuel1)
-0 (>L:H60_Fuel2)
-0 (>L:H60_Fuel_Prime)
-0 (>L:H60_APU_START)
-1 (&gt;K:FUELSYSTEM_PUMP_OFF) 
-2 (&gt;K:FUELSYSTEM_PUMP_OFF) 
-1 (&gt;K:ENGINE_AUTO_SHUTDOWN) 
+    1 (>L:H60_SYS_EGI1)
+    1 (>L:H60_SYS_EGI2)
+    1 (>L:H60_AFCS_SAS1)
+    1 (>L:H60_AFCS_SAS2)
+    1 (>L:H60_AFCS_FPS)
+    1 (>L:H60_AFCS_TRIM)
 
 
-
+    0 (>L:H60_CFG_FLIGHT)
 }
-
-(L:H60_State_Startup)
-if{
-
-0 (>L:H60_State_Startup)
-
-1 (>L:H60_Switch_EXT_PWR)
-10 (>L:H60_PCL1)
-10 (>L:H60_PCL2)
-1 (>L:H60_Switch_BATT1)
-1 (>L:H60_Switch_BATT2)
-1 (>L:H60_Switch_BATT_STBY)
-1 (>L:H60_Switch_GEN_APU)
-1 (>L:H60_Switch_GEN_ENG1)
-1 (>L:H60_Switch_GEN_ENG2)
-2 (>L:H60_Fuel1)
-2 (>L:H60_Fuel2)
-2 (>L:H60_Fuel_Prime)
-1 (>L:H60_APU_START)
-2 (>L:H60_AIR_SOURCE)
-1 (&gt;K:FUELSYSTEM_PUMP_ON) 
-2 (&gt;K:FUELSYSTEM_PUMP_ON) 
-
-}
-(L:H60_State_Taxi)
-if{
-
-0 (>L:H60_State_Taxi)
-
-0 (>L:H60_Switch_EXT_PWR)
-100 (>L:H60_PCL1)
-100 (>L:H60_PCL2)
-1 (>L:H60_Switch_BATT1)
-1 (>L:H60_Switch_BATT2)
-1 (>L:H60_Switch_BATT_STBY)
-0 (>L:H60_Switch_GEN_APU)
-1 (>L:H60_Switch_GEN_ENG1)
-1 (>L:H60_Switch_GEN_ENG2)
-1 (>L:H60_Fuel1)
-1 (>L:H60_Fuel2)
-1 (>L:H60_Fuel_Prime)
-0 (>L:H60_APU_START)
-1 (>L:H60_AIR_SOURCE)
-1 (&gt;K:SET_STARTER1_HELD)
-1 (&gt;K:SET_STARTER2_HELD)
-1 (&gt;K:ENGINE_AUTO_START)
-
-}
-
-
-
 </Value>
 </Select>
 </Element>

@@ -11,7 +11,6 @@
         <DefaultTemplateParameters>
             <INIT_CODE></INIT_CODE>
         </DefaultTemplateParameters>
-
       <Component ID="#NAME#">
         <UseInputEvent ID="ASOBO_GIE_Base">
           <BINDING_SET_0_EVENT_ID>#BINDING_SET_0_EVENT_ID#</BINDING_SET_0_EVENT_ID>
@@ -25,10 +24,11 @@
           <BINDING_SET_0>L0</BINDING_SET_0> <!-- required as not defaulted in template -->
         </UseInputEvent>
       </Component>
-
-
-
     </Template>
+
+
+
+
 
     <Template Name="Generic_Visibility_DELTASIM">
         <DefaultTemplateParameters>

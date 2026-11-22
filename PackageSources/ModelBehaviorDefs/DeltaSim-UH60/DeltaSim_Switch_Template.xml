@@ -122,11 +122,10 @@
     <DefaultTemplateParameters>
         <ANIM_LENGTH>100</ANIM_LENGTH>
         <POSTCODE></POSTCODE>
-		<ANIM_LAG>400</ANIM_LAG>			
-        <SINGLECODE>(O:PushGeneric, bool) if{ #VARCHANGE# (&gt; #VARIABLE# ) }</SINGLECODE>
+		<ANIM_LAG>100</ANIM_LAG>			
+        <LEFT_SINGLE_CODE>(O:PushGeneric, bool) ! (&gt; O:PushGeneric, bool ) </LEFT_SINGLE_CODE>
         <WWISE_EVENT_1>Cpit_Soft_Button_1</WWISE_EVENT_1>
         <WWISE_EVENT_2>Cpit_Soft_Button_1</WWISE_EVENT_2>
-
     </DefaultTemplateParameters>
         <!-- <Component ID="#NODE_ID#" Node="#NODE_ID#">
     <UseTemplate Name="ASOBO_GT_Anim_Code">

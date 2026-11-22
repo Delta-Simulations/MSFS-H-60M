@@ -91,18 +91,19 @@
         </UseTemplate>
 
         <!-- MH60M DAP Parts -->
-        <Component ID="Dap_parts">
+        <Component ID="MH60M_DAP_parts">
             <UseTemplate Name="Generic_Visibility_DELTASIM">
                 <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED#</VISIBILITY_CODE>
                 <NODE>DAP_BASE</NODE>
             </UseTemplate>
-        </Component>
-        <Component ID="Stock_pylon_Stub">
             <UseTemplate Name="Generic_Visibility_DELTASIM">
                 <VISIBILITY_CODE>#DAP_PYLONS_INSTALLED# !</VISIBILITY_CODE>
                 <NODE>Stub_Pylon</NODE>
             </UseTemplate>
+
         </Component>
+
+
         <Component ID="HH60M_parts">
             <!-- HH60M Flir -->
             <UseTemplate Name="Generic_Visibility_DELTASIM">
@@ -135,6 +136,8 @@
                 <VISIBILITY_CODE>#HH60M_Fuse_Mods_INSTALLED# !</VISIBILITY_CODE>
                 <NODE>Railings_GunnerDoors</NODE>
             </UseTemplate>
+
+
         </Component>
         <!-- Stock Tail antennas, hidden in HH60W -->
         <UseTemplate Name="Generic_Visibility_DELTASIM">

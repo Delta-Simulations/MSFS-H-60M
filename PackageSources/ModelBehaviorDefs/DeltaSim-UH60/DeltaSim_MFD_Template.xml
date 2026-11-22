@@ -16,7 +16,25 @@
     <UseTemplate Name="DELTASIM_PushButton_Template">
         <TOOLTIPID>#TOOLTIPID#</TOOLTIPID>
     </UseTemplate>
+    <UseTemplate Name="Panel_Emissive_DELTASIM">
+        <NODE_ID>#NODE_ID#_E</NODE_ID>
+        <VAR>H60_INST_PNL_BACKLIGHT</VAR>
+    </UseTemplate>
 </Template>
+
+<Template Name="DELTASIM_FMC_Button_Template">
+    <DefaultTemplateParameters>
+        <TOOLTIPID>FMC BTN</TOOLTIPID>
+    </DefaultTemplateParameters>
+    <UseTemplate Name="DELTASIM_PushButton_Template">
+        <TOOLTIPID>#TOOLTIPID#</TOOLTIPID>
+    </UseTemplate>
+    <UseTemplate Name="Panel_Emissive_DELTASIM">
+        <NODE_ID>#NODE_ID#_E</NODE_ID>
+        <VAR>H60_LWR_PNL_BACKLIGHT</VAR>
+    </UseTemplate>
+</Template>
+
 <Template Name="DELTASIM_MFD_Switch_Template">
     <DefaultTemplateParameters>
         <TOOLTIPID>MFD PWR</TOOLTIPID>
@@ -32,6 +50,263 @@
 
   </UseTemplate>
 </Template>
+
+<Template Name="DELTASIM_FMC_Template">
+        <DefaultTemplateParameters>
+            <ID>1</ID>
+        </DefaultTemplateParameters>
+
+        <UseTemplate Name="Panel_Emissive_DELTASIM">
+            <NODE_ID>FMS_#ID#_Static_E</NODE_ID>
+            <VAR>H60_LWR_PNL_BACKLIGHT</VAR>
+        </UseTemplate>
+
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_DIR</NODE_ID>
+            <LEFT_SINGLE_CODE>
+            </LEFT_SINGLE_CODE>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_IDENT</NODE_ID>
+            <LEFT_SINGLE_CODE>
+            </LEFT_SINGLE_CODE>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L1</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L2</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L3</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L4</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L5</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R1</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R2</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R3</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R4</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R5</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R5</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_1</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_2</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_3</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_4</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_5</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_6</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_7</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_8</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_9</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_0</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_DOT</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_PLUS</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_BRT_DIM</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_PREV_NEXT</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_PREV_NEXT</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_V</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_U</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_T</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_S</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_W</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_Y</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_Z</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_SPC</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_Q</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_P</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_O</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_N</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_M</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_K</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_J</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_I</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_H</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_G</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_F</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_E</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_D</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_C</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_B</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_A</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_X</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_R_ARROW</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_U_ARROW</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_D_ARROW</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_NAV</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_EGI</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_FPN</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_DAT</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_CLC</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_FIX</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_F1</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_F2</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_MSN</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_CLR</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_XPD</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_INI</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_ZRO</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_STS</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_PPS</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_F3</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_F4</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_ENT</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_COM</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_L_ARROW</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="DELTASIM_FMC_Button_Template">
+            <NODE_ID>FMC_#ID#_TST</NODE_ID>
+        </UseTemplate>
+
+
+
+</Template>
+
 
 <Template Name="DELTASIM_FDDCP_Template">
     <DefaultTemplateParameters>
@@ -168,6 +443,11 @@
         <NODE_ID>KORRY_AFCS_ENGAGED_NAV_MODE_#ID#</NODE_ID>
         <TRUECODE>
         </TRUECODE>
+      </UseTemplate>
+
+      <UseTemplate Name="Panel_Emissive_DELTASIM">
+        <NODE_ID>AFCS_Pnl_#ID#</NODE_ID>
+        <VAR>H60_INST_PNL_BACKLIGHT</VAR>
       </UseTemplate>
 
       <UseTemplate Name="DELTASIM_PushButton_Template">
@@ -351,7 +631,10 @@
       </UseTemplate>
       </Component>
 
-
+    <UseTemplate Name="Panel_Emissive_DELTASIM">
+        <NODE_ID>MFD_#ID#_Base_E</NODE_ID>
+        <VAR>H60_INST_PNL_BACKLIGHT</VAR>
+    </UseTemplate>
 
 
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
@@ -408,6 +691,13 @@
 
         </LEFT_SINGLE_CODE>
     </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_L_2</NODE_ID>     
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_L_3</NODE_ID>     
+    </UseTemplate>
+
         <!-- Zoom - Tac Map -->
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
         <NODE_ID>Button_MFD_#ID#_L_4</NODE_ID>
@@ -453,7 +743,15 @@
         </LEFT_SINGLE_CODE>
     </UseTemplate>
 
-
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_U_1</NODE_ID>     
+    </UseTemplate>
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_U_2</NODE_ID>     
+    </UseTemplate>
+        <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_U_3</NODE_ID>     
+    </UseTemplate>
         <!-- Center/Decenter - Tac Map -->
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
         <NODE_ID>Button_MFD_#ID#_U_4</NODE_ID>
@@ -475,7 +773,9 @@
             }
         </LEFT_SINGLE_CODE>
     </UseTemplate>
-
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_U_6</NODE_ID>     
+    </UseTemplate>
 
 
 
@@ -487,14 +787,14 @@
                 <WWISE_EVENT_1>button_mfd_press</WWISE_EVENT_1>
                 <WWISE_EVENT_2>button_mfd_release</WWISE_EVENT_2>
             </Parameters>
-                            <Parameters Type="Default">
-						<TOOLTIP_TITLE>'BRIGHTNESS'</TOOLTIP_TITLE>
-						<TT_ICON>PUSH</TT_ICON>
-						<TT_INTERACTION_FLAGS>PRIMARY_DOWN</TT_INTERACTION_FLAGS>
-						<TT_DESCRIPTION>'ADJUST BRIGms
-						marHTNESS'</TT_DESCRIPTION>
-						<TOOLTIP_DISABLED>True</TOOLTIP_DISABLED>
-					</Parameters>	
+            <Parameters Type="Default">
+                <TOOLTIP_TITLE>'BRIGHTNESS'</TOOLTIP_TITLE>
+                <TT_ICON>PUSH</TT_ICON>
+                <TT_INTERACTION_FLAGS>PRIMARY_DOWN</TT_INTERACTION_FLAGS>
+                <TT_DESCRIPTION>'ADJUST BRIGms
+                    marHTNESS'</TT_DESCRIPTION>
+                <TOOLTIP_DISABLED>True</TOOLTIP_DISABLED>
+            </Parameters>
             <Component ID="#NODE_ID#" Node="#NODE_ID#">
                 <UseInputEvent ID="GEN_TOOLTIP">
                     <TT_BASIC_ONLY>#NODE_ID#</TT_BASIC_ONLY>
@@ -504,10 +804,9 @@
                     <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
                     <SWITCH_POSITION_VAR>#ANIM_NAME#</SWITCH_POSITION_VAR>
                     <CODE_POS_0>
-                        (L:H60_MFD_BKLT, enum) ++ 10 min (&gt;L:H60_MFD_BKLT, enum)
+                        (L:H60_MFD_BKLT, enum) ++ 15 min (&gt;L:H60_MFD_BKLT, enum)
                     </CODE_POS_0>
                     <CODE_POS_1>
-
                     </CODE_POS_1>
                     <CODE_POS_2>
                         (L:H60_MFD_BKLT, enum) -- 1 max (&gt;L:H60_MFD_BKLT, enum)
@@ -517,6 +816,10 @@
                     <STATE_MAX_TIMER>0.01</STATE_MAX_TIMER>
                 </UseTemplate>
             </Component>
+         <UseTemplate Name="Panel_Emissive_DELTASIM">
+                <NODE_ID>Button_MFD_#ID#_BK_LT_E</NODE_ID>
+                <VAR>H60_INST_PNL_BACKLIGHT</VAR>
+            </UseTemplate>
         </Component>
 
         <Component ID="Button_MFD_#ID#_VID_BRT">
@@ -549,10 +852,46 @@
                     <STATE_MAX_TIMER>0.01</STATE_MAX_TIMER>
                 </UseTemplate>
             </Component>
+            <UseTemplate Name="Panel_Emissive_DELTASIM">
+                <NODE_ID>Button_MFD_#ID#_VID_BRT_E</NODE_ID>
+                <VAR>H60_INST_PNL_BACKLIGHT</VAR>
+            </UseTemplate>
         </Component>
+        <Component ID="Button_MFD_#ID#_VID_CONT">
+            <Parameters Type="Default">
+                <NODE_ID>Button_MFD_#ID#_VID_CONT</NODE_ID>
+                <ANIM_NAME>Button_MFD_#ID#_VID_CONT</ANIM_NAME>
+                <PART_ID>Button_MFD_#ID#_VID_CONT</PART_ID>
+                <WWISE_EVENT_1>button_mfd_press</WWISE_EVENT_1>
+                <WWISE_EVENT_2>button_mfd_release</WWISE_EVENT_2>
+            </Parameters>
+            <Component ID="#NODE_ID#" Node="#NODE_ID#">
+                <UseInputEvent ID="GEN_TOOLTIP">
+                    <TT_BASIC_ONLY>#NODE_ID#</TT_BASIC_ONLY>
+                </UseInputEvent>
+                <UseTemplate Name="ASOBO_GT_Switch_3States">
+                    <TOOLTIP_ENTRY_0>MV_#NODE_ID#</TOOLTIP_ENTRY_0>
+                    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
+                    <SWITCH_POSITION_VAR>#ANIM_NAME#</SWITCH_POSITION_VAR>
+                    <CODE_POS_0>
+                        (L:H60_MFD_VID_CONT) -- 1 max (&gt;L:H60_MFD_VID_CONT)
+                    </CODE_POS_0>
+                    <CODE_POS_1>
 
-
-
+                    </CODE_POS_1>
+                    <CODE_POS_2>
+                        (L:H60_MFD_VID_CONT) ++ 10 min (&gt;L:H60_MFD_VID_CONT)
+                    </CODE_POS_2>
+                    <MOMENTARY_SWITCH>True</MOMENTARY_SWITCH>
+                    <STATE0_TIMER>0.01</STATE0_TIMER>
+                    <STATE_MAX_TIMER>0.01</STATE_MAX_TIMER>
+                </UseTemplate>
+            </Component>
+            <UseTemplate Name="Panel_Emissive_DELTASIM">
+                <NODE_ID>Button_MFD_#ID#_VID_CONT_E</NODE_ID>
+                <VAR>H60_INST_PNL_BACKLIGHT</VAR>
+            </UseTemplate>
+        </Component>
 
         <!-- Right Side - Show/Hide Legend - Tac Map -->
 
@@ -580,7 +919,12 @@
             }
         </LEFT_SINGLE_CODE>
     </UseTemplate>
-
+    <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_3</NODE_ID>     
+    </UseTemplate>
+        <UseTemplate Name="DELTASIM_MFD_Button_Template">
+        <NODE_ID>Button_MFD_#ID#_R_4</NODE_ID>     
+    </UseTemplate>
     <UseTemplate Name="DELTASIM_MFD_Button_Template">
         <NODE_ID>Button_MFD_#ID#_R_5</NODE_ID>
         <LEFT_SINGLE_CODE>
@@ -602,10 +946,6 @@
             if{
                 (L:H60_MFD_Debug_Mode, bool) ! (&gt;L:H60_MFD_Debug_Mode, bool)
             }
-
-
-
-
         </LEFT_SINGLE_CODE>
     </UseTemplate>
     <UseTemplate Name="DELTASIM_MFD_Button_Template">

@@ -7,6 +7,18 @@
     <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
     <Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
 
+    <Template Name="Panel_Emissive_DELTASIM">
+        <DefaultTemplateParameters>
+            
+        </DefaultTemplateParameters>
+        <Component ID="#NODE_ID#" Node="#NODE_ID#">
+            <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+                <EMISSIVE_CODE>
+                    (L:#VAR#, percent) 200 / (A:ELECTRICAL MASTER BATTERY, bool) *
+                </EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+    </Template>
 
 <Template Name="Korry_Emmis_DELTASIM">
     <DefaultTemplateParameters>
